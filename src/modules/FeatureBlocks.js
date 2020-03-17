@@ -6,11 +6,6 @@ import './FeatureBlocks.scss'
 
 class FeatureBlocks extends Component {
 
-	constructor(props) {
-		super(props)
-
-		console.log("FeatureBlocks", props)
-	}
 
 	componentDidMount() {
 		var sliderButtons = document.querySelectorAll('#slider-nav button');
@@ -92,8 +87,6 @@ class FeatureBlocks extends Component {
 	}
 	render() {
 
-
-		console.log("FeatureBlocks 2", this.props)
 		//adjust the item...
 		let item = this.props.item.customFields;
 

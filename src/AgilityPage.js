@@ -6,6 +6,7 @@ import AgilityPageTemplate from './agility/components/AgilityPageTemplate'
 import LayoutTemplate from "./components/LayoutTemplate"
 import PreviewBar from "./components/PreviewBar"
 import GlobalHeader from './components/GlobalHeader'
+import GlobalFooter from './components/GlobalFooter'
 import SEO from './components/SEO'
 
 
@@ -31,6 +32,7 @@ const AgilityPage = ({ pageContext, data }) => {
 			<main className="main">
 				<AgilityPageTemplate {...viewModel} />
 			</main>
+			<GlobalFooter />
 		</LayoutTemplate>
 	);
 }
