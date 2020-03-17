@@ -14,7 +14,7 @@ export const query = graphql`
   query($pageID: Int!, $contentID: Int!, $languageCode: String!) {
 
     agilitypage(languageCode: { eq: $languageCode }, itemID: { eq: $pageID }) {
-        pageJson
+		pageJson
 	}
     agilityitem(languageCode: {eq: $languageCode}, itemID: {eq: $contentID}) {
 		itemJson
@@ -22,17 +22,17 @@ export const query = graphql`
 }
 `
 const AgilityPage = ({ pageContext, data }) => {
-    const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
-    return (
-        <LayoutTemplate>
-            <SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />
-            <PreviewBar isPreview={viewModel.isPreview} />
-            <GlobalHeader />
-            <main className="main">
-                <AgilityPageTemplate {...viewModel} />
-            </main>
-        </LayoutTemplate>
-    );
+	const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
+	return (
+		<LayoutTemplate>
+			<SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />
+			<PreviewBar isPreview={viewModel.isPreview} />
+			<GlobalHeader />
+			<main className="main">
+				<AgilityPageTemplate {...viewModel} />
+			</main>
+		</LayoutTemplate>
+	);
 }
 
 export default AgilityPage;

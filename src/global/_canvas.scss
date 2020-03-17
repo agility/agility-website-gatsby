@@ -1,0 +1,205 @@
+.canvas {
+  position: absolute;
+  left: 0;
+  top: 219px;
+  z-index: 0;
+
+  &#canvas-3 {
+    top: 320px;
+  }
+
+  &#canvas-4 {
+    top: 250px;
+  }
+
+  &#canvas-5 {
+    top: 320px;
+  }
+
+  .img {
+    position: relative;
+    width: 285px;
+
+    .item {
+      position: absolute;
+
+      img {
+        display: block;
+      }
+      &.yellow_triangle {
+        background: url("https://static.agilitycms.com/layout/img/yellow_treangle.svg") no-repeat;
+      }
+      &.green_triangle {
+        background: url("https://static.agilitycms.com/layout/img/green_treangle.svg") no-repeat;
+      }
+
+
+      &.rotate {
+        transform: rotate(180deg);
+      }
+
+      &.w58 {
+        width: 58px;
+        height: 50px;
+      }
+
+      &.w84 {
+        width: 84px;
+      }
+
+      &.one {
+        top: 0;
+        left: 189px;
+        z-index: 2;
+      }
+
+      &.two {
+        top: 19px;
+        left: 144px;
+      }
+
+      &.three {
+        top: 61px;
+        left: 20px;
+      }
+
+      &.four {
+        top: 71px;
+        left: 53px;
+        z-index: 2;
+      }
+
+      &.five {
+        top: 126px;
+        left: 75px;
+      }
+
+      &.six {
+        top: 128px;
+        left: 169px;
+        z-index: 2;
+      }
+
+      &.seven {
+        top: 156px;
+        left: -20px;
+      }
+
+      &.eight {
+        top: 154px;
+        left: 153px;
+      }
+
+      &.nine {
+        top: 156px;
+        left: 201px;
+      }
+
+      &.ten {
+        top: 273px;
+        left: 14px;
+      }
+
+      &.eleven {
+        top: 236px;
+        left: 98px;
+        z-index: 2;
+      }
+
+      &.twelve {
+        top: 236px;
+        left: 108px;
+      }
+
+      &.thirteen {
+        top: 244px;
+        left: 203px;
+      }
+
+      &.fourteen {
+        top: 388px;
+        left: 66px;
+      }
+
+      &.fifteen {
+        top: 358px;
+        left: 137px;
+      }
+
+      &.sixteen {
+        top: 420px;
+        left: 137px;
+      }
+
+      &.seventeen {
+        top: 473px;
+        left: 152px;
+      }
+
+      &.eighteen {
+        top: 549px;
+        left: 152px;
+      }
+
+      &.twentyone {
+        top: 0;
+        left: 0;
+      }
+
+      &.twentytwo {
+        top: 0;
+        left: 127px;
+      }
+
+      &.twentythree {
+        top: 0;
+        left: 164px;
+      }
+
+      &.twentyfour {
+        top: 62px;
+        left: 32px;
+      }
+
+      &.twentyfive {
+        top: 62px;
+        left: 95px;
+      }
+
+      &.twentysix {
+        top: 174px;
+        left: 65px;
+      }
+
+      &.twentyseven {
+        top: 231px;
+        left: 95px;
+      }
+
+      &.twentyeight {
+        top: 347px;
+        left: 129px;
+      }
+
+      &.twentynine {
+        top: 461px;
+        left: 63px;
+      }
+
+      &.thirty {
+        top: 523px;
+        left: 63px;
+      }
+    }
+  }
+}
+
+.benefits .canvas,
+.features .canvas,
+.friends .canvas,
+.work .canvas {
+  left: 75px;
+  top: 70px;
+
+  //transform: translate(0,-50%)
+}

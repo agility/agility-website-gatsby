@@ -1,0 +1,17 @@
+@import "../global/_variables.scss";
+
+.marketing-banner {
+    background: #313131;
+    color: white;
+    text-align: center;
+    padding: 8px;
+
+    a {
+        color: $primaryColor;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

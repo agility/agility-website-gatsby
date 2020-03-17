@@ -1,0 +1,58 @@
+@import "./_variables.scss";
+
+.landing-page-template {
+
+  .nav-icon1 { 
+    position: absolute;
+  }
+
+  .benefits .ben-items-forslider .ben-item .img  {
+    margin-bottom: 30px; 
+    img {
+      max-height: 200px;
+      max-width: 150px;
+    }
+  }
+
+  .start-content-long {
+    margin-top: -25px;
+  }
+
+
+  /* Content Panel Form */
+  
+
+  .form-item {
+
+
+    input.changed,
+      textarea {
+        font-size: 16px;
+        font-family: "Muli-Regular", sans-serif !important;
+      }
+
+  }
+
+  .form-right {
+    background-color: rgba(86, 86, 86, .8) !important;
+    margin-top: -100px;
+  }
+
+
+  /* Testimonials Module */
+
+  .testimonials-listing {
+    padding-bottom: none !important;
+  }
+
+  .products-staff .button-wrap {
+    display: none;
+  }
+
+  /* Partner Logos Module */
+
+  .work .buttons { max-width: 800px; }
+
+  .work .canvas { display: none; }
+  
+}
