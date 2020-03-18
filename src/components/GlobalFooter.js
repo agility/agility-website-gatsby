@@ -17,19 +17,20 @@ export default props => (
         query GlobalFooterQuery {
 			agilityGlobalFooter {
 				customFields {
-				subscribeTitle
-				subscribeRedirect
-				subscribePOSTUrl
-				subscribeEmailPlaceholder
-				subscribeDescription
-				subscribeButtonLabel
-				followTitle
-				copyright
-				column3Title
-				column2Title
-				column1Title
+					subscribeTitle
+					subscribeRedirect
+					subscribePOSTUrl
+					subscribeEmailPlaceholder
+					subscribeDescription
+					subscribeButtonLabel
+					followTitle
+					copyright
+					column3Title
+					column2Title
+					column1Title
 				}
 				column1Links {
+					contentID
 					customFields {
 						title
 						uRL {
@@ -40,6 +41,7 @@ export default props => (
 					}
 				}
 				column2Links {
+					contentID
 					customFields {
 						title
 						uRL {
@@ -50,6 +52,7 @@ export default props => (
 					}
 				}
 				column3Links {
+					contentID
 					customFields {
 						title
 						uRL {
@@ -60,28 +63,30 @@ export default props => (
 					}
 				}
 				followLinks {
+					contentID
 					customFields {
 						title
 						followURL {
-						href
-						target
-						text
+							href
+							target
+							text
 						}
 						logo {
-						label
-						url
+							label
+							url
 						}
 					}
 				}
 				bottomLinks {
-				customFields {
-					title
-					uRL {
-					target
-					text
-					href
+					contentID
+					customFields {
+						title
+						uRL {
+							target
+							text
+							href
+						}
 					}
-				}
 				}
 			}
 		}
@@ -176,7 +181,7 @@ class Footer extends React.Component {
 
 			lst.forEach(lnk => {
 
-				links.push(<li className="foter-menu-li" key={lnk.contentID}><a href={lnk.customFields.uRL.href} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</a></li>)
+				links.push(<li className="foter-menu-li" key={lnk.contentID + "-footer"}><a href={lnk.customFields.uRL.href} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</a></li>)
 			});
 
 			return <ul>{links}</ul>;
@@ -189,7 +194,7 @@ class Footer extends React.Component {
 			lst.forEach(lnk => {
 				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img>;
 				var a = <a href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
-				links.push(<li className="foter-menu-li" key={lnk.key}>{a}</li>)
+				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
 
 			return links;

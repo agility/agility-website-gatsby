@@ -13,7 +13,7 @@
   position: relative;
 
   h2 {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .container-my {
@@ -21,23 +21,24 @@
     @media (max-width: 991px) {
       width: 100%;
     }
-
   }
 
   .ben-items-forslider {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
     z-index: 1;
 
     .ben-item {
       max-width: 352px;
+      width: 100%;
       border-radius: 5px;
       box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
       background-color: #ffffff;
       text-align: center;
       padding: 72px 16px 66px 16px;
-
+      margin-top: 20px;
       .img {
         line-height: 0;
         margin: 0 auto 30px auto;
@@ -81,16 +82,6 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
-  }
-
-  .tns-controls,
-  .tns-liveregion,
-  button[data-action="stop"] {
-    display: none;
-  }
-
-  #slider > .tns-item {
-    width: 100% !important;
   }
 
   .tns-nav {

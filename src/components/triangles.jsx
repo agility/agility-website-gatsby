@@ -1,9 +1,7 @@
 import React from 'react';
 
 class Triangles extends React.Component {
-	constructor() {
-		super()
-	}
+
 
 	render() {
 
@@ -22,7 +20,7 @@ class Triangles extends React.Component {
 					<i className="item thirty w58 green_triangle rotate"></i>
 				</div>
 			</div>
-        );
+		);
 	}
 
 }

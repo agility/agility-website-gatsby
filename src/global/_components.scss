@@ -22,13 +22,12 @@ p.intro {
   color: #484b4d;
   text-align: center;
 }
-.p-w
-  > p {
-    @media (max-width: 1440px) {
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.p-w > p {
+  @media (max-width: 1440px) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .p-w-small {
@@ -72,7 +71,8 @@ p.intro {
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     -moz-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
     -webkit-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
     box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
@@ -86,7 +86,8 @@ p.intro {
   -webkit-box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
   box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     -webkit-box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
     -moz-box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
     box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
@@ -100,11 +101,12 @@ p.intro {
   -webkit-box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
   -moz-box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
   box-shadow: 0 5px 35px 0 rgba(255, 255, 255, 0.25);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     -webkit-box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
     -moz-box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
     box-shadow: 0 5px 46px 0 rgba(255, 255, 255, 0.6);
-    background-color: #E9EEF1;
+    background-color: #e9eef1;
   }
 }
 
@@ -113,7 +115,7 @@ p {
 }
 
 // titles
-.title-conponent {
+.title-component {
   font-family: $bold;
   font-size: 30px;
   font-weight: bold;
@@ -123,6 +125,16 @@ p {
   letter-spacing: normal;
   text-align: center;
   color: $titles;
+
+  &:after {
+    display: block;
+    content: "";
+    margin: 15px auto 0 auto;
+    width: 100%;
+    max-width: 170px;
+    height: 6px;
+    background: $primaryColor;
+  }
 }
 
 i.more {
@@ -178,7 +190,6 @@ a.arrow-button {
     }
   }
 }
-
 
 .container-my {
   display: -webkit-box;

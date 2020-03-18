@@ -112,11 +112,11 @@ class Hamburger extends React.Component {
 
 				if (hasChildren) {
 					const children = item.children.map(function (child) {
-						return <li key={child.pageID} className="sub-menu-inner"><a className="sub-menu-a" href={child.path} target={child.target}>{child.menuText}</a></li>;
+						return <li key={child.pageID + "-" + child.path + "-1"} className="sub-menu-inner"><a className="sub-menu-a" href={child.path} target={child.target}>{child.menuText}</a></li>;
 					});
 
 					link =
-						<li key={item.pageID} className="mobile-menu-li has-children">
+						<li key={item.pageID + "-" + item.path + "-2"} className="mobile-menu-li has-children">
 							<a href={path} target={item.target} className="mobile-menu-a">{item.menuText}</a>
 							<span className="sub-menu-icon">
 								<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse"></img>
@@ -129,7 +129,7 @@ class Hamburger extends React.Component {
 						</li>;
 				} else {
 					link =
-						<li key={item.pageID} className="mobile-menu-li">
+						<li key={item.pageID + "-" + item.path + "-3"} className="mobile-menu-li">
 							<a href={path} target={item.target} className="mobile-menu-a">{item.menuText}</a>
 						</li>;
 				}

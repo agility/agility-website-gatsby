@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root'
 import './header-search.scss'
+import { renderHTML } from '../agility/utils'
 
 class HeaderSearch extends React.Component {
 
@@ -39,6 +40,8 @@ class HeaderSearch extends React.Component {
 			return null;
 		}
 
+		this.timer = null;
+
 		//dropdown Menu
 		if (document) {
 			this.abortController = new AbortController();
@@ -54,9 +57,9 @@ class HeaderSearch extends React.Component {
 		}
 	}
 
-	componentWillMount() {
-		this.timer = null;
-	}
+	// componentWillMount() {
+
+	// }
 
 	loadMore() {
 		this.loadResults(this.state.query, true);
@@ -188,8 +191,8 @@ class HeaderSearch extends React.Component {
 			return null;
 		}
 
-		var results = this.state.results.map(function (res) {
-			return <HeaderSearchResult result={res} />
+		var results = this.state.results.map(function (res, index) {
+			return <HeaderSearchResult result={res} key={"res-" + index} />
 		});
 
 		function hideSearch() {
@@ -247,7 +250,7 @@ class HeaderSearch extends React.Component {
 						</div>
 						<div className="result-footer">
 							{this.props.siteSearchSettings && this.props.siteSearchSettings.searchProductPage &&
-								<div dangerouslySetInnerHTML={{ __html: this.props.siteSearchSettings.searchProductPage }}></div>
+								<div dangerouslySetInnerHTML={renderHTML(this.props.siteSearchSettings.searchProductPage)}></div>
 							}
 						</div>
 					</div>

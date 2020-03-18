@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { renderHTML } from '../agility/utils'
 import './ContentPanel.scss'
 
 
@@ -38,8 +38,9 @@ const ContentPanel = ({ item }) => {
 				}
 
 				<div className="start-content">
-					<h1 dangerouslySetInnerHTML={{ __html: item.title }}></h1>
-					<div dangerouslySetInnerHTML={{ __html: item.textBlob }} />
+
+					<h1 dangerouslySetInnerHTML={renderHTML(item.title)}></h1>
+					<div dangerouslySetInnerHTML={renderHTML(item.textblob)} />
 					<div className="start-buttons">
 						{item.primaryButton &&
 							<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
