@@ -156,9 +156,12 @@ class Hamburger extends React.Component {
 			);
 		};
 
+
 		const hamburgerClassName = () => {
+			let marketingBanner = this.props.item.customFields.marketingBanner;
+
 			let name = 'Button-menu nav-icon1 ';
-			if (this.props.marketingBanner && this.props.marketingBanner.length > 0 && !this.props.isSticky) {
+			if (marketingBanner && marketingBanner.length > 0 && !this.props.isSticky) {
 				name += 'w-marketing-banner';
 			}
 			return name;
@@ -172,8 +175,8 @@ class Hamburger extends React.Component {
 
 					<div className="inner">
 						<div className="mobile-logo">
-							{this.props.mobileLogo &&
-								<a href="/"><img src={this.props.mobileLogo.url} alt={this.props.mobileLogo.label} /></a>
+							{this.props.item.customFields.mobileLogo &&
+								<a href="/"><img src={this.props.item.customFields.mobileLogo.url} alt={this.props.item.customFields.mobileLogo.label} /></a>
 							}
 						</div>
 						<div className="search-mobile">
@@ -186,11 +189,11 @@ class Hamburger extends React.Component {
 							{renderMobileMenu()}
 						</div>
 						<div className="buttons">
-							{this.props.preHeaderPrimaryButton &&
-								<a href={this.props.preHeaderPrimaryButton.href} target={this.props.preHeaderPrimaryButton.target} className="btn">{this.props.preHeaderPrimaryButton.text}</a>
+							{this.props.item.customFields.preHeaderPrimaryButton &&
+								<a href={this.props.item.customFields.preHeaderPrimaryButton.href} target={this.props.item.customFields.preHeaderPrimaryButton.target} className="btn">{this.props.preHeaderPrimaryButton.text}</a>
 							}
-							{this.props.primaryButton &&
-								<a href={this.props.primaryButton.href} target={this.props.primaryButton.target} className="btn">{this.props.primaryButton.text}</a>
+							{this.props.item.customFields.primaryButton &&
+								<a href={this.props.item.customFields.primaryButton.href} target={this.props.item.customFields.primaryButton.target} className="btn">{this.props.item.customFields.primaryButton.text}</a>
 							}
 						</div>
 					</div>

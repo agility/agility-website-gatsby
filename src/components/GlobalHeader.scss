@@ -15,7 +15,6 @@
   }
 }
 
-
 .header {
   position: relative;
   background-color: #ffcb28;
@@ -32,8 +31,6 @@
 
   /* Sticky Header Active Styles */
   .sticky-header {
-
-
     .sticky-header-inner {
       background-color: #ffcb28;
       padding-top: 28px;
@@ -48,20 +45,37 @@
       box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.09);
       transition: background-color 300ms ease-out;
 
-      .header-menu { display: none; }
-      .header-logo { display: none; }
-      .header-logo-sticky { display: block; }
-      .header-btn-secondary { display: inline-block; }
-      .nav-icon1 span { background: #a8a8a8; }
+      .header-menu {
+        display: none;
+      }
+      .header-logo {
+        display: none;
+      }
+      .header-logo-sticky {
+        display: block;
+      }
+      .header-btn-secondary {
+        display: inline-block;
+      }
+      .nav-icon1 span {
+        background: #a8a8a8;
+      }
 
-      .btn { margin-left: 10px; }
-      .btn-cta { margin-right: 15px; }
-
+      .btn {
+        margin-left: 10px;
+      }
+      .btn-cta {
+        margin-right: 15px;
+      }
     }
-    div[style*=min-height] { min-height: 0 !important; }
+    div[style*="min-height"] {
+      min-height: 0 !important;
+    }
   }
 
-  .header-btn-secondary { display: none; }
+  .header-btn-secondary {
+    display: none;
+  }
   .header-logo-sticky {
     display: none;
     width: 150px;
@@ -89,7 +103,8 @@
       }
     }
 
-    .h-menu-li {}
+    .h-menu-li {
+    }
 
     .h-menu-a {
       font-family: $regular;
@@ -177,10 +192,6 @@
     }
   }
 }
-
-
-
-
 
 // open sub menu
 @media (min-width: 1036px) {

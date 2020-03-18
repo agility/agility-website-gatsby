@@ -7,7 +7,12 @@ import HeaderSearch from './header-search.jsx'
 import Sticky from 'react-sticky-el'
 import MarketingBanner from './marketing-banner.jsx'
 
+
+
 import './GlobalHeader.scss'
+
+//MOD: joelv - moved this here from the LayoutTemplate component
+import '../global/_media.scss'
 
 
 export default props => (
