@@ -135,7 +135,7 @@
       width: 100%;
       max-width: 384px;
       height: 40px;
-      border-radius: 5px;
+      border-radius: $border-radius;
       background-color: $white;
       position: relative;
       overflow: hidden;
@@ -180,7 +180,7 @@
       input[type="submit"] {
         width: 102px;
         height: 36px;
-        border-radius: 5px;
+        border-radius: $border-radius;
         box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
         background-color: #4600a8;
         font-family: $bold;

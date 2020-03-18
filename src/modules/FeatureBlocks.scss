@@ -1,8 +1,7 @@
 @import "../global/_variables.scss";
 
 #sec-2 {
-  padding-top: 60px;
-  padding-bottom: 80px;
+  margin: $module-margin-spacing;
 
   #canvas-2 {
     top: 150px;
@@ -33,7 +32,7 @@
     .ben-item {
       max-width: 352px;
       width: 100%;
-      border-radius: 5px;
+      border-radius: $border-radius;
       box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
       background-color: #ffffff;
       text-align: center;
@@ -44,14 +43,14 @@
         margin: 0 auto 30px auto;
 
         img {
-          height: 100px;
+          height: 66px;
           width: auto;
         }
       }
 
       .ben-title {
         font-family: $bold;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         font-style: normal;
         font-stretch: normal;
@@ -63,7 +62,6 @@
 
       .ben-subtitle {
         color: $gray;
-        font-style: italic;
       }
 
       p {

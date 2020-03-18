@@ -1,0 +1,137 @@
+@import "../global/variables.scss";
+
+.featured-case-studies {
+  margin: $module-margin-spacing;
+
+  text-align: center;
+  .case-wrapper {
+    padding: 5px 60px;
+
+    .case-studies {
+      display: flex;
+      justify-content: space-between;
+
+      .case-item {
+        width: 200px;
+        align-content: center;
+
+        flex: 1 1 200px;
+        padding: 20px;
+        .case-item-inner {
+          border-radius: $border-radius;
+          box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
+          background-color: #ffffff;
+          text-align: center;
+
+          .image {
+            height: 190px;
+            overflow: hidden;
+          }
+
+          .customer-logo {
+            img {
+              height: 80px;
+              max-width: 140px;
+            }
+          }
+          .content {
+            color: $colorBasic;
+            font-size: 14px;
+            padding: 0 20px 20px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+  /*
+  .case-itemX {
+    @media (max-width: 991px) {
+      margin-bottom: 50px;
+    }
+
+    .image {
+      margin-bottom: 40px;
+      max-height: 350px;
+
+      img {
+        width: 350px;
+        height: 300px;
+      }
+    }
+
+    .app-name {
+      margin-bottom: 30px;
+      height: 75px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 75px;
+        max-width: 200px;
+        align-self: center;
+      }
+    }
+
+    .content {
+      margin-bottom: 15px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: "Muli-Regular", sans-serif;
+        color: #484b4d;
+        text-align: center;
+      }
+    }
+
+    .sub-content {
+      margin-top: 15px;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      @media (max-width: 480px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: "Muli-Regular", sans-serif;
+        color: #484b4d;
+        text-align: center;
+        font-style: italic;
+      }
+    }
+
+    .products {
+      a {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+          height: auto;
+          max-width: 50px;
+          margin: 0 12px;
+        }
+      }
+    }
+  }
+*/
+  //   > a {
+  //     margin-top: 30px;
+  //     min-width: 176px;
+  //   }
+}

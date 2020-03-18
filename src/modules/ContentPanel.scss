@@ -189,11 +189,13 @@
       strong {
         display: block;
         padding-top: 10px;
-        font-size: .8em;
+        font-size: 0.8em;
         font-family: $bold;
       }
 
-      p:last-of-type { margin-bottom: 0; }
+      p:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -202,7 +204,6 @@
       margin-bottom: 15px !important;
     }
   }
-
 
   .start-image {
     line-height: 0;
@@ -259,9 +260,14 @@
     }
   }
 
-  .start-image.right.skewed-image { transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1230px) rotateY(-30deg) rotateX(1deg) rotate(1deg); }
-  .start-image.left.skewed-image { transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1230px) rotateY(30deg) rotateX(-2deg) rotate(-2deg); }
-
+  .start-image.right.skewed-image {
+    transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1230px) rotateY(-30deg) rotateX(1deg)
+      rotate(1deg);
+  }
+  .start-image.left.skewed-image {
+    transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1230px) rotateY(30deg) rotateX(-2deg)
+      rotate(-2deg);
+  }
 
   .start-image.transparent-image {
     box-shadow: none;
@@ -273,7 +279,6 @@
 }
 
 .front-start-landing {
-
   .landing-logo {
     margin: 20px 0 75px 0;
 
@@ -306,7 +311,7 @@
 
     form {
       background: rgba(113, 113, 113, 0.8);
-      border-radius: 5px;
+      border-radius: $border-radius;
       padding: 30px 20px 10px 20px;
       color: #fff;
 
@@ -337,7 +342,7 @@
 
       .alert {
         color: $invalid;
-        background-color: rgba(255,255,255,0.6);
+        background-color: rgba(255, 255, 255, 0.6);
         padding: 5px;
         text-align: center;
         margin-bottom: 10px;
@@ -347,7 +352,10 @@
         display: none;
       }
 
-      input[type="text"], input[type="email"], input[type="tel"], textarea {
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
         width: 100%;
         background: none;
         font-size: 14px;
@@ -383,7 +391,7 @@
         color: #ffffff;
         min-height: 48px;
         line-height: 48px;
-        border-radius: 5px;
+        border-radius: $border-radius;
         box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
         padding: 0 23px 0 22px;
         cursor: pointer;
@@ -397,5 +405,4 @@
       }
     }
   }
-
 }
