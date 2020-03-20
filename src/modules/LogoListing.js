@@ -44,7 +44,7 @@ export default props => (
 				return logo.properties.referenceName === props.item.customFields.logos.referencename
 			});
 
-			const logoCount = parseInt(props.item.customFields.logoCount);
+			let logoCount = parseInt(props.item.customFields.logoCount);
 			if (isNaN(logoCount) || logoCount < 1) logoCount = 6;
 
 			logos = ArrayUtils.getRandomElements(logos, logoCount);

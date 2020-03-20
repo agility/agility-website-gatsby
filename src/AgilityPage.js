@@ -24,6 +24,11 @@ export const query = graphql`
 `
 const AgilityPage = ({ pageContext, data }) => {
 	const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
+
+	if (viewModel === null) {
+		return "Page data could not be accessed."
+	}
+
 	return (
 		<LayoutTemplate>
 			<SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />

@@ -184,7 +184,7 @@ class Hamburger extends React.Component {
 								<button className="open-search" onClick={showSearch}></button>
 							</div>
 						</div>
-						<button className='Button-menu' className="nav-icon-close"><span></span><span></span><span></span></button>
+						<button className='Button-menu nav-icon-close'><span></span><span></span><span></span></button>
 						<div className="mobile-menu-inner">
 							{renderMobileMenu()}
 						</div>

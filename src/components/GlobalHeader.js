@@ -83,11 +83,15 @@ export default props => (
 )
 
 class GlobalHeader extends Component {
+	constructor(props) {
+		super(props);
 
-	componentDidMount() {
 		this.state = {
 			sticky: false
 		};
+	}
+	componentDidMount() {
+
 	}
 
 	render() {
@@ -155,7 +159,10 @@ class GlobalHeader extends Component {
 
 		const onStickyActive = () => {
 
-			this.setState({ sticky: !this.state.sticky })
+			let stickyNow = false;
+			if (this.state) stickyNow = this.state.sticky;
+
+			this.setState({ sticky: !stickyNow })
 		}
 		let item = this.props.item.customFields;
 		let preHeaderLinks = this.props.item.preHeaderLinks;

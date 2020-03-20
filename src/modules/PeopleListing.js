@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Testimonials = ({ item }) => {
+const PeopleListing = ({ item }) => {
 
 	return (
 		<section className="container">
-			Testimonials
+			PeopleListing
 		</section>
 	);
 }
 
-export default Testimonials;
+export default PeopleListing;

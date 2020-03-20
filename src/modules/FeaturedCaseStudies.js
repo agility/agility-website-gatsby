@@ -45,10 +45,7 @@ class FeaturedCaseStudy extends React.Component {
 
 
 		let caseStudyItem = this.props.item;
-		let caseStudy = this.props.item.customFields;
-
-		console.log("Case Study", caseStudy)
-
+		let caseStudy = caseStudyItem.customFields;
 
 		return (
 			<div className="case-item">

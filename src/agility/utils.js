@@ -6,6 +6,8 @@ const getDynamicPageItem = ({ contentID, agilityItem }) => {
 
 const buildPageViewModel = ({ pageContext, data }) => {
 
+	//if for whatever reason we get no page, kick out
+	if (data.agilitypage === null) return null;
 
 	//Check if we have a dynamic page item contentID, if so, we are rendering a dynamic page and should pass the content item to Modules
 	const dynamicPageItem = getDynamicPageItem({

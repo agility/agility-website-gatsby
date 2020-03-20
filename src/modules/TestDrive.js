@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Testimonials = ({ item }) => {
+const TestDrive = ({ item }) => {
 
 	return (
 		<section className="container">
-			Testimonials
+			TestDrive
 		</section>
 	);
 }
 
-export default Testimonials;
+export default TestDrive;

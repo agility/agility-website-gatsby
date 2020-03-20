@@ -11,7 +11,7 @@ class HeaderSearch extends React.Component {
 		super(props);
 
 		if (typeof window === 'undefined') {
-			return null;
+			return;
 		}
 
 		this.handleOnChange = this.handleOnChange.bind(this);
@@ -37,7 +37,7 @@ class HeaderSearch extends React.Component {
 	componentDidMount() {
 
 		if (typeof window === 'undefined') {
-			return null;
+			return;
 		}
 
 		this.timer = null;
@@ -47,12 +47,12 @@ class HeaderSearch extends React.Component {
 			this.abortController = new AbortController();
 
 			//search
-			document.addEventListener('keydown', function (event) {
-				var key = event.key;
-				if ("Escape" === key) {
-					//HACK - this SHOULD WORK // hideSearch();
-				}
-			});
+			// document.addEventListener('keydown', function (event) {
+			// 	var key = event.key;
+			// 	if ("Escape" === key) {
+			// 		hideSearch();
+			// 	}
+			// });
 
 		}
 	}
@@ -185,34 +185,47 @@ class HeaderSearch extends React.Component {
 		}
 	}
 
+	hideSearch() {
+
+		if (document) {
+			var searchFrame = document.querySelector('.search-frame');
+			searchFrame.classList.toggle('open');
+			document.querySelector('html').classList.toggle('search-open');
+			document.querySelector('button.open-search').classList.toggle('close');
+		}
+	}
+
+	handleKeyUp(event) {
+
+		var key = event.key;
+		if ("Escape" === key) {
+			this.hideSearch();
+		}
+
+	}
+
+
+
 	render() {
 
 		if (typeof window === 'undefined') {
-			return null;
+			return <div className="search-frame"></div>;
 		}
 
 		var results = this.state.results.map(function (res, index) {
 			return <HeaderSearchResult result={res} key={"res-" + index} />
 		});
 
-		function hideSearch() {
 
-			if (document) {
-				var searchFrame = document.querySelector('.search-frame');
-				searchFrame.classList.toggle('open');
-				document.querySelector('html').classList.toggle('search-open');
-				document.querySelector('button.open-search').classList.toggle('close');
-			}
-		}
 
 		return (
 			<div className="search-frame">
-				<div className="search-inner" onClick={hideSearch}></div>
+				<div className="search-inner" onClick={this.hideSearch} onKeyUp={this.handleKeyUp.bind(this)} ></div>
 				<div className="search-form">
 					<form onSubmit={e => { e.preventDefault(); }}>
-						<input className="search-input" type="text" placeholder="Search" onChange={this.handleOnChange} />
+						<input className="search-input" type="text" placeholder="Search" onChange={this.handleOnChange} onKeyUp={this.handleKeyUp.bind(this)} />
 						<span className="search-ico"></span>
-						<span className="search-ico-mobile" onClick={hideSearch}></span>
+						<span className="search-ico-mobile" onClick={this.hideSearch}></span>
 					</form>
 				</div>
 				<div className="search-result">
@@ -267,7 +280,7 @@ class HeaderSearchResult extends React.Component {
 		//var category = this.props.result.category;
 		//TODO: implement categories for real
 		var category = null;
-		if (category == null || category.length == 0) {
+		if (category === null || category.length === 0) {
 			category = "Page";
 		}
 		var categoryClass = 'label ' + category.toLowerCase();

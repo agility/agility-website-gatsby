@@ -30,6 +30,7 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 			}
 		})
 
+
 		return modules;
 	}
 

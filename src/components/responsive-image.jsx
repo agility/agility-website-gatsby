@@ -4,9 +4,6 @@ import { hot } from 'react-hot-loader/root'
 
 class ResponsiveImage extends React.Component {
 
-	constructor(props) {
-		super(props)
-	}
 
 	render() {
 		let image = this.props.img;
@@ -15,7 +12,7 @@ class ResponsiveImage extends React.Component {
 		let url = image.url;
 		let alt = image.label;
 		let urlNoQuery = url;
-		if (urlNoQuery.indexOf("?") != -1) {
+		if (urlNoQuery.indexOf("?") !== -1) {
 			urlNoQuery = urlNoQuery.substring(0, urlNoQuery.indexOf("?"));
 		}
 
@@ -36,7 +33,7 @@ class ResponsiveImage extends React.Component {
 				thumbStr += "&h=" + res.h;
 			}
 
-			if (smallestWidth == -1 || res.w < smallestWidth) {
+			if (smallestWidth === -1 || res.w < smallestWidth) {
 				smallestSrc = urlNoQuery + thumbStr;
 				smallestWidth = res.w;
 			}

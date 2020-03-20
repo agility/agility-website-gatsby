@@ -111,7 +111,7 @@ class Footer extends React.Component {
 		super(props);
 
 		if (typeof window === 'undefined') {
-			return null;
+			return;
 		}
 
 		this.state = {
@@ -139,7 +139,7 @@ class Footer extends React.Component {
 
 		//grab all the name/value pairs for the inputs in this form
 		[...form.elements].forEach((input) => {
-			if (!input.value || input.value == "") return;
+			if (!input.value || input.value === "") return;
 			if (!input.name) return;
 			data[input.name] = input.value;
 		});
@@ -177,7 +177,7 @@ class Footer extends React.Component {
 
 		const outputLinks = (lst) => {
 			let links = []
-			if (!lst || lst.length == null) return null;
+			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
 
@@ -189,7 +189,7 @@ class Footer extends React.Component {
 
 		const outputFollowLinks = (lst) => {
 			let links = []
-			if (!lst || lst.length == null) return null;
+			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
 				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img>;
@@ -202,7 +202,7 @@ class Footer extends React.Component {
 
 		const outputBottomLinks = (lst) => {
 			let links = [];
-			if (!lst || lst.length == 0) return null;
+			if (!lst || lst.length === 0) return null;
 
 			lst.forEach(lnk => {
 				links.push(
@@ -243,11 +243,15 @@ class Footer extends React.Component {
 						<div className="foter-subscribe">
 							<span>{item.subscribeTitle}</span>
 							<p>{item.subscribeDescription}</p>
-							<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
-								<input type="email" placeholder={item.subscribeEmailPlaceholder} name="email" disabled={this.state.isSubmitting} required />
-								<input type="submit" value={this.state.subscribeButtonLabel} />
-								<input type="hidden" name="_autopilot_session_id" />
-							</form>
+							{typeof window !== 'undefined' &&
+								<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
+									<input type="email" placeholder={item.subscribeEmailPlaceholder} name="email" disabled={this.state.isSubmitting} required />
+									<input type="submit" value={this.state.subscribeButtonLabel} />
+									<input type="hidden" name="_autopilot_session_id" />
+								</form>
+
+							}
+
 						</div>
 
 					</div>
