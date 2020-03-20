@@ -1,6 +1,7 @@
 @import "../global/_variables.scss";
 
 .g2-review-listing {
+  margin: $module-margin-spacing;
   p.intro {
     margin-bottom: 30px;
   }

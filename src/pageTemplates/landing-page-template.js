@@ -3,7 +3,7 @@ import ContentZone from '../agility/components/ContentZone'
 
 const Template = (props) => {
 	return (
-		<div class="landing-page-template">
+		<div className="landing-page-template">
 			<ContentZone name="Main" {...props} />
 		</div>
 	);

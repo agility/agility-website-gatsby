@@ -1,0 +1,101 @@
+@import "../global/_variables.scss";
+
+.right-left-content {
+  margin: $module-margin-spacing;
+  margin-left: 60px;
+  margin-right: 60px;
+  display: flex;
+
+  .rl-image {
+    width: 40%;
+
+    img {
+      max-height: 461px;
+      width: 100%;
+    }
+  }
+
+  .rl-content {
+    width: 60%;
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 26px;
+    }
+    .rl-panel {
+      margin-left: 18px;
+      p {
+        margin-bottom: 50px;
+        line-height: 24px;
+      }
+
+      ul {
+        margin-top: 25px;
+        li {
+          margin-left: 60px;
+          display: block;
+          min-height: 40px;
+          margin-bottom: 20px;
+          line-height: 24px;
+
+          h3 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 30px;
+          }
+
+          &:before {
+            position: absolute;
+            content: "";
+            background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
+            background-size: contain;
+
+            width: 40px;
+            height: 40px;
+            margin-left: -60px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $std-width-minus-1) {
+  .right-left-content {
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    .rl-image {
+      width: auto;
+      margin: 0px 60px;
+      text-align: center;
+      img {
+        max-height: 400px;
+        width: 100%;
+      }
+    }
+    .rl-content {
+      width: auto;
+      h2 {
+        font-size: 20px;
+        margin-bottom: 19px;
+      }
+      .rl-panel {
+        margin-left: 0;
+        ul {
+          margin-top: 25px;
+          li {
+            margin-left: 32px;
+            &:before {
+              position: absolute;
+
+              width: 22px;
+              height: 22px;
+              margin-left: -32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @import "../global/_variables.scss";
 
-.logoListing {
+.partnerLogoListing {
   margin: $module-margin-spacing;
 
   position: relative;
@@ -42,7 +42,7 @@
     z-index: 1;
   }
 
-  .logo-list {
+  .partner-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,7 +51,7 @@
     z-index: 1;
     flex-wrap: wrap;
 
-    .logo-item {
+    .partner-item {
       width: 152px;
       align-content: center;
 

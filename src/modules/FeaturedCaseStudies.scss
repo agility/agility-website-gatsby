@@ -24,6 +24,9 @@
           text-align: center;
 
           .image {
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+
             height: 190px;
             overflow: hidden;
           }
@@ -44,94 +47,19 @@
       }
     }
   }
-  /*
-  .case-itemX {
-    @media (max-width: 991px) {
-      margin-bottom: 50px;
-    }
+}
 
-    .image {
-      margin-bottom: 40px;
-      max-height: 350px;
+@media screen and (max-width: $std-width-minus-1) {
+  .featured-case-studies {
+    .case-wrapper {
+      padding: 5px 0;
 
-      img {
-        width: 350px;
-        height: 300px;
-      }
-    }
-
-    .app-name {
-      margin-bottom: 30px;
-      height: 75px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-
-      img {
-        height: 75px;
-        max-width: 200px;
-        align-self: center;
-      }
-    }
-
-    .content {
-      margin-bottom: 15px;
-      padding-left: 20px;
-      padding-right: 20px;
-
-      @media (max-width: 480px) {
-        padding-left: 0;
-        padding-right: 0;
-        margin-bottom: 20px;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 1.5;
-        font-family: "Muli-Regular", sans-serif;
-        color: #484b4d;
-        text-align: center;
-      }
-    }
-
-    .sub-content {
-      margin-top: 15px;
-      padding-left: 30px;
-      padding-right: 30px;
-
-      @media (max-width: 480px) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 1.5;
-        font-family: "Muli-Regular", sans-serif;
-        color: #484b4d;
-        text-align: center;
-        font-style: italic;
-      }
-    }
-
-    .products {
-      a {
-        display: block;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        img {
-          height: auto;
-          max-width: 50px;
-          margin: 0 12px;
+      .case-studies {
+        .case-item {
+          width: 100%;
+          flex: none;
         }
       }
     }
   }
-*/
-  //   > a {
-  //     margin-top: 30px;
-  //     min-width: 176px;
-  //   }
 }

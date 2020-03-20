@@ -1,6 +1,8 @@
 import React from 'react';
 import { renderHTML } from '../agility/utils'
 
+import './G2CrowdReviewListing.scss'
+
 const G2CrowdReviewListing = ({ item }) => {
 
 	return (

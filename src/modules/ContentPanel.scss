@@ -141,14 +141,14 @@
 
       .btn {
         margin-right: 45px;
-        line-height: 48px;
+		line-height: 48px;
+		font-size: 16px;
       }
 
       .btn-link {
         display: flex;
         align-items: center;
         font-family: $bold;
-        font-size: 16px;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;

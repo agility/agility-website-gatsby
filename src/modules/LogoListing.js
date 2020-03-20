@@ -104,7 +104,7 @@ const LogoListing = ({ item, logos }) => {
 
 	return (
 
-		<section id="sec-5" className="work p-w">
+		<section className="logoListing p-w">
 			<Triangles />
 
 			<div className="rotated-bg"></div>
