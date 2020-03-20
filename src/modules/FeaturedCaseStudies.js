@@ -19,19 +19,20 @@ const FeaturedCaseStudies = ({ item }) => {
 
 	return (
 
-		<section className="features p-w featured-case-studies">
+		<section className="container-my">
 
-			<h2 className="title-component">{moduleItem.title}</h2>
-			<div className="case-wrapper">
-				<div className="case-studies">
-					{caseStudies}
+			<div className="features p-w featured-case-studies">
+				<h2 className="title-component">{moduleItem.title}</h2>
+				<div className="case-wrapper">
+					<div className="case-studies">
+						{caseStudies}
+					</div>
 				</div>
+				{
+					moduleItem.primaryButton &&
+					<a className="btn" href={moduleItem.primaryButton.href} target={moduleItem.primaryButton.target}>{moduleItem.primaryButton.text}</a>
+				}
 			</div>
-			{
-				moduleItem.primaryButton &&
-				<a className="btn" href={moduleItem.primaryButton.href} target={moduleItem.primaryButton.target}>{moduleItem.primaryButton.text}</a>
-			}
-
 		</section>
 
 	);

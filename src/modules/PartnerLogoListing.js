@@ -91,43 +91,43 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 
 
 	return (
-		<section className="partnerLogoListing p-w">
+		<section className="container-my">
+			<div className="partnerLogoListing">
+				<div className="rotated-bg"></div>
+				{
+					item.heading &&
+					<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.heading)}></h2>
+				}
 
-			<div className="rotated-bg"></div>
-			{
-				item.heading &&
-				<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.heading)}></h2>
-			}
+				{
+					item.subHeading &&
+					<p dangerouslySetInnerHTML={renderHTML(item.subHeading)}></p>
+				}
 
-			{
-				item.subHeading &&
-				<p dangerouslySetInnerHTML={renderHTML(item.subHeading)}></p>
-			}
+				{
+					partners && partners.length > 0 &&
+					<div className="container-my">
+						<ul className="partner-list">
+							{partners}
+						</ul>
+					</div>
+				}
 
-			{
-				partners && partners.length > 0 &&
-				<div className="container-my">
-					<ul className="partner-list">
-						{partners}
-					</ul>
-				</div>
-			}
+				{
+					(item.primaryButton || item.secondaryButton) &&
+					<div className="buttons">
+						{
+							item.primaryButton &&
+							<a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a>
+						}
 
-			{
-				(item.primaryButton || item.secondaryButton) &&
-				<div className="buttons">
-					{
-						item.primaryButton &&
-						<a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a>
-					}
-
-					{
-						item.secondaryButton &&
-						<a className="btn" href={item.secondaryButton.href} target={item.secondaryButton.target}>{item.secondaryButton.text}</a>
-					}
-				</div>
-			}
-
+						{
+							item.secondaryButton &&
+							<a className="btn" href={item.secondaryButton.href} target={item.secondaryButton.target}>{item.secondaryButton.text}</a>
+						}
+					</div>
+				}
+			</div>
 		</section>
 	);
 }

@@ -15,7 +15,10 @@ const RightLeftContent = ({ item }) => {
 	}
 
 	return (
-		<section className="right-left-content" style={sectionStyle}>
+		<section className="container-my" style={sectionStyle}>
+			<div className="right-left-content">
+
+
 
 			<div className="rl-image">
 				<img src={item.image.url} alt={item.image.label} />
@@ -52,7 +55,7 @@ const RightLeftContent = ({ item }) => {
 
 					</ul>
 				</div>
-
+				</div>
 			</div>
 
 

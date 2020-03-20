@@ -30,20 +30,21 @@ const G2CrowdReviewListing = ({ item }) => {
 
 	return (
 
-		<section className="g2-review-listing">
+		<section className="container-my">
+			<div className="g2-review-listing">
+				<h2 className="title-component">{item.customFields.heading}</h2>
+				<p className="intro">{item.customFields.subHeading}</p>
+				<div>
+					<div className="g2-review-panel">
 
-			<h2 className="title-component">{item.customFields.heading}</h2>
-			<p className="intro">{item.customFields.subHeading}</p>
-			<div>
-				<div className="g2-review-panel">
+						{ (typeof window !== 'undefined') &&
+							<div className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
+						}
+						{ (typeof window === 'undefined') &&
+							<div className="g2-review-widget"></div>
+						}
 
-					{ (typeof window !== 'undefined') &&
-						<div className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
-					}
-					{ (typeof window === 'undefined') &&
-						<div className="g2-review-widget"></div>
-					}
-
+					</div>
 				</div>
 			</div>
 		</section>
