@@ -15,46 +15,46 @@ const RightLeftContent = ({ item }) => {
 	}
 
 	return (
-		<section className="container-my" style={sectionStyle}>
-			<div className="right-left-content">
+		<section className="container-my" >
+			<div className="right-left-content" style={sectionStyle}>
 
 
 
-			<div className="rl-image">
-				<img src={item.image.url} alt={item.image.label} />
-			</div>
-
-			<div className="rl-content">
-				<h2>{item.heading}</h2>
-				<div className="rl-panel">
-					<p >{item.description}</p>
-
-					<ul>
-						{
-							item.bullet1Title &&
-							<li>
-								<h3>{item.bullet1Title}</h3>
-								<div>{item.bullet1}</div>
-							</li>
-						}
-						{
-							item.bullet2Title &&
-							<li>
-								<h3>{item.bullet2Title}</h3>
-								<div>{item.bullet2}</div>
-							</li>
-						}
-						{
-							item.bullet3Title &&
-
-							<li>
-								<h3>{item.bullet3Title}</h3>
-								<div>{item.bullet3}</div>
-							</li>
-						}
-
-					</ul>
+				<div className="rl-image">
+					<img src={item.image.url} alt={item.image.label} />
 				</div>
+
+				<div className="rl-content">
+					<h2>{item.heading}</h2>
+					<div className="rl-panel">
+						<p>{item.description}</p>
+
+						<ul>
+							{
+								item.bullet1Title &&
+								<li>
+									<h3>{item.bullet1Title}</h3>
+									<div>{item.bullet1}</div>
+								</li>
+							}
+							{
+								item.bullet2Title &&
+								<li>
+									<h3>{item.bullet2Title}</h3>
+									<div>{item.bullet2}</div>
+								</li>
+							}
+							{
+								item.bullet3Title &&
+
+								<li>
+									<h3>{item.bullet3Title}</h3>
+									<div>{item.bullet3}</div>
+								</li>
+							}
+
+						</ul>
+					</div>
 				</div>
 			</div>
 
