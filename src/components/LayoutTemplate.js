@@ -16,7 +16,7 @@ import './LayoutTemplate.scss'
 
 export default ({ page, children }) => {
 
-	console.log("layout", page)
+
 
 	let globalTopScript = `<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
