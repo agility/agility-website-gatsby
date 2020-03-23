@@ -2,26 +2,30 @@
 
 .featured-case-studies {
   margin: $module-margin-spacing;
-	width:100%;
+  width: 100%;
   text-align: center;
   .case-wrapper {
     padding: 5px 60px;
 
     .case-studies {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
+      align-items: stretch; /* align items in Cross Axis */
+      flex-wrap: wrap;
+      align-items: stretch;
+      flex-direction: row;
 
       .case-item {
-        width: 200px;
-        align-content: center;
-
-        flex: 1 1 200px;
+        max-width: 313px;
+        width: 100%;
         padding: 20px;
+
         .case-item-inner {
           border-radius: $border-radius;
           box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
           background-color: #ffffff;
           text-align: center;
+          height: 100%;
 
           .image {
             border-top-left-radius: $border-radius;
