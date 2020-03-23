@@ -22,22 +22,27 @@
   .block-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
     .cta-block {
-      width: 300px;
+      align-content: center;
+      max-width: 300px;
+
+      width: 100%;
       border-radius: $border-radius;
       padding-bottom: 20px;
-	  box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
-	  transition: box-shadow .1s ease-in-out;
+      box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.1s ease-in-out;
       background-color: #ffffff;
-	  padding: 30px 20px;
-	  &:hover {
-		box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
-	  }
-	  &:active {
-		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
-	  }
+      padding: 30px 20px;
+      margin-bottom: 20px;
+      &:hover {
+        box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
+      }
+      &:active {
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+      }
 
       .image {
         height: 70px;
