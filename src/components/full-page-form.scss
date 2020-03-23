@@ -84,6 +84,7 @@
         color: #b3b3b3;
         margin: 5px;
         a {
+			font-size: 12px;
           color: #b3b3b3;
           &:hover {
             color: $colorBasic;
@@ -376,7 +377,7 @@
     }
 
     .invalid-feedback {
-      font-size: 13px;
+      font-size: 12px;
       color: $invalid;
       margin-top: 12px;
       float: right;
