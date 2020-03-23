@@ -21,6 +21,7 @@
 		"gatsby-plugin-react-helmet": "^3.1.21",
 		"gatsby-plugin-sass": "^2.1.31",
 		"gatsby-plugin-sharp": "^2.4.0",
+		"html-react-parser": "^0.10.2",
 		"node-sass": "^4.13.1",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
