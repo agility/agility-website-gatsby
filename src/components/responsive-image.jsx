@@ -16,6 +16,11 @@ class ResponsiveImage extends React.Component {
 			urlNoQuery = urlNoQuery.substring(0, urlNoQuery.indexOf("?"));
 		}
 
+		//if this is an svg, just output it
+		if (urlNoQuery.indexOf(".svg") !== -1) {
+			return <img src={urlNoQuery} alt={alt} />
+		}
+
 		let smallestSrc = url;
 		let smallestWidth = -1;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderHTML } from '../agility/utils'
 import './ContentPanel.scss'
-
+import ResponsiveImage from '../components/responsive-image.jsx'
 
 const ContentPanel = ({ item }) => {
 
@@ -23,7 +23,9 @@ const ContentPanel = ({ item }) => {
 
 		return (
 			<div className={'start-image ' + imagePosition + ' ' + transparencyClass + ' ' + skewedClass}>
-				<img src={image.url} alt={image.label} />
+				<ResponsiveImage img={image}
+								breaks={[{ w: 320, max: 380 },{ w: 400, max: 640 }, { w: 640, max: 750 }, { w: 380, max: 1190 }]} />
+
 			</div>
 		)
 	}

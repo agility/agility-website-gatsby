@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import ArrayUtils from '../utils/array-utils.js';
 import { renderHTML } from '../agility/utils'
-
+import ResponsiveImage from '../components/responsive-image.jsx'
 import Triangles from "../components/triangles"
 import './LogoListing.scss'
 
@@ -77,13 +77,10 @@ const LogoListing = ({ item, logos }) => {
 					{logo.url &&
 						<a href={logo.url.href} target={logo.url.target}>
 							{logo.logo &&
-								<img src={logo.logo.url} alt={logo.logo.label} />
+								<ResponsiveImage img={logo.logo}
+									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
 							}
 						</a>
-					}
-
-					{!logo.url && logo.logo &&
-						<img src={logo.logo.url} alt={logo.logo.label} />
 					}
 
 				</div>

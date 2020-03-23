@@ -55,7 +55,7 @@ class FeaturedCaseStudy extends React.Component {
 						<div className="image">
 
 							<ResponsiveImage img={caseStudy.image}
-								breaks={[{ w: 640, max: 640 }, { w: 768, min: 800 }, { w: 480, min: 1190 }]} />
+								breaks={[{ w: 270, max: 640 }, { w: 270, max: 800 }, { w: 270, max: 1190 }]} />
 						</div>
 						<div className="customer-logo">
 							<img src={caseStudy.customerLogo.url} alt={caseStudy.customerLogo.label} />

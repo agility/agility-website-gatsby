@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 
-import ResponsiveImage from '../components/responsive-image.jsx'
 import './CTABlocks.scss'
 
 

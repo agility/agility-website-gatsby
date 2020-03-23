@@ -1,4 +1,5 @@
 import React from 'react';
+import ResponsiveImage from '../components/responsive-image.jsx'
 
 import './RightLeftContent.scss'
 
@@ -21,7 +22,11 @@ const RightLeftContent = ({ item }) => {
 
 
 				<div className="rl-image">
-					<img src={item.image.url} alt={item.image.label} />
+
+					<ResponsiveImage img={item.image}
+						breaks={[{ w: 320, max: 380 }, { w: 300, max: 800 }, { w: 400, max: 1190 }]} />
+
+
 				</div>
 
 				<div className="rl-content">

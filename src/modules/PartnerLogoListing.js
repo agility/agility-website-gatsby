@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 import { renderHTML } from '../agility/utils'
 
+import ResponsiveImage from '../components/responsive-image.jsx'
 import ArrayUtils from '../utils/array-utils.js';
 import './PartnerLogoListing.scss'
 
@@ -60,15 +61,19 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 			partner.url = node.path;
 		}
 
+
 		//render one tab
 		return (
+
 
 			<li className="partner-item" key={key}>
 				<div className="image">
 					{partner.url &&
 						<a href={partner.url}>
 							{partner.partnerLogo &&
-								<img src={partner.partnerLogo.url} alt={partner.partnerLogo.label} />
+
+								<ResponsiveImage img={partner.partnerLogo}
+									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
 							}
 						</a>
 					}
