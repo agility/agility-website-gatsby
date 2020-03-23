@@ -34,12 +34,16 @@ const ContactUs = ({ item }) => {
                 <FormField id="email" label="Email">
                     <input id="email" className="changed" type="email" placeholder="Email" required />
                 </FormField>
-                <FormField id="phonenumber" label="Phone">
+                {/* <FormField id="phonenumber" label="Phone">
                     <input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" required />
-                </FormField>
+                </FormField> */}
 
                 <FormField id="company" label="Company">
                     <input id="company" className="changed" type="text" placeholder="Company" required />
+                </FormField>
+
+				<FormField id="role" label="Role">
+                    <input id="role" className="changed" type="text" placeholder="Role" required />
                 </FormField>
 
                 <FormField id="comment" label="Comment">

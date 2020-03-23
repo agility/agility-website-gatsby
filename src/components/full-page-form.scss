@@ -64,23 +64,36 @@
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
-	  padding: 16px 30px;
-	  background-color: #fff;
+      padding: 16px 30px;
+      background-color: #fff;
 
       .form-title {
-		  margin: -16px -30px 0px -30px;
-		  border-top-left-radius: 5px;
-		  border-top-right-radius: 5px;
-		  padding: 16px 30px;
+        margin: -16px -30px 0px -30px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 16px 30px;
 
-        font-size: 20px;
-        line-height: 1.6;
-        font-family: "Muli-Bold", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 12px;
+        color: #b3b3b3;
+        margin: 5px;
+        a {
+          color: #b3b3b3;
+          &:hover {
+            color: $colorBasic;
+          }
+        }
       }
 
       .form-item {
-		margin: 0;
-		padding: 0;
+        margin: 0;
+        padding: 0;
 
         label {
           display: block;
@@ -91,21 +104,21 @@
 
         input.changed,
         textarea {
-		   border: 1px solid #d9d7d7;
-		   background-color: #edebeb;
-        //   -webkit-appearance: none;
-        //   -moz-appearance: none;
+          border: 1px solid #d9d7d7;
+          background-color: #edebeb;
+          //   -webkit-appearance: none;
+          //   -moz-appearance: none;
           appearance: none;
           width: 100%;
           height: 48px;
           line-height: 48px;
           padding-left: 16px;
           padding-right: 16px;
-        //   -webkit-border-radius: 5px;
-        //   -moz-border-radius: 5px;
-        //   border-radius: 5px;
+          //   -webkit-border-radius: 5px;
+          //   -moz-border-radius: 5px;
+          //   border-radius: 5px;
           font-size: 16px;
-        //   font-family: "Muli-Regular", sans-serif;
+          //   font-family: "Muli-Regular", sans-serif;
 
           &::placeholder {
             opacity: 1;
@@ -209,10 +222,11 @@
         }
 
         &.submit {
-          text-align: right;
-
+          margin-top: 15px;
           .btn {
-            width: 152px;
+            width: 100%;
+            display: block;
+            font-size: 18px;
           }
         }
 
@@ -369,13 +383,14 @@
     }
 
     .alert {
+      margin-top: 10px;
       color: $warning;
     }
   }
 
   &.purple {
-	background-color: $darkerSecondaryColor;
-	color: #fff;
+    background-color: $darkerSecondaryColor;
+    color: #fff;
     .form-left {
       .rich-text p,
       .rich-text h3 {
@@ -393,33 +408,33 @@
       }
     }
     .form-right {
+      color: $colorBasic;
+      .form-title {
+        background-color: $darkerSecondaryColor;
+        background-color: $primaryColor;
+      }
 
-		color: $colorBasic;
-		.form-title {
-			background-color: $darkerSecondaryColor;
-			background-color:$primaryColor;
-		}
-      a {
-        color: $secondaryColor;
+      .submit {
       }
     }
   }
 
   &.yellow {
-	background-color:$primaryColor;
-	color: $colorBasic;
-	.form-right {
-		color: #fff;
-		.form-title {
-			background-color: $darkerSecondaryColor;
-
-		}
-
-	}
-    .form-left {
-      .rich-text p {
-        color: $colorBasic;
+    background-color: $primaryColor;
+    color: $colorBasic;
+    .form-right {
+      color: #fff;
+      .form-title {
+        background-color: $darkerSecondaryColor;
       }
+      .submit {
+        .btn {
+          background-color: $darkerSecondaryColor;
+          color: #fff;
+        }
+      }
+    }
+    .form-left {
       a {
         color: $secondaryColor;
       }
@@ -429,14 +444,6 @@
             background-image: url("https://static.agilitycms.com/layout/img/ico/purple-check.svg");
           }
         }
-      }
-    }
-    .form-right {
-      .rich-text p {
-        color: #fff;
-      }
-      a {
-        color: $primaryColor;
       }
     }
   }
@@ -454,7 +461,20 @@
 
         .h2 {
           font-size: 18px;
-        }
+		}
+		ul {
+			margin-top: 25px;
+			li {
+			  margin-left: 32px;
+			  &:before {
+				position: absolute;
+
+				width: 22px;
+				height: 22px;
+				margin-left: -32px;
+			  }
+			}
+		  }
       }
 
       .form-right {

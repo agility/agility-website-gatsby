@@ -1,6 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root'
 import PostUtil from '../utils/post-util.js';
+import { renderHTML } from '../agility/utils'
 
 class Form extends React.Component {
 
@@ -207,7 +208,7 @@ class Form extends React.Component {
 
 		return (
 			<div className="form-success">
-				<div dangerouslySetInnerHTML={{ __html: this.props.thanksMessage }} />
+				<div dangerouslySetInnerHTML={ renderHTML(this.props.thanksMessage)} />
 
 			</div>
 		);
@@ -218,7 +219,7 @@ class Form extends React.Component {
 		if (!msg) msg = "Please check your values and try again.";
 		return (
 			<div className={"alert"} role="alert">
-				<div dangerouslySetInnerHTML={{ __html: msg }} />
+				<div dangerouslySetInnerHTML={ renderHTML( msg) } />
 			</div>
 		);
 	}
@@ -229,7 +230,7 @@ class Form extends React.Component {
 
 		return (
 			<div className={"alert"} role="alert">
-				<div dangerouslySetInnerHTML={{ __html: msg }} />
+				<div dangerouslySetInnerHTML={ renderHTML( msg) } />
 			</div>
 		);
 	}
@@ -269,7 +270,8 @@ class Form extends React.Component {
 		}
 
 		const createSubmissionCopyMarkup = () => {
-			return { __html: this.props.submissionCopy }
+
+			return  renderHTML(this.props.submissionCopy)
 		}
 
 		return (
