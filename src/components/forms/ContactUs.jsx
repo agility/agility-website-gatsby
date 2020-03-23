@@ -35,7 +35,7 @@ const ContactUs = ({ item }) => {
                     <input id="email" className="changed" type="email" placeholder="Email" required />
                 </FormField>
                 <FormField id="phonenumber" label="Phone">
-                    <input id="phonenumber" className="changed" type="tel" placeholder="XXX-XXX-XXXX" minLength="9" maxLength="20" required />
+                    <input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" required />
                 </FormField>
 
                 <FormField id="company" label="Company">
@@ -43,7 +43,7 @@ const ContactUs = ({ item }) => {
                 </FormField>
 
                 <FormField id="comment" label="Comment">
-                    <textarea id="comment" className="changed" ></textarea>
+                    <input id="comment" className="changed" placeholder="Questions or Comments" />
                 </FormField>
 
                 <input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />

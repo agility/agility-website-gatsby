@@ -1,5 +1,6 @@
 $primaryColor: #ffcb28;
 $secondaryColor: #5400ca;
+$darkerSecondaryColor: #4600a8;
 $greyColor: #717171;
 $lightGreyColor: #ebebeb;
 $medGreyColor: #dfdfdf;
@@ -22,7 +23,7 @@ $sml-width: 680px;
 $xs-width: 480px;
 
 //button
-$btn: #4600a8;
+$btn: $darkerSecondaryColor;
 $btnhov: #5800d4;
 
 //text colors

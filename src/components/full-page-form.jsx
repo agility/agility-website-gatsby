@@ -9,31 +9,21 @@ class FullPageForm extends React.Component {
     render() {
 
         var overallColour = this.props.colour;
-        var colourObj = FormColours[overallColour];
-
-        var pageBg = colourObj.pageBg;
-        var textColor = colourObj.textColor;
 
         var isPrimaryTheme = overallColour === 'yellow';
         var btnStyles = 'btn' + (isPrimaryTheme ? ' btn-secondary' : '');
-        var styles = { backgroundColor: pageBg, color: textColor };
 
-
-        var formBg = colourObj.formBg;
-        var formColor = colourObj.formColor;
-        var stylesForm = { backgroundColor: formBg, color: formColor };
-
-        return (
+		return (
             <div id="form-page">
-                <section className={"form-container " + overallColour} style={styles}>
+                <section className={"form-container " + overallColour} >
                     <div className="container-my">
                         <div className="form-panel">
 							<div className="form-left">
-								<h1 className="h1">{this.props.title}</h1>
+								<h2 className="h2">{this.props.title}</h2>
 								<h3 className="h3">{this.props.subTitle}</h3>
 								<div className="rich-text" dangerouslySetInnerHTML={{ __html: this.props.text }}></div>
 							</div>
-							<div className="form-right" style={stylesForm}>
+							<div className="form-right" >
 
 								<Form
 									beforeSubmit={this.beforeSubmit}
