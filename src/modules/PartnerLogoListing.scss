@@ -82,11 +82,11 @@
   }
 
   .buttons {
-    display: flex;
+    display: none;
     justify-content: space-between;
     max-width: 450px;
     flex-wrap: wrap;
-    margin: 0 auto 50px auto;
+    margin: 0 auto;
 
     .btn {
       min-height: 48px;

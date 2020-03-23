@@ -1,0 +1,78 @@
+{
+  "heading": "Visit these Calls to Action",
+  "subHeading": "They will be worth the click",
+  "items": [
+    {
+      "title": "Link 1",
+      "image": {
+        "guid": null,
+        "managerID": null,
+        "blob": null,
+        "itemOrder": 1,
+        "fileName": "https://static.agilitycms.com/layout/img/friends/Bitmap2.png",
+        "label": "",
+        "target": "",
+        "url": "https://static.agilitycms.com/layout/img/friends/Bitmap2.png",
+        "fileSize": 0,
+        "height": 0,
+        "width": 0,
+        "thumbnails": {}
+      },
+      "link": {
+        "text": "Partners",
+        "href": "/partners",
+        "target": "_self"
+      },
+      "referenceName": "community_CTABlocks_CTABlock",
+      "key": 461
+    },
+    {
+      "title": "Posts",
+      "image": {
+        "guid": null,
+        "managerID": null,
+        "blob": null,
+        "itemOrder": 1,
+        "fileName": "https://static.agilitycms.com/layout/img/friends/Bitmap3.png",
+        "label": "",
+        "target": "",
+        "url": "https://static.agilitycms.com/layout/img/friends/Bitmap3.png",
+        "fileSize": 0,
+        "height": 128,
+        "width": 128,
+        "thumbnails": {}
+      },
+      "link": {
+        "text": "Posts",
+        "href": "/posts",
+        "target": "_self"
+      },
+      "referenceName": "community_CTABlocks_CTABlock",
+      "key": 462
+    },
+    {
+      "title": "Decoupled or Headless",
+      "image": {
+        "guid": null,
+        "managerID": null,
+        "blob": null,
+        "itemOrder": 1,
+        "fileName": "https://static.agilitycms.com/layout/img/friends/Bitmap4.png",
+        "label": "",
+        "target": "",
+        "url": "https://static.agilitycms.com/layout/img/friends/Bitmap4.png",
+        "fileSize": 0,
+        "height": 0,
+        "width": 0,
+        "thumbnails": {}
+      },
+      "link": {
+        "text": "Decoupled or Headless",
+        "href": "/posts/post-details?ContentID=268",
+        "target": "_self"
+      },
+      "referenceName": "community_CTABlocks_CTABlock",
+      "key": 463
+    }
+  ]
+}

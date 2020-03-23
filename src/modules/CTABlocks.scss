@@ -1,0 +1,61 @@
+@import "../global/_variables.scss";
+
+.cta-blocks {
+  margin: $module-margin-spacing;
+  text-align: center;
+  display: block;
+  width: 100%;
+  .container-my {
+    display: block;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .block-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .cta-block {
+      width: 300px;
+      border-radius: $border-radius;
+      padding-bottom: 20px;
+	  box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+	  transition: box-shadow .1s ease-in-out;
+      background-color: #ffffff;
+	  padding: 30px 20px;
+	  &:hover {
+		box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
+	  }
+	  &:active {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+	  }
+
+      .image {
+        height: 70px;
+
+        img {
+          height: 70px;
+          //   &:hover {
+          //     transform: scale(1.2);
+          //   }
+        }
+      }
+
+      p {
+        margin-top: 25px;
+        font-size: 18px;
+        font-weight: 600;
+        color: $titles;
+      }
+    }
+  }
+}

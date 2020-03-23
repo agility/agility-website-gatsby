@@ -1,0 +1,17 @@
+{
+  "leftColumnTitle": "Left Column Title - SIT BACK AND GET LOOSE",
+  "leftColumnBody": "\u003ch2\u003eSubtitle For Left Column\u003cbr /\u003eBlow up some Bubbles\u003c/h2\u003e\n\u003cp\u003eThis is the body.\u003cbr /\u003eSome call me \u003cg class=\u0022gr_ gr_86 gr-alert gr_spell gr_inline_cards gr_disable_anim_appear ContextualSpelling ins-del multiReplace\u0022 id=\u002286\u0022 data-gr-id=\u002286\u0022\u003eludacris\u003c/g\u003e, some call me round like \u003cg class=\u0022gr_ gr_113 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace\u0022 id=\u0022113\u0022 data-gr-id=\u0022113\u0022\u003ehubble\u003c/g\u003e\u003c/p\u003e",
+  "rightColumnTitle": "Sit back and look at Agility",
+  "backgroundColour": "yellow",
+  "submissionPOSTURL": "https://prod-31.northcentralus.logic.azure.com:443/workflows/5b423a4bc64149a39b5f36501f7d0d46/triggers/manual/paths/invoke?api-version=2016-10-01\u0026sp=%2Ftriggers%2Fmanual%2Frun\u0026sv=1.0\u0026sig=jCXfD9Z_3PXts3oPxotiXJoJse08hpoa2dH7NyMB8a8",
+  "componentName": "RequestADemo",
+  "redirectURL": {
+    "text": "",
+    "href": "/testing/rich-text",
+    "target": "_self"
+  },
+  "thanksMessage": "\u003cp\u003eThanks for getting in touch!\u003c/p\u003e\n\u003cp\u003eWe\u0027ll get back to you right away!\u003c/p\u003e",
+  "conversionScript": "console.log(\u0022this is where the conversion script should go\u0022);",
+  "referenceName": "requestademo_RequestADemo",
+  "key": 519
+}

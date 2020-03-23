@@ -91,8 +91,8 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 
 
 	return (
-		<section className="container-my">
-			<div className="partnerLogoListing">
+		<section className="partnerLogoListing">
+			<div className="container-my">
 				<div className="rotated-bg"></div>
 				{
 					item.heading &&

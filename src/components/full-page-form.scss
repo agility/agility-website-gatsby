@@ -1,0 +1,381 @@
+@import "../global/_variables.scss";
+
+.form-container {
+  margin: $module-margin-spacing;
+  margin-bottom: 0;
+
+  .form-panel {
+	  margin: 60px 0;
+	  display: flex;
+
+
+
+    form.submitting {
+      .form-item {
+        input,
+        select {
+          background-color: #e7e7e7;
+          color: #ccc;
+        }
+        div.select {
+          background-color: #e7e7e7;
+          color: #ccc;
+          pointer-events: none;
+        }
+
+        .btn.submitting {
+          background-color: lighten($secondaryColor, 25);
+          color: #ccc;
+        }
+      }
+    }
+
+    .form-left {
+
+
+      .h1 {
+        margin-bottom: 25px;
+        font-size: 30px;
+        font-family: "Muli-Bold", sans-serif;
+      }
+
+      .h3 {
+        font-size: 20px;
+        line-height: 1.6;
+        font-family: "Muli-SemiBold", sans-serif;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+    }
+
+    .form-right {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+	  padding: 16px 30px;
+	  width: 430px;
+
+    //   @media (max-width: 991px) {
+    //     padding-left: 20px;
+    //     padding-right: 20px;
+    //   }
+
+      .form-title {
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 1.6;
+        font-family: "Muli-Bold", sans-serif;
+      }
+
+      .form-item {
+        margin-bottom: 10px;
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-size: 16px;
+          line-height: 1.8;
+        }
+
+        input.changed,
+        textarea {
+          border: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          width: 100%;
+          height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+          padding-right: 16px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          font-size: 16px;
+          font-family: "Muli-Regular", sans-serif;
+
+          &::placeholder {
+            opacity: 1;
+            color: #c0c0c0;
+          }
+
+          &:focus {
+            outline: none !important;
+          }
+        }
+
+        textarea {
+          height: 153px;
+          margin-bottom: 32px;
+        }
+
+        select {
+          display: none;
+        }
+
+        .select {
+          position: relative;
+          width: 100%;
+          height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+          padding-right: 16px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          background-color: #fff;
+          font-family: "Muli-Regular", sans-serif;
+
+          button {
+            width: 100%;
+            border: none;
+            padding: 0;
+            background: none;
+            cursor: pointer;
+
+            span {
+              font-size: 16px;
+              line-height: 48px;
+              color: #c0c0c0;
+            }
+
+            img {
+              height: 16px;
+              -webkit-transition: all 0.15s ease-out;
+              -moz-transition: all 0.15s ease-out;
+              -ms-transition: all 0.15s ease-out;
+              -o-transition: all 0.15s ease-out;
+              transition: all 0.15s ease-out;
+            }
+          }
+
+          .dropdown-list {
+            position: absolute;
+            left: 0;
+            top: 48px;
+            width: 100%;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-left: 16px;
+            padding-right: 16px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background-color: #fff;
+            display: none;
+            z-index: 5;
+
+            button {
+              padding: 0;
+              width: 100%;
+              height: 100%;
+              background: none;
+              border: none;
+              text-align: left;
+              font-size: 16px;
+              line-height: 48px;
+              color: #c0c0c0;
+            }
+          }
+
+          &.open {
+            .dropdown-list {
+              display: block;
+            }
+
+            button {
+              img {
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+
+        &.submit {
+          text-align: right;
+
+          .btn {
+            width: 152px;
+          }
+        }
+
+        .inputs {
+          flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+
+          .input-item {
+            position: relative;
+            max-width: 50%;
+            -webkit-box: 0 0 50%;
+            -moz-box: 0 0 50%;
+            -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+
+            @media (max-width: 480px) {
+              max-width: 100%;
+              -webkit-box: 0 0 100%;
+              -moz-box: 0 0 100%;
+              -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+            }
+
+            margin-bottom: 15px;
+
+            input {
+              display: none;
+            }
+
+            &:last-child {
+              padding-right: 0;
+              margin-bottom: 0;
+            }
+
+            label {
+              position: relative;
+              padding-left: 36px;
+              line-height: 1.8px;
+              color: #484b4d;
+              cursor: pointer;
+              z-index: 3;
+
+              @media (max-width: 360px) {
+                padding-left: 30px;
+              }
+
+              &:before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 18px;
+                height: 18px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                border: 1px solid #fff;
+                display: block;
+                content: "";
+              }
+            }
+
+            input:checked + label {
+              &:before {
+                border: 1px solid #484b4d;
+              }
+
+              &:after {
+                position: absolute;
+                left: 4px;
+                top: 4px;
+                width: 12px;
+                height: 12px;
+                display: block;
+                content: "";
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                background-color: #484b4d;
+              }
+            }
+          }
+
+          &.checkbox {
+            .input-item {
+              .after {
+                position: absolute;
+                top: -2px;
+                left: -1px;
+                display: none;
+                width: 18px;
+
+                svg {
+                  width: 100%;
+
+                  path {
+                    fill: #484b4d;
+                    stroke: #484b4d;
+                  }
+                }
+              }
+
+              label {
+                &:before {
+                  -webkit-border-radius: 2px;
+                  -moz-border-radius: 2px;
+                  border-radius: 2px;
+                }
+              }
+
+              input:checked + label {
+                &:after {
+                  background-color: transparent;
+                }
+              }
+
+              &.checked {
+                .after {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .invalid-feedback {
+      font-size: 13px;
+      color: $invalid;
+      margin-top: 12px;
+      float: right;
+    }
+
+    &.purple {
+      .form-left {
+        .rich-text p,
+        .rich-text h3 {
+          color: #fff;
+        }
+        a {
+          color: $primaryColor;
+        }
+      }
+      .form-right {
+        a {
+          color: $secondaryColor;
+        }
+      }
+    }
+
+    &.yellow {
+      .form-left {
+        .rich-text p {
+          color: #484b4d;
+        }
+        a {
+          color: $secondaryColor;
+        }
+      }
+      .form-right {
+        .rich-text p {
+          color: #fff;
+        }
+        a {
+          color: $primaryColor;
+        }
+      }
+    }
+
+    .alert {
+      color: $warning;
+    }
+  }
+}

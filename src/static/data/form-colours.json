@@ -1,0 +1,18 @@
+{
+  "purple": {
+    "pageBg": "#4600a8",
+    "textColor": "#fff",
+    "formBg": "#ffcb28",
+    "formColor": "#6d7882",
+    "btnBGColor": "#4600a8",
+    "btnTextColour": "#ff"
+  },
+  "yellow": {
+    "pageBg": "#ffcb28",
+    "textColor": "#2a3846",
+    "formBg": "#4600a8",
+    "formColor": "#fff",
+    "btnBGColor": "#ffcb28",
+    "btnTextColour": "#6d7882"
+  }
+}
