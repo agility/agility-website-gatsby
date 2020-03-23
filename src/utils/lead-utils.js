@@ -81,7 +81,9 @@ const queryString = function (name, url) {
 
 const getSetLeadSource = () => {
 
-	if (!document || !localStorage || !window) return;
+	if (typeof window === 'undefined') {
+		return;
+	}
 
 	// if we have a source from QS, this wins!
 	const newLeadSourceFromQS = queryString("source");

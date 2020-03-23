@@ -5,7 +5,7 @@ const SubmissionForm = ({ item }) => {
 
 	const componentName = item.customFields.componentName;
 
-	console.log("submission form", item.customFields)
+	//console.log("submission form", item.customFields)
 
 	const FormToRender = require(`../components/forms/${componentName}.jsx`).default;
 	const moduleProps = {
