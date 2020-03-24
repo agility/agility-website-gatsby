@@ -10,14 +10,14 @@ const Testimonials = ({ item }) => {
 	item = item.customFields;
 
 	const testimonials = item.testimonials.map(function (item) {
-		return <TestimonialContent item={item} key={item.key} />
+		return <TestimonialContent item={item.customFields} key={item.contentID + "-" + moduleItem.contentID} />
 	})
 
 
 	return (
 
 		<section className="features p-w testimonials-listing">
-			<h2 className="title-conponent" dangerouslySetInnerHTML={renderHTML(item.header )}></h2>
+			<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.header )}></h2>
 			<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subHeading )}></p>
 			<div className="products-staff">
 				<div className="container-my">
@@ -50,7 +50,7 @@ class TestimonialContent extends React.Component {
                 <div className="item-inner">
                     <div className="image">
                         {this.props.item.headshot &&
-                            <img src={this.props.item.headshot.url + '?w=200&h=200'} alt={this.props.item.title} />
+                            <img src={this.props.item.headshot.url + '?w=93&h=93'} alt={this.props.item.title} />
                         }
                     </div>
 
