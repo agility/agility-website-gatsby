@@ -2,8 +2,9 @@ import React from "react"
 import HtmlReactParser from "html-react-parser"
 
 import '../global/_react-debug.scss'
-import '../global/_components.scss'
 import '../global/_reset.scss'
+import '../global/_components.scss'
+
 //MOD - joelv - moved _media.scss out of here to GlobalHeader
 import '../global/_main.scss'
 import '../global/_canvas.scss'
