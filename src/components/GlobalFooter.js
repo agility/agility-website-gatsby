@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PostUtil from '../utils/post-util.js';
+import { getLeadSource } from '../utils/lead-utils.js'
 
 import { graphql, StaticQuery } from "gatsby"
 
@@ -150,8 +151,11 @@ class Footer extends React.Component {
 
 		if (!data["email"]) return;
 
-		this.setState({ isSubmitting: true, subscribeButtonLabel: "Subscribing..." });
+		let leadSourceDetail = "website-subscribe-form--" + window.location.pathname.replace(/\//g, '-') + "--" + getLeadSource();
 
+		data["leadsourcedetail"] = leadSourceDetail;
+
+		this.setState({ isSubmitting: true, subscribeButtonLabel: "Subscribing..." });
 
 
 		PostUtil.postData(
@@ -223,8 +227,6 @@ class Footer extends React.Component {
 			const d = new Date();
 			return d.getFullYear();
 		}
-
-		console.log("footer", this.props)
 
 		return (
 

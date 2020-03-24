@@ -24,7 +24,7 @@ const RightLeftContent = ({ item }) => {
 				<div className="rl-image">
 
 					<ResponsiveImage img={item.image}
-						breaks={[{ w: 320, max: 380 }, { w: 300, max: 800 }, { w: 400, max: 1190 }]} />
+						breaks={[{ w: 320, max: 380 }, { w: 300, max: 800 }, { w: 480, min: 801 }]} />
 
 
 				</div>

@@ -54,11 +54,20 @@
       max-width: 352px;
       width: 100%;
       border-radius: $border-radius;
-      box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
-      background-color: #ffffff;
+      box-shadow: $panel-box-shadow;
+	  background-color: #ffffff;
+	  color: $colorBasic;
       text-align: center;
       padding: 35px 20px 40px 20px;
-      margin-top: 20px;
+	  margin-top: 20px;
+	  &[href] {
+	  &:hover {
+        box-shadow: $panel-box-shadow-hover;
+      }
+      &:active {
+        box-shadow: $panel-box-shadow-active;
+	  }
+	}
       .img {
         line-height: 0;
         margin: 0 auto 35px auto;
