@@ -97,6 +97,8 @@ export default props => (
 
 			const viewModel = {
 				item: queryData.agilityGlobalFooter,
+				isLandingPage: props.isLandingPage
+
 			}
 			return (
 				<Footer {...viewModel} />
@@ -220,11 +222,14 @@ class Footer extends React.Component {
 			return d.getFullYear();
 		}
 
+		console.log("footer", this.props)
+
 		return (
 
 			// </footer>
 			<footer className="foter p-w" >
 				<div className="container-my">
+					{ this.props.isLandingPage === false &&
 					<div className="foter-inner">
 
 						<ul className="foter-menu menu-product">
@@ -255,6 +260,7 @@ class Footer extends React.Component {
 						</div>
 
 					</div>
+					}
 
 					<div className="foter-copyright">
 						<ul className="foter-copyright-menu">

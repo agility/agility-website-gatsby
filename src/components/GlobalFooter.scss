@@ -4,7 +4,7 @@
   position: relative;
   background-color: $act;
   color: $white;
-  padding-top: 40px;
+  padding-top: 13px;
   padding-bottom: 13px;
   z-index: 1;
 
@@ -13,6 +13,7 @@
   }
 
   .foter-inner {
+    padding-top: 27px;
     display: flex;
     justify-content: space-between;
 

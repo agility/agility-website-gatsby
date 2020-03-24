@@ -29,15 +29,19 @@ const AgilityPage = ({ pageContext, data }) => {
 		return "Page data could not be accessed."
 	}
 
+	viewModel.isLandingPage = viewModel.page.templateName === "Landing Page Template";
+
 	return (
 		<LayoutTemplate page={ viewModel.page }>
 			<SEO page={ viewModel.page } />
 			<PreviewBar isPreview={viewModel.isPreview} />
-			<GlobalHeader />
+			{ viewModel.isLandingPage === false &&
+				<GlobalHeader {... viewModel} />
+			}
 			<main className="main">
 				<AgilityPageTemplate {...viewModel} />
 			</main>
-			<GlobalFooter />
+			<GlobalFooter isLandingPage={viewModel.isLandingPage}/>
 		</LayoutTemplate>
 	);
 }

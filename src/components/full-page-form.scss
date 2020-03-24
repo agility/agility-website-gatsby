@@ -61,16 +61,15 @@
 
     .form-right {
       flex: 0 0 40%;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
+      border-radius: $border-radius;
       padding: 16px 30px;
-      background-color: #fff;
+	  background-color: #fff;
+	  box-shadow: 0px 1px 15px rgba(0,0,0,0.1);
 
       .form-title {
         margin: -16px -30px 0px -30px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
         padding: 16px 30px;
 
         font-weight: 600;
@@ -107,19 +106,13 @@
         textarea {
           border: 1px solid #d9d7d7;
           background-color: #edebeb;
-          //   -webkit-appearance: none;
-          //   -moz-appearance: none;
           appearance: none;
           width: 100%;
           height: 48px;
           line-height: 48px;
           padding-left: 16px;
           padding-right: 16px;
-          //   -webkit-border-radius: 5px;
-          //   -moz-border-radius: 5px;
-          //   border-radius: 5px;
           font-size: 16px;
-          //   font-family: "Muli-Regular", sans-serif;
 
           &::placeholder {
             opacity: 1;
@@ -412,7 +405,7 @@
       color: $colorBasic;
       .form-title {
         background-color: $darkerSecondaryColor;
-        background-color: $primaryColor;
+
       }
 
       .submit {
