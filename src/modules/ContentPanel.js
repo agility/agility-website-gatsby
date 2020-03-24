@@ -24,7 +24,7 @@ const ContentPanel = ({ item }) => {
 		return (
 			<div className={'start-image ' + imagePosition + ' ' + transparencyClass + ' ' + skewedClass}>
 				<ResponsiveImage img={image}
-								breaks={[{ w: 320, max: 380 },{ w: 400, max: 640 }, { w: 640, max: 750 }, { w: 380, max: 1190 }]} />
+								breaks={[{ w: 320, max: 380 },{ w: 400, max: 640 }, { w: 640, max: 750 }, { w: 640, min: 751 }]} />
 
 			</div>
 		)
