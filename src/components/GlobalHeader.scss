@@ -20,12 +20,18 @@
   background-color: #ffcb28;
   z-index: 21;
 
+  .container-my { 
+    padding: 0 45px;
+    align-items: center;
+  }
+
   .header-logo {
-    width: 150px;
+    width: 250px;
     line-height: 0;
 
     a {
       display: block;
+      padding: 0 10px;
     }
   }
 
@@ -86,7 +92,7 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
-    margin: 0 0 0 140px;
+    margin-left: 170px;
 
     @media (max-width: 1199px) {
       justify-content: center;
@@ -95,8 +101,8 @@
     }
 
     li {
-      margin-left: 22px;
-      margin-right: 22px;
+      margin-left: 10px;
+      margin-right: 10px;
       @media (max-width: 1199px) {
         margin-left: 15px;
         margin-right: 15px;
@@ -130,7 +136,7 @@
 
   .has-children {
     position: relative;
-    margin-right: 40px !important;
+    margin-right: 30px !important;
 
     .sub-menu-icon {
       position: absolute;

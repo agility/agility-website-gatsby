@@ -2,7 +2,9 @@
 
 .sign-in {
   position: relative;
-  box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.54);
+  -moz-box-shadow: 0px 1px 7px rgba(0,0,0,0.54);
+  box-shadow: 0px 1px 7px rgba(0,0,0,0.54);
   background-color: #ffcb28;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -14,6 +16,7 @@
     -webkit-box-pack: end;
     -moz-box-pack: end;
     -ms-flex-pack: end;
+    padding: 0 40px;
   }
 
   .open-search {

@@ -15,6 +15,27 @@
     margin-bottom: 40px;
   }
 
+  .rotated-bg {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    background-image: url("https://static.agilitycms.com/layout/img/bg/Triangle_3.png");
+    -webkit-background-size: 150% 120%;
+    background-size: 150% 120%;
+    background-repeat: no-repeat;
+    background-position: center;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+  }
+
   .container-my {
     display: block;
     @media (max-width: 991px) {
@@ -36,11 +57,11 @@
       box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
       background-color: #ffffff;
       text-align: center;
-      padding: 72px 16px 66px 16px;
+      padding: 35px 20px 40px 20px;
       margin-top: 20px;
       .img {
         line-height: 0;
-        margin: 0 auto 30px auto;
+        margin: 0 auto 35px auto;
 
         img {
           height: 66px;
@@ -57,19 +78,24 @@
         letter-spacing: normal;
         color: $titles;
         line-height: 1;
-        margin-bottom: 10px;
+        margin-bottom: 22px;
       }
 
       .ben-subtitle {
-        color: $gray;
-      }
-
-      p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: 1.5;
+        line-height: 1.4;
+        letter-spacing: normal;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.4;
         letter-spacing: normal;
         margin: 10px 0;
       }

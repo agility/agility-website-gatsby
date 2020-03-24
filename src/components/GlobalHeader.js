@@ -209,7 +209,6 @@ class GlobalHeader extends Component {
 					</div>
 				</header>
 
-				<div className="drop-shadow"></div>
 			</div>
 
 		);

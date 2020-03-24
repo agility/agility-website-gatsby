@@ -21,27 +21,31 @@
       font-size: 30px;
       font-weight: 600;
       margin-bottom: 26px;
+      font-family: $bold;
     }
     .rl-panel {
       margin-left: 18px;
       p {
         margin-bottom: 50px;
         line-height: 24px;
+        font-size: 14px;
       }
 
       ul {
         margin-top: 25px;
         li {
-          margin-left: 60px;
+          margin-left: 65px;
           display: block;
           min-height: 40px;
           margin-bottom: 20px;
           line-height: 24px;
+          font-size: 14px;
 
           h3 {
             font-size: 16px;
             font-weight: 600;
             line-height: 30px;
+            font-family: $bold;
           }
 
           &:before {
@@ -50,9 +54,9 @@
             background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
             background-size: contain;
 
-            width: 40px;
-            height: 40px;
-            margin-left: -60px;
+            width: 45px;
+            height: 45px;
+            margin-left: -70px;
           }
         }
       }

@@ -3,6 +3,11 @@
 .g2-review-listing {
   margin: $module-margin-spacing;
   width:100%;
+
+  h2 {
+    margin-bottom: 65px; 
+  }
+
   p.intro {
     margin-bottom: 30px;
   }

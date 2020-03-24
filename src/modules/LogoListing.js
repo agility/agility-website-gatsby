@@ -104,8 +104,6 @@ const LogoListing = ({ item, logos }) => {
 		<section className="logoListing p-w">
 			<Triangles />
 
-			<div className="rotated-bg"></div>
-
 			{
 				item.heading &&
 				<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.heading)}></h2>
