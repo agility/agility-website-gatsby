@@ -16,20 +16,22 @@ const Testimonials = ({ item }) => {
 
 	return (
 
-		<section className="features p-w testimonials-listing">
-			<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.header )}></h2>
-			<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subHeading )}></p>
-			<div className="products-staff">
-				<div className="container-my">
-					<div className="row-my">
-						{testimonials}
-					</div>
+		<section className="testimonials">
+			<div class="container-my">
+				<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.header)}></h2>
+				<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subHeading)}></p>
+				<div className="testimonials-list">
+
+
+					{testimonials}
 				</div>
+
 				<div className="button-wrap">
 					{item.bottomlink && item.bottomlink != undefined && <a className="btn" href={item.bottomlink.href} target={item.bottomlink.target}>{item.bottomlink.text}</a>}
 				</div>
-			</div>
 
+
+			</div>
 		</section>
 
 
@@ -39,34 +41,36 @@ const Testimonials = ({ item }) => {
 export default Testimonials;
 
 class TestimonialContent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    render() {
+	constructor(props) {
+		super(props)
+	}
+	render() {
 
-        return (
+		return (
 
-            <div className="staff-item">
-                <div className="item-inner">
-                    <div className="image">
-                        {this.props.item.headshot &&
-                            <img src={this.props.item.headshot.url + '?w=93&h=93'} alt={this.props.item.title} />
-                        }
-                    </div>
+			<div className="testimonial">
+				<div className="item-inner">
+					<div className="top-row">
+						<div className="image">
+							{this.props.item.headshot &&
+								<img src={this.props.item.headshot.url + '?w=93&h=93'} alt={this.props.item.title} />
+							}
+						</div>
 
-                    <div className="company-logo">
-                        {this.props.item.companyLogo &&
-                            <img src={this.props.item.companyLogo.url} alt={this.props.item.companyName} />
-                        }
-                    </div>
+						{/* <div className="company-logo">
+							{this.props.item.companyLogo &&
+								<img src={this.props.item.companyLogo.url} alt={this.props.item.companyName} />
+							}
+						</div> */}
 
-                    <div className="title">
-                        <h3>{this.props.item.title}</h3>
-                        <span>{this.props.item.jobTitle}</span>
-                    </div>
-                    <p>{this.props.item.excerpt}</p>
-                </div>
-            </div>
-        );
-    }
+						<div className="title">
+							<h3>{this.props.item.title}</h3>
+							<div>{this.props.item.jobTitle}</div>
+						</div>
+					</div>
+					<p>{this.props.item.excerpt}</p>
+				</div>
+			</div>
+		);
+	}
 }

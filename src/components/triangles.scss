@@ -1,0 +1,42 @@
+.triangles {
+
+	div {
+		position: absolute;
+		background-image: url('https://static.agilitycms.com/layout/img/logo-triangle-only.svg');
+		background-size: cover;
+	}
+	.t1 {
+		top: 100;
+		left:-35px;
+		width: 156px;
+		height: 132px;
+		opacity: 0.2;
+	}
+
+	.t2 {
+		top: 210px;
+		left:-100px;
+		width: 133px;
+		height: 113px;
+		opacity: 0.34;
+		transform: rotate(-180deg);
+	}
+
+	.t3 {
+		top: 354px;
+		left:-60px;
+		width: 121px;
+		height: 103px;
+		opacity: 0.18;
+		transform: rotate(-180deg);
+	}
+	.t4 {
+		top: 354px;
+		left:20px;
+		width: 121px;
+		height: 103px;
+		opacity: 0.51;
+	}
+
+
+}

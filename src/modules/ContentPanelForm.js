@@ -12,8 +12,6 @@ const ContentPanelForm = ({ item }) => {
 	item = item.customFields;
 	let panel =item.panel.customFields;
 
-	//console.log("conent panel form", item)
-
 	return (
 		<section className="front-start front-start-landing p-w">
                 <div className="canvas" id="canvas-1"></div>

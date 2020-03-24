@@ -2,6 +2,7 @@ import React from 'react';
 import { renderHTML } from '../agility/utils'
 import './ContentPanel.scss'
 import ResponsiveImage from '../components/responsive-image.jsx'
+import Triangles from "../components/triangles.jsx"
 
 const ContentPanel = ({ item }) => {
 
@@ -31,7 +32,7 @@ const ContentPanel = ({ item }) => {
 	}
 	return (
 		<section className="front-start p-w">
-			<div className="canvas" id="canvas-1"></div>
+			<Triangles />
 			<div className={item.enableBackgroundImage ? 'rotated-bg' : ''}></div>
 
 			<div className="container-my">
