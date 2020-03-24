@@ -45,6 +45,9 @@ $flc: #cbdeff;
 
 //module spacing...
 $module-margin-spacing: 50px 0;
+@media screen and (max-width: $mobile-width) {
+    $module-margin-spacing: 30px 0;
+}
 
 //panel border radius
 $border-radius: 8px;
