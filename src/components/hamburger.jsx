@@ -99,7 +99,7 @@ class Hamburger extends React.Component {
 		const renderMobileMenu = () => {
 			let links = [];
 
-			 menu = this.props.menu;
+			let menu = this.props.menu;
 			if (!menu || !menu.length || menu.length === 0) return null;
 
 			//loop through sitemap
