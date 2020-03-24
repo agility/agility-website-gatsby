@@ -89,22 +89,23 @@ class CtaBlock extends React.Component {
 		let item = this.props.item.customFields;
 
         return (
+				<div className="cta-block">
+					<a className="cta-block-inner" href={item.link.href} title={item.link.text} target={item.link.target}>
+						<div className="image">
 
-				<a className="cta-block" href={item.link.href} title={item.link.text} target={item.link.target}>
-					<div className="image">
+							{item.image &&
+								<img src={item.image.url} alt={item.link.text} />
+							}
 
-						{item.image &&
-							<img src={item.image.url} alt={item.link.text} />
+
+						</div>
+						<p>{item.title}</p>
+						{
+							item.subtitle &&
+							<p className="cta-subtitle">{item.subtitle}</p>
 						}
-
-
-					</div>
-					<p>{item.title}</p>
-					{
-						item.subtitle &&
-						<p className="cta-subtitle">{item.subtitle}</p>
-					}
-				</a>
+					</a>
+				</div>
 
 
         );

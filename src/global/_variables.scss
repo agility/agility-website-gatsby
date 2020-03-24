@@ -12,15 +12,11 @@ $bold: "Muli-bold", sans-serif;
 $extrabold: "Muli-ExtraBold", sans-serif;
 
 //sizes
-$xl-width: 1680px;
-$lg-width: 1190px;
-$lg-width-plus-99: 1190px;
-$md-width: 1080px;
-$std-width: 768px;
-$std-width-minus-1: 767px;
-$std-width-plus-1: 767px;
-$sml-width: 680px;
-$xs-width: 480px;
+
+$desktop-width: 1190px;
+$tablet-width: 1024px;
+$mobile-width: 580px;
+
 
 //button
 $btn: $darkerSecondaryColor;

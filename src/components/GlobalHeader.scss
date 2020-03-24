@@ -94,19 +94,9 @@
     flex-grow: 1;
     margin-left: 170px;
 
-    @media (max-width: 1199px) {
-      justify-content: center;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
     li {
       margin-left: 10px;
       margin-right: 10px;
-      @media (max-width: 1199px) {
-        margin-left: 15px;
-        margin-right: 15px;
-      }
     }
 
     .h-menu-li {

@@ -10,6 +10,8 @@ import { graphql, StaticQuery } from "gatsby"
 
 import './GlobalFooter.scss'
 
+//MOD: joelv - moved this here from the LayoutTemplate component
+import '../global/_media.scss'
 
 export default props => (
 	<StaticQuery

@@ -4,44 +4,54 @@
   margin: $module-margin-spacing;
   width: 100%;
   text-align: center;
-  .case-wrapper {
-    padding: 5px 0;
 
+  .title-component {
+    width: 90%;
+    margin: 0 auto 40px auto;
+  }
+
+  .btn {
+    margin: 0 auto 25px auto;
+  }
+
+  .case-wrapper {
+    width: 100%;
     .case-studies {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: stretch; /* align items in Cross Axis */
       flex-wrap: wrap;
       align-items: stretch;
       flex-direction: row;
+      width: 100%;
 
       .case-item {
-        max-width: 313px;
+        max-width: 352px;
         width: 100%;
-        margin: 20px;
+        margin-bottom: 50px;
 
         .case-item-inner {
           border-radius: $border-radius;
           box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
           background-color: #ffffff;
           text-align: center;
-		  height: 100%;
-		  &:hover {
-			box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.15);
-		  }
-		  &:active {
-			box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
-		  }
+          height: 100%;
+          &:hover {
+            box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.15);
+          }
+          &:active {
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+          }
 
           .image {
             border-top-left-radius: $border-radius;
             border-top-right-radius: $border-radius;
 
             height: 190px;
-			overflow: hidden;
-			img {
-				width:100%;
-			}
+            overflow: hidden;
+            img {
+              width:100%;
+            }
           }
 
           .customer-logo {
@@ -54,23 +64,8 @@
             color: $colorBasic;
             font-size: 14px;
             padding: 0 20px 20px;
-            line-height: 20px;
+            line-height: 1.8;
           }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $std-width-minus-1) {
-  .featured-case-studies {
-    .case-wrapper {
-      padding: 5px 0;
-
-      .case-studies {
-        .case-item {
-          width: 100%;
-          flex: none;
         }
       }
     }

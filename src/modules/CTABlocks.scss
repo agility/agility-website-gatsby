@@ -23,20 +23,18 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     .cta-block {
       align-content: center;
-      max-width: 300px;
-
+      max-width: 352px;
       width: 100%;
       border-radius: $border-radius;
-      padding-bottom: 20px;
+      margin: 0 0 30px 0;
       box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
       transition: box-shadow 0.1s ease-in-out;
       background-color: #ffffff;
-      padding: 30px 20px;
-      margin-bottom: 20px;
+
       &:hover {
         box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
       }
@@ -44,23 +42,31 @@
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
       }
 
-      .image {
-        height: 70px;
+      .cta-block-inner {
+        
+        padding: 30px 20px;
+        display: block;
+        
 
-        img {
+        .image {
           height: 70px;
-          //   &:hover {
-          //     transform: scale(1.2);
-          //   }
+
+          img {
+            height: 70px;
+            //   &:hover {
+            //     transform: scale(1.2);
+            //   }
+          }
+        }
+
+        p {
+          margin-top: 25px;
+          font-size: 18px;
+          font-weight: 600;
+          color: $titles;
         }
       }
-
-      p {
-        margin-top: 25px;
-        font-size: 18px;
-        font-weight: 600;
-        color: $titles;
-      }
+      
     }
   }
 }

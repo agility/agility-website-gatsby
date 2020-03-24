@@ -98,7 +98,6 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 	return (
 		<section className="partnerLogoListing">
 			<div className="container-my">
-				<div className="rotated-bg"></div>
 				{
 					item.heading &&
 					<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.heading)}></h2>

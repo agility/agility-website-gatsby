@@ -169,39 +169,3 @@
   border-radius: 4px;
 }
 
-@media (max-width: 991px) {
-  #slider .slide.my-1 {
-    transform: translateX(-103%);
-  }
-
-  #slider .slide.my-2 {
-    transform: translateX(-206%);
-  }
-}
-
-@media (max-width: 991px) {
-  #slider .slide {
-    max-width: 95%;
-    flex: 0 0 95%;
-    margin-right: 16px;
-    transform: translateX(0);
-    transition: all 0.2s ease-out;
-
-  }
-
-  #slider-nav {
-    display: flex;
-    max-width: 100%;
-    flex: 0 0 100%;
-  }
-}
-
-@media (max-width: 988px) {
-  #slider .slide.my-1 {
-    transform: translateX(-105%);
-  }
-
-  #slider .slide.my-2 {
-    transform: translateX(-210%);
-  }
-}

@@ -19,9 +19,8 @@ const FeaturedCaseStudies = ({ item }) => {
 
 	return (
 
-		<section className="container-my">
-
-			<div className="features p-w featured-case-studies">
+		<section className="features p-w featured-case-studies">
+			<div className="container-my">
 				<h2 className="title-component">{moduleItem.title}</h2>
 				<div className="case-wrapper">
 					<div className="case-studies">
