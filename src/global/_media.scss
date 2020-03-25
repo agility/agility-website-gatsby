@@ -1,6 +1,6 @@
 @import "./_variables.scss";
 
-/* 1190px */
+/* 1200px */
 @media screen and (max-width: $desktop-width) {
   .canvas {
     display: none;
@@ -319,7 +319,7 @@
   /* RIGHT/LEFT CONTENT MODULE */
 
   .right-left-content {
-    margin: 15px 0 !important;
+    margin: 25px 0 !important;
 
     .rl-image {
       margin-bottom: 20px !important;

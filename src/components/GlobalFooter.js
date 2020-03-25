@@ -268,7 +268,7 @@ class Footer extends React.Component {
 
 					<div className="foter-copyright">
 						<ul className="foter-copyright-menu">
-							<li>{item.bottomCopyright} {getYear()}</li>
+							<li>{item.copyright} {getYear()}</li>
 							{outputBottomLinks(bottomLinks)}
 						</ul>
 

@@ -13,7 +13,7 @@ $extrabold: "Muli-ExtraBold", sans-serif;
 
 //sizes
 
-$desktop-width: 1190px;
+$desktop-width: 1200px;
 $tablet-width: 1024px;
 $mobile-width: 580px;
 
@@ -44,16 +44,16 @@ $white: #fff;
 $flc: #cbdeff;
 
 //module spacing...
-$module-margin-spacing: 50px 0;
+$module-margin-spacing: 35px 0;
 @media screen and (max-width: $mobile-width) {
-    $module-margin-spacing: 30px 0;
+    $module-margin-spacing: 25px 0;
 }
 
 //panel border radius
 $border-radius: 8px;
 
 //box shadows...
-$panel-box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
-$panel-box-shadow-hover: 0 2px 26px 0 rgba(0, 0, 0, 0.2);
-$panel-box-shadow-active: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+$panel-box-shadow: 0px 1px 15px rgba(0,0,0,0.08);
+$panel-box-shadow-hover: 0 1px 15px 0 rgba(0, 0, 0, 0.15);
+$panel-box-shadow-active: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 
