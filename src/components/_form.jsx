@@ -46,12 +46,14 @@ class Form extends React.Component {
 			const elem = formEl[i];
 
 			//don't bother with hidden elems or buttons
-			const elemType = elem.type.toLowerCase();
-			if (elemType === "hidden"
-				|| elemType === "submit"
-				|| elemType === "button") {
-					continue;
+			if (elem.type) {
+				const elemType = elem.type.toLowerCase();
+				if (elemType === "hidden"
+					|| elemType === "submit"
+					|| elemType === "button") {
+						continue;
 				}
+			}
 
 			if (elem.value && elem.value.trim) {
 				//trim the value
