@@ -14,13 +14,15 @@ const RightLeftContent = ({ item }) => {
 	if (item.imagePlacement !== "left") {
 		sectionStyle.flexDirection = "row-reverse"
 	}
-
+	console.log(item);
 	return (
-		<section className="container-my" >
-			<div className="right-left-content" style={sectionStyle}>
+		<section className="right-left-content">
+			
+			{item.background &&
+				<div className={'rotated-bg ' + item.background.customFields.renderType}></div>
+			}
 
-
-
+			<div className="container-my" style={sectionStyle}>
 				<div className="rl-image">
 
 					<ResponsiveImage img={item.image}

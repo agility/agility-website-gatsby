@@ -21,7 +21,9 @@ class FeatureBlocks extends Component {
 			<section id="sec-2" className="benefits p-w">
 				<Triangles />
 
-				<div className="rotated-bg"></div>
+				{item.background &&
+					<div className="rotated-bg"></div>
+				}
 
 				{item.title &&
 					<h2 className="title-component">{item.title}</h2>

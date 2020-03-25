@@ -2,104 +2,137 @@
 
 .right-left-content {
   margin: $module-margin-spacing;
-  margin-left: 60px;
-  margin-right: 60px;
-  display: flex;
+  position: relative;
 
-  .rl-image {
-    width: 40%;
-	text-align: center;
-    img {
-      max-height: 461px;
+  .rotated-bg {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    background-image: url("https://static.agilitycms.com/layout/img/bg/Triangle_3.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 
+    &.triangle-left {
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
     }
   }
 
-  .rl-content {
-    width: 60%;
-    h2 {
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 26px;
-      font-family: $bold;
-    }
-    .rl-panel {
-      margin-left: 18px;
-      p {
-        margin-bottom: 50px;
-        line-height: 24px;
-        font-size: 14px;
-      }
+  .container-my {
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
 
-      ul {
-        margin-top: 25px;
-        li {
-          margin-left: 65px;
-          display: block;
-          min-height: 40px;
-          margin-bottom: 20px;
-          line-height: 24px;
-          font-size: 14px;
-
-          h3 {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 30px;
-            font-family: $bold;
-          }
-
-          &:before {
-            position: absolute;
-            content: "";
-            background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
-            background-size: contain;
-
-            width: 45px;
-            height: 45px;
-            margin-left: -70px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $tablet-width) {
-  .right-left-content {
-    display: block;
-    margin-left: 20px;
-    margin-right: 20px;
     .rl-image {
-      width: auto;
-      margin: 0px 60px;
+      width: 40%;
       text-align: center;
       img {
-        max-height: 400px;
-
+        max-height: 461px;
       }
     }
+
     .rl-content {
-      width: auto;
+      width: 60%;
       h2 {
-        font-size: 20px;
-        margin-bottom: 19px;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 26px;
+        font-family: $bold;
       }
       .rl-panel {
-        margin-left: 0;
+        margin-left: 18px;
+        p {
+          margin-bottom: 50px;
+          line-height: 24px;
+          font-size: 14px;
+        }
+
         ul {
           margin-top: 25px;
           li {
-            margin-left: 32px;
+            margin-left: 65px;
+            display: block;
+            min-height: 40px;
+            margin-bottom: 20px;
+            line-height: 24px;
+            font-size: 14px;
+
+            h3 {
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 30px;
+              font-family: $bold;
+            }
+
             &:before {
               position: absolute;
+              content: "";
+              background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
+              background-size: contain;
 
-              width: 22px;
-              height: 22px;
-              margin-left: -32px;
+              width: 45px;
+              height: 45px;
+              margin-left: -70px;
             }
           }
         }
       }
     }
+  }
+  
+}
+
+@media screen and (max-width: $tablet-width) {
+  .right-left-content {
+
+    .container-my {
+      margin-left: 20px;
+      margin-right: 20px;display: block;
+
+      .rl-image {
+        width: auto;
+        margin: 0px 60px;
+        text-align: center;
+        img {
+          max-height: 400px;
+  
+        }
+      }
+      .rl-content {
+        width: auto;
+        h2 {
+          font-size: 20px;
+          margin-bottom: 19px;
+        }
+        .rl-panel {
+          margin-left: 0;
+          ul {
+            margin-top: 25px;
+            li {
+              margin-left: 32px;
+              &:before {
+                position: absolute;
+  
+                width: 22px;
+                height: 22px;
+                margin-left: -32px;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+
   }
 }
