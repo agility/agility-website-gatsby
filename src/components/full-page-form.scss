@@ -152,8 +152,7 @@
             padding-left: 6px;
             outline: none;
             &.rs__control--is-focused {
-              border: 1px solid #d9d7d7 !important;
-              background-color: #edebeb;
+              border: 1px solid #d9d7d7;
             }
 
             .rs__placeholder {
@@ -172,7 +171,7 @@
 
                 &.rs__option--is-focused {
                   background-color: #d9d7d7;
-                  color: #fff;
+
                 }
 
                 &.rs__option--is-selected {

@@ -32,6 +32,32 @@ const ContactUs = ({ item }) => {
 		document.getElementById("role").value = selectedOption.value;
 	};
 
+	const customStyles = {
+
+		control: (provided) => {
+
+			const obj = {
+				label: "control",
+				alignItems: "center",
+				borderStyle: "solid",
+				borderWidth: 1,
+				boxShadow: null,
+				cursor: "default",
+				display: "flex",
+				flexWrap: "wrap",
+				justifyContent: "space-between",
+				minHeight: 38,
+				outline: "0 !important",
+				position: "relative",
+				transition: "all 100ms",
+				"&:hover": {borderColor: "hsl(0, 0%, 70%)"},
+				boxSizing: "border-box"
+			}
+
+			return obj;
+		}
+	  }
+
 	return (
 
 		<FullPageForm
@@ -66,6 +92,7 @@ const ContactUs = ({ item }) => {
 			<FormField id="role" label="Role">
 
 				<Select className="react-select" classNamePrefix="rs"
+				styles={customStyles}
 					onChange={handleRoleChange}
 					options={roleOptions}
 					placeholder="Role"
