@@ -7,7 +7,7 @@
 
   .title-component {
     width: 90%;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 60px auto;
   }
 
   .btn {
@@ -31,7 +31,7 @@
         margin-bottom: 50px;
 
         .case-item-inner {
-          border-radius: $border-radius;
+          border-radius: 0 0 8px 8px;
           box-shadow: 0 2px 27px 0 rgba(0, 0, 0, 0.05);
           background-color: #ffffff;
           text-align: center;
@@ -44,8 +44,6 @@
           }
 
           .image {
-            border-top-left-radius: $border-radius;
-            border-top-right-radius: $border-radius;
 
             height: 190px;
             overflow: hidden;
@@ -56,8 +54,8 @@
 
           .customer-logo {
             img {
-              height: 80px;
-              max-width: 140px;
+              height: 110px;
+              max-width: 180px;
             }
           }
           .content {
