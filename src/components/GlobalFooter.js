@@ -151,7 +151,7 @@ class Footer extends React.Component {
 
 		if (!data["email"]) return;
 
-		let leadSourceDetail = "website-subscribe-form--" + window.location.pathname.replace(/\//g, '-') + "--" + getLeadSource();
+		let leadSourceDetail = "newsletter-subscribe-form--" + window.location.pathname.replace(/\//g, '-') + "--" + getLeadSource();
 
 		data["leadsourcedetail"] = leadSourceDetail;
 

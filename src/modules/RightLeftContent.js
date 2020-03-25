@@ -14,10 +14,10 @@ const RightLeftContent = ({ item }) => {
 	if (item.imagePlacement !== "left") {
 		sectionStyle.flexDirection = "row-reverse"
 	}
-	console.log(item);
+
 	return (
 		<section className="right-left-content">
-			
+
 			{item.background &&
 				<div className={'rotated-bg ' + item.background.customFields.renderType}></div>
 			}

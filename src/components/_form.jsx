@@ -40,6 +40,29 @@ class Form extends React.Component {
 		const formEl = this.formEl;
 		const formLength = formEl.length;
 
+		//do a pre-trim on all the values...
+		for (let i = 0; i < formLength; i++) {
+			//the i-th child of the form corresponds to the forms i-th input element
+			const elem = formEl[i];
+
+			//don't bother with hidden elems or buttons
+			const elemType = elem.type.toLowerCase();
+			if (elemType === "hidden"
+				|| elemType === "submit"
+				|| elemType === "button") {
+					continue;
+				}
+
+			if (elem.value && elem.value.trim) {
+				//trim the value
+				elem.value = elem.value.trim();
+
+			}
+
+			console.log(elem.getAttribute("name"), "|" + elem.value + "|")
+
+		}
+
 		/*
 		* The checkValidity() method on a form runs the
 		* html5 form validation of its elements and returns the result as a boolean.
