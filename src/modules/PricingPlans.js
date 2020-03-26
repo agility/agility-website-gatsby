@@ -66,6 +66,8 @@ export default props => (
 			//filter out only those logos that we want...
 			let plans = queryData.allAgilityPricingPlan.nodes.filter(plan => {
 				return plan.properties.referenceName === props.item.customFields.plans.referencename
+			}).sort((a, b) => {
+				return a.properties.itemOrder - b.properties.itemOrder;
 			});
 
 
@@ -87,7 +89,7 @@ const PricingPlans = ({ item, plans }) => {
 	let moduleItem = item;
 	item = item.customFields;
 
-
+console.log("pricing", plans)
 
 	const planSet = plans.map(function (plan) {
 
