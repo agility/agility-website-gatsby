@@ -1,5 +1,5 @@
 import React from 'react';
-import Countries from '../../static/data/countries.json'
+
 import FullPageForm from '../full-page-form.jsx'
 import FormField from '../_form-field.jsx'
 //import Countries from '../static/data/countries.json'

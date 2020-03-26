@@ -14,9 +14,10 @@ const G2CrowdReviewListing = ({ item }) => {
 		//load the g2 script...
 		if (typeof window === 'undefined') return;
 
+		if (state.loaded) return;
 
 		setTimeout(function() {
-			if (state.loaded) return;
+
 
 			let script = document.createElement("script")
 			script.src = "https://apps.elfsight.com/p/platform.js"
@@ -29,7 +30,7 @@ const G2CrowdReviewListing = ({ item }) => {
 		}, 1500);
 
 
-	}, []);
+	});
 
 	return (
 

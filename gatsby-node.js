@@ -26,6 +26,14 @@ exports.createResolvers = (args) => {
 			column3Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column3Links' }),
 			followLinks: agility.getLinkedContentList({ type: 'agilitySocialFollowLink', linkedContentFieldName: 'followLinks' }),
 			bottomLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'bottomLinks' })
+		},
+		agilityPricingPlan: {
+			components: agility.getLinkedContentList({ type: 'agilityPricingPlanComponent', linkedContentFieldName: 'components' }),
+			features: agility.getLinkedContentList({ type: 'agilityPricingPlanFeature', linkedContentFieldName: 'features' }),
+			pricingPlanTier: agility.getLinkedContentItem({type: 'agilityPricingPlanTier', linkedContentFieldName: 'pricingPlanTier'})
+		},
+		agilityPricingPlanTier: {
+			features: agility.getLinkedContentList({ type: 'agilityPricingPlanFeature', linkedContentFieldName: 'features' })
 		}
 		//[Not Implemented]
 		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query

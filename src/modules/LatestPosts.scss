@@ -1,0 +1,126 @@
+@import "../global/_variables.scss";
+
+.latest-blog-posts {
+  margin-bottom: 30px;
+  text-align: center;
+  @media (max-width: 991px) {
+    margin-bottom: 0;
+  }
+
+  .col-md-4 {
+    @media (max-width: 991px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 0;
+  }
+
+  h2.title-component {
+    max-width: 1008px;
+    display: block;
+    margin: 0 auto 42px;
+    font-size: 30px;
+    line-height: 1.56;
+    font-family: "Muli-bold", sans-serif;
+    color: #2a3846;
+    text-align: center;
+
+    @media (max-width: 767px) {
+      font-size: 30px;
+      margin-bottom: 90px;
+    }
+
+    @media (max-width: 480px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .blog-item {
+    border-radius: 5px;
+    box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    height: 100%;
+    overflow: hidden;
+
+    @media (max-width: 991px) {
+      margin-bottom: 32px;
+    }
+    @media (max-width: 480px) {
+      height: auto;
+    }
+
+    .image {
+      position: relative;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 8px;
+        display: inline-block;
+        height: 32px;
+        line-height: 1.8;
+        padding-left: 24px;
+        padding-right: 20px;
+        border-radius: 0 3px 3px 0;
+        background-color: #ffcb28;
+        font-size: 16px;
+        font-family: "Muli-bold", sans-serif;
+        color: #fff;
+      }
+    }
+
+    .content {
+      padding: 32px 24px;
+        text-align: center;
+
+        @media (max-width: 480px) {
+          padding: 15px 15px 32px;
+        }
+
+        h3 {
+          font-family: $bold;
+          font-size: 20px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: normal;
+          color: $titles;
+          line-height: 1;
+          margin-bottom: 23px;
+        }
+
+        p {
+          margin-bottom: 30px;
+          font-size: 18px;
+          line-height: 1.8;
+          color: #6d7882;
+          text-align: left;
+        }
+
+        a.btn {
+          width: 216px;
+          height: 40px;
+          line-height: 48px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            margin-left: 12px;
+          }
+        }
+    }
+  }
+
+  > a {
+    margin: 80px 0 0 0;
+    min-width: 176px;
+  }
+}

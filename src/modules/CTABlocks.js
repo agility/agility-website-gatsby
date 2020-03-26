@@ -53,7 +53,6 @@ export default props => (
 
 const CTABlocks = ({ item, blocks }) => {
 
-	let moduleItem = item;
 	item = item.customFields;
 
 	blocks = blocks.map(function (block) {

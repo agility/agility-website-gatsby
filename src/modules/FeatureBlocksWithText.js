@@ -5,7 +5,7 @@ const FeatureBlocksWithText = ({ item }) => {
 
 	return (
 		<section className="container">
-			LatestPosts
+			FeatureBlocksWithText
         </section>
 	);
 }

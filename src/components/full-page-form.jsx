@@ -1,7 +1,6 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root'
 import './full-page-form.scss'
-import FormColours from '../static/data/form-colours.json'
 import Form from './_form.jsx'
 
 class FullPageForm extends React.Component {

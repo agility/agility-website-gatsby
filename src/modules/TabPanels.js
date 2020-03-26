@@ -5,7 +5,7 @@ const TabPanels = ({ item }) => {
 
 	return (
 		<section className="container">
-			LatestPosts
+			TabPanels
         </section>
 	);
 }

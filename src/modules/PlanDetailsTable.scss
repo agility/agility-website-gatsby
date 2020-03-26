@@ -1,0 +1,220 @@
+@import "../global/_variables.scss";
+
+.plan-details-table {
+  margin-bottom: 30px;
+
+  .checkmark {
+    background: url('https://static.agilitycms.com/brand/icons/green-check.svg') no-repeat 0 0;
+    width: 20px;
+    height: 13px;
+    display: block;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  a { color: $secondaryColor; text-decoration: underline; }
+
+  h1 {
+    font-family: $bold;
+    font-size: 30px;
+    text-align: center;
+    margin: 70px 0 10px 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 50px 0;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: .8em;
+
+    thead {
+
+      &:before {
+        content:"@";
+        display:block;
+        line-height:10px;
+        text-indent:-99999px;
+      }
+      tr {
+        margin-top: 20px;
+        th {
+          margin-top: 20px;
+          text-align: center;
+          background-color: #e4e4e4;
+          font-size: 18px;
+          font-weight: bold;
+          font-family: $bold;
+          padding: 10px 0;
+        }
+
+        th.plan {
+          width: 12%;
+        }
+      }
+
+      &.sub-title {
+        &:before {
+          display: none;
+        }
+        tr {
+          th {
+            font-size: 1em;
+            margin-top: 0 !important;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #fff;
+            padding: 7px 0;
+          }
+        }
+      }
+    }
+
+    thead.main-head {
+      tr {
+        border-radius: 10px 10px 0 0;
+        th {
+          padding: 12px 0;
+          background-color: $secondaryColor;
+          color: #fff;
+          &.null {
+            background: none;
+            text-align: left;
+            font-size: 1em;
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr.plans-sub-heading {
+        td { background-color: #f1f1f1; }
+      }
+      td {
+        padding: 10px 5px;
+        border-bottom: 1px solid #fff;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #EDF3F6;
+        border-right: 1px solid #fff;
+      }
+
+      td.feature{
+        padding-left: 15px;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      td.title-col {
+        font-weight: bold;
+        font-family: $bold;
+        border-right: none;
+      }
+
+    }
+  }
+
+  .plan-overages {
+    padding: 15px 25px;
+    display: flex;
+    background-color: #F8F8F8;
+    font-size: .85em;
+    margin-bottom: 30px;
+    align-items: center;
+    width: 100%;
+
+    h4 {
+      margin-right: 30px;
+      font-size: 1.15em;
+      font-family: $bold;
+    }
+    div > p {
+      margin-bottom: 5px;
+    }
+
+    strong { font-family: $bold; }
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+
+.plan-details-table {
+    .checkmark {
+      width: 15px;
+      height: 10px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.05em;
+      margin: 0 0 30px 0;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: .8em;
+
+      thead {
+        tr {
+          margin-top: 20px;
+          th {
+            margin-top: 20px;
+            padding: 10px 0;
+          }
+
+          th.plan {
+            width: 12%;
+          }
+        }
+
+        &.sub-title {
+          tr {
+            th {
+              font-size: 1em;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+
+      thead.main-head {
+        tr {
+          th {
+            font-size: 1.1em;
+            padding: 10px 0;
+            &.null {
+              padding-left: 5px;
+              font-size: 1em;
+            }
+          }
+        }
+      }
+
+      tbody {
+        td {
+          padding: 7px 0;
+          font-size: .85em;
+        }
+
+        td.feature{
+          font-size: .85em;
+          padding-left: 5px;
+        }
+
+        td.title-col {
+          font-size: .85em;
+        }
+
+      }
+    }
+  }
+
+}

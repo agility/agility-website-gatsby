@@ -61,8 +61,6 @@ class Form extends React.Component {
 
 			}
 
-			console.log(elem.getAttribute("name"), "|" + elem.value + "|")
-
 		}
 
 		/*
@@ -148,7 +146,7 @@ class Form extends React.Component {
 				let data = {};
 
 				//grab all the name/value pairs for the inputs in this form
-				var elems = form.elements;
+
 
 				[...form.elements].forEach((input) => {
 

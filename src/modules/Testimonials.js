@@ -27,7 +27,7 @@ const Testimonials = ({ item }) => {
 				</div>
 
 				<div className="button-wrap">
-					{item.bottomlink && item.bottomlink != undefined && <a className="btn" href={item.bottomlink.href} target={item.bottomlink.target}>{item.bottomlink.text}</a>}
+					{item.bottomlink && item.bottomlink !== undefined && <a className="btn" href={item.bottomlink.href} target={item.bottomlink.target}>{item.bottomlink.text}</a>}
 				</div>
 
 
@@ -41,9 +41,7 @@ const Testimonials = ({ item }) => {
 export default Testimonials;
 
 class TestimonialContent extends React.Component {
-	constructor(props) {
-		super(props)
-	}
+
 	render() {
 
 		return (
