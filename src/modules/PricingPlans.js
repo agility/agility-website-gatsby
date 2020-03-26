@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby'
+import { Link, graphql, StaticQuery } from "gatsby"
 
 import "./PricingPlans.scss"
 
@@ -112,7 +112,8 @@ const PricingPlans = ({ item, plans }) => {
 				<div className="disclaimer">{item.disclaimer}</div>
 
 				<div className="details-button">
-					<a href={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</a>
+					<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
+					{/* <a href={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</a> */}
 				</div>
 			</div>
 		</section>

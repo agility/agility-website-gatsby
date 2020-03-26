@@ -6,7 +6,7 @@ const Callout = ({ item }) => {
 
 	item = item.customFields;
 	const callout = item.callout.customFields;
-console.log("callout", item)
+
 	var isPrimaryColor = item.theme === 'primary';
 	var calloutClasses = 'features p-w callout' + (!isPrimaryColor ? ' callout-secondary' : '');
 	var buttonClasses = 'btn' + (!isPrimaryColor ? ' btn-secondary' : '');

@@ -15,6 +15,7 @@ export default props => (
 					question
 					answer
 				  }
+				  contentID
 				  languageCode
 				  properties {
 					referenceName
@@ -50,10 +51,8 @@ const Faqs = ({ item, faqs }) => {
 	let moduleItem = item;
 	item = item.customFields;
 
-console.log("faqs", faqs)
-
-	faqs = faqs.map(function (item) {
-		return <FaqsContent key={item.contentID + "-" + moduleItem.contentID} item={item.customFields} />
+	faqs = faqs.map(function (faq) {
+		return <FaqsContent key={faq.contentID + "-" + moduleItem.contentID} item={faq.customFields} />
 	});
 
 	return (

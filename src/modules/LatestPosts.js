@@ -6,7 +6,6 @@ import './LatestPosts.scss'
 
 const LatestPosts = ({ item }) => {
 
-	console.log("latest posts", item)
 
 	return <div>Latest Posts</div>
 
