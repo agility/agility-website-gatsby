@@ -70,7 +70,7 @@
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    
+
 
     @media (max-width: 767px) {
       padding-right: 0;
@@ -222,7 +222,7 @@
     flex: 0 0 40%;
     margin-left: 0;
     text-align: right;
-   
+
 
     @media (max-width: 767px) {
       padding: 0;
@@ -319,6 +319,7 @@
     margin-left: 0;
 
     @media (max-width: 767px) {
+		order: 3;
       padding-right: 0;
       max-width: 100%;
       -webkit-box: 0 0 100%;
