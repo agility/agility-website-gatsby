@@ -45,10 +45,10 @@
       }
 
       .cta-block-inner {
-        
+
         padding: 30px 20px;
         display: block;
-        
+
 
         .image {
           height: 70px;
@@ -65,10 +65,15 @@
           margin-top: 25px;
           font-size: 18px;
           font-weight: 600;
-          color: $titles;
+		  color: $titles;
+		  &.cta-subtitle {
+			  margin-top: 15px;
+			font-size: 18px;
+			font-weight: normal;
+		  }
         }
       }
-      
+
     }
   }
 }

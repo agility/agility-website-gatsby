@@ -7,6 +7,8 @@ import Form from '../components/_form.jsx'
 import { getLeadSourceDetailForForm } from '../utils/lead-utils.js'
 import { renderHTML } from '../agility/utils'
 
+import Triangles from "../components/triangles.jsx"
+
 const ContentPanelForm = ({ item }) => {
 
 	item = item.customFields;
@@ -14,9 +16,8 @@ const ContentPanelForm = ({ item }) => {
 
 	return (
 		<section className="front-start front-start-landing p-w">
-                <div className="canvas" id="canvas-1"></div>
+				<Triangles />
 
-                <div className="triangle-cloud"></div>
 
                 <div className={panel.enableBackgroundImage ? 'rotated-bg' : ''}></div>
 
@@ -63,16 +64,16 @@ const ContentPanelForm = ({ item }) => {
                                 <input id="email" className="changed" type="email" placeholder="Email" required />
                             </FormField>
 
-                            <FormField id="phonenumber" label="Phone">
+                            {/* <FormField id="phonenumber" label="Phone">
                                 <input id="phonenumber" className="changed" type="tel" placeholder="xxx-xxx-xxxx" minLength="9" maxLength="20" required />
-                            </FormField>
+                            </FormField> */}
 
                             <FormField id="company" label="Company">
                                 <input id="company" className="changed" type="text" placeholder="Company" required />
                             </FormField>
 
                             <FormField id="comment" label="Comment">
-                                <textarea id="comment" className="changed" placeholder="Questions or Comments" ></textarea>
+                                <input id="comment" className="changed" type="text" placeholder="Questions or Comments" />
                             </FormField>
 
                             <input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />

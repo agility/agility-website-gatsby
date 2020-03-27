@@ -1,10 +1,35 @@
-import React from 'react';
+import React, {  useEffect, useState } from 'react';
 
+import {
+	ButtonBack,
+	ButtonNext,
+	CarouselProvider,
+	Slide,
+	Slider
+} from 'pure-react-carousel';
 import { renderHTML } from '../agility/utils'
 
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import "./Testimonials.scss"
 
 const Testimonials = ({ item }) => {
+
+	const [state, setState] = useState({
+		carouselSize: 2,
+		carouselWidth: 520,
+		carouselHeight: 354
+	})
+
+	useEffect(() => {
+
+		//only run this on the client
+		if (typeof window === 'undefined') return;
+
+		window.onresize = setCarouselSize;
+
+		setCarouselSize();
+
+	}, [])
 
 	let moduleItem = item;
 	item = item.customFields;
@@ -14,16 +39,62 @@ const Testimonials = ({ item }) => {
 	})
 
 
+	/**
+	 * Sets the carousel size - called on load and on resize of the window
+	 */
+	const setCarouselSize = function() {
+
+		const width = document.body.clientWidth;
+		if (width > 1200) {
+			setState({
+				carouselSize: 2,
+				carouselWidth: 520,
+				carouselHeight: 354
+			})
+		} else {
+			setState({
+				carouselSize: 1
+			})
+
+			if (width < 550) {
+				setState({
+					carouselWidth: 300,
+					carouselHeight: 270
+				})
+
+			}
+		}
+
+
+	}
+
+
 	return (
 
 		<section className="testimonials">
-			<div class="container-my">
+			<div className="container-my">
 				<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.header)}></h2>
 				<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subHeading)}></p>
 				<div className="testimonials-list">
 
+					<CarouselProvider
+						className="carousel"
+						visibleSlides={state.carouselSize}
+						totalSlides={item.testimonials.length}
+						naturalSlideWidth={state.carouselWidth}
+						naturalSlideHeight={state.carouselHeight}
+					>
 
-					{testimonials}
+						<Slider >
+							{testimonials}
+						</Slider>
+
+						<ButtonBack>&nbsp;</ButtonBack>
+						<ButtonNext>&nbsp;</ButtonNext>
+
+					</CarouselProvider>
+
+
 				</div>
 
 				<div className="button-wrap">
@@ -40,35 +111,32 @@ const Testimonials = ({ item }) => {
 
 export default Testimonials;
 
-class TestimonialContent extends React.Component {
+const TestimonialContent = ({item}) =>  {
 
-	render() {
+	let truncatedExcerpt = item.excerpt.replace(/^(.{200}[^\s]*).*/, "$1")
+	if (truncatedExcerpt.length < item.excerpt.length) {
+		truncatedExcerpt += "...\"";
+	}
 
-		return (
-
+	return (
+		<Slide>
 			<div className="testimonial">
 				<div className="item-inner">
 					<div className="top-row">
 						<div className="image">
-							{this.props.item.headshot &&
-								<img src={this.props.item.headshot.url + '?w=93&h=93'} alt={this.props.item.title} />
+							{item.headshot &&
+								<img src={item.headshot.url + '?w=93&h=93'} alt={item.title} />
 							}
 						</div>
-
-						{/* <div className="company-logo">
-							{this.props.item.companyLogo &&
-								<img src={this.props.item.companyLogo.url} alt={this.props.item.companyName} />
-							}
-						</div> */}
-
 						<div className="title">
-							<h3>{this.props.item.title}</h3>
-							<div>{this.props.item.jobTitle}</div>
+							<h3>{item.title}</h3>
+							<div>{item.jobTitle}</div>
 						</div>
 					</div>
-					<p>{this.props.item.excerpt}</p>
+					<p title={item.excerpt}>{truncatedExcerpt}</p>
 				</div>
 			</div>
-		);
-	}
+		</Slide>
+	);
+
 }
