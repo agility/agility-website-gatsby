@@ -16,7 +16,7 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        
+
         //dropdown Menu
         if (document) {
             var hiddenParent = document.querySelector('.header-menu .has-children');
@@ -24,15 +24,6 @@ class Header extends React.Component {
                 this.classList.toggle('open');
             });
 
-            //check for preview bar
-            //HACK
-            var previewBar = document.getElementById('pnlAgilityStatusBar');
-            if (previewBar) {
-                const header = document.getElementsByClassName('header-container')[0];
-                if(header) {
-                    header.classList.add('is-preview');
-                }
-            }
         }
     }
 
@@ -90,9 +81,9 @@ class Header extends React.Component {
                 <HeaderSearch siteSearchSettings={this.props.siteSearchSettings} />
                 <SignIn preHeaderLinks={this.props.preHeaderLinks} preHeaderPrimaryButton={this.props.preHeaderPrimaryButton} />
                 <Hamburger {...this.props} isSticky={this.state.sticky} />
-                
 
-                
+
+
                 <header className={headerClass}>
                     <div className="sticky-header">
                         <Sticky onFixedToggle={onStickyActive} className="sticky-header-inner" stickyClassName="sticky-header-active">
@@ -124,7 +115,7 @@ class Header extends React.Component {
                         </Sticky>
                     </div>
                 </header>
-                
+
                 <div className="drop-shadow"></div>
             </div>
 

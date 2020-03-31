@@ -12,6 +12,51 @@ const SEO = ({ page }) => {
 			<meta charSet="utf-8" />
 			<title>{title}</title>
 			<meta name="description" content={description} />
+			<link rel="dns-prefetch" href="//static.agilitycms.com" />
+			<link rel="dns-prefetch" href="//www.google-analytics.com" />
+			<link rel="dns-prefetch" href="//www.googleadservices.com" />
+			<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+			<link rel="dns-prefetch" href="//vars.hotjar.com" />
+			<link rel="dns-prefetch" href="//in.hotjar.com" />
+			<link rel="dns-prefetch" href="//script.hotjar.com" />
+			<link rel="dns-prefetch" href="//d.adroll.mgr.consensu.org" />
+			<link rel="dns-prefetch" href="//d.adroll.com" />
+			<link rel="dns-prefetch" href="//ups.analytics.yahoo.com" />
+			<link rel="dns-prefetch" href="//t.co" />
+			<link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
+			<link rel="dns-prefetch" href="//www.google.com" />
+			<link rel="dns-prefetch" href="//s.amazon-adsystem.com" />
+			<link rel="dns-prefetch" href="//snap.licdn.com" />
+
+			<link rel="dns-prefetch" href="//px.ads.linkedin.com" />
+			<link rel="dns-prefetch" href="//p.adsymptotic.com" />
+			<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+			<link rel="dns-prefetch" href="//www.facebook.com" />
+			<link rel="dns-prefetch" href="//js.convertflow.co" />
+			<link rel="dns-prefetch" href="//apps.elfsight.comv" />
+			<link rel="dns-prefetch" href="//static.elfsight.com" />
+			<link rel="dns-prefetch" href="//googleads.g.doubleclick.net" />
+			<link rel="dns-prefetch" href="//www.google.ca" />
+			<link rel="dns-prefetch" href="//connect.facebook.net" />
+			<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+			<link rel="dns-prefetch" href="//tracking.g2crowd.com" />
+
+			<link rel="dns-prefetch" href="//app.convertflow.co" />
+			<link rel="dns-prefetch" href="//pixel.advertising.com" />
+			<link rel="dns-prefetch" href="//dsum-sec.casalemedia.com" />
+			<link rel="dns-prefetch" href="//pixel.rubiconproject.com" />
+			<link rel="dns-prefetch" href="//simage2.pubmatic.com" />
+			<link rel="dns-prefetch" href="//sync.outbrain.com" />
+			<link rel="dns-prefetch" href="//eb2.3lift.com" />
+			<link rel="dns-prefetch" href="//x.bidswitch.net" />
+			<link rel="dns-prefetch" href="//ib.adnxs.com" />
+			<link rel="dns-prefetch" href="//us-u.openx.net" />
+			<link rel="dns-prefetch" href="//idsync.rlcdn.com" />
+			<link rel="dns-prefetch" href="//t.visitorqueue.com" />
+			<link rel="dns-prefetch" href="//s.adroll.com" />
+
+
+
 			<link rel="apple-touch-startup-image" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-152x152.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-57x57.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-114x114.png" />
