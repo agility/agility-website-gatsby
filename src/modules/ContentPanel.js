@@ -6,7 +6,6 @@ import Triangles from "../components/triangles.jsx"
 
 const ContentPanel = ({ item }) => {
 
-	console.log("content panel", item)
 
 	//adjust the item...
 	item = item.customFields.panel.customFields;

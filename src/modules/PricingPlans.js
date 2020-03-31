@@ -89,7 +89,6 @@ const PricingPlans = ({ item, plans }) => {
 	let moduleItem = item;
 	item = item.customFields;
 
-console.log("pricing", plans)
 
 	const planSet = plans.map(function (plan) {
 
