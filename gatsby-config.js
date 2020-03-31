@@ -18,7 +18,7 @@ const agilityConfig = {
 
 module.exports = {
 	siteMetadata: {
-		title: "Agility CMS Gatsby Starter",
+		title: "Agility CMS",
 
 	},
 	plugins: [

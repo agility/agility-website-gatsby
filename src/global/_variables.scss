@@ -44,9 +44,9 @@ $white: #fff;
 $flc: #cbdeff;
 
 //module spacing...
-$module-margin-spacing: 35px 0;
+$module-margin-spacing: 65px 0 35px;
 @media screen and (max-width: $mobile-width) {
-    $module-margin-spacing: 25px 0;
+    $module-margin-spacing: 45px 0 25px;
 }
 
 //panel border radius

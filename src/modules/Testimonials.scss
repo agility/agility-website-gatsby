@@ -1,5 +1,8 @@
+@import "../global/_variables.scss";
+
 .testimonials {
-  z-index: 3;
+  margin: $module-margin-spacing;
+	z-index: 3;
   position: relative;
 
   .title-component {

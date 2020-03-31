@@ -129,10 +129,15 @@
           }
         }
 
-        textarea {
-          height: 153px;
-          margin-bottom: 32px;
-        }
+		textarea {
+			line-height: 22px;
+		  min-height: 100px;
+		  max-height: 250px;
+		  padding: 16px;
+		  max-width: 100%;
+		  min-width: 100%;
+		}
+
 
         select {
           display: none;

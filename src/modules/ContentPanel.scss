@@ -30,7 +30,6 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-
   }
 
   .triangle-cloud {
@@ -53,8 +52,8 @@
   }
 
   .container-my {
-	align-items: flex-start;
-	-webkit-transform: skew(0); //this is a hack so the image doesn't disappear in safari...
+    align-items: flex-start;
+    -webkit-transform: skew(0); //this is a hack so the image doesn't disappear in safari...
     @media (max-width: 767px) {
       flex-direction: row-reverse;
     }
@@ -70,7 +69,6 @@
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-
 
     @media (max-width: 767px) {
       padding-right: 0;
@@ -146,8 +144,8 @@
 
       .btn {
         margin-right: 45px;
-		line-height: 48px;
-		font-size: 16px;
+        line-height: 48px;
+        font-size: 16px;
       }
 
       .btn-link {
@@ -223,7 +221,6 @@
     margin-left: 0;
     text-align: right;
 
-
     @media (max-width: 767px) {
       padding: 0;
       margin: 0 0 140px 0;
@@ -265,7 +262,7 @@
     img {
       width: 90%;
       height: auto;
-      box-shadow: (0px 15px 14px rgba(0,0,0,0.51));
+      box-shadow: (0px 15px 14px rgba(0, 0, 0, 0.51));
 
       @media (max-width: 767px) {
         width: 80%;
@@ -276,7 +273,6 @@
 
   .start-image.skewed-image {
     margin-top: -20px;
-
   }
 
   .start-image.right.skewed-image {
@@ -289,21 +285,33 @@
   }
 
   .start-image.transparent-image {
-
     img {
       border: none;
-
     }
   }
 }
 
 .front-start-landing {
+  //landing page overrides
   .landing-logo {
     margin: 20px 0 75px 0;
 
     img {
       max-width: 320px;
       height: auto;
+    }
+  }
+
+  .start-content {
+	  width: 60%;
+	  flex: 0 0 60%;
+	  max-width: 60%;
+
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 18px;
     }
   }
 
@@ -319,7 +327,7 @@
     margin-left: 0;
 
     @media (max-width: 767px) {
-		order: 3;
+      order: 3;
       padding-right: 0;
       max-width: 100%;
       -webkit-box: 0 0 100%;
@@ -333,12 +341,12 @@
       background: #fff;
       border-radius: $border-radius;
       padding: 16px 30px 30px 30px;
-	  box-shadow: 0px 1px 15px rgba(0,0,0,0.1);
+      box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
 
       h3.form-title {
-		color: #fff;
-		background-color: $darkerSecondaryColor;
-		margin: -16px -30px 0px -30px;
+        color: #fff;
+        background-color: $darkerSecondaryColor;
+        margin: -16px -30px 0px -30px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         padding: 16px 30px;
@@ -354,14 +362,14 @@
         position: relative;
 
         .invalid-feedback {
-			font-size: 12px;
-			color: $invalid;
-			position: absolute;
-			right: 0;
-			top: -17px;
-			background-color: #ffffffaa;
-			max-width: 75%;
-			border-radius: 3px;
+          font-size: 12px;
+          color: $invalid;
+          position: absolute;
+          right: 0;
+          top: -17px;
+          background-color: #ffffffaa;
+          max-width: 75%;
+          border-radius: 3px;
         }
       }
 
@@ -383,28 +391,32 @@
       textarea {
         width: 100%;
         border: 1px solid #d9d7d7;
-          background-color: #edebeb;
-          appearance: none;
-          width: 100%;
-          height: 48px;
-          line-height: 48px;
-          padding-left: 16px;
-          padding-right: 16px;
-          font-size: 16px;
+        background-color: #edebeb;
+        appearance: none;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 16px;
 
-          &::placeholder {
-            opacity: 1;
-            color: #c0c0c0;
-          }
+        &::placeholder {
+          opacity: 1;
+          color: #c0c0c0;
+        }
 
-          &:focus {
-            outline: none !important;
-          }
+        &:focus {
+          outline: none !important;
+        }
       }
 
       textarea {
-        min-height: 60px;
-        max-height: 150px;
+        line-height: 22px;
+        min-height: 100px;
+        max-height: 250px;
+        padding: 16px;
+        max-width: 100%;
+        min-width: 100%;
       }
 
       button[type="submit"] {
@@ -412,7 +424,7 @@
         display: inline-block;
         border: none;
         outline: none;
-        background-color:$darkerSecondaryColor;
+        background-color: $darkerSecondaryColor;
         font-size: 16px;
         font-family: "Muli-bold", sans-serif;
         font-weight: bold;
@@ -432,15 +444,15 @@
       }
 
       .disclaimer {
-		font-size: 12px;
-		color: #b3b3b3;
-		margin: 15px 6px -10px;
-		a {
-			color: #b3b3b3;
-			&:hover {
-				color: $colorBasic;
-			}
-		}
+        font-size: 12px;
+        color: #b3b3b3;
+        margin: 15px 6px -10px;
+        a {
+          color: #b3b3b3;
+          &:hover {
+            color: $colorBasic;
+          }
+        }
       }
     }
   }

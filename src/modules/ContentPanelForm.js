@@ -73,7 +73,7 @@ const ContentPanelForm = ({ item }) => {
                             </FormField>
 
                             <FormField id="comment" label="Comment">
-                                <input id="comment" className="changed" type="text" placeholder="Questions or Comments" />
+                                <textarea id="comment" className="changed"  placeholder="Questions or Comments" ></textarea>
                             </FormField>
 
                             <input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />
