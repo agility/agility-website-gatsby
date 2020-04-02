@@ -2,9 +2,10 @@ const getDynamicPageItem = ({ contentID, agilityItem }) => {
 	if (contentID > 0 && agilityItem && agilityItem.itemJson) {
 		return JSON.parse(agilityItem.itemJson);
 	}
+	return null;
 }
 
-const buildPageViewModel = ({ pageContext, data }) => {
+const buildPageViewModel = ({ pageContext, data, location }) => {
 
 	//if for whatever reason we get no page, kick out
 	if (data.agilitypage === null) return null;
@@ -17,6 +18,13 @@ const buildPageViewModel = ({ pageContext, data }) => {
 
 	const page = JSON.parse(data.agilitypage.pageJson);
 
+	//set the title from the page context...
+	page.title = pageContext.title;
+
+	//do any custom processing on the page and stuff...
+	page.seo = customSEOProcessing({ pageContext, data, page, dynamicPageItem, location });
+
+
 	//build the our viewModel
 	return {
 		page: page,
@@ -25,6 +33,64 @@ const buildPageViewModel = ({ pageContext, data }) => {
 	}
 }
 
+
+/**
+ * Perform processing on dynamic page items that want to update stuff in the page seo content.
+ */
+const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, location }) => {
+
+	let metaDescription = null;
+	let metaHTML = null;
+
+	let seo = {
+		metaDescription: null,
+		metaHTML: null
+	};
+
+	if (page.seo) {
+		seo = page.seo;
+	}
+
+	if (dynamicPageItem !== null) {
+
+		// *** special case for blog posts ***
+		if (dynamicPageItem.properties.definitionName === "BlogPost") {
+
+			//build the meta description
+			metaDescription = null;
+			if (dynamicPageItem.seo && dynamicPageItem.seo.metaDescription) metaDescription = dynamicPageItem.seo.metaDescription;
+			if (metaDescription === null) {
+				metaDescription = dynamicPageItem.customFields.excerpt;
+				if (metaDescription && metaDescription.length > 240) metaDescription = metaDescription.substring(0, 240) + "...";
+			}
+
+			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
+
+			let category = null;
+			let image = null;
+
+			if (dynamicPageItem.customFields.category && dynamicPageItem.customFields.category.customFields) {
+				category = dynamicPageItem.customFields.category.customFields.title;
+			}
+
+			if (dynamicPageItem.customFields.postImage) image = dynamicPageItem.customFields.postImage;
+
+			seo.metaDescription = metaDescription;
+			seo.twitterCard = "summary_large_image";
+			seo.ogType = "article";
+			seo.category = category;
+			seo.canonicalUrl = canonicalUrl;
+			seo.image = image;
+
+		}
+	}
+
+	return seo
+
+
+}
+
+
 const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
 	const fieldResolver =
 	{
@@ -32,6 +98,17 @@ const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
 		type: type,
 		//this is the function that is going to resolve it
 		resolve: async (source, args, context, info) => {
+			const fieldObj = source.customFields[linkedContentFieldName];
+			if (!fieldObj) {
+				return null;
+			}
+
+			const contentID = parseInt(fieldObj.contentid);
+			if (isNaN(contentID) || contentID < 1) {
+				return null;
+			}
+
+
 			//query the graphql nodes to find the item you want to return
 			const node = context.nodeModel.runQuery({
 				//find the author that matches our ID and language code

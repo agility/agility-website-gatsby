@@ -22,8 +22,9 @@ export const query = graphql`
     }
 }
 `
-const AgilityPage = ({ pageContext, data }) => {
-	const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
+const AgilityPage = ({ pageContext, data, location }) => {
+
+	const viewModel = agilityUtils.buildPageViewModel({ pageContext, data, location });
 
 	if (viewModel === null) {
 		return "Page data could not be accessed."
@@ -33,7 +34,7 @@ const AgilityPage = ({ pageContext, data }) => {
 
 	return (
 		<LayoutTemplate page={ viewModel.page }>
-			<SEO page={ viewModel.page } />
+			<SEO page={ viewModel.page }  />
 			<PreviewBar isPreview={viewModel.isPreview} />
 			{ viewModel.isLandingPage === false &&
 				<GlobalHeader {... viewModel} />

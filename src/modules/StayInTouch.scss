@@ -1,0 +1,49 @@
+.two-column-page {
+  .right-col {
+    > div {
+      margin-bottom: 24px;
+      padding: 36px 40px 16px;
+      border-radius: 5px;
+      box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+
+      @media (max-width: 480px) {
+        padding: 20px 20px 5px;
+      }
+
+      .h4 {
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-family: "Muli-bold", sans-serif;
+        color: #2a3846;
+      }
+
+      .social {
+        a {
+          margin-bottom: 20px;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          align-items: center;
+          -webkit-box-align: center;
+          -moz-box-align: center;
+          -ms-flex-align: center;
+
+          img {
+            margin-right: 18px;
+            width: 24px;
+            height: 24px;
+          }
+
+          span {
+            font-size: 16px;
+            font-family: "Muli-Regular", sans-serif;
+            color: #484b4d;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react"
-import HtmlReactParser from "html-react-parser"
+// import HtmlReactParser from "html-react-parser"
 
 import '../global/_react-debug.scss'
 import '../global/_reset.scss'

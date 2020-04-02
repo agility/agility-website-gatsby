@@ -19,7 +19,8 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 				const moduleProps = {
 					key: moduleItem.item.contentID,
 					dynamicPageItem: dynamicPageItem,
-					item: moduleItem.item
+					item: moduleItem.item,
+					page: page
 				}
 
 				if (ModuleComponentToRender) {

@@ -1,0 +1,31 @@
+.info-box {
+	margin-bottom: 24px;
+    padding: 36px 40px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 26px 0 rgba(0,0,0,.1);
+
+
+	.about {
+		margin-bottom: 20px;
+		font-size: 16px;
+		line-height: 1.5;
+		font-family: "Muli-Regular", sans-serif;
+		color: #6d7882;
+
+		p {
+			font-size: 16px;
+			line-height: 1.5;
+			font-family: "Muli-Regular", sans-serif;
+			color: #6d7882;
+
+			a {
+				color: #4600a8;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

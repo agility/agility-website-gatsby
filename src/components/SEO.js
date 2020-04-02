@@ -1,17 +1,40 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
+import HtmlReactParser from "html-react-parser"
 
 const SEO = ({ page }) => {
 
-	const title = page.title
-	const description = page.seo.metaDescription
+	let title = page.title
+	const description = page.seo.metaDescription;
+	const metaHTML = page.seo.metaHTML;
 
+	if (title.indexOf("Agility") === -1) title += " - Agility CMS";
 
 	return (
 		<Helmet>
 			<meta charSet="utf-8" />
 			<title>{title}</title>
+
+			<meta property="og:site_name" content="Agility CMS" />
+			<meta property="twitter:title" content={title} />
+		 	<meta property="og:title" content={title} />
+
 			<meta name="description" content={description} />
+			<meta name="og:description" content={description} />
+			<meta name="twitter:description" content={description} />
+
+
+			{page.seo.twitterCard && <meta property="twitter:card" content={page.seo.twitterCard} /> }
+			{page.seo.ogType && <meta property="og:type" content={page.seo.ogType} /> }
+			{page.seo.category && <meta property="og:category" content={page.seo.category} /> }
+
+			{page.seo.image && <meta property="og:image" content={page.seo.image.url} /> }
+			{page.seo.image && <meta property="twitter:image" content={page.seo.image.url} /> }
+
+			{page.seo.image && page.seo.image.width > 0 && <meta property="og:image:width" content={page.seo.image.width} /> }
+			{page.seo.image && page.seo.image.height > 0 && <meta property="og:image:height" content={page.seo.image.height} /> }
+
+
 			<link rel="dns-prefetch" href="//static.agilitycms.com" />
 			<link rel="dns-prefetch" href="//www.google-analytics.com" />
 			<link rel="dns-prefetch" href="//www.googleadservices.com" />
@@ -54,8 +77,6 @@ const SEO = ({ page }) => {
 			<link rel="dns-prefetch" href="//idsync.rlcdn.com" />
 			<link rel="dns-prefetch" href="//t.visitorqueue.com" />
 			<link rel="dns-prefetch" href="//s.adroll.com" />
-
-
 
 			<link rel="apple-touch-startup-image" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-152x152.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-57x57.png" />

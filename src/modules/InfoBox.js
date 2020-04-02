@@ -1,12 +1,17 @@
 import React from 'react';
+import { renderHTML } from '../agility/utils'
 
+import "./InfoBox.scss"
 
 const InfoBox = ({ item }) => {
 
 	return (
-		<section className="container">
-			InfoBox
-		</section>
+		<div className="info-box">
+                <h4 className="h4">{item.customFields.heading}</h4>
+                <div className="about">
+                    <div dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
+                </div>
+            </div>
 	);
 }
 
