@@ -173,6 +173,11 @@ const renderHTML = (html) => {
 
 const cleanHTML = (html) => {
 	if (!html) return ""
+
+	//HACK for Agility CMS Website
+	html = html.replace(/http:\/\/cdn.agilitycms.com\/agility-cms-website/gi, "https://media.agilitycms.com");
+	html = html.replace(/http:\/\/media.agilitycms.com/gi, "https://media.agilitycms.com");
+
 	//fix '~' in links in HTML
 	return html.replace(/href="~\//gi, 'href="/')
 }
