@@ -73,7 +73,13 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				category = dynamicPageItem.customFields.category.customFields.title;
 			}
 
-			if (dynamicPageItem.customFields.postImage) image = dynamicPageItem.customFields.postImage;
+			if (dynamicPageItem.customFields.postImage) {
+				if (dynamicPageItem.customFields.postImage.url.indexOf("http://") !== -1) {
+					dynamicPageItem.customFields.postImage.url = dynamicPageItem.customFields.postImage.url.replace("http://", "https://");
+				}
+				image = dynamicPageItem.customFields.postImage;
+
+			}
 
 			seo.metaDescription = metaDescription;
 			seo.twitterCard = "summary_large_image";
@@ -177,6 +183,7 @@ const cleanHTML = (html) => {
 	//HACK for Agility CMS Website
 	html = html.replace(/http:\/\/cdn.agilitycms.com\/agility-cms-website/gi, "https://media.agilitycms.com");
 	html = html.replace(/http:\/\/media.agilitycms.com/gi, "https://media.agilitycms.com");
+	html = html.replace(/http:\/\/cdn.agilitycms.com/gi, "https://cdn.agilitycms.com");
 
 	//fix '~' in links in HTML
 	return html.replace(/href="~\//gi, 'href="/')
