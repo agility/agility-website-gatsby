@@ -19,80 +19,96 @@ export default props => (
 		query={graphql`
         query GlobalFooterQuery {
 			agilityGlobalFooter {
+			  customFields {
+				subscribeTitle
+				subscribeRedirect
+				subscribePOSTUrl
+				subscribeEmailPlaceholder
+				subscribeDescription
+				subscribeButtonLabel
+				followTitle
+				copyright
+				column3Title
+				column2Title
+				column1Title
+			  }
+			  column1Links {
+				contentID
 				customFields {
-					subscribeTitle
-					subscribeRedirect
-					subscribePOSTUrl
-					subscribeEmailPlaceholder
-					subscribeDescription
-					subscribeButtonLabel
-					followTitle
-					copyright
-					column3Title
-					column2Title
-					column1Title
+				  title
+				  uRL {
+					href
+					target
+					text
+				  }
 				}
-				column1Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
-						}
-					}
+				properties {
+				  itemOrder
 				}
-				column2Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
-						}
-					}
+			  }
+			  column2Links {
+				contentID
+				customFields {
+				  title
+				  uRL {
+					href
+					target
+					text
+				  }
 				}
-				column3Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
-						}
-					}
+				properties {
+				  itemOrder
 				}
-				followLinks {
-					contentID
-					customFields {
-						title
-						followURL {
-							href
-							target
-							text
-						}
-						logo {
-							label
-							url
-						}
-					}
+			  }
+			  column3Links {
+				contentID
+				customFields {
+				  title
+				  uRL {
+					href
+					target
+					text
+				  }
 				}
-				bottomLinks {
-					contentID
-					customFields {
-						title
-						uRL {
-							target
-							text
-							href
-						}
-					}
+				properties {
+				  itemOrder
 				}
+			  }
+			  followLinks {
+				contentID
+				customFields {
+				  title
+				  followURL {
+					href
+					target
+					text
+				  }
+				  logo {
+					label
+					url
+				  }
+				}
+				properties {
+				  itemOrder
+				}
+			  }
+			  bottomLinks {
+				contentID
+				customFields {
+				  title
+				  uRL {
+					target
+					text
+					href
+				  }
+				}
+				properties {
+				  itemOrder
+				}
+			  }
 			}
-		}
+		  }
+
 
         `}
 		render={queryData => {
@@ -177,11 +193,14 @@ class Footer extends React.Component {
 
 		let item = this.props.item.customFields;
 
-		let column1Links = this.props.item.column1Links;
-		let column2Links = this.props.item.column2Links;
-		let column3Links = this.props.item.column3Links;
-		let followLinks = this.props.item.followLinks;
-		let bottomLinks = this.props.item.bottomLinks;
+
+		let sortFunc = (a, b) => {  return a.properties.itemOrder - b.properties.itemOrder; }
+
+		let column1Links = this.props.item.column1Links.sort(sortFunc);
+		let column2Links = this.props.item.column2Links.sort(sortFunc);
+		let column3Links = this.props.item.column3Links.sort(sortFunc);
+		let followLinks = this.props.item.followLinks.sort(sortFunc);
+		let bottomLinks = this.props.item.bottomLinks.sort(sortFunc);
 
 		const outputLinks = (lst) => {
 			let links = []
