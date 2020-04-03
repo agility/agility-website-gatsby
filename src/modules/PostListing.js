@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
+import StringUtils from "../utils/string-utils"
 
 
 import ResponsiveImage from '../components/responsive-image.jsx'
@@ -11,13 +12,7 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query PostListingQuery {
-			allAgilitySitemapNode(filter: {contentID: {gt: 0}, pagePath: {regex: "/\/resources\/posts\//i"}}) {
-				nodes {
-					pageID
-					contentID
-					pagePath
-				}
-			}
+
 			allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}) {
 			  nodes {
 				contentID
@@ -25,6 +20,7 @@ export default props => (
 				  date(formatString: "MMMM D, YYYY")
 				  excerpt
 				  title
+				  uRL
 				  postImage {
 					url
 					label
@@ -52,12 +48,17 @@ export default props => (
 
 			//filter out only those logos that we want...
 			let posts = queryData.allAgilityBlogPost.nodes;
-			let sitemapNodes = queryData.allAgilitySitemapNode.nodes;
+
+			posts.forEach(p => {
+				let excerpt = p.customFields.excerpt;
+				if (excerpt) {
+					p.customFields.excerpt = StringUtils.stripHtml(excerpt, 200);
+				}
+			});
 
 			const viewModel = {
 				item: props.item,
-				posts: posts,
-				sitemapNodes: sitemapNodes
+				posts: posts
 			}
 			return (
 				<PostListing {...viewModel} />
@@ -134,11 +135,10 @@ class PostListing extends React.Component {
 		}
 
 		var posts = this.state.posts.map(item => {
+console.log(item)
+			let postUrl = "/resources/posts/" + item.customFields.uRL;
 
-
-			let sitemapNode = this.sitemapNodes.find(n => n.contentID === item.contentID);
-
-			return <PostListItem item={item} sitemapNode={sitemapNode} key={this.moduleItem.contentID + "-" + item.contentID} />
+			return <PostListItem item={item} url={postUrl} key={this.moduleItem.contentID + "-" + item.contentID} />
 		});
 
 		return (
@@ -168,22 +168,10 @@ class PostListItem extends React.Component {
 		const author = this.props.item.author;
 		const image = item.postImage
 
-		const sitemapNode = this.props.sitemapNode;
-		let url = "";
-		if (sitemapNode) url = sitemapNode.pagePath;
+		let url = this.props.url;
 
 		let excerpt = item.excerpt;
-		if (excerpt) {
-			var element = document.createElement('div');
-			element.innerHTML = excerpt;
-			excerpt = element.innerText;
-			element = null;
 
-			if (excerpt.length > 200) {
-				excerpt = excerpt.substring(0, 200) + "...";
-			}
-
-		}
 
 		return (
 			<div className="blog-post" key={key}>

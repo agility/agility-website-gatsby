@@ -1,0 +1,47 @@
+@import "../global/_variables.scss";
+
+.most-viewed-articles {
+	h4 {
+		font-size: 20px;
+		font-weight: bold;
+		color: $titles;
+		margin-bottom: 30px;
+	}
+
+	.posts-wrapper {
+
+		.post {
+			display: flex;
+			margin-bottom: 25px;
+
+			.post-image {
+				flex: 0 0 30%;
+				max-width: 100px;
+			}
+
+			.post-text {
+				margin-left: 25px;
+				position: relative;
+				padding-bottom: 30px;
+
+				h5 {
+
+					color: $titles;
+					font-size: 18px;
+					font-weight: bold;
+				}
+
+				.read-more {
+					display: block;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					text-align: right;
+					color: $darkerSecondaryColor;
+				}
+			}
+		}
+
+
+	}
+}
