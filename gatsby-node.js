@@ -38,8 +38,8 @@ exports.createResolvers = (args) => {
 
 		agilityBlogPost: {
 			category: agility.getLinkedContentItem({ type: 'agilityBlogCategory', linkedContentFieldName: 'categories' }),
-			author: agility.getLinkedContentItem({ type: 'agilityBlogAuthor', linkedContentFieldName: 'author' })
-
+			author: agility.getLinkedContentItem({ type: 'agilityBlogAuthor', linkedContentFieldName: 'author' }),
+			tags: agility.getLinkedContentList({ type: 'agilityBlogTag', linkedContentFieldName: 'blogTags' })
 		}
 
 		//[Not Implemented]

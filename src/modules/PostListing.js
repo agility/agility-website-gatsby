@@ -5,6 +5,7 @@ import StringUtils from "../utils/string-utils"
 
 import ResponsiveImage from '../components/responsive-image.jsx'
 import InfiniteScroll from 'react-infinite-scroller';
+import PostTags from "../components/PostTags.jsx"
 
 import './PostListing.scss'
 
@@ -40,6 +41,12 @@ export default props => (
 					title
 				  }
 				}
+				tags {
+					contentID
+					customFields {
+						title
+					}
+				}
 			  }
 			}
 		  }
@@ -49,6 +56,18 @@ export default props => (
 			//filter out only those logos that we want...
 			let posts = queryData.allAgilityBlogPost.nodes;
 
+			//filter by tag if neccessary
+			if (props.dynamicPageItem && props.dynamicPageItem.properties.definitionName === "BlogTag") {
+				const tagContentID = props.dynamicPageItem.contentID;
+
+				posts = posts.filter(p => {
+					if (! p.tags || ! (p.tags.length > 0)) return false;
+					const index = p.tags.findIndex(t => { return parseInt(t.contentID) === parseInt(tagContentID); });
+					return index >= 0;
+				});
+			}
+
+			//adjust the excerpt
 			posts.forEach(p => {
 				let excerpt = p.customFields.excerpt;
 				if (excerpt) {
@@ -135,7 +154,7 @@ class PostListing extends React.Component {
 		}
 
 		var posts = this.state.posts.map(item => {
-console.log(item)
+
 			let postUrl = "/resources/posts/" + item.customFields.uRL;
 
 			return <PostListItem item={item} url={postUrl} key={this.moduleItem.contentID + "-" + item.contentID} />
@@ -161,16 +180,32 @@ console.log(item)
 
 
 class PostListItem extends React.Component {
+
+
 	render() {
 
 		const key = `post-listing-${this.props.item.contentID}`
 		const item = this.props.item.customFields
+
 		const author = this.props.item.author;
 		const image = item.postImage
 
 		let url = this.props.url;
 
 		let excerpt = item.excerpt;
+
+		// let tags = this.props.item.tags;
+
+		// if (tags && tags.length > 0) {
+		// 	tags = tags.map(tag => {
+
+		// 		let tagUrl = "/resources/posts/tag/" + encodeURIComponent(tag.customFields.title.toLowerCase().replace(/ /g, "-"));
+
+		// 		return (
+		// 			<Link to={ tagUrl } key={key + "-" + tag.contentID}>{tag.customFields.title}</Link>
+		// 		)
+		// 	});
+		// }
 
 
 		return (
@@ -184,6 +219,8 @@ class PostListItem extends React.Component {
 				}
 				<div className="content">
 					<h3 className="h3"><Link to={url}>{item.title}</Link></h3>
+					<PostTags post={this.props.item} />
+
 					{
 						author &&
 						<div className="author">
@@ -195,12 +232,16 @@ class PostListItem extends React.Component {
 						</div>
 					}
 
-					<div className="text"><p>{excerpt}</p></div>
 
+
+
+					<div className="text"><p>{excerpt}</p></div>
 					{
 						item.date &&
 						<span className="date">{item.date}</span>
 					}
+
+
 				</div>
 			</div>
 		);

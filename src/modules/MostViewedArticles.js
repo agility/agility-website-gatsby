@@ -5,7 +5,6 @@ import './MostViewedArticles.scss'
 
 export default  ({ item}) => {
 
-console.log("viewd", item)
 
 	const moduleItem = item;
 	item = item.customFields;

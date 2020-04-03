@@ -18,7 +18,29 @@
       img {
         display: block;
       }
-    }
+	}
+
+	.tags {
+		margin-top:-5px;
+		margin-bottom: 15px;
+		a {
+			padding: 3px 8px;
+			margin: 5px;
+			font-size: 14px;
+			border-radius: 4px;
+			background-color: #ebebeb;
+			color: $greyColor;
+			transition: all .2s ease-in-out;
+			&:hover {
+				color: darken($greyColor, 20%);
+				background-color: darken(#ebebeb, 5%);
+			}
+			&:first-child {
+				margin-left: 0;
+			}
+
+		}
+	}
 
     .content {
       padding: 28px 32px;

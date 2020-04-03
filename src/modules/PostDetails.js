@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import moment from 'moment'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
+import PostTags from "../components/PostTags.jsx"
 
 import "./RichTextArea.scss"
 import "./PostDetails.scss"
@@ -22,6 +23,8 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 					{post.subTitle &&
 						<h4 className="h4">{post.subTitle}</h4>
 					}
+					<PostTags post={post} />
+
 					<div className="meta">
 						<div className="author">
 							<div className="author-image">
@@ -31,6 +34,8 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 						</div>
 						<span className="date">{moment(post.date).format("LL")}</span>
 					</div>
+
+
 
 					{post.postImage &&
 						<div className="image">

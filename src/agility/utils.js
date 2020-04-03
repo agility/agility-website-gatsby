@@ -140,9 +140,29 @@ const getLinkedContentList = ({ type, linkedContentFieldName }) => {
 		type: [type],
 		resolve: (source, args, context, info) => {
 			const list = context.nodeModel.getAllNodes({ type });
-			const filteredList = list.filter(
-				item => item.properties.referenceName === source.customFields[linkedContentFieldName].referencename
-			)
+			const json = source.internal.content;
+			const fullItem = JSON.parse(json);
+			const field = fullItem.customFields[linkedContentFieldName];
+			if (! field || ! field.referencename) return [];
+
+			const referenceName = field.referencename;
+			let sortIDAry = null;
+			const sortids = field.sortids;
+			if (sortids) {
+				sortIDAry = sortids.split(",");
+			}
+
+			const filteredList = list.filter( item => {
+
+				if (item.properties.referenceName !== referenceName) return false;
+
+				if (sortIDAry) {
+					return sortIDAry.findIndex(id => { return parseInt(id) === parseInt(item.contentID); }) > -1;
+				}
+
+				return true;
+			})
+
 			return filteredList;
 		}
 	}
