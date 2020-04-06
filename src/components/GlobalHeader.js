@@ -205,8 +205,11 @@ class GlobalHeader extends Component {
 						</Sticky>
 					</div>
 				</header>
+				{ this.state.sticky &&
+				<div style={{height:"70px"}}>&nbsp;</div>}
 
 			</div>
+
 
 		);
 	}
