@@ -1,0 +1,138 @@
+@import "../global/_variables.scss";
+
+.event-list {
+
+
+  margin: $module-margin-spacing;
+  position: relative;
+
+  .title-component {
+	  width: 100%;
+	  text-align: center;
+	  margin-bottom: 20px;
+  }
+  .sub-title {
+	text-align: center;
+	font-size: 18px;
+	width: 100%;
+	margin-bottom: 20px;
+  }
+
+  .event-list-wrapper {
+	width: 100%;
+
+	.event {
+		display: flex;
+
+		.event-image {
+			width: 40%;
+			text-align: center;
+			margin-right: 20px;
+			img {
+			  max-height: 461px;
+
+			}
+		  }
+
+		  .event-content {
+			width: 60%;
+			h2 {
+			  font-size: 30px;
+			  font-weight: 600;
+			  margin-bottom: 26px;
+			  font-family: $bold;
+			}
+			.rl-panel {
+			  margin-left: 18px;
+			  p {
+				margin-bottom: 50px;
+				line-height: 24px;
+				font-size: 14px;
+			  }
+
+			  ul {
+				margin-top: 25px;
+				li {
+				  margin-left: 65px;
+				  display: block;
+				  min-height: 40px;
+				  margin-bottom: 20px;
+				  line-height: 24px;
+				  font-size: 14px;
+
+				  h3 {
+					font-size: 16px;
+					font-weight: 600;
+					line-height: 30px;
+					font-family: $bold;
+				  }
+
+				  &:before {
+					position: absolute;
+					content: "";
+					background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
+					background-size: contain;
+
+					width: 45px;
+					height: 45px;
+					margin-left: -70px;
+				  }
+				}
+			  }
+			}
+		  }
+
+	}
+
+
+  }
+
+
+
+
+}
+
+@media screen and (max-width: $tablet-width) {
+  .right-left-content {
+
+    .container-my {
+      margin-left: 20px;
+      margin-right: 20px;display: block;
+
+      .rl-image {
+        width: auto;
+        margin: 0px 60px;
+        text-align: center;
+        img {
+          max-height: 400px;
+
+        }
+      }
+      .rl-content {
+        width: auto;
+        h2 {
+          font-size: 20px;
+          margin-bottom: 19px;
+        }
+        .rl-panel {
+          margin-left: 0;
+          ul {
+            margin-top: 25px;
+            li {
+              margin-left: 32px;
+              &:before {
+                position: absolute;
+
+                width: 22px;
+                height: 22px;
+                margin-left: -32px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
