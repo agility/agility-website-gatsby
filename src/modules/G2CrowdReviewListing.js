@@ -40,14 +40,7 @@ const G2CrowdReviewListing = ({ item }) => {
 				<p className="intro">{item.customFields.subHeading}</p>
 				<div>
 					<div className="g2-review-panel">
-
-						{ (typeof window !== 'undefined') &&
-							<div className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
-						}
-						{ (typeof window === 'undefined') &&
-							<div className="g2-review-widget"></div>
-						}
-
+						<div className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
 					</div>
 				</div>
 			</div>

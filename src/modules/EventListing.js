@@ -19,7 +19,6 @@ export default props => (
 				  description
 				  mainImage {
 					url
-					label
 				  }
 				}
 			  }
@@ -91,10 +90,10 @@ const Event = ({moduleItem, event, index}) => {
 		<div className="event">
 			<div className="event-content">
 				{ item.mainImage &&
-				 <a href={url}><img src={item.mainImage.url + "?w=400&h=350"} alt={item.mainImage.label} /></a> }
+				 <Link to={url}><img src={item.mainImage.url + "?w=400&h=350"} alt={item.mainImage.label} /></Link> }
 			</div>
 			<div className="event-content">
-				<a href={url}><h2>{index} - {item.title}</h2></a>
+				<Link to={url}><h2>{index} - {item.title}</h2></Link>
 			</div>
 
 		</div>
