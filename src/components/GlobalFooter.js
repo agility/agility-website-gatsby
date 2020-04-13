@@ -3,10 +3,9 @@ import React from 'react';
 import PostUtil from '../utils/post-util.js';
 import { getLeadSource } from '../utils/lead-utils.js'
 
-import { graphql, StaticQuery } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 
 //TODO: switch the bottom links to Link...
-//import { Link, graphql, StaticQuery } from "gatsby"
 
 
 import './GlobalFooter.scss'
@@ -234,7 +233,7 @@ class Footer extends React.Component {
 			lst.forEach(lnk => {
 				links.push(
 					<li key={lnk.contentID}>
-						<a href={lnk.customFields.uRL.href} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</a>
+						<Link to={lnk.customFields.uRL.href} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</Link>
 					</li>
 				);
 			})

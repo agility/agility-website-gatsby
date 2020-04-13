@@ -1,4 +1,7 @@
+@import "../global/_variables.scss";
+
 .rich-text {
+	margin: $module-margin-spacing;
   word-break: break-word;
   h1 {
     margin-bottom: 20px;
@@ -121,7 +124,7 @@
 
       a { color: #5400ca !important; }
     }
-    ul {        
+    ul {
       padding-left: 20px !important;
     }
   }

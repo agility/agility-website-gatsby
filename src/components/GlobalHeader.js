@@ -18,6 +18,7 @@ export default props => (
         query GlobalHeaderQuery {
 			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
 				customFields {
+					hideMarketingBanner
 					marketingBanner
 					mobileLogo {
 						label
@@ -166,7 +167,7 @@ class GlobalHeader extends Component {
 
 		return (
 			<div className="header-container">
-				{item.marketingBanner && item.marketingBanner.length > 0 &&
+				{ (item.hideMarketingBanner !== "true") && item.marketingBanner && item.marketingBanner.length > 0 &&
 					<MarketingBanner message={item.marketingBanner} />
 				}
 				<HeaderSearch siteSearchSettings={item.siteSearchSettings} />
