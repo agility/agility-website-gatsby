@@ -21,7 +21,7 @@ class FullPageForm extends React.Component {
 							<div className="form-left">
 								<h2 className="h2">{this.props.title}</h2>
 								<h3 className="h3">{this.props.subTitle}</h3>
-								<div className="rich-text" dangerouslySetInnerHTML={renderHTML(this.props.text )}></div>
+								<div dangerouslySetInnerHTML={renderHTML(this.props.text )}></div>
 							</div>
 							<div className="form-right" >
 
