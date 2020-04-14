@@ -102,7 +102,12 @@ class Form extends React.Component {
 					* We will show that message in our error container if the element is invalid, and clear the previous message, if it is valid.
 					*/
 					if (!elem.validity.valid) {
-						errorLabel.textContent = elem.validationMessage;
+						let msg = elem.getAttribute("message");
+						if (msg) {
+							errorLabel.textContent = msg;
+						} else {
+							errorLabel.textContent = elem.validationMessage;
+						}
 						invalidElements.push(elem);
 					} else {
 						errorLabel.textContent = "";

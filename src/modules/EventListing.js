@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment'
 import { Link, graphql, StaticQuery } from "gatsby"
+
 import { renderHTML } from '../agility/utils'
 
 import "./EventListing.scss"
@@ -66,7 +67,10 @@ const EventListing = ({ moduleItem, events }) => {
 
 	return (
 		<section className="event-list">
+
 			<div className="container-my">
+				<div className="rotated-bg"></div>
+
 				{ item.title &&
 				<h2 className="title-component">{item.title}</h2> }
 				{ item.subTitle &&
@@ -87,16 +91,16 @@ const Event = ({moduleItem, event, index}) => {
 	const url = `/community/events/${item.url}`
 
 	return (
-		<div className="event">
-			<div className="event-content">
-				{ item.mainImage &&
-				 <Link to={url}><img src={item.mainImage.url + "?w=400&h=350"} alt={item.mainImage.label} /></Link> }
-			</div>
-			<div className="event-content">
-				<Link to={url}><h2>{index} - {item.title}</h2></Link>
-			</div>
+		<Link className="event" to={url}>
 
-		</div>
+			<div className="event-image">
+				{ item.mainImage &&
+				 <img src={item.mainImage.url + "?w=400&h=350"} alt={item.mainImage.label} /> }
+			</div>
+			<div className="event-content">
+				<h2>{index} - {item.title}</h2>
+			</div>
+		</Link>
 	)
 
 }

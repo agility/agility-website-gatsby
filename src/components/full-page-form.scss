@@ -1,8 +1,8 @@
 @import "../global/_variables.scss";
 
 .form-container {
-  margin: $module-margin-spacing;
-  margin-bottom: 0;
+
+  margin: 0;
 
   .form-panel {
     margin: 60px 0;
@@ -16,16 +16,16 @@
       margin-right: 5%;
       font-size: 14px;
 
-      .h2 {
+      h2 {
         margin-bottom: 25px;
         font-size: 30px;
-        font-family: "Muli-Bold", sans-serif;
+        font-weight: 600;
       }
 
-      .h3 {
+      h3 {
         font-size: 20px;
-        line-height: 1.6;
-        font-family: "Muli-SemiBold", sans-serif;
+		font-weight: 600;
+		margin-bottom: 20px;
       }
 
       p {
@@ -100,6 +100,7 @@
 		position: relative;
 
         label {
+			visibility: hidden;
           display: block;
           margin-bottom: 6px;
           font-size: 16px;
@@ -461,7 +462,7 @@
     .form-right {
       color: $colorBasic;
       .form-title {
-        background-color: $darkerSecondaryColor;
+        background-color: $primaryColor;
       }
 
       .submit {
@@ -471,11 +472,14 @@
 
   &.yellow {
     background-color: $primaryColor;
-    color: $colorBasic;
+	color: $colorBasic;
+
     .form-right {
+
       color: #fff;
       .form-title {
-        background-color: $darkerSecondaryColor;
+		background-color: $darkerSecondaryColor;
+
       }
       .submit {
         .btn {
@@ -509,9 +513,12 @@
         display: block;
         flex: none;
 
-        .h2 {
+        h2 {
           font-size: 18px;
-        }
+		}
+		h3 {
+			font-size: 16px;
+		  }
         ul {
           margin-top: 25px;
           li {

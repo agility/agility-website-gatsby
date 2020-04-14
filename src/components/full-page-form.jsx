@@ -2,6 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root'
 import './full-page-form.scss'
 import Form from './_form.jsx'
+import { renderHTML } from '../agility/utils'
 
 class FullPageForm extends React.Component {
 
@@ -20,7 +21,7 @@ class FullPageForm extends React.Component {
 							<div className="form-left">
 								<h2 className="h2">{this.props.title}</h2>
 								<h3 className="h3">{this.props.subTitle}</h3>
-								<div className="rich-text" dangerouslySetInnerHTML={{ __html: this.props.text }}></div>
+								<div className="rich-text" dangerouslySetInnerHTML={renderHTML(this.props.text )}></div>
 							</div>
 							<div className="form-right" >
 

@@ -4,7 +4,7 @@ import FullPageForm from '../full-page-form.jsx'
 import FormField from '../_form-field.jsx'
 //import Countries from '../static/data/countries.json'
 import { getLeadSourceDetailForForm } from '../../utils/lead-utils.js'
-import Select from 'react-select';
+// import Select from 'react-select';
 
 
 const ContactUs = ({ item }) => {
@@ -18,44 +18,44 @@ const ContactUs = ({ item }) => {
 
 	// });
 
-	const roleOptions = [
-		{ value: "C-Suite", label: "C-Suite" },
-		{ value: "Marketer", label: "Marketer" },
-		{ value: "Procurement", label: "Procurement" },
-		{ value: "Developer", label: "Developer" },
-		{ value: "IT", label: "IT" },
-		{ value: "Partner", label: "Partner" }
-	];
+	// const roleOptions = [
+	// 	{ value: "C-Suite", label: "C-Suite" },
+	// 	{ value: "Marketer", label: "Marketer" },
+	// 	{ value: "Procurement", label: "Procurement" },
+	// 	{ value: "Developer", label: "Developer" },
+	// 	{ value: "IT", label: "IT" },
+	// 	{ value: "Partner", label: "Partner" }
+	// ];
 
-	const handleRoleChange = selectedOption => {
-		document.getElementById("role").value = selectedOption.value;
-	};
+	// const handleRoleChange = selectedOption => {
+	// 	document.getElementById("role").value = selectedOption.value;
+	// };
 
-	const customStyles = {
+	// const customStyles = {
 
-		control: (provided) => {
+	// 	control: (provided) => {
 
-			const obj = {
-				label: "control",
-				alignItems: "center",
-				borderStyle: "solid",
-				borderWidth: 1,
-				boxShadow: null,
-				cursor: "default",
-				display: "flex",
-				flexWrap: "wrap",
-				justifyContent: "space-between",
-				minHeight: 38,
-				outline: "0 !important",
-				position: "relative",
-				transition: "all 100ms",
-				"&:hover": {borderColor: "hsl(0, 0%, 70%)"},
-				boxSizing: "border-box"
-			}
+	// 		const obj = {
+	// 			label: "control",
+	// 			alignItems: "center",
+	// 			borderStyle: "solid",
+	// 			borderWidth: 1,
+	// 			boxShadow: null,
+	// 			cursor: "default",
+	// 			display: "flex",
+	// 			flexWrap: "wrap",
+	// 			justifyContent: "space-between",
+	// 			minHeight: 38,
+	// 			outline: "0 !important",
+	// 			position: "relative",
+	// 			transition: "all 100ms",
+	// 			"&:hover": {borderColor: "hsl(0, 0%, 70%)"},
+	// 			boxSizing: "border-box"
+	// 		}
 
-			return obj;
-		}
-	  }
+	// 		return obj;
+	// 	}
+	//   }
 
 	return (
 
@@ -80,15 +80,15 @@ const ContactUs = ({ item }) => {
 			<FormField id="email" label="Email">
 				<input id="email" className="changed" type="email" placeholder="Email" required />
 			</FormField>
-			{/* <FormField id="phonenumber" label="Phone">
-                    <input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" required />
-                </FormField> */}
+			<FormField id="phonenumber" label="Phone">
+				<input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" pattern="[0-9]{10}" message="Please enter a 10 digit phone number." required />
+			</FormField>
 
 			<FormField id="company" label="Company">
 				<input id="company" className="changed" type="text" placeholder="Company" required />
 			</FormField>
 
-			<FormField id="role" label="Role">
+			{/* <FormField id="role" label="Role">
 
 				<Select className="react-select" classNamePrefix="rs"
 				styles={customStyles}
@@ -107,7 +107,7 @@ const ContactUs = ({ item }) => {
 
 				<FormField id="comment" label="Comment">
 					<textarea id="comment" className="changed"  placeholder="Questions or Comments" ></textarea>
-				</FormField>
+				</FormField> */}
 
 				<input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />
 				<input type="hidden" name="_autopilot_session_id" />
