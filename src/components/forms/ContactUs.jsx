@@ -81,7 +81,7 @@ const ContactUs = ({ item }) => {
 				<input id="email" className="changed" type="email" placeholder="Email" required />
 			</FormField>
 			<FormField id="phonenumber" label="Phone">
-				<input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" pattern="[0-9]{10}" message="Please enter a 10 digit phone number." required />
+				<input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" message="Please enter your phone number." required />
 			</FormField>
 
 			<FormField id="company" label="Company">
