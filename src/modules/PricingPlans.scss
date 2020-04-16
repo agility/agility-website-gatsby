@@ -58,7 +58,7 @@
 
 
 .plans-container {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -71,7 +71,7 @@
   border-radius: 10px;
   text-align: center;
   position: relative;
-  height: 100%;
+  //height: 100%;
 
   .title-bar {
       background: #E9EEF1;
@@ -107,7 +107,7 @@
 
         span {
           display: block;
-          min-height: 40px;
+          min-height: 60px;
           font-size: .85em;
           margin-bottom: 8px;
           color: #b3b3b3;
@@ -121,11 +121,10 @@
       margin: 0;
       padding: 10px 0;
       list-style: none;
-      margin-bottom: 10px;
+      margin-bottom: 0;
       background-color: #F8FBFC;
       border-top: 1px solid #dfdfdf;
-      border-bottom: 1px solid #dfdfdf;
-
+	  border-bottom: 0;
 
       li {
           padding: 8px 0;

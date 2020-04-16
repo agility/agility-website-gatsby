@@ -155,11 +155,12 @@ class PlanItem extends React.Component {
                     <ul className="plan-features">
                         {planIncludes}
                     </ul>
-                    <div className="plan-body">
+
+                    {/* <div className="plan-body">
                     { this.props.item.customFields.callToAction &&
                         <a className="btn" href={this.props.item.customFields.callToAction.href} title={this.props.item.customFields.callToAction.text}>{this.props.item.customFields.callToAction.text}</a>
                     }
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
