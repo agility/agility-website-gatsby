@@ -51,9 +51,9 @@ const PlanDetailsTable = ({ item }) => {
                                 <td className="feature">Annual Plan Savings</td>
                                 <td>-</td>
                                 {/* <td>21%</td> */}
-                                <td>25%</td>
                                 <td>20%</td>
-                                <td>20%</td>
+                                <td>17%</td>
+                                <td>17%</td>
                             </tr>
                             <tr>
                                 <td className="feature">Payment Type</td>
