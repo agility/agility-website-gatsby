@@ -1,12 +1,10 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-import HtmlReactParser from "html-react-parser"
 
 const SEO = ({ page }) => {
 
 	let title = page.title
 	const description = page.seo.metaDescription;
-	const metaHTML = page.seo.metaHTML;
 
 	if (title.indexOf("Agility") === -1) title += " - Agility CMS";
 

@@ -5,8 +5,6 @@ import './MostViewedArticles.scss'
 
 export default  ({ item}) => {
 
-
-	const moduleItem = item;
 	item = item.customFields;
 
 	const posts = item.posts.map(post => {

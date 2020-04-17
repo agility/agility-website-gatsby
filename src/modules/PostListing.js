@@ -123,7 +123,6 @@ class PostListing extends React.Component {
 
 	loadMorePosts() {
 
-		var url = "";
 		let noMore = false;
 
 		let skip = this.state.skip + this.state.take;

@@ -4,9 +4,7 @@ import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, Lin
 import "./Share.scss"
 
 class Share extends React.Component {
-	constructor() {
-		super()
-	}
+
 
     componentDidMount() {
 		if (typeof window === 'undefined') {

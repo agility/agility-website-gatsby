@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
-import ResponsiveImage from '../components/responsive-image.jsx'
+
 import { renderHTML } from '../agility/utils'
 
 import "./EventDetails.scss"
@@ -9,7 +9,6 @@ import "./EventDetails.scss"
 
 const EventDetails = ({ item, dynamicPageItem, page }) => {
 
-	const moduleItem = item.customFields;
 	const event = dynamicPageItem.customFields;
 
 	console.log("event", event)

@@ -1,6 +1,5 @@
 @import "../global/_variables.scss";
 
-
 .nav-icon1 {
   width: 24px;
   height: 18px;
@@ -146,6 +145,7 @@
         left: 90px;
         top: 16px;
         z-index: 10;
+
         -webkit-transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
         -moz-transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
         -ms-transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
@@ -208,8 +208,11 @@
   display: block !important;
 }
 
-.mobile-menu-li.has-children.open .sub-menu-icon img {
-  transform: rotate(180deg);
+.mobile-menu-li.has-children.open .sub-menu-icon {
+	margin-top: 6px;
+  img {
+    //transform: rotate(180deg);
+  }
 }
 
 .overflow-scroll {

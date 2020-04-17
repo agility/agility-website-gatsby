@@ -40,7 +40,7 @@ const buildPageViewModel = ({ pageContext, data, location }) => {
 const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, location }) => {
 
 	let metaDescription = null;
-	let metaHTML = null;
+
 
 	let seo = {
 		metaDescription: null,

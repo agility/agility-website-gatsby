@@ -10,16 +10,19 @@ class Hamburger extends React.Component {
 			return null;
 		}
 
-		let menu = document.querySelector('.mobile-menu-inner .has-children');
-		if (menu) {
-			menu.onclick = function (e) {
-				//don't toggle again if we've just clicked a child item anchor are going to load a new page
-				if (e.target.className === "sub-menu-a") return;
-				this.classList.toggle('open');
-			};
-		}
+		// let menu = document.querySelector('.mobile-menu-inner .has-children');
+		// if (menu) {
+		// 	menu.onclick = function (e) {
+		// 		//don't toggle again if we've just clicked a child item anchor are going to load a new page
+		// 		if (e.target.className === "sub-menu-a") return;
+		// 		//e.cancelBubble = true;
+		// 		this.classList.toggle('open');
+		// 	};
+		// }
 		this.menuOpenClose();
 	}
+
+
 
 	menuOpenClose() {
 		var btnMenuOpen = document.querySelector('.Button-menu');
@@ -66,6 +69,8 @@ class Hamburger extends React.Component {
 		};
 	}
 
+
+
 	render() {
 
 		function setNativeValue(element, value) {
@@ -94,6 +99,10 @@ class Hamburger extends React.Component {
 			searchInput.focus();
 		}
 
+		function toggleSubmenu(e) {
+
+			e.currentTarget.classList.toggle('open');
+		}
 
 
 		const renderMobileMenu = () => {
@@ -114,19 +123,21 @@ class Hamburger extends React.Component {
 					});
 				}
 
+
+
 				const hasChildren = item.children != null && item.children.length > 0;
 
 				let path = item.path;
-				if (item.isFolder) path = "#"
-
+				//mod joelv - if the thing has children, it CAN'T be a link...
+				if (item.isFolder || hasChildren) path = "#"
 				if (hasChildren) {
 					const children = item.children.map(function (child) {
 						return <li key={child.pageID + "-" + child.path + "-1"} className="sub-menu-inner"><a className="sub-menu-a" href={child.path} target={child.target}>{child.menuText}</a></li>;
 					});
 
 					link =
-						<li key={item.pageID + "-" + item.path + "-2"} className="mobile-menu-li has-children">
-							<a href={path} target={item.target} className="mobile-menu-a">{item.menuText}</a>
+						<li key={item.pageID + "-" + item.path + "-2"} className="mobile-menu-li has-children" onClick={toggleSubmenu} >
+							<a href="#" className="mobile-menu-a" >{item.menuText}</a>
 							<span className="sub-menu-icon">
 								<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse"></img>
 							</span>
@@ -168,6 +179,7 @@ class Hamburger extends React.Component {
 
 		const hamburgerClassName = () => {
 			let marketingBanner = this.props.item.customFields.marketingBanner;
+			if (this.props.item.customFields.hideMarketingBanner === "true") marketingBanner = null;
 
 			let name = 'Button-menu nav-icon1 ';
 			if (marketingBanner && marketingBanner.length > 0 && !this.props.isSticky) {

@@ -20,7 +20,7 @@
   background-color: #ffcb28;
   z-index: 21;
 
-  .container-my { 
+  .container-my {
     padding: 0 45px;
     align-items: center;
   }
@@ -90,12 +90,12 @@
 
   .header-menu {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
     flex-grow: 1;
-    margin-left: 100px;
+    margin-right: 20px;
 
     @media screen and (max-width: 1200px) {
-      margin-left: 50px;
+      margin-left: 20px;
     }
 
     li {
@@ -114,7 +114,8 @@
       font-stretch: normal;
       line-height: normal;
       letter-spacing: normal;
-      color: $colorBasic;
+	  color: $colorBasic;
+	  cursor: pointer;
       transition: all 0.05s cubic-bezier(0.24, 0.35, 0, 1.01);
 
       &:hover {

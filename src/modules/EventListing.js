@@ -2,8 +2,6 @@ import React from 'react';
 import moment from 'moment'
 import { Link, graphql, StaticQuery } from "gatsby"
 
-import { renderHTML } from '../agility/utils'
-
 import "./EventListing.scss"
 
 export default props => (
