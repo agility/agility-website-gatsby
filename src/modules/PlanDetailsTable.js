@@ -169,31 +169,16 @@ const PlanDetailsTable = ({ item }) => {
 
                         <tbody>
                             <tr>
-                                <td className="feature"><a href="#componentContentManagement" title="Content Management">Content Management</a></td>
+                                <td className="feature">Content Management</td>
                                 <td><i className="checkmark"></i></td>
                                 {/* <td><i className="checkmark"></i></td> */}
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                             </tr>
-                            {/* <tr id="componentContentManagement">
-                                <td className="feature"><a href="#componentEcommerce" title="Ecommerce">Ecommerce</a></td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
+
                             <tr>
-                                <td className="feature"><a href="#componentEcommerce" title="Ticketing">Ticketing</a></td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr> */}
-                            <tr>
-                                <td className="feature"><a href="#componentSearch" title="Search">Search</a></td>
+                                <td className="feature">Search</td>
                                 <td>&nbsp;</td>
                                 {/* <td>&nbsp;</td> */}
                                 <td><i className="checkmark"></i></td>
