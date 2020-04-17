@@ -176,10 +176,10 @@ const PlanDetailsTable = ({ item }) => {
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                             </tr>
-                            <tr id="componentContentManagement">
+                            {/* <tr id="componentContentManagement">
                                 <td className="feature"><a href="#componentEcommerce" title="Ecommerce">Ecommerce</a></td>
                                 <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
+                                <td>&nbsp;</td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
@@ -187,11 +187,11 @@ const PlanDetailsTable = ({ item }) => {
                             <tr>
                                 <td className="feature"><a href="#componentEcommerce" title="Ticketing">Ticketing</a></td>
                                 <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
+                                <td>&nbsp;</td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <td className="feature"><a href="#componentSearch" title="Search">Search</a></td>
                                 <td>&nbsp;</td>
@@ -299,118 +299,6 @@ const PlanDetailsTable = ({ item }) => {
                             </tr>
                         </tbody>
 
-                        <thead className="title">
-                            <tr>
-                                <th colSpan="5">
-                                    Ecommerce
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr className="plans-sub-heading">
-                                <td>&nbsp;</td>
-                                <td className="plan">Free</td>
-                                {/* <td className="plan">Nano</td> */}
-                                <td className="plan">Small</td>
-                                <td className="plan">Pro</td>
-                                <td className="plan">Enterprise</td>
-                            </tr>
-                        </tbody>
-
-                        <thead className="sub-title">
-                            <tr>
-                                <th colSpan="5">
-                                    Features
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td className="feature">Products</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Ticketing</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Order Management</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Customer Management</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Subscription Management</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Custom Reports</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td><i className="checkmark"></i></td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Point of Sale (POS)</td>
-                                <td>&nbsp;</td>
-                                {/* <td>&nbsp;</td> */}
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><i className="checkmark"></i></td>
-                            </tr>
-                        </tbody>
-
-                        <thead className="sub-title">
-                            <tr>
-                                <th colSpan="5">
-                                    Details
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr id="componentSearch">
-                                <td className="feature">Products</td>
-                                <td>-</td>
-                                {/* <td>-</td> */}
-                                <td>500</td>
-                                <td>25,000</td>
-                                <td>50,000</td>
-                            </tr>
-                            <tr>
-                                <td className="feature">Tickets</td>
-                                <td>-</td>
-                                {/* <td>-</td> */}
-                                <td>500</td>
-                                <td>25,000</td>
-                                <td>50,000</td>
-                            </tr>
-                        </tbody>
 
                         <thead className="title">
                             <tr>
