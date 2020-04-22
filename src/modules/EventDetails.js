@@ -11,8 +11,6 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	const event = dynamicPageItem.customFields;
 
-	console.log("event", event)
-
 	let externalLink = null;
 	let exernalTarget = null;
 	if (event.externalLink) {

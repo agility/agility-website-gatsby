@@ -90,7 +90,6 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 		}
 
-		console.log("dynamicPageItem.properties.definitionName", dynamicPageItem.properties.definitionName)
 		if (dynamicPageItem.properties.definitionName === "Event") {
 
 			//build the meta description
@@ -120,8 +119,6 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			seo.category = category;
 			seo.canonicalUrl = canonicalUrl;
 			seo.image = image;
-
-			console.log("event seo", seo)
 
 		}
 	}

@@ -58,8 +58,6 @@ const EventListing = ({ moduleItem, events }) => {
 
 	const item = moduleItem.customFields;
 
-	console.log("Event listing", item)
-
 	events = events.map((event, index) => {
 		return <Event moduleItem={moduleItem} event={event} key={moduleItem.contentID + "-" + event.contentID} index={index}/>
 	});
@@ -83,8 +81,6 @@ const EventListing = ({ moduleItem, events }) => {
 }
 
 const Event = ({moduleItem, event, index}) => {
-
-	console.log("event", event)
 
 	let item = event.customFields;
 	const url = `/community/events/${item.uRL}`
