@@ -94,21 +94,19 @@ const Event = ({moduleItem, event, index}) => {
 
 			<div className="event-image">
 				{ item.mainImage &&
-				 <Link to={url}><img src={item.mainImage.url + "?w=400&h=350"} alt={item.mainImage.label} /></Link> }
-
-				<div class="event-date">
-					<span>
-						<img src="https://static.agilitycms.com/layout/img/ico/calendar-check.svg" alt="" />
-						{ moment(item.date).format("MMM Do, YYYY") }
-						{/* &nbsp;&nbsp;<img src="https://static.agilitycms.com/layout/img/ico/clock.svg" alt="" />
-						{ moment(item.date).format("h:mma") } */}
-					</span>
-				</div>
+				 <Link to={url}><img src={item.mainImage.url + "?w=600"} alt={item.mainImage.label} /></Link> }
 			</div>
 			<div className="event-content">
 				<Link to={url}><h2>{item.title}</h2></Link>
 
-
+				<div class="event-date">
+					<span class="date">
+						{ moment(item.date).format("MMM Do, YYYY") }
+					</span>
+					<span class="time">
+						{ moment(item.date).format("h:mma") }
+					</span>
+				</div>
 				<p>
 					{item.description}
 				</p>

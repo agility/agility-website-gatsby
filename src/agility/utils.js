@@ -89,6 +89,41 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			seo.image = image;
 
 		}
+
+		console.log("dynamicPageItem.properties.definitionName", dynamicPageItem.properties.definitionName)
+		if (dynamicPageItem.properties.definitionName === "Event") {
+
+			//build the meta description
+			metaDescription = null;
+			if (dynamicPageItem.seo && dynamicPageItem.seo.metaDescription) metaDescription = dynamicPageItem.seo.metaDescription;
+			if (metaDescription === null) {
+				metaDescription = dynamicPageItem.customFields.description;
+				if (metaDescription && metaDescription.length > 240) metaDescription = metaDescription.substring(0, 240) + "...";
+			}
+
+			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
+
+			let category = null;
+			let image = null;
+
+			if (dynamicPageItem.customFields.eventType && dynamicPageItem.customFields.eventType.customFields) {
+				category = dynamicPageItem.customFields.eventType.customFields.title;
+			}
+
+			if (dynamicPageItem.customFields.mainImage) {
+				image = dynamicPageItem.customFields.mainImage;
+			}
+
+			seo.metaDescription = metaDescription;
+			seo.twitterCard = "summary_large_image";
+			seo.ogType = "article";
+			seo.category = category;
+			seo.canonicalUrl = canonicalUrl;
+			seo.image = image;
+
+			console.log("event seo", seo)
+
+		}
 	}
 
 	return seo

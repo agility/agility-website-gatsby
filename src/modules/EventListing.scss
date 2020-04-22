@@ -45,133 +45,82 @@
       margin-top: 25px;
 
       .event-image {
-        width: 40%;
+        width: 50%;
         text-align: center;
         position: relative;
-        margin-right: 20px;
+		margin-right: 20px;
+
         img {
-          max-height: 461px;
+		  max-height: 500px;
+		  border-radius: $border-radius;
         }
 
-        .event-date {
-          position: absolute;
-          top: 15px;
-          left: 0;
 
-          span {
-            padding: 8px 10px;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            font-weight: 600;
-            font-size: 14px;
-            background-color: $primaryColor;
-            color: #fff;
-
-            img {
-              height: 20px;
-              margin-right: 5px;
-              vertical-align: top;
-            }
-          }
-        }
       }
 
       .event-content {
-        width: 60%;
+        width: 50%;
         h2 {
           font-size: 30px;
-          font-weight: 600;
-          margin-bottom: 16px;
+		  font-weight: 600;
+
+          margin-bottom: 15px;
           font-family: $bold;
           color: $titles;
-        }
+		}
+
+		.event-date {
+			margin-bottom: 15px;
+			border-radius: 4px;
+			span {
+			  padding: 8px 10px 8px 30px;
+			  font-weight: 600;
+			  font-size: 14px;
+			  color: $greyColor;
+			  background-repeat: no-repeat;
+			  background-position: 6px center;
+			  background-size: 17px;
+
+			  &.date {
+				background-image: url('https://static.agilitycms.com/layout/img/ico/calendar-check-gray.svg')
+			  }
+
+			  &.time {
+				background-image: url('https://static.agilitycms.com/layout/img/ico/clock-gray.svg')
+			  }
+			}
+		  }
 
 		.read-more-btn {
 			margin-top: 20px;
 		}
 
-
-        .rl-panel {
-          margin-left: 18px;
-          p {
-            margin-bottom: 50px;
-            line-height: 24px;
-            font-size: 14px;
-          }
-
-          ul {
-            margin-top: 25px;
-            li {
-              margin-left: 65px;
-              display: block;
-              min-height: 40px;
-              margin-bottom: 20px;
-              line-height: 24px;
-              font-size: 14px;
-
-              h3 {
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 30px;
-                font-family: $bold;
-              }
-
-              &:before {
-                position: absolute;
-                content: "";
-                background-image: url("https://static.agilitycms.com/layout/img/ico/yellow-check.svg");
-                background-size: contain;
-
-                width: 45px;
-                height: 45px;
-                margin-left: -70px;
-              }
-            }
-          }
-        }
       }
     }
   }
+
+  @media screen and (max-width: $tablet-width) {
+	.event-list-wrapper {
+		width: 100%;
+
+		.event {
+		  display: block;
+		  margin-top: 25px;
+
+		  .event-image {
+			width: auto;
+			text-align: center;
+		  }
+
+		  .event-content {
+			width: auto;
+			text-align: center;
+			margin-top: 15px;
+
+		  }
+		}
+	}
+}
 }
 
-@media screen and (max-width: $tablet-width) {
-  .right-left-content {
-    .container-my {
-      margin-left: 20px;
-      margin-right: 20px;
-      display: block;
 
-      .rl-image {
-        width: auto;
-        margin: 0px 60px;
-        text-align: center;
-        img {
-          max-height: 400px;
-        }
-      }
-      .rl-content {
-        width: auto;
-        h2 {
-          font-size: 20px;
-          margin-bottom: 19px;
-        }
-        .rl-panel {
-          margin-left: 0;
-          ul {
-            margin-top: 25px;
-            li {
-              margin-left: 32px;
-              &:before {
-                position: absolute;
-
-                width: 22px;
-                height: 22px;
-                margin-left: -32px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
