@@ -90,9 +90,9 @@ class PostListing extends React.Component {
 	constructor(props) {
 		super(props)
 
-		if (typeof window === 'undefined') {
-			return;
-		}
+		// if (typeof window === 'undefined') {
+		// 	return;
+		// }
 
 		this.moduleItem = props.item;
 		this.sitemapNodes = props.sitemapNodes;
@@ -148,9 +148,7 @@ class PostListing extends React.Component {
 
 	render() {
 
-		if (typeof window === 'undefined') {
-			return <div className="blog-listing">Loading...</div>;
-		}
+
 
 		var posts = this.state.posts.map(item => {
 
@@ -158,6 +156,21 @@ class PostListing extends React.Component {
 
 			return <PostListItem item={item} url={postUrl} key={this.moduleItem.contentID + "-" + item.contentID} />
 		});
+
+		// if (typeof window === 'undefined') {
+		// 	//return <div className="blog-listing">Loading...</div>;
+		// 	return (
+		// 		<div className="blog-listing">
+
+		// 			<div className="posts">
+		// 				{posts}
+		// 			</div>
+
+
+		// 	</div>
+		// 	)
+		// }
+
 
 		return (
 			<div className="blog-listing">
