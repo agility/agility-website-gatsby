@@ -64,17 +64,17 @@ const ContentPanelForm = ({ item }) => {
                                 <input id="email" className="changed" type="email" placeholder="Email" required />
                             </FormField>
 
-                            {/* <FormField id="phonenumber" label="Phone">
-                                <input id="phonenumber" className="changed" type="tel" placeholder="xxx-xxx-xxxx" minLength="9" maxLength="20" required />
-                            </FormField> */}
+                            <FormField id="phonenumber" label="Phone">
+								<input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" message="Please enter your phone number." required />
+							</FormField>
 
                             <FormField id="company" label="Company">
                                 <input id="company" className="changed" type="text" placeholder="Company" required />
                             </FormField>
 
-                            <FormField id="comment" label="Comment">
+                            {/* <FormField id="comment" label="Comment">
                                 <textarea id="comment" className="changed"  placeholder="Questions or Comments" ></textarea>
-                            </FormField>
+                            </FormField> */}
 
                             <input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />
                             <input type="hidden" name="_autopilot_session_id" />
