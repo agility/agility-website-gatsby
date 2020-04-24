@@ -4,6 +4,10 @@
   margin: $module-margin-spacing;
   position: relative;
 
+	.container-my {
+		padding: 0 45px;
+	}
+
   .rotated-bg {
     position: absolute;
     width: 100%;
@@ -100,6 +104,10 @@
   }
 
   @media screen and (max-width: $tablet-width) {
+
+	.container-my {
+		padding: 0;
+	}
 	.event-list-wrapper {
 		width: 100%;
 
