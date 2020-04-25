@@ -59,7 +59,7 @@ const PodcastListing = ({ items }) => {
 		const preItem = item;
 		item = item.customFields;
 
-		item.image = item.listingImage;
+		item.image = item.mainImage;
 
 		item.url = `/resources/agileliving/${item.uRL}`
 
@@ -69,7 +69,7 @@ const PodcastListing = ({ items }) => {
 					{item.image &&
 						<div className="image">
 							<div className="block-hover">
-								<img src={item.image.url} alt="" />
+								<img src={item.image.url + "?w=700"} alt="" />
 								<div className="play d-flex jc-c ai-center">&nbsp;</div>
 							</div>
 							<img src="https://static.agilitycms.com/layout/img/podcast.svg" alt="" className="podcast" />
