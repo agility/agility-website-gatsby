@@ -70,7 +70,7 @@ const PodcastListing = ({ items }) => {
 						<div className="image">
 							<div className="block-hover">
 								<img src={item.image.url} alt="" />
-								<div className="play d-flex jc-c ai-center"><img src="https://static.agilitycms.com/layout/img/Triangle.svg" alt="" /></div>
+								<div className="play d-flex jc-c ai-center">&nbsp;</div>
 							</div>
 							<img src="https://static.agilitycms.com/layout/img/podcast.svg" alt="" className="podcast" />
 						</div>
