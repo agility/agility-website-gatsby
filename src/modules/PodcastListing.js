@@ -81,7 +81,7 @@ const PodcastListing = ({ items }) => {
 					<div className="author">
 						<h5 className="h5">Episode #{item.episodeNumber}</h5>
 					</div>
-					<div className="text"><p dangerouslySetInnerHTML={renderHTML(item.excerpt)}></p></div>
+					<div className="text" dangerouslySetInnerHTML={renderHTML(item.excerpt)}></div>
 					<span className="date">{item.date}</span>
 				</div>
 			</div>
