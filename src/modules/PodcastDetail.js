@@ -10,8 +10,6 @@ const PodcastDetail = ({ item, dynamicPageItem }) => {
 
 	item = dynamicPageItem.customFields;
 
-	console.log("podcast deet", item)
-
 	return (
 		<section className="podcast-details">
                 <div className="rich-text">

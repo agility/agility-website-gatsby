@@ -1,3 +1,5 @@
+const he = require('he')
+
 const getDynamicPageItem = ({ contentID, agilityItem }) => {
 	if (contentID > 0 && agilityItem && agilityItem.itemJson) {
 		return JSON.parse(agilityItem.itemJson);
@@ -121,6 +123,44 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			seo.image = image;
 
 		}
+
+		if (dynamicPageItem.properties.definitionName === "Podcast") {
+
+			//build the meta description
+			metaDescription = null;
+			if (dynamicPageItem.seo && dynamicPageItem.seo.metaDescription) metaDescription = dynamicPageItem.seo.metaDescription;
+			if (metaDescription === null) {
+				metaDescription = dynamicPageItem.customFields.excerpt;
+				if (metaDescription) {
+					metaDescription = metaDescription.replace(/<[^>]+>/ig, " ");
+					metaDescription = he.decode(metaDescription).trim();
+				}
+			}
+
+			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
+
+			let category = "Agile Living";
+			let image = null;
+
+			if (dynamicPageItem.customFields.eventType && dynamicPageItem.customFields.eventType.customFields) {
+				category = dynamicPageItem.customFields.eventType.customFields.title;
+			}
+
+			if (dynamicPageItem.customFields.mainImage) {
+				image = dynamicPageItem.customFields.mainImage;
+			}
+
+			seo.metaDescription = metaDescription;
+			seo.twitterCard = "summary_large_image";
+			seo.ogType = "article";
+			seo.category = category;
+			seo.canonicalUrl = canonicalUrl;
+			seo.image = image;
+
+		}
+
+
+
 	}
 
 	return seo

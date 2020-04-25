@@ -9,7 +9,6 @@ import { getLeadSourceDetailForForm } from '../../utils/lead-utils.js'
 
 const ContactUs = ({ item }) => {
 
-	//console.log("contact us", item)
 	item = item.customFields;
 
 
