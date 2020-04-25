@@ -1,0 +1,4 @@
+/community					/resources/events/
+/community/events/*  		/resources/events/:splat
+/community/agileliving 		/resources/agileliving
+/community/agileliving/* 	/resources/agileliving/:splat

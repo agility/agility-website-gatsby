@@ -83,7 +83,7 @@ const EventListing = ({ moduleItem, events }) => {
 const Event = ({moduleItem, event, index}) => {
 
 	let item = event.customFields;
-	const url = `/community/events/${item.uRL}`
+	const url = `/resources/events/${item.uRL}`
 
 	return (
 		<div className="event">
