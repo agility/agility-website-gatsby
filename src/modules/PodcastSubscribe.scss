@@ -1,0 +1,51 @@
+.listen-to-podcast {
+    .platform {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -13px;
+      margin-right: -13px;
+
+      @media (max-width: 1199px) {
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+
+      a {
+        max-width: 50%;
+        flex: 0 0 50%;
+        padding-left: 13px;
+        padding-right: 13px;
+        margin-bottom: 32px;
+
+        @media (max-width: 1199px) {
+          padding-left: 5px;
+          padding-right: 5px;
+          margin-bottom: 15px;
+        }
+
+        @media (max-width: 991px) {
+          max-width: 88%;
+          -webkit-box: 0 0 100%;
+          -moz-box: 0 0 100%;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+        }
+
+        @media (max-width: 767px) {
+          max-width: 50%;
+          -webkit-box: 0 0 50%;
+          -moz-box: 0 0 50%;
+          -webkit-flex: 0 0 50%;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+        }
+
+        img {
+          margin: 0;
+          max-height: 54px;
+        }
+      }
+    }
+  }
+    

@@ -1,0 +1,291 @@
+.jc-c {
+  justify-content: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+}
+// .two-column-page {
+//   padding-top: 75px;
+//   padding-bottom: 160px;
+
+//   @media (max-width: 767px) {
+//     padding-bottom: 50px;
+//   }
+
+//   .left-col {
+//     padding-left: 16px;
+//     padding-right: 16px;
+//     max-width: 58%;
+//     -webkit-box: 0 0 58%;
+//     -moz-box: 0 0 58%;
+//     -webkit-flex: 0 0 58%;
+//     -ms-flex: 0 0 58%;
+//     flex: 0 0 58%;
+//     margin-bottom: 50px;
+//     @media (max-width: 767px) {
+//       max-width: 100%;
+//       -webkit-box: 0 0 100%;
+//       -moz-box: 0 0 100%;
+//       -webkit-flex: 0 0 100%;
+//       -ms-flex: 0 0 100%;
+//       flex: 0 0 100%;
+//     }
+
+//     > div {
+      
+//     }
+    
+//   }
+// }
+
+
+.podcast-listing {
+    .podcast-episode {
+        margin-bottom: 24px;
+        border-radius: 5px;
+        box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        text-align: left;
+    
+        .image {
+            max-height: 408px;
+            overflow: hidden;
+            border-radius: 5px 5px 0 0;
+            
+            position: relative;
+            
+            // height: 400px;
+
+            // @media (max-width: 1199px) {
+            //     height: 320px;
+            // }
+
+            // @media (max-width: 991px) {
+            //     height: 260px;
+            // }
+
+            // @media (max-width: 480px) {
+            //     height: 220px;
+            // }
+
+            // @media (max-width: 360px) {
+            //     height: 200px;
+            // }
+            img {
+              display: block;
+            }
+    
+            a {
+              
+            > img {
+                // height: 100%;
+                // width: auto;
+            }
+        }
+
+            
+
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+
+        .block-hover {
+          // position: absolute;
+          // left: 0;
+          // top: 0;
+          // width: 100%;
+          // height: 100%;
+          > img {
+            // height: 100%;
+            // width: 100%;
+          }
+
+          .play {
+            
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.08);
+            z-index: 2;
+            -webkit-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -ms-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            img {
+              cursor: pointer;
+            }
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.00);
+            }
+          }
+        }
+    
+        .content {
+            padding: 28px 32px;
+    
+            @media (max-width: 480px) {
+            padding: 20px;
+            }
+    
+            .h3 {
+            margin-bottom: 20px;
+    
+            a {
+                font-size: 20px;
+                font-family: "Muli-bold", sans-serif;
+                color: #2a3846;
+            }
+            }
+    
+            .author {
+            margin-bottom: 15px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+    
+            .author-image {
+                margin-right: 16px;
+                width: 32px;
+                height: 32px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+    
+            .h5 {
+                font-size: 16px;
+                font-family: "Muli-Regular", sans-serif;
+                color: #484b4d;
+            }
+            }
+    
+            .text {
+            margin-bottom: 17px;
+    
+            p {
+                font-size: 16px;
+                line-height: 1.8;
+                font-family: "Muli-Regular", sans-serif;
+                color: #6d7882;
+            }
+            }
+    
+            .date {
+            font-size: 16px;
+            font-family: "Muli-Regular", sans-serif;
+            color: #9fa7b0;
+            }
+        }
+
+        .podcast {
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          display: block;
+          width: 39px;
+          z-index: 5;
+        }
+      }
+
+      .content {
+        .author {
+          .h5 {
+            font-size: 16px;
+            font-family: "Muli-Bold", sans-serif;
+            text-transform: uppercase;
+            color: #717171;
+          }
+        }
+      }
+
+      .content {
+        padding: 28px 32px;
+  
+        @media (max-width: 480px) {
+          padding: 20px;
+        }
+  
+        .h3 {
+          margin-bottom: 20px;
+  
+          a {
+            font-size: 20px;
+            font-family: "Muli-bold", sans-serif;
+            color: #2a3846;
+          }
+        }
+  
+        .author {
+          margin-bottom: 15px;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          align-items: center;
+          -webkit-box-align: center;
+          -moz-box-align: center;
+          -ms-flex-align: center;
+  
+          .author-image {
+            margin-right: 16px;
+            width: 32px;
+            height: 32px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+  
+          .h5 {
+            font-size: 16px;
+            font-family: "Muli-Regular", sans-serif;
+            color: #484b4d;
+          }
+        }
+  
+        .text {
+          margin-bottom: 17px;
+  
+          p {
+            font-size: 16px;
+            line-height: 1.8;
+            font-family: "Muli-Regular", sans-serif;
+            color: #6d7882;
+          }
+        }
+  
+        .date {
+          font-size: 16px;
+          font-family: "Muli-Regular", sans-serif;
+          color: #9fa7b0;
+        }
+      }
+    
+  }
+  
+  .load-more {
+    margin: 64px auto 0;
+    text-align: center;
+
+    @media (max-width: 767px) {
+      margin-bottom: 50px;
+    }
+
+    a {
+      font-size: 16px;
+      font-family: "Muli-Bold", sans-serif;
+    }
+  }
+}

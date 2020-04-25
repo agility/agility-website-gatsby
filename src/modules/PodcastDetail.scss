@@ -1,0 +1,116 @@
+@import "../global/_variables.scss";
+
+.podcast-details {
+  padding-bottom: 80px;
+
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+
+  h1 {
+	margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 1.4;
+	font-weight: bold;
+	color: $titles;
+  }
+
+  .rich-text {
+    .container.p-w-small {
+      > .h4 {
+        margin-bottom: 20px;
+      }
+
+      .image {
+        //height: 456px;
+
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+
+        @media (max-width: 1216px) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        @media (max-width: 767px) {
+          //height: 300px;
+        }
+
+        @media (max-width: 480px) {
+          //height: 200px;
+        }
+      }
+
+      .meta {
+        margin-bottom: 32px;
+
+        .author {
+          margin-right: 10px;
+
+          .author-image {
+            margin-right: 16px;
+            width: 32px;
+            height: 32px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+
+          .h5 {
+            margin-bottom: 0;
+            font-size: 16px;
+            font-family: "Muli-Regular", sans-serif;
+            color: #484b4d;
+          }
+        }
+
+        .date {
+          margin-top: 2px;
+          font-size: 16px;
+          font-family: "Muli-Regular", sans-serif;
+          color: #9fa7b0;
+        }
+      }
+
+      .content {
+        margin-bottom: 80px;
+      }
+
+      a.back {
+        text-decoration: none;
+
+        img {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+          margin-right: 10px;
+          transition: all 0.15s ease-out;
+        }
+
+        span {
+          font-size: 16px;
+          font-family: "Muli-Bold", sans-serif;
+          color: #484b4d;
+        }
+
+        &:hover {
+          img {
+            margin-left: -5px;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
