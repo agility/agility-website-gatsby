@@ -1,3 +1,6 @@
+
+
+#moved community to new section
 /community					/resources/events/
 /community/events/*  		/resources/events/:splat
 /community/agileliving 		/resources/agileliving

@@ -106,7 +106,7 @@
   @media screen and (max-width: $tablet-width) {
 
 	.container-my {
-		padding: 0;
+		padding: 0 20px;
 	}
 	.event-list-wrapper {
 		width: 100%;
@@ -118,6 +118,8 @@
 		  .event-image {
 			width: auto;
 			text-align: center;
+			padding: 0;
+			margin: 0;
 		  }
 
 		  .event-content {
