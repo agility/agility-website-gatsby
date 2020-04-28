@@ -69,7 +69,7 @@ module.exports = {
 			options: {
 			  app_id: 'ipjo8vwm',
 			  include_in_development: true,
-			  delay_timeout: 1000
+			  delay_timeout: 1500
 			}
 		  }
 
