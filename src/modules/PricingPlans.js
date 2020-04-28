@@ -19,6 +19,7 @@ export default props => (
 					calltoAction {
 					  href
 					  text
+					  target
 					}
 					description
 					icon {
@@ -135,32 +136,35 @@ class PlanItem extends React.Component {
 
 		});
 
+		const plan = this.props.item.customFields;
+
+		console.log("plan", plan)
+
         return (
 
             <div className="plan-item">
                 <div className="plan-type">
                     <div className="title-bar">
-                        <h3>{ this.props.item.customFields.title }</h3>
+                        <h3>{ plan.title }</h3>
                     </div>
                     <div className="plan-body">
-                    { this.props.item.customFields.icon &&
-                        <div className="plan-icon"><img src={this.props.item.customFields.icon.url} alt={ this.props.item.customFields.title } /></div>
+                    { plan.icon &&
+                        <div className="plan-icon"><img src={plan.icon.url} alt={ plan.title } /></div>
                     }
 
-                    { this.props.item.customFields.pricePerUnitLabel &&
-                        <h4 dangerouslySetInnerHTML={{__html: this.props.item.customFields.pricePerUnitLabel}}></h4>
+                    { plan.pricePerUnitLabel &&
+                        <h4 dangerouslySetInnerHTML={{__html: plan.pricePerUnitLabel}}></h4>
                     }
 
                     </div>
                     <ul className="plan-features">
                         {planIncludes}
                     </ul>
-
-                    {/* <div className="plan-body">
-                    { this.props.item.customFields.callToAction &&
-                        <a className="btn" href={this.props.item.customFields.callToAction.href} title={this.props.item.customFields.callToAction.text}>{this.props.item.customFields.callToAction.text}</a>
-                    }
-                    </div> */}
+					{ plan.calltoAction &&
+                    <div className="plan-body">
+                        <a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+                    </div>
+					}
                 </div>
             </div>
 
