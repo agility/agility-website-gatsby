@@ -138,8 +138,6 @@ class PlanItem extends React.Component {
 
 		const plan = this.props.item.customFields;
 
-		console.log("plan", plan)
-
         return (
 
             <div className="plan-item">
