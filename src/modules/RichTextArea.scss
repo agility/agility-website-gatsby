@@ -1,7 +1,7 @@
 @import "../global/_variables.scss";
 
 .rich-text {
-	margin: $module-margin-spacing;
+  margin: $module-margin-spacing;
   word-break: break-word;
   h1 {
     margin-bottom: 20px;
@@ -89,7 +89,8 @@
     }
   }
 
-  strong, b {
+  strong,
+  b {
     font-size: 16px;
     line-height: 1.8;
     font-family: "Muli-Bold", sans-serif;
@@ -122,7 +123,9 @@
       font-family: "Muli-Regular", sans-serif;
       color: #6d7882;
 
-      a { color: #5400ca !important; }
+      a {
+        color: #5400ca !important;
+      }
     }
     ul {
       padding-left: 20px !important;
@@ -147,8 +150,6 @@
       @media (max-width: 767px) {
         font-size: 16px;
       }
-
-
     }
     ol {
       margin-top: 20px;
@@ -168,5 +169,23 @@
     th {
       font-family: "Muli-Bold", sans-serif;
     }
+  }
+
+  blockquote {
+	  margin: 10px 60px;
+	  padding-left: 10px;
+	  border-left: 1px solid $greyColor;
+	  position: relative;
+
+	  &::before {
+		  position: absolute;
+		  content: "";
+		  background-image: url(https://static.agilitycms.com/layout/img/ico/quote-left-gray.svg);
+		  background-size: 40px 40px;
+		  height: 40px;
+		  width: 40px;
+		  left: -50px
+	  }
+
   }
 }
