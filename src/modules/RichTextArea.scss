@@ -187,5 +187,23 @@
 		  left: -50px
 	  }
 
+
+	  @media (max-width: 767px) {
+		margin: 10px 40px;
+		padding-left: 10px;
+		border-left: 1px solid $greyColor;
+		position: relative;
+
+	  &::before {
+		  position: absolute;
+		  content: "";
+		  background-image: url(https://static.agilitycms.com/layout/img/ico/quote-left-gray.svg);
+		  background-size: 30px 30px;
+		  height: 30px;
+		  width: 30px;
+		  left: -40px
+	  }
+	  }
+
   }
 }
