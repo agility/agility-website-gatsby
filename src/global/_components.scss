@@ -34,7 +34,7 @@ p.intro {
   width: 800px;
   margin: 0 auto;
 
-  @media (max-width: 1199px) {
+  @media (min-width: 769px) {
     width: 100%;
     padding-left: 8%;
     padding-right: 8%;
