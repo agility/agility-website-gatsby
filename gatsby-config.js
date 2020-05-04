@@ -74,21 +74,18 @@ module.exports = {
 			}
 		},
 		{
-			resolve: `gatsby-plugin-advanced-sitemap`,
+			resolve: `gatsby-plugin-sitemap`,
 			options: {
 				output: `/sitemap.xml`,
 				//exclude: [`/category/*`, `/path/to/page`],
-				createLinkInHead: true,
-				addUncaughtPages: false,
+
 				query: `
 				{
-					allAgilitySitemapNode(filter: {visible: {sitemap: {eq: true}}}) {
+					allSitePage:allAgilitySitemapNode(filter: {visible: {sitemap: {eq: true}}}) {
 
 						edges {
 						  node {
-							id
-							slug: path,
-							url:path
+							path
 						  }
 						}
 					  }
@@ -97,15 +94,8 @@ module.exports = {
 						  siteUrl
 						}
 					  }
-			  	}`,
-				  mapping: {
-					// Each data type can be mapped to a predefined sitemap
-					// Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
-					// The default sitemap - if none is passed - will be pages
-					allAgilitySitemapNode: {
-						sitemap: `pages`,
-					},
-				},
+				  }`
+
 			}
 		}
 
