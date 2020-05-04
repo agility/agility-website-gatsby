@@ -219,8 +219,10 @@ html.search-open {
         }
         .si-left {
           line-height: 1.8;
-          max-width: 568px;
-          padding-right: 20px;
+		  max-width: 568px;
+		  width: 70%;
+		  padding-right: 20px;
+
           @media (max-width: 767px) {
             padding-right: 0;
             margin-bottom: 20px;
@@ -250,22 +252,23 @@ html.search-open {
             font-family: "Muli-Bold", sans-serif;
             text-transform: capitalize;
             padding: 10px 20px;
-            color: #fff;
+			color: #fff;
+			background-color: #07ae31;
             //text-transform: uppercase;
 
-            &.blog {
+			&.docs {
               background-color: #ffcb28;
             }
 
             &.page {
-              background-color: #07ae31;
+              background-color: #969696;
             }
 
             &.faq {
               background-color: #ff5a28;
             }
 
-            &.podcast {
+            &.partner {
               background-color: #0664ff;
             }
           }

@@ -276,12 +276,17 @@ class HeaderSearch extends React.Component {
 
 class HeaderSearchResult extends React.Component {
 	render() {
-
+console.log(this.props.result)
 		//var category = this.props.result.category;
 		//TODO: implement categories for real
-		var category = null;
+		var category = this.props.result.category;
 		if (category === null || category.length === 0) {
-			category = "Page";
+
+			if (this.props.result.href.indexOf("help.agilitycms.com") !== -1) {
+				category = "Docs";
+			} else {
+				category = "Page";
+			}
 		}
 		var categoryClass = 'label ' + category.toLowerCase();
 
