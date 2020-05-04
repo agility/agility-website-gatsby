@@ -19,6 +19,7 @@ const agilityConfig = {
 module.exports = {
 	siteMetadata: {
 		title: "Agility CMS",
+		siteUrl: `https://agilitycms.com`,
 
 	},
 	plugins: [
@@ -67,11 +68,46 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-intercom-spa',
 			options: {
-			  app_id: 'ipjo8vwm',
-			  include_in_development: true,
-			  delay_timeout: 1500
+				app_id: 'ipjo8vwm',
+				include_in_development: true,
+				delay_timeout: 1500
 			}
-		  }
+		},
+		{
+			resolve: `gatsby-plugin-advanced-sitemap`,
+			options: {
+				output: `/sitemap.xml`,
+				//exclude: [`/category/*`, `/path/to/page`],
+				createLinkInHead: true,
+				addUncaughtPages: false,
+				query: `
+				{
+					allAgilitySitemapNode(filter: {visible: {sitemap: {eq: true}}}) {
+
+						edges {
+						  node {
+							id
+							slug: path,
+							url:path
+						  }
+						}
+					  }
+					  site {
+						siteMetadata {
+						  siteUrl
+						}
+					  }
+			  	}`,
+				  mapping: {
+					// Each data type can be mapped to a predefined sitemap
+					// Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+					// The default sitemap - if none is passed - will be pages
+					allAgilitySitemapNode: {
+						sitemap: `pages`,
+					},
+				},
+			}
+		}
 
 	],
 }

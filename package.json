@@ -16,6 +16,7 @@
 		"@agility/gatsby-source-agilitycms": "^1.2.6",
 		"dotenv": "^8.1.0",
 		"gatsby": "^2.20.29",
+		"gatsby-plugin-advanced-sitemap": "^1.5.4",
 		"gatsby-plugin-google-tagmanager": "^2.2.1",
 		"gatsby-plugin-intercom-spa": "^0.2.0",
 		"gatsby-plugin-load-script": "^1.0.6",

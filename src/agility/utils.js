@@ -157,7 +157,7 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				  "url": "https://agilitycms.com"
 				}
 			  }
-console.log("struct data", structData)
+
 			seo.structData = JSON.stringify(structData);
 			seo.metaDescription = metaDescription;
 			seo.twitterCard = "summary_large_image";
