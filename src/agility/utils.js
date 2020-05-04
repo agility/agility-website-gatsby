@@ -1,4 +1,5 @@
 const he = require('he')
+const moment = require('moment')
 
 const getDynamicPageItem = ({ contentID, agilityItem }) => {
 	if (contentID > 0 && agilityItem && agilityItem.itemJson) {
@@ -115,6 +116,49 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				image = dynamicPageItem.customFields.mainImage;
 			}
 
+
+			let startTime = moment(dynamicPageItem.customFields.date);
+			let endTime =  moment(startTime).add(1, "hours");
+
+			let extLink = canonicalUrl;
+			if (dynamicPageItem.customFields.externalLink) extLink = dynamicPageItem.customFields.externalLink.href;
+
+			//build the structural event data...
+			let structData = {
+				"@context": "https://schema.org",
+				"@type": "Event",
+				"name": dynamicPageItem.customFields.title,
+				"startDate": startTime.toISOString(true),
+				"endDate": endTime.toISOString(true),
+				"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+				"eventStatus": "https://schema.org/EventScheduled",
+				"location": {
+					"@type": "VirtualLocation",
+					"url": extLink,
+				},
+				"image": [
+					image.url,
+				 ],
+				"description": dynamicPageItem.customFields.description,
+				"offers": {
+				  "@type": "Offer",
+				  "url": canonicalUrl,
+				  "price": "0",
+				  "priceCurrency": "USD",
+				  "availability": "https://schema.org/InStock",
+				},
+				// "performer": {
+				//   "@type": "PerformingGroup",
+				//   "name": "Kira and Morrison"
+				// },
+				"organizer": {
+				  "@type": "Organization",
+				  "name": "Agility CMS",
+				  "url": "https://agilitycms.com"
+				}
+			  }
+console.log("struct data", structData)
+			seo.structData = JSON.stringify(structData);
 			seo.metaDescription = metaDescription;
 			seo.twitterCard = "summary_large_image";
 			seo.ogType = "article";

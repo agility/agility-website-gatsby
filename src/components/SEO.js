@@ -32,17 +32,14 @@ const SEO = ({ page }) => {
 			{page.seo.image && page.seo.image.width > 0 && <meta property="og:image:width" content={page.seo.image.width} /> }
 			{page.seo.image && page.seo.image.height > 0 && <meta property="og:image:height" content={page.seo.image.height} /> }
 
+			{page.seo.structData && <script type="application/ld+json">{page.seo.structData}</script>}
+
 
 			<link rel="dns-prefetch" href="//static.agilitycms.com" />
 			<link rel="dns-prefetch" href="//www.google-analytics.com" />
 			<link rel="dns-prefetch" href="//www.googleadservices.com" />
 			<link rel="dns-prefetch" href="//www.googletagmanager.com" />
-			<link rel="dns-prefetch" href="//vars.hotjar.com" />
-			<link rel="dns-prefetch" href="//in.hotjar.com" />
-			<link rel="dns-prefetch" href="//script.hotjar.com" />
-			<link rel="dns-prefetch" href="//d.adroll.mgr.consensu.org" />
-			<link rel="dns-prefetch" href="//d.adroll.com" />
-			<link rel="dns-prefetch" href="//ups.analytics.yahoo.com" />
+
 			<link rel="dns-prefetch" href="//t.co" />
 			<link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
 			<link rel="dns-prefetch" href="//www.google.com" />
