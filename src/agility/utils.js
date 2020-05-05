@@ -117,11 +117,28 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			}
 
 
+			let validFrom = moment();
 			let startTime = moment(dynamicPageItem.customFields.date);
 			let endTime =  moment(startTime).add(1, "hours");
 
 			let extLink = canonicalUrl;
 			if (dynamicPageItem.customFields.externalLink) extLink = dynamicPageItem.customFields.externalLink.href;
+
+			let presenters = [];
+			if (dynamicPageItem.customFields.presenters) {
+				presenters = dynamicPageItem.customFields.presenters.map(p => {
+					let img = null;
+					if (p.customFields.image) {
+						img = p.customFields.image.url + "?w=400"
+					}
+
+					return {
+						"@type": "Person",
+						"name": p.customFields.title,
+						"image": img
+					}
+				})
+			}
 
 			//build the structural event data...
 			let structData = {
@@ -146,11 +163,9 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				  "price": "0",
 				  "priceCurrency": "USD",
 				  "availability": "https://schema.org/InStock",
+				  "validFrom": validFrom.toISOString(true),
 				},
-				// "performer": {
-				//   "@type": "PerformingGroup",
-				//   "name": "Kira and Morrison"
-				// },
+				 "performer": presenters,
 				"organizer": {
 				  "@type": "Organization",
 				  "name": "Agility CMS",
