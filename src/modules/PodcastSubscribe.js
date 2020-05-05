@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql, StaticQuery } from "gatsby"
+import {  graphql, StaticQuery } from "gatsby"
 import "./PodcastSubscribe.scss"
 import "./StayInTouch.scss"
 
@@ -66,7 +66,7 @@ const PodcastSubscribe = ({ item, links }) => {
 
 	var four = links.map(function (link) {
 		let key = "pcs" +  moduleItem.contentID + "." + link.contentID
-		return  <a href={link.customFields.followURL.href} target="_blank" key={key}><img src={link.customFields.logo.url} alt={link.customFields.logo.label}  /></a>
+		return  <a href={link.customFields.followURL.href} target="_blank" key={key} rel="noopener noreferrer"><img src={link.customFields.logo.url} alt={link.customFields.logo.label}  /></a>
 	});
 
 	return (

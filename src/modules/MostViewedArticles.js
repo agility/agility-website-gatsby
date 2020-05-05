@@ -12,7 +12,7 @@ export default  ({ item}) => {
 		return (
 			<Link to={ postUrl } className="post" key={module.contentID + "-" + post.contentID}>
 				<div className="post-image">
-					<img src={post.customFields.postImage.url + "?h=104&w=108"} />
+					<img src={post.customFields.postImage.url + "?h=104&w=108"}  alt={post.customFields.postImage.label}/>
 				</div>
 				<div className="post-text">
 					<h5>{post.customFields.title}</h5>
