@@ -260,7 +260,7 @@ const PlanDetailsTable = ({ item }) => {
                             </tr>
                             <tr id="componentEcommerce">
                                 <td className="feature">Content Items</td>
-                                <td>100</td>
+                                <td>1,000</td>
                                 {/* <td>1,000</td> */}
                                 <td>5,000</td>
                                 <td>50,000</td>
