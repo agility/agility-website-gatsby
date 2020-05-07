@@ -32,13 +32,15 @@ export default props => (
 
 			const pastEventsOnly = props.item.customFields.showPastEventsOnly === "true";
 
+			let yesterday = moment().add(-1, "days");
+
 			events = events.filter(event => {
 				if (pastEventsOnly) {
 					//in the past
 					return moment(event.customFields.date).isBefore()
 				} else {
 					//in the future
-					return moment(event.customFields.date).isSameOrAfter()
+					return moment(event.customFields.date).isSameOrAfter(yesterday)
 				}
 			});
 
@@ -95,11 +97,11 @@ const Event = ({moduleItem, event, index}) => {
 			<div className="event-content">
 				<Link to={url}><h2>{item.title}</h2></Link>
 
-				<div class="event-date">
-					<span class="date">
+				<div className="event-date">
+					<span className="date">
 						{ moment(item.date).format("MMM Do, YYYY") }
 					</span>
-					<span class="time">
+					<span className="time">
 						{ moment(item.date).format("h:mma") }
 					</span>
 				</div>
