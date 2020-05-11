@@ -15,22 +15,22 @@ const SEO = ({ page }) => {
 
 			<meta property="og:site_name" content="Agility CMS" />
 			<meta property="twitter:title" content={title} />
-		 	<meta property="og:title" content={title} />
+			<meta property="og:title" content={title} />
 
 			<meta name="description" content={description} />
 			<meta name="og:description" content={description} />
 			<meta name="twitter:description" content={description} />
 
 
-			{page.seo.twitterCard && <meta property="twitter:card" content={page.seo.twitterCard} /> }
-			{page.seo.ogType && <meta property="og:type" content={page.seo.ogType} /> }
-			{page.seo.category && <meta property="og:category" content={page.seo.category} /> }
+			{page.seo.twitterCard && <meta property="twitter:card" content={page.seo.twitterCard} />}
+			{page.seo.ogType && <meta property="og:type" content={page.seo.ogType} />}
+			{page.seo.category && <meta property="og:category" content={page.seo.category} />}
 
-			{page.seo.image && <meta property="og:image" content={page.seo.image.url} /> }
-			{page.seo.image && <meta property="twitter:image" content={page.seo.image.url} /> }
+			{page.seo.image && <meta property="og:image" content={page.seo.image.url} />}
+			{page.seo.image && <meta property="twitter:image" content={page.seo.image.url} />}
 
-			{page.seo.image && page.seo.image.width > 0 && <meta property="og:image:width" content={page.seo.image.width} /> }
-			{page.seo.image && page.seo.image.height > 0 && <meta property="og:image:height" content={page.seo.image.height} /> }
+			{page.seo.image && page.seo.image.width > 0 && <meta property="og:image:width" content={page.seo.image.width} />}
+			{page.seo.image && page.seo.image.height > 0 && <meta property="og:image:height" content={page.seo.image.height} />}
 
 			{page.seo.structData && <script type="application/ld+json">{page.seo.structData}</script>}
 
@@ -71,7 +71,7 @@ const SEO = ({ page }) => {
 			<link rel="dns-prefetch" href="//us-u.openx.net" />
 			<link rel="dns-prefetch" href="//idsync.rlcdn.com" />
 			<link rel="dns-prefetch" href="//t.visitorqueue.com" />
-			<link rel="dns-prefetch" href="//s.adroll.com" />
+
 
 			<link rel="apple-touch-startup-image" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-152x152.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-57x57.png" />
@@ -93,6 +93,14 @@ const SEO = ({ page }) => {
 			<meta name="msapplication-square150x150logo" content="https://static.agilitycms.com/favicon-web/mstile-150x150.png" />
 			<meta name="msapplication-wide310x150logo" content="https://static.agilitycms.com/favicon-web/mstile-310x150.png" />
 			<meta name="msapplication-square310x310logo" content="https://static.agilitycms.com/favicon-web/mstile-310x310.png" />
+
+
+			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulisemibold.woff2" />
+			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliextrabold.woff2" />
+			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulibold.woff2" />
+			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliregular.woff2" />
+
+			<link rel="stylesheet" href="/fonts.css" />
 
 		</Helmet>
 	)
