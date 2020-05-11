@@ -276,7 +276,7 @@ class HeaderSearch extends React.Component {
 
 class HeaderSearchResult extends React.Component {
 	render() {
-console.log(this.props.result)
+
 		//var category = this.props.result.category;
 		//TODO: implement categories for real
 		var category = this.props.result.category;

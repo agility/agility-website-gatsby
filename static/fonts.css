@@ -7,7 +7,7 @@
     url("https://static.agilitycms.com/layout/fonts/Muliregular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+
 }
 
 @font-face {
@@ -18,7 +18,7 @@
     url("https://static.agilitycms.com/layout/fonts/Mulisemibold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+
 }
 
 @font-face {
@@ -29,7 +29,7 @@
     url("https://static.agilitycms.com/layout/fonts/Muliextrabold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+
 }
 
 @font-face {
@@ -40,7 +40,7 @@
     url("https://static.agilitycms.com/layout/fonts/Mulibold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+
 }
 
 @font-face {
@@ -51,5 +51,5 @@
     url("https://static.agilitycms.com/layout/fonts/Branding-Medium.woff") format("woff"),
     url("https://static.agilitycms.com/layout/fonts/Branding-Medium.ttf") format("truetype")
   );
-  font-display: swap;
+
 }
