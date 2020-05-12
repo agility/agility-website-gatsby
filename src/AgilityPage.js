@@ -8,6 +8,7 @@ import PreviewBar from "./components/PreviewBar"
 import GlobalHeader from './components/GlobalHeader'
 import GlobalFooter from './components/GlobalFooter'
 import SEO from './components/SEO'
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 
 //Our query to get the our page data and check for a dynamic page item (agilityItem)
