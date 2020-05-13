@@ -1,5 +1,6 @@
 ## Agility CMS Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1e3a22cd-b3a8-483c-a1e4-156119f93119/deploy-status)](https://app.netlify.com/sites/agility-cms-website/deploys)
 
 ### Redirects
 
