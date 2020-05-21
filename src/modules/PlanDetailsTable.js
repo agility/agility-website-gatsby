@@ -41,7 +41,7 @@ const PlanDetailsTable = ({ item }) => {
 
                         </tbody>
 
-                        <thead className="sub-title">
+                        {/* <thead className="sub-title">
                             <tr>
                                 <th colSpan="5">
                                     Platform Features
@@ -71,7 +71,7 @@ const PlanDetailsTable = ({ item }) => {
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                             </tr>
-                        </tbody>
+                        </tbody> */}
 
                         <thead className="sub-title">
                             <tr>
@@ -270,13 +270,13 @@ const PlanDetailsTable = ({ item }) => {
                         </thead>
 
                         <tbody>
-                            <tr>
+                            {/* <tr>
                                 <td className="feature">Faceted Index</td>
                                 <td>&nbsp;</td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <td className="feature">Daily Crawl</td>
                                 <td>&nbsp;</td>
@@ -284,7 +284,7 @@ const PlanDetailsTable = ({ item }) => {
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td className="feature">404 Tracking</td>
                                 <td>&nbsp;</td>
                                 <td><i className="checkmark"></i></td>
@@ -297,7 +297,7 @@ const PlanDetailsTable = ({ item }) => {
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
                                 <td><i className="checkmark"></i></td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <td className="feature">Multi-Domain Indexing</td>
                                 <td>&nbsp;</td>
