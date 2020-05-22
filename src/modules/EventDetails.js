@@ -52,7 +52,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
 				</div>
 
-				<Link to="/community" className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>Back to Event Listing</span></Link>
+				<Link to="/resources/events" className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>Back to Event Listing</span></Link>
 			</div>
 		</section>
 
