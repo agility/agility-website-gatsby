@@ -50,7 +50,7 @@ export default props => (
 			posts.forEach(p => {
 				let excerpt = p.customFields.excerpt;
 				if (excerpt) {
-					p.customFields.excerpt = StringUtils.stripHtml(excerpt, 200);
+					p.customFields.excerpt = StringUtils.stripHtml(excerpt, 120);
 				}
 			});
 
@@ -107,7 +107,7 @@ const LatestPosts = ({ item, posts, sitemapNodes }) => {
 					</div>
 				</div>
 				{item.primaryButton &&
-					<a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a>}
+					<div className="bottom-btn"><a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a></div>}
 
 			</div>
 		</section>
@@ -139,7 +139,7 @@ class LatestBlogPostsContent extends React.Component {
 						<Link to={url} ><h3>{item.title}</h3></Link>
 						<p>{excerpt}</p>
 					</div>
-					<Link to={url} className="more"><span>{this.props.readMoreText}</span></Link>
+					<Link to={url} className="btn"><span>{this.props.readMoreText}</span></Link>
 				</div>
 			</div>
 		);

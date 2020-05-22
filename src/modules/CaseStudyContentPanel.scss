@@ -1,0 +1,117 @@
+@import "../global/_variables.scss";
+
+.case-study-content-panel {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 160px;
+  overflow: hidden;
+  z-index: 20;
+
+  .container-my {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+  }
+
+  .canvas#canvas-5 {
+    top: 70px;
+  }
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    display: block;
+    content: "";
+    border-bottom: 250px solid #fff;
+    border-left: 100vw solid transparent;
+    z-index: 5;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .content-panel-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .start-content {
+      flex-basis: 48%;
+
+      @media (max-width: 767px) {
+        margin-bottom: 30px;
+      }
+
+      .image {
+        margin-bottom: 55px;
+        max-width: 160px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .h1 {
+        margin-bottom: 29px;
+        font-size: 20px;
+        line-height: 1.8;
+        font-family: "Muli-Bold", sans-serif;
+        color: #2a3846;
+      }
+
+      p {
+        max-width: 520px;
+        font-size: 16px;
+        line-height: 1.8;
+        font-family: "Muli-Regular", sans-serif;
+      }
+    }
+
+    .start-image {
+      flex-basis: 48%;
+      flex-shrink: 1;
+
+      position: relative;
+      text-align: right;
+      z-index: 10;
+
+      .image-inner {
+        display: inline-block;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+
+        img {
+          display: block;
+          -webkit-box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
+          -moz-box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      display: block;
+      .start-content {
+        margin: 10px 0;
+        .image {
+          margin: auto;
+        }
+      }
+      .start-image {
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+  }
+}

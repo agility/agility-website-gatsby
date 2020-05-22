@@ -1,0 +1,145 @@
+@import "../global/_variables.scss";
+
+.case-study-details {
+  padding-bottom: 50px;
+  position: relative;
+
+
+
+  .case-study-top {
+    padding-left: 104px;
+    padding-right: 104px;
+    margin-bottom: 94px;
+
+    @media (max-width: 991px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+      margin-left: -16px;
+      margin-right: -16px;
+      flex-wrap: wrap;
+    }
+
+    &.jc-sb {
+      @media (max-width: 360px) {
+        justify-content: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+      }
+    }
+
+    .metrics-item {
+      width: 175px;
+      text-align: center;
+
+      @media (max-width: 767px) {
+        margin-bottom: 32px;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 50%;
+        -webkit-box: 0 0 50%;
+        -moz-box: 0 0 50%;
+        -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+      }
+
+      @media (max-width: 360px) {
+        padding: 0;
+        width: 175px;
+        -webkit-box: 0 0 auto;
+        -moz-box: 0 0 auto;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .h4 {
+        font-size: 30px;
+        font-family: "Muli-Bold", sans-serif;
+
+        span {
+          font-size: 20px;
+          font-family: "Muli-Bold", sans-serif;
+        }
+      }
+
+      span {
+        font-size: 16px;
+        font-family: "Muli-Bold", sans-serif;
+      }
+
+      hr {
+        margin-top: 15px;
+        margin-bottom: 17px;
+        border: none;
+        height: 1px;
+      }
+    }
+  }
+  .case-study-details-container {
+	  display:flex;
+	  flex-direction: row;
+	justify-content: space-between;
+
+    .case-study-left {
+		flex-basis: 65%;
+		margin-right: 20px;
+
+		.rich-text {
+			margin-top: 0;
+		}
+    }
+
+    .case-study-right {
+		flex-basis: 30%;
+		flex-shrink: 1;
+
+
+      .rich-text {
+		  margin-top: 0;
+        .h3 {
+          padding-left: 30px;
+
+          @media (max-width: 767px) {
+            padding-left: 0;
+          }
+        }
+
+        ul {
+          margin-bottom: 44px;
+
+          li {
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .color-text {
+        background-color: #ebeef0;
+        padding: 26px 30px 24px 24px;
+
+        p {
+          padding-left: 15px;
+          border-left: 1px solid #9fa7b0;
+          font-size: 16px;
+          line-height: 1.8;
+          font-family: "Muli-Regular", sans-serif;
+          color: #484b4d;
+        }
+      }
+	}
+
+	@media (max-width: $tablet-width) {
+		display: block;
+
+		.case-study-left {
+			margin: 0 0 20px;
+		}
+	}
+  }
+}

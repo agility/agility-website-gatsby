@@ -4,6 +4,7 @@ import moment from 'moment'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
 import PostTags from "../components/PostTags.jsx"
+import CallToAction from "../components/call-to-action.jsx"
 
 import "./RichTextArea.scss"
 import "./PostDetails.scss"
@@ -79,7 +80,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 
 					<div className="post-content" dangerouslySetInnerHTML={renderHTML(post.textblob)}></div>
 
-
+					{ post.cTA && <CallToAction item={post.cTA} /> }
 
 
 					{
@@ -87,6 +88,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 						<Link to={item.backButton.href} className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>{item.backButton.text}</span></Link>
 					}
 				</div>
+
 
 
 			</div>

@@ -3,11 +3,7 @@ import React from 'react';
 
 const CaseStudyTechStack = ({ item }) => {
 
-	return (
-		<section className="container">
-			CaseStudyTechStack
-		</section>
-	);
+	return null;
 }
 
 export default CaseStudyTechStack;

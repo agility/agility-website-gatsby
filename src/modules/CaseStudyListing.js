@@ -1,13 +1,58 @@
 import React from 'react';
+import { graphql, StaticQuery } from "gatsby"
+import StringUtils from "../utils/string-utils"
 
+import ReusablePostListing from "../components/reusable-post-listing.jsx"
 
-const CaseStudyListing = ({ item }) => {
+import './PostListing.scss'
 
-	return (
-		<section className="container">
-			CaseStudyListing
-		</section>
-	);
-}
+export default props => (
+	<StaticQuery
+		query={graphql`
+		query CaseStudyListingQuery {
+			allAgilityCaseStudy(filter: {properties: {referenceName: {eq: "casestudies"}}}) {
+				nodes {
+				  properties {
+					itemOrder
+				  }
+				  contentID
+				  languageCode
+				  customFields {
+					excerpt
+					title
+					uRL
+					postImage: image {
+					  url
+					  label
+					}
+				  }
+				}
+			  }
+			}
+        `}
+		render={queryData => {
 
-export default CaseStudyListing;
+			//filter out only those logos that we want...
+			let posts = queryData.allAgilityCaseStudy.nodes;
+
+			//adjust the excerpt
+			posts.forEach(p => {
+				let excerpt = p.customFields.excerpt;
+				if (excerpt) {
+					p.customFields.excerpt = StringUtils.stripHtml(excerpt, 200);
+				}
+
+				p.url = "/resources/case-studies/" + p.customFields.uRL;
+
+			});
+
+			const viewModel = {
+				item: props.item,
+				posts: posts
+			}
+			return (
+				<ReusablePostListing {...viewModel} />
+			);
+		}}
+	/>
+)

@@ -1,0 +1,24 @@
+@import "../global/_variables.scss";
+
+.call-to-action {
+	text-align: center;
+	h3 {
+		text-align: center;
+		margin-bottom: 15px;
+		font-size: 20px;
+		line-height: 1.4;
+		font-weight: bold;
+		color: $titles;
+	}
+	h4 {
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 18px;
+		line-height: 1.4;
+		font-weight: bold;
+		color: $titles;
+	}
+	img {
+		text-align: center;
+	}
+}

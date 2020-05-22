@@ -1,0 +1,128 @@
+@import "../global/variables.scss";
+
+.featured-resources {
+  margin: $module-margin-spacing;
+  font-family: "Muli-Regular", sans-serif;
+  padding-bottom: 63px !important;
+
+  h2.title-component {
+    max-width: 1008px;
+    display: block;
+    margin: 0 auto 20px;
+    font-size: 30px;
+    line-height: 1.56;
+    font-family: "Muli-bold", sans-serif;
+    color: #2a3846;
+    text-align: center;
+
+    @media (max-width: 767px) {
+      font-size: 30px;
+    }
+  }
+
+  p.intro {
+    max-width: 1008px;
+    display: block;
+    margin: 0 auto 80px;
+    font-size: 20px;
+    line-height: 1.6;
+    font-family: "Muli-SemiBold", sans-serif;
+    color: #484b4d;
+    text-align: center;
+  }
+
+  .features {
+    padding-top: 95px;
+
+    @media (max-width: 767px) {
+      padding-top: 60px;
+    }
+  }
+
+  #canvas-1 {
+    top: 120px;
+  }
+
+  .featured-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+
+    .featured-item {
+      max-width: 300px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+
+      .image {
+        overflow: hidden;
+
+        @media (max-width: 480px) {
+          margin-bottom: 20px;
+        }
+
+        img {
+          display: block;
+        }
+      }
+
+      .content {
+        padding: 32px 24px;
+        text-align: center;
+        min-height: 220px;
+
+        @media (max-width: 767px) {
+          padding: 15px 15px 32px;
+          min-height: 150px;
+        }
+
+        h3 {
+          font-family: $bold;
+          font-size: 20px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: normal;
+          color: $titles;
+          line-height: 1;
+          margin-bottom: 25px;
+          height: 50px;
+          display: flex;
+
+          a {
+            color: $titles;
+            margin: 0 auto;
+            align-self: center;
+            justify-self: center;
+          }
+        }
+
+        p {
+          margin-bottom: 0px;
+          font-size: 16px;
+          line-height: 1.2;
+          color: #6d7882;
+          text-align: center;
+        }
+      }
+
+      .read-more {
+        display: flex;
+        a.btn {
+          width: 216px;
+          height: 40px;
+          line-height: 48px;
+          margin: 0 auto 25px auto;
+
+          img {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}

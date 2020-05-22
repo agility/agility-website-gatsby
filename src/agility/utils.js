@@ -93,6 +93,76 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 		}
 
+		if (dynamicPageItem.properties.definitionName === "Resource") {
+
+			//build the meta description
+			metaDescription = null;
+			if (dynamicPageItem.seo && dynamicPageItem.seo.metaDescription) metaDescription = dynamicPageItem.seo.metaDescription;
+			if (metaDescription === null) {
+				metaDescription = dynamicPageItem.customFields.excerpt;
+				if (metaDescription && metaDescription.length > 240) metaDescription = metaDescription.substring(0, 240) + "...";
+			}
+
+			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
+
+			let category = null;
+			let image = null;
+
+			//get the category from the resource type
+			if (dynamicPageItem.customFields.resourceType && dynamicPageItem.customFields.resourceType.customFields) {
+				category = dynamicPageItem.customFields.resourceType.customFields.title;
+			}
+
+			if (dynamicPageItem.customFields.image) {
+				if (dynamicPageItem.customFields.image.url.indexOf("http://") !== -1) {
+					dynamicPageItem.customFields.image.url = dynamicPageItem.customFields.image.url.replace("http://", "https://");
+				}
+				image = dynamicPageItem.customFields.image;
+
+			}
+
+			seo.metaDescription = metaDescription;
+			seo.twitterCard = "summary_large_image";
+			seo.ogType = "article";
+			seo.category = category;
+			seo.canonicalUrl = canonicalUrl;
+			seo.image = image;
+
+
+		}
+
+		if (dynamicPageItem.properties.definitionName === "CaseStudy") {
+
+			//build the meta description
+			metaDescription = null;
+			if (dynamicPageItem.seo && dynamicPageItem.seo.metaDescription) metaDescription = dynamicPageItem.seo.metaDescription;
+			if (metaDescription === null) {
+				metaDescription = dynamicPageItem.customFields.excerpt;
+				if (metaDescription && metaDescription.length > 240) metaDescription = metaDescription.substring(0, 240) + "...";
+			}
+
+			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
+
+			let category = "Case Study";
+			let image = null;
+
+			if (dynamicPageItem.customFields.image) {
+				if (dynamicPageItem.customFields.image.url.indexOf("http://") !== -1) {
+					dynamicPageItem.customFields.image.url = dynamicPageItem.customFields.image.url.replace("http://", "https://");
+				}
+				image = dynamicPageItem.customFields.image;
+
+			}
+
+			seo.metaDescription = metaDescription;
+			seo.twitterCard = "summary_large_image";
+			seo.ogType = "article";
+			seo.category = category;
+			seo.canonicalUrl = canonicalUrl;
+			seo.image = image;
+
+		}
+
 		if (dynamicPageItem.properties.definitionName === "Event") {
 
 			//build the meta description
