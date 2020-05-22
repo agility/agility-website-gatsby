@@ -7,10 +7,15 @@
     margin-bottom: 20px;
   }
 
+  .rich-text {
+	  margin: 0;
+  }
+
   .event-date {
     text-align: center;
     font-size: 18px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
+
     span {
       padding: 8px 10px 8px 30px;
       font-weight: 600;

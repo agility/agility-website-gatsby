@@ -5,6 +5,7 @@ import moment from 'moment'
 import { renderHTML } from '../agility/utils'
 
 import "./EventDetails.scss"
+import "./RichTextArea.scss"
 
 
 const EventDetails = ({ item, dynamicPageItem, page }) => {
@@ -20,7 +21,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	return (
 		<section className="event-details">
-			<div className="container p-w-small">
+			<div className="container p-w-small rich-text">
 				<h1 className="title-component">{event.title}</h1>
 
 				<div className="event-date">
