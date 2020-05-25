@@ -44,7 +44,7 @@ const ResourceDetails = ({ item, dynamicPageItem }) => {
 
 						<div className="download-button">
 							{resource.fileDownload &&
-								<a class="btn" href={resource.fileDownload.url} title={resource.fileDownload.label}>{resource.fileDownload.label}</a>
+								<a className="btn" href={resource.fileDownload.url} title={resource.fileDownload.label}>{resource.fileDownload.label}</a>
 							}
 						</div>
 

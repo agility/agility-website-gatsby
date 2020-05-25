@@ -1,37 +1,82 @@
 import React from 'react';
+import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 import CallToAction from "../components/call-to-action.jsx"
 import "./CaseStudyDetails.scss"
 import "./RichTextArea.scss"
 
-const CaseStudyDetails = ({ item, dynamicPageItem }) => {
+export default props => (
+	<StaticQuery
+		query={graphql`
+		query KeyValuePairCaseStudyQuery {
+			allAgilityKeyValuePair {
+			  nodes {
+				contentID
+				languageCode
+				properties {
+				  referenceName
+				  itemOrder
+				}
+				customFields {
+				  key
+				  value
+				}
+			  }
+			}
+		  }
+
+        `}
+		render={queryData => {
+
+			const metricsReferenceName = props.dynamicPageItem.customFields.metrics.referencename;
+
+			//filter out only those logos that we want...
+			let metrics = queryData.allAgilityKeyValuePair.nodes.filter(m => {
+				return m.properties.referenceName === metricsReferenceName;
+			});
+
+
+			const viewModel = {
+				dynamicPageItem: props.dynamicPageItem,
+				item: props.item,
+				metrics: metrics
+			}
+			return (
+				<CaseStudyDetails {...viewModel} />
+			);
+		}}
+	/>
+)
+
+const CaseStudyDetails = ({ item, dynamicPageItem, metrics }) => {
 
 	let caseStudy = dynamicPageItem.customFields;
 	let bgColor = caseStudy.brandBGColor;
 
-	let metrics = null;
-	if (caseStudy.metrics && caseStudy.metrics.length && caseStudy.metrics.length > 0)
-	{
+	console.log({caseStudy, metrics});
 
-         metrics = caseStudy.metrics.map(function (item) {
+         let metricsOutput = metrics.map(function (m) {
+
+			const mItem = m.customFields;
+			const key = item.contentID + "-" + m.contentID;
             return (
-                <div className="metrics-item" style={{ color: bgColor }}>
+                <div className="metrics-item" style={{ color: bgColor }} key={key}>
 
-                    <h4 className="h4" dangerouslySetInnerHTML={renderHTML(item.value)}></h4>
+                    <h4 className="h4" dangerouslySetInnerHTML={renderHTML(mItem.value)}></h4>
                     <hr style={{ backgroundColor: bgColor }} />
-                    <span>{item.title}</span>
+                    <span>{mItem.key}</span>
                 </div>
             );
 		});
-	}
+
 
         return (
             <section className="p-w case-study-details">
                 <div className="container-my">
-					{ metrics && metrics.length > 0 &&
-						<div className="col-md-12">
-							<div className="case-study-top d-flex jc-sb">
-								{metrics}
+					{ metricsOutput && metricsOutput.length > 0 &&
+						<div className="metrics-wrapper">
+							<div className="metrics-listing">
+								{metricsOutput}
 							</div>
 						</div>
 					}
@@ -61,4 +106,3 @@ const CaseStudyDetails = ({ item, dynamicPageItem }) => {
         );
 }
 
-export default CaseStudyDetails;

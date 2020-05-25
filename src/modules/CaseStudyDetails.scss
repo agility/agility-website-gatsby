@@ -5,8 +5,14 @@
   position: relative;
 
 
+.metrics-wrapper {
+	width: 100%;
+  .metrics-listing {
 
-  .case-study-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
     padding-left: 104px;
     padding-right: 104px;
     margin-bottom: 94px;
@@ -81,6 +87,7 @@
       }
     }
   }
+}
   .case-study-details-container {
 	  display:flex;
 	  flex-direction: row;
