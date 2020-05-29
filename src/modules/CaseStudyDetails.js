@@ -53,8 +53,6 @@ const CaseStudyDetails = ({ item, dynamicPageItem, metrics }) => {
 	let caseStudy = dynamicPageItem.customFields;
 	let bgColor = caseStudy.brandBGColor;
 
-	console.log({caseStudy, metrics});
-
          let metricsOutput = metrics.map(function (m) {
 
 			const mItem = m.customFields;
