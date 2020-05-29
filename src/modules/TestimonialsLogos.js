@@ -5,7 +5,7 @@ const TestimonialsLogos = ({ item }) => {
 
 	return (
 		<section className="container">
-			TestimonialsLogos
+			UNFINISHED MODULE TestimonialsLogos
 		</section>
 	);
 }

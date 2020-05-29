@@ -5,7 +5,7 @@ const GatedDownload = ({ item }) => {
 
 	return (
 		<section className="container">
-			GatedDownload
+			UNFINISHED MODULE GatedDownload
         </section>
 	);
 }

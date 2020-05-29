@@ -1,0 +1,210 @@
+@import "../global/_variables.scss";
+
+.features {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 480px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .container-my {
+    @media (max-width: 480px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .rotated-bg {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-image: url("https://static.agilitycms.com/layout/img/bg/Triangle_2.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  > span {
+    font-family: $semibold;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    display: block;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .react-tabs__tab-list {
+    max-width: 600px;
+    display: flex;
+    margin: 0 auto 60px auto;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ebeef0;
+
+    .react-tabs__tab {
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $inactive;
+      padding: 0 0 10px 0;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
+
+      &:hover {
+        color: $colorBasic;
+      }
+
+      .tab-title {
+        margin-top: 10px;
+      }
+
+      .tab-icon {
+        align-self: center;
+        z-index: 100;
+        img {
+          width: auto;
+          height: 40px;
+        }
+      }
+    }
+
+    .react-tabs__tab.react-tabs__tab--selected {
+      color: $act;
+      font-family: $bold;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: $act;
+      }
+    }
+  }
+
+  .features-toggle-tab-items {
+    .react-tabs__tab-panel {
+      height: 0;
+      padding: 0 60px;
+      position: relative;
+      display: flex;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
+
+      @media screen and (max-width: 991px) {
+        flex-direction: column;
+      }
+
+      .img {
+        max-width: 416px;
+        min-width: 416px;
+        line-height: 0;
+        margin-right: 5.4166666667%;
+
+        @media screen and (max-width: 991px) {
+          min-width: initial;
+          max-width: initial;
+          text-align: center;
+          margin-right: 0;
+          margin-bottom: 58px;
+        }
+      }
+
+
+
+      .content {
+        .feature-title {
+          font-size: 20px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.6;
+          letter-spacing: normal;
+          margin-top: 5px;
+          margin-bottom: 41px;
+        }
+
+
+        ul {
+          list-style-type: square;
+          margin: 0 0 20px 20px;
+        }
+
+        li {
+          font-size: 16px;
+          line-height: 1.5;
+          font-family: "Muli-Regular", sans-serif;
+          color: #6d7882;
+
+          a { color: #5400ca !important; }
+        }
+
+        h3, h4 {
+          font-weight: 700;
+          font-size: 16px;
+          margin: 10px 0 5px 0;
+        }
+
+        p {
+          margin: 0 0 25px 0;
+
+          a { color: #5400ca !important; }
+        }
+
+
+        button {
+          margin-top: 18px;
+        }
+
+        .btn {
+          display: inline-block;
+          margin-top: 18px;
+          height: 48px;
+          line-height: 48px;
+        }
+      }
+    }
+
+
+    .react-tabs__tab-panel.react-tabs__tab-panel--selected {
+      opacity: 1;
+      height: auto;
+      transition: opacity 0.6s cubic-bezier(0.24, 0.35, 0, 1.01);
+    }
+  }
+}
+
+#product-page {
+  #sec-3 {
+    #canvas-3 {
+      top: 150px;
+    }
+
+    .features-tabs {
+      max-width: 470px;
+    }
+  }
+}

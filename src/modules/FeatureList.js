@@ -5,7 +5,7 @@ const FeatureList = ({ item }) => {
 
 	return (
 		<section className="container">
-			FeatureList
+			UNFINISHED MODULE FeatureList
 		</section>
 	);
 }

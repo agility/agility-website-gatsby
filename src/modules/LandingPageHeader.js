@@ -5,7 +5,7 @@ const LandingPageHeader = ({ item }) => {
 
 	return (
 		<section className="container">
-			LandingPageHeader
+			UNFINISHED MODULE LandingPageHeader
 		</section>
 	);
 }

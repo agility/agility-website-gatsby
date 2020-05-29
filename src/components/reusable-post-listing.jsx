@@ -68,7 +68,6 @@ class ReusablePostListing extends React.Component {
 	render() {
 
 
-
 		var posts = this.state.posts.map(item => {
 
 			return <PostListItem item={item} url={item.url} key={this.moduleItem.contentID + "-" + item.contentID} />

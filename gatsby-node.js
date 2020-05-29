@@ -40,7 +40,10 @@ exports.createResolvers = (args) => {
 			category: agility.getLinkedContentItem({ type: 'agilityBlogCategory', linkedContentFieldName: 'categories' }),
 			author: agility.getLinkedContentItem({ type: 'agilityBlogAuthor', linkedContentFieldName: 'author' }),
 			tags: agility.getLinkedContentList({ type: 'agilityBlogTag', linkedContentFieldName: 'blogTags' })
-		}
+		},
+		agilityPartner: {
+			customTags: agility.getLinkedContentList({ type: 'agilityCustomTag', linkedContentFieldName: 'customTags' })
+		},
 
 		//[Not Implemented]
 		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query

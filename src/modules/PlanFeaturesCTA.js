@@ -5,7 +5,7 @@ const PlanFeaturesCTA = ({ item }) => {
 
 	return (
 		<section className="container">
-			PlanFeaturesCTA
+			UNFINISHED MODULE PlanFeaturesCTA
 		</section>
 	);
 }

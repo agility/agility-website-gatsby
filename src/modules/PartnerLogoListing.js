@@ -94,7 +94,6 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 		return renderPartner(partner)
 	})
 
-
 	return (
 		<section className="partnerLogoListing">
 			<div className="container-my">

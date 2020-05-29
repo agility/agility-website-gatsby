@@ -5,7 +5,7 @@ const FeatureBlocksWithText = ({ item }) => {
 
 	return (
 		<section className="container">
-			FeatureBlocksWithText
+			UNFINISHED MODULE FeatureBlocksWithText
         </section>
 	);
 }

@@ -5,7 +5,7 @@ const PeopleListing = ({ item }) => {
 
 	return (
 		<section className="container">
-			PeopleListing
+			UNFINISHED MODULE PeopleListing
 		</section>
 	);
 }
