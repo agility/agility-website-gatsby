@@ -189,7 +189,7 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 			let validFrom = moment();
 			let startTime = moment(dynamicPageItem.customFields.date);
-			let endTime =  moment(startTime).add(1, "hours");
+			let endTime = moment(startTime).add(1, "hours");
 
 			let extLink = canonicalUrl;
 			if (dynamicPageItem.customFields.externalLink) extLink = dynamicPageItem.customFields.externalLink.href;
@@ -223,25 +223,29 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 					"@type": "VirtualLocation",
 					"url": extLink,
 				},
-				"image": [
-					image.url,
-				 ],
+
 				"description": dynamicPageItem.customFields.description,
 				"offers": {
-				  "@type": "Offer",
-				  "url": canonicalUrl,
-				  "price": "0",
-				  "priceCurrency": "USD",
-				  "availability": "https://schema.org/InStock",
-				  "validFrom": validFrom.toISOString(true),
+					"@type": "Offer",
+					"url": canonicalUrl,
+					"price": "0",
+					"priceCurrency": "USD",
+					"availability": "https://schema.org/InStock",
+					"validFrom": validFrom.toISOString(true),
 				},
-				 "performer": presenters,
+				"performer": presenters,
 				"organizer": {
-				  "@type": "Organization",
-				  "name": "Agility CMS",
-				  "url": "https://agilitycms.com"
+					"@type": "Organization",
+					"name": "Agility CMS",
+					"url": "https://agilitycms.com"
 				}
-			  }
+			}
+
+			if (image) {
+				structData.image = [
+					image.url,
+				]
+			}
 
 			seo.structData = JSON.stringify(structData);
 			seo.metaDescription = metaDescription;
@@ -344,7 +348,7 @@ const getLinkedContentList = ({ type, linkedContentFieldName }) => {
 			const json = source.internal.content;
 			const fullItem = JSON.parse(json);
 			const field = fullItem.customFields[linkedContentFieldName];
-			if (! field || ! field.referencename) return [];
+			if (!field || !field.referencename) return [];
 
 			const referenceName = field.referencename;
 			let sortIDAry = null;
@@ -353,7 +357,7 @@ const getLinkedContentList = ({ type, linkedContentFieldName }) => {
 				sortIDAry = sortids.split(",");
 			}
 
-			const filteredList = list.filter( item => {
+			const filteredList = list.filter(item => {
 
 				if (item.properties.referenceName !== referenceName) return false;
 
