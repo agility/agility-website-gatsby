@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
 
@@ -9,6 +9,7 @@ import "./RichTextArea.scss"
 
 
 const EventDetails = ({ item, dynamicPageItem, page }) => {
+	const [loaded, setLoaded] = useState(false)
 
 	const event = dynamicPageItem.customFields;
 
@@ -17,6 +18,52 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 	if (event.externalLink) {
 		externalLink = event.externalLink.href;
 		exernalTarget = event.externalLink.target;
+	}
+
+	useEffect(() => {
+
+		//load the eventbrites cript - but only if we have to
+		if (typeof window === 'undefined') return;
+
+		if (loaded) return;
+
+		setTimeout(function() {
+
+			if (event.eventbriteID) {
+				//add the script embed...
+				let script = document.createElement("script")
+				script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js"
+				script.async = true
+				document.body.appendChild(script)
+
+				loadEventBriteForm();
+
+
+			}
+			setLoaded(true);
+		}, 1500);
+
+
+	});
+
+	const loadEventBriteForm = () => {
+
+		if (! window.EBWidgets) {
+			setTimeout(loadEventBriteForm, 100);
+			return;
+		}
+
+		window.EBWidgets.createWidget({
+			// Required
+			widgetType: 'checkout',
+			eventId: event.eventbriteID,
+			iframeContainerId: `eventbrite-widget-container-${event.eventbriteID}`,
+
+			// Optional
+			iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+			//onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+		});
+
 	}
 
 	return (
@@ -50,6 +97,11 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 					}
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
+
+					{event.externalLink &&
+						<div id={`eventbrite-widget-container-${event.eventbriteID}`}></div>
+					}
+
 				</div>
 
 				<Link to="/resources/events" className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>Back to Event Listing</span></Link>
