@@ -64,7 +64,17 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 			//onOrderComplete: exampleCallback  // Method called when an order has successfully completed
 		});
 
+		window.EBWidgets.createWidget({
+			widgetType: 'checkout',
+			eventId: event.eventbriteID,
+			modal: true,
+			modalTriggerElementId: `eventbrite-widget-button-${event.eventbriteID}`
+		});
+
 	}
+
+
+
 
 	return (
 		<section className="event-details">
@@ -94,6 +104,10 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 						<div className="event-link">
 							<a href={externalLink} target={exernalTarget} className="btn">{event.externalLink.text}</a>
 						</div>
+					}
+
+					{event.eventbriteID &&
+						<div id={`eventbrite-widget-button-${event.eventbriteID}`}></div>
 					}
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
