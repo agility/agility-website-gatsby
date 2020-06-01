@@ -54,27 +54,25 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 		}
 
 		window.EBWidgets.createWidget({
-			// Required
-			widgetType: 'checkout',
-			eventId: event.eventbriteID,
-			iframeContainerId: `eventbrite-widget-container-${event.eventbriteID}`,
-
-			// Optional
-			iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-			//onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-		});
-
-		window.EBWidgets.createWidget({
 			widgetType: 'checkout',
 			eventId: event.eventbriteID,
 			modal: true,
 			modalTriggerElementId: `eventbrite-widget-button-${event.eventbriteID}`
 		});
 
+		setTimeout(function() {
+			window.EBWidgets.createWidget({
+				// Required
+				widgetType: 'checkout',
+				eventId: event.eventbriteID,
+				iframeContainerId: `eventbrite-widget-container-${event.eventbriteID}`,
+
+				// Optional
+				iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+				//onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+			});
+		}, 1000)
 	}
-
-
-
 
 	return (
 		<section className="event-details">
@@ -107,7 +105,9 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 					}
 
 					{event.eventbriteID &&
-						<div id={`eventbrite-widget-button-${event.eventbriteID}`}></div>
+						<div className="event-link">
+							<a className="btn" id={`eventbrite-widget-button-${event.eventbriteID}`} type="button">Register Now</a>
+						</div>
 					}
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>

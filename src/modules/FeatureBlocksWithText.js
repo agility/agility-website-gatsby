@@ -7,8 +7,6 @@ const FeatureBlocksWithText = ({ item }) => {
 	const moduleItem = item;
 	item = item.customFields;
 
-	console.log(item)
-
 	var features = item.featureBlocks.map(function (f) {
 		return <ProductsFeaturesContent data={f.customFields} key={f.contentID + "-" + moduleItem.contentID} />;
 	})
