@@ -8,6 +8,12 @@ const SEO = ({ page }) => {
 
 	if (title.indexOf("Agility") === -1) title += " - Agility CMS";
 
+	let canonicalUrl = page.seo.canonicalUrl;
+	if (canonicalUrl && canonicalUrl.lastIndexOf("/") !== canonicalUrl.length - 1) {
+		//ensure the canonical version of the url ends with /
+		canonicalUrl = `${canonicalUrl}/`;
+	}
+
 	return (
 		<Helmet>
 			<meta charSet="utf-8" />
@@ -21,7 +27,7 @@ const SEO = ({ page }) => {
 			<meta name="og:description" content={description} />
 			<meta name="twitter:description" content={description} />
 
-
+			{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 			{page.seo.twitterCard && <meta property="twitter:card" content={page.seo.twitterCard} />}
 			{page.seo.ogType && <meta property="og:type" content={page.seo.ogType} />}
 			{page.seo.category && <meta property="og:category" content={page.seo.category} />}
@@ -93,7 +99,6 @@ const SEO = ({ page }) => {
 			<meta name="msapplication-square150x150logo" content="https://static.agilitycms.com/favicon-web/mstile-150x150.png" />
 			<meta name="msapplication-wide310x150logo" content="https://static.agilitycms.com/favicon-web/mstile-310x150.png" />
 			<meta name="msapplication-square310x310logo" content="https://static.agilitycms.com/favicon-web/mstile-310x310.png" />
-
 
 			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulisemibold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliextrabold.woff2" />

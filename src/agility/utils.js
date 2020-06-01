@@ -44,7 +44,6 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 	let metaDescription = null;
 
-
 	let seo = {
 		metaDescription: null,
 		metaHTML: null
@@ -53,6 +52,8 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 	if (page.seo) {
 		seo = page.seo;
 	}
+
+	seo.canonicalUrl = `https://agilitycms.com${location.pathname}`;
 
 	if (dynamicPageItem !== null) {
 
