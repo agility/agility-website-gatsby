@@ -41,7 +41,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 			}
 			setLoaded(true);
-		}, 1500);
+		}, 100);
 
 
 	});
@@ -98,7 +98,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
 
-					{event.externalLink &&
+					{event.eventbriteID &&
 						<div id={`eventbrite-widget-container-${event.eventbriteID}`}></div>
 					}
 
