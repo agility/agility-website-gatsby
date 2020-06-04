@@ -6,9 +6,16 @@ import Triangles from "../components/triangles.jsx"
 
 const ContentPanel = ({ item }) => {
 
+	if (! item.customFields.panel
+		|| ! item.customFields.panel) return null;
 
 	//adjust the item...
 	item = item.customFields.panel.customFields;
+
+	if (! item) return null;
+
+	const enableBackgroundImage = item.enableBackgroundImage;
+	console.log("item.enableBackgroundImage", typeof(enableBackgroundImage), enableBackgroundImage)
 
 	const renderImage = (imagePosition, imageTransparency, imageSkewed, image) => {
 		let transparencyClass = "";
@@ -33,7 +40,7 @@ const ContentPanel = ({ item }) => {
 	return (
 		<section className="front-start p-w">
 			<Triangles />
-			<div className={item.enableBackgroundImage ? 'rotated-bg' : ''}></div>
+			<div className={enableBackgroundImage == "true" ? 'rotated-bg' : ''}></div>
 
 			<div className="container-my">
 				{item.imagePosition === 'left' && item.image &&

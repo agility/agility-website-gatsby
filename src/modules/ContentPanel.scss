@@ -2,8 +2,7 @@
 
 .front-start {
 	position: relative;
-	display: flex;
-	justify-content: space-between;
+
 	overflow: visible;
 	padding-top: 55px;
 	padding-bottom: 120px;
@@ -52,6 +51,8 @@
 	}
 
 	.container-my {
+		display: flex;
+		justify-content: space-between;
 		align-items: flex-start;
 		-webkit-transform: skew(0); //this is a hack so the image doesn't disappear in safari...
 		@media (max-width: 767px) {
@@ -210,9 +211,9 @@
 
 	.start-image {
 		line-height: 0;
-		width: 50%;
-		min-width: 50%;
-		max-width: 50%;
+		width: 40%;
+		min-width: 40%;
+		max-width: 40%;
 		-webkit-box: 0 0 40%;
 		-moz-box: 0 0 40%;
 		-webkit-flex: 0 0 40%;
@@ -263,7 +264,7 @@
 			//mod joelv - this was messing with home page
 			//width: 90%;
 			height: auto;
-			box-shadow: (0px 15px 14px rgba(0, 0, 0, 0.51));
+
 
 			@media (max-width: 767px) {
 				width: 80%;
@@ -277,6 +278,7 @@
 	}
 
 	.start-image.right.skewed-image {
+		box-shadow: (0px 15px 14px rgba(0, 0, 0, 0.51));
 		transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1030px) rotateY(-30deg) rotateX(1deg)
 			rotate(1deg);
 	}

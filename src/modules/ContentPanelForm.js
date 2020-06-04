@@ -19,7 +19,7 @@ const ContentPanelForm = ({ item }) => {
 				<Triangles />
 
 
-                <div className={panel.enableBackgroundImage ? 'rotated-bg' : ''}></div>
+                <div className={panel && panel.enableBackgroundImage ? 'rotated-bg' : ''}></div>
 
                 <div className="container-my">
 

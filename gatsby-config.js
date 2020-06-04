@@ -69,7 +69,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-intercom-spa',
 			options: {
 				app_id: 'ipjo8vwm',
-				include_in_development: true,
+				include_in_development: false,
 				delay_timeout: 1500
 			}
 		},

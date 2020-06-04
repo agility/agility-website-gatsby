@@ -1,0 +1,179 @@
+@import "../global/_variables.scss";
+
+.landing-page-header {
+    color: #fff;
+    padding: 50px 0 100px 0;
+    margin-bottom: 80px;
+    background-position: 70% 0%;
+    background-size: cover;
+
+    @media (max-width: 767px) {
+        background: 100% 0%;
+    }
+
+    .header-content {
+        max-width: 500px;
+
+        .logo {
+            margin-bottom: 100px;
+            img {
+                max-width: 200px;
+                height: auto;
+            }
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: $bold;
+        }
+
+        p {
+            margin-bottom: 25px;
+            line-height: 26px;
+        }
+
+        .btn-outline {
+            background-color: inherit !important;
+            border: 3px solid $primaryColor;
+        }
+    }
+
+    .landing-page-email-form {
+        width: 40%;
+        min-width: 40%;
+        max-width: 40%;
+        -webkit-box: 0 0 40%;
+        -moz-box: 0 0 40%;
+        -webkit-flex: 0 0 40%;
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        margin-left: 0;
+        margin-top: 180px;
+
+        @media (max-width: 767px) {
+          padding-right: 0;
+          max-width: 100%;
+          -webkit-box: 0 0 100%;
+          -moz-box: 0 0 100%;
+          -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+        }
+
+        form {
+          color: #fff;
+
+          h3 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: "Muli-bold", sans-serif;
+            font-weight: bold;
+          }
+
+          .form-item {
+            margin-bottom: 20px;
+            position: relative;
+
+            .invalid-feedback {
+              position: absolute;
+              right: 0;
+              top: -3px;
+              font-size: 11px;
+              background-color: $invalid;
+              color: #fff;
+              max-width: 75px;
+              text-align: center;
+              border-radius: 3px;
+            }
+          }
+
+          .alert {
+            color: $invalid;
+            background-color: rgba(255,255,255,0.5);
+            padding: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+          }
+
+          label {
+            display: none;
+          }
+
+          input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: 100%;
+            background: none;
+            font-size: 18px;
+            color: #fff !important;
+            border: none;
+            height: 50px;
+            outline: none;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+
+            &::placeholder {
+              color: rgba(255,255,255,0.5);
+            }
+
+          }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+            border: none;
+            background-color: transparent;
+            -webkit-text-fill-color: #fff;
+            -webkit-box-shadow: none;
+            transition: background-color 5000s ease-in-out 0s;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+          button[type="submit"], .btn {
+            width: 100%;
+            display: inline-block;
+            border: none;
+            outline: none;
+            background-color: #4600a8;
+            font-size: 16px;
+            font-family: "Muli-bold", sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+            min-height: 48px;
+            line-height: 48px;
+            border-radius: 5px;
+            box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
+            padding: 0 23px 0 22px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
+
+            &:hover, &:focus {
+                -moz-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+                -webkit-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+                box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+                background-color: $btnhov;
+              }
+          }
+          .btn { margin: 35px 0 10px 0; }
+        }
+        .disclaimer {
+            font-size: 12px;
+            text-align: center;
+            margin: 10px 0 30px 0;
+          }
+      }
+
+
+}
