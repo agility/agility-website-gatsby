@@ -25,9 +25,13 @@ const Testimonials = ({ item }) => {
 		//only run this on the client
 		if (typeof window === 'undefined') return;
 
-		window.onresize = setCarouselSize;
+		window.addEventListener("resize", setCarouselSize);
 
 		setCarouselSize();
+
+		return function cleanup() {
+			window.removeEventListener("resize", setCarouselSize);
+		  };
 
 	}, [])
 

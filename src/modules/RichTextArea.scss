@@ -3,6 +3,11 @@
 .rich-text {
   margin: $module-margin-spacing;
   word-break: break-word;
+
+  .rich-text-container {
+	  width: 100%;
+  }
+
   h1 {
     margin-bottom: 20px;
     font-size: 30px;
