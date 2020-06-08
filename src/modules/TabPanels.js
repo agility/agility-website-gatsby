@@ -10,6 +10,7 @@ const TabPanels = ({ item }) => {
 	const moduleItem = item;
 	item = item.customFields;
 
+
 	const tabNav = item.tabPanels.map(function (tab) {
 
 		let key = `${moduleItem.contentID}-${tab.contentID}`;
