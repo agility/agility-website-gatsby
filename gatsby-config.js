@@ -117,11 +117,15 @@ module.exports = {
 				  serialize: ({ query: { site, allAgilityBlogPost } }) => {
 					return allAgilityBlogPost.nodes.map(node => {
 					  return {
+						title: node.customFields.title,
 						description: node.customFields.excerpt,
 						date: node.customFields.date,
-						url: 'https://agilitycms.com/resources/posts/' + node.customFields.slug,
+						url: 'https://agilitycms.com/resources/posts/' + node.customFields.uRL,
 						guid: node.id,
-						custom_elements: [{ "content:encoded": node.customFields.textblob }],
+						enclosure: node.customFields.postImage && {
+							url: node.customFields.postImage.url
+						},
+
 					  }
 					})
 				  },
@@ -130,13 +134,16 @@ module.exports = {
 						allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}, limit: 100) {
 							nodes {
 								id
-							  customFields {
-								 title
-								excerpt
-								textblob
-								uRL
-								date
-							  }
+								customFields {
+									title
+									excerpt
+									uRL
+									date
+									postImage {
+										url
+										label
+									}
+								}
 							}
 						  }
 					}
