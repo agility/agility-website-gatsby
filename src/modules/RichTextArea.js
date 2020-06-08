@@ -7,8 +7,7 @@ const RichTextArea = ({ item }) => {
 
 	return (
 		<section className="rich-text">
-			<div className="container-my">
-				<div dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
+			<div className="container-my" dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}>
 			</div>
 		</section>
 	);
