@@ -25,9 +25,9 @@ const FeatureBlocksWithText = ({ item }) => {
 						<a className="btn" href={item.sideLink.href} target={item.sideLink.target}>{item.sideLink.text}</a>
 					</div>
 					<div className="features-right">
-						<div className="row-my">
-							{features}
-						</div>
+					<div className="features-list">
+						{features}
+					</div>
 					</div>
 				</div>
 
@@ -45,8 +45,8 @@ const ProductsFeaturesContent = ({ data }) => {
 
 
 	return (
-		<div className="col-md-4">
-			<div className="featurer-item">
+
+			<div className="feature-item">
 				<div className="item-inner">
 					<div className="image">
 						<img src={data.icon.url} alt={data.icon.label} />
@@ -61,7 +61,7 @@ const ProductsFeaturesContent = ({ data }) => {
 
 				</div>
 			</div>
-		</div>
+
 	);
 
 }

@@ -119,13 +119,13 @@ class GlobalHeader extends Component {
 				const subLinks = renderMenu(item.children, level + 1);
 				if (subLinks === null || subLinks.length < 0) {
 					//no sub menu
-					links.push(<li className={itemClassName} key={item.pageID}><a href={path} target={item.target} className={aClassName}>{item.menuText}</a></li>)
+					links.push(<li className={itemClassName} key={item.pageID}><Link to={path} target={item.target} className={aClassName}>{item.menuText}</Link></li>)
 				} else {
 					//has a sub menu
 					let li = null;
 					if (!item.isFolder) {
 						//regular item...
-						li = <li className={itemClassName + ' has-children'} key={item.pageID}><a href={path} target={item.target} className={aClassName}>{item.menuText}</a>
+						li = <li className={itemClassName + ' has-children'} key={item.pageID}><Link to={path} target={item.target} className={aClassName}>{item.menuText}</Link>
 							<span className="sub-menu-icon"><img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" /></span>
 							<div className="sub-menu-inner">
 								{subLinks}
@@ -187,7 +187,7 @@ class GlobalHeader extends Component {
 
 								{item.stickyLogo &&
 									<div className="header-logo-sticky">
-										<a href="/"><img src={item.stickyLogo.url} alt={item.stickyLogo.label} /></a>
+										<Link to="/"><img src={item.stickyLogo.url} alt={item.stickyLogo.label} /></Link>
 									</div>
 								}
 

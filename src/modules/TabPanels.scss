@@ -195,16 +195,24 @@
       transition: opacity 0.6s cubic-bezier(0.24, 0.35, 0, 1.01);
     }
   }
-}
 
-#product-page {
-  #sec-3 {
-    #canvas-3 {
-      top: 150px;
-    }
+  @media screen and (max-width: $mobile-width) {
 
-    .features-tabs {
-      max-width: 470px;
-    }
+		.react-tabs {
+		.react-tabs__tab {
+			.tab-icon {
+				img {
+					height: 30px;
+				}
+			}
+			.tab-title {
+				font-size: 14px !important;
+			}
+		}
+
+		.react-tabs__tab-panel {
+			padding: 0 !important;
+		}
+	  }
   }
 }
