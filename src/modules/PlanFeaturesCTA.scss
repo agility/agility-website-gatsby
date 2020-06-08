@@ -1,0 +1,75 @@
+@import "../global/_variables.scss";
+
+.plan-features-cta {
+    background-color: #F8F8F8;
+    padding: 80px 0;
+
+    .content-features {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .cta-content {
+            max-width: 45%;
+
+            h3 {
+                font-size: 1.75em;
+                font-weight: bold;
+                font-family: $bold;
+            }
+
+            h4 {
+                font-size: 1.25em;
+                font-weight: bold;
+                font-family: $bold;
+                color: $gray;
+                margin-bottom: 15px;
+            }
+
+            p {
+                margin-bottom: 30px;
+                line-height: 24px;
+            }
+        }
+
+        .features-list {
+            max-width: 45%;
+            background-color: #fff;
+            border: 1px solid #dfdfdf;
+
+            h4 {
+                background-color: #626262;
+                color: #fff;
+                text-align: center;
+                padding: 5px 10px;
+                margin: -15px auto 10px auto;
+                max-width: 70%;
+            }
+
+            ul {
+               margin: 20px 30px;
+               display: flex;
+               justify-content: space-between;
+               flex-wrap: wrap;
+
+               li {
+                   width: 48%;
+                   font-size: .9em;
+                   margin-bottom: 10px;
+                   display: flex;
+
+                    i.check {
+                        width: 15px;
+                        height: 15px;
+                        margin: 1px 8px 0 0;
+                        color: #ffcb28;
+                        background: url('https://static.agilitycms.com/brand/icons/check-square-yellow.svg') no-repeat;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

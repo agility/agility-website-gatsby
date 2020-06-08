@@ -40,16 +40,16 @@
     position: relative;
     background-color: #ffcb28;
     z-index: 21;
-  
+
     .header-logo {
       width: 150px;
       line-height: 0;
-  
+
       a {
         display: block;
       }
     }
-  
+
 
     .btn {
       padding: 0 30px 0 30px;
@@ -106,7 +106,7 @@
   .header {
     margin-bottom: 0;
 
-    .container-my { 
+    .container-my {
       padding: 0;
     }
 
@@ -129,7 +129,7 @@
         padding-bottom: 16px;
       }
 
-    } 
+    }
   }
 
   .header .btn, .header .sticky-header .sticky-header-active .header-btn-secondary,
@@ -152,7 +152,7 @@
       .foter-menu {
         width: 50%;
       }
-  
+
       .foter-subscribe {
         width: 100%;
         margin-bottom: 30px;
@@ -203,15 +203,7 @@
       }
     }
 
-    .start-image {
-      box-shadow: none;
-  
-      img {
-        -webkit-box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
-        box-shadow: 0 2px 35px 0 rgba(0, 0, 0, 0.15);
-      }
-    }
+
   }
 
 
@@ -229,7 +221,7 @@
   /* FEATURED CASE STUDIES MODULE */
   .featured-case-studies {
     .container-my {
-      width: 100%;      
+      width: 100%;
     }
 
     .btn { margin: 0 auto; }
@@ -248,7 +240,7 @@
         }
       }
     }
-    
+
   }
 
 
@@ -277,7 +269,7 @@
   .title-component {
     font-size: 18px;
   }
-  
+
   i.more {
     display: none;
     margin-top: 21px;
@@ -298,11 +290,11 @@
         margin-bottom: 15px !important;
       }
 
-      .start-buttons { 
-        justify-content: center; 
-        padding-top: 0 !important; 
+      .start-buttons {
+        justify-content: center;
+        padding-top: 0 !important;
         .btn {
-          margin-right: 0 !important; 
+          margin-right: 0 !important;
         }
       }
     }
@@ -330,7 +322,7 @@
   .ben-items-forslider {
     .ben-item {
       margin: 0 0 20px 0 !important;
-      max-width: 100% !important; 
+      max-width: 100% !important;
     }
   }
 
@@ -343,7 +335,7 @@
         }
       }
     }
-    
+
   }
 
   /* CTA BLOCKS MODULE */

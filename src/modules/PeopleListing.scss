@@ -1,0 +1,94 @@
+@import "../global/_variables.scss";
+
+.people-listing {
+	margin: $module-margin-spacing;
+	text-align: center;
+
+
+	p.intro {
+		display: inline-block;
+		max-width: 1008px;
+		margin: 30px 10px 40px;
+		font-size: 20px;
+		line-height: 1.6;
+		font-weight: bold;
+		color: #484b4d;
+
+		@media screen and (max-width: $mobile-width) {
+			font-size: 16px;
+		}
+
+	}
+
+	.team-content {
+		.team-item {
+			display: flex;
+			margin-bottom: 60px;
+
+			.image {
+				width: 30%;
+
+				overflow: hidden;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+
+
+				img {
+					display: block;
+					max-width: 100%;
+					height: auto;
+					// @media (max-width: 991px) {
+					// 	display: inline-block;
+					// 	max-width: 300px;
+					// }
+				}
+			}
+
+			.content {
+				width: 70%;
+				margin-left: 40px;
+				text-align: left;
+
+				.h4 {
+					margin-bottom: 3px;
+					font-size: 20px;
+					line-height: 1.5;
+					font-family: "Muli-ExtraBold", sans-serif;
+					color: #2a3846;
+				}
+
+				em {
+					font-family: "Muli-SemiBold", sans-serif;
+					font-style: italic;
+					color: #484b4d;
+				}
+
+				p {
+					margin-top: 20px;
+					font-size: 16px;
+					line-height: 1.5;
+					font-family: "Muli-Regular", sans-serif;
+					color: #6d7882;
+				}
+
+				a {
+					color: #4600a8;
+				}
+			}
+		}
+
+		@media screen and (max-width: $mobile-width) {
+			.team-item {
+				display: block;
+				.image {
+					width: 100%;
+				}
+				.content {
+					width: 100%;
+					margin: 20px 0;
+				}
+			}
+		}
+	}
+}

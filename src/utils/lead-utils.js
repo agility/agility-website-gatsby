@@ -111,5 +111,6 @@ export {
 	getLeadSourceDetailForForm,
 	getSetLeadSource,
 	getLeadSource,
-	getAutopilotSession
+	getAutopilotSession,
+	queryString
 }

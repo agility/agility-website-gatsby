@@ -97,7 +97,56 @@ module.exports = {
 				  }`
 
 			}
-		}
+		},
+		{
+			resolve: `gatsby-plugin-feed`,
+			options: {
+			  query: `
+				{
+				  site {
+					siteMetadata {
+					  title
+					  siteUrl
+					  site_url: siteUrl
+					}
+				  }
+				}
+			  `,
+			  feeds: [
+				{
+				  serialize: ({ query: { site, allAgilityBlogPost } }) => {
+					return allAgilityBlogPost.nodes.map(node => {
+					  return {
+						description: node.customFields.excerpt,
+						date: node.customFields.date,
+						url: 'https://agilitycms.com/resources/posts/' + node.customFields.slug,
+						guid: node.id,
+						custom_elements: [{ "content:encoded": node.customFields.textblob }],
+					  }
+					})
+				  },
+				  query: `
+					{
+						allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}, limit: 100) {
+							nodes {
+								id
+							  customFields {
+								 title
+								excerpt
+								textblob
+								uRL
+								date
+							  }
+							}
+						  }
+					}
+				  `,
+				  output: "/posts.xml",
+				  title: "Agility CMS Blog",
+				},
+			  ],
+			},
+		  },
 
 	],
 }

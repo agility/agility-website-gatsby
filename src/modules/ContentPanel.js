@@ -15,22 +15,27 @@ const ContentPanel = ({ item }) => {
 	if (! item) return null;
 
 	const enableBackgroundImage = item.enableBackgroundImage;
-	console.log("item.enableBackgroundImage", typeof(enableBackgroundImage), enableBackgroundImage)
 
-	const renderImage = (imagePosition, imageTransparency, imageSkewed, image) => {
+	const renderImage = (imagePosition, imageTransparency, imageSkewed, imageShadow, image) => {
+
 		let transparencyClass = "";
 		let skewedClass = "";
+		let shadowClass = ""
 
-		if (imageTransparency) {
+		if (imageTransparency === "true") {
 			transparencyClass = 'transparent-image';
 		}
 
-		if (imageSkewed) {
+		if (imageShadow === "true") {
+			shadowClass = "shadow-image";
+		}
+
+		if (imageSkewed === "true") {
 			skewedClass = 'skewed-image';
 		}
 
 		return (
-			<div className={'start-image ' + imagePosition + ' ' + transparencyClass + ' ' + skewedClass}>
+			<div className={'start-image ' + imagePosition + ' ' + transparencyClass + ' ' + skewedClass + ' ' + shadowClass}>
 				<ResponsiveImage img={image}
 								breaks={[{ w: 320, max: 380 },{ w: 400, max: 640 }, { w: 640, max: 750 }, { w: 640, min: 751 }]} />
 
@@ -44,7 +49,7 @@ const ContentPanel = ({ item }) => {
 
 			<div className="container-my">
 				{item.imagePosition === 'left' && item.image &&
-					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.image)
+					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
 				}
 
 				<div className="start-content">
@@ -62,7 +67,7 @@ const ContentPanel = ({ item }) => {
 				</div>
 
 				{item.imagePosition === 'right' && item.image &&
-					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.image)
+					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
 				}
 			</div>
 

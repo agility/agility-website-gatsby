@@ -222,6 +222,8 @@
 		margin-left: 0;
 		text-align: right;
 
+
+
 		@media (max-width: 767px) {
 			padding: 0;
 			margin: 0 0 140px 0;
@@ -278,7 +280,7 @@
 	}
 
 	.start-image.right.skewed-image {
-		box-shadow: (0px 15px 14px rgba(0, 0, 0, 0.51));
+
 		transform: scale(1.05) translateX(-20px) translateY(30px) perspective(1030px) rotateY(-30deg) rotateX(1deg)
 			rotate(1deg);
 	}
@@ -288,9 +290,14 @@
 	}
 
 	.start-image.transparent-image {
+
 		img {
 			border: none;
 		}
+	}
+
+	.start-image.shadow-image {
+		box-shadow: (0px 15px 14px rgba(0, 0, 0, 0.51));
 	}
 }
 

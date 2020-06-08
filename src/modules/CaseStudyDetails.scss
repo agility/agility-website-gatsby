@@ -4,11 +4,10 @@
   padding-bottom: 50px;
   position: relative;
 
-
 .metrics-wrapper {
 	width: 100%;
   .metrics-listing {
-
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -83,7 +82,8 @@
         margin-top: 15px;
         margin-bottom: 17px;
         border: none;
-        height: 1px;
+		height: 1px;
+		background-color: #818181;
       }
     }
   }

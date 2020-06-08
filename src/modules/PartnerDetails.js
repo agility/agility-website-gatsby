@@ -54,11 +54,13 @@ const PartnerDetails = ({ item, dynamicPageItem, metrics }) => {
 
 	var bgColor = item.bgColor;
 	metrics = metrics.map(function (metric) {
+
+
 		return (
-			<div className="metrics-item" style={{ color: bgColor }}>
-				<h4 className="h4" dangerouslySetInnerHTML={{ __html: metric.value }}></h4>
+			<div className="metrics-item" style={{ color: bgColor }} key={metric.contentID}>
+				<h4 className="h4" dangerouslySetInnerHTML={ renderHTML(metric.customFields.value)}></h4>
 				<hr style={{ backgroundColor: bgColor }} />
-				<span>{metric.title}</span>
+				<span>{metric.customFields.key}</span>
 			</div>
 		);
 	});
@@ -69,11 +71,13 @@ const PartnerDetails = ({ item, dynamicPageItem, metrics }) => {
 
 					{
 						metrics && metrics.length > 0 &&
-						<div className="col-md-12">
-							<div className="case-study-top d-flex jc-sb">
-								{metrics}
+
+						<div className="case-study-top d-flex jc-sb metrics-wrapper">
+							<div className="metrics-listing">
+							{metrics}
 							</div>
 						</div>
+
 					}
 
 					<div className="case-study-details-container">
