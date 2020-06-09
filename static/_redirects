@@ -4,3 +4,7 @@
 /community/agileliving 		/resources/agileliving
 /community/agileliving/* 	/resources/agileliving/:splat
 
+https://blog.agilitycms.com		https://agilitycms.com
+https://blog.agilitycms.com/*	https://agilitycms.com/:splat
+
+https://agilitycms.com/blog/:category/* https://agilitycms.com/resources/posts/:splat
