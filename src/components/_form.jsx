@@ -194,7 +194,8 @@ class Form extends React.Component {
 			data
 		).then(response => {
 
-			if (response.status !== 200) {
+			//and response in the 200s is ok
+			if (response.status < 200 && response.status > 299) {
 				this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
 				return;
 			}
