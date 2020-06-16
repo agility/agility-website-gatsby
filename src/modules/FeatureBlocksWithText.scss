@@ -49,7 +49,7 @@
 			.features-list {
 				display: flex;
 				flex-wrap: wrap;
-				justify-content: space-evenly;
+				justify-content: space-around;
 				.feature-item {
 					width: 220px;
 
@@ -121,20 +121,17 @@
 			display: block;
 
 			.features-left {
-				width:100%;
+				width: 100%;
 			}
 
 			.features-right {
-				width:100%;
+				width: 100%;
 				.features-list {
 					.feature-item {
 						width: 100%;
-
 					}
 				}
 			}
 		}
 	}
-
-
 }
