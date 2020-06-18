@@ -36,8 +36,6 @@ export default props => (
 				return a.properties.itemOrder - b.properties.itemOrder
 			});
 
-			console.log(faqs);
-
 			const viewModel = {
 				item: props.item,
 				faqs: faqs
