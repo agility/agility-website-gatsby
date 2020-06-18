@@ -32,8 +32,11 @@ export default props => (
 			//filter out only those logos that we want...
 			let faqs = queryData.allAgilityFaqItem.nodes.filter(faq => {
 				return faq.properties.referenceName === props.item.customFields.faqs.referencename
+			}).sort((a, b) => {
+				return a.properties.itemOrder - b.properties.itemOrder
 			});
 
+			console.log(faqs);
 
 			const viewModel = {
 				item: props.item,
@@ -58,7 +61,7 @@ const Faqs = ({ item, faqs }) => {
 	return (
 
 		<section className="features p-w faqs">
-			<Triangles/>
+			<Triangles />
 
 			<h2 className="title-component">{item.title}</h2>
 			<div className="faqs-wrapper">
