@@ -10,14 +10,14 @@ const CallToAction = ({ item }) => {
 	return (
 		<div className="call-to-action">
 
-			{cta.title && <h3>{ cta.title }</h3>}
+			{cta.title && <h2 className="title-component">{cta.title}</h2>}
 
-			{ cta.subtitle && <h4>{cta.subtitle}</h4> }
+			{cta.subtitle && <h3 className="subtitle">{cta.subtitle}</h3>}
 
-			{ cta.richText && <div className="rich" dangerouslySetInnerHTML={renderHTML(cta.richText)}></div> }
+			{cta.richText && <div className="rich" dangerouslySetInnerHTML={renderHTML(cta.richText)}></div>}
 
-			{ cta.link && cta.image &&
-			<a href={cta.link.href} target={cta.link.target} title={cta.link.title}><img src={cta.image.url} alt={cta.image.label} /></a>
+			{cta.link && cta.image &&
+				<a href={cta.link.href} target={cta.link.target} title={cta.link.title}><img src={cta.image.url} alt={cta.image.label} /></a>
 			}
 
 		</div>
