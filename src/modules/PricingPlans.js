@@ -7,59 +7,60 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query PricingPlansQuery {
-			allAgilityPricingPlan {
+			allAgilityPricingPlan(filter: {customFields: {isVisible: {eq: "true"}}}) {
 				nodes {
-				  contentID
-				  properties {
+				contentID
+				properties {
 					itemOrder
 					referenceName
-				  }
-				  languageCode
-				  customFields {
+				}
+				languageCode
+				customFields {
 					calltoAction {
-					  href
-					  text
-					  target
+					href
+					text
+					target
 					}
 					description
 					icon {
-					  url
+					url
 					}
 					isRecommended
 					price
+					priceCDN
 					pricePerUnitLabel
 					subtitle
 					title
 					componentsSortIDs
-				  }
-				  components {
+				}
+				components {
 					contentID
 					customFields {
-					  label
+					label
 					}
-				  }
-				  features {
+				}
+				features {
 					contentID
 					customFields {
-					  label
-					  value
+					label
+					value
 					}
-				  }
-				  pricingPlanTier {
+				}
+				pricingPlanTier {
 					contentID
 					customFields {
-					  title
+					title
 					}
 					features {
-					  customFields {
+					customFields {
 						label
 						value
-					  }
 					}
-				  }
+					}
 				}
-			  }
-		}
+				}
+			}
+			}
 
         `}
 		render={queryData => {
@@ -98,7 +99,7 @@ const PricingPlans = ({ item, plans }) => {
 
 	return (
 		<section className="p-w pricing">
-			{ item.title &&
+			{item.title &&
 				<h2 className="title-component">{item.title}</h2>
 			}
 
@@ -108,7 +109,7 @@ const PricingPlans = ({ item, plans }) => {
 
 			<div className="container-my">
 				<div className="plan-flex plans-container">
-					{ planSet }
+					{planSet}
 				</div>
 
 				<div className="disclaimer">{item.disclaimer}</div>
@@ -126,7 +127,7 @@ const PricingPlans = ({ item, plans }) => {
 
 class PlanItem extends React.Component {
 
-    render() {
+	render() {
 
 		const componentsSortIDs = this.props.item.customFields.componentsSortIDs.split(",");
 
@@ -138,45 +139,54 @@ class PlanItem extends React.Component {
 
 		const plan = this.props.item.customFields;
 
-        return (
+		console.log({ plan })
 
-            <div className="plan-item">
-                <div className="plan-type">
-                    <div className="title-bar">
-                        <h3>{ plan.title }</h3>
-                    </div>
-                    <div className="plan-body">
-                    { plan.icon &&
-                        <div className="plan-icon"><img src={plan.icon.url} alt={ plan.title } /></div>
-                    }
+		return (
 
-                    { plan.pricePerUnitLabel &&
-                        <h4 dangerouslySetInnerHTML={{__html: plan.pricePerUnitLabel}}></h4>
-                    }
+			<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
+				<div className="plan-type">
+					<div className="title-bar">
+						<h3>{plan.title}</h3>
+					</div>
+					<div className="plan-body">
+						<div className="plan-image-n-price">
+							{plan.icon &&
+								<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
+							}
 
-                    </div>
-                    <ul className="plan-features">
-                        {planIncludes}
-                    </ul>
-					{ plan.calltoAction &&
-                    <div className="plan-body">
-                        <a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
-                    </div>
+							<div className="muted">
+								{plan.description}
+							</div>
+
+							<h4>
+								<span>{plan.price}</span>
+								<span dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
+							</h4>
+						</div>
+
+					</div>
+					<ul className="plan-features">
+						{planIncludes}
+					</ul>
+					{plan.calltoAction &&
+						<div className="plan-body">
+							<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+						</div>
 					}
-                </div>
-            </div>
+				</div>
+			</div>
 
-        );
-    }
+		);
+	}
 }
 
 class PlanInclude extends React.Component {
 
-    render() {
-        return (
-            <li>
-                {this.props.item.customFields.label}
-            </li>
-        )
-    }
+	render() {
+		return (
+			<li>
+				{this.props.item.customFields.label}
+			</li>
+		)
+	}
 }
