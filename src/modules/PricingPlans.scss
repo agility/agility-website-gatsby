@@ -1,7 +1,19 @@
 @import "../global/_variables.scss";
 
 .pricing {
-	margin-top: 10px;
+	.pricing-currency-toggle {
+		margin: auto;
+		label {
+			font-weight: bold;
+			line-height: 1.5em;
+			img {
+				height: 1em;
+				vertical-align: baseline;
+				margin: 0 10px;
+				padding-top: 3px;
+			}
+		}
+	}
 
 	.plan-flex {
 		display: flex;

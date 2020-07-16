@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
+
+import { Toggle } from "react-toggle-component";
 
 import "./PricingPlans.scss"
 
@@ -85,7 +87,7 @@ export default props => (
 )
 
 const PricingPlans = ({ item, plans }) => {
-
+	const [currency, setCurrency] = useState("USD")
 
 
 	let moduleItem = item;
@@ -94,8 +96,18 @@ const PricingPlans = ({ item, plans }) => {
 
 	const planSet = plans.map(function (plan) {
 
-		return <PlanItem item={plan} key={moduleItem.contentID + "-" + plan.contentID} />
+		return <PlanItem item={plan} currency={currency} key={moduleItem.contentID + "-" + plan.contentID} />
 	});
+
+
+
+	const toggleCurrency = (e) => {
+		if (e.target.checked) {
+			setCurrency("CDN")
+		} else {
+			setCurrency("USD")
+		}
+	}
 
 	return (
 		<section className="p-w pricing">
@@ -108,7 +120,25 @@ const PricingPlans = ({ item, plans }) => {
 			}
 
 			<div className="container-my">
+
+				<div className="pricing-currency-toggle">
+					<label htmlFor="toggle-currency">
+						<span>$USD</span><img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" />
+						<Toggle
+							leftKnobColor="#3c3b6e"
+							rightKnobColor="#d52b1e"
+							leftBorderColor="#3c3b6e"
+							rightBorderColor="#d52b1e"
+							name="toggle-currency"
+							onToggle={toggleCurrency}
+						/>
+
+						<span>$CDN</span><img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" />
+					</label>
+				</div>
+
 				<div className="plan-flex plans-container">
+
 					{planSet}
 				</div>
 
@@ -125,59 +155,56 @@ const PricingPlans = ({ item, plans }) => {
 
 
 
-class PlanItem extends React.Component {
+const PlanItem = ({ currency, item }) => {
 
-	render() {
 
-		const componentsSortIDs = this.props.item.customFields.componentsSortIDs.split(",");
+	const componentsSortIDs = item.customFields.componentsSortIDs.split(",");
 
-		const planIncludes = componentsSortIDs.map(sortID => {
-			const component = this.props.item.components.find(c => c.contentID === parseInt(sortID));
-			return <PlanInclude item={component} key={component.contentID} />
+	const planIncludes = componentsSortIDs.map(sortID => {
+		const component = item.components.find(c => c.contentID === parseInt(sortID));
+		return <PlanInclude item={component} key={component.contentID} />
 
-		});
+	});
 
-		const plan = this.props.item.customFields;
+	const plan = item.customFields;
 
-		console.log({ plan })
+	return (
 
-		return (
-
-			<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
-				<div className="plan-type">
-					<div className="title-bar">
-						<h3>{plan.title}</h3>
-					</div>
-					<div className="plan-body">
-						<div className="plan-image-n-price">
-							{plan.icon &&
-								<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
-							}
-
-							<div className="muted">
-								{plan.description}
-							</div>
-
-							<h4>
-								<span>{plan.price}</span>
-								<span dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
-							</h4>
-						</div>
-
-					</div>
-					<ul className="plan-features">
-						{planIncludes}
-					</ul>
-					{plan.calltoAction &&
-						<div className="plan-body">
-							<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
-						</div>
-					}
+		<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
+			<div className="plan-type">
+				<div className="title-bar">
+					<h3>{plan.title}</h3>
 				</div>
-			</div>
+				<div className="plan-body">
+					<div className="plan-image-n-price">
+						{plan.icon &&
+							<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
+						}
 
-		);
-	}
+						<div className="muted">
+							{plan.description}
+						</div>
+
+						<h4>
+							<span>{currency === "USD" ? plan.price : plan.priceCDN}</span>
+							<span dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
+						</h4>
+					</div>
+
+				</div>
+				<ul className="plan-features">
+					{planIncludes}
+				</ul>
+				{plan.calltoAction &&
+					<div className="plan-body">
+						<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+					</div>
+				}
+			</div>
+		</div>
+
+	);
+
 }
 
 class PlanInclude extends React.Component {
