@@ -147,8 +147,11 @@ const PricingPlans = ({ item, plans }) => {
 				<div className="disclaimer">{item.disclaimer}</div>
 
 				<div className="details-button">
-					<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
-					{/* <a href={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</a> */}
+					{item.planDetailsURL &&
+
+						<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
+
+					}
 				</div>
 			</div>
 		</section>
@@ -173,7 +176,11 @@ const PlanItem = ({ currency, item }) => {
 	return (
 
 		<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
+
 			<div className="plan-type">
+				{plan.isRecommended === "true" &&
+					<div className="recommendation">Recommended</div>
+				}
 				<div className="title-bar">
 					<h3>{plan.title}</h3>
 				</div>

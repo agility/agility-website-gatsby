@@ -1,6 +1,10 @@
 @import "../global/_variables.scss";
 
 .pricing {
+	.container-my {
+		padding: 0 20px;
+		width: 100%;
+	}
 	.pricing-currency-toggle {
 		margin: auto;
 		label {
@@ -23,7 +27,7 @@
 
 		.plan-item {
 			flex: 0.3;
-			margin: 20px 10px 0px 10px;
+			margin: 20px 5px 0px 1px;
 			padding: 10px 0;
 
 			@media (max-width: $tablet-width) {
@@ -54,7 +58,30 @@
 		border-radius: 10px;
 		text-align: center;
 		position: relative;
+		z-index: 1;
+		overflow: hidden;
 		//height: 100%;
+
+		.recommendation {
+			display: block;
+			padding: 5px 55px;
+			position: absolute;
+			top: 25px;
+			right: 25px;
+			text-align: center;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 9px;
+			background-color: $secondaryColor;
+			z-index: 1;
+
+			-webkit-transform-origin: 50% 50%;
+			-ms-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-transform: translate(50%, -50%) rotate(45deg) translate(0, 100%);
+			-ms-transform: translate(50%, -50%) rotate(45deg) translate(0, 100%);
+			transform: translate(50%, -50%) rotate(45deg) translate(0, 100%);
+		}
 
 		.title-bar {
 			background: #e9eef1;
@@ -233,18 +260,20 @@
 		}
 	}
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: $tablet-portrait-width) {
 		.plan-flex {
 			display: block;
 
 			.plan-item {
-				margin: 20px 0;
+				max-width: 100%;
+				min-width: 70%;
+				margin: 20px auto;
 			}
 		}
 
 		.recommended {
 			.plan-type {
-				box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.04);
+				//box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.04);
 			}
 		}
 	}
