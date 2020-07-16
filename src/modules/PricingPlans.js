@@ -123,7 +123,8 @@ const PricingPlans = ({ item, plans }) => {
 
 				<div className="pricing-currency-toggle">
 					<label htmlFor="toggle-currency">
-						<span>$USD</span><img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" />
+						<img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" />
+						<span>$USD</span>
 						<Toggle
 							leftKnobColor="#3c3b6e"
 							rightKnobColor="#d52b1e"
@@ -133,7 +134,8 @@ const PricingPlans = ({ item, plans }) => {
 							onToggle={toggleCurrency}
 						/>
 
-						<span>$CDN</span><img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" />
+						<span>$CDN</span>
+						<img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" />
 					</label>
 				</div>
 
@@ -181,13 +183,13 @@ const PlanItem = ({ currency, item }) => {
 							<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
 						}
 
-						<div className="muted">
+						<div className="plan-desc">
 							{plan.description}
 						</div>
 
-						<h4>
-							<span>{currency === "USD" ? plan.price : plan.priceCDN}</span>
-							<span dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
+						<h4 className={currency}>
+							<span className={"plan-price"}>{currency === "USD" ? plan.price : plan.priceCDN}</span>
+							<span className="plan-price-unit-label" dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
 						</h4>
 					</div>
 

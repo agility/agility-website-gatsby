@@ -88,17 +88,32 @@
 				margin-bottom: 10px;
 			}
 
-			.muted {
+			.plan-desc {
 				font-size: 0.85em;
 				margin-bottom: 8px;
 				color: #b3b3b3;
 				font-weight: normal;
 				font-family: "Muli-Regular", "Sans-Serif";
+				min-height: 50px;
 			}
 
 			h4 {
 				margin-bottom: 15px;
-				font-family: "Muli-Bold", "Sans-Serif";
+				font-weight: bold;
+				transition: all 0.5s ease-out;
+				&.CDN {
+					color: #d52b1e;
+				}
+				&.USD {
+					color: #3c3b6e;
+				}
+			}
+
+			.plan-price {
+			}
+
+			.plan-price-unit-label {
+				margin-left: 5px;
 			}
 		}
 
@@ -136,7 +151,10 @@
 			box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.14);
 
 			.plan-features {
-				min-height: 260px;
+			}
+
+			.plan-image-n-price {
+				min-height: 230px;
 			}
 		}
 	}
