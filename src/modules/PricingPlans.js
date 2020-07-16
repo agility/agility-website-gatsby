@@ -148,9 +148,7 @@ const PricingPlans = ({ item, plans }) => {
 
 				<div className="details-button">
 					{item.planDetailsURL &&
-
 						<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
-
 					}
 				</div>
 			</div>
