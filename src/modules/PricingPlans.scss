@@ -1,10 +1,6 @@
 @import "../global/_variables.scss";
 
 .pricing {
-	.container-my {
-		padding: 0 20px;
-		width: 100%;
-	}
 	.pricing-currency-toggle {
 		margin: auto;
 		label {
@@ -275,6 +271,12 @@
 			.plan-type {
 				//box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.04);
 			}
+		}
+	}
+	@media (max-width: $tablet-width) {
+		.container-my {
+			padding: 0 20px;
+			width: 100%;
 		}
 	}
 }
