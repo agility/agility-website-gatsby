@@ -232,4 +232,20 @@
 			}
 		}
 	}
+
+	@media (max-width: $mobile-width) {
+		.plan-flex {
+			display: block;
+
+			.plan-item {
+				margin: 20px 0;
+			}
+		}
+
+		.recommended {
+			.plan-type {
+				box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.04);
+			}
+		}
+	}
 }
