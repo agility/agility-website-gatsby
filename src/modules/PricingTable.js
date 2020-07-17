@@ -1,83 +1,45 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 
+import "./PricingTable.scss"
 
 export default props => (
 	<StaticQuery
 		query={graphql`
 		query PricingTableQuery {
-
-			allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}) {
-			  nodes {
+			allAgilityPricingTableItem(sort: {order: ASC, fields: properties___itemOrder}) {
+				nodes {
 				contentID
 				customFields {
-				  date(formatString: "MMMM D, YYYY")
-				  excerpt
-				  title
-				  uRL
-				  postImage {
-					url
-					label
-				  }
+					rowLabel
+					column1Value
+					column2Value
+					column3Value
 				}
-				category {
-				  customFields {
-					title
-				  }
+				languageCode
+				properties {
+					referenceName
 				}
-				author {
-				  customFields {
-					image {
-					  url
-					  label
-					}
-					title
-				  }
 				}
-				tags {
-					contentID
-					customFields {
-						title
-					}
-				}
-			  }
 			}
 		  }
-        `}
+		`}
 		render={queryData => {
 
-			//filter out only those logos that we want...
-			let posts = queryData.allAgilityBlogPost.nodes;
-
-			// //filter by ref name
+			//filter by ref name
 			const referenceName = props.item.customFields.tableValues.referencename
 
-			console.log("REF NAME", referenceName)
+			//filter out only those items that we want...
+			let priceItems = queryData.allAgilityPricingTableItem.nodes.filter(p => {
+				return p.properties.referenceName === referenceName
+			});
 
-			// if (props.dynamicPageItem && props.dynamicPageItem.properties.definitionName === "BlogTag") {
-			// 	const tagContentID = props.dynamicPageItem.contentID;
 
-			// 	posts = posts.filter(p => {
-			// 		if (!p.tags || !(p.tags.length > 0)) return false;
-			// 		const index = p.tags.findIndex(t => { return parseInt(t.contentID) === parseInt(tagContentID); });
-			// 		return index >= 0;
-			// 	});
-			// }
-
-			// //adjust the excerpt
-			// posts.forEach(p => {
-			// 	let excerpt = p.customFields.excerpt;
-			// 	if (excerpt) {
-			// 		p.customFields.excerpt = StringUtils.stripHtml(excerpt, 200);
-			// 	}
-
-			// 	p.url = "/resources/posts/" + p.customFields.uRL;
-			// });
 
 			const viewModel = {
 				item: props.item,
-				posts: posts
+				priceItems
 			}
 			return (
 				<PricingTable {...viewModel} />
@@ -88,11 +50,62 @@ export default props => (
 )
 
 
-const PricingTable = ({ item, posts }) => {
-	console.log("PRICING TABLE", item)
+const PricingTable = ({ item, priceItems }) => {
+	const [expanded, setExpanded] = useState(false)
+
+
+	const moduleItem = item
+	item = item.customFields
 
 	return (
-		<section>PRICING TABLE</section>
+		<section class="pricing-table container-my">
+
+			<div class="toggle-vis">
+				<button class="btn" onClick={() => setExpanded(!expanded)}>{item.expandButtonLabel}</button>
+			</div>
+
+			<div class={"toggle-details " + (expanded ? "expanded" : "")}>
+				<h2 className="title-component">{item.title}</h2>
+				<div className="table-container">
+					<table>
+						<thead>
+							<tr className="title-row">
+								<th></th>
+								<th>{item.column1Title}</th>
+								<th>{item.column2Title}</th>
+								<th>{item.column3Title}</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th><a className="btn" href={item.column1Link.href} target={item.column1Link.target}>{item.column1Link.text}</a></th>
+								<th><a className="btn" href={item.column2Link.href} target={item.column2Link.target}>{item.column2Link.text}</a></th>
+								<th><a className="btn" href={item.column3Link.href} target={item.column3Link.target}>{item.column3Link.text}</a></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{priceItems.map(priceItem => {
+								const p = priceItem.customFields
+								return (
+									<tr>
+										<td className="row-label">{p.rowLabel}</td>
+										<td>{p.column1Value}</td>
+										<td>{p.column2Value}</td>
+										<td>{p.column3Value}</td>
+									</tr>
+								)
+							})}
+
+
+						</tbody>
+
+					</table>
+				</div>
+
+			</div>
+
+
+		</section>
 	)
 
 
