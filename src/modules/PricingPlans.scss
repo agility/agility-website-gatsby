@@ -23,7 +23,7 @@
 
 		.plan-item {
 			flex: 0.3;
-			margin: 20px 5px 0px 1px;
+			margin: 20px 15px 0px 1px;
 			padding: 10px 0;
 
 			@media (max-width: $tablet-width) {
@@ -133,6 +133,8 @@
 			}
 
 			.plan-price {
+				font-size: 32px;
+				font-weight: 200;
 			}
 
 			.plan-price-unit-label {
@@ -178,6 +180,10 @@
 
 			.plan-image-n-price {
 				min-height: 230px;
+			}
+
+			.plan-desc {
+				min-height: 60px;
 			}
 		}
 	}
