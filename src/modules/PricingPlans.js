@@ -140,7 +140,6 @@ const PricingPlans = ({ item, plans }) => {
 				</div>
 
 				<div className="plan-flex plans-container">
-
 					{planSet}
 				</div>
 
