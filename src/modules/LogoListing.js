@@ -75,12 +75,14 @@ const LogoListing = ({ item, logos }) => {
 			<li className="logo-item" key={key}>
 				<div className="image">
 					{logo.url &&
-						<a href={logo.url.href} target={logo.url.target}>
+						// <a href={logo.url.href} target={logo.url.target}>
+						<span>
 							{logo.logo &&
 								<ResponsiveImage img={logo.logo}
 									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
 							}
-						</a>
+						</span>
+						//</a>
 					}
 
 				</div>

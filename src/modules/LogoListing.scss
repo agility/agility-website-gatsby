@@ -66,11 +66,11 @@
           min-width: 100px;
           max-width: 132px;
           height: auto;
-          filter: grayscale(100%);
-          transition: filter 0.2s;
-          &:hover {
-            filter: grayscale(0);
-          }
+          //filter: grayscale(100%);
+        //   transition: filter 0.2s;
+        //   &:hover {
+        //     filter: grayscale(0);
+        //   }
         }
       }
 
