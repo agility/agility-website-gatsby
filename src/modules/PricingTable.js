@@ -16,6 +16,7 @@ export default props => (
 					column1Value
 					column2Value
 					column3Value
+					column4Value
 				}
 				languageCode
 				properties {
@@ -74,12 +75,14 @@ const PricingTable = ({ item, priceItems }) => {
 								<th>{item.column1Title}</th>
 								<th>{item.column2Title}</th>
 								<th>{item.column3Title}</th>
+								<th>{item.column4Title}</th>
 							</tr>
 							<tr>
 								<th></th>
 								<th><a className="btn" href={item.column1Link.href} target={item.column1Link.target}>{item.column1Link.text}</a></th>
 								<th><a className="btn" href={item.column2Link.href} target={item.column2Link.target}>{item.column2Link.text}</a></th>
 								<th><a className="btn" href={item.column3Link.href} target={item.column3Link.target}>{item.column3Link.text}</a></th>
+								<th><a className="btn" href={item.column4Link.href} target={item.column4Link.target}>{item.column3Link.text}</a></th>
 							</tr>
 						</thead>
 
@@ -92,6 +95,7 @@ const PricingTable = ({ item, priceItems }) => {
 										<td>{p.column1Value}</td>
 										<td>{p.column2Value}</td>
 										<td>{p.column3Value}</td>
+										<td>{p.column4Value}</td>
 									</tr>
 								)
 							})}

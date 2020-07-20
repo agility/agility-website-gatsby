@@ -19,9 +19,14 @@ export default props => (
 				languageCode
 				customFields {
 					calltoAction {
-					href
-					text
-					target
+						href
+						text
+						target
+					}
+					callToActionCDN {
+						href
+						target
+						text
 					}
 					description
 					icon {
@@ -121,35 +126,42 @@ const PricingPlans = ({ item, plans }) => {
 
 			<div className="container-my">
 
-				<div className="pricing-currency-toggle">
-					<label htmlFor="toggle-currency">
-						<img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" />
-						<span>$USD</span>
-						<Toggle
-							leftKnobColor="#3c3b6e"
-							rightKnobColor="#d52b1e"
-							leftBorderColor="#3c3b6e"
-							rightBorderColor="#d52b1e"
-							name="toggle-currency"
-							onToggle={toggleCurrency}
-						/>
-
-						<span>$CDN</span>
-						<img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" />
-					</label>
-				</div>
-
 				<div className="plan-flex plans-container">
 					{planSet}
 				</div>
 
-				<div className="disclaimer">{item.disclaimer}</div>
+				<div className="pricing-currency-toggle">
+					<label htmlFor="toggle-currency">
+						{/* <img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" /> */}
+						<span>$USD&nbsp;</span>
+						<Toggle
+							// leftKnobColor="#3c3b6e"
+							// rightKnobColor="#d52b1e"
+							// leftBorderColor="#3c3b6e"
+							// rightBorderColor="#d52b1e"
+							leftKnobColor="#333"
+							rightKnobColor="#333"
+							leftBorderColor="#333"
+							rightBorderColor="#333"
+							name="toggle-currency"
+							onToggle={toggleCurrency}
+						/>
 
-				<div className="details-button">
-					{item.planDetailsURL &&
-						<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
-					}
+						<span>&nbsp;$CAN</span>
+						{/* <img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" /> */}
+					</label>
 				</div>
+				{item.disclaimer &&
+					<div className="disclaimer">{item.disclaimer}</div>
+				}
+
+				{item.planDetailsURL &&
+					<div className="details-button">
+
+						<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
+
+					</div>
+				}
 			</div>
 		</section>
 	);
@@ -170,6 +182,8 @@ const PlanItem = ({ currency, item }) => {
 
 	const plan = item.customFields;
 
+	console.log({ plan })
+
 	return (
 
 		<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
@@ -187,14 +201,16 @@ const PlanItem = ({ currency, item }) => {
 							<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
 						}
 
-						<div className="plan-desc">
-							{plan.description}
-						</div>
-
 						<h4 className={currency}>
 							<span className={"plan-price"}>{currency === "USD" ? plan.price : plan.priceCDN}</span>
 							<span className="plan-price-unit-label" dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
 						</h4>
+
+						<div className="plan-desc">
+							{plan.description}
+						</div>
+
+
 					</div>
 
 				</div>
@@ -203,7 +219,12 @@ const PlanItem = ({ currency, item }) => {
 				</ul>
 				{plan.calltoAction &&
 					<div className="plan-body">
-						<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+						{currency !== "CDN" &&
+							<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+						}
+						{currency === "CDN" &&
+							<a className="btn" href={plan.callToActionCDN.href} target={plan.callToActionCDN.target}>{plan.callToActionCDN.text}</a>
+						}
 					</div>
 				}
 			</div>

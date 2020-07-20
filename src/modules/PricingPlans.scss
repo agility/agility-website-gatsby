@@ -1,9 +1,16 @@
 @import "../global/_variables.scss";
 
 .pricing {
+	margin: $module-margin-spacing;
+
+	.btn {
+		white-space: nowrap;
+	}
+
 	.pricing-currency-toggle {
 		margin: auto;
 		label {
+			cursor: pointer;
 			font-weight: bold;
 			line-height: 1.5em;
 			img {
@@ -124,12 +131,12 @@
 				margin-bottom: 15px;
 				font-weight: bold;
 				transition: all 0.5s ease-out;
-				&.CDN {
-					color: #d52b1e;
-				}
-				&.USD {
-					color: #3c3b6e;
-				}
+				// &.CDN {
+				// 	color: #d52b1e;
+				// }
+				// &.USD {
+				// 	color: #3c3b6e;
+				// }
 			}
 
 			.plan-price {
@@ -150,7 +157,7 @@
 			background-color: #f8fbfc;
 			border-top: 1px solid #dfdfdf;
 			border-bottom: 1px solid #dfdfdf;
-			min-height: 250px;
+			min-height: 170px;
 			li {
 				padding: 8px 0;
 				font-size: 0.9em;

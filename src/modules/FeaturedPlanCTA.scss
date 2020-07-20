@@ -14,7 +14,7 @@
     h4 {
         min-width: 190px;
         max-width: 210px;
-        margin: 0 10px 0 0;
+		margin: 0 !important;
         padding: 0;
         font-family: $bold;
         line-height: 22px;
@@ -28,11 +28,12 @@
         }
     }
 
-    div {
+    .desc {
         margin: 0 10px 0 0;
-        padding: 0;
-        font-size: .95em;
-    }
+		font-size: .95em;
+		padding: 25px 0;
+	}
+
 
 	.btn { min-width: 150px; }
 

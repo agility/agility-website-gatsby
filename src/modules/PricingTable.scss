@@ -1,6 +1,11 @@
 @import "../global/_variables.scss";
 
 .pricing-table {
+
+	.btn {
+		white-space: nowrap;
+	}
+
 	&.container-my {
 		display: block;
 	}
@@ -37,7 +42,7 @@
 				thead {
 					th {
 						padding: 8px 12px;
-
+						min-width: 200px;
 						.btn {
 							padding: 2px 12px;
 							line-height: 30px;
@@ -57,7 +62,13 @@
 						border-top: 1px solid $medGreyColor;
 
 						td {
+							text-align: center;
+							vertical-align: middle;
 							padding: 8px 12px;
+							border-left: 1px solid $medGreyColor;
+							&:first-child {
+								border-left-width: 0;
+							}
 							font-size: 14px;
 							&.row-label {
 								font-weight: 600;
