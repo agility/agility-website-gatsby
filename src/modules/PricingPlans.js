@@ -182,8 +182,6 @@ const PlanItem = ({ currency, item }) => {
 
 	const plan = item.customFields;
 
-	console.log({ plan })
-
 	return (
 
 		<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
