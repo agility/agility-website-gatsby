@@ -59,57 +59,61 @@ const PricingTable = ({ item, priceItems }) => {
 	item = item.customFields
 
 	return (
-		<section className="pricing-table container-my">
 
+		<section className="pricing-table container-my">
 			<div className="toggle-vis">
 				<button className="btn" onClick={() => setExpanded(!expanded)}>{item.expandButtonLabel}</button>
 			</div>
 
 			<div className={"toggle-details " + (expanded ? "expanded" : "")}>
-				<h2 className="title-component">{item.title}</h2>
-				<div className="table-container">
-					<table>
-						<thead>
-							<tr className="title-row">
-								<th></th>
-								<th>{item.column1Title}</th>
-								<th>{item.column2Title}</th>
-								<th>{item.column3Title}</th>
-								<th>{item.column4Title}</th>
-							</tr>
-							<tr>
-								<th></th>
-								<th><a className="btn" href={item.column1Link.href} target={item.column1Link.target}>{item.column1Link.text}</a></th>
-								<th><a className="btn" href={item.column2Link.href} target={item.column2Link.target}>{item.column2Link.text}</a></th>
-								<th><a className="btn" href={item.column3Link.href} target={item.column3Link.target}>{item.column3Link.text}</a></th>
-								<th><a className="btn" href={item.column4Link.href} target={item.column4Link.target}>{item.column3Link.text}</a></th>
-							</tr>
-						</thead>
 
-						<tbody>
-							{priceItems.map(priceItem => {
-								const p = priceItem.customFields
-								return (
-									<tr key={`${priceItem.contentID}-tr`}>
-										<td className="row-label">{p.rowLabel}</td>
-										<td>{p.column1Value}</td>
-										<td>{p.column2Value}</td>
-										<td>{p.column3Value}</td>
-										<td>{p.column4Value}</td>
-									</tr>
-								)
-							})}
+			{ item.title &&
+			<h2 className="title-component">{item.title}</h2>
+}
+
+			<div className="table-container">
+				<table>
+					<thead>
+						<tr className="title-row">
+							<th></th>
+							<th>{item.column1Title}</th>
+							<th>{item.column2Title}</th>
+							<th>{item.column3Title}</th>
+							<th>{item.column4Title}</th>
+						</tr>
+						<tr>
+							<th></th>
+							<th><a className="btn" href={item.column1Link.href} target={item.column1Link.target}>{item.column1Link.text}</a></th>
+							<th><a className="btn" href={item.column2Link.href} target={item.column2Link.target}>{item.column2Link.text}</a></th>
+							<th><a className="btn" href={item.column3Link.href} target={item.column3Link.target}>{item.column3Link.text}</a></th>
+							<th><a className="btn" href={item.column4Link.href} target={item.column4Link.target}>{item.column4Link.text}</a></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{priceItems.map(priceItem => {
+							const p = priceItem.customFields
+							return (
+								<tr key={`${priceItem.contentID}-tr`}>
+									<td className="row-label">{p.rowLabel}</td>
+									<td>{p.column1Value}</td>
+									<td>{p.column2Value}</td>
+									<td>{p.column3Value}</td>
+									<td>{p.column4Value}</td>
+								</tr>
+							)
+						})}
 
 
-						</tbody>
+					</tbody>
 
-					</table>
-				</div>
-
+				</table>
 			</div>
 
+		</div>
 
-		</section>
+	</section>
+
 	)
 
 
