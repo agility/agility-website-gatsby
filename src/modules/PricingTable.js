@@ -59,13 +59,13 @@ const PricingTable = ({ item, priceItems }) => {
 	item = item.customFields
 
 	return (
-		<section class="pricing-table container-my">
+		<section className="pricing-table container-my">
 
-			<div class="toggle-vis">
-				<button class="btn" onClick={() => setExpanded(!expanded)}>{item.expandButtonLabel}</button>
+			<div className="toggle-vis">
+				<button className="btn" onClick={() => setExpanded(!expanded)}>{item.expandButtonLabel}</button>
 			</div>
 
-			<div class={"toggle-details " + (expanded ? "expanded" : "")}>
+			<div className={"toggle-details " + (expanded ? "expanded" : "")}>
 				<h2 className="title-component">{item.title}</h2>
 				<div className="table-container">
 					<table>
@@ -90,7 +90,7 @@ const PricingTable = ({ item, priceItems }) => {
 							{priceItems.map(priceItem => {
 								const p = priceItem.customFields
 								return (
-									<tr>
+									<tr key={`${priceItem.contentID}-tr`}>
 										<td className="row-label">{p.rowLabel}</td>
 										<td>{p.column1Value}</td>
 										<td>{p.column2Value}</td>
