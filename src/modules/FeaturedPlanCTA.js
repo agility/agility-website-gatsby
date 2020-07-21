@@ -10,7 +10,7 @@ const FeaturedPlanCTA = ({ item }) => {
 			<section className="featured-plan-cta">
 				<h4 dangerouslySetInnerHTML={renderHTML(item.customFields.title)}></h4>
 
-				<div dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
+				<div className="desc" dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
 
 				<a href={item.customFields.primaryButton.href} className="btn" title={item.customFields.primaryButton.text}>{item.customFields.primaryButton.text}</a>
 			</section>

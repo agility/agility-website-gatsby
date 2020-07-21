@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
+
+import { Toggle } from "react-toggle-component";
 
 import "./PricingPlans.scss"
 
@@ -7,59 +9,64 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query PricingPlansQuery {
-			allAgilityPricingPlan {
+			allAgilityPricingPlan(filter: {customFields: {isVisible: {eq: "true"}}}) {
 				nodes {
-				  contentID
-				  properties {
+				contentID
+				properties {
 					itemOrder
 					referenceName
-				  }
-				  languageCode
-				  customFields {
+				}
+				languageCode
+				customFields {
 					calltoAction {
-					  href
-					  text
-					  target
+						href
+						text
+						target
+					}
+					callToActionCDN {
+						href
+						target
+						text
 					}
 					description
 					icon {
-					  url
+					url
 					}
 					isRecommended
 					price
+					priceCDN
 					pricePerUnitLabel
-					subtitle
 					title
 					componentsSortIDs
-				  }
-				  components {
+				}
+				components {
 					contentID
 					customFields {
-					  label
+					label
 					}
-				  }
-				  features {
+				}
+				features {
 					contentID
 					customFields {
-					  label
-					  value
+					label
+					value
 					}
-				  }
-				  pricingPlanTier {
+				}
+				pricingPlanTier {
 					contentID
 					customFields {
-					  title
+					title
 					}
 					features {
-					  customFields {
+					customFields {
 						label
 						value
-					  }
 					}
-				  }
+					}
 				}
-			  }
-		}
+				}
+			}
+			}
 
         `}
 		render={queryData => {
@@ -84,7 +91,7 @@ export default props => (
 )
 
 const PricingPlans = ({ item, plans }) => {
-
+	const [currency, setCurrency] = useState("USD")
 
 
 	let moduleItem = item;
@@ -93,12 +100,22 @@ const PricingPlans = ({ item, plans }) => {
 
 	const planSet = plans.map(function (plan) {
 
-		return <PlanItem item={plan} key={moduleItem.contentID + "-" + plan.contentID} />
+		return <PlanItem item={plan} currency={currency} key={moduleItem.contentID + "-" + plan.contentID} />
 	});
+
+
+
+	const toggleCurrency = (e) => {
+		if (e.target.checked) {
+			setCurrency("CDN")
+		} else {
+			setCurrency("USD")
+		}
+	}
 
 	return (
 		<section className="p-w pricing">
-			{ item.title &&
+			{item.title &&
 				<h2 className="title-component">{item.title}</h2>
 			}
 
@@ -107,16 +124,43 @@ const PricingPlans = ({ item, plans }) => {
 			}
 
 			<div className="container-my">
+
 				<div className="plan-flex plans-container">
-					{ planSet }
+					{planSet}
 				</div>
 
-				<div className="disclaimer">{item.disclaimer}</div>
+				<div className="pricing-currency-toggle">
+					<label htmlFor="toggle-currency">
+						{/* <img src="https://static.agilitycms.com/flags/usa-flag.svg" alt="" /> */}
+						<span>$USD&nbsp;</span>
+						<Toggle
+							// leftKnobColor="#3c3b6e"
+							// rightKnobColor="#d52b1e"
+							// leftBorderColor="#3c3b6e"
+							// rightBorderColor="#d52b1e"
+							leftKnobColor="#333"
+							rightKnobColor="#333"
+							leftBorderColor="#333"
+							rightBorderColor="#333"
+							name="toggle-currency"
+							onToggle={toggleCurrency}
+						/>
 
-				<div className="details-button">
-					<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
-					{/* <a href={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</a> */}
+						<span>&nbsp;$CAN</span>
+						{/* <img src="https://static.agilitycms.com/flags/canada-flag.svg" alt="" /> */}
+					</label>
 				</div>
+				{item.disclaimer &&
+					<div className="disclaimer">{item.disclaimer}</div>
+				}
+
+				{item.planDetailsURL &&
+					<div className="details-button">
+
+						<Link to={item.planDetailsURL.href} className="btn btn-light" title={item.planDetailsURL.label}>{item.planDetailsURL.text}</Link>
+
+					</div>
+				}
 			</div>
 		</section>
 	);
@@ -124,59 +168,76 @@ const PricingPlans = ({ item, plans }) => {
 
 
 
-class PlanItem extends React.Component {
+const PlanItem = ({ currency, item }) => {
 
-    render() {
 
-		const componentsSortIDs = this.props.item.customFields.componentsSortIDs.split(",");
+	const componentsSortIDs = item.customFields.componentsSortIDs.split(",");
 
-		const planIncludes = componentsSortIDs.map(sortID => {
-			const component = this.props.item.components.find(c => c.contentID === parseInt(sortID));
-			return <PlanInclude item={component} key={component.contentID} />
+	const planIncludes = componentsSortIDs.map(sortID => {
+		const component = item.components.find(c => c.contentID === parseInt(sortID));
+		return <PlanInclude item={component} key={component.contentID} />
 
-		});
+	});
 
-		const plan = this.props.item.customFields;
+	const plan = item.customFields;
 
-        return (
+	return (
 
-            <div className="plan-item">
-                <div className="plan-type">
-                    <div className="title-bar">
-                        <h3>{ plan.title }</h3>
-                    </div>
-                    <div className="plan-body">
-                    { plan.icon &&
-                        <div className="plan-icon"><img src={plan.icon.url} alt={ plan.title } /></div>
-                    }
+		<div className={"plan-item" + (plan.isRecommended === "true" ? " recommended" : "")}>
 
-                    { plan.pricePerUnitLabel &&
-                        <h4 dangerouslySetInnerHTML={{__html: plan.pricePerUnitLabel}}></h4>
-                    }
+			<div className="plan-type">
+				{plan.isRecommended === "true" &&
+					<div className="recommendation">Recommended</div>
+				}
+				<div className="title-bar">
+					<h3>{plan.title}</h3>
+				</div>
+				<div className="plan-body">
+					<div className="plan-image-n-price">
+						{plan.icon &&
+							<div className="plan-icon"><img src={plan.icon.url} alt={plan.title} /></div>
+						}
 
-                    </div>
-                    <ul className="plan-features">
-                        {planIncludes}
-                    </ul>
-					{ plan.calltoAction &&
-                    <div className="plan-body">
-                        <a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
-                    </div>
-					}
-                </div>
-            </div>
+						<h4 className={currency}>
+							<span className={"plan-price"}>{currency === "USD" ? plan.price : plan.priceCDN}</span>
+							<span className="plan-price-unit-label" dangerouslySetInnerHTML={{ __html: plan.pricePerUnitLabel }}></span>
+						</h4>
 
-        );
-    }
+						<div className="plan-desc">
+							{plan.description}
+						</div>
+
+
+					</div>
+
+				</div>
+				<ul className="plan-features">
+					{planIncludes}
+				</ul>
+				{plan.calltoAction &&
+					<div className="plan-body">
+						{currency !== "CDN" &&
+							<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
+						}
+						{currency === "CDN" &&
+							<a className="btn" href={plan.callToActionCDN.href} target={plan.callToActionCDN.target}>{plan.callToActionCDN.text}</a>
+						}
+					</div>
+				}
+			</div>
+		</div>
+
+	);
+
 }
 
 class PlanInclude extends React.Component {
 
-    render() {
-        return (
-            <li>
-                {this.props.item.customFields.label}
-            </li>
-        )
-    }
+	render() {
+		return (
+			<li>
+				{this.props.item.customFields.label}
+			</li>
+		)
+	}
 }
