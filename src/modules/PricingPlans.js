@@ -36,7 +36,6 @@ export default props => (
 					price
 					priceCDN
 					pricePerUnitLabel
-					subtitle
 					title
 					componentsSortIDs
 				}
