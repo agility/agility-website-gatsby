@@ -1,0 +1,103 @@
+@import "../global/_variables.scss";
+.getting-started {
+
+	margin: $module-margin-spacing;
+	.title-component {
+		margin-bottom: 50px;
+	}
+
+	.cards {
+		display: flex;
+		align-content: space-between;
+
+		.card {
+			flex: 1;
+			margin: 10px;
+			border-width: 0;
+			border-radius: $border-radius;
+			background: none;
+			box-shadow: $panel-box-shadow;
+			padding: 0;
+			cursor: pointer;
+			overflow: hidden;
+			h3 {
+				font-size: 16px;
+				margin: 8px 8px;
+			}
+			&:hover {
+				box-shadow: $panel-box-shadow-hover;
+			}
+			&:active, &.selected {
+				box-shadow: $panel-box-shadow-active;
+			}
+		}
+	}
+
+	.item-container {
+		display: block;
+		width: 100%;
+
+		.item {
+
+			visibility: hidden;
+			overflow: hidden;
+			height: 0;
+			opacity: 0;
+			transition: height 0s, opacity 0.5s ease-in-out;
+
+			&.selected {
+				opacity: 1;
+				visibility: visible;
+				height: auto;
+				overflow: initial;
+			}
+
+			.item-flex {
+				margin:20px;
+				display: flex;
+				align-content: space-between;
+
+				.item-content {
+					flex: 0.6;
+
+					h3 {
+						font-size: 24px;
+						font-weight: bold;
+						margin-bottom: 15px;
+					}
+					.rich-text-container {
+						margin-bottom: 15px;
+					}
+
+					.item-ctas {
+						a {
+							margin-right: 10px;
+							padding: 0px 12px;
+							min-height: 30px;
+							line-height: 30px;
+
+							&.secondary-cta {
+								background-color: white;
+								color: $secondaryColor
+							}
+						}
+						margin-bottom: 15px;
+					}
+
+					.third-cta-row {
+
+						.third-cta {
+
+						}
+					}
+
+				}
+				.item-image {
+					flex: 0.4;
+				}
+			}
+
+		}
+	}
+
+}
