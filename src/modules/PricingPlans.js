@@ -99,7 +99,7 @@ const PricingPlans = ({ item, plans }) => {
 
 
 	const planSet = plans.map(function (plan) {
-
+		if (plan === undefined) return null
 		return <PlanItem item={plan} currency={currency} key={moduleItem.contentID + "-" + plan.contentID} />
 	});
 
@@ -173,11 +173,14 @@ const PlanItem = ({ currency, item }) => {
 
 	const componentsSortIDs = item.customFields.componentsSortIDs.split(",");
 
+
 	const planIncludes = componentsSortIDs.map(sortID => {
 		const component = item.components.find(c => c.contentID === parseInt(sortID));
+		if (! component) return null
 		return <PlanInclude item={component} key={component.contentID} />
 
 	});
+
 
 	const plan = item.customFields;
 
