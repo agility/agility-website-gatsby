@@ -2,6 +2,8 @@ import React, {useEffect, useState } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 
+import VisibilitySensor from 'react-visibility-sensor'
+
 import "./GettingStarted.scss"
 import './RichTextArea.scss'
 
@@ -71,15 +73,13 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 	item = item.customFields;
 
 
-	const setCurrentPersona = (personaValue, contentID) => {
-		console.log("setPersona", personaValue, contentID)
+	const setCurrentPersona = (personaValue) => {
 		if (typeof window !== 'undefined'
 			&& window.localStorage
 			&& window.localStorage.setItem
 			) {
 				window.localStorage.setItem("persona", personaValue)
 			}
-
 
 		setPersona(personaValue)
 	}
@@ -96,26 +96,51 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 		setPersona(localPersona)
 	}, [])
 
+	let scrollTestTimeout = -1;
+	let scrollState= {left: -1, width: -1}
+	const cardScroll = (e, x) => {
+		const el = e.target;
+
+		scrollState.left = el.scrollLeft
+		scrollState.width = el.scrollWidth
+
+		if (scrollTestTimeout == -1) {
+			scrollTestTimeout = setTimeout(cardScrollAction, 750);
+		}
+
+	}
+	const cardScrollAction = () => {
+
+		scrollTestTimeout = -1;
+
+		const itemWidth = scrollState.width / gettingStartedItems.length
+		const itemIndex = Math.round(scrollState.left / itemWidth)
+
+		const item = gettingStartedItems[itemIndex]
+		setCurrentPersona(item.customFields.personaCookieValue)
+
+	}
 
 	const itemToShow = gettingStartedItems.find(g => g.customFields.personaCookieValue === persona)
 	let selectedID = itemToShow ? itemToShow.contentID : -1
-
-	console.log("persona", persona, selectedID)
 
 	return (
 		<section className="getting-started">
 			<h2 className="title-component">{item.heading}</h2>
 			<div className="container-my">
-				<div className="cards">
-				{ gettingStartedItems.map(g => (
-					<button key={`gsc-${g.contentID}`} className={`card ${g.contentID === selectedID ? "selected" : ""}`} onClick={() => {setCurrentPersona(g.customFields.personaCookieValue, g.contentID )}}>
-						<div className="card-image" style={{backgroundImage:`url(${g.customFields.cardImage.url}?w=400)`}}>&nbsp;</div>
-						<div className="card-title">
-							<h3>{g.customFields.title}</h3>
-						</div>
-					</button>
-				))}
-				</div>
+
+					<div className="cards" onScroll={cardScroll}>
+					{ gettingStartedItems.map(g => (
+
+						<button key={`gsc-${g.contentID}`} className={`card ${g.contentID === selectedID ? "selected" : ""}`} onClick={() => {setCurrentPersona(g.customFields.personaCookieValue, g.contentID )}}>
+							<div className="card-image" style={{backgroundImage:`url(${g.customFields.cardImage.url}?w=400)`}}>&nbsp;</div>
+							<div className="card-title">
+								<h3>{g.customFields.title}</h3>
+							</div>
+						</button>
+					))}
+					</div>
+
 
 				<div className="item-container">
 				{ gettingStartedItems.map(g => (

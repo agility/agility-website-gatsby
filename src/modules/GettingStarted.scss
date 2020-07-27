@@ -6,17 +6,17 @@
 		margin-bottom: 50px;
 	}
 
+
 	.cards {
 		width: 100%;
 		display: flex;
 		align-content: space-between;
+		scroll-snap-type: x mandatory;
 
 		.card {
 			flex: 1;
 			margin: 10px;
 			border-width: 0;
-			// border-bottom-left-radius: $border-radius;
-			// border-bottom-right-radius: $border-radius;
 			background: none;
 			box-shadow: $panel-box-shadow;
 			padding: 0;
@@ -51,6 +51,7 @@
 
 
 	}
+
 
 	.item-container {
 		display: block;
@@ -142,10 +143,19 @@
 
 	@media (max-width: $mobile-width) {
 		.cards {
-			display: block;
+			width: 100%;
+			overflow: auto;
+			display: flex;
+			flex-flow: row nowrap;
+			align-content: space-between;
+			scroll-snap-type: x mandatory;
+			flex:none;
+			margin:0;
+			padding: 0;
 			.card {
-				display: block;
-				width: 100%;
+				scroll-snap-align: center;
+				width: 90%;
+				flex: none;
 				margin: 20px 0;
 			}
 		}
