@@ -101,7 +101,7 @@ export default props => (
 					  return lst.filter(r => {
 
 						return r.customTags.findIndex(t => {
-							return ids.findIndex(i => { return i == t.contentID;}) >= 0;
+							return ids.findIndex(i => { return i === t.contentID;}) >= 0;
 						}) >= 0;
 					  });
 

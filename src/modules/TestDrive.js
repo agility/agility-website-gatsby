@@ -79,7 +79,7 @@ const TestDrive = ({ item }) => {
 
 					<h3>Website information</h3>
 					<ul>
-						<li>Website URL: <a href={data.instanceManifest.appServiceUrl} target="_blank">{data.instanceManifest.appServiceUrl}</a></li>
+						<li>Website URL: <a href={data.instanceManifest.appServiceUrl} target="_blank" rel="noreferrer">{data.instanceManifest.appServiceUrl}</a></li>
 						<li>Source Code: <a href={data.instanceManifest.sourceCodeUrl}>Download</a></li>
 					</ul>
 

@@ -7,6 +7,7 @@
 	}
 
 	.cards {
+		width: 100%;
 		display: flex;
 		align-content: space-between;
 
@@ -14,23 +15,41 @@
 			flex: 1;
 			margin: 10px;
 			border-width: 0;
-			border-radius: $border-radius;
+			// border-bottom-left-radius: $border-radius;
+			// border-bottom-right-radius: $border-radius;
 			background: none;
 			box-shadow: $panel-box-shadow;
 			padding: 0;
 			cursor: pointer;
 			overflow: hidden;
-			h3 {
-				font-size: 16px;
+			border: 2px solid #fff;
+
+			.card-image {
+				height: 150px;
+				background-size: cover;
+			}
+			.card-title {
+				height: 100px;
 				margin: 8px 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				h3 {
+					font-size: 18px;
+				}
 			}
 			&:hover {
 				box-shadow: $panel-box-shadow-hover;
+				border: 2px solid $greyColor;
 			}
 			&:active, &.selected {
 				box-shadow: $panel-box-shadow-active;
+				border: 2px solid $greyColor;
+				padding: 0;
 			}
 		}
+
+
 	}
 
 	.item-container {
@@ -55,10 +74,15 @@
 			.item-flex {
 				margin:20px;
 				display: flex;
+				flex-direction: row-reverse;
 				align-content: space-between;
 
 				.item-content {
 					flex: 0.6;
+
+					.rich-text {
+						margin: 0
+					}
 
 					h3 {
 						font-size: 24px;
@@ -72,31 +96,88 @@
 					.item-ctas {
 						a {
 							margin-right: 10px;
-							padding: 0px 12px;
-							min-height: 30px;
-							line-height: 30px;
+							margin-bottom: 10px;
+							// padding: 0px 12px;
+							// min-height: 30px;
+							// line-height: 30px;
 
 							&.secondary-cta {
-								background-color: white;
-								color: $secondaryColor
+								background-color: $lightGreyColor;
+								color: $colorBasic;
+								box-shadow: none;
+								&:hover {
+									background-color: darken( $lightGreyColor, 10);
+								}
+
 							}
 						}
 						margin-bottom: 15px;
 					}
 
 					.third-cta-row {
-
 						.third-cta {
+							color: $titles;
+							line-height: 30px;
+							background-image: url(https://static.agilitycms.com/layout/img/ico/gray.svg);
+							background-position: right -2px;
+							padding-right: 30px;
+							background-repeat: no-repeat;
+							transition: padding-right .25s ease-in-out;
+							&:hover {
+								padding-right: 40px;
+							}
 
 						}
 					}
-
 				}
 				.item-image {
+					margin-left: 20px;
 					flex: 0.4;
 				}
 			}
 
+		}
+	}
+
+
+	@media (max-width: $mobile-width) {
+		.cards {
+			display: block;
+			.card {
+				display: block;
+				width: 100%;
+				margin: 20px 0;
+			}
+		}
+
+		.item-container {
+			.item {
+				.item-flex {
+					display: block;
+
+					.item-image {
+						margin: 5px;
+					}
+
+					.item-content {
+						margin-top: 15px;
+						.item-ctas {
+							a {
+								display: block;
+								width: 100%;
+								margin: 20px 0;
+							}
+						}
+
+						.third-cta-row {
+							text-align: center;
+							.third-cta {
+
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

@@ -4,7 +4,8 @@ import "./CaseStudyContentPanel.scss"
 
 const PartnerContentPanel = ({ item, dynamicPageItem }) => {
 
-	const moduleItem = item;
+	//mod - not used
+	//const moduleItem = item;
 	item = dynamicPageItem.customFields;
 
 	var bgColor = item.brandBGColor;

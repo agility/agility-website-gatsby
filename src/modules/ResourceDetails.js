@@ -11,7 +11,6 @@ import "./RichTextArea.scss"
 const ResourceDetails = ({ item, dynamicPageItem }) => {
 
 	let resource = dynamicPageItem.customFields;
-	let moduleItem = item;
 	item = item.customFields;
 
 	return (

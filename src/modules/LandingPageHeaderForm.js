@@ -45,14 +45,14 @@ const LandingPageHeaderForm = ({ item }) => {
 
 								let href = 'https://account.agilitycms.com/sign-up?product=agility-free';
 
-								if (emailAddress == "") {
+								if (emailAddress === "") {
 									window.alert('Please enter a valid email address');
 									return;
 								} else {
 									href += "&emailAddress=" + emailAddress;
 								}
-								if (leadSource != "") href += "&leadsource=" + encodeURIComponent(leadSource);
-								if (autopilotSession != "") href += "&apsession=" + encodeURIComponent(autopilotSession);
+								if (leadSource !== "") href += "&leadsource=" + encodeURIComponent(leadSource);
+								if (autopilotSession !== "") href += "&apsession=" + encodeURIComponent(autopilotSession);
 
 								window.location.href = href;
 							}}>

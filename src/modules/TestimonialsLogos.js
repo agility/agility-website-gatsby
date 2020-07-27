@@ -13,8 +13,10 @@ const TestimonialsLogos = ({ item }) => {
 
 
 	testimonials = testimonials.map(function (t, index) {
-		if (index == 0) {
-		return <TestimonialContent item={t} key={t.contentID + "-" + moduleItem.contentID} />
+		if (index === 0) {
+			return <TestimonialContent item={t} key={t.contentID + "-" + moduleItem.contentID} />
+		} else {
+			return null
 		}
 	})
 

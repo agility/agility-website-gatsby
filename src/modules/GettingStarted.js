@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { graphql, StaticQuery, Link } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 
 import "./GettingStarted.scss"
@@ -68,23 +68,37 @@ export default props => (
 
 const GettingStarted = ({ item, gettingStartedItems }) => {
 	const [persona, setPersona] = useState(null)
-
-	const moduleItem = item;
 	item = item.customFields;
 
-	console.log(gettingStartedItems[0])
 
 	const setCurrentPersona = (personaValue, contentID) => {
 		console.log("setPersona", personaValue, contentID)
+		if (typeof window !== 'undefined'
+			&& window.localStorage
+			&& window.localStorage.setItem
+			) {
+				window.localStorage.setItem("persona", personaValue)
+			}
+
+
 		setPersona(personaValue)
 	}
 
 	useEffect(() => {
-		setPersona(gettingStartedItems[0].customFields.personaCookieValue)
+		//load the eventbrites cript - but only if we have to
+		if (typeof window === 'undefined'
+			|| !window.localStorage
+			|| !window.localStorage.getItem
+			) return;
+
+		const localPersona = window.localStorage.getItem("persona");
+
+		setPersona(localPersona)
 	}, [])
 
+
 	const itemToShow = gettingStartedItems.find(g => g.customFields.personaCookieValue === persona)
-	const selectedID = itemToShow ? itemToShow.contentID : gettingStartedItems[0].contentID
+	let selectedID = itemToShow ? itemToShow.contentID : -1
 
 	console.log("persona", persona, selectedID)
 
@@ -95,8 +109,10 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 				<div className="cards">
 				{ gettingStartedItems.map(g => (
 					<button key={`gsc-${g.contentID}`} className={`card ${g.contentID === selectedID ? "selected" : ""}`} onClick={() => {setCurrentPersona(g.customFields.personaCookieValue, g.contentID )}}>
-						<div className="card-image"><img src={`${g.customFields.cardImage.url}?w=400`} alt={g.customFields.cardImage.label} /></div>
-						<h3>{g.customFields.title}</h3>
+						<div className="card-image" style={{backgroundImage:`url(${g.customFields.cardImage.url}?w=400)`}}>&nbsp;</div>
+						<div className="card-title">
+							<h3>{g.customFields.title}</h3>
+						</div>
 					</button>
 				))}
 				</div>
@@ -106,9 +122,10 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 					<div className={`item ${g.contentID === selectedID ? "selected" : ""}`} key={`gsi-${g.contentID}`}>
 						<div className="item-flex">
 
+							<div className="item-image"><img src={`${g.customFields.image.url}?w=800`} alt={g.customFields.image.label} /></div>
 							<div className="item-content">
-								<h3>{g.customFields.title}</h3>
-								<div className="rich-text-container" dangerouslySetInnerHTML={renderHTML(g.customFields.content)}></div>
+								<h3>{g.customFields.heading}</h3>
+								<div className="rich-text" dangerouslySetInnerHTML={renderHTML(g.customFields.content)}></div>
 
 								<div className="item-ctas">
 									<a className="btn primary-cta" href={g.customFields.primaryButton.href} target={g.customFields.primaryButton.target}>{g.customFields.primaryButton.text}</a>
@@ -122,7 +139,7 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 										</div>
 									}
 							</div>
-							<div className="item-image"><img src={`${g.customFields.image.url}?w=800`} alt={g.customFields.image.label} /></div>
+
 						</div>
 					</div>
 					))}

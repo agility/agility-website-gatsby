@@ -45,7 +45,7 @@ const ContentPanel = ({ item }) => {
 	return (
 		<section className="front-start p-w">
 			<Triangles />
-			<div className={enableBackgroundImage == "true" ? 'rotated-bg' : ''}></div>
+			<div className={enableBackgroundImage === "true" ? 'rotated-bg' : ''}></div>
 
 			<div className="container-my">
 				{item.imagePosition === 'left' && item.image &&

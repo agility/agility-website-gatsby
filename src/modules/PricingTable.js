@@ -53,9 +53,6 @@ export default props => (
 
 const PricingTable = ({ item, priceItems }) => {
 	const [expanded, setExpanded] = useState(false)
-
-
-	const moduleItem = item
 	item = item.customFields
 
 	return (

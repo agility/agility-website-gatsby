@@ -28,8 +28,10 @@ export default props => (
 			let features = queryData.allAgilityPricingPlanTierFeature.nodes;
 
 			const refName = props.item.customFields.planFeatureList.customFields.features.referencename;
-			const sortIDs = props.item.customFields.planFeatureList.customFields.featureSortIDs;
-			let sortIDAry = sortIDs.split(",");
+
+			//mod - not used
+			//const sortIDs = props.item.customFields.planFeatureList.customFields.featureSortIDs;
+			//let sortIDAry = sortIDs.split(",");
 
 			features = features.filter(f => {
 				return f.properties.referenceName === refName;
@@ -52,7 +54,8 @@ const PlanFeaturesCTA = ({ item , features}) => {
 	const moduleItem = item;
 	item = item.customFields;
 
-	const featureListItem = item.planFeatureList.customFields;
+	//not used....
+	//const featureListItem = item.planFeatureList.customFields;
 
 	const planFeatures = features.map(function (f) {
 		return <PlanFeature title={f.customFields.title} key={f.contentID + "-"+ moduleItem.contentID} />

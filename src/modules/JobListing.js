@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery, Link } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 
 import "./JobListing.scss"
@@ -61,7 +61,7 @@ const JobListing = ({ item, jobs }) => {
 	const moduleItem = item;
 	item = item.customFields;
 
-	var jobs = jobs.map(function (f) {
+	jobs = jobs.map(function (f) {
 
 		return <JobContent job={f.customFields} key={moduleItem.contentID + "-" + f.contentID} />;
 	})
