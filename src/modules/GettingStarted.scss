@@ -42,7 +42,7 @@
 				box-shadow: $panel-box-shadow-hover;
 				border: 2px solid $greyColor;
 			}
-			&:active, &.selected {
+			&.selected {
 				box-shadow: $panel-box-shadow-active;
 				border: 2px solid $greyColor;
 				padding: 0;
