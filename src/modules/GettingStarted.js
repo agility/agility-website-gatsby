@@ -39,11 +39,7 @@ export default props => (
 					target
 					text
 				  }
-				  thirdCTA {
-					href
-					target
-					text
-				  }
+
 
 				}
 			  }
@@ -158,11 +154,11 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 										<a className="btn secondary-cta" href={g.customFields.secondaryButton.href} target={g.customFields.secondaryButton.target}>{g.customFields.secondaryButton.text}</a>
 									}
 								</div>
-								{ g.customFields.thirdCTA &&
+								{/* { g.customFields.thirdCTA &&
 										<div className="third-cta-row">
 											<a className="third-cta" href={g.customFields.thirdCTA.href} target={g.customFields.thirdCTA.target}>{g.customFields.thirdCTA.text}</a>
 										</div>
-									}
+									} */}
 							</div>
 
 						</div>
