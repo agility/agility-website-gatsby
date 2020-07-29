@@ -1,4 +1,9 @@
 @import "../global/_variables.scss";
+
+$panel-active-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.65);
+$panel-hover-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35);
+
+
 .getting-started {
 
 	margin: $module-margin-spacing;
@@ -23,7 +28,7 @@
 			padding: 0;
 			cursor: pointer;
 			overflow: hidden;
-			border: 2px solid #fff;
+			transition: box-shadow 0.2s ease-in-out;
 
 			.card-image {
 				height: 150px;
@@ -43,11 +48,10 @@
 			}
 			&:hover {
 				box-shadow: $panel-box-shadow-hover;
-				border: 2px solid $greyColor;
+
 			}
 			&.selected {
-				box-shadow: $panel-box-shadow-active;
-				border: 2px solid $greyColor;
+				box-shadow: $panel-active-shadow;
 				padding: 0;
 			}
 		}
@@ -82,7 +86,8 @@
 				align-content: space-between;
 
 				.item-content {
-					flex: 0.6;
+					position: relative;
+					flex: 0.7;
 					display: flex;
 						flex-direction: column;
 						justify-content: center;
@@ -137,7 +142,7 @@
 				}
 				.item-image {
 					margin-left: 20px;
-					flex: 0.4;
+					flex: 0.3;
 				}
 			}
 
