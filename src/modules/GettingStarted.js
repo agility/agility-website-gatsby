@@ -76,18 +76,16 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 			&& window.localStorage.setItem
 		) {
 			window.localStorage.setItem("persona", personaValue)
+
+			setPersona(personaValue)
+
+			setTimeout(function() {
+				//scroll to the selected element
+				let el = document.getElementById(`item-content-${personaValue}`)
+				let scrollToPos = el.offsetTop;
+				window.scrollTo({top: scrollToPos, behavior: "smooth"})
+			}, 250);
 		}
-
-		setPersona(personaValue)
-
-		setTimeout(function() {
-			//scroll to the selected element
-			let el = document.getElementById(`item-content-${personaValue}`)
-			let scrollToPos = el.offsetTop;
-			window.scrollTo({top: scrollToPos, behavior: "smooth"})
-		}, 250);
-
-
 
 	}
 
