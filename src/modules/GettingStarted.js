@@ -68,8 +68,6 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 
 	item = item.customFields;
 
-	smoothscroll.polyfill();
-
 	const setCurrentPersona = (personaValue) => {
 		if (typeof window !== 'undefined'
 			&& window.localStorage
@@ -96,6 +94,7 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 			|| !window.localStorage.getItem
 		) return;
 
+		smoothscroll.polyfill();
 		const localPersona = window.localStorage.getItem("persona");
 
 		setPersona(localPersona)
