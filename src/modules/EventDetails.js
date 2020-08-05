@@ -15,7 +15,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	const eventDate = moment(event.date)
 	const isPastEvent = eventDate.isBefore()
-	console.log(eventDate, isPastEvent)
+
 	let externalLink = null;
 	let exernalTarget = null;
 	if (event.externalLink) {
