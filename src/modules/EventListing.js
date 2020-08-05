@@ -32,7 +32,7 @@ export default props => (
 
 			const pastEventsOnly = props.item.customFields.showPastEventsOnly === "true";
 
-			let yesterday = moment().add(-1, "days");
+			let today = moment()
 
 			events = events.filter(event => {
 				if (pastEventsOnly) {
@@ -40,9 +40,20 @@ export default props => (
 					return moment(event.customFields.date).isBefore()
 				} else {
 					//in the future
-					return moment(event.customFields.date).isSameOrAfter(yesterday)
+					return moment(event.customFields.date).isAfter()
 				}
 			});
+
+			if (pastEventsOnly) {
+				//sort by date descending for past events...
+				events = events.sort((a, b) => {
+					const adate = moment(a.customFields.date)
+					const bdate = moment(b.customFields.date)
+
+					if (adate.isAfter(bdate)) return -1
+					return 1
+				})
+			}
 
 			const viewModel = {
 				moduleItem: props.item,

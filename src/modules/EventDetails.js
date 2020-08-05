@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
 
@@ -13,6 +13,9 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	const event = dynamicPageItem.customFields;
 
+	const eventDate = moment(event.date)
+	const isPastEvent = eventDate.isBefore()
+	console.log(eventDate, isPastEvent)
 	let externalLink = null;
 	let exernalTarget = null;
 	if (event.externalLink) {
@@ -25,9 +28,10 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 		//load the eventbrites cript - but only if we have to
 		if (typeof window === 'undefined') return;
 
-		if (loaded) return;
+		//only load the event brite stuff if we are NOT on a past event...
+		if (loaded || isPastEvent) return;
 
-		setTimeout(function() {
+		setTimeout(function () {
 
 			if (event.eventbriteID) {
 				//add the script embed...
@@ -43,12 +47,11 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 			setLoaded(true);
 		}, 100);
 
-
 	});
 
 	const loadEventBriteForm = () => {
 
-		if (! window.EBWidgets) {
+		if (!window.EBWidgets) {
 			setTimeout(loadEventBriteForm, 100);
 			return;
 		}
@@ -60,7 +63,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 			modalTriggerElementId: `eventbrite-widget-button-${event.eventbriteID}`
 		});
 
-		setTimeout(function() {
+		setTimeout(function () {
 			window.EBWidgets.createWidget({
 				// Required
 				widgetType: 'checkout',
@@ -82,10 +85,10 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 				<div className="event-date">
 					<span className="event-type">{event.eventType.customFields.title}</span>
 					<span className="date">
-						{moment(event.date).format("MMM Do, YYYY")}
+						{eventDate.format("MMM Do, YYYY")}
 					</span>
 					<span className="time">
-						{moment(event.date).format("h:mma")}
+						{eventDate.format("h:mma")}
 					</span>
 				</div>
 
@@ -104,7 +107,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 						</div>
 					}
 
-					{event.eventbriteID &&
+					{event.eventbriteID && !isPastEvent &&
 						<div className="event-link">
 							<a className="btn" id={`eventbrite-widget-button-${event.eventbriteID}`} type="button">Register Now</a>
 						</div>
@@ -112,7 +115,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
 
-					{event.eventbriteID &&
+					{event.eventbriteID && !isPastEvent &&
 						<div id={`eventbrite-widget-container-${event.eventbriteID}`}></div>
 					}
 
