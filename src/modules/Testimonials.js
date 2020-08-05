@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
 	ButtonBack,
@@ -31,7 +31,7 @@ const Testimonials = ({ item }) => {
 
 		return function cleanup() {
 			window.removeEventListener("resize", setCarouselSize);
-		  };
+		};
 
 	}, [])
 
@@ -46,7 +46,7 @@ const Testimonials = ({ item }) => {
 	/**
 	 * Sets the carousel size - called on load and on resize of the window
 	 */
-	const setCarouselSize = function() {
+	const setCarouselSize = function () {
 
 		const width = document.body.clientWidth;
 		if (width > 1200) {
@@ -115,7 +115,7 @@ const Testimonials = ({ item }) => {
 
 export default Testimonials;
 
-const TestimonialContent = ({item}) =>  {
+const TestimonialContent = ({ item }) => {
 
 	let truncatedExcerpt = item.excerpt.replace(/^(.{200}[^\s]*).*/, "$1")
 	if (truncatedExcerpt.length < item.excerpt.length) {
@@ -129,7 +129,7 @@ const TestimonialContent = ({item}) =>  {
 					<div className="top-row">
 						<div className="image">
 							{item.headshot &&
-								<img src={item.headshot.url + '?w=93&h=93'} alt={item.title} />
+								<img src={item.headshot.url + '?w=93&h=93'} alt={item.title} loading="lazy" />
 							}
 						</div>
 						<div className="title">

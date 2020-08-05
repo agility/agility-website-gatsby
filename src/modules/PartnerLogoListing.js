@@ -79,7 +79,7 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 					}
 
 					{!partner.url && partner.partnerLogo &&
-						<img src={partner.partnerLogo.url} alt={partner.partnerLogo.label} />
+						<img src={partner.partnerLogo.url} alt={partner.partnerLogo.label} loading="lazy" />
 					}
 
 				</div>

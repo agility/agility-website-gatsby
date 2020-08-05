@@ -51,7 +51,7 @@ class ResponsiveImage extends React.Component {
 		return (
 			<picture>
 				{sources}
-				<img src={smallestSrc} alt={alt} />
+				<img src={smallestSrc} alt={alt} loading="lazy" />
 			</picture>
 		)
 	}

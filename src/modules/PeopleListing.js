@@ -75,7 +75,7 @@ const PeopleListingContent = ({ item }) => {
 
 			<div className="image">
 				{item.headshot && item.headshot != null && item.headshot.url
-					? <img src={item.headshot.url} alt="" />
+					? <img src={item.headshot.url} alt="" loading="lazy" />
 					: null
 				}
 			</div>

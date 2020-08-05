@@ -61,7 +61,7 @@ const EventListing = ({ moduleItem, events }) => {
 	const item = moduleItem.customFields;
 
 	events = events.map((event, index) => {
-		return <Event moduleItem={moduleItem} event={event} key={moduleItem.contentID + "-" + event.contentID} index={index}/>
+		return <Event moduleItem={moduleItem} event={event} key={moduleItem.contentID + "-" + event.contentID} index={index} />
 	});
 
 	return (
@@ -70,19 +70,19 @@ const EventListing = ({ moduleItem, events }) => {
 			<div className="container-my">
 				<div className="rotated-bg"></div>
 
-				{ item.title &&
-				<h2 className="title-component">{item.title}</h2> }
-				{ item.subTitle &&
-				  <p className="sub-title">{item.subTitle}</p> }
+				{item.title &&
+					<h2 className="title-component">{item.title}</h2>}
+				{item.subTitle &&
+					<p className="sub-title">{item.subTitle}</p>}
 				<div className="event-list-wrapper">
-					{ events }
+					{events}
 				</div>
 			</div>
 		</section>
 	)
 }
 
-const Event = ({moduleItem, event, index}) => {
+const Event = ({ moduleItem, event, index }) => {
 
 	let item = event.customFields;
 	const url = `/resources/events/${item.uRL}`
@@ -91,18 +91,18 @@ const Event = ({moduleItem, event, index}) => {
 		<div className="event">
 
 			<div className="event-image">
-				{ item.mainImage &&
-				 <Link to={url}><img src={item.mainImage.url + "?w=600"} alt={item.mainImage.label} /></Link> }
+				{item.mainImage &&
+					<Link to={url}><img src={item.mainImage.url + "?w=600"} alt={item.mainImage.label} loading="lazy" /></Link>}
 			</div>
 			<div className="event-content">
 				<Link to={url}><h2>{item.title}</h2></Link>
 
 				<div className="event-date">
 					<span className="date">
-						{ moment(item.date).format("MMM Do, YYYY") }
+						{moment(item.date).format("MMM Do, YYYY")}
 					</span>
 					<span className="time">
-						{ moment(item.date).format("h:mma") }
+						{moment(item.date).format("h:mma")}
 					</span>
 				</div>
 				<p>
