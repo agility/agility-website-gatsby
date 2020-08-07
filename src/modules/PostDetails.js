@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
 import ResponsiveImage from '../components/responsive-image.jsx'
@@ -17,10 +17,10 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 	const author = post.author.customFields;
 
 	//see if the post has a tweet in it...
-	const hasTweets =  post.textblob && post.textblob.indexOf('class="twitter-tweet"') !== -1;
+	const hasTweets = post.textblob && post.textblob.indexOf('class="twitter-tweet"') !== -1;
 
 	const [state, setState] = useState({
-        loaded: false
+		loaded: false
 	})
 
 	useEffect(() => {
@@ -30,7 +30,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 
 		if (state.loaded) return;
 
-		setTimeout(function() {
+		setTimeout(function () {
 
 			if (hasTweets) {
 				//add the twitter embed...
@@ -80,7 +80,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 
 					<div className="post-content" dangerouslySetInnerHTML={renderHTML(post.textblob)}></div>
 
-					{ post.cTA && <CallToAction item={post.cTA} /> }
+					{post.cTA && <CallToAction item={post.cTA} />}
 
 
 					{

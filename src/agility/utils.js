@@ -70,8 +70,13 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 			let canonicalUrl = `https://agilitycms.com${location.pathname}`;
 
-			let category = null;
-			let image = null;
+			let category = null
+			let image = null
+			let author = null
+
+			if (dynamicPageItem.customFields.author && dynamicPageItem.customFields.author.customFields) {
+				author = dynamicPageItem.customFields.author.customFields
+			}
 
 			if (dynamicPageItem.customFields.category && dynamicPageItem.customFields.category.customFields) {
 				category = dynamicPageItem.customFields.category.customFields.title;
@@ -84,6 +89,46 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				image = dynamicPageItem.customFields.postImage;
 
 			}
+
+			let datePublished = moment(dynamicPageItem.customFields.date);
+			let dateModified = moment(dynamicPageItem.properties.modified);
+
+			//build the structural event data...
+			let structData = {
+				"@context": "https://schema.org",
+				"@type": "NewsArticle",
+				// "mainEntityOfPage": {
+				// 	"@type": "WebPage",
+				// 	"@id": "https://google.com/article"
+				// },
+				"headline": dynamicPageItem.customFields.title,
+				"datePublished": datePublished.toISOString(true),
+				"dateModified": dateModified.toISOString(true),
+
+				// "publisher": {
+				// 	"@type": "Organization",
+				// 	"name": "Agility CMS",
+				// 	"logo": {
+				// 		"@type": "ImageObject",
+				// 		"url": "https://static.agilitycms.com/brand/logo_combined_yellow_gray.png"
+				// 	}
+				// }
+			}
+
+			if (author) {
+				// structData.author = {
+				// 	"@type": "Person",
+				// 	"name": author.title
+				// }
+			}
+
+			if (image) {
+				structData.image = [
+					image.url
+				]
+			}
+
+			seo.structData = JSON.stringify(structData);
 
 			seo.metaDescription = metaDescription;
 			seo.twitterCard = "summary_large_image";
