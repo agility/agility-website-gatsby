@@ -97,29 +97,29 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			let structData = {
 				"@context": "https://schema.org",
 				"@type": "NewsArticle",
-				// "mainEntityOfPage": {
-				// 	"@type": "WebPage",
-				// 	"@id": "https://google.com/article"
-				// },
+				"mainEntityOfPage": {
+					"@type": "WebPage",
+					"@id": "https://google.com/article"
+				},
 				"headline": dynamicPageItem.customFields.title,
 				"datePublished": datePublished.toISOString(true),
 				"dateModified": dateModified.toISOString(true),
 
-				// "publisher": {
-				// 	"@type": "Organization",
-				// 	"name": "Agility CMS",
-				// 	"logo": {
-				// 		"@type": "ImageObject",
-				// 		"url": "https://static.agilitycms.com/brand/logo_combined_yellow_gray.png"
-				// 	}
-				// }
+				"publisher": {
+					"@type": "Organization",
+					"name": "Agility CMS",
+					"logo": {
+						"@type": "ImageObject",
+						"url": "https://static.agilitycms.com/brand/logo_combined_yellow_gray.png"
+					}
+				}
 			}
 
 			if (author) {
-				// structData.author = {
-				// 	"@type": "Person",
-				// 	"name": author.title
-				// }
+				structData.author = {
+					"@type": "Person",
+					"name": author.title
+				}
 			}
 
 			if (image) {
