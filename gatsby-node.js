@@ -3,11 +3,12 @@ const agility = require('./src/agility/utils')
 //gatsy-node.js
 //CREATE RESOLVERS *******************************************************************************************
 exports.createResolvers = (args) => {
-	console.log("AGILITY WEBSITE: Creating Resolvers")
+	console.log("AGILITY WEBSITE: Creating Resolvers...")
 
 	const { createResolvers, getNode, createNodeId, createNode, createContentDigest, configOptions } = args;
 
 	const resolvers = {
+
 		//on the 'agilityPost' node type...
 		// agilityPost: {
 		// 	//get the sitemap node that represents this item - useful for retrieving the URL for the item
@@ -30,7 +31,7 @@ exports.createResolvers = (args) => {
 		agilityPricingPlan: {
 			components: agility.getLinkedContentList({ type: 'agilityPricingPlanComponent', linkedContentFieldName: 'components' }),
 			features: agility.getLinkedContentList({ type: 'agilityPricingPlanFeature', linkedContentFieldName: 'features' }),
-			pricingPlanTier: agility.getLinkedContentItem({type: 'agilityPricingPlanTier', linkedContentFieldName: 'pricingPlanTier'})
+			pricingPlanTier: agility.getLinkedContentItem({ type: 'agilityPricingPlanTier', linkedContentFieldName: 'pricingPlanTier' })
 		},
 		agilityPricingPlanTier: {
 			features: agility.getLinkedContentList({ type: 'agilityPricingPlanFeature', linkedContentFieldName: 'features' })
