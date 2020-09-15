@@ -117,22 +117,28 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 						</div>
 					}
 
+					{event.demioID && !isPastEvent &&
+						<div className="event-link">
+							<a href="#register-now" className="btn">Register Now</a>
+						</div>
+					}
+
 					{event.eventbriteID && !isPastEvent &&
 						<div className="event-link">
 							<a className="btn" id={`eventbrite-widget-button-${event.eventbriteID}`} type="button">Register Now</a>
 						</div>
 					}
 
+					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
+
 					{event.demioID && !isPastEvent &&
-						<section className="demio-register">
+						<section className="demio-register" id="register-now">
 							<h2 >Register Now</h2>
 							<div>
-								<span class="demio-embed-registration" data-hash="VIhoLj0IDO632wiu" data-api="api/v1" data-base-uri="https://my.demio.com/" data-form-width="100%" data-color="#4600a8" data-text="REGISTER" ></span>
+								<span className="demio-embed-registration" data-hash="VIhoLj0IDO632wiu" data-api="api/v1" data-base-uri="https://my.demio.com/" data-form-width="100%" data-color="#4600a8" data-text="REGISTER" ></span>
 							</div>
 						</section>
 					}
-
-					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
 
 					{event.eventbriteID && !isPastEvent &&
 						<div id={`eventbrite-widget-container-${event.eventbriteID}`}></div>
