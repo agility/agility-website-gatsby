@@ -30,10 +30,17 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 		//only load the event brite stuff if we are NOT on a past event...
 		if (loaded || isPastEvent) return;
-
+		console.log(event)
 		setTimeout(function () {
 
-			if (event.eventbriteID) {
+			if (event.demioID) {
+				//add the demo embed...
+				let script = document.createElement("script")
+				script.src = "https://cdn.demio.com/dist/embed.bundle.js"
+				script.async = true
+				document.body.appendChild(script)
+
+			} else if (event.eventbriteID) {
 				//add the script embed...
 				let script = document.createElement("script")
 				script.src = "https://www.eventbrite.com/static/widgets/eb_widgets.js"
@@ -44,6 +51,9 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 
 			}
+
+
+
 			setLoaded(true);
 		}, 100);
 
@@ -111,6 +121,15 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 						<div className="event-link">
 							<a className="btn" id={`eventbrite-widget-button-${event.eventbriteID}`} type="button">Register Now</a>
 						</div>
+					}
+
+					{event.demioID && !isPastEvent &&
+						<section className="demio-register">
+							<h2 >Register Now</h2>
+							<div>
+								<span class="demio-embed-registration" data-hash="VIhoLj0IDO632wiu" data-api="api/v1" data-base-uri="https://my.demio.com/" data-form-width="100%" data-color="#4600a8" data-text="REGISTER" ></span>
+							</div>
+						</section>
 					}
 
 					<div className="event-content" dangerouslySetInnerHTML={renderHTML(event.textblob)}></div>
