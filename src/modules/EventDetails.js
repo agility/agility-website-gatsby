@@ -30,7 +30,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 		//only load the event brite stuff if we are NOT on a past event...
 		if (loaded || isPastEvent) return;
-		console.log(event)
+
 		setTimeout(function () {
 
 			if (event.demioID) {
