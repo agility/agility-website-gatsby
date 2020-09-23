@@ -11,32 +11,15 @@
 		margin: 0;
 	}
 
-	.template-date {
+	.template-frameworks {
 		text-align: center;
 		font-size: 18px;
 		margin-bottom: 20px;
 
-		span {
-			padding: 8px 10px 8px 30px;
-			font-weight: 600;
-			font-size: 14px;
-			color: $greyColor;
-			background-repeat: no-repeat;
-			background-position: 6px center;
-			background-size: 17px;
-
-			&.template-type {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/presentation-gray.svg");
-				background-size: 18px;
-			}
-			&.date {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/calendar-check-gray.svg");
-			}
-
-			&.time {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/clock-gray.svg");
-			}
+		img {
+			height: 20px;
 		}
+
 	}
 
 	.template-image {
@@ -49,10 +32,6 @@
 		}
 	}
 
-	.event {
-		width: 100%;
-		max-width: 800px;
-		margin: 25px auto 0;
 
 		.template-link {
 			a {
@@ -66,16 +45,6 @@
 			}
 		}
 
-		.demio-register {
-			border-radius: $border-radius;
-			border: 1px solid $inactive;
-			padding: 0 20px 20px 20px;
-
-			h2 {
-				text-align: center;
-				font-size: 24px;
-			}
-		}
 
 		.template-content {
 			padding-top: 10px;
@@ -118,7 +87,7 @@
 				font-style: italic;
 			}
 		}
-	}
+
 
 	a.back {
 		margin-top: 15px;

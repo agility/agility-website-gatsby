@@ -29,6 +29,16 @@ export default props => (
 						description
 						slug
 					}
+					frameworks {
+						contentID
+						customFields {
+						  title
+						  logo {
+							url
+							label
+						  }
+						}
+					  }
 				}
 			}
 		}
@@ -81,6 +91,8 @@ const StarterTemplate = ({ moduleItem, template, index }) => {
 	let item = template.customFields;
 	const url = `/get-started/starter-templates/${item.slug}`
 
+	const frameworks = template.frameworks;
+
 	return (
 		<div className="starter-template">
 
@@ -94,6 +106,14 @@ const StarterTemplate = ({ moduleItem, template, index }) => {
 				<p>
 					{item.description}
 				</p>
+				<div className="template-frameworks">
+					{ frameworks.map(framework => (
+						<div key={framework.contentID}>
+							<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
+						</div>
+					)) }
+
+				</div>
 				<div className="read-more-btn">
 					<Link to={url} className="btn">{moduleItem.customFields.viewDetailsLabel}</Link>
 				</div>
