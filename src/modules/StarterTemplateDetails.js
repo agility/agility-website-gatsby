@@ -12,7 +12,7 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 
 	const starterTemplate = dynamicPageItem.customFields;
 
-
+	//TODO: update the external link...
 	const externalLink = "https://manager.agilitycms.com/"
 	const frameworks = starterTemplate.frameworks
 
