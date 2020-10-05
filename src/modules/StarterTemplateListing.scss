@@ -1,0 +1,120 @@
+@import "../global/_variables.scss";
+
+.template-list {
+	margin: $module-margin-spacing;
+	position: relative;
+
+	.container-my {
+		padding: 0 45px;
+	}
+
+	.rotated-bg {
+		position: absolute;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		right: 0;
+		top: 0;
+		z-index: -1;
+		background-image: url("https://static.agilitycms.com/layout/img/bg/Triangle_3.png");
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		-moz-transform: scaleX(-1);
+		-o-transform: scaleX(-1);
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+		filter: FlipH;
+		-ms-filter: "FlipH";
+	}
+
+	.title-component {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.sub-title {
+		text-align: center;
+		font-size: 18px;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.template-list-wrapper {
+		width: 100%;
+
+		.starter-template {
+			display: flex;
+			margin-bottom: 65px;
+
+			.template-image {
+				width: 50%;
+				text-align: center;
+				position: relative;
+				margin-right: 20px;
+
+				img {
+					max-height: 500px;
+					border-radius: $border-radius;
+				}
+			}
+
+			.template-content {
+				width: 50%;
+				h2 {
+					font-size: 30px;
+					font-weight: 600;
+
+					margin-bottom: 15px;
+					font-family: $bold;
+					color: $titles;
+				}
+
+				.template-frameworks {
+					margin: 15px 0;
+					div {
+						font-weight: 600;
+						font-size: 14px;
+						color: $greyColor;
+
+						img {
+							height: 20px;
+						}
+					}
+				}
+
+				.read-more-btn {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: $tablet-width) {
+		.container-my {
+			padding: 0 20px;
+		}
+		.template-list-wrapper {
+			width: 100%;
+
+			.event {
+				display: block;
+				margin-top: 25px;
+
+				.template-image {
+					width: auto;
+					text-align: center;
+					padding: 0;
+					margin: 0;
+				}
+
+				.template-content {
+					width: auto;
+					text-align: center;
+					margin-top: 15px;
+				}
+			}
+		}
+	}
+}

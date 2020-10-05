@@ -30,7 +30,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 		//only load the event brite stuff if we are NOT on a past event...
 		if (loaded || isPastEvent) return;
-		console.log(event)
+
 		setTimeout(function () {
 
 			if (event.demioID) {
@@ -135,7 +135,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 						<section className="demio-register" id="register-now">
 							<h2 >Register Now</h2>
 							<div>
-								<span className="demio-embed-registration" data-hash="VIhoLj0IDO632wiu" data-api="api/v1" data-base-uri="https://my.demio.com/" data-form-width="100%" data-color="#4600a8" data-text="REGISTER" ></span>
+								<span className="demio-embed-registration" data-hash={event.demioID} data-api="api/v1" data-base-uri="https://my.demio.com/" data-form-width="100%" data-color="#4600a8" data-text="REGISTER" ></span>
 							</div>
 						</section>
 					}
