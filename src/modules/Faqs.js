@@ -31,7 +31,7 @@ export default props => (
 
 			//filter out only those logos that we want...
 			let faqs = queryData.allAgilityFaqItem.nodes.filter(faq => {
-				return faq.properties.referenceName === props.item.customFields.faqs.referencename
+				return faq.properties.referenceName.toLowerCase() === props.item.customFields.faqs.referencename.toLowerCase()
 			}).sort((a, b) => {
 				return a.properties.itemOrder - b.properties.itemOrder
 			});
