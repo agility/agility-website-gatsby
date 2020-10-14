@@ -1,7 +1,12 @@
 const DynamicPreviewPage = ({ pageContext }) => {
     if(typeof window !== `undefined`){
         //look for and grab the `ContentID` query string
-        const contentID = getParameterByName({ name: `ContentID`, url: window.location.href });
+		let contentID = parseInt(getParameterByName({ name: `ContentID`, url: window.location.href }))
+		if (isNaN(contentID)) {
+			contentID = parseInt(getParameterByName({ name: `previewContentID`, url: window.location.href }))
+		}
+
+
         const itemPath = pageContext.redirects[contentID];
 
         //matched item
