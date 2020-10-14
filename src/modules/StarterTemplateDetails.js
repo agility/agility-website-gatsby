@@ -12,8 +12,9 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 
 	const starterTemplate = dynamicPageItem.customFields;
 
-	//TODO: update the external link...
-	const externalLink = "https://manager.agilitycms.com/"
+
+	//const externalLink = "https://manager.agilitycms.com/org/?plan=agility-pro&template=gatsby-blog"
+	const externalLink = `https://manager.agilitycms.com/org/?template=${starterTemplate.slug}`
 	const frameworks = starterTemplate.frameworks
 
 	return (
@@ -32,23 +33,29 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 
 				<div className="template-frameworks">
 
-				{ frameworks.map(framework => (
+					{frameworks.map(framework => (
 						<div key={framework.contentID}>
-							<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
+							<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label} />
 						</div>
-					)) }
+					))}
 
 				</div>
 
+				<p className="template-inner-content">{starterTemplate.description}</p>
 
 
-					{externalLink &&
-						<div className="template-link">
-							<a href={externalLink} className="btn">{"Get Started Now"}</a>
-						</div>
-					}
+				{externalLink &&
+					<div className="template-link">
+						<a href={externalLink} className="btn">{"Get Started Now"}</a>
+					</div>
+				}
+				<div className="template-content">
 
-					<div className="template-content">{starterTemplate.description}</div>
+
+					<div className="template-inner-content" dangerouslySetInnerHTML={renderHTML(starterTemplate.details)}>
+
+					</div>
+				</div>
 
 
 
