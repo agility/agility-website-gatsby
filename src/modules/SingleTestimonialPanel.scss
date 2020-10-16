@@ -1,0 +1,144 @@
+
+// @import "../global/_variables.scss";
+@import '../global/setting';
+
+.mod-testimonial {
+  padding: 0 0 80px;
+  position: relative;
+  &::before {
+    content: '';
+    @include position(absolute,0,0,0,0,0);
+    opacity: .5;
+    background-image: linear-gradient(to bottom, $white 1%, #e9f0f5);
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+.quote-content {
+  margin-bottom: 20px;
+  font-style: italic;
+  font-size: rem(18);
+  line-height: 1.78;
+  letter-spacing: -0.14px;
+  color: $color-2a;
+}
+.mess-tesi {
+  border: solid 2px $color-75;
+  padding: 32px 30px 37px;
+  border-radius: 10px;
+  background-color: $white;
+  position: relative;
+  z-index: 2;
+  p {
+    color: $color-2a;
+    &:not(.position) {
+      font-size: rem(18);
+      font-style: italic;
+      line-height: 1.78;
+      letter-spacing: -.14px;
+      margin-bottom: 20px;
+    }
+  }
+  .position {
+    font-size: rem(14);
+    line-height: 1.43;
+  }
+  h6 {
+    color: $color-58;
+  }
+  &::after {
+    content: '';
+    background-image: url('/images/testimonial.svg');
+    background-size: contain;
+    background-position: top left;
+    background-repeat: no-repeat;
+    @include position(absolute,$top: 100%,$left: 85px);
+    width: 54px;
+    height: 100px;
+  }
+}
+.avarta-img {
+  // @include size(100px);
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.avatar-testi {
+  margin-top: 22px;
+  padding-right: 30px;
+  margin-bottom: 40px;
+}
+
+
+@media (min-width: 768px){
+  .mess-tesi {
+    &::after {
+      left: 58px;
+    }
+  }
+  .d-md-block {
+    display: block !important;
+  }
+  .d-md-none {
+    display: none !important;
+  }
+  .mod-testimonial {
+    padding: 0 0 55px;
+    .container:not(.max-w-940) {
+      max-width: 580px;
+    }
+  }
+  .logo-desktop {
+    @include position(absolute,$top: 50%, $right: 0);
+    transform: translateY(-50%);
+    max-width: 100px;
+    max-height: 65px;
+  }
+  .sub-content {
+    padding-right: 100px;
+  }
+  .avatar-testi {
+    margin-top: 15px;
+    img:last-child {
+      max-height: 90px;
+      max-width: 50%;
+    }
+  }
+  .avarta-img {
+    @include sizeEx(130px);
+    margin-left: -37px;
+  }
+  .cta-testimonial {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 110px;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px){
+  .mod-testimonial {
+    padding: 0 0 65px;
+    .container:not(.max-w-940) {
+      max-width: 690px;
+    }
+  }
+  .mess-tesi::after {
+    left: 25px;
+  }
+  .avarta-img {
+    @include sizeEx(175px);
+    margin-left: -135px;
+  }
+  .avatar-testi {
+    margin-top: -40px;
+  }
+  .cta-testimonial {
+    bottom: 65px;
+  }
+}
+

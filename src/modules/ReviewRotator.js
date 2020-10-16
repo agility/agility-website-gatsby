@@ -1,0 +1,195 @@
+import { StaticQuery } from 'gatsby';
+import React, { useEffect,} from 'react';
+// import { Link, StaticQuery } from 'gatsby';
+// import React, { useState, useEffect,useRef,createRef } from 'react';
+import Slider from 'react-slick';
+import LazyLoad from 'react-lazyload'
+import '../global/core/lib/_slick-theme.scss'
+// import StringUtils from '../utils/string-utils'
+import Spacing from './Spacing'
+
+import './ReviewRotator.scss'
+import { renderHTML } from '../agility/utils';
+
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query agilityReviewRotator {
+				allAgilityReviews(sort: {fields: properties___itemOrder}) {
+					nodes {
+						customFields {
+							title
+							reviewer
+							review
+							reviewURL {
+								href
+								target
+								text
+							}
+							starsGraphic {
+								url
+								label
+							}
+							reviewDate(formatString: "MMMM DD, yyyy")
+						}
+						properties {
+							referenceName
+							itemOrder
+						}
+					}
+				}
+			}
+		`}
+		render={queryData => {
+			let listReviews = []
+			console.log('queryData', queryData)
+			const fieldsCustom = props.item.customFields
+			if(fieldsCustom.reviews) {
+				const reference = fieldsCustom.reviews.referencename
+				listReviews = queryData.allAgilityReviews.nodes.filter(obj => {
+					return obj.properties.referenceName === reference
+				})
+			}
+			const viewModel = {
+				item: props.item,
+				listReviews
+			}
+			return (
+				<ReviewRotator {...viewModel} />
+			)
+		}}
+	/>
+)
+const ReviewRotator = ({ item, listReviews }) => {
+	console.log('list review', listReviews)
+	const classSection = `ReviewRotator animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	const heading = item.customFields.title
+	const collapseReviewText = item.customFields.collapseReviewText
+	const expandReviewText = item.customFields.expandReviewText
+	console.log("ReviewRotator", item)
+	const slideReviews = listReviews.length > 0 ? listReviews.map((item, idx) => {
+		const fieldsReview = item.customFields
+		const titleReview = fieldsReview.title
+		const review = fieldsReview.review
+		const reviewer = fieldsReview.reviewer
+		const date = fieldsReview.reviewDate
+		const initClick = (nb) => {
+			let sibing = document.querySelectorAll(`.ReviewRotator-item[data-item='${nb}']`)
+			if (sibing[0].classList.contains('open')) {
+				Array.from(sibing).forEach((ele,i) => {
+					let content = ele.querySelectorAll('.content-review')[0]
+					content.style.height = '150px'
+					ele.classList.remove('open')
+				})
+			} else {
+				Array.from(sibing).forEach((ele,i) => {
+					let content = ele.querySelectorAll('.content-review')[0]
+					content.style.height = content.scrollHeight + 'px'
+					ele.classList.add('open')
+				})
+			}
+		}
+
+		return (
+			<div className="ReviewRotator-item small-paragraph" data-item={idx} key={idx}>
+				<div className="mess-review ps-rv last-mb-none">
+					{ fieldsReview.starsGraphic && fieldsReview.starsGraphic.url &&
+						<LazyLoad>
+							<img src={fieldsReview.starsGraphic.url} alt={fieldsReview.starsGraphic.label}></img>
+						</LazyLoad>
+					}
+					<h4>{titleReview}</h4>
+					{ review &&
+						<div className="content-review" dangerouslySetInnerHTML={renderHTML(review)}></div>
+					}
+					<div>
+						<span className="show-less" onClick={() => initClick(idx)}>
+							<span className='more'>
+								{expandReviewText}
+							</span>
+							<span className='less'>
+								{collapseReviewText}
+							</span>
+							<LazyLoad>
+								<img src="../images/down-icon.svg" alt="five star"></img>
+							</LazyLoad>
+						</span>
+					</div>
+				</div>
+				<div className="info-review last-mb-none">
+					{ reviewer &&
+						<h6>{reviewer}</h6>
+					}
+					{ date &&
+						<p>{date}</p>
+					}
+				</div>
+			</div>
+		)
+	}) : []
+	const settings = {
+		dots: false,
+		infinite: true,
+    speed: 500,
+		rows: 1,
+		slidesToShow: 3,
+    slidesToScroll: 1,
+    // adaptiveHeight: true,
+    respondTo: 'slider',
+    responsive: [{
+      breakpoint: 1199,
+        settings: {
+          slidesToShow: 2
+        }
+    },{
+      breakpoint: 767,
+      settings: {
+				slidesToShow: 1,
+				dots: true,
+				arrows: false
+      }
+    }]
+	};
+	const callcheckHeight = () => {
+		checkHeight()
+		window.addEventListener('resize', checkHeight);
+	}
+	const checkHeight = () => {
+		var content = document.querySelectorAll('.content-review');
+		// let line = 6
+		let maxHeight = 150
+		Array.from(content).forEach((item,index) => {
+			if(item.scrollHeight <= maxHeight) {
+				item.classList.add('smaller')
+			} else {
+				item.classList.remove('smaller')
+			}
+		})
+	}
+	useEffect(() => {
+		callcheckHeight()
+		// initClick()
+  });
+	return (
+		<React.Fragment>
+			<section className={classSection}>
+				<div className="container last-mb-none max-w-940 text-center anima-bottom headling-review">
+					{ heading &&
+						<h2>{heading}</h2>
+					}
+				</div>
+				<div className="container">
+				<div className="slider-lazy ReviewRotator-slider anima-bottom delay-4">
+					{slideReviews.length > 0 &&
+						<Slider {...settings}>
+							{slideReviews}
+						</Slider>
+					}
+				</div>
+				</div>
+			</section>
+			<Spacing item={item}/>
+		</React.Fragment>
+	);
+}
+

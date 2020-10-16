@@ -43,36 +43,37 @@ const ContentPanel = ({ item }) => {
 		)
 	}
 	return (
-		<section className="front-start p-w">
-			<Triangles />
-			<div className={enableBackgroundImage === "true" ? 'rotated-bg' : ''}></div>
+		<React.Fragment>
+			<section className="front-start p-w">
+				<Triangles />
+				<div className={enableBackgroundImage === "true" ? 'rotated-bg' : ''}></div>
 
-			<div className="container-my">
-				{item.imagePosition === 'left' && item.image &&
-					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
-				}
+				<div className="container-my">
+					{item.imagePosition === 'left' && item.image &&
+						renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
+					}
 
-				<div className="start-content">
+					<div className="start-content">
 
-					<h1 dangerouslySetInnerHTML={renderHTML(item.title)}></h1>
-					<div dangerouslySetInnerHTML={renderHTML(item.textblob)} />
-					<div className="start-buttons">
-						{item.primaryButton &&
-							<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
-						}
-						{item.secondaryButton &&
-							<a href={item.secondaryButton.href} target={item.secondaryButton.target} className="btn-link">{item.secondaryButton.text} <span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={item.secondaryButton.text} /></span></a>
-						}
+						<h1 dangerouslySetInnerHTML={renderHTML(item.title)}></h1>
+						<div dangerouslySetInnerHTML={renderHTML(item.textblob)} />
+						<div className="start-buttons">
+							{item.primaryButton &&
+								<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
+							}
+							{item.secondaryButton &&
+								<a href={item.secondaryButton.href} target={item.secondaryButton.target} className="btn-link">{item.secondaryButton.text} <span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={item.secondaryButton.text} /></span></a>
+							}
+						</div>
 					</div>
+
+					{item.imagePosition === 'right' && item.image &&
+						renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
+					}
 				</div>
+			</section>
 
-				{item.imagePosition === 'right' && item.image &&
-					renderImage(item.imagePosition, item.imageisTransparent, item.imageisSkewed, item.imageHasShadow, item.image)
-				}
-			</div>
-
-
-		</section>
+		</React.Fragment>
 	);
 
 }

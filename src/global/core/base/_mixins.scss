@@ -1,0 +1,143 @@
+@mixin background-size($size) {
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: $size;
+}
+
+@mixin position-center-middle() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin position-left-middle() {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+@mixin position-right-middle() {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+@mixin position-over-left-middle($m_right) {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-right: $m_right;
+  transform: translateY(-50%);
+}
+
+@mixin position-over-right-middle($m_left) {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: $m_left;
+  transform: translateY(-50%);
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content};
+  :-moz-placeholder           {@content};
+  ::-moz-placeholder          {@content};
+  :-ms-input-placeholder      {@content};
+}
+@include placeholder {
+  color: $black;
+}
+@mixin position($type: null, $top: null, $right: null, $bottom: null, $left: null, $index: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $index;
+}
+
+@mixin row-padding($number) {
+  margin-right: - $number + px;
+  margin-left: - $number + px;
+  >* {
+    padding-right: $number + px;
+    padding-left: $number +px;
+  }
+}
+
+// @function grayscale($value) {
+//   @return #{ 'grayscale(" + $value + ")' };
+// }
+
+@mixin sizeEx($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin font($name: $font-family-sans-serif, $size: $font-size-base, $color: $text-color, $weight: normal, $style: normal) {
+  font-family: $name;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+
+// only use breakpoint here
+$media-custom: (320: 321px, 374: 375px, 414: 415px, 1024: 1025px, 1280: 1281px, 1366: 1367px, 1500: 1501px, 1700: 1701px);
+@function breakpoint-next($name, $breakpoints: $media-custom, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $media-custom) {
+  $min: map-get($breakpoints, $name);
+  @return if($min !=0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $media-custom) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+@mixin media-custom-up($name, $breakpoints: $media-custom) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin media-custom-down($name, $breakpoints: $media-custom) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+// call media
+@include media-custom-up(1280) {
+  // @media (min-width: 1281px){}
+}
+
+@include media-custom-down(1280) {
+  // @media (max-width: 1280px){}
+}

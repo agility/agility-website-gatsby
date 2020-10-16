@@ -1,0 +1,90 @@
+@import '../global/setting';
+.mod-intro {
+  padding-top: 20px;
+}
+.page-new-pricing,
+.page-pricing {
+  .mod-intro {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 75px;
+    overflow: hidden;
+    h1 {
+      font-size: rem(40);
+    }
+    &::before {
+      content: '';
+      @include position(absolute,0,0,0,0,0);
+      opacity: 0.5;
+      background-image: linear-gradient(to bottom, #e9f0f5, #ffffff 100%);
+    }
+    &::after {
+      content: '';
+      @include position(absolute,$bottom: 0,$right: 0,$index: 0);
+      @include sizeEx(719px,621px);
+      background-image: url('/images/icon-agility.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .mod-intro {
+    padding-top: 40px;
+  }
+  .page-new-pricing,
+  .page-pricing {
+    .mod-intro {
+      padding-top: 75px;
+      padding-bottom: 115px;
+      &::after {
+        right: auto;
+        left: -245px;
+        width: 557px;
+        height: 481px;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .page-new-pricing,
+  .page-pricing {
+    .mod-intro {
+      padding-bottom: 165px;
+      &::after {
+        left: -223px;
+        width: 687px;
+        height: 595px;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .page-new-pricing,
+  .page-pricing {
+    .mod-intro {
+      padding-bottom: 230px;
+      &::after {
+        left: -360px;
+        width: 866px;
+        height: 748px;
+      }
+    }
+  }
+}
+@media (min-width: 1500px) {
+  .page-new-pricing,
+  .page-pricing {
+    .mod-intro {
+      padding-bottom: 230px;
+      &::after {
+        left: -315px
+      }
+    }
+  }
+}

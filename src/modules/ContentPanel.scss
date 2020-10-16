@@ -1,5 +1,5 @@
 @import "../global/_variables.scss";
-
+@import '../global/setting';
 .front-start {
 	position: relative;
 
@@ -145,7 +145,7 @@
 
 			.btn {
 				margin-right: 45px;
-				line-height: 48px;
+				// line-height: 48px;
 				font-size: 16px;
 			}
 

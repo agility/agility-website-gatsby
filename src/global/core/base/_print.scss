@@ -1,0 +1,263 @@
+$white: #fff;
+a::after {
+  content: '';
+}
+
+a[href]::after {
+  content: none;
+}
+
+a {
+  page-break-inside: avoid;
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+  overflow-y: visible;
+  background: $white;
+  color: #000;
+}
+
+#content,
+#page,
+body,
+html,
+#wrapper,
+.container,
+.group-arrows {
+  width: 100%;
+  margin: 0;
+  float: none;
+  padding: 0;
+  max-width: none;
+}
+
+#banner {
+  padding-top: 0;
+  .d-table {
+    display: block;
+    height: auto;
+    h1,
+    p {
+      br {
+        display: none;
+      }
+    }
+  }
+}
+
+.col-md-5,
+.col-md-6,
+.col-md-9,
+.col-md-11,
+.col-5,
+.col-6,
+.col-7 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+#header {
+  position: relative;
+  text-align: center;
+  background-color: transparent;
+  .col-md-2,
+  .col-md-3,
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  .logo {
+    position: relative;
+    left: 0;
+    right: 0;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    a {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+    }
+    img {
+      filter: invert(100%);
+    }
+  }
+}
+
+@page {
+  margin: 1cm;
+}
+
+#main-content {
+  padding-top: 0;
+}
+
+article {
+  page-break-before: always;
+}
+
+body,
+p,
+li,
+.page-home {
+  font-size: 1.2rem;
+}
+
+h1,
+.h1 {
+  font-size: 3.2rem;
+}
+
+h2,
+.h2 {
+  font-size: 2.8rem;
+}
+
+h3,
+.h3 {
+  font-size: 2.2rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+
+h5,
+.h5 {
+  font-size: 1.2rem;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+blockquote {
+  page-break-inside: avoid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+img {
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  max-width: 700px;
+}
+
+.d-table {
+  height: auto;
+}
+
+table,
+pre {
+  page-break-inside: avoid;
+}
+
+ul,
+ol,
+dl {
+  page-break-before: avoid;
+}
+
+article a[href^='#']::after {
+  content: '';
+}
+
+.embed-youtube,
+.embed-responsive {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+}
+
+.btn,
+.btn-border,
+.read-more,
+.mod-form,
+#header .col-menu,
+.col-langue {
+  display: none;
+}
+
+address,
+dt,
+dd,
+blockquote {
+  font-size: 1.2rem;
+}
+
+code,
+pre {
+  font-family: 'Courier New', Courier, mono, sans-serif;
+}
+
+ul,
+ol {
+  list-style: square;
+  margin-left: 18pt;
+  margin-bottom: 20pt;
+}
+
+.slick-list {
+  .slick-slide {
+    margin: 0 auto;
+  }
+}
+
+div,
+section,
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  opacity: 1;
+  width: auto;
+  transform: none;
+  height: auto;
+  position: static;
+}
+
+.slick-dotted:not(.accordion),
+.slick-dots,
+.slick-arrow {
+  display: none;
+}
+
+.navbar-expand-lg,
+#header-logo .d-lg-none,
+#footer,
+.breadcrumb,
+.form-group,
+.pagination,
+.social,
+#modal,
+.hamburger-menu,
+.form-contact, {
+  display: none;
+}

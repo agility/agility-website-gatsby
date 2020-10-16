@@ -50,7 +50,7 @@
     position: relative;
     z-index: 1;
     flex-wrap: wrap;
-
+    list-style: none;
     .partner-item {
       width: 152px;
       align-content: center;
@@ -89,8 +89,8 @@
     margin: 0 auto;
 
     .btn {
-      min-height: 48px;
-      line-height: 48px;
+      // min-height: 48px;
+      // line-height: 48px;
       margin: 0 auto;
       @media (max-width: 480px) {
         justify-content: center;

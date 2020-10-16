@@ -1,0 +1,26 @@
+@import '../global/setting';
+.wrap-chanel {
+  box-shadow: 0 3px 20px -8px rgba(85, 63, 164, .25);
+  background-color: #fff;
+  padding: 40px;
+  transition: all .35s;
+  img {
+		margin-bottom: 25px;
+		height: 75px;
+  }
+  p a {
+    position: relative;
+    z-index: 3;
+  }
+}
+.item-chanel {
+  margin-bottom: 30px;
+}
+@media (min-width: 992px) {
+  .wrap-chanel {
+    padding: 70px 85px;
+    &:hover {
+      box-shadow: none;
+    }
+	}
+}

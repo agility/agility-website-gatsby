@@ -1,0 +1,124 @@
+@import '../global/setting';
+// .mod-user-guides
+.mod-user-guides {
+	padding: 80px 0;
+	background: linear-gradient(-90deg, rgb(48, 8, 104) 0%, rgb(70, 0, 168) 100%);
+	overflow: hidden;
+	position: relative;
+  &.has-chanel {
+		padding: 80px 0 210px;
+    + .mod-space + .module-chanel {
+			margin-top: -135px;
+		}
+		.icon-gears {
+			transform: translateY(calc(31% - 135px)) translateX(-37%);
+		}
+	}
+	.btn-outline-white {
+		background-color: transparent;
+	}
+	.icon-gears {
+		position: absolute;
+		font-size: rem(160px);
+    bottom: 0;
+		transform: translateY(31%) translateX(-37%);
+		opacity: .27;
+	}
+}
+.col-content-guide {
+	margin-bottom: 30px;
+	img {
+		margin-bottom: 23px;
+	}
+}
+.item-guides {
+  border-bottom: 1px solid rgba(117, 86, 232, .75);
+	transition: all .35s;
+	padding: 20px 40px 25px 20px;
+	.icon-right {
+		position: absolute;
+    width: 10px;
+		right: 15px;
+    top: 27px;
+	}
+  h4 {
+    margin-bottom: 0;
+  }
+  p {
+    color: rgb(233, 238, 241);
+  }
+  &:last-child {
+    border-bottom: 0;
+  }
+  &:hover {
+    background-color: rgba(117, 86, 232, 0.3);
+  }
+}
+.list-guides {
+  background-color: rgba(0, 0, 0, .2);
+	margin: 0 -10px;
+	padding: 25px 12px;
+}
+.bg-guides {
+	width: 93.75%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	min-width: 450px;
+	transform: translateY(-29%) translateX(24%);
+}
+@media (min-width: 768px) {
+	@media (max-width: 991px) {
+		.mod-user-guides {
+			.container {
+				padding: 0 40px;
+			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.list-guides {
+		margin: 0;
+		padding: 30px 25px;
+	}
+	.item-guides {
+		padding: 21px 50px 21px 25px;
+		.icon-right {
+			right: 20px;
+			top: 38px;
+		}
+	}
+	.col-content-guide {
+		margin-bottom: 0;
+	}
+	.mod-user-guides {
+		padding: 185px 0 161px;
+		&.has-chanel {
+			padding: 200px 0 275px;
+			+.mod-space + .module-chanel {
+				margin-top: -145px;
+			}
+			.mod-user-guides.has-chanel .icon-gears {
+				transform: translateY(31%) translateX(-37%);
+			}
+		}
+		.icon-gears {
+			font-size: rem(350px);
+		}
+	}
+	.bg-guides {
+		transform: translateY(-43%) translateX(24%);
+	}
+}
+@media (min-width: 1501px) {
+  .mod-user-guides {
+    .container:not(.max-w-940) {
+      max-width: 1150px;
+    }
+	}
+	.mod-user-guides {
+		.icon-gears {
+			font-size: rem(563px);
+		}
+	}
+}

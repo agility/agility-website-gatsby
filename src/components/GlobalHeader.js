@@ -58,9 +58,7 @@ export default props => (
 					content
 				}
 			}
-		}
-
-        `}
+		}`}
 		render={queryData => {
 
 			const nestedSitemapJSON = queryData.agilitynestedsitemap.internal.content;
@@ -89,12 +87,10 @@ class GlobalHeader extends Component {
 		};
 	}
 	componentDidMount() {
-
 	}
 
 	render() {
 		let headerClass = "header p-w";
-
 		const renderMenu = (menu, level) => {
 			let links = []
 			if (!menu || !menu.length || menu.length === 0) return null;

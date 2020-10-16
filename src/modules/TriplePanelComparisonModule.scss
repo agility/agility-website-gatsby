@@ -1,0 +1,60 @@
+@import '../global/setting';
+.item-3col-v2 {
+  img {
+    max-width: 60px;
+  }
+  .img-3col {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+  }
+  .content-3col {
+    h4 {
+      color: $color-58;
+    }
+  }
+}
+.list-check {
+  padding-left: 30px;
+  position: relative;
+}
+.check {
+  margin-top: 20px;
+  color: $color-2a;
+  font-family: $mlBold;
+  &::after {
+    content: "\e90e";
+    font-family: $icomoon;
+    @include position(absolute,$top: 4px,$left: 0);
+    font-size: rem(11);
+  }
+}
+.uncheck {
+  margin-top: 22px;
+  color: $color-4c;
+  font-size: rem(14);
+  &::after {
+    content: "\e909";
+    font-family: $icomoon;
+    @include position(absolute,$top: 4px,$left: 0);
+    font-size: rem(11);
+  }
+}
+.TriplePanelComparisonModule {
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  &::before {
+    content: '';
+    @include position(absolute,0,0,null,0,0);
+    height: 350px;
+    opacity: .5;
+    background-image: linear-gradient(to bottom, #e9f0f5, #ffffff 100%);
+  }
+}
+@media (min-width: 767px){
+  .item-3col-v2 {
+    margin-bottom: 45px;
+  }
+}

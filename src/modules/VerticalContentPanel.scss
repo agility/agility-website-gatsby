@@ -1,0 +1,229 @@
+// @import "../global/_variables.scss";
+// @import '../assets/styles/core/base/setting.scss';
+// @import '../assets/styles/bootstrap/bootstrap.scss';
+// @import '../assets/styles//core/base/mixins';
+@import '../global/setting';
+.title-i-c {
+  max-width: 588px;
+  margin: 0 auto 35px;
+}
+.item-ic {
+  margin-bottom: 45px;
+  pointer-events: none;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.item-image-ic {
+  top: 0;
+  // display: none;
+  opacity: .2;
+  transition: all .35s;
+  position: relative;
+  // img {
+  //   opacity: 0;
+  // }
+  // &.tab-active {
+  //   display: block;
+  //   // animation: opacity .5s;
+  //   img:not(.layer-image) {
+  //     animation: opacity .6s;
+  //     animation-fill-mode: forwards;
+  //   }
+  //   .layer-image {
+  //     animation: opacityLayer .6s .35s;
+  //     animation-fill-mode: forwards;
+  //   }
+  // }
+}
+// .img-before {
+.mod-image-content {
+  &.prallax {
+    .img-before,
+    .layer-image {
+      animation: none !important;
+      opacity: 1;
+      transition: .5s cubic-bezier(.235,.615,.185,.995);
+    }
+  }
+}
+.list-content-ic.order-2 {
+  .layer-image {
+    // left: 44%;
+    left: 0;
+  }
+}
+.layer-image {
+  position: absolute;
+  bottom: -10px;
+  // left: 50%;
+  z-index: -1;
+  right: 0;
+  opacity: 1;
+  width: 90%;
+}
+@media (min-width: 992px){
+  .title-i-c {
+    margin-bottom: 30px;
+  }
+  .item-ic {
+    &.flex-md-row-reverse {
+      .box-content {
+        padding-left: 95px;
+      }
+    }
+  }
+}
+@media (max-width: 1199px){
+  .box-left {
+    width: auto !important;
+  }
+}
+@media (min-width: 1200px){
+  .mod-image-content {
+    .list-image-ic {
+      min-height: 600px;
+      position: static;
+    }
+    .list-content-ic {
+      padding: 0 25px;
+      &.order-2  {
+        &+ .list-image-ic {
+          margin-left: 0;
+          .layer-image {
+            left: 44%;
+          }
+        }
+      }
+    }
+    .list-pin {
+      position: fixed;
+    }
+    .list-pin-bottom {
+      bottom: 0;
+      top: auto !important;
+      position: absolute;
+    }
+  }
+  .img-before {
+    position: relative;
+    z-index: 1;
+  }
+  .layer-image {
+    opacity: 0;
+    right: auto;
+    left: 50%;
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+  .full-panel {
+    overflow: hidden;
+    body,
+    .header {
+      overflow-y: scroll;
+    }
+  }
+  .item-image-ic {
+    text-align: center;
+    margin-bottom: 30px;
+    &.tab-active {
+      opacity: 1;
+    }
+  }
+  .title-i-c {
+    max-width: 880px;
+    margin-bottom: 60px
+  }
+  .box-content {
+    transition: background-color .35s;
+    &::after {
+      content: '';
+      @include position(absolute,0,null,null,0);
+      height: 0;
+      transition: all .35s;
+      width: 2px;
+      background-color: $color-6d;
+    }
+  }
+  .item-ic {
+    cursor: pointer;
+    margin-bottom: 12px;
+    .box-content {
+      padding: 25px 30px;
+    }
+    &.flex-md-row-reverse {
+      .box-content {
+        padding-left: 30px;
+      }
+    }
+    // &:hover {
+    //   .box-content {
+    //     &::after {
+    //       height: 100%;
+    //     }
+    //   }
+    // }
+    &.tab-active {
+      h4 {
+        color: $color-58;
+      }
+      .box-content {
+        background-color: rgba(233, 240, 245, .5);
+        &::after {
+          height: 100%;
+        }
+      }
+      p {
+        color: $color-2a
+      }
+    }
+  }
+}
+@media (min-width: 1367px){
+  .item-ic {
+    margin-bottom: 7px;
+  }
+}
+@media (max-width: 1199px){
+  .title-i-c {
+    br {
+      display: none;
+    }
+  }
+}
+@media (max-width: 767px){
+  .image-mb {
+    position: relative;
+    img {
+      margin-bottom: 25px;
+    }
+    &:not(.img-mb-inter) {
+      img {
+        max-width: 100vw;
+        margin-left: -20px;
+        margin-bottom: 7px;
+      }
+    }
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes opacityLayer {
+  0% {
+    opacity: 0.1;
+    transform: translateY(50px) translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}

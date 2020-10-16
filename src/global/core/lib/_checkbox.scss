@@ -1,0 +1,96 @@
+.c-radio {
+  position: relative;
+  input[type='radio'] {
+    visibility: hidden;
+    position: absolute;
+  }
+  label {
+    cursor: pointer;
+    padding-left: 45px;
+    line-height: 1.1;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: rgba(26, 32, 38, .5);
+    >span {
+      display: block;
+      position: absolute;
+      left: 0;
+      transition: .3s;
+    }
+    >span.inc {
+      background: $white;
+      left: -10px;
+      top: -10px;
+      height: 40px;
+      width: 40px;
+      opacity: 0;
+      border-radius: 50%;
+    }
+    >.box {
+      @extend %icomoon;
+      @extend .icon-icon-check;
+      top: 1px;
+      height: 31px;
+      width: 31px;
+      border-radius: 50%;
+      z-index: 5;
+      background-color: $gray-100;
+      border: 2px solid transparent;
+      &::before {
+        @include position (absolute, 9px, null, null, 8px, 6);
+        opacity: 0;
+        display: block;
+        transform: scale(.5);
+        transition: .2s;
+        transform-origin: center;
+      }
+    }
+  }
+  input[type='radio']:checked~label>.box::before {
+    opacity: 1;
+    transition: .2s;
+    transform: scale(1);
+  }
+  input[type='radio']:checked~label {
+    color: $color-h;
+  }
+  input[type='radio']:checked~label>.box {
+    border: 2px solid $color-h;
+    background: transparent;
+    color: $color-h;
+  }
+  input[type='radio']:disabled~label,
+  input[type='radio'][disabled]~label {
+    cursor: not-allowed;
+    opacity: .7;
+  }
+  input[type='radio']:disabled~label>.box,
+  input[type='radio'][disabled]~label>.box {
+    cursor: not-allowed;
+    opacity: .7;
+  }
+  input[type='radio']:disabled:checked~label>.check,
+  input[type='radio'][disabled]:checked~label>.check {
+    cursor: not-allowed;
+    opacity: .7;
+  }
+}
+
+// .ie8 {
+//   .c-checkbox input[type='checkbox'],
+//   .c-radio input[type='radio'] {
+//     position: static;
+//     visibility: visible;
+//   }
+//   .c-checkbox,
+//   .c-radio {
+//     .inc,
+//     .box,
+//     .check {
+//       display: none;
+//     }
+//     label {
+//       padding-left: 0;
+//     }
+//   }
+// }
