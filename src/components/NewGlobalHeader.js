@@ -92,6 +92,7 @@ class NewGlobalHeader extends Component {
 		this.removeClassOpenMenuOnHtml = this.removeClassOpenMenuOnHtml.bind(this)
 	}
 	componentDidMount() {
+		// console.log('NewGlobalHeader', this.props.menu)
 		this.setState({activeMenu: window.location.pathname})
 		this.inputLine()
 		this.hiddenSeach()
@@ -196,25 +197,9 @@ class NewGlobalHeader extends Component {
 			}
 		});
 	}
-	// showSearch(e) {
-	// 	e.preventDefault()
-	// 	e.target.classList.toggle('close');
-	// 	var searchFrame = document.querySelector('.search-frame');
-	// 	searchFrame.classList.toggle('open');
-	// 	// document.getElementById('frontend-only').classList.toggle('search-open');
-	// 	document.querySelector('html').classList.toggle('search-open');
-
-	// 	var searchInput = document.querySelector('.search-input')
-
-	// 	this.setNativeValue(searchInput, '');
-	// 	searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-
-	// 	searchInput.focus();
-	// }
 	hiddenSeach () {
 		document.addEventListener('click',(event) => {
 			let group = document.querySelectorAll('.group-search')[0]
-			// console.log(event.target)
 			if(group.classList.contains('open') && event.target.classList.length && !event.target.classList.contains('dectect-open')) {
 				group.classList.remove('open')
 			}
@@ -231,19 +216,15 @@ class NewGlobalHeader extends Component {
 		main.style.paddingTop = header + 'px'
 	}
 	render() {
-		// let headerClass = "header p-w";
 		let preHeaderLinks = this.props.item.preHeaderLinks;
 		let menuGetstart = this.props.item.customFields.primaryButton;
 		const isOpenMenuText = 'is-open-menu';
-		// console.log('NewMenu', this.props)
-		// console.log('menuGetstart', menuGetstart)
 		const renderMenu = (menu, level) => {
 			let links = []
 			if (!menu || !menu.length || menu.length === 0) return null;
 			let itemClassName = "h-menu-li"
 
 			menu.forEach((item) => {
-				// console.log(item)
 				if (!item.visible.menu) return;
 				let path = item.path;
 				let path2 = item.path;
@@ -304,9 +285,6 @@ class NewGlobalHeader extends Component {
 					return <Link to={fieldCustome.uRL.href} key={idx} className="text-decoration-none btn btn-outline-primary btn-menu">{fieldCustome.title}</Link>
 				})
 				const btnMenu = <li className="d-lg-flex align-items-center box-search-header" key="btnMenu">
-					{/* <button onClick={e => this.showSearch(e)} className="open-search link-search d-flex align-items-center justify-content-center">
-						<Lazyload><img src={'/images/search.svg'} className="lazy" alt="search" /></Lazyload>
-					</button> */}
 					<div className="group-search">
 					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center">
 						<Lazyload><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
@@ -342,24 +320,14 @@ class NewGlobalHeader extends Component {
 		const item = this.props.item.customFields;
 		const classHeader = `module header ${this.state.sticky === true ? 'pin-header' : 'unpin-header'}  ${this.state.openMenu === true ? isOpenMenuText : ''}`;
 		const classMainMenu = `navbar-collapse main-menu menu-header-right ${this.state.openMenu === true ? isOpenMenuText : ''}`
-		// console.log('pin nav' , item.marketingBanner)
 		return (
 			<React.Fragment>
 				{/* <HeaderSearch siteSearchSettings={this.props.item.customFields.siteSearchSettings} /> */}
 				<header id="header" className={classHeader} data-module="header">
 					<Link className="skip-link text-center d-block w-100 bg-black text-white" to="javascript:;">
 						<span>Skip to content</span></Link>
-					{/* <div className="box-message ">
-						<div className="container last-mb-none text-center">
-							<div className="close-message" onClick={this.hiddenMessage}></div>
-							<p>
-								Webinar: Why Headless Will Destroy the Traditional CMS - Oct 15th
-								<Link to="#" className="link-line line-purple">Sign up now</Link>
-							</p>
-						</div>
-					</div> */}
 					{ (item.hideMarketingBanner !== "true") && item.marketingBanner && item.marketingBanner.length > 0 &&
-					<div className="box-message "> {/*version2: add class style-black */}
+					<div className="box-message text-white"> {/*version2: add class style-black */}
 						<div className="container last-mb-none text-center">
 							<div className="close-message" onClick={this.hiddenMessage}></div>
 							<p>
@@ -377,9 +345,7 @@ class NewGlobalHeader extends Component {
 							{item.logo ?
 								<div className="col-9 col-lg-12">
 									<Link to="/" id="header-logo" title={item.logo.label} className="navbar-brand header-logo w-100">
-										<Lazyload>
-											<img src={item.stickyLogo.url} alt={item.logo.label} />
-										</Lazyload>
+										<img src={item.stickyLogo.url} alt={item.logo.label} />
 									</Link>
 								</div>
 							:

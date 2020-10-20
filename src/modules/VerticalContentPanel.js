@@ -43,7 +43,7 @@ export default props => (
           listPanelContent[i + 1] = tam
         }
       }
-      console.log('queryData.allAgilityPanelContentItems', queryData.allAgilityPanelContentItems)
+      // console.log('queryData.allAgilityPanelContentItems', queryData.allAgilityPanelContentItems)
 			const viewModel = {
 				item: props.item,
 				listPanelContent
@@ -60,34 +60,30 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   const title = fields.title
   const description = fields.description
   const positionContent = fields.textSide
-  const classSection = `module mod-image-content VerticalContentPanel animation ${fields.darkMode && fields.darkMode === 'true'  ? 'dark-mode bg-17 text-white': ''}`
+  const classSection = `module mod-image-content VerticalContentPanel  ${fields.darkMode && fields.darkMode === 'true'  ? 'dark-mode bg-17 text-white': ''}`
   const classPositionContent = `list-content-ic small-paragraph col-xl-6 delay-2 ${positionContent === 'right' ? 'order-2 anima-right': ' anima-left'}`
   const classPositionImage = `col-xl-6 d-none d-xl-block list-image-ic delay-2 ${positionContent === 'right' ? 'anima-left': ' anima-right'}`
   const lazyRef = useRef(null)
   const [active, setActive] = useState(1)
   useEffect(() => {
     init()
-  })
+  }, [])
   const init = () => {
-    const html = document.querySelectorAll('html')[0]
-    if(!html.classList.contains('done-vertical')) {
-      html.classList.add('done-vertical')
-      const section = document.querySelectorAll('.mod-image-content')
-      Array.from(section).forEach((ele) => {
-        const $this = ele
-        const serviceLeft = $this.querySelectorAll('.box-left')[0]
+    const section = document.querySelectorAll('.mod-image-content')
+    Array.from(section).forEach((ele) => {
+      const $this = ele
+      const serviceLeft = $this.querySelectorAll('.box-left')[0]
+      setUpCanBeReset($this.querySelectorAll('.list-content-ic')[0])
+      caculatePin($this)
+      window.addEventListener('scroll', () => {
+        caculatePin($this)
+      } )
+      window.addEventListener('resize', () => {
+        resetPropertyPin(serviceLeft)
         setUpCanBeReset($this.querySelectorAll('.list-content-ic')[0])
         caculatePin($this)
-        window.addEventListener('scroll', () => {
-          caculatePin($this)
-        } )
-        window.addEventListener('resize', () => {
-          resetPropertyPin(serviceLeft)
-          setUpCanBeReset($this.querySelectorAll('.list-content-ic')[0])
-          caculatePin($this)
-        })
       })
-    }
+    })
   }
   const classPin = 'list-pin'
   const classPin2 = 'list-pin-bottom'
@@ -242,7 +238,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
 
   const checkForceLazyImg = () => {
     const top  = (window.pageYOffset || document.documentElement.scrollTop) + (window.innerHeight || document.documentElement.clientHeight)
-    // console.log('top:', (window.pageYOffset || document.documentElement.scrollTop), (window.innerHeight || document.documentElement.clientHeight))
     const elem = lazyRef.current.getBoundingClientRect()
     if (top >= elem.top) {
       forceVisible()
@@ -254,7 +249,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
       <section ref={ lazyRef } className={classSection} data-max={listPanelContent.length}>
         <div className="container">
           { title &&
-            <div className="title-i-c text-center last-mb-none anima-bottom">
+            <div className="title-i-c text-center last-mb-none animation anima-bottom">
               <h2 dangerouslySetInnerHTML={renderHTML(title)}></h2>
               { description &&
                 <div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(description)}></div>
@@ -262,7 +257,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
             </div>
           }
           { (contentPanels.length > 0 || imagePanels.length > 0) &&
-            <div className="row ">
+            <div className="row animation">
               { contentPanels &&
                 <div className={classPositionContent}>
                   <div className='box-left'>

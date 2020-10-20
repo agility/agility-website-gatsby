@@ -1,129 +1,234 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, graphql, StaticQuery } from "gatsby"
+import Spacing from './Spacing'
 import './PricingPackagesModule.scss'
 
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query getPricingItems {
+				allAgilityPackageFeatureValues {
+					nodes {
+						customFields {
+							packageFeature {
+								contentid
+							}
+							pricingPackage {
+								contentid
+							}
+							textValue
+							trueFalseValue
+						}
+						properties {
+							itemOrder
+							referenceName
+						}
+						itemID
+					}
+				}
+				allAgilityPackageFeatures {
+					nodes {
+						customFields {
+							isPrimary
+							title
+						}
+						properties {
+							referenceName
+							itemOrder
+						}
+						itemID
+					}
+				}
+				allAgilityPricingPackages {
+					nodes {
+						customFields {
+							cTAButtonLabel
+							cost
+							costLabel
+							isMostPopular
+							title
+							cTAButton {
+								target
+								href
+								text
+							}
+						}
+						properties {
+							referenceName
+							itemOrder
+						}
+						itemID
+					}
+				}
+			}
+		`}
+		render={queryData => {
+			/**pricing header */
+			const pricingPackages = props.item.customFields.pricingPackages.referencename
+			const listPricingPackages = queryData.allAgilityPricingPackages.nodes
+			.filter(obj => { return obj.properties.referenceName === pricingPackages})
+			// order
+			for(let i = 0; i < listPricingPackages.length - 1; i++) {
+				if (listPricingPackages[i].properties.itemOrder > listPricingPackages[i + 1].properties.itemOrder) {
+					const tam = listPricingPackages[i]
+					listPricingPackages[i] = listPricingPackages[i + 1]
+					listPricingPackages[i + 1] = tam
+				}
+			}
+			/**end */
+			/**row value */
+			const packageFeatureValues = props.item.customFields.packageFeatureValues.referencename
+			const listPackageFeatureValues = queryData.allAgilityPackageFeatureValues.nodes
+			.filter(obj => { return obj.properties.referenceName === packageFeatureValues})
+			const packageFeatureLabels = props.item.customFields.packageFeatureLabels.referencename
+			const listPackageFeaturePrimary = queryData.allAgilityPackageFeatures.nodes
+			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && obj.customFields.isPrimary && obj.customFields.isPrimary=== 'true'})
+			const listPackageFeatureMore = queryData.allAgilityPackageFeatures.nodes
+			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && !obj.customFields.isPrimary})
+			/**end */
+			const viewModel = {
+				item: props.item,
+				dataQuery: {
+					listPackageFeaturePrimary,
+					listPackageFeatureMore,
+					listPackageFeatureValues,
+					listPricingPackages
+				}
+			}
+			return (
+				<PricingPackagesModule2 {...viewModel} />
+			);
+		}}
+	/>
+)
 
-const HeaderColumn = ({priceType, title, value, hasPopular}) => {
-
-	const popular = hasPopular ? <span className={"most-popular"}><span className="icomoon icon-Star"></span>Most Popular</span>: '';
-
+const HeaderColumn = ({priceType, title, label, btnCta, btnCtaLabel, value, hasPopular}) => {
+	const classColor = ['free', 'standard', 'pro', 'enterprise']
+	const popular = hasPopular && hasPopular === 'true' ? <span className={"most-popular"}><span className="icomoon icon-Star"></span>Most Popular</span>: ''
+	const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
+	/* insert ',' to number */
+	const filterValue = (value) => {
+		let newVal = [];
+		for (let i = 0; i < value.length; i++) {
+			newVal.push(value[value.length - 1 - i]);
+			if (i % 3 === 2 && (i < value.length - 1)) {
+				newVal.push(',');
+			}
+		}
+		return newVal.reverse().join('');
+	}
 	return (
-		<div className={'price-head ps-rv type-' + priceType }>
+		<div className={'price-head ps-rv type-' + classColor[Number(priceType) % 4] }>
 			<div className="price-type ps-rv">
 				<span>{ title }</span>
 				{ popular }
 			</div>
 			<div>
 				<div className="price-value">
-					<span>${ value }</span><span className="pr-month"> /month</span>
+					<span>${ filterValue(value) }</span>
+					<span className={`pr-month ${label ? '' : 'pr-hidden'}`}> {label}</span>
 				</div>
-				<div>
-					<a href="#" className="btn btn-arrow">Sign up now</a>
-				</div>
+				{ btnCta && btnCta.href && btnCta.href.length > 0 ?
+					(
+						<div>
+							<a href={btnCta.href} target={btnCta.target} className="btn btn-arrow">{btnTitle} <span className="icomoon icon-arrow"></span></a>
+						</div>
+					): (
+						<div>
+							<a href="#" onClick={e => e.preventDefault()} className="btn btn-arrow">{btnTitle} <span className="icomoon icon-arrow"></span></a>
+						</div>
+					)
+				}
 			</div>
 		</div>
 	);
 }
 
-const RowItem = ({title, freeValue, standardValue, proValue, enterpriseValue}) => {
 
-	const checkIsBoolean = (value) => {
-		if (typeof(value) === 'boolean') {
-			return  (value ? <span className="icomoon icon-check"></span> : '-');
+const RowItem = ({props, maxCol}) => {
+	const classColor = ['free', 'standard', 'pro', 'enterprise']
+	const rowFields = props.customFields
+	const title = rowFields.title
+	const CheckIsBoolean = ({textVal, checkedVal}) => {
+		if ((textVal && checkedVal) || (textVal && !checkedVal) ) {
+			return <span>{textVal}</span>
 		}
-		return value;
+		if (!textVal && checkedVal) {
+			return  (checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span>-</span>);
+		}
 	}
-
-	freeValue = checkIsBoolean(freeValue);
-	standardValue = checkIsBoolean(standardValue);
-	proValue = checkIsBoolean(proValue);
-	enterpriseValue = checkIsBoolean(enterpriseValue);
-
+	const rowFeatures = new Array(maxCol).fill(0).map((el, idx) => {
+		if (props.features && props.features.length > 0 && props.features[idx]) {
+			const featuresFields = props.features[idx].customFields
+			return (
+				<td key={idx} className={`type-${classColor[Number(idx) % 4]}`}>
+					<div>{<CheckIsBoolean textVal={featuresFields.textValue} checkedVal={featuresFields.trueFalseValue} />}</div>
+				</td>
+			)
+		}
+		return (
+			<td key={idx} className={`type-${classColor[Number(idx) % 4]}`}>
+				<div><span>-</span></div>
+			</td>
+		)
+	})
 	return (
 		<tr>
-			<td>{ title }</td>
-			<td>
-				<div className="type-free"><span>{ freeValue }</span></div>
-			</td>
-			<td>
-				<div className="type-standard"><span>{ standardValue }</span></div>
-			</td>
-			<td>
-				<div className="type-pro"><span>{ proValue }</span></div>
-			</td>
-			<td>
-				<div className="type-enterprise"><span>{ enterpriseValue }</span></div>
-			</td>
+			{ title &&
+				<td>{ title }</td>
+			}
+			{ rowFeatures && rowFeatures.length > 0 &&
+				rowFeatures
+			}
 		</tr>
 	);
 }
 
 
-const RowItemMobile = ({title, value, typeValue}) => {
-	let valueResult = value;
-	if (typeValue === 'boolean') {
-		valueResult = value ? <span className="icomoon icon-check"></span> : '-';
+const RowItemMobile = ({title, value}) => {
+	const CheckVal = ({val}) => {
+		if (val && val.customFields) {
+			const filedsVal = val.customFields
+			const textVal = filedsVal.textValue
+			const checkedVal = filedsVal.trueFalseValue
+			if ((textVal && checkedVal) || (textVal && !checkedVal) ) {
+				return (
+					<td>
+						<div><span>{textVal}</span></div>
+					</td>
+				)
+			}
+			if (!textVal && checkedVal) {
+				return (
+					<td>
+						<div>{checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span>-</span>}</div>
+					</td>
+				)
+			}
+		}
+		return (
+			<td>
+				<div><span>-</span></div>
+			</td>
+		)
 	}
-
 	return (
 		<tr>
 			<td>{ title }</td>
-			<td>
-				<div><span>{ valueResult }</span></div>
-			</td>
+			{
+				<CheckVal val={value}/>
+			}
 		</tr>
 	);
 }
 
 /* Price Item Mobile */
-const PriceItemMobile = ({priceType}) => {
-	
-	const [showMore, setShowMore] = useState(false);
-
-	const showMoreAction = () => {
-		setShowMore(!showMore);
-	}
-
-	return (
-		<div className={`price-item-mb item-${priceType} ` + (!showMore ? '' : 'is-show-more') }>
-			<HeaderColumn priceType={priceType} title={"Free"} value={"0"} hasPopular={false} />
-			<table className={!showMore ? 'd-none' : ''}>
-
-				<tr className="pr-tr-title">
-					<td colSpan="2" className="pr-sub-title">Core Agility Features</td>
-				</tr>
-				<RowItemMobile title="User" value="5" />
-				<RowItemMobile title="User" value="Unlimited" />
-				<RowItemMobile title="User" value="Unlimited" />
-				<RowItemMobile title="User" value="Unlimited" />
-				<tr className="pr-tr-title">
-					<td colSpan="2" className="pr-sub-title">Core Agility Features</td>
-				</tr>
-				<RowItemMobile title="User" value={true} typeValue="boolean" />
-				<RowItemMobile title="User" value={false} typeValue="boolean" />
-				<RowItemMobile title="User" value={false} typeValue="boolean" />
-				<RowItemMobile title="User" value={false} typeValue="boolean" />
-
-			</table>
-			<div className="show-more-mb text-center" onClick={ () => { showMoreAction() } }>
-				<span className="icomoon icon-arrow"></span>
-			</div>
-		</div>
-	)
-}
-
-
-const PricingPackagesModule = ({ item }) => {
-
-	//item = item.customFields;
-	console.log("PricingPackagesModule", item)
-
+const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitle, data}) => {
+	const classColor = ['free', 'standard', 'pro', 'enterprise']
 	const [showMore, setShowMore] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
-	const showMoreAction = () => {
-		setShowMore(!showMore);
-	}
+	const showHideEle = useRef();
 	const checkIsMobile = () => {
 		if (window.innerWidth <  1025) {
 			setIsMobile(true);
@@ -131,107 +236,364 @@ const PricingPackagesModule = ({ item }) => {
 			setIsMobile(false);
 		}
 	}
-
+	const checkShowHideElement = () => {
+		// console.log({showHideEle});
+		// showHideEle.current.parentNode.scrollIntoView({
+    //   behavior: 'smooth',
+    //   block: 'start',
+		// });
+		if (isMobile) {
+			if (showMore) {
+				showHideEle.current.style.height = showHideEle.current.scrollHeight + 'px';
+			} else {
+				showHideEle.current.style.height = '0px';
+			}
+		}
+	}
+	const showMoreAction = () => {
+		setShowMore(!showMore);
+	}
 	useEffect(() => {
+		checkShowHideElement();
 		checkIsMobile();
 		window.addEventListener('resize', () => {
 			checkIsMobile();
 		})
 	})
-
-	const BlockPriceMobile = () => {
+	const fieldLabel = data.customFields
+	const btnCtaMB = fieldLabel.cTAButton
+	const btnCtaMBLabel = fieldLabel.cTAButtonLabel
+	const costMB = fieldLabel.cost
+	const costLabelMB = fieldLabel.costLabel
+	const isMostPopularMB = fieldLabel.isMostPopular
+	const titleMB = fieldLabel.title
+	const primaryShow = data.listPrimary.map((el, idx) => {
+		const colFileds = el.customFields
+		const title = colFileds.title
+		const colVal = el.featureVal ? el.featureVal : null
 		return (
-			<div className="price-mobile">
-				<PriceItemMobile priceType={'free'} />
-				<PriceItemMobile priceType={'standard'} />
-				<PriceItemMobile priceType={'pro'} />
-				<PriceItemMobile priceType={'enterprise'} />
-			</div>
+			<RowItemMobile title={title} value={colVal} key={idx} />
 		)
-	}
-
-	const BlockPriceDesktop = () => {
+	})
+	const primaryMore = data.listMore.map((el, idx) => {
+		const colFileds = el.customFields
+		const title = colFileds.title
+		const colVal = el.featureVal ? el.featureVal : null
 		return (
-			<div className="price-desktop">
-				<table className="table-1">
-					<tr>
-						<th></th>
-						<th><HeaderColumn priceType="free" title={"Free"} value={"10"} hasPopular={false} /></th>
-						<th><HeaderColumn priceType="standard" title={"Standard"} value={"20"} hasPopular={false} /></th>
-						<th><HeaderColumn priceType="pro" title={"Pro"} value={"0"} hasPopular={true} /></th>
-						<th><HeaderColumn priceType="enterprise" title={"Enterprise"} value={"100"} hasPopular={false} /></th>
-					</tr>
-					<tr className="pr-tr-title">
-						<td className="pr-sub-title">Core Agility Features</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<RowItem title="User" freeValue={"5"} standardValue={"5"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Content Items" freeValue={"5"} standardValue={"5"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Languages (locales)" freeValue={"5"} standardValue={"5"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Storage" freeValue={"1GB"} standardValue={"5GB"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-				</table>
-
-
-				{/* Table show/hide */}
-				<table className={"table-2 " + (!showMore ? 'd-none' : '')}>
-					<tr className="pr-tr-title">
-						<td className="pr-sub-title">Core Agility Features</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<RowItem title="User" freeValue={true} standardValue={true} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Content Items" freeValue={false} standardValue={"5"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Languages (locales)" freeValue={false} standardValue={"5"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-					<RowItem title="Storage" freeValue={false} standardValue={"5GB"} proValue={"Unlimited"} enterpriseValue={"Unlimited"} />
-				</table>
-				{/* End Table show/hide */}
-
-
-				<table className="table-3">
-					<tr className="pr-tr-title">
-						<td></td>
-						<td>
-								<a href="#" className="btn btn-arrow btn-free">Sign up now</a>
-						</td>
-						<td>
-								<a href="#" className="btn btn-arrow btn-standard">Sign up now</a>
-						</td>
-						<td>
-								<a href="#" className="btn btn-arrow btn-pro">Sign up now</a>
-						</td>
-						<td>
-								<a href="#" className="btn btn-arrow btn-enterprise">Sign up now</a>
-						</td>
-						
-					</tr>
-				</table>
-				<div className="show-more text-center">
-					<a href="javascript:;" onClick={() => { showMoreAction() }} ><span>Show more plan offerings</span> <span className="icomoon icon-chevron-down"></span></a>
-				</div>
-			</div>
+			<RowItemMobile title={title} value={colVal} key={idx} />
 		)
-	}
-
+	})
 	return (
-		<section className="PricingPackagesModule pricing-package">
-			<div className="container">
+		<div className={`price-item-mb item-${classColor[priceType % 4]} ` + (!showMore ? '' : 'is-show-more') }>
+			<HeaderColumn priceType={priceType} title={titleMB} label={costLabelMB} btnCta={btnCtaMB} btnCtaLabel={btnCtaMBLabel} value={costMB} hasPopular={isMostPopularMB} />
+			<div className="show-hide-table-mb" ref={showHideEle}>
+				<table>
+					<tbody>
+						<tr className="pr-tr-title">
+							<td colSpan="2" className="pr-sub-title">{primaryFeaturesTitle}</td>
+						</tr>
 
-				{isMobile &&
-					<BlockPriceMobile />
-				}
-				{!isMobile &&
-					<BlockPriceDesktop />
-				}
-
+						{ primaryShow && primaryShow.length > 0 &&
+							primaryShow
+						}
+						<tr className="pr-tr-title">
+						<td colSpan="2" className="pr-sub-title">{secondaryFeaturesTitle}</td>
+						</tr>
+						{ primaryMore && primaryMore.length > 0  &&
+							primaryMore
+						}
+					</tbody>
+				</table>
 			</div>
-		</section>
-	);
+			<div className="show-more-mb text-center" onClick={ () => { showMoreAction() } }>
+				<span className="icomoon icon-chevron-down"></span>
+			</div>
+		</div>
+	)
 }
 
+const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackages) => {
+	return listFilter.map(feature => {
+		const featureObj = Object.assign({}, feature)
+		const listValPricing = []
+		if(featureObj.itemID) {
+			const listVal = listPackageFeatureValues.filter(val => {
+				return val.customFields.packageFeature.contentid === featureObj.itemID
+			})
+			for(let i = 0; i < listPricingPackages.length; i++) {
+				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID)
+				if (orderByPricing) {
+					listValPricing.push(orderByPricing)
+				}
+			}
+			featureObj.features = listValPricing
+		}
+		return featureObj
+	})
+}
 
-export default PricingPackagesModule;
+const filterAllowColumn = (listFilterPrimary, listFilterMore, listPackageFeatureValues, listPricingPackages) => {
+	return listPricingPackages.map(pricing => {
+		const pricingObj = Object.assign({}, pricing)
+		const itemID = pricingObj.itemID
+		const listPrimary = listFilterPrimary.map(fil => {
+			const filObj = Object.assign({}, fil)
+			filObj.featureVal = listPackageFeatureValues.find(fe => {
+				return fe.customFields.packageFeature.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
+			})
+			return filObj
+		})
+		const listMore = listFilterMore.map(fil => {
+			const filObj = Object.assign({}, fil)
+			filObj.featureVal = listPackageFeatureValues.find(fe => {
+				return fe.customFields.packageFeature.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
+			})
+			return filObj
+		})
+		pricingObj.listPrimary = listPrimary
+		pricingObj.listMore = listMore
+		return pricingObj
+	})
+}
+
+class PricingPackagesModule2 extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showMore: false,
+			isMobile: false
+		}
+	}
+
+	showMoreAction() {
+		this.setState({showMore: !this.state.showMore});
+	}
+	checkIsMobile() {
+		if (window.innerWidth <  1025) {
+			this.setState({isMobile: true});
+		} else {
+			this.setState({isMobile: false});
+		}
+	}
+	checkShowHideSection() {
+		const section2 = document.querySelector('.show-hide-act');
+		if (!this.state.isMobile) {
+			if (this.state.showMore) {
+				setTimeout(() => {
+					section2.style.height = section2.scrollHeight + 'px'
+				}, 100)
+
+			} else {
+				setTimeout(() => {
+					section2.style.height = 0 + 'px'
+
+				}, 100)
+			}
+		}
+	}
+
+	equalHeightHeader() {
+		const headerPrice = document.querySelectorAll('.price-head');
+		let height = 0;
+		let count = 0;
+		headerPrice.forEach((e) => {
+			e.style.height = ''
+		})
+		if (!this.state.isMobile) {
+			headerPrice.forEach((e) => {
+				if (height < e.clientHeight) {
+					height = e.clientHeight;
+					count++;
+				}
+			})
+			if (count) {
+				headerPrice.forEach((e) => {
+					e.style.height = height + 'px'
+				})
+			}
+		}
+	}
+
+	componentDidMount() {
+		console.log('value', this.props)
+		this.checkIsMobile();
+		const interCount = 0;
+		let inter = setInterval(() => {
+			this.equalHeightHeader();
+			if (interCount > 9) {
+				clearInterval(inter);
+			}
+		}, 200)
+
+		this.checkShowHideSection();
+		window.addEventListener('resize', () => {
+			this.checkIsMobile();
+			this.equalHeightHeader();
+		})
+	}
+	componentDidUpdate() {
+		this.checkShowHideSection();
+	}
+	render() {
+
+		const dataQuery = this.props.dataQuery
+		const fields = this.props.item.customFields
+		const btnShowMore = fields.showmoretext
+		const btnShowLess = fields.showlesstext
+		const primaryFeaturesTitle = fields.primaryFeaturesTitle
+		const secondaryFeaturesTitle = fields.secondaryFeaturesTitle
+		const headerList = dataQuery.listPricingPackages
+		const rowListShow = filterAllowRow(dataQuery.listPackageFeaturePrimary, dataQuery.listPackageFeatureValues, headerList).map((row, idx) => {
+			return (
+				<RowItem props={row} maxCol={headerList.length} key={idx}/>
+			)
+		})
+		const rowListHidden = filterAllowRow(dataQuery.listPackageFeatureMore, dataQuery.listPackageFeatureValues, headerList).map((row, idx) => {
+			return (
+				<RowItem props={row} maxCol={headerList.length} key={idx}/>
+			)
+		})
+		const mobileData = filterAllowColumn(dataQuery.listPackageFeaturePrimary, dataQuery.listPackageFeatureMore, dataQuery.listPackageFeatureValues, headerList)
+
+		const BlockPriceMobile = () => {
+			const itemMobile = mobileData.length ? mobileData.map((mb, idx) => {
+				return <PriceItemMobile key={idx} priceType={idx} primaryFeaturesTitle={primaryFeaturesTitle} secondaryFeaturesTitle={secondaryFeaturesTitle} data={mb}/>
+			}): []
+			return (
+				<div className="price-mobile">
+					{ itemMobile && itemMobile.length > 0 &&
+						itemMobile
+					}
+				</div>
+			)
+		}
+
+		const listHeaderColumn = headerList.length ? headerList.map((label, idx) => {
+			const fieldLabel = label.customFields
+			const btnCtaLabel = fieldLabel.cTAButtonLabel
+			const btnCta = fieldLabel.cTAButton
+			const cost = fieldLabel.cost
+			const costLabel = fieldLabel.costLabel
+			const isMostPopular = fieldLabel.isMostPopular
+			const title = fieldLabel.title
+			return (
+				<th key={idx}>
+					<HeaderColumn priceType={idx} title={title} label={costLabel} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} hasPopular={isMostPopular} />
+				</th>
+			)
+		}) : []
+
+		const listBtnColumn = headerList.length ? headerList.map((label, idx) => {
+			const classColor = ['free', 'standard', 'pro', 'enterprise']
+			const fieldLabel = label.customFields
+			const btnCta = fieldLabel.cTAButton
+			const btnCtaLabel = fieldLabel.cTAButtonLabel
+			const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
+			return (
+				<td key={idx}>
+					{ btnCta && btnCta.href && btnCta.href.length > 0 ?
+						(
+							<a href={btnCta.href} target={btnCta.target} className={`btn btn-arrow btn-${classColor[idx % 4]}`}>{btnTitle} <span className="icomoon icon-arrow"></span></a>
+						): (
+							<a href="#" onClick={e => e.preventDefault()} className={`btn btn-arrow btn-${classColor[idx % 4]}`}>{btnTitle} <span className="icomoon icon-arrow"></span></a>
+						)
+					}
+				</td>
+			)
+		}) : []
+
+
+		const BlockPriceDesktop = (<div className="price-desktop">
+					<table className="table-1">
+						<tbody>
+							<tr>
+								<th></th>
+								{ listHeaderColumn && listHeaderColumn.length > 0 &&
+									listHeaderColumn
+								}
+							</tr>
+							<tr className="pr-tr-title">
+								{ primaryFeaturesTitle &&
+									<td className="pr-sub-title">{primaryFeaturesTitle}</td>
+								}
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							{ rowListShow && rowListShow.length > 0 &&
+								 rowListShow
+							}
+						</tbody>
+					</table>
+
+
+					{/* Table show/hide */}
+					<div className="show-hide-act">
+						<table className={"table-2 "}>
+							<tbody>
+								<tr className="pr-tr-title">
+									{ secondaryFeaturesTitle &&
+										<td className="pr-sub-title">{secondaryFeaturesTitle}</td>
+									}
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								{ rowListHidden && rowListHidden.length > 0 &&
+									rowListHidden
+								}
+							</tbody>
+						</table>
+					</div>
+					{/* End Table show/hide */}
+
+					{ listBtnColumn && listBtnColumn.length > 0 &&
+
+						<table className="table-3">
+							<tbody>
+								<tr className="pr-tr-title">
+									<td></td>
+									{
+										listBtnColumn
+									}
+								</tr>
+							</tbody>
+						</table>
+					}
+					<div className={`show-more text-center ${this.state.showMore ? 'show' : ''}`}>
+						<a href="#" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
+							{ this.state.showMore ?
+								(
+									<span>{btnShowLess}</span>
+								) :
+								(
+									<span>{btnShowMore}</span>
+								)
+							}
+							<span className="icomoon icon-down-menu"></span>
+						</a>
+					</div>
+				</div>);
+
+
+		return (
+			<React.Fragment>
+			<section className="PricingPackagesModule pricing-package animation">
+				<div className="container anima-bottom">
+
+					{this.state.isMobile &&
+						<BlockPriceMobile />
+					}
+					{!this.state.isMobile &&
+						BlockPriceDesktop
+					}
+
+				</div>
+			</section>
+				<Spacing item={this.props.item}/>
+				</React.Fragment>
+		);
+	}
+}

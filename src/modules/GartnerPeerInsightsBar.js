@@ -13,7 +13,7 @@ const GartnerPeerInsightsBar = ({ item }) => {
 	const title = item.customFields.title
 	const graphic = item.customFields.gartnerLogo.url
 	const stars = item.customFields.starsGraphic.url
-	console.log("GartnerPeerInsightsBar", item)
+	// console.log("GartnerPeerInsightsBar", item)
 
 
 	return (

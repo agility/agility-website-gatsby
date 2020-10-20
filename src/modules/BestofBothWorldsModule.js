@@ -1,11 +1,13 @@
 import React, {useState, useEffect } from 'react';
 import './BestofBothWorldsModule.scss'
 import '../global/_popup-video.scss'
-import PopupVideo from 'react-modal-video'
+// import PopupVideo from 'react-modal-video'
 import LazyLoad from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
+// import Vimeo from 'react-vimeo';
 import Spacing from './Spacing'
+import ReactPlayer from 'react-player'
 
 const BestofBothWorldsModule = ({ item }) => {
 	const fields = item.customFields
@@ -17,8 +19,11 @@ const BestofBothWorldsModule = ({ item }) => {
 	const rightGroupName = fields.rightGroupName
 	const rightGroupedFeatures = fields.rightGroupedFeatures
 	const classSection = `module mod-HIW BestofBothWorldsModule ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode': ''}`
-	console.log("BestofBothWorldsModule", item)
-	const [isOpen, setIsOpen] = useState(false);
+	const urlVideo = fields.videoPath
+	const thumbnail = fields.thumbnail
+	const urlThumbnail = thumbnail ? thumbnail.url : '/images/bg-video.jpg'
+	// console.log("BestofBothWorldsModule", item)
+	// const [isOpen, setIsOpen] = useState(false);
 	const [isPaused, setIsPaused] = useState(false);
 	const initComparisons = () => {
 		var x, i;
@@ -47,7 +52,10 @@ const BestofBothWorldsModule = ({ item }) => {
 				comparImg = (1 / Math.tan(69 * Math.PI/180))*h;
 				img.style.width = ((w / 2) + comparImg ) + 'px';
 				img.style.left = -comparImg + 'px';
-				img.querySelector('img').style.left = comparImg + 'px';
+				
+				Array.from(img.querySelectorAll('img')).forEach((ele) => {
+					ele.style.left = comparImg + 'px';
+				})
 				slider.style.left = (w / 2) - 30.5  + 'px';
 				slider.addEventListener('mousedown', slideReady);
 				window.addEventListener('mouseup', slideFinish);
@@ -63,6 +71,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					clicked = 0;
 					wrap.classList.add('add-transition')
 					slide((wrap.offsetWidth + comparImg*2 - 8)/2)
+					console.log((wrap.offsetWidth + comparImg*2)/2)
 					setTimeout(() => {
 						wrap.classList.remove('add-transition')
 					}, 350)
@@ -100,24 +109,28 @@ const BestofBothWorldsModule = ({ item }) => {
 					img.style.left = -comparImg + 'px';
 					slider.style.left = (x - 30.5 - comparImg)/wCurent*100  + '%';
 					let l = x - 30.5 - comparImg
-					img.querySelector('img').style.left = comparImg + 'px';
+					Array.from(img.querySelectorAll('img')).forEach((ele) => {
+						ele.style.left = comparImg + 'px';
+					})
 					let best = document.getElementsByClassName('best-HIW')[0];
-					if(l > wCurent/2 ) {
-						best.classList.remove('active-v2')
-						best.classList.remove('active-v1')
-						best.classList.add('is-active')
-						if (l > (wCurent/2 + 10)) {
-							best.classList.add('active-v1')
-							best.classList.remove('is-active')
-						}
-					} 
-					else {
-						best.classList.remove('active-v2')
-						best.classList.remove('active-v1')
-						best.classList.add('is-active')
-						if (l < (wCurent/2 - 60)) {
-							best.classList.add('active-v2')
-							best.classList.remove('is-active')
+					if(best){
+						if(l > wCurent/2 ) {
+							best.classList.remove('active-v2')
+							best.classList.remove('active-v1')
+							best.classList.add('is-active')
+							if (l > (wCurent/2 + 10)) {
+								best.classList.add('active-v1')
+								best.classList.remove('is-active')
+							}
+						} 
+						else {
+							best.classList.remove('active-v2')
+							best.classList.remove('active-v1')
+							best.classList.add('is-active')
+							if (l < (wCurent/2 - 60)) {
+								best.classList.add('active-v2')
+								best.classList.remove('is-active')
+							}
 						}
 					}
 				}
@@ -140,13 +153,17 @@ const BestofBothWorldsModule = ({ item }) => {
 			}
 			window.addEventListener("resize", displayWindowSize);
 			function displayWindowSize() {
-				let wCurent = wrap.offsetWidth;
-				let hCurent = wrap.offsetHeight;
-				let img = document.getElementsByClassName('img-comp-overlay')[0];
-				let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
-				img.style.left = -comparImg + 'px';
-				img.querySelector('img').style.left = comparImg + 'px';
-				slider.style.left = (img.offsetWidth - 30.5 - comparImg)/wCurent*100  + '%';
+				if (x.length) {
+					let wCurent = wrap.offsetWidth;
+					let hCurent = wrap.offsetHeight;
+					let img = document.getElementsByClassName('img-comp-overlay')[0];
+					let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
+					img.style.left = -comparImg + 'px';
+					Array.from(img.querySelectorAll('img')).forEach((ele) => {
+						ele.style.left = comparImg + 'px';
+					})
+					slider.style.left = (img.offsetWidth - 30.5 - comparImg)/wCurent*100  + '%';
+				}
 			}
 		}
 	}
@@ -154,42 +171,14 @@ const BestofBothWorldsModule = ({ item }) => {
 		calluseEffect()
 	});
 	const calluseEffect = () => {
-		const html = document.querySelectorAll('html')[0]
-    if(!html.classList.contains('done-BBM')) {
-			html.classList.add('done-BBM')
-			initComparisons()
-		}
+		initComparisons()
 	}
 	const togglePause = () => {
     setIsPaused(!isPaused);
   };
-	function Video(props) {
-		console.log(props);
-		const opts = {
-			height: "390",
-			width: "640",
-			playerVars: {
-				autoplay: 1
-			}
-		};
-	
-		const _onReady = event => {
-			if(props.isPaused) {
-				event.target.playVideo()
-			} else {
-				event.target.pauseVideo()
-			}
-		};
-	
-		const _onStateChange = event => {
-		};
+	function Video() {
 		return (
-			<YouTube
-				videoId={"5QiQU7uCHjU"}
-				opts={opts}
-				onReady={_onReady}
-				onStateChange={_onStateChange}
-			/>
+			<ReactPlayer url={urlVideo.href} playing={true} controls={true}/>
 		);
 	}
 	const listIemHIW = leftGroupedFeatures.map((key, idx) => {
@@ -224,8 +213,10 @@ const BestofBothWorldsModule = ({ item }) => {
 					}
 					<div className="wrap-video-HIW ps-rv anima-bottom delay-2">
 						<div className={`wrap-video ps-rv ${isPaused ? 'is-show' : ''}`}>
-							<Video isPaused={isPaused} />
-							<LazyBackground className=" text-decoration-none has-popup ps-as bg bg-bottom-center" allow="autoplay" src="/images/bg-video.jpg">
+							{isPaused &&
+								<Video/>
+							}
+							<LazyBackground className=" text-decoration-none has-popup ps-as bg bg-bottom-center" allow="autoplay" src={urlThumbnail}>
 								<div onClick={togglePause} className="ps-as">
 									<span className="icomoon icon-video"><span className="path3"></span></span>
 								</div>
@@ -250,7 +241,12 @@ const BestofBothWorldsModule = ({ item }) => {
 								<img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image"></img>
 								<div className="img-comp-container">
 									<div className="img-comp-img">
-										<img src="/images/author-image.png"></img>
+									{ rightGroupName &&
+									  <React.Fragment>
+										  <img src="/images/author-image.png" className='img-primary'  alt={rightGroupName.text}></img>
+											<img src="/images/Image-author.png" className='img-second-author' alt={rightGroupName.text}></img>
+										</React.Fragment>
+									}
 									</div>
 									<div className="img-comp-slider">
 										<svg xmlns="http://www.w3.org/2000/svg" id="Group_40" data-name="Group 40" width="61.176" height="61.176" viewBox="0 0 61.176 61.176">
@@ -262,7 +258,12 @@ const BestofBothWorldsModule = ({ item }) => {
 										</svg>
 									</div>
 									<div className="img-comp-img img-comp-overlay">
-										<img src="/images/dev-image.png"></img>
+										{ leftGroupName &&
+										  <React.Fragment>
+												<img src="/images/dev-image.png" className='img-primary' alt={leftGroupName.text}></img>
+                        <img src="/images/Image-dev.png" className='img-second-dev' alt={leftGroupName.text}></img>
+										  </React.Fragment>
+										}
 									</div>
 								</div>
 							</div>
@@ -289,7 +290,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					}
 					<LazyLoad><img src="/images/bg-bottom2.svg" className="bg-bottom" alt="image"></img></LazyLoad>
 				</div>
-				<PopupVideo channel="youtube" isOpen={isOpen} videoId='5QiQU7uCHjU' onClose={() => setIsOpen(false)} />
+				{/* <PopupVideo channel="youtube" isOpen={isOpen} videoId='5QiQU7uCHjU' onClose={() => setIsOpen(false)} /> */}
 			</section>
 			<Spacing item={item}/>
 		</React.Fragment>

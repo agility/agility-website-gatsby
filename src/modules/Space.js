@@ -1,6 +1,6 @@
 import React from 'react';
 const Space = ({ item }) => {
-  console.log("Space", item)
+  // console.log("Space", item)
   var bg='';
   if(item.customFields.backgroundColor!=='none'){
     bg=' bg-'+item.customFields.backgroundColor

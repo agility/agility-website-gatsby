@@ -147,7 +147,12 @@
     position: relative;
     &::after {
       content: '';
-      @include position(absolute,0,-40px,-15px,-40px,-1);
+      position: relative;
+      top: 0;
+      z-index: -1;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   .is-open-menu {
@@ -228,7 +233,6 @@
   .header {
     .navbar {
       display: block;
-      overflow: hidden;
     }
   }
 

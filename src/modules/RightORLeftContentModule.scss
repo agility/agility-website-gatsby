@@ -53,10 +53,13 @@
     display: none;
   }
 }
-.page-new-why-agility .internal-wrap {
-  text-align: center;
-  img {
-    width: 85%;
+.page-new-why-agility,
+.page-why-agility {
+  .internal-wrap {
+    text-align: center;
+    img {
+      width: 85%;
+    }
   }
 }
 .mod-framework + .mod-space + .right-or-left-content {
@@ -125,9 +128,12 @@
   .wrap-ani-home:not(.internal-wrap) {
     min-height: 500px;
   }
-  .page-new-why-agility .internal-wrap {
-    img {
-      width: 70%;
+  .page-new-why-agility,
+  .page-why-agility {
+    .internal-wrap {
+      img {
+        width: 70%;
+      }
     }
   }
 }

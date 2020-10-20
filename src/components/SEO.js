@@ -78,6 +78,53 @@ const SEO = ({ page }) => {
 			<link rel="dns-prefetch" href="//idsync.rlcdn.com" />
 			<link rel="dns-prefetch" href="//t.visitorqueue.com" />
 
+			<link rel="dns-prefetch" href="//cdn.popt.in" />
+			<link rel="dns-prefetch" href="//t.co" />
+			<link rel="dns-prefetch" href="//a.visitorqueue.com" />
+			<link rel="dns-prefetch" href="//analytics.twitter.com" />
+			<link rel="dns-prefetch" href="//static.ads-twitter.com" />
+			<link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
+			<link rel="dns-prefetch" href="//px.ads.linkedin.com" />
+			<link rel="dns-prefetch" href="//x.bidswitch.net" />
+			<link rel="dns-prefetch" href="//www.linkedin.com" />
+			<link rel="dns-prefetch" href="//www.google.com" />
+			<link rel="dns-prefetch" href="//www.google-analytics.com" />
+			<link rel="dns-prefetch" href="//diffuser-cdn.app-us1.com" />
+			<link rel="dns-prefetch" href="//p.adsymptotic.com" />
+			<link rel="dns-prefetch" href="//t.visitorqueue.com" />
+			<link rel="dns-prefetch" href="//tracking.g2crowd.com" />
+			<link rel="dns-prefetch" href="//snap.licdn.com" />
+			<link rel="dns-prefetch" href="//js.intercomcdn.com" />
+			<link rel="dns-prefetch" href="//widget.intercom.io" />
+			<link rel="dns-prefetch" href="//px.ads.linkedin.com" />
+			<link rel="dns-prefetch" href="//api-iam.intercom.io" />
+			<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+			<link rel="dns-prefetch" href="//www.google.com" />
+			<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+			<link rel="preconnect" href="//cdn.popt.in" />
+			<link rel="preconnect" href="//t.co" />
+			<link rel="preconnect" href="//a.visitorqueue.com" />
+			<link rel="preconnect" href="//analytics.twitter.com" />
+			<link rel="preconnect" href="//static.ads-twitter.com" />
+			<link rel="preconnect" href="//stats.g.doubleclick.net" />
+			<link rel="preconnect" href="//px.ads.linkedin.com" />
+			<link rel="preconnect" href="//x.bidswitch.net" />
+			<link rel="preconnect" href="//www.linkedin.com" />
+			<link rel="preconnect" href="//www.google.com" />
+			<link rel="preconnect" href="//www.google-analytics.com" />
+			<link rel="preconnect" href="//diffuser-cdn.app-us1.com" />
+			<link rel="preconnect" href="//p.adsymptotic.com" />
+			<link rel="preconnect" href="//t.visitorqueue.com" />
+			<link rel="preconnect" href="//tracking.g2crowd.com" />
+			<link rel="preconnect" href="//snap.licdn.com" />
+			<link rel="preconnect" href="//js.intercomcdn.com" />
+			<link rel="preconnect" href="//widget.intercom.io" />
+			<link rel="preconnect" href="//px.ads.linkedin.com" />
+			<link rel="preconnect" href="//api-iam.intercom.io" />
+			<link rel="preconnect" href="//cdnjs.cloudflare.com" />
+			<link rel="preconnect" href="//www.google.com" />
+			<link rel="preconnect" href="//www.googletagmanager.com" />
 
 			<link rel="apple-touch-startup-image" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-152x152.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-57x57.png" />

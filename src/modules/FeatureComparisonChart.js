@@ -79,11 +79,10 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
-  console.log("FeatureComparisonChart", item)
+  // console.log("FeatureComparisonChart", item)
   const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   const headline = item.customFields.heading
   const fullComparisonLink = item.customFields.fullComparisonLinkLabel
-  console.log(fullComparisonLink)
   const textviewFull = item.customFields.viewFullComparisonLabel
   const ctaBtnText = item.customFields.bottomCTA.text
   const ctaBtnhref = item.customFields.bottomCTA.href
@@ -98,10 +97,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     return dataQuery.listPanelItems.map(obj => obj.customFields.platform.contentid).includes(plat.itemID)
   })
   const [listPlatformFake, setListPlatformFake] = useState(listPlatformGet)
-  console.log('listPlatformFake', listPlatformFake)
-  console.log('dataQuery', dataQuery)
   const handleFilter = (name, platform) => {
-    console.log('platform', name)
     const listNewPlatform = listPlatformFake.map(obj => obj)
     const idxName = listPlatformFake.findIndex((x) => x === name)
     const idxPlatform = listPlatformFake.findIndex((y) => y === platform)
@@ -222,13 +218,10 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     const orderListFeature = listPlatformShow.map(plat => {
       return dataQuery.listPanelItems.find(panel => panel.customFields.platform.contentid === plat.itemID && panel.customFields.feature.contentid === idFeatures)
     })
-    console.log('orderListFeature', orderListFeature)
     const list = orderListFeature.map((contentFeature, idx) => {
       if (contentFeature !== undefined) {
         const check = contentFeature.customFields.trueFalseValue
         const text = contentFeature.customFields.textValue
-        console.log('check order', check)
-        console.log('text order', text)
         if (check === 'true') {
           if (text !== null) {
             return (
@@ -236,7 +229,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
             )
           } else {
             return (
-              <td key={idx}><span className="feat-check feat-support"></span></td>
+              <td key={idx}><span className="icomoon icon-check feat-check"></span></td>
             )
           }
         } else {

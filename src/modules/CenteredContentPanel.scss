@@ -20,7 +20,7 @@
     }
     &::after {
       content: '';
-      @include position(absolute,$bottom: 0,$right: 0,$index: 0);
+      @include position(absolute,$bottom: 0,$left: -340px,$index: 0);
       @include sizeEx(719px,621px);
       background-image: url('/images/icon-agility.svg');
       background-size: cover;
@@ -43,7 +43,6 @@
       padding-top: 75px;
       padding-bottom: 115px;
       &::after {
-        right: auto;
         left: -245px;
         width: 557px;
         height: 481px;

@@ -3,7 +3,7 @@ import Spacing from './Spacing'
 import './SectionBreadcrumbModule.scss'
 
 const SectionBreadcrumbModule = ({ item }) => {
-	console.log("SectionBreadcrumbModule", item)
+	// console.log("SectionBreadcrumbModule", item)
 
 	const heading = item.customFields.sectionBreadcrumb
 	const classSection = `SectionBreadcrumbModule animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode dark-breadcrum bg-17': ''}`

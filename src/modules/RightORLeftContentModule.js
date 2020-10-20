@@ -6,7 +6,7 @@ import Spacing from './Spacing'
 
 
 const RightOrLeftContent = ({ item }) => {
-	console.log('RightOrLeftContent', item)
+	// console.log('RightOrLeftContent', item)
 	const heading = item.customFields.title
 	const des = item.customFields.description
 	const breadcrumb = item.customFields.breadcrumb
@@ -35,12 +35,8 @@ const RightOrLeftContent = ({ item }) => {
 		}
 	}
 	const init = () => {
-		const html = document.querySelectorAll('html')[0]
-    if(!html.classList.contains('done-banner-parrallax')) {
-      html.classList.add('done-banner-parrallax')
-			callAnimation()
-			window.addEventListener("resize", callAnimation);
-		}
+		callAnimation()
+		window.addEventListener("resize", callAnimation);
 	}
 	const callAnimation = () => {
 		let banner = document.getElementsByClassName('mod-banner')
@@ -84,6 +80,9 @@ const RightOrLeftContent = ({ item }) => {
 		setTimeout(() => {
 			array.forEach(element => element.play());
 		}, 400)
+		setTimeout(() => {
+			document.getElementsByClassName('mod-banner')[0].classList.remove('done-ani')
+		}, 1000)
 	}
 	const initParallax = () => {
 		if (document.getElementsByClassName('done-ani').length) {

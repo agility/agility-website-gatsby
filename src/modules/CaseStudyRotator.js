@@ -11,7 +11,7 @@ import './CaseStudyRotator.scss';
 import Spacing from './Spacing'
 
 const CaseStudyRotator = ({ item }) => {
-  console.log('CaseStudyRotator', item)
+  // console.log('CaseStudyRotator', item)
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const fields = item.customFields

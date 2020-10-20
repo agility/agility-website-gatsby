@@ -4,9 +4,9 @@ import './2BoxContent.scss'
 
 const BoxContent = ({ item }) => {
 
-	console.log('2BoxContent', item)
+	// console.log('2BoxContent', item)
 	const fields = item.customFields
-	const classSection = `mod module-chanel 2BoxContent ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode': ''}`
+	const classSection = `mod module-chanel 2BoxContent animation ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode': ''}`
 	const btnCta = fields.cTA
 	const btnCta2 = fields.cTA2
 	const description = fields.description
@@ -15,12 +15,12 @@ const BoxContent = ({ item }) => {
 	const heading2 = fields.heading2
 	const image = fields.image
 	const image2 = fields.image2
-	console.log('typeof', typeof fields.mobileSpace)
+	// console.log('typeof', typeof fields.mobileSpace)
 	return (
 		<React.Fragment>
 		<section className={classSection}>
 			<div className="container">
-				<div className="row justify-content-center">
+				<div className="row justify-content-center anima-bottom">
 					<div className="col-lg-6 item-chanel">
 						<div className="wrap-chanel text-center last-mb-none ps-rv">
 							{ btnCta &&

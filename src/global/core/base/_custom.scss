@@ -5,7 +5,7 @@
 .main-content {
   padding-top: 90px;
   transition: padding .25s;
-  > section:first-child:not(.mod-intro) {
+  > .mod-banner:first-child:not(.mod-intro) {
     margin-top: 20px;
   }
 }
@@ -144,7 +144,7 @@ html.hide-loader {
   @extend %last;
 }
 
-.container {
+.container:not(.p-w-small) {
   padding: 0 20px;
 }
 .dark-mode {
@@ -184,6 +184,7 @@ html.hide-loader {
     z-index: 2;
     cursor: pointer;
     transition: all .35s, z-index 0s .35s;
+    background-color: rgba(233,240,245,.5);
   }
   iframe {
     opacity: 0;
@@ -191,7 +192,8 @@ html.hide-loader {
     z-index: 1;
   }
   > div:first-child {
-    height: 100%;
+    height: 100% !important;
+    width: 100% !important;
   }
   &.is-show {
     .has-popup {
@@ -201,6 +203,33 @@ html.hide-loader {
     iframe {
       opacity: 1;
     }
+  }
+}
+
+form  button[type='submit'] {
+  transition: all .35s;
+  &::after {
+    display: none;
+  }
+  span {
+    margin-bottom: 0;
+    display: inline-block;
+    position: relative;
+    &::after {
+      content: '\e906';
+      font-family: 'icomoon';
+      position: absolute;
+      top: 5px;
+      right: -16px;
+      font-size: 11px;
+      font-weight: normal;
+    }
+  }
+}
+.blog-item-container .blog-item .btn {
+  transition: all .35s;
+  &::after {
+    display: none;
   }
 }
 .popup-is-open {
@@ -225,7 +254,8 @@ html.hide-loader {
 }
 .box-message {
   position: relative;
-  background-image: linear-gradient(to bottom, #f6fbff, #e9f0f5);
+  // background-image: linear-gradient(to bottom, #f6fbff, #e9f0f5);
+  background-color: $color-e3;
   transition: all .35s;
   overflow: hidden;
   min-height: 48px;
@@ -238,10 +268,14 @@ html.hide-loader {
   }
   p {
     font-size: rem(16);
-    color: $color-17;
+    // color: $color-17;
     .link-line {
       margin-left: 17px;
       display: inline-block;
+      text-decoration: none;
+      &::before {
+        background-color: $white;
+      }
     }
   }
   &.style-black {
@@ -362,7 +396,7 @@ input {
     }
   }
   .main-content {
-    > section:first-child:not(.mod-intro) {
+    > .mod-banner:first-child:not(.mod-intro) {
       margin-top: 35px;
     }
   }
@@ -371,7 +405,7 @@ input {
 @include media-breakpoint-up(lg) {
   .main-content {
     padding-top: 135px;
-    > section:first-child:not(.mod-intro) {
+    > .mod-banner:first-child:not(.mod-intro) {
       margin-top: 40px;
     }
   }
@@ -430,6 +464,6 @@ input {
 }
 @include media-custom-up(1500) {
   .container:not(.max-w-940) {
-    max-width: 1370px;
+    max-width: 1380px;
   }
 }

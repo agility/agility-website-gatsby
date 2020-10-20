@@ -4,7 +4,7 @@ import './RightOrLeftCaseStudyTestimonial.scss'
 
 const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 
-	console.log('RightOrLeftCaseStudyTestimonial', item)
+	// console.log('RightOrLeftCaseStudyTestimonial', item)
 	const fields = item.customFields
 	const classSection = `module mod-testimonial-detail RightOrLeftCaseStudyTestimonial animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode': ''}`
 	const btnCta = fields.cTA

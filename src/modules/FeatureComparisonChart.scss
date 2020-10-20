@@ -103,6 +103,9 @@
     text-transform: none;
     line-height: 1;
   }
+  &.icon-check {
+    color: $color-75;
+  }
 }
 .feat-support {
   background-color: $color-75;
@@ -112,7 +115,7 @@
   }
 }
 .feat-no-support {
-  background-color: rgba(201, 216, 230, 0.5);
+  // background-color: rgba(201, 216, 230, 0.5);
   &::before {
     content: "\e909";
   }

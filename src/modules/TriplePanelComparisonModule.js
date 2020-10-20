@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
 
 const TriplePanelComparisonModule = ({ item }) => {
-	const classSection = `module animation TriplePanelComparisonModule ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	const classSection = `module TriplePanelComparisonModule ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 
 	const heading = item.customFields.title
 	const des = item.customFields.description
@@ -27,12 +27,12 @@ const TriplePanelComparisonModule = ({ item }) => {
 
 
 	//item = item.customFields;
-	console.log("TriplePanelComparisonModule", item)
+	// console.log("TriplePanelComparisonModule", item)
 	return (
 		<React.Fragment>
 			<section className={classSection}>
 				<div className='space-80 space-dt-100'></div>
-				<div className="container last-mb-none max-w-940 text-center anima-bottom">
+				<div className="container last-mb-none max-w-940 text-center anima-bottom animation">
 				{ heading &&
 					<h2>{heading}</h2>
 				}
@@ -40,8 +40,8 @@ const TriplePanelComparisonModule = ({ item }) => {
 					<div dangerouslySetInnerHTML={renderHTML(des)} />
 				}
 				</div>
-				<div className="container small-paragraph ">
-				<div className="row">
+				<div className="container small-paragraph animation">
+				<div className="row anima-bottom delay-2">
 					<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
 							<LazyLoad>

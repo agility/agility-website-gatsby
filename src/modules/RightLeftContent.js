@@ -4,7 +4,7 @@ import ResponsiveImage from '../components/responsive-image.jsx'
 import './RightLeftContent.scss'
 
 const RightLeftContent = ({ item }) => {
-	console.log('RightLeftContent', RightLeftContent)
+	// console.log('RightLeftContent', RightLeftContent)
 	item = item.customFields;
 
 	let sectionStyle = {};

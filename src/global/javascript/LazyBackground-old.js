@@ -55,18 +55,13 @@ function elementInViewport(el) {
 
 const lazyloadimageCustom = () => {
   const lazyElement = document.querySelectorAll(lazyimage)
-  console.log('lazyElement:', lazyElement)
+  // console.log('lazyElement:', lazyElement)
   lazyElement.forEach((e) => {
     (() => {
       if (elementInViewport(e) && !e.classList.contains('lazy-loaded') && e.offsetWidth > 0) {
         
-        console.log('elementScroll', e, elementInViewport(e))
         const elementTmp = e.tagName
-        console.log(elementTmp)
         call(elementTmp, e)
-        // if ($(element).parents('.slider-lazy').hasClass('slick-initialized')) {
-        //   hasSlider(element)
-        // }
       }
     })()
   })

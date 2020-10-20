@@ -25,6 +25,7 @@ export default props => (
 					subscribeEmailPlaceholder
 					subscribeDescription
 					subscribeButtonLabel
+					subscribeConfirmationMessage
 					followTitle
 					copyright
 					column3Title
@@ -175,7 +176,6 @@ class Footer extends React.Component {
 		let leadSourceDetail = "newsletter-subscribe-form--" + window.location.pathname.replace(/\//g, '-') + "--" + getLeadSource();
 
 		data["leadsourcedetail"] = leadSourceDetail;
-		console.log('leadSourceDetail', leadSourceDetail)
 
 		this.setState({ isSubmitting: true, subscribeButtonLabel: "Sign up"});
 
@@ -186,7 +186,6 @@ class Footer extends React.Component {
 		).then(response => {
 			// window.location.href = postRedirect;
 			if(response.status===202){
-				console.log('true')
 				document.querySelectorAll('.foter-subscribe')[0].classList.add('thanks-subs')
 			}
 			console.table('response', response)
@@ -203,9 +202,9 @@ class Footer extends React.Component {
 	render() {
 
 		let item = this.props.item.customFields;
-		let thankText = this.props.thanks.customFields.textblob
-		console.log('thanks Text: ',thankText)
-		console.log('Footer', this.props)
+		let thankText = this.props.item.customFields.subscribeConfirmationMessage
+		// console.log('thanks Text: ',thankText)
+		// console.log('Footer', this.props)
 		let sortFunc = (a, b) => {  return a.properties.itemOrder - b.properties.itemOrder; }
 
 		let column1Links = this.props.item.column1Links.sort(sortFunc);
@@ -232,7 +231,7 @@ class Footer extends React.Component {
 
 			lst.forEach(lnk => {
 				var img = <Lazyload><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img></Lazyload>;
-				var a = <a href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
+				var a = <a rel="noopener noreferrer" href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
 
@@ -286,7 +285,8 @@ class Footer extends React.Component {
 								<p>{item.subscribeDescription}</p>
 								{typeof window !== 'undefined' &&
 									<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
-										<input type="email" placeholder={item.subscribeEmailPlaceholder} name="email" disabled={this.state.isSubmitting} required />
+										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
+										<label htmlFor='email-subscribe' className="sr-only">email</label>
 										{/* <input type="submit" value={this.state.subscribeButtonLabel} className="btn btn-outline-white text-decoration-non" /> */}
 										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
 										<div  className='loading-sub text-center'>

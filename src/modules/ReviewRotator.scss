@@ -4,6 +4,7 @@
   border: 2px solid $color-e9;
   position: relative;
   padding: 25px;
+  transition: all .25s;
   &::before {
     content: '';
     display: block;
@@ -15,6 +16,7 @@
     left: 25px;
     right: auto;
     border-width: 12px 15px;
+    transition: all .25s;
   }
   &::after {
     display: block;
@@ -42,6 +44,7 @@
     display: inline-block;
     font-family: $mlBold;
     position: relative;
+    z-index: -1;
     font-size: rem(16);
     padding-right: 16px;
     min-width: 98px;
@@ -170,6 +173,19 @@
   }
   .info-review {
     margin-left: 30px;
+  }
+  .ReviewRotator-item {
+    .mess-review {
+      &:hover {
+        border-color: $color-58;
+        &::before {
+          border-color: $color-58 transparent transparent $color-58;
+        }
+      }
+      &:not(.content-smaller) {
+        cursor: pointer;
+      }
+    }
   }
 }
 @media (min-width: 1280px) {

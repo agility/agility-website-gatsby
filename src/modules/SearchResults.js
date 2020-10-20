@@ -17,11 +17,9 @@ const SearchResults = ({ item }) => {
 	const [clearInput, setClear] = useState(0)
 	const classinput = `icomoon icon-uncheck clear-input ${ clearInput === 1 ? 'show' : ''}`
 	const classR = `SearchResults ${ loading === 1 ? 'done-search' : ''}`
-	console.log('SearchResults', item)
+	// console.log('SearchResults', item)
 	const loadResults = (queryData, pagingNum) => {
 		const skipSearch = pagingNum ? (pagingNum - 1) * Number(numTake) : 0;
-		console.log('pagingNum', pagingNum)
-		console.log('pagingNum', skipSearch)
 		const formData = new FormData()
 		formData.append('query', queryData)
 		formData.append('top', numTake)
@@ -174,7 +172,6 @@ const SearchResults = ({ item }) => {
 		setPaging(0)
 	}
   useEffect(() => {
-		console.log('search1')
 		const controller = new AbortController()
 		if (typeof window !== 'undefined') {
 			const urlSearch = new URLSearchParams(window.location.search)

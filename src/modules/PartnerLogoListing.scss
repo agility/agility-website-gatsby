@@ -82,16 +82,13 @@
   }
 
   .buttons {
-    display: flex;
-    justify-content: space-between;
-    max-width: 450px;
-    flex-wrap: wrap;
     margin: 0 auto;
+    text-align: center;
 
     .btn {
       // min-height: 48px;
       // line-height: 48px;
-      margin: 0 auto;
+      margin: 5px 10px;
       @media (max-width: 480px) {
         justify-content: center;
         margin: 0 5px 10px 5px;
@@ -99,3 +96,5 @@
     }
   }
 }
+
+

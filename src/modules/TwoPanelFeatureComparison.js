@@ -104,8 +104,8 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const classSection = `TwoPanelFeatureComparison module mod-feature ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode': ''}`
 	const title1 = item.customFields.group1Title
 	const title2 = item.customFields.group2Title
-	console.log('dataQuery', dataQuery)
-	console.log("TwoPanelFeatureComparison", item)
+	// console.log('dataQuery', dataQuery)
+	// console.log("TwoPanelFeatureComparison", item)
 	const groupPanels1 = dataQuery.listPanelItems1.map((panel, index) => {
 		const listCheckItem = panel.checkedItems ? panel.checkedItems.map(checkItem => {
 			const fieldCheck = checkItem.customFields
@@ -186,7 +186,6 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		const classImage = `col-md-6 box-pin ${panel.customFields.graphicLocation === 'right' ? 'anima-left': 'anima-right'}`
 		let img1 = '../images/image.png'
 		let img2 = '../images/image-tri.png'
-		// console.log(index)
 		if (index === 1) {
 			img1='../images/image2.png'
 			img2='../images/image2-tri.png'
@@ -261,22 +260,26 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 				const doc = document.documentElement;
 				let top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
 				const section = document.getElementsByClassName('mod-feature')[0]
-				let moduleTop = section.offsetTop - header.offsetHeight
-				let limit = moduleTop + section.offsetHeight + title.offsetHeight
-				if (top > moduleTop && top < limit) {
-					title.classList.add('fixed')
-					title.style.top = header.offsetHeight + 'px'
-				} else {
-					title.classList.remove('fixed')
-					title.style.top = 'auto'
-				}
-				if(darkTheme){
-					if (top + header.offsetHeight + title.offsetHeight > darkTheme.offsetTop) {
-						title.classList.add('active-tab2')
+				if(section){
+					let moduleTop = section.offsetTop - header.offsetHeight
+					let limit = moduleTop + section.offsetHeight + title.offsetHeight
+					if (top > moduleTop && top < limit) {
+						title.classList.add('fixed')
+						title.style.top = header.offsetHeight + 'px'
 					} else {
-						title.classList.remove('active-tab2')
+						title.classList.remove('fixed')
+						title.style.top = 'auto'
+					}
+					if(darkTheme){
+						if (top + header.offsetHeight + title.offsetHeight > darkTheme.offsetTop) {
+							title.classList.add('active-tab2')
+						} else {
+							title.classList.remove('active-tab2')
+						}
 					}
 				}
+				
+				
 			}
 		})
 		document.getElementsByClassName('features-tab1')[0].addEventListener('click', () => {
@@ -322,12 +325,15 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
 		rootOffset = $this.offsetTop - topAdd
 		header = $header.offsetHeight
-		offsetPin = document.getElementsByClassName('title-feature')[0].offsetHeight
-		trigger = top + header + offsetPin
-		let difference = top + header + 47 - serviceRight.offsetTop
-		if (serviceLeft.offsetHeight + 50 < serviceLeft.parentElement.parentElement.offsetHeight && trigger > rootOffset && serviceLeft.querySelectorAll('.bg-parallax').length) {
-			serviceLeft.querySelectorAll('.bg-parallax')[0].style.transform = 'translateY(' + -(difference / 10) + 'px) translateX(-50%)'
-			serviceLeft.querySelectorAll('.primary-img')[0].style.transform = 'translateY(' + -(difference / 3) + 'px)'
+		let titleFeature = document.getElementsByClassName('title-feature')[0]
+		if(titleFeature){
+			offsetPin = titleFeature.offsetHeight
+			trigger = top + header + offsetPin
+			let difference = top + header + 47 - serviceRight.offsetTop
+			if (serviceLeft.offsetHeight + 50 < serviceLeft.parentElement.parentElement.offsetHeight && trigger > rootOffset && serviceLeft.querySelectorAll('.bg-parallax').length) {
+				serviceLeft.querySelectorAll('.bg-parallax')[0].style.transform = 'translateY(' + -(difference / 10) + 'px) translateX(-50%)'
+				serviceLeft.querySelectorAll('.primary-img')[0].style.transform = 'translateY(' + -(difference / 3) + 'px)'
+			}
 		}
 		return true
 	}

@@ -10,7 +10,7 @@ const CenteredContentPanel = ({ item }) => {
 	const btn1 = item.customFields.cTA1
 	const btn2 = item.customFields.cTA2
 	//item = item.customFields;
-	console.log("CenteredContentPanel", item)
+	// console.log("CenteredContentPanel", item)
 	const classSection = `CenteredContentPanel animation mod-intro hero-text ${item.customFields.darkMode && item.customFields.darkMode === 'true'  ? 'dark-mode': ''}`
 
 

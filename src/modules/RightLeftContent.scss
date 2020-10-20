@@ -11,7 +11,7 @@
     height: 100%;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
     background-image: url("https://static.agilitycms.com/layout/img/bg/Triangle_3.png");
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
@@ -32,7 +32,8 @@
     padding-left: 60px;
     padding-right: 60px;
     display: flex;
-
+    position: relative;
+    z-index: 2;
     .rl-image {
       width: 40%;
       text-align: center;

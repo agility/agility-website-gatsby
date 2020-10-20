@@ -18,7 +18,7 @@
 }
 
 .page-new-persona-marketer,
-.page-persona-marketer {
+.page-content-managers {
   .mod-three-columns {
     &::before {
       content: '';
@@ -33,12 +33,8 @@
     }
   }
 }
-.page-new-persona-developer,
-.page-persona-developer {
-  .mod-three-columns {
-    background-color: $color-17;
-    @extend %color-white;
-    color: $white;
+.dark-mode {
+  &.mod-three-columns {
     &::before {
       content: '';
       @include position(absolute,0,0,auto,0,0);
@@ -57,9 +53,9 @@
   }
 }
 .page-new-persona-marketer,
-.page-persona-marketer,
+.page-content-managers,
 .page-new-persona-developer,
-.page-persona-developer {
+.page-developers {
   .mod-three-columns {
     position: relative;
     padding: 60px 0;
@@ -119,9 +115,9 @@
     margin-top: -5px;
   }
   .page-new-persona-marketer,
-  .page-persona-marketer,
+  .page-content-managers,
   .page-new-persona-developer,
-  .page-persona-developer {
+  .page-developers {
     .mod-three-columns {
       padding: 105px 0;
     }
@@ -137,9 +133,9 @@
 }
 @media (min-width: 1500px) {
   .page-new-persona-marketer,
-  .page-persona-marketer,
+  .page-content-managers,
   .page-new-persona-developer,
-  .page-persona-developer {
+  .page-developers {
     .mod-three-columns .container:not(.max-w-940) {
       max-width: 1150px;
     }

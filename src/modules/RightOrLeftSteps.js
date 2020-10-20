@@ -5,7 +5,7 @@ import Spacing from './Spacing'
 
 const RightOrLeftSteps = ({ item }) => {
 
-	console.log("RightOrLeftSteps", item)
+	// console.log("RightOrLeftSteps", item)
 	const fields = item.customFields
 	const heading = fields.heading
 	const title = fields.title

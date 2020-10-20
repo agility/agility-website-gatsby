@@ -6,16 +6,17 @@ import Lazyload from 'react-lazyload'
 import './LogoListingModule.scss'
 import '../global/core/lib/_slick-theme.scss'
 import StringUtils from '../utils/string-utils'
+import ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 
 const LogoListingModule = ({ item }) => {
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
 	const classSection = `module LogoListingModule animation  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
-	
-	console.log("LogoListingModule", item)
 
-	const listLogos = logos.map((key, idx) => {
+	// console.log("LogoListingModule", item)
+
+	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
 		const className = `logo-item logo-v${idx + 1}`
 		const logoImage = key.customFields.logo.url
 		const logoTitle = key.customFields.logo.title
@@ -37,7 +38,7 @@ const LogoListingModule = ({ item }) => {
 			if(section.classList.contains('set-animation') && section.querySelectorAll('.slick-list').length) {
 				clearInterval(inter)
 				section.querySelectorAll('.slick-list')[0].style.height = 'auto'
-				
+
 			}
 		}, 5);
 	}

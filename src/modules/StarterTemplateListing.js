@@ -8,7 +8,7 @@ import Spacing from './Spacing'
 
 const StarterTemplateListing = ({ item }) => {
   const fields = item.customFields
-  console.log('StarterTemplateListing', item)
+  // console.log('StarterTemplateListing', item)
 	const classSection = `StarterTemplateListing ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   return (
     <React.Fragment>

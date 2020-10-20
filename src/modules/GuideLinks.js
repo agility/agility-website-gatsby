@@ -31,7 +31,6 @@ export default props => (
 				const referenceName = props.item.customFields.links.referencename
 				const listGuideLinks = queryData.allAgilityLink.nodes
 				.filter(obj => { return obj.properties.referenceName === referenceName})
-				console.log('queryData.allAgilityLink', queryData.allAgilityLink)
 				const viewModel = {
 					item: props.item,
 					listGuideLinks
@@ -44,7 +43,7 @@ export default props => (
 	)
 
 const GuideLinks = ({ item, listGuideLinks }) => {
-	console.log('GuideLinks', item)
+	// console.log('GuideLinks', item)
 
 	const fields = item.customFields;
 	const classSection = `module mod-user-guides has-btn-white text-white GuideLinks animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode': ''}`

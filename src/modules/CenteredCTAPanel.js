@@ -7,7 +7,6 @@ const CenteredCTAPanel = ({ item }) => {
 	const classSection = `module mod-cta ps-rv bg-46 CenteredCTAPanel animation ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 	const btnCta1 = fields.cTA1
 	const btnCta2 = fields.cTA2
-	console.log('fillll, ', fields.description)
 	return (
 		<React.Fragment>
 			<section className={classSection}>

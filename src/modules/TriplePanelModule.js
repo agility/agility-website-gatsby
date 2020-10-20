@@ -9,7 +9,7 @@ export default props => (
 	<StaticQuery
 			query={graphql`
 				query allAgilityPanelContentItems {
-					allAgilityPanelContentItems {
+					allAgilityPanelContentItems(sort: {fields: properties___itemOrder}) {
 						nodes {
 							customFields {
 								graphic {
@@ -26,6 +26,7 @@ export default props => (
 							}
 							properties {
 								referenceName
+								itemOrder
 							}
 						}
 					}
@@ -50,9 +51,9 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 	const heading = item.customFields.title
 	const des = item.customFields.description
 	const btn1 = item.customFields.cTAButton
-	const classSection = `module mod-three-columns TriplePanelModule animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode': ''}`
-	console.log('TriplePanelModule', item)
-	console.log('TriplePanelModule Blog', tripePanels)
+	const classSection = `module mod-three-columns TriplePanelModule  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	// console.log('TriplePanelModule', item)
+	// console.log('TriplePanelModule Blog', tripePanels)
 	const listPanels = tripePanels.map((obj, idx) => {
 		const customField = obj.customFields
 		return (
@@ -76,7 +77,7 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 	return (
 	<React.Fragment>
 		<section className={classSection}>
-		<div className="container last-mb-none max-w-940 text-center anima-bottom">
+		<div className="container last-mb-none max-w-940 text-center animation anima-bottom">
 			{ heading &&
 				<h2>{heading}</h2>
 			}
@@ -84,14 +85,14 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 				<div dangerouslySetInnerHTML={renderHTML(des)} />
 			}
 		</div>
-		<div className="container small-paragraph ">
+		<div className="container small-paragraph animation">
 			{ listPanels.length > 0 &&
-				<div className="row">
+				<div className="row anima-bottom delay-2">
 					{listPanels}
 				</div>
 			}
 			{ btn1 &&
-				<div className="cta-3col text-center last-mb-none anima-bottom delay-6">
+				<div className="cta-3col text-center last-mb-none anima-bottom delay-4">
 					<a href={btn1.href} target={btn1.target} className="btn btn-yellow text-decoration-none">{btn1.text}</a>
 				</div>
 			}
