@@ -196,7 +196,8 @@ const SearchResults = ({ item }) => {
 						<input className="search-input" value={query} onKeyUp={(target) => {handleKeyUp(target)}} onInput={(target) => {handleChange(target)}} type="text" placeholder="Search"/>
 						<button type="submit">
 							<img src="/images/search-white.svg" alt="search"></img>
-						<span className="sr-only">Search</span> <span className="badge badge-primary"></span>
+						<span className="sr-only">Search</span> 
+						{/* <span className="badge badge-primary"></span> */}
 						</button>
 						<span className={classinput} onClick={() => clickClear()}></span>
 					</form>

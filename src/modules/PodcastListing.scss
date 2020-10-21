@@ -8,13 +8,15 @@
 .two-column-page {
   padding-top: 75px;
   padding-bottom: 160px;
-
+  .row-my {
+    display: flex;
+  }
   @media (max-width: 767px) {
     padding-bottom: 50px;
+    .row-my {
+      display: block ;
+    }
   }
- .row-my {
-    display: flex;
-}
   .left-col {
     padding-left: 16px;
     padding-right: 16px;
@@ -44,6 +46,14 @@
     padding-right: 16px;
     max-width: 42%;
     flex: 0 0 42%;
+    @media (max-width: 767px) {
+      max-width: 100%;
+      -webkit-box: 0 0 100%;
+      -moz-box: 0 0 100%;
+      -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+    }
   }
 }
 

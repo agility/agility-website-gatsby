@@ -1,7 +1,3 @@
-// @import "../global/_variables.scss";
-// @import '../assets/styles/core/base/setting.scss';
-// @import '../assets/styles/bootstrap/bootstrap.scss';
-// @import '../assets/styles//core/base/mixins';
 @import '../global/setting';
 .title-i-c {
   max-width: 588px;
@@ -16,27 +12,10 @@
 }
 .item-image-ic {
   top: 0;
-  // display: none;
   opacity: .2;
   transition: all .35s;
   position: relative;
-  // img {
-  //   opacity: 0;
-  // }
-  // &.tab-active {
-  //   display: block;
-  //   // animation: opacity .5s;
-  //   img:not(.layer-image) {
-  //     animation: opacity .6s;
-  //     animation-fill-mode: forwards;
-  //   }
-  //   .layer-image {
-  //     animation: opacityLayer .6s .35s;
-  //     animation-fill-mode: forwards;
-  //   }
-  // }
 }
-// .img-before {
 .mod-image-content {
   &.prallax {
     .img-before,
@@ -53,11 +32,15 @@
     left: 0;
   }
 }
+.img-before {
+  position: relative;
+  z-index: 1;
+}
 .layer-image {
   position: absolute;
   bottom: -10px;
   // left: 50%;
-  z-index: -1;
+  z-index: 0;
   right: 0;
   opacity: 1;
   width: 90%;
@@ -105,15 +88,9 @@
       position: absolute;
     }
   }
-  .img-before {
-    position: relative;
-    z-index: 1;
-  }
   .layer-image {
-    opacity: 0;
     right: auto;
     left: 50%;
-    opacity: 1;
     transform: translateY(0) translateX(-50%);
   }
   .full-panel {
@@ -156,13 +133,6 @@
         padding-left: 30px;
       }
     }
-    // &:hover {
-    //   .box-content {
-    //     &::after {
-    //       height: 100%;
-    //     }
-    //   }
-    // }
     &.tab-active {
       h4 {
         color: $color-58;

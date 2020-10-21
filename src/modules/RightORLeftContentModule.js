@@ -85,7 +85,7 @@ const RightOrLeftContent = ({ item }) => {
 		}, 1000)
 	}
 	const initParallax = () => {
-		if (document.getElementsByClassName('done-ani').length) {
+		if (document.getElementsByClassName('ani-banner').length) {
 			parallaxBanner()
 		}
 	}

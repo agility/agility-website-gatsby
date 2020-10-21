@@ -46,13 +46,13 @@ const RightOrLeftSteps = ({ item }) => {
 
 							{ imgURL &&
 								<React.Fragment>
-									<Lazyload><img src="../images/bg-top.svg" className="bg-left-step bg-black-frame" alt="Create your content structure"></img></Lazyload>
-									<Lazyload><img src="../images/triangle-purple.png" className="bg-left-step bg-white-frame" alt="Create your content structure"></img></Lazyload>
+									{/* <Lazyload><img src="../images/bg-top.svg" className="bg-left-step bg-black-frame" alt="Create your content structure"></img></Lazyload> */}
+									{/* <Lazyload><img src="../images/triangle-purple.png" className="bg-left-step bg-white-frame" alt="Create your content structure"></img></Lazyload> */}
 
 									<Lazyload><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
 
-									<Lazyload><img src="../images/triangle-purple.png" className="bg-right-step bg-white-frame" alt="Create your content structure"></img></Lazyload>
-									<Lazyload><img src="../images/bg-top.svg" className="bg-right-step bg-black-frame" alt="Create your content structure"></img></Lazyload>
+									{/* <Lazyload><img src="../images/triangle-purple.png" className="bg-right-step bg-white-frame" alt="Create your content structure"></img></Lazyload> */}
+									{/* <Lazyload><img src="../images/bg-top.svg" className="bg-right-step bg-black-frame" alt="Create your content structure"></img></Lazyload> */}
 								</React.Fragment>
 							}
 

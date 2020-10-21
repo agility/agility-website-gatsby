@@ -1,4 +1,10 @@
 @media (min-width: 1200px) {
+  .anima-revert {
+    .anima-bottom:not(.not-anima) {
+      transform: translate3d(0, -100px, 0);
+      opacity: 0;
+    }
+  }
   .anima-left:not(.not-anima)  {
     transform: translate3d(-100px, 0, 0);
     opacity: 0;
@@ -14,6 +20,9 @@
   .anima-bottom:not(.not-anima) {
     transform: translate3d(0, 100px, 0);
     opacity: 0;
+    &.anima-revert {
+      transform: translate3d(0, -100px, 0);
+    }
   }
   .anima-top:not(.not-anima) {
     transform: translate3d(0, -100px, 0);
@@ -35,7 +44,7 @@
       transition: opacity .6s, transform .6s;
     }
     &.anima-bottom {
-      transform: none;
+      transform: none !important;
       opacity: 1 !important;
       transition: opacity .6s, transform .6s;
     }

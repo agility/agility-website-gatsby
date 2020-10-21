@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 // import HtmlReactParser from "html-react-parser"
 import '../global/mixins/_mixins-global.scss'
 import '../global/_react-debug.scss'
@@ -23,6 +23,8 @@ import '../global/_header.scss'
 import '../global/core/lib/_animationPage.scss'
 import '../global/core/lib/_loading.scss'
 import '../global/core/lib/_slick-theme.scss'
+
+import BrowserDetection from '../global/javascript/BrowserDetection'
 
 export default ({ page, children }) => {
 
@@ -60,6 +62,10 @@ export default ({ page, children }) => {
 	// 	globalTopScript = "";
 	// 	globalBottomScript = "";
 	// }
+
+	useEffect(() => {
+		BrowserDetection.browserDetection()
+	})
 
 
 	return (

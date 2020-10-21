@@ -114,7 +114,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
       resetPropertyPin(serviceLeft)
       return false
     }
-    rootOffset = $this.offsetTop + $this.querySelectorAll('.title-i-c')[0].offsetHeight + 60
+    rootOffset = $this.offsetTop + $this.querySelectorAll('.title-i-c')[0].offsetHeight + 45
     scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
     offsetPin = (window.innerHeight - document.querySelectorAll('#header')[0].offsetHeight - serviceLeft.offsetHeight) / 2
     listOffset = rootOffset + serviceRight.offsetHeight

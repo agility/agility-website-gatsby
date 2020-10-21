@@ -71,7 +71,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					clicked = 0;
 					wrap.classList.add('add-transition')
 					slide((wrap.offsetWidth + comparImg*2 - 8)/2)
-					console.log((wrap.offsetWidth + comparImg*2)/2)
+					// console.log((wrap.offsetWidth + comparImg*2)/2)
 					setTimeout(() => {
 						wrap.classList.remove('add-transition')
 					}, 350)

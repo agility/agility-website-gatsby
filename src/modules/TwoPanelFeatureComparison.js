@@ -4,7 +4,7 @@ import { renderHTML } from '../agility/utils'
 import './TwoPanelFeatureComparison.scss'
 import Spacing from './Spacing'
 import Lazyload from 'react-lazyload'
-
+import HelperFunc from '../global/javascript/Helpers.js'
 export default props => (
 <StaticQuery
 		query={graphql`
@@ -105,7 +105,7 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const title1 = item.customFields.group1Title
 	const title2 = item.customFields.group2Title
 	// console.log('dataQuery', dataQuery)
-	// console.log("TwoPanelFeatureComparison", item)
+	console.log("TwoPanelFeatureComparison", item)
 	const groupPanels1 = dataQuery.listPanelItems1.map((panel, index) => {
 		const listCheckItem = panel.checkedItems ? panel.checkedItems.map(checkItem => {
 			const fieldCheck = checkItem.customFields
@@ -120,20 +120,21 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 			)
 		}) : []
 		const classImage = `col-md-6 box-pin ${panel.customFields.graphicLocation === 'right' ? 'order-md-2 anima-right': 'anima-left'}`
-		let img1 = '../images/marketing-1.png'
-		let img2 = '../images/trig-bg-2.png'
+		let img1 = panel.customFields.graphic.url
+		let img2 = ''
+		if (index === 0) {
+			img2='../images/features-marketing-1-trig.svg'
+		}
 		if (index === 1) {
-			img1='../images/marketing-2.png'
-			img2='../images/marketing-trig-2.png'
+			img2='../images/features-marketing-2-trig.svg'
 		}
 		if (index === 2 ) {
-			img1='../images/marketing-3.png'
-			img2='../images/marketing-trig-3.png'
+			img2='../images/features-marketing-3-trig.svg'
 		}
 		const ImgNoParallax = () => {
 			if (panel.customFields.graphic && panel.customFields.graphic.url) {
 				return (
-					<img src={panel.customFields.graphic.url} alt={panel.customFields.title}></img>
+					<img className="primary-img" src={panel.customFields.graphic.url} alt={panel.customFields.title}></img>
 				)
 			}
 			return null
@@ -184,20 +185,21 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 			)
 		}) : []
 		const classImage = `col-md-6 box-pin ${panel.customFields.graphicLocation === 'right' ? 'anima-left': 'anima-right'}`
-		let img1 = '../images/image.png'
-		let img2 = '../images/image-tri.png'
+		let img1 = panel.customFields.graphic.url
+		let img2 = ''
+		if (index === 0) {
+			img2='../images/features-black-1-trig.svg'
+		}
 		if (index === 1) {
-			img1='../images/image2.png'
-			img2='../images/image2-tri.png'
+			img2='../images/features-black-2-trig.svg'
 		}
 		if (index === 2 ) {
-			img1='../images/image3.png'
-			img2='../images/image3-trig.png'
+			img2='../images/features-black-3-trig.svg'
 		}
 		const ImgNoParallax = () => {
 			if (panel.customFields.graphic && panel.customFields.graphic.url) {
 				return (
-					<img src={panel.customFields.graphic.url} alt={panel.customFields.title}></img>
+					<img className="primary-img" src={panel.customFields.graphic.url} alt={panel.customFields.title}></img>
 				)
 			}
 			return <React.Fragment></React.Fragment>
@@ -234,23 +236,6 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 			</div>
 		)
 	})
-	const smoothScroll = (el, to, duration) => {
-		let scrollToTimerCache
-		const doc = document.documentElement;
-		let scroll = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
-    if (duration < 0) {
-      return false
-    }
-    let difference = to - scroll
-    let perTick = difference / duration * 10
-    scrollToTimerCache = setTimeout(() => {
-      clearTimeout(scrollToTimerCache)
-      if (!isNaN(parseInt(perTick, 10))) {
-        window.scrollTo(0, scroll + perTick)
-        smoothScroll(el, to, duration - 10)
-      }
-    }, 10)
-  }
 	const checkActive = () => {
 		const header = document.getElementsByClassName('header')[0]
 		let darkTheme = document.getElementsByClassName('develop-section')[0]
@@ -284,27 +269,11 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		})
 		document.getElementsByClassName('features-tab1')[0].addEventListener('click', () => {
 			let top = document.getElementsByClassName('marketing-section')[0].offsetTop
-			//fix scroll in IE
-			if(navigator.userAgent.match(/Trident\/7\./) || /Edge/.test(navigator.userAgent)) {
-				smoothScroll(window,top - 79 - 1,300)
-			} else {
-				window.scroll({
-					top: top - 79,
-					behavior: 'smooth'
-				});
-			}
+			HelperFunc.animateScrollTop(top - 79 - 1, 500);
 		})
 		if(darkTheme){
 			document.getElementsByClassName('features-tab2')[0].addEventListener('click', () => {
-				//fix scroll in IE
-				if(navigator.userAgent.match(/Trident\/7\./) || /Edge/.test(navigator.userAgent)) {
-					smoothScroll(window,darkTheme.offsetTop - 79 - 1,300)
-				} else {
-					window.scroll({
-						top: darkTheme.offsetTop - 79 - 1,
-						behavior: 'smooth'
-					});
-				}
+				HelperFunc.animateScrollTop(darkTheme.offsetTop - 79 - 1, 500);
 			})
 		}
 	}
@@ -330,9 +299,13 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 			offsetPin = titleFeature.offsetHeight
 			trigger = top + header + offsetPin
 			let difference = top + header + 47 - serviceRight.offsetTop
-			if (serviceLeft.offsetHeight + 50 < serviceLeft.parentElement.parentElement.offsetHeight && trigger > rootOffset && serviceLeft.querySelectorAll('.bg-parallax').length) {
-				serviceLeft.querySelectorAll('.bg-parallax')[0].style.transform = 'translateY(' + -(difference / 10) + 'px) translateX(-50%)'
-				serviceLeft.querySelectorAll('.primary-img')[0].style.transform = 'translateY(' + -(difference / 3) + 'px)'
+			if (serviceLeft.offsetHeight + 50 < serviceLeft.parentElement.parentElement.offsetHeight && trigger > rootOffset) {
+				if (serviceLeft.querySelectorAll('.bg-parallax').length) {
+					serviceLeft.querySelectorAll('.bg-parallax')[0].style.transform = 'translateY(' + -(difference / 10) + 'px) translateX(-50%)'
+				}
+				if (serviceLeft.querySelectorAll('.primary-img').length) {
+					serviceLeft.querySelectorAll('.primary-img')[0].style.transform = 'translateY(' + -(difference / 3) + 'px)'
+				}
 			}
 		}
 		return true
@@ -354,7 +327,7 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	return (
 		<React.Fragment>
 			<section className={classSection}>
-				<div className="title-feature fix-item animation">
+				<div className="title-feature fix-item animation anima-fixed" >
 					<div className="container">
 						<div className="row align-items-center">
 							{title1 &&

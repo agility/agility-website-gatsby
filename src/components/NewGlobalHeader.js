@@ -330,13 +330,7 @@ class NewGlobalHeader extends Component {
 					<div className="box-message text-white"> {/*version2: add class style-black */}
 						<div className="container last-mb-none text-center">
 							<div className="close-message" onClick={this.hiddenMessage}></div>
-							<p>
-								Webinar: Why Headless Will Destroy the Traditional CMS - Oct 15th
-								<Link to="#" className="link-line line-purple">Sign up now</Link>
-							</p>
-							{/* <p>
-							<div dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
-							</p> */}
+							<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
 						</div>
 					</div>
 					}

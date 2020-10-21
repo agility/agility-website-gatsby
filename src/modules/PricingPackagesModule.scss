@@ -43,6 +43,7 @@
     background-image: linear-gradient(to bottom, $color-e9 10%, rgba(255, 255, 255, .5));
     transform: skewX(30deg);
     z-index: 1;
+    pointer-events: none;
   }
   &.type-free {
     background-color: $color-e9;
@@ -183,14 +184,12 @@
         padding-right: 0;
       }
     }
+    th,
     td {
-      // width:18.25%;
       width:21.5%;
       &:first-child {
-        // width: 27%;
         width: 14%;
         padding-left: 0 !important;
-        // font-weight: 400;
       }
     }
     td:not(.pr-sub-title) {
@@ -214,10 +213,11 @@
         bottom: - 400px;
         left: 15px;
         right: 15px;
+        pointer-events: none;
       }
 
       div {
-        padding: 17px 15px 10px;
+        padding: 14px 15px;
         text-align: center;
         position: relative;
       }
@@ -332,6 +332,12 @@
       }
     }
   }
+  .table-pin {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -339,13 +345,8 @@
     font-size: rem(35);
   }
   .price-desktop {
-    // th {
-    //   &:first-child {
-    //     padding-left: 0;
-    //   }
-    // }
+    th,
     td {
-      // width: calc(18.75% + 1px);
       width: 18.85%;
       &:first-child {
         width:25%;
@@ -383,6 +384,8 @@
 @media (max-width: 1024px) {
   .price-item-mb {
     margin-bottom: 35px;
+    width: 100%;
+    overflow: hidden;
 
     &.item-free {
       .show-more-mb {

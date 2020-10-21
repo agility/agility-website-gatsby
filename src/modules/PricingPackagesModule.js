@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import Spacing from './Spacing'
+import HelperFunc from '../global/javascript/Helpers.js'
 import './PricingPackagesModule.scss'
 
 export default props => (
@@ -26,7 +27,7 @@ export default props => (
 						itemID
 					}
 				}
-				allAgilityPackageFeatures {
+				allAgilityPackageFeatures(sort: {fields: properties___itemOrder}) {
 					nodes {
 						customFields {
 							isPrimary
@@ -39,7 +40,7 @@ export default props => (
 						itemID
 					}
 				}
-				allAgilityPricingPackages {
+				allAgilityPricingPackages(sort: {fields: properties___itemOrder}) {
 					nodes {
 						customFields {
 							cTAButtonLabel
@@ -157,8 +158,8 @@ const RowItem = ({props, maxCol}) => {
 			return  (checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span>-</span>);
 		}
 	}
-	const rowFeatures = new Array(maxCol).fill(0).map((el, idx) => {
-		if (props.features && props.features.length > 0 && props.features[idx]) {
+	const rowFeatures = props.features.map((el, idx) => {
+		if (el !== 'none') {
 			const featuresFields = props.features[idx].customFields
 			return (
 				<td key={idx} className={`type-${classColor[Number(idx) % 4]}`}>
@@ -237,11 +238,6 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 		}
 	}
 	const checkShowHideElement = () => {
-		// console.log({showHideEle});
-		// showHideEle.current.parentNode.scrollIntoView({
-    //   behavior: 'smooth',
-    //   block: 'start',
-		// });
 		if (isMobile) {
 			if (showMore) {
 				showHideEle.current.style.height = showHideEle.current.scrollHeight + 'px';
@@ -251,13 +247,20 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 		}
 	}
 	const showMoreAction = () => {
+		if (showMore) {
+			HelperFunc.animateScrollTop(showHideEle.current.parentNode.offsetTop - document.querySelector('header').clientHeight, 250)
+		}
 		setShowMore(!showMore);
 	}
 	useEffect(() => {
+		let oldWidth = window.innerWidth;
 		checkShowHideElement();
 		checkIsMobile();
 		window.addEventListener('resize', () => {
-			checkIsMobile();
+			if (oldWidth !== window.innerWidth) {
+				checkIsMobile();
+				oldWidth = window.innerWidth;
+			}
 		})
 	})
 	const fieldLabel = data.customFields
@@ -320,8 +323,10 @@ const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackage
 			const listVal = listPackageFeatureValues.filter(val => {
 				return val.customFields.packageFeature.contentid === featureObj.itemID
 			})
+			// console.log('listPricingPackages', listPricingPackages.length)
 			for(let i = 0; i < listPricingPackages.length; i++) {
-				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID)
+				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID) || 'none'
+				// console.log('orderByPricing', orderByPricing)
 				if (orderByPricing) {
 					listValPricing.push(orderByPricing)
 				}
@@ -361,7 +366,8 @@ class PricingPackagesModule2 extends React.Component {
 		super(props);
 		this.state = {
 			showMore: false,
-			isMobile: false
+			isMobile: false,
+			isPin: false
 		}
 	}
 
@@ -377,17 +383,19 @@ class PricingPackagesModule2 extends React.Component {
 	}
 	checkShowHideSection() {
 		const section2 = document.querySelector('.show-hide-act');
+		const windowY = window.pageYOffset;
 		if (!this.state.isMobile) {
 			if (this.state.showMore) {
+				if (document.querySelector('html').classList.contains('chrome')) {
+					HelperFunc.animateScrollTop(windowY, 450);
+				}
 				setTimeout(() => {
-					section2.style.height = section2.scrollHeight + 'px'
-				}, 100)
-
+					section2.style.height = section2.scrollHeight + 'px';
+				}, 20)
 			} else {
 				setTimeout(() => {
 					section2.style.height = 0 + 'px'
-
-				}, 100)
+				}, 20)
 			}
 		}
 	}
@@ -414,8 +422,73 @@ class PricingPackagesModule2 extends React.Component {
 		}
 	}
 
+	// pinHeaderTable() {
+	// 	const pinEle = document.querySelector('.table-header')
+	// 	const $header = document.querySelector('#header')
+	// 	const virtual = document.querySelector('.virtual-pin-bar')
+	// 	const scrollArea = document.querySelector('.price-desktop')
+
+	// 	const caculatePin = () => {
+	// 		// const pinEle = document.querySelector('.table-header')
+
+	// 		let offsetPin
+	// 		let rootOffset
+	// 		let header
+	// 		let trigger
+	// 		let listOffset
+	// 		let scrollTop
+	// 		// if ($window.width() < 768) {
+	// 		// 	resetPropertyPin(pinEle)
+	// 		// 	return false
+	// 		// }
+	// 		rootOffset = virtual.offsetTop;
+	// 		scrollTop = window.pageYOffset;
+	// 		header = $header.clientHeight;
+	// 		offsetPin = virtual.offsetTop;
+	// 		listOffset = scrollArea.offsetTop + scrollArea.clientHeight
+	// 		trigger = scrollTop + header
+		
+	// 		if (trigger > rootOffset) {
+	// 			if (trigger + pinEle.clientHeight < listOffset) {
+	// 				this.setState({isPin: true});
+	// 				// pinEle.classList.add('table-pin');
+	// 				// pinEle.style.top = $header.clientHeight + 'px';
+	// 				// pinEle.childNodes[0].classList.add('container');
+	// 				// virtual.style.height = pinEle.clientHeight + 'px'
+	// 			} else {
+	// 				// pinEle.addClass(classPin).css({top: (listOffset - pinEle.height() - scrollTop), width: widthSerLeft})
+	// 			}
+	// 		} else {
+	// 			// resetPropertyPin(pinEle)
+	// 			// pinEle.classList.remove('table-pin')
+	// 			// virtual.style.height = '';
+	// 			// pinEle.childNodes[0].classList.remove('container');
+	// 			this.setState({isPin: false});
+	// 		}
+	// 	}
+
+	// 	// window.addEventListener('scroll', (e) => {
+	// 	// 	console.log('bbb', {'aa' : pinEle.children})
+	// 	// 	caculatePin();
+	// 	// 	// if (window.pageYOffset > virtual.offsetTop - header.clientHeight) {
+	// 	// 	// 	if (!document.querySelector('.vitural-pin-bar')) {
+	// 	// 	// 		virtual.style.height = pinEle.clientHeight + 'px'
+	// 	// 	// 	}
+	// 	// 	// 	pinEle.classList.add('table-pin');
+	// 	// 	// 	pinEle.style.top = header.clientHeight + 'px';
+	// 	// 	// 	pinEle.childNodes[0].classList.add('container');
+	// 	// 	// } else {
+	// 	// 	// 	pinEle.classList.remove('table-pin')
+	// 	// 	// 	virtual.style.height = '';
+	// 	// 	// 	pinEle.childNodes[0].classList.remove('container');
+	// 	// 	// 	// document.querySelector('.vitural-pin-bar').parentNode.removeChild(document.querySelector('.vitural-pin-bar'))
+	// 	// 	// }
+	// 	// })
+	// }
+
 	componentDidMount() {
-		console.log('value', this.props)
+		// console.log('value', this.props)
+		// let oldWidth = window.innerWidth
 		this.checkIsMobile();
 		const interCount = 0;
 		let inter = setInterval(() => {
@@ -427,9 +500,16 @@ class PricingPackagesModule2 extends React.Component {
 
 		this.checkShowHideSection();
 		window.addEventListener('resize', () => {
-			this.checkIsMobile();
-			this.equalHeightHeader();
-		})
+			// if (oldWidth !== window.innerWidth) {
+				this.checkIsMobile();
+				this.equalHeightHeader();
+
+				// oldWidth = window.innerWidth;
+			// }
+		});
+		// window.addEventListener('scroll', (e) => {
+		// 	console.log('oo', Date.timestamp)
+		// })
 	}
 	componentDidUpdate() {
 		this.checkShowHideSection();
@@ -504,28 +584,41 @@ class PricingPackagesModule2 extends React.Component {
 
 
 		const BlockPriceDesktop = (<div className="price-desktop">
-					<table className="table-1">
-						<tbody>
-							<tr>
-								<th></th>
-								{ listHeaderColumn && listHeaderColumn.length > 0 &&
-									listHeaderColumn
-								}
-							</tr>
-							<tr className="pr-tr-title">
-								{ primaryFeaturesTitle &&
-									<td className="pr-sub-title">{primaryFeaturesTitle}</td>
-								}
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							{ rowListShow && rowListShow.length > 0 &&
-								 rowListShow
+			<div className="virtual-pin-bar"></div>
+			<div className={`table-header`}> {/* style={{ top: `${this.state.isPin ? document.querySelector('header').clientHeight + 'px' : ''}` }}  style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}} */}
+				<div>
+					<table>
+						<tr>
+							<th></th>
+							{ listHeaderColumn && listHeaderColumn.length > 0 &&
+								listHeaderColumn
 							}
-						</tbody>
+						</tr>
 					</table>
+				</div>
+			</div>
+			
+
+			<table className="table-1">
+				<tbody>
+					{/* <tr>
+						<th></th>
+						{ listHeaderColumn && listHeaderColumn.length > 0 &&
+							listHeaderColumn
+						}
+					</tr> */}
+					<tr className="pr-tr-title">
+						<td className="pr-sub-title" colSpan="5">
+							{ primaryFeaturesTitle && primaryFeaturesTitle}
+							{ !primaryFeaturesTitle && <span className="hidden-text" tabIndex='-1'>hidden</span>}
+						</td>
+						
+					</tr>
+					{ rowListShow && rowListShow.length > 0 &&
+							rowListShow
+					}
+				</tbody>
+			</table>
 
 
 					{/* Table show/hide */}
@@ -533,9 +626,10 @@ class PricingPackagesModule2 extends React.Component {
 						<table className={"table-2 "}>
 							<tbody>
 								<tr className="pr-tr-title">
-									{ secondaryFeaturesTitle &&
-										<td className="pr-sub-title">{secondaryFeaturesTitle}</td>
-									}
+									<td className="pr-sub-title">
+										{ secondaryFeaturesTitle && secondaryFeaturesTitle}
+										{ !secondaryFeaturesTitle && <span className="hidden-text" tabIndex='-1'>hidden</span>}
+									</td>
 									<td></td>
 									<td></td>
 									<td></td>

@@ -16,12 +16,14 @@ const BoxContent = ({ item }) => {
 	const image = fields.image
 	const image2 = fields.image2
 	// console.log('typeof', typeof fields.mobileSpace)
+	const classitem  = ( btnCta || image || heading || description) && ( btnCta2 || image2 || heading2 || description2)  ? 'col-lg-6 item-chanel' : 'col-lg-8 item-chanel'
 	return (
 		<React.Fragment>
 		<section className={classSection}>
 			<div className="container">
 				<div className="row justify-content-center anima-bottom">
-					<div className="col-lg-6 item-chanel">
+					{ (btnCta || image || heading || description) &&
+					<div className={classitem}>
 						<div className="wrap-chanel text-center last-mb-none ps-rv">
 							{ btnCta &&
 								<a href={btnCta.href} target={btnCta.target} className="ps-as"><span className='sr-only'>{btnCta.text}</span></a>
@@ -40,25 +42,29 @@ const BoxContent = ({ item }) => {
 							}
 						</div>
 					</div>
-					<div className="col-lg-6 item-chanel">
-						<div className="wrap-chanel text-center last-mb-none ps-rv">
-							{ btnCta &&
-								<a href={btnCta.href} target={btnCta.target} className="ps-as"><span className='sr-only'>{btnCta.text}</span></a>
-							}
-							{ image2 &&
-								<img src={image2.url} alt={image2.label}></img>
-							}
-							{ heading2 &&
-								<h2>{heading2}</h2>
-							}
-							{ description2 &&
-								<p>{description2}</p>
-							}
-							{ btnCta2 &&
-								<p><a href={btnCta2.href} target={btnCta2.target} className="link-line line-purple">{btnCta2.text}</a></p>
-							}
+					}
+					{ (btnCta2 || image2 || heading2 || description2) &&
+						<div className={classitem}>
+							<div className="wrap-chanel text-center last-mb-none ps-rv">
+								{ btnCta2 &&
+									<a href={btnCta2.href} target={btnCta2.target} className="ps-as"><span className='sr-only'>{btnCta2.text}</span></a>
+								}
+								{ image2 &&
+									<img src={image2.url} alt={image2.label}></img>
+								}
+								{ heading2 &&
+									<h2>{heading2}</h2>
+								}
+								{ description2 &&
+									<p>{description2}</p>
+								}
+								{ btnCta2 &&
+									<p><a href={btnCta2.href} target={btnCta2.target} className="link-line line-purple">{btnCta2.text}</a></p>
+								}
+							</div>
 						</div>
-					</div>
+					}
+					
 				</div>
 			</div>
 		</section>

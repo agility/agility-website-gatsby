@@ -31,6 +31,7 @@
   padding: 75px 0;
   position: relative;
   z-index: 2;
+  overflow: hidden;
   .bg-bottom {
     @include position(absolute,$bottom:0,$right: -83px);
     width: 157px;
@@ -576,8 +577,11 @@
   .bg-top-video {
     bottom: -50px;
   }
+  .list-item-HIW {
+    top: 100px
+  }
   .wrap-video-HIW {
-    margin-bottom: 145px;
+    margin-bottom: 45px;
   }
   .item-v1-2 {
     top: 19%;
@@ -598,7 +602,7 @@
     right: 14%;
   }
   .item-v2-3 {
-    right: 27%;
+    right: 24%;
     top: 19%;
   }
   .item-v2-4 {
@@ -635,6 +639,7 @@
   }
   .best-HIW {
     padding-bottom: 185px;
+    padding-top: 100px;
   }
   .wrap-video {
     width: 920px;
@@ -667,7 +672,7 @@
     }
   }
   .wrap-video-HIW {
-    margin-bottom: 166px;
+    margin-bottom: 66px;
   }
   .item-v1-2 {
     left: 5%

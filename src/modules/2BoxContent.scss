@@ -1,16 +1,25 @@
 @import '../global/setting';
 .wrap-chanel {
-  box-shadow: 0 3px 20px -8px rgba(85, 63, 164, .25);
+  // box-shadow: 0 3px 20px -8px rgba(85, 63, 164, .25);
+  box-shadow: 0 5px 30px 0px rgba(85, 63, 164, 0.25);
   background-color: #fff;
   padding: 40px;
   transition: all .35s;
   img {
-		margin-bottom: 25px;
-		height: 75px;
+		margin-bottom: 12px;
+		height: 100px;
   }
-  p a {
-    position: relative;
-    z-index: 3;
+  p {
+    a {
+      position: relative;
+      z-index: 3;
+    }
+    & + p:last-child {
+      margin-top: -15px;
+    }
+  }
+  h2 {
+    margin-bottom: 15px;
   }
 }
 .item-chanel {
@@ -18,9 +27,10 @@
 }
 @media (min-width: 992px) {
   .wrap-chanel {
-    padding: 70px 85px;
+    padding: 57px 85px;
+    height: 100%;
     &:hover {
-      box-shadow: none;
+      box-shadow: 0 0 6px 0px rgba(85,63,164,0.37);
     }
 	}
 }

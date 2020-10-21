@@ -1,13 +1,13 @@
 @import '../global/setting';
 .marketing-section {
-  background-color: #eef4f8;
+  background-color: $color-ee;
 }
 .section-lv2 {
   padding-top: 50px;
   padding-bottom: 65px;
   + .title-feature .features-tab2 {
     color: $color-ff;
-    background-color: $color-17
+    background-color: $color-17;
   }
 }
 .features-tab {
@@ -20,7 +20,7 @@
   color: $color-58;
 }
 .title-feature {
-  background-color: #eef4f8;
+  background-color: $color-ee;
   transition: all .35s;
   border-bottom: 1px solid rgba(76,104,132,.25);
   h4 {
@@ -107,7 +107,7 @@
     }
     .has-hover {
       &:hover {
-        background-color: #eef4f8;
+        background-color: $color-ee;
         color: #2a3846;
         &::after {
           background-image: url('/images/check-purple.svg')
@@ -243,14 +243,30 @@
     margin-bottom: 100px;
   }
   .title-feature {
-    &:not(.active-tab2) {
-      .features-tab:hover {
-        color: $color-58;
+    // &:not(.active-tab2) {
+    //   .features-tab:hover {
+    //     color: $color-58;
+    //   }
+    // }
+    // &.active-tab2 {
+    //   .features-tab:hover {
+    //     color: $color-ff;
+    //   }
+    // }
+    .features-tab2 {
+      &:hover {
+        color: $color-ff;
+        &::before {
+          background-color: $color-17;
+        }
       }
     }
-    &.active-tab2 {
-      .features-tab:hover {
-        color: $color-ff;
+    .features-tab1 {
+      &:hover {
+        color: $color-58;
+        &::before {
+          background-color: $color-ee;
+        }
       }
     }
   }

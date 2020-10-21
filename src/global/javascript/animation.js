@@ -14,7 +14,7 @@ const animationEle = () =>  {
     let wintop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     Array.from($elems).forEach((ele) => {
       const $elm = ele
-      if ($elm.classList.contains('set-animation')) {
+      if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed')) {
         return true
       }
       let topcoords = $elm.offsetTop + $elm.offsetParent.offsetTop
@@ -23,8 +23,18 @@ const animationEle = () =>  {
       } else {
         add = 0
       }
-      if (wintop > (topcoords - (winH * offset) + add)) {
+      // console.log(wintop,$elm.offsetHeight + topcoords + add ,ele)
+      if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
         $elm.classList.add('set-animation')
+      } else {
+        if ($elm.offsetHeight + topcoords + add < wintop ||  topcoords + add > wintop + winH) {
+          $elm.classList.remove('set-animation')
+          if(topcoords + add > wintop + winH) {
+            $elm.classList.remove('anima-revert')
+          } else {
+            $elm.classList.add('anima-revert')
+          }
+        }
       }
       return true
     })

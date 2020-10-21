@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="509px" height="541px" viewBox="0 0 509 541" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>image</title>
+    <defs>
+        <linearGradient x1="50%" y1="20.5331778%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="254.87013" height="250"></rect>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#BAB0FD" offset="0%"></stop>
+            <stop stop-color="#8478F9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-5">
+            <stop stop-color="#616D7D" offset="0%"></stop>
+            <stop stop-color="#323B47" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-6">
+            <stop stop-color="#7556E8" offset="0%"></stop>
+            <stop stop-color="#5D0EF9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-7">
+            <stop stop-color="#616D7D" offset="0%"></stop>
+            <stop stop-color="#323B47" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-8">
+            <stop stop-color="#616D7D" offset="0%"></stop>
+            <stop stop-color="#323B47" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-9" x="0" y="0" width="442.622951" height="150" rx="12"></rect>
+        <filter x="-11.3%" y="-20.0%" width="127.1%" height="180.0%" filterUnits="objectBoundingBox" id="filter-10">
+            <feMorphology radius="5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="10" dy="30" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0903223218   0 0 0 0 0.0395715411   0 0 0 0 0.161373415  0 0 0 0.28 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-10.1%" y="-16.3%" width="124.6%" height="172.7%" filterUnits="objectBoundingBox" id="filter-11">
+            <feMorphology radius="11" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feGaussianBlur stdDeviation="15" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="-1" dy="-8" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.960784314  0 0 0 0.696159309 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feGaussianBlur stdDeviation="3.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
+            <feOffset dx="-3" dy="-8" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-12">
+            <stop stop-color="#F6FBFF" offset="0%"></stop>
+            <stop stop-color="#E9F0F5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-13">
+            <stop stop-color="#FFC414" offset="0%"></stop>
+            <stop stop-color="#FFB20B" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-14" cx="33" cy="33" r="33"></circle>
+        <filter x="-43.2%" y="-29.5%" width="186.4%" height="218.2%" filterUnits="objectBoundingBox" id="filter-16">
+            <feMorphology radius="5.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="30" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.22233192   0 0 0 0 0.176508138   0 0 0 0 0.39232337  0 0 0 0.215089598 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="features-marketing-1" transform="translate(-91.000000, -0.000000)">
+            <g id="image" transform="translate(91.000000, 0.000000)">
+                <g id="bg-triangles" fill="#4C6884" fill-rule="nonzero" opacity="0.049567">
+                    <polygon id="Path" points="233.737535 540.324031 233.763785 270 8.24229573e-13 405.186535"></polygon>
+                    <polygon id="Path" points="355 86.5695833 276.482093 38 273 130"></polygon>
+                    <polygon id="Path" points="329.795016 29 339 0 309 6.06190214"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
