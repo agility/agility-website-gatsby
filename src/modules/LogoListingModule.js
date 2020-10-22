@@ -5,9 +5,10 @@ import Lazyload from 'react-lazyload'
 // import LazyBackground from '../utils/LazyBackground'
 import './LogoListingModule.scss'
 import '../global/core/lib/_slick-theme.scss'
-import StringUtils from '../utils/string-utils'
+// import StringUtils from '../utils/string-utils'
 import ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const LogoListingModule = ({ item }) => {
 	const heading = item.customFields.title
@@ -17,15 +18,16 @@ const LogoListingModule = ({ item }) => {
 	// console.log("LogoListingModule", item)
 
 	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
+		console.log(key.customFields.logo);
 		const className = `logo-item logo-v${idx + 1}`
 		const logoImage = key.customFields.logo.url
-		const logoTitle = key.customFields.logo.title
+		const logoTitle = key.customFields.logo.label
 		const link = key.customFields.uRL.href
 		const taget = key.customFields.uRL.target
 		return (
 			<div className={className} key={idx}>
 				<Link target={taget} to={link} className='d-block'>
-						<Lazyload><img src={logoImage} alt={logoTitle}></img></Lazyload>
+						<Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle}></img></Lazyload>
 				</Link>
 			</div>
 		)

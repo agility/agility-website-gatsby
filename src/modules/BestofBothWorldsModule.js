@@ -8,6 +8,7 @@ import LazyBackground from '../utils/LazyBackground'
 // import Vimeo from 'react-vimeo';
 import Spacing from './Spacing'
 import ReactPlayer from 'react-player'
+import Helpers from '../global/javascript/Helpers'
 
 const BestofBothWorldsModule = ({ item }) => {
 	const fields = item.customFields
@@ -44,7 +45,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					}
 				}
 			}, 50);
-			
+
 			function compareImages(img) {
 				var img, clicked = 0, w, h,comparImg;
 				w = wrap.offsetWidth;
@@ -52,7 +53,7 @@ const BestofBothWorldsModule = ({ item }) => {
 				comparImg = (1 / Math.tan(69 * Math.PI/180))*h;
 				img.style.width = ((w / 2) + comparImg ) + 'px';
 				img.style.left = -comparImg + 'px';
-				
+
 				Array.from(img.querySelectorAll('img')).forEach((ele) => {
 					ele.style.left = comparImg + 'px';
 				})
@@ -122,7 +123,7 @@ const BestofBothWorldsModule = ({ item }) => {
 								best.classList.add('active-v1')
 								best.classList.remove('is-active')
 							}
-						} 
+						}
 						else {
 							best.classList.remove('active-v2')
 							best.classList.remove('active-v1')
@@ -222,9 +223,9 @@ const BestofBothWorldsModule = ({ item }) => {
 								</div>
 							</LazyBackground>
 						</div>
-						<LazyLoad>
-							<LazyLoad><img src="/images/bg-top.svg" className="bg-top-video" alt="image"></img></LazyLoad>
-						</LazyLoad>
+						{/* <LazyLoad> */}
+						<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className="bg-top-video" alt="image"></img></LazyLoad>
+						{/* </LazyLoad> */}
 					</div>
 				</div>
 				<div className="best-HIW animation anima-bottom">
@@ -244,7 +245,7 @@ const BestofBothWorldsModule = ({ item }) => {
 									{ rightGroupName &&
 									  <React.Fragment>
 										  <img src="/images/author-image.png" className='img-primary'  alt={rightGroupName.text}></img>
-											<img src="/images/Image-author.png" className='img-second-author' alt={rightGroupName.text}></img>
+											<img src="/images/image-author-2.png" className='img-second-author' alt={rightGroupName.text}></img>
 										</React.Fragment>
 									}
 									</div>
@@ -261,7 +262,7 @@ const BestofBothWorldsModule = ({ item }) => {
 										{ leftGroupName &&
 										  <React.Fragment>
 												<img src="/images/dev-image.png" className='img-primary' alt={leftGroupName.text}></img>
-                        <img src="/images/Image-dev.png" className='img-second-dev' alt={leftGroupName.text}></img>
+                        <img src="/images/image-dev-2.png" className='img-second-dev' alt={leftGroupName.text}></img>
 										  </React.Fragment>
 										}
 									</div>
@@ -281,14 +282,14 @@ const BestofBothWorldsModule = ({ item }) => {
 							{ rightGroupedFeatures.length > 0 && listIemHIW2 }
 						</div>
 					}
-					{ ctaBtn &&
+					{ ctaBtn && ctaBtn.href &&
 						<div className="container">
 							<div className="text-center cta-HIW">
 								<a href={ctaBtn.href} target={ctaBtn.target} className="btn btn-primary text-decoration-none">{ctaBtn.text}</a>
 							</div>
 						</div>
 					}
-					<LazyLoad><img src="/images/bg-bottom2.svg" className="bg-bottom" alt="image"></img></LazyLoad>
+					<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-bottom2.svg" className="bg-bottom" alt="image"></img></LazyLoad>
 				</div>
 				{/* <PopupVideo channel="youtube" isOpen={isOpen} videoId='5QiQU7uCHjU' onClose={() => setIsOpen(false)} /> */}
 			</section>

@@ -68,9 +68,11 @@ const PlanFeaturesCTA = ({ item , features}) => {
 				<div className="content-features">
 					<div className="cta-content">
 						<div className="content" dangerouslySetInnerHTML={{ __html: item.cTAContent }}></div>
-						<div className="button">
-							<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
-						</div>
+						{ item.primaryButton && item.primaryButton.href &&
+							<div className="button">
+								<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
+							</div>
+						}
 					</div>
 
 

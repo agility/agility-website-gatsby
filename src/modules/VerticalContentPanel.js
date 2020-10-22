@@ -4,6 +4,7 @@ import { renderHTML } from '../agility/utils'
 import './VerticalContentPanel.scss'
 import Lazyload, { forceCheck, forceVisible } from 'react-lazyload'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 export default props => (
 <StaticQuery
@@ -167,21 +168,21 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
           if (positionContent === 'right') {
             return (
               <React.Fragment>
-                <Lazyload offset={200}><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-                <Lazyload offset={200}><img src='../images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
+                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
+                <Lazyload offset={ Helpers.lazyOffset }><img src='../images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
               </React.Fragment>
             )
           } else {
             return (
               <React.Fragment>
-                <Lazyload offset={200}><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-                <Lazyload offset={200}><img src='../images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
+                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
+                <Lazyload offset={ Helpers.lazyOffset }><img src='../images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
               </React.Fragment>
             )
           }
         } else {
           return (
-            <Lazyload offset={200}><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
+            <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
           )
         }
       } else {
@@ -213,22 +214,22 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
         if (positionContent === 'right') {
           return (
             <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
-              <Lazyload offset={200}><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-              <Lazyload offset={200}><img src='../images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
+              <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
+              <Lazyload offset={ Helpers.lazyOffset }><img src='../images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
             </div>
           )
         } else {
           return (
             <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
-              <Lazyload offset={200}><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-              <Lazyload offset={200}><img src='../images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
+              <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
+              <Lazyload offset={ Helpers.lazyOffset }><img src='../images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
             </div>
           )
         }
 			} else {
         return (
           <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
-            <Lazyload offset={200}><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
+            <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
           </div>
         )
       }

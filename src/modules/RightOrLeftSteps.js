@@ -2,6 +2,7 @@ import React from 'react';
 import Lazyload from 'react-lazyload'
 import './RightOrLeftSteps.scss'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const RightOrLeftSteps = ({ item }) => {
 
@@ -49,7 +50,7 @@ const RightOrLeftSteps = ({ item }) => {
 									{/* <Lazyload><img src="../images/bg-top.svg" className="bg-left-step bg-black-frame" alt="Create your content structure"></img></Lazyload> */}
 									{/* <Lazyload><img src="../images/triangle-purple.png" className="bg-left-step bg-white-frame" alt="Create your content structure"></img></Lazyload> */}
 
-									<Lazyload><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
+									<Lazyload offset={ Helpers.lazyOffset }><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
 
 									{/* <Lazyload><img src="../images/triangle-purple.png" className="bg-right-step bg-white-frame" alt="Create your content structure"></img></Lazyload> */}
 									{/* <Lazyload><img src="../images/bg-top.svg" className="bg-right-step bg-black-frame" alt="Create your content structure"></img></Lazyload> */}

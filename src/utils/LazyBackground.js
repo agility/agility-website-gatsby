@@ -4,9 +4,9 @@ function elementInViewport(el) {
   const rect = el.getBoundingClientRect();
 
   return (
-    rect.top >= 0
+    rect.top >= -500
     && rect.left >= -1000
-    && rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+    && rect.top <= ((window.innerHeight || document.documentElement.clientHeight) + 500)
   )
 }
 
@@ -42,6 +42,7 @@ export default class LazyImage extends React.Component {
           `style`,
           `background-image: url('${this.props.src}')`
         );
+        // console.log({imgLoader})
 
         this.setState({
           loaded: true

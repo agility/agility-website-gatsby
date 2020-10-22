@@ -19,7 +19,9 @@ const HelperFunc = {
 				window.requestAnimationFrame(step);
 			}
 		})
-  }
+  },
+  lazyOffset: 500
 }
+
 
 export default HelperFunc

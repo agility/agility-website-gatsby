@@ -138,7 +138,7 @@ const RightOrLeftContent = ({ item }) => {
 					<div className="row flex-md-row-reverse hero-text align-items-lg-center h1-big">
 						<div className={classAniImg}>
 							<div className={classWrap}>
-								{ imgModule ? <img src={imgModule.url} className="anima-right" alt="image video" /> : <NoImg /> }
+								{ imgModule ? <img src={imgModule.url} className="anima-right" alt={ imgModule.label ? imgModule.label : 'image video' } /> : <NoImg /> }
 							</div>
 						</div>
 						<div className="col-md-6 large-paragraph last-mb-none anima-left">
@@ -149,11 +149,11 @@ const RightOrLeftContent = ({ item }) => {
 							}
 							{ (btn1 || btn2) &&
 								<p className={classBtn}>
-									{ btn1 &&
+									{ btn1 && btn1.href &&
 										<a href={btn1.href} _target={btn1.target} className="text-decoration-none btn btn-primary">{btn1.text}</a>
 									}
 									{/* <br className={'d-md-none'} /> */}
-									{ btn2 &&
+									{ btn2 && btn2.href &&
 										<a href={btn2.href} _target={btn2.target} className="text-decoration-none btn btn-outline-primary">{btn2.text}</a>
 									}
 								</p>

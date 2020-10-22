@@ -29,10 +29,10 @@ const CenteredContentPanel = ({ item }) => {
 				}
 				{ (btn1 || btn2) &&
 					<p>
-						{ btn1 &&
+						{ btn1 && btn1.href &&
 							<a href={btn1.href} _target={btn1.target} className="text-decoration-none btn btn-primary">{btn1.text}</a>
 						}
-						{ btn2 &&
+						{ btn2 && btn2.href &&
 							<a href={btn2.href} _target={btn2.target} className="text-decoration-none btn btn-outline-primary">{btn2.text}</a>
 						}
 					</p>

@@ -28,10 +28,10 @@ const CenteredCTAPanel = ({ item }) => {
 						}
 						{ (btnCta1 || btnCta2) &&
 							<p>
-								{ btnCta1 &&
+								{ btnCta1 && btnCta1.href &&
 									<a href={btnCta1.href} target={btnCta1.target} className="btn btn-white text-decoration-none">{btnCta1.text}</a>
 								}
-								{ btnCta2 &&
+								{ btnCta2 && btnCta2.href &&
 									<a href={btnCta2.href} target={btnCta2.target} className="btn btn-outline-white text-decoration-none">{btnCta2.text}</a>
 								}
 							</p>

@@ -58,10 +58,10 @@ const ContentPanel = ({ item }) => {
 						<h1 dangerouslySetInnerHTML={renderHTML(item.title)}></h1>
 						<div dangerouslySetInnerHTML={renderHTML(item.textblob)} />
 						<div className="start-buttons">
-							{item.primaryButton &&
+							{item.primaryButton && item.primaryButton.href &&
 								<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
 							}
-							{item.secondaryButton &&
+							{item.secondaryButton && item.secondaryButton.href &&
 								<a href={item.secondaryButton.href} target={item.secondaryButton.target} className="btn-link">{item.secondaryButton.text} <span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={item.secondaryButton.text} /></span></a>
 							}
 						</div>

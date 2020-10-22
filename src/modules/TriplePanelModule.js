@@ -4,6 +4,7 @@ import { renderHTML } from '../agility/utils'
 import './TriplePanelModule.scss'
 import LazyLoad from 'react-lazyload';
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 export default props => (
 	<StaticQuery
@@ -61,7 +62,7 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 				<div className='box-3col'>
 					{ customField.graphic && customField.graphic.url &&
 						<div className="img-3col d-flex align-items-center justify-content-center">
-							<LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={customField.graphic.url} alt={customField.graphic.label} />
 							</LazyLoad>
 						</div>
@@ -91,7 +92,7 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 					{listPanels}
 				</div>
 			}
-			{ btn1 &&
+			{ btn1 && btn1.href &&
 				<div className="cta-3col text-center last-mb-none anima-bottom delay-4">
 					<a href={btn1.href} target={btn1.target} className="btn btn-yellow text-decoration-none">{btn1.text}</a>
 				</div>

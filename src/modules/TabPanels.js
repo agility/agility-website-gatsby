@@ -37,7 +37,7 @@ const TabPanels = ({ item }) => {
 
 				<div dangerouslySetInnerHTML={renderHTML(tab.textblob)}></div>
 
-				{tab.primaryButton &&
+				{tab.primaryButton && tab.primaryButton.href &&
 				<a href={tab.primaryButton.href} target={tab.primaryButton.target} className="btn">{tab.primaryButton.text}</a>
 				}
 			</div>

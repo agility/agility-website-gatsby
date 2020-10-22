@@ -4,7 +4,7 @@ import { renderHTML } from '../agility/utils'
 import './TwoPanelFeatureComparison.scss'
 import Spacing from './Spacing'
 import Lazyload from 'react-lazyload'
-import HelperFunc from '../global/javascript/Helpers.js'
+import Helpers from '../global/javascript/Helpers.js'
 export default props => (
 <StaticQuery
 		query={graphql`
@@ -100,7 +100,7 @@ export default props => (
 )
 
 const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
-	
+
 	const classSection = `TwoPanelFeatureComparison module mod-feature ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode': ''}`
 	const title1 = item.customFields.group1Title
 	const title2 = item.customFields.group2Title
@@ -109,11 +109,11 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const groupPanels1 = dataQuery.listPanelItems1.map((panel, index) => {
 		const listCheckItem = panel.checkedItems ? panel.checkedItems.map(checkItem => {
 			const fieldCheck = checkItem.customFields
-			const classLi = fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href.length > 0  ? 'has-hover': ''
+			const classLi = fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href && fieldCheck.moreInfoLink.href.length > 0  ? 'has-hover': ''
 			return (
 				<li className={classLi} key={checkItem.itemID}>
 					{ fieldCheck.title }
-					{ fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href.length > 0 &&
+					{ fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href && fieldCheck.moreInfoLink.href.length > 0 &&
 						<a href={fieldCheck.moreInfoLink.href} target={fieldCheck.moreInfoLink.target} className="ps-as"><span className="sr-only">{fieldCheck.moreInfoLink.text}</span></a>
 					}
 				</li>
@@ -123,13 +123,13 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		let img1 = panel.customFields.graphic.url
 		let img2 = ''
 		if (index === 0) {
-			img2='../images/features-marketing-1-trig.svg'
+			img2='/images/features-marketing-1-trig.svg'
 		}
 		if (index === 1) {
-			img2='../images/features-marketing-2-trig.svg'
+			img2='/images/features-marketing-2-trig.svg'
 		}
 		if (index === 2 ) {
-			img2='../images/features-marketing-3-trig.svg'
+			img2='/images/features-marketing-3-trig.svg'
 		}
 		const ImgNoParallax = () => {
 			if (panel.customFields.graphic && panel.customFields.graphic.url) {
@@ -142,8 +142,8 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		const ImgParallax = () => {
 			return (
 				<React.Fragment>
-					<Lazyload><img src={img1} className="primary-img" alt={panel.customFields.title}></img></Lazyload>
-					<Lazyload><img className="bg-parallax" src={img2} alt={panel.customFields.title}></img></Lazyload>
+					<Lazyload offset={ Helpers.lazyOffset }><img src={img1} className="primary-img" alt={panel.customFields.title}></img></Lazyload>
+					<Lazyload offset={ Helpers.lazyOffset }><img className="bg-parallax" src={img2} alt={panel.customFields.title}></img></Lazyload>
 				</React.Fragment>
 			)
 		}
@@ -174,11 +174,11 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const groupPanels2 = dataQuery.listPanelItems2.map((panel,index) => {
 		const listCheckItem = panel.checkedItems ? panel.checkedItems.map(checkItem => {
 			const fieldCheck = checkItem.customFields
-			const classLi = fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href.length > 0  ? 'has-hover': ''
+			const classLi = fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href && fieldCheck.moreInfoLink.href.length > 0  ? 'has-hover': ''
 			return (
 				<li className={classLi} key={checkItem.itemID}>
 					{ fieldCheck.title }
-					{ fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href.length > 0 &&
+					{ fieldCheck.moreInfoLink && fieldCheck.moreInfoLink.href && fieldCheck.moreInfoLink.href.length > 0 &&
 						<a href={fieldCheck.moreInfoLink.href} target={fieldCheck.moreInfoLink.target} className="ps-as"><span className="sr-only">{fieldCheck.moreInfoLink.text}</span></a>
 					}
 				</li>
@@ -188,13 +188,13 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		let img1 = panel.customFields.graphic.url
 		let img2 = ''
 		if (index === 0) {
-			img2='../images/features-black-1-trig.svg'
+			img2='/images/features-black-1-trig.svg'
 		}
 		if (index === 1) {
-			img2='../images/features-black-2-trig.svg'
+			img2='/images/features-black-2-trig.svg'
 		}
 		if (index === 2 ) {
-			img2='../images/features-black-3-trig.svg'
+			img2='/images/features-black-3-trig.svg'
 		}
 		const ImgNoParallax = () => {
 			if (panel.customFields.graphic && panel.customFields.graphic.url) {
@@ -207,8 +207,8 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		const ImgParallax = () => {
 			return (
 				<React.Fragment>
-					<Lazyload><img src={img1} className="primary-img" alt={panel.customFields.title}></img></Lazyload>
-					<Lazyload><img className="bg-parallax" src={img2} alt={panel.customFields.title}></img></Lazyload>
+					<Lazyload offset={ Helpers.lazyOffset }><img src={img1} className="primary-img" alt={panel.customFields.title}></img></Lazyload>
+					<Lazyload offset={ Helpers.lazyOffset }><img className="bg-parallax" src={img2} alt={panel.customFields.title}></img></Lazyload>
 				</React.Fragment>
 			)
 		}
@@ -263,17 +263,17 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 						}
 					}
 				}
-				
-				
+
+
 			}
 		})
 		document.getElementsByClassName('features-tab1')[0].addEventListener('click', () => {
 			let top = document.getElementsByClassName('marketing-section')[0].offsetTop
-			HelperFunc.animateScrollTop(top - 79 - 1, 500);
+			Helpers.animateScrollTop(top - 79 - 1, 500);
 		})
 		if(darkTheme){
 			document.getElementsByClassName('features-tab2')[0].addEventListener('click', () => {
-				HelperFunc.animateScrollTop(darkTheme.offsetTop - 79 - 1, 500);
+				Helpers.animateScrollTop(darkTheme.offsetTop - 79 - 1, 500);
 			})
 		}
 	}

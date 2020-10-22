@@ -59,7 +59,7 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 
 
 
-				<Link to="/get-started/starter-templates" className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>Back to Template Listing</span></Link>
+				<Link to="/starters" className="back d-flex ai-center"><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt="" /><span>Back to Template Listing</span></Link>
 			</div>
 		</section>
 

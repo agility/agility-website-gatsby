@@ -30,10 +30,10 @@ const ContentPanelForm = ({ item }) => {
                         <h1 dangerouslySetInnerHTML={renderHTML(panel.title)}></h1>
                         <div dangerouslySetInnerHTML={renderHTML(panel.textblob )} />
                         <div className="start-buttons">
-                            {panel.primaryButton &&
+                            {panel.primaryButton && panel.primaryButton.href &&
                                 <a href={panel.primaryButton.href} target={panel.primaryButton.target} className="btn">{panel.primaryButton.text}</a>
                             }
-                            {panel.secondaryButton &&
+                            {panel.secondaryButton && panel.secondaryButton.href &&
                                 <a href={panel.secondaryButton.href} target={panel.secondaryButton.target} className="btn-link">{panel.secondaryButton.text} <span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={panel.secondaryButton.text} /></span></a>
                             }
                         </div>

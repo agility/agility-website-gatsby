@@ -3,6 +3,7 @@ import { renderHTML } from '../agility/utils'
 import './TriplePanelComparisonModule.scss'
 import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const TriplePanelComparisonModule = ({ item }) => {
 	const classSection = `module TriplePanelComparisonModule ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
@@ -44,7 +45,7 @@ const TriplePanelComparisonModule = ({ item }) => {
 				<div className="row anima-bottom delay-2">
 					<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={panel1Icon} alt={panel1Title} />
 							</LazyLoad>
 							</div>
@@ -64,7 +65,7 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={panel2Icon} alt={panel2Title} />
 							</LazyLoad>
 							</div>
@@ -84,7 +85,7 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={panel3Icon} alt={panel3Title} />
 							</LazyLoad>
 							</div>

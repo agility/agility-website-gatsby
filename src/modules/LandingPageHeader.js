@@ -25,7 +25,9 @@ const LandingPageHeader = ({ item }) => {
 				<div className="header-content">
 					<div className="logo"><img src={ item.logo.url } alt={item.logo.label} /></div>
 					<div className="content" dangerouslySetInnerHTML={renderHTML(item.headerContent)}></div>
-					<div className="button"><a href={item.primaryButton.href} target={item.primaryButton.target} className="btn btn-outline">{item.primaryButton.text}</a></div>
+					{ item.primaryButton && item.primaryButton.href &&
+						<div className="button"><a href={item.primaryButton.href} target={item.primaryButton.target} className="btn btn-outline">{item.primaryButton.text}</a></div>
+					}
 				</div>
 			</div>
 		</section>

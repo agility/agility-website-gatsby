@@ -9,6 +9,7 @@ import '../global/core/lib/_slick-theme.scss'
 import StringUtils from '../utils/string-utils'
 import './CaseStudyRotator.scss';
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const CaseStudyRotator = ({ item }) => {
   // console.log('CaseStudyRotator', item)
@@ -49,7 +50,7 @@ const CaseStudyRotator = ({ item }) => {
     if (customField.customerLogo.url) {
       return (
         <div className="item-logo-feature d-inline-flex align-items-center justify-content-center" key={'logo-' + caseStudy.contentID}>
-          <Lazyload><img src={customField.customerLogo.url} alt={customField.customerLogo.label}></img></Lazyload>
+          <Lazyload offset={ Helpers.lazyOffset }><img src={customField.customerLogo.url} alt={customField.customerLogo.label}></img></Lazyload>
         </div>
       )
     }

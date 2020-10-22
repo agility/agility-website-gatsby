@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import './GartnerPeerInsightsBar.scss'
 import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const GartnerPeerInsightsBar = ({ item }) => {
 	const classSection = `GartnerPeerInsightsBar bg-46 text-white animation anima-bottom ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
@@ -19,23 +20,23 @@ const GartnerPeerInsightsBar = ({ item }) => {
 	return (
 		<React.Fragment>
 			<section className={classSection}>
-				<LazyLoad>
+				<LazyLoad offset={ Helpers.lazyOffset }>
 					<img src="/images/bg-top.svg" className="bg-left-star" alt="image"></img>
 				</LazyLoad>
-				<LazyLoad>
+				<LazyLoad offset={ Helpers.lazyOffset }>
 					<img src="/images/bg-top.svg" className="bg-right-star" alt="image"></img>
 				</LazyLoad>
 				<div className="container">
 					<div className="d-flex text-center justify-content-between flex-wrap ">
 						<div className="col-left d-flex justify-content-center align-items-center flex-wrap ">
 							{ graphic &&
-								<LazyLoad>
+								<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={graphic} alt={title} className="intro-stars"></img>
 								</LazyLoad>
 								}
 							<div className="wrap-star last-mb-none ">
 								{ stars &&
-									<LazyLoad>
+									<LazyLoad offset={ Helpers.lazyOffset }>
 									<img src={stars} alt={title} className="img-stars"></img>
 									</LazyLoad>
 								}
@@ -45,7 +46,7 @@ const GartnerPeerInsightsBar = ({ item }) => {
 							</div>
 						</div>
 						<div className="col-right last-mb-none">
-							{ textButton &&
+							{ textButton && linkButton &&
 							<Link to={linkButton} target={targetButton} className="btn btn-primary text-decoration-none">{textButton}</Link>
 							}
 						</div>

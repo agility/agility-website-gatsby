@@ -1,4 +1,4 @@
-import { StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import React, { useEffect,} from 'react';
 // import { Link, StaticQuery } from 'gatsby';
 // import React, { useState, useEffect,useRef,createRef } from 'react';
@@ -7,6 +7,7 @@ import LazyLoad from 'react-lazyload'
 import '../global/core/lib/_slick-theme.scss'
 // import StringUtils from '../utils/string-utils'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 import './ReviewRotator.scss'
 import { renderHTML } from '../agility/utils';
@@ -94,7 +95,7 @@ const ReviewRotator = ({ item, listReviews }) => {
 			<div className="ReviewRotator-item small-paragraph" data-item={idx} key={idx}>
 				<div className="mess-review ps-rv last-mb-none"  onClick={() => initClick(idx)}>
 					{ fieldsReview.starsGraphic && fieldsReview.starsGraphic.url &&
-						<LazyLoad>
+						<LazyLoad offset={ Helpers.lazyOffset }>
 							<img src={fieldsReview.starsGraphic.url} alt={fieldsReview.starsGraphic.label}></img>
 						</LazyLoad>
 					}
@@ -110,7 +111,7 @@ const ReviewRotator = ({ item, listReviews }) => {
 							<span className='less'>
 								{collapseReviewText}
 							</span>
-							<LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src="../images/down-icon.svg" alt="five star"></img>
 							</LazyLoad>
 						</span>
@@ -171,7 +172,7 @@ const ReviewRotator = ({ item, listReviews }) => {
 		setTimeout (() => {
 			let active = document.querySelectorAll('.ReviewRotator-item.open .content-review')
 			Array.from(active).forEach((item,index) => {
-				let h = 0 
+				let h = 0
 				Array.from(item.childNodes).forEach((ele,idx) => {
 					h += (ele.scrollHeight + 10)
 				})

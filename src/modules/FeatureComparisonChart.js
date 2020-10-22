@@ -4,12 +4,13 @@ import { Link } from "gatsby"
 import "./FeatureComparisonChart.scss"
 import Lazyload from 'react-lazyload'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 export default props => (
   <StaticQuery
 		query={graphql`
 			query agilityComparisonQuery {
-				allAgilityComparisonPlatformFeatures {
+        allAgilityComparisonPlatformFeatures(sort: {fields: properties___itemOrder}) {
           nodes {
             customFields {
               featureName
@@ -27,18 +28,22 @@ export default props => (
             }
             properties {
               referenceName
+              itemOrder
             }
           }
         }
-        allAgilityComparisonFeatures {
+        allAgilityComparisonFeatures(sort: {fields: properties___itemOrder}) {
           nodes {
             customFields {
               title
             }
             contentID
+            properties {
+              itemOrder
+            }
           }
         }
-        allAgilityComparisonPlatform {
+        allAgilityComparisonPlatform(sort: {fields: properties___itemOrder}) {
           nodes {
             itemID
             customFields {
@@ -50,6 +55,14 @@ export default props => (
                 url
               }
               title
+              fullComparisonLink {
+                href
+                target
+                text
+              }
+            }
+            properties {
+              itemOrder
             }
           }
         }
@@ -79,7 +92,7 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
-  // console.log("FeatureComparisonChart", item)
+  console.log("FeatureComparisonChart", item, dataQuery)
   const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   const headline = item.customFields.heading
   const fullComparisonLink = item.customFields.fullComparisonLinkLabel
@@ -198,19 +211,34 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     checkBreakPoint()
   })
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
-    if(indx % 2 === 0) {
-      return (
-      <td key={indx}></td>
-      )
-    } else {
+    const fieldLinks = platfor.customFields.fullComparisonLink
+    if (fieldLinks && fieldLinks.href) {
       return (
         <td key={indx}>
-          {fullComparisonLink && fullComparisonLink.href && 
-            <a href={fullComparisonLink.href} target={fullComparisonLink.target}>{fullComparisonLink.text}<span className="icomoon icon-chevron-right"></span></a>
+          {fullComparisonLink && fullComparisonLink.href &&
+            (<a href={fullComparisonLink.href} target={fullComparisonLink.target}>{fullComparisonLink.text}<span className="icomoon icon-chevron-right"></span></a>)
+          }
+          {fieldLinks && fieldLinks.href &&
+            <a href={fieldLinks.href} target={fieldLinks.target}>{fieldLinks.text}<span className="icomoon icon-chevron-right"></span></a>
           }
         </td>
       )
     }
+    return (
+      <td key={indx}>
+        <a href="javascript:void(0);" target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
+      </td>
+    )
+  })
+  const linkFullComparionMB = listPlatformShow.map((platfor, indx) => {
+    const fieldLinks = platfor.customFields.fullComparisonLink
+    if (fieldLinks && fieldLinks.href) {
+      return (
+      <div className="last-tr-mb full-w-mb" key={indx}>
+        <a href={fieldLinks.href} target={fieldLinks.target}>{fieldLinks.text}<span className="icomoon icon-chevron-right"></span></a>
+      </div>)
+    }
+    return null
   })
   const featuresName = dataQuery.listFeaturesItems.map((features, index) => {
     const idFeatures = features.contentID
@@ -259,9 +287,9 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 	return (
     <React.Fragment>
       <section className={classSection}>
-        <Lazyload><img src="../images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
-        <Lazyload><img src="../images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
-        <Lazyload><img src="../images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
         <div className="container anima-bottom">
           <div className="feature-head last-mb-none">
             {headline &&
@@ -279,19 +307,15 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
                 {displayPlatform}
               </tr>
               {featuresName}
-            {fullComparisonLink &&
+            {linkFullComparion &&
               <tr className="last-tr">
                 <td>{textviewFull}</td>
                 {linkFullComparion}
               </tr>
             }
           </tbody></table>
-          {fullComparisonLink && fullComparisonLink.href &&
-            <div className="last-tr-mb full-w-mb">
-            <a href={fullComparisonLink.href} target={fullComparisonLink.target}>{fullComparisonLink.text}<span className="icomoon icon-chevron-right"></span></a>
-            </div>
-          }
-          { ctaBtnText &&
+          {linkFullComparionMB}
+          { ctaBtnText && ctaBtnhref &&
               <div className='cta-feature-table text-center last-mb-none'>
                 <p><Link to={ctaBtnhref} href={ctaBtnTaget} className="btn btn-yellow text-decoration-none">{ctaBtnText}</Link></p>
               </div>

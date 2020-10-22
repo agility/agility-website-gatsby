@@ -8,7 +8,7 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 			query getPricingItems {
-				allAgilityPackageFeatureValues {
+				allAgilityPackageFeatureValues(sort: {fields: properties___itemOrder}) {
 					nodes {
 						customFields {
 							packageFeature {
@@ -129,14 +129,10 @@ const HeaderColumn = ({priceType, title, label, btnCta, btnCtaLabel, value, hasP
 					<span>${ filterValue(value) }</span>
 					<span className={`pr-month ${label ? '' : 'pr-hidden'}`}> {label}</span>
 				</div>
-				{ btnCta && btnCta.href && btnCta.href.length > 0 ?
+				{ btnCta && btnCta.href && btnCta.href.length > 0 &&
 					(
 						<div>
 							<a href={btnCta.href} target={btnCta.target} className="btn btn-arrow">{btnTitle} <span className="icomoon icon-arrow"></span></a>
-						</div>
-					): (
-						<div>
-							<a href="#" onClick={e => e.preventDefault()} className="btn btn-arrow">{btnTitle} <span className="icomoon icon-arrow"></span></a>
 						</div>
 					)
 				}
@@ -248,7 +244,7 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 	}
 	const showMoreAction = () => {
 		if (showMore) {
-			HelperFunc.animateScrollTop(showHideEle.current.parentNode.offsetTop - document.querySelector('header').clientHeight, 250)
+			HelperFunc.animateScrollTop(showHideEle.current.parentNode.offsetTop - document.querySelector('header').clientHeight, 300)
 		}
 		setShowMore(!showMore);
 	}
@@ -256,12 +252,12 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 		let oldWidth = window.innerWidth;
 		checkShowHideElement();
 		checkIsMobile();
-		window.addEventListener('resize', () => {
-			if (oldWidth !== window.innerWidth) {
-				checkIsMobile();
-				oldWidth = window.innerWidth;
-			}
-		})
+		// window.addEventListener('resize', () => {
+		// 	if (oldWidth !== window.innerWidth) {
+		// 		checkIsMobile();
+		// 		oldWidth = window.innerWidth;
+		// 	}
+		// })
 	})
 	const fieldLabel = data.customFields
 	const btnCtaMB = fieldLabel.cTAButton
@@ -365,6 +361,7 @@ class PricingPackagesModule2 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			loaded: false,
 			showMore: false,
 			isMobile: false,
 			isPin: false
@@ -376,9 +373,13 @@ class PricingPackagesModule2 extends React.Component {
 	}
 	checkIsMobile() {
 		if (window.innerWidth <  1025) {
-			this.setState({isMobile: true});
+			if(!this.state.isMobile) {
+				this.setState({isMobile: true})
+			}
 		} else {
-			this.setState({isMobile: false});
+			if(this.state.isMobile) {
+				this.setState({isMobile: false})
+			}
 		}
 	}
 	checkShowHideSection() {
@@ -422,74 +423,60 @@ class PricingPackagesModule2 extends React.Component {
 		}
 	}
 
-	// pinHeaderTable() {
-	// 	const pinEle = document.querySelector('.table-header')
-	// 	const $header = document.querySelector('#header')
-	// 	const virtual = document.querySelector('.virtual-pin-bar')
-	// 	const scrollArea = document.querySelector('.price-desktop')
+	caculatePin(pinEle, $header, virtual, scrollArea) {
+		let offsetPin
+		let rootOffset
+		let header
+		let trigger
+		let listOffset
+		let scrollTop
+		if (!this.state.isMobile) {
 
-	// 	const caculatePin = () => {
-	// 		// const pinEle = document.querySelector('.table-header')
+			rootOffset = virtual.offsetTop;
+			scrollTop = window.pageYOffset;
+			header = $header.clientHeight;
+			offsetPin = virtual.offsetTop;
+			listOffset = scrollArea.offsetTop + scrollArea.clientHeight - document.querySelector('.table-3').clientHeight - pinEle.clientHeight
+			trigger = scrollTop + header
 
-	// 		let offsetPin
-	// 		let rootOffset
-	// 		let header
-	// 		let trigger
-	// 		let listOffset
-	// 		let scrollTop
-	// 		// if ($window.width() < 768) {
-	// 		// 	resetPropertyPin(pinEle)
-	// 		// 	return false
-	// 		// }
-	// 		rootOffset = virtual.offsetTop;
-	// 		scrollTop = window.pageYOffset;
-	// 		header = $header.clientHeight;
-	// 		offsetPin = virtual.offsetTop;
-	// 		listOffset = scrollArea.offsetTop + scrollArea.clientHeight
-	// 		trigger = scrollTop + header
-		
-	// 		if (trigger > rootOffset) {
-	// 			if (trigger + pinEle.clientHeight < listOffset) {
-	// 				this.setState({isPin: true});
-	// 				// pinEle.classList.add('table-pin');
-	// 				// pinEle.style.top = $header.clientHeight + 'px';
-	// 				// pinEle.childNodes[0].classList.add('container');
-	// 				// virtual.style.height = pinEle.clientHeight + 'px'
-	// 			} else {
-	// 				// pinEle.addClass(classPin).css({top: (listOffset - pinEle.height() - scrollTop), width: widthSerLeft})
-	// 			}
-	// 		} else {
-	// 			// resetPropertyPin(pinEle)
-	// 			// pinEle.classList.remove('table-pin')
-	// 			// virtual.style.height = '';
-	// 			// pinEle.childNodes[0].classList.remove('container');
-	// 			this.setState({isPin: false});
-	// 		}
-	// 	}
+			if (trigger > rootOffset && this.state.showMore) {
+				pinEle.classList.add('table-pin');
+				pinEle.childNodes[0].classList.add('container');
+				virtual.style.height = pinEle.clientHeight + 'px'
+				if (trigger + pinEle.clientHeight < listOffset) {
+					pinEle.style.top = $header.clientHeight + 'px';
+				} else {
+					pinEle.style.top = listOffset - pinEle.clientHeight - scrollTop + 'px';
+				}
+			} else {
+				pinEle.classList.remove('table-pin')
+				virtual.style.height = '';
+				pinEle.childNodes[0].classList.remove('container');
+			}
+		}
 
-	// 	// window.addEventListener('scroll', (e) => {
-	// 	// 	console.log('bbb', {'aa' : pinEle.children})
-	// 	// 	caculatePin();
-	// 	// 	// if (window.pageYOffset > virtual.offsetTop - header.clientHeight) {
-	// 	// 	// 	if (!document.querySelector('.vitural-pin-bar')) {
-	// 	// 	// 		virtual.style.height = pinEle.clientHeight + 'px'
-	// 	// 	// 	}
-	// 	// 	// 	pinEle.classList.add('table-pin');
-	// 	// 	// 	pinEle.style.top = header.clientHeight + 'px';
-	// 	// 	// 	pinEle.childNodes[0].classList.add('container');
-	// 	// 	// } else {
-	// 	// 	// 	pinEle.classList.remove('table-pin')
-	// 	// 	// 	virtual.style.height = '';
-	// 	// 	// 	pinEle.childNodes[0].classList.remove('container');
-	// 	// 	// 	// document.querySelector('.vitural-pin-bar').parentNode.removeChild(document.querySelector('.vitural-pin-bar'))
-	// 	// 	// }
-	// 	// })
-	// }
+	}
+
+	pinHeaderTable() {
+		const pinEle = document.querySelector('.table-header')
+		const $header = document.querySelector('#header')
+		const virtual = document.querySelector('.virtual-pin-bar')
+		const scrollArea = document.querySelector('.price-desktop')
+
+		this.caculatePin(pinEle, $header, virtual, scrollArea);
+		window.addEventListener('scroll', (e) => {
+			if (document.querySelector('.PricingPackagesModule')) {
+				this.caculatePin(pinEle, $header, virtual, scrollArea);
+			}
+		})
+	}
 
 	componentDidMount() {
 		// console.log('value', this.props)
-		// let oldWidth = window.innerWidth
+		let oldWidth = window.innerWidth
 		this.checkIsMobile();
+		this.pinHeaderTable();
+		this.setState({loaded: true});
 		const interCount = 0;
 		let inter = setInterval(() => {
 			this.equalHeightHeader();
@@ -500,20 +487,26 @@ class PricingPackagesModule2 extends React.Component {
 
 		this.checkShowHideSection();
 		window.addEventListener('resize', () => {
-			// if (oldWidth !== window.innerWidth) {
+			if (oldWidth !== window.innerWidth) {
 				this.checkIsMobile();
 				this.equalHeightHeader();
-
-				// oldWidth = window.innerWidth;
-			// }
+				oldWidth = window.innerWidth;
+			}
 		});
-		// window.addEventListener('scroll', (e) => {
-		// 	console.log('oo', Date.timestamp)
-		// })
 	}
 	componentDidUpdate() {
+		const pinEle = document.querySelector('.table-header');
+		const $header = document.querySelector('#header');
+		const virtual = document.querySelector('.virtual-pin-bar');
+		const scrollArea = document.querySelector('.price-desktop');
 		this.checkShowHideSection();
+		this.caculatePin(pinEle, $header, virtual, scrollArea);
 	}
+
+	componentWillUnmount() {
+		
+	}
+
 	render() {
 
 		const dataQuery = this.props.dataQuery
@@ -571,11 +564,9 @@ class PricingPackagesModule2 extends React.Component {
 			const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
 			return (
 				<td key={idx}>
-					{ btnCta && btnCta.href && btnCta.href.length > 0 ?
+					{ btnCta && btnCta.href && btnCta.href.length > 0 &&
 						(
 							<a href={btnCta.href} target={btnCta.target} className={`btn btn-arrow btn-${classColor[idx % 4]}`}>{btnTitle} <span className="icomoon icon-arrow"></span></a>
-						): (
-							<a href="#" onClick={e => e.preventDefault()} className={`btn btn-arrow btn-${classColor[idx % 4]}`}>{btnTitle} <span className="icomoon icon-arrow"></span></a>
 						)
 					}
 				</td>
@@ -584,9 +575,10 @@ class PricingPackagesModule2 extends React.Component {
 
 
 		const BlockPriceDesktop = (<div className="price-desktop">
-			<div className="virtual-pin-bar"></div>
-			<div className={`table-header`}> {/* style={{ top: `${this.state.isPin ? document.querySelector('header').clientHeight + 'px' : ''}` }}  style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}} */}
-				<div>
+			<div className="virtual-pin-bar" style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}}></div>
+			<div className={`table-header ${this.state.isPin ? 'table-pin' : ''}`}> 
+			{/* style={{ top: `${this.state.isPin ? document.querySelector('header').clientHeight + 'px' : ''}` }}  style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}} */}
+				<div className={ this.state.isPin ? 'container' : ''}>
 					<table>
 						<tr>
 							<th></th>
@@ -597,7 +589,7 @@ class PricingPackagesModule2 extends React.Component {
 					</table>
 				</div>
 			</div>
-			
+
 
 			<table className="table-1">
 				<tbody>
@@ -612,7 +604,7 @@ class PricingPackagesModule2 extends React.Component {
 							{ primaryFeaturesTitle && primaryFeaturesTitle}
 							{ !primaryFeaturesTitle && <span className="hidden-text" tabIndex='-1'>hidden</span>}
 						</td>
-						
+
 					</tr>
 					{ rowListShow && rowListShow.length > 0 &&
 							rowListShow
@@ -674,7 +666,7 @@ class PricingPackagesModule2 extends React.Component {
 
 		return (
 			<React.Fragment>
-			<section className="PricingPackagesModule pricing-package animation">
+			<section className={`PricingPackagesModule pricing-package animation anima-fixed ${!this.state.loaded ? 'opacity-0' : ''}`}>
 				<div className="container anima-bottom">
 
 					{this.state.isMobile &&

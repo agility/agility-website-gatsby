@@ -5,6 +5,8 @@ import { getLeadSource } from '../utils/lead-utils.js'
 import Lazyload from 'react-lazyload'
 import { Link, graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
+
+import Helpers from '../global/javascript/Helpers'
 //TODO: switch the bottom links to Link...
 
 
@@ -230,7 +232,7 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-				var img = <Lazyload><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img></Lazyload>;
+				var img = <Lazyload offset={ Helpers.lazyOffset }><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img></Lazyload>;
 				var a = <a rel="noopener noreferrer" href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
@@ -285,8 +287,8 @@ class Footer extends React.Component {
 								<p>{item.subscribeDescription}</p>
 								{typeof window !== 'undefined' &&
 									<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
-										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
 										<label htmlFor='email-subscribe' className="sr-only">email</label>
+										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
 										{/* <input type="submit" value={this.state.subscribeButtonLabel} className="btn btn-outline-white text-decoration-non" /> */}
 										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
 										<div  className='loading-sub text-center'>

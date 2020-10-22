@@ -180,6 +180,10 @@
     th {
       padding: 0 6px 18px;
       vertical-align: top;
+      // background-color: $white;
+      // &:first-child {
+      //   background-color: transparent;
+      // }
       &:last-child {
         padding-right: 0;
       }

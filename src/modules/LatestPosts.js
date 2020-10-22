@@ -106,7 +106,7 @@ const LatestPosts = ({ item, posts, sitemapNodes }) => {
 						{four}
 					</div>
 				</div>
-				{item.primaryButton &&
+				{item.primaryButton && item.primaryButton.href &&
 					<div className="bottom-btn"><a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a></div>}
 
 			</div>

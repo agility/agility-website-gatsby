@@ -9,23 +9,22 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query KeyValuePairCaseStudyQuery {
-			allAgilityKeyValuePair {
-			  nodes {
-				contentID
-				languageCode
-				properties {
-				  referenceName
-				  itemOrder
+			allAgilityKeyValuePair(sort: {fields: properties___itemOrder}) {
+				nodes {
+					contentID
+					languageCode
+					properties {
+						referenceName
+						itemOrder
+					}
+					customFields {
+						key
+						value
+					}
 				}
-				customFields {
-				  key
-				  value
-				}
-			  }
 			}
-		  }
-
-        `}
+		}
+		`}
 		render={queryData => {
 
 			const metricsReferenceName = props.dynamicPageItem.customFields.metrics.referencename;

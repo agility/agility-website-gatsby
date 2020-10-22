@@ -127,12 +127,12 @@ const LogoListing = ({ item, logos }) => {
 				(item.primaryButton || item.secondaryButton) &&
 				<div className="buttons">
 					{
-						item.primaryButton &&
+						item.primaryButton && item.primaryButton.href &&
 						<a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a>
 					}
 
 					{
-						item.secondaryButton &&
+						item.secondaryButton && item.secondaryButton.href &&
 						<a className="btn" href={item.secondaryButton.href} target={item.secondaryButton.target}>{item.secondaryButton.text}</a>
 					}
 				</div>

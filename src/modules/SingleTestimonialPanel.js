@@ -5,6 +5,7 @@ import LazyBackground from '../utils/LazyBackground'
 // import { renderHTML } from '../agility/utils'
 import './SingleTestimonialPanel.scss'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 const SingleTestimonialPanel = ({ item }) => {
 	const fields = item.customFields
@@ -26,7 +27,7 @@ const SingleTestimonialPanel = ({ item }) => {
 							}
 							<div className="sub-content ps-rv last-mb-none">
 								{ singeTestimonial.companyLogo.url &&
-									<LazyLoad><img className="lazy d-none d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
+									<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-none d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 								}
 								{ singeTestimonial.title &&
 									<h6>{singeTestimonial.title}</h6>
@@ -41,10 +42,10 @@ const SingleTestimonialPanel = ({ item }) => {
 								<LazyBackground className="avarta-img bg bg-center" src={singeTestimonial.headshot.url} alt={singeTestimonial.title}></LazyBackground>
 							}
 							{ singeTestimonial.companyLogo.url &&
-								<LazyLoad><img className="lazy d-md-none" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
+								<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-md-none" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 							}
 						</div>
-						{ btnCta &&
+						{ btnCta && btnCta.href &&
 							<div className="ps-rv anima-bottom delay-4">
 								<div className="cta-testimonial last-mb-none text-center">
 									<a href={btnCta.href} target={btnCta.target} className="btn btn-yellow text-decoration-none">{btnCta.text}</a>

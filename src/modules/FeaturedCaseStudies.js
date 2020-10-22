@@ -28,7 +28,7 @@ const FeaturedCaseStudies = ({ item }) => {
 					</div>
 				</div>
 				{
-					moduleItem.primaryButton &&
+					moduleItem.primaryButton && moduleItem.primaryButton.href &&
 					<a className="btn" href={moduleItem.primaryButton.href} target={moduleItem.primaryButton.target}>{moduleItem.primaryButton.text}</a>
 				}
 			</div>

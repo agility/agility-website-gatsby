@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import LazyLoad from 'react-lazyload'
 import './GuideLinks.scss'
 import Spacing from './Spacing'
+import Helpers from '../global/javascript/Helpers'
 
 export default props => (
 	<StaticQuery
@@ -58,8 +59,8 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 		const uRLGuide = customeFieldsGuide.uRL
 		return (
 			<div className="item-guides ps-rv small-paragraph last-mb-none" key={idx}>
-				<LazyLoad><img src='../images/right-icon.svg' className='icon-right' alt='icon right'></img></LazyLoad>
-				{ uRLGuide &&
+				<LazyLoad offset={ Helpers.lazyOffset }><img src='../images/right-icon.svg' className='icon-right' alt='icon right'></img></LazyLoad>
+				{ uRLGuide && uRLGuide.href &&
 					<a href={uRLGuide.href} target={uRLGuide.target} className="ps-as"><span className="sr-only">{uRLGuide.text}</span></a>
 				}
 				{ titleGuide &&
@@ -84,13 +85,13 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 	return (
 		<React.Fragment>
 			<section className={classSection}>
-				<LazyLoad><img src="../images/computer.png" alt='Ready to dive in?' className='bg-guides'></img></LazyLoad>
+				<LazyLoad offset={ Helpers.lazyOffset }><img src="../images/computer.png" alt='Ready to dive in?' className='bg-guides'></img></LazyLoad>
 				<span className="icomoon icon-gears"></span>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-4 last-mb-none col-content-guide anima-left">
 							{ imgURL &&
-								<LazyLoad><img src={imgURL} alt={heading}></img></LazyLoad>
+								<LazyLoad offset={ Helpers.lazyOffset }><img src={imgURL} alt={heading}></img></LazyLoad>
 							}
 							{ heading &&
 								<h2>{heading}</h2>
@@ -98,7 +99,7 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 							{ description &&
 								<p>{description}</p>
 							}
-							{ btnCta &&
+							{ btnCta && btnCta.href &&
 								<p><a href={btnCta.href} target={btnCta.target} className="btn btn-outline-white text-decoration-none ">{ btnCta.text }</a></p>
 							}
 						</div>

@@ -48,7 +48,7 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 								{ description &&
 									<p>{description}</p>
 								}
-								{ btnCta &&
+								{ btnCta && btnCta.href &&
 									<p>
 										<a href={btnCta.href} target={btnCta.target} className="btn btn-yellow text-decoration-none">{btnCta.text}</a>
 									</p>

@@ -8,6 +8,8 @@ import Hamburger from './Newhamburger.jsx'
 // import HeaderSearch from './header-search.jsx'
 import Sticky from 'react-sticky-el'
 // import MarketingBanner from './marketing-banner.jsx'
+import Helpers from '../global/javascript/Helpers'
+
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -217,7 +219,8 @@ class NewGlobalHeader extends Component {
 	}
 	render() {
 		let preHeaderLinks = this.props.item.preHeaderLinks;
-		let menuGetstart = this.props.item.customFields.primaryButton;
+		let menuGetstart = this.props.item.customFields.secondaryButton;
+		let primaryButton = this.props.item.customFields.primaryButton;
 		const isOpenMenuText = 'is-open-menu';
 		const renderMenu = (menu, level) => {
 			let links = []
@@ -263,7 +266,7 @@ class NewGlobalHeader extends Component {
 						//folder
 						li = <li className={itemClassName + ' has-children'} key={item.pageID}><span>{item.menuText}</span>
 							<span className="sub-menu-icon">
-								<Lazyload>
+								<Lazyload offset={ Helpers.lazyOffset }>
 									<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" />
 								</Lazyload>
 								</span>
@@ -280,14 +283,14 @@ class NewGlobalHeader extends Component {
 
 			const className = "main-menu-ul navbar-nav ml-auto list-inline";
 			if (level === 0) {
-				const linkSignIn = preHeaderLinks.map((link, idx) => {
-					const fieldCustome = link.customFields
-					return <Link to={fieldCustome.uRL.href} key={idx} className="text-decoration-none btn btn-outline-primary btn-menu">{fieldCustome.title}</Link>
-				})
+				// const linkSignIn = preHeaderLinks.map((link, idx) => {
+				// 	const fieldCustome = link.customFields
+				// 	return <Link to={primaryButton.href} blank={primaryButton.target} key={idx} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</Link>
+				// })
 				const btnMenu = <li className="d-lg-flex align-items-center box-search-header" key="btnMenu">
 					<div className="group-search">
 					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center">
-						<Lazyload><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
+						<Lazyload offset={ Helpers.lazyOffset }><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
 					</button>
 						<form onSubmit={event => {
 							event.preventDefault()
@@ -298,12 +301,13 @@ class NewGlobalHeader extends Component {
 							<input name="s" id="search-page-header" type="text" className="aniamtion-input dectect-open" placeholder="Search.."></input>
 							<span className="bind-text"></span>
 							<button className="submit-search d-flex align-items-center justify-content-center" type="submit">
-								<Lazyload><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
+								<Lazyload offset={ Helpers.lazyOffset }><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
 						</button>
 						</form>
 					</div>
-					{linkSignIn}
-					<a blank={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary btn-menu btn-pin ">{menuGetstart.text}</a>
+				
+					<Link to={primaryButton.href} blank={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</Link>
+					<a blank={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				</li>
 				links.push(btnMenu)
 			}
