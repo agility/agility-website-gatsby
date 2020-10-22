@@ -35,6 +35,7 @@ const AgilityPage = ({ pageContext, data, location }) => {
 	console.log('viewModel',viewModel.page.name)
 	viewModel.isLandingPage = viewModel.page.templateName === "Landing Page Template";
 
+
 	return (
 		<LayoutTemplate page={ viewModel.page }>
 			<SEO page={ viewModel.page }  />

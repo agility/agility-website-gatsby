@@ -27,6 +27,8 @@ const SEO = ({ page }) => {
 			<meta name="og:description" content={description} />
 			<meta name="twitter:description" content={description} />
 
+			<meta name="ahrefs-site-verification" content="c196da25d25defd7b56d5883e72e28eb7d6be33aeea6f20dfa8a4eee4ce0c427" />
+
 			{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 			{page.seo.twitterCard && <meta property="twitter:card" content={page.seo.twitterCard} />}
 			{page.seo.ogType && <meta property="og:type" content={page.seo.ogType} />}

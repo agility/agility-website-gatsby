@@ -1,6 +1,6 @@
 @import "../global/_variables.scss";
 
-.event-details {
+.template-details {
 	padding-bottom: 80px;
 
 	h1 {
@@ -11,35 +11,18 @@
 		margin: 0;
 	}
 
-	.event-date {
+	.template-frameworks {
 		text-align: center;
 		font-size: 18px;
 		margin-bottom: 20px;
 
-		span {
-			padding: 8px 10px 8px 30px;
-			font-weight: 600;
-			font-size: 14px;
-			color: $greyColor;
-			background-repeat: no-repeat;
-			background-position: 6px center;
-			background-size: 17px;
-
-			&.event-type {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/presentation-gray.svg");
-				background-size: 18px;
-			}
-			&.date {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/calendar-check-gray.svg");
-			}
-
-			&.time {
-				background-image: url("https://static.agilitycms.com/layout/img/ico/clock-gray.svg");
-			}
+		img {
+			height: 20px;
 		}
+
 	}
 
-	.event-image {
+	.template-image {
 		text-align: center;
 		position: relative;
 
@@ -49,12 +32,8 @@
 		}
 	}
 
-	.event {
-		width: 100%;
-		max-width: 800px;
-		margin: 25px auto 0;
 
-		.event-link {
+		.template-link {
 			a {
 				margin: 15px auto 0;
 				display: block;
@@ -66,18 +45,8 @@
 			}
 		}
 
-		.demio-register {
-			border-radius: $border-radius;
-			border: 1px solid $inactive;
-			padding: 0 20px 20px 20px;
 
-			h2 {
-				text-align: center;
-				font-size: 24px;
-			}
-		}
-
-		.event-content {
+		.template-content {
 			padding-top: 10px;
 			&:before,
 			&:after {
@@ -118,7 +87,7 @@
 				font-style: italic;
 			}
 		}
-	}
+
 
 	a.back {
 		margin-top: 15px;
