@@ -15,6 +15,7 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 	const testimonial = fields.testimonial
 	const Testimonial = () => {
 		const fieldsTest = testimonial.customFields
+		if (! fieldsTest) return null
 		const titleTest = fieldsTest.title
 		const jobTitle = fieldsTest.jobTitle
 		const excerpt = fieldsTest.excerpt

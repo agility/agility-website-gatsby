@@ -92,7 +92,7 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
-  console.log("FeatureComparisonChart", item, dataQuery)
+ // console.log("FeatureComparisonChart", item, dataQuery)
   const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   const headline = item.customFields.heading
   const fullComparisonLink = item.customFields.fullComparisonLinkLabel

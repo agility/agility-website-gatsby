@@ -190,7 +190,7 @@ class Footer extends React.Component {
 			if(response.status===202){
 				document.querySelectorAll('.foter-subscribe')[0].classList.add('thanks-subs')
 			}
-			console.table('response', response)
+			//console.table('response', response)
 		}).catch(err => {
 
 			this.setState({

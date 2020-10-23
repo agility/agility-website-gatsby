@@ -41,7 +41,7 @@ class HeaderSearch extends React.Component {
 		}
 
 		this.timer = null;
-		console.log('load search')
+
 		//dropdown Menu
 		if (document) {
 			this.abortController = new AbortController();
@@ -185,7 +185,7 @@ class HeaderSearch extends React.Component {
 	hideSearch() {
 		if (document) {
 			var searchFrame = document.querySelector('.search-frame');
-			console.log('searchFrame', searchFrame)
+			//'searchFrame', searchFrame)
 			searchFrame.classList.toggle('open');
 			document.querySelector('html').classList.toggle('search-open');
 			document.querySelector('button.open-search').classList.toggle('close');
