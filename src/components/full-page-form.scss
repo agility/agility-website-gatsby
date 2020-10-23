@@ -10,7 +10,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: stretch;
-
+    img {
+      height: auto;
+    }
     .form-left {
       flex: 0 0 50%;
       margin-right: 5%;
@@ -78,6 +80,7 @@
         font-size: 24px;
         line-height: 30px;
         text-align: center;
+        color: #fff;
       }
 
       p {
@@ -276,6 +279,8 @@
             width: 100%;
             display: block;
             font-size: 18px;
+            color:#5800d4;
+            cursor: pointer;
           }
         }
 
@@ -430,7 +435,7 @@
 
 	  position: absolute;
 	  right:0;
-	  top:12px;
+	  top:7px;
 
     }
 
@@ -443,6 +448,9 @@
   &.purple {
     background-color: $darkerSecondaryColor;
     color: #fff;
+    h1, h2, h3, h4, h5{
+      color: inherit;
+    }
     .form-left {
       .rich-text p,
       .rich-text h3 {
@@ -463,6 +471,9 @@
       color: $colorBasic;
       .form-title {
         background-color: $primaryColor;
+
+          color: #484b4d;
+       
       }
 
       .submit {
@@ -484,7 +495,7 @@
       .submit {
         .btn {
           background-color: $darkerSecondaryColor;
-          color: #fff;
+          color: #fff !important;
         }
       }
     }

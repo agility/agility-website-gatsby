@@ -27,9 +27,9 @@ export default props => (
 					}
 				  }
 				}
-			  }
 			}
-        `}
+			}
+		`}
 		render={queryData => {
 
 			//filter out only those logos that we want...

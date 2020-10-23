@@ -1,0 +1,156 @@
+%add-tr {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+%color-black {
+  color: $color-h;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  .list-ul {
+    color: inherit;
+  }
+
+  a:not(.btn):not(.link-phone) {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+%color-white {
+
+  // color: $white;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  .list-ul {
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+%icomoon {
+  font-family: $icomoon;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%overlay-after {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    @include position(absolute, 0, 0, 0, 0, -1);
+    content: '';
+    background-color: $gray-100;
+    opacity: .8;
+  }
+}
+
+%bg {
+  @include background-size(cover);
+}
+
+%ps-as {
+  @include position(absolute, 0, 0, 0, 0, 1);
+}
+
+%ps-rv {
+  position: relative;
+}
+
+%ps-stt {
+  position: static;
+}
+
+%text-center {
+
+  ul,
+  ol {
+    padding-left: 0;
+
+    li {
+      list-style-position: inside;
+    }
+  }
+
+  ul {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+%bg-primary {
+  a {
+    color: $white;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+%last {
+  >*:last-child {
+    margin-bottom: 0;
+  }
+}
+
+%link-inhert {
+  color: inherit;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+%parent-link-inhert {
+  a {
+    color: inherit;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+}

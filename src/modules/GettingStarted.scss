@@ -111,15 +111,15 @@ $panel-hover-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35);
 							// min-height: 30px;
 							// line-height: 30px;
 
-							&.secondary-cta {
-								background-color: $lightGreyColor;
-								color: $colorBasic;
-								box-shadow: none;
-								&:hover {
-									background-color: darken( $lightGreyColor, 10);
-								}
+							// &.secondary-cta {
+							// 	background-color: $lightGreyColor;
+							// 	color: $colorBasic;
+							// 	box-shadow: none;
+							// 	&:hover {
+							// 		background-color: darken( $lightGreyColor, 10);
+							// 	}
 
-							}
+							// }
 						}
 						margin-bottom: 15px;
 					}

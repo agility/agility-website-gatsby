@@ -316,8 +316,8 @@ class Form extends React.Component {
 
 				<div className="rich-text" dangerouslySetInnerHTML={createSubmissionCopyMarkup()}></div>
 
-				<div className="form-item submit">
-					<button type="submit" className={btnClass} disabled={this.state.isSubmitting} >{submitMsg}</button>
+				<div className="form-item submit 12 last-mb-none">
+					<button type="submit" className={btnClass} disabled={this.state.isSubmitting} ><span>{submitMsg}</span></button>
 				</div>
 
 				{invalidMessage}

@@ -57,3 +57,18 @@ exports.createResolvers = (args) => {
 	}
 	createResolvers(resolvers)
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type agilityFeatureListItemCustomFields implements Node {
+      moreInfoLink: agilityFeatureListItemCustomFieldsMoreInfoLink
+		}
+		type agilityFeatureListItemCustomFieldsMoreInfoLink {
+			href: String,
+			target: String,
+			text:String
+		}
+  `
+  createTypes(typeDefs)
+}

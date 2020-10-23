@@ -20,7 +20,7 @@ const Callout = ({ item }) => {
 			{callout.caption && callout.caption.length > 0 &&
 			<p>{callout.caption}</p>
 			}
-			{callout.link &&
+			{callout.link && callout.link.href &&
 			<a href={callout.link.href} className={buttonClasses} target={callout.link.target}>{callout.link.text}</a>
 			}
 		</section>

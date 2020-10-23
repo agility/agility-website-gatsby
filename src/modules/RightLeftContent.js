@@ -4,12 +4,10 @@ import ResponsiveImage from '../components/responsive-image.jsx'
 import './RightLeftContent.scss'
 
 const RightLeftContent = ({ item }) => {
-
+	// console.log('RightLeftContent', RightLeftContent)
 	item = item.customFields;
 
-	let sectionStyle = {
-
-	};
+	let sectionStyle = {};
 
 	if (item.imagePlacement !== "left") {
 		sectionStyle.flexDirection = "row-reverse"

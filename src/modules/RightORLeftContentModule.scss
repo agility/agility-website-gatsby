@@ -1,4 +1,139 @@
-@import "../global/_variables.scss";
+// @import "../global/_variables.scss";
+@import '../global/setting';
 
+.dark-mode {
+  position: relative;
+  &.right-or-left-content {
+    h5 {
+      color: $color-c9;
+    }
+    &::before {
+      content: '';
+      @include position(absolute,-150px,0,0,0,0);
+      background-color: $color-17;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
 .right-or-left-content {
+  .item-ani {
+    position: absolute;
+    top: 0;
+    transition: .4s cubic-bezier(.235, .615, .185, .995);
+  }
+}
+.wrap-ani-home {
+  margin-bottom: 37px;
+  .item2 {
+    position: relative;
+    z-index: 1;
+  }
+  .item3 {
+    z-index: 2;
+  }
+  .item4 {
+    z-index: 4;
+  }
+  img {
+    width: 100%;
+  }
+}
+.ani-banner {
+  position: absolute;
+  top: -25px;
+  width: 153%;
+  left: -23%;
+  z-index: 1;
+  transition: .5s cubic-bezier(.235, .615, .185, .995);
+  height: 100%;
+  svg:not(:first-child) {
+    display: none;
+  }
+}
+.page-new-why-agility,
+.page-why-agility {
+  .internal-wrap {
+    text-align: center;
+    img {
+      width: 85%;
+    }
+  }
+}
+.mod-framework + .mod-space + .right-or-left-content {
+  background-color: $color-e9f;
+  padding: 75px 0 40px;
+  .btn-primary {
+    background-color: transparent;
+    border-color: $color-58;
+    color: $color-58;
+  }
+  .internal-wrap img {
+    width: 100%;
+  }
+  .large-paragraph {
+    margin-bottom: 35px;
+  }
+}
+@media (max-width: 767px){
+  .mod-framework + .mod-space + .right-or-left-content {
+    .col-right-lr {
+      order: 2;
+    }
+  }
+}
+@media (min-width: 768px){
+  .wrap-ani-home {
+    margin-bottom: 0;
+  }
+  .wrap-btn:not(.internal-btn) {
+    width: 130%;
+  }
+}
+@media (min-width: 992px){
+  .wrap-btn:not(.internal-btn) {
+    width: 100%;
+  }
+}
+@media (min-width: 992px){
+  .mod-framework + .mod-space + .right-or-left-content {
+    padding: 110px 0;
+    .col-right-lr {
+      flex: 0 0 66.66667%;
+      max-width: 66.66667%;
+    }
+    .large-paragraph {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 1200px){
+  .wrap-ani-home {
+    .img-mb {
+      opacity: 0;
+    }
+  }
+  .mod-framework + .mod-space + .right-or-left-content {
+    .large-paragraph {
+      padding-right: 50px;
+    }
+  }
+}
+@media (min-width: 1501px){
+  .wrap-ani-home:not(.internal-wrap) {
+    min-height: 500px;
+  }
+  .page-new-why-agility,
+  .page-why-agility {
+    .internal-wrap {
+      img {
+        width: 70%;
+      }
+    }
+  }
 }

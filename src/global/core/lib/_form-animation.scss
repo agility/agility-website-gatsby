@@ -1,0 +1,27 @@
+.form-inner {
+  @include position(relative, null, null, null, null, 1);
+}
+
+.label-animation {
+  @include position(absolute, 10px, null, null, 0, 3);
+  margin: 0;
+  padding-left: $input-btn-padding-x;
+  pointer-events: none;
+  transition: .25s all;
+}
+
+
+.active-select {
+  z-index: 2;
+}
+
+.active-focus,
+.active-select {
+  .form-inner {
+    .label-animation {
+      top: 2px;
+      font-size: rem(10);
+      transition: .25s all;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+// @import "../global/_variables.scss";
+// @import '../assets/styles/core/base/setting.scss';
+// @import '../assets/styles/bootstrap/bootstrap.scss';
+// @import '../assets/styles//core/base/mixins';
+@import '../global/setting';
+// @import '../global/mixins';
+// module 'Mod Cta'
+.mod-cta {
+  padding: 106px 0 50px;
+  h2 {
+    margin-bottom: -1px;
+  }
+  .btn-outline-white {
+    background-color: $color-46;
+  }
+}
+.three-dash-line {
+  span {
+    width: 3px;
+    height: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #fac;
+    margin-right: 4px;
+    &:nth-child(2) {
+      width: 9px;
+    }
+    &:nth-child(3) {
+      width: 12px;
+      margin-right: 0;
+    }
+  }
+}
+.triangle-white {
+  @include position(absolute,$top: 0,$left: 50%);
+  border: 20px;
+  border: solid transparent;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: $white;
+  border-width: 30px 21px;
+  transform: translateX(-50%) rotate(180deg);
+}
+.cta-mx {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.dark-mode {
+  &.mod-cta {
+    padding: 70px 0 65px;
+    .triangle-white {
+      display: none;
+    }
+    .three-dash-line {
+      opacity: 0;
+    }
+    .cta-mx {
+      max-width: 865px;
+    }
+    &::before {
+      content: '';
+      @include position(absolute,0,0,null,0,0);
+      height: 305px;
+      background: linear-gradient(-180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: .1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+    .btn-white {
+      color: #2a3846;
+      background-color: $color-ff;
+      border-color: $color-ff;
+    }
+  }
+}
+@media (min-width: 768px){
+  .mod-cta {
+    padding-bottom: 65px;
+  }
+}
+@media (max-width: 767px){
+  .cta-mx {
+    .btn {
+      margin: 0 12px 10px;
+    }
+  }
+}
+@media (min-width: 992px){
+  .dark-mode {
+    &.mod-cta {
+      padding: 120px 0 95px;
+    }
+  }
+}

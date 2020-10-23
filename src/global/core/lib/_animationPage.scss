@@ -1,0 +1,102 @@
+@media (min-width: 1200px) {
+  .anima-revert {
+    .anima-bottom:not(.not-anima) {
+      transform: translate3d(0, -100px, 0);
+      opacity: 0;
+    }
+  }
+  .anima-left:not(.not-anima)  {
+    transform: translate3d(-100px, 0, 0);
+    opacity: 0;
+  }
+  .anima-left-v2:not(.not-anima)  {
+    transform: translate3d(-100px, 0, 0);
+    opacity: 0;
+  }
+  .anima-right:not(.not-anima) {
+    transform: translate3d(100px, 0, 0);
+    opacity: 0;
+  }
+  .anima-bottom:not(.not-anima) {
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+    &.anima-revert {
+      transform: translate3d(0, -100px, 0);
+    }
+  }
+  .anima-top:not(.not-anima) {
+    transform: translate3d(0, -100px, 0);
+    opacity: 0;
+  }
+  .anima-opacity:not(.not-anima) {
+    opacity: 0;
+  }
+  .action-animation,
+  .set-animation {
+    &.anima-left  {
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    &.anima-right {
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    &.anima-bottom {
+      transform: none !important;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    &.anima-top {
+      transform: none;
+      opacity: 1 !important;
+    }
+    &.anima-opacity {
+      opacity: 1 !important;
+      transition: opacity 1s, transform .6s;
+    }
+
+    .anima-left:not(.not-anima) {
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    .anima-left-v2:not(.not-anima) {
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .4s, transform .4s;
+    }
+    .anima-right:not(.not-anima) {
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    .anima-bottom:not(.not-anima){
+      transform: none;
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    .anima-opacity:not(.not-anima) {
+      opacity: 1 !important;
+      transition: opacity .6s, transform .6s;
+    }
+    @for $i from 1 through 30 {
+      $delay: $i*.1;
+      .delay-#{$i}:not(.not-anima) {
+        transition-delay: $delay+s;
+      }
+      &.delay-#{$i}:not(.not-anima) {
+        transition-delay: $delay+s;
+      }
+    }
+  }
+}
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+}
+  50% {
+    transform: scale(1);
+  }
+}

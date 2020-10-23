@@ -89,7 +89,7 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 const StarterTemplate = ({ moduleItem, template, index }) => {
 
 	let item = template.customFields;
-	const url = `/get-started/starter-templates/${item.slug}`
+	const url = `/starters/${item.slug}`
 
 	const frameworks = template.frameworks;
 

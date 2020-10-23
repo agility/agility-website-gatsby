@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentZone from '../agility/components/ContentZone'
 
-
+import "../modules/PodcastListing.scss"
 const Template = (props) => {
 	return (
 

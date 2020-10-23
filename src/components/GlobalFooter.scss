@@ -1,5 +1,6 @@
 @import "../global/_variables.scss";
 
+
 .foter {
   position: relative;
   background-color: $act;
@@ -287,11 +288,11 @@
 
       a {
         font-family: $regular;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
+        line-height: 1.85;
         letter-spacing: normal;
         color: $white;
       }

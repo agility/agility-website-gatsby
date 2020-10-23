@@ -53,3 +53,15 @@
   );
 
 }
+/* 
+@font-face {
+  font-family: 'icomoon';
+  font-display: swap;
+  src:  url('fonts/icomoon.eot?vm3twl');
+  src:  url('fonts/icomoon.eot?vm3twl#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?vm3twl') format('truetype'),
+    url('fonts/icomoon.woff?vm3twl') format('woff'),
+    url('fonts/icomoon.svg?vm3twl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} */

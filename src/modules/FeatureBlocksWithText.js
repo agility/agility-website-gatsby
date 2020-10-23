@@ -22,7 +22,9 @@ const FeatureBlocksWithText = ({ item }) => {
 					<div className="features-left">
 						<h3>{item.sideTitle}</h3>
 						<div className="text" dangerouslySetInnerHTML={renderHTML(item.sideBody)} />
-						<a className="btn" href={item.sideLink.href} target={item.sideLink.target}>{item.sideLink.text}</a>
+						{ item.sideLink && item.sideLink.href &&
+							<a className="btn" href={item.sideLink.href} target={item.sideLink.target}>{item.sideLink.text}</a>
+						}
 					</div>
 					<div className="features-right">
 					<div className="features-list">
@@ -55,7 +57,7 @@ const ProductsFeaturesContent = ({ data }) => {
 						<h4>{data.title}</h4>
 					</div>
 					<div dangerouslySetInnerHTML={{ __html: data.textblob }} />
-					{data.bottomLink &&
+					{data.bottomLink && data.bottomLink.href &&
 						<a className="arrow-button" href={data.bottomLink.href} target={data.bottomLink.target}><span>{data.bottomLink.text}</span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={data.bottomLink.text} /></a>
 					}
 

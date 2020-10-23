@@ -1,0 +1,40 @@
+@import '../global/setting';
+.LogoListingModule-heading {
+  overflow: hidden;
+  h5 {
+    text-transform: uppercase;
+    color: $color-58;
+    font-family: $mlBold;
+    display: inline-block;
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      @include position(absolute,$top: 50%);
+      @include sizeEx(100vw,1px);
+      background-color: rgba(76,104,132,.15);
+    }
+    &::before {
+      left: calc(-100vw - 20px);
+    }
+    &::after {
+      right: calc(-100vw - 20px);
+    }
+  }
+}
+.logo-item {
+  padding: 0 10px;
+  display: block
+}
+.LogoListingModule {
+  .slick-list {
+    border-bottom: 1px solid rgba(76,104,132,.15);
+  }
+  .slick-list {
+    min-height: 140px;
+  }
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+}

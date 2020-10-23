@@ -83,7 +83,7 @@ const JobListing = ({ item, jobs }) => {
 
 
 					<div className="text" dangerouslySetInnerHTML={renderHTML(item.sideBody)} />
-					{item.sideLink &&
+					{item.sideLink && item.sideLink.href &&
 						<a className="btn" href={item.sideLink.href} target={item.sideLink.target}>{item.sideLink.text}</a>
 					}
 				</div>
@@ -116,7 +116,7 @@ const JobContent = ({ job }) => {
 					</div>
 
 					<p dangerouslySetInnerHTML={renderHTML(job.textblob)} />
-					{job.bottomLink &&
+					{job.bottomLink && job.bottomLink.href &&
 						<a className="arrow-button" href={job.bottomLink.href} target={job.bottomLink.target}><span>{job.bottomLink.text}</span><img src="https://static.agilitycms.com/layout/img/ico/gray.svg" alt={job.bottomLink.text} /></a>
 					}
 

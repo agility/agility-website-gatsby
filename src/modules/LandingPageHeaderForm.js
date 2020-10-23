@@ -24,7 +24,7 @@ const LandingPageHeaderForm = ({ item }) => {
 					<div className="content" dangerouslySetInnerHTML={{ __html: item.headerContent }}></div>
 
 					{
-						item.primaryButton &&
+						item.primaryButton && item.primaryButton.href &&
 						<div className="button"><a href={item.primaryButton.href} target={item.primaryButton.target} className="btn btn-outline">{item.primaryButton.text}</a></div>
 					}
 				</div>

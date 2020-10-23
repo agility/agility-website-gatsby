@@ -44,7 +44,7 @@ class SignIn extends React.Component {
 		}
 
 		return (
-			<div className="sign-in p-w">
+			<div className="sign-in p-w d-none">
 				<div className="container-my">
 					<ul className="sign-in-list">
 						{this.props.preHeaderPrimaryButton &&

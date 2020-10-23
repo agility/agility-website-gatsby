@@ -1,0 +1,10 @@
+.dark-breadcrum {
+  &.SectionBreadcrumbModule h5 {
+    color: #c9d8e6;
+  }
+}
+@media (max-width: 767px){
+  .SectionBreadcrumbModule {
+    margin-bottom: 20px;
+  }
+}

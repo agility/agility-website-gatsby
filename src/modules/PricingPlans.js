@@ -219,10 +219,10 @@ const PlanItem = ({ currency, item }) => {
 				</ul>
 				{plan.calltoAction &&
 					<div className="plan-body">
-						{currency !== "CDN" &&
+						{currency !== "CDN" && plan.calltoAction && plan.calltoAction.href &&
 							<a className="btn" href={plan.calltoAction.href} target={plan.calltoAction.target}>{plan.calltoAction.text}</a>
 						}
-						{currency === "CDN" &&
+						{currency === "CDN" && plan.callToActionCDN && plan.callToActionCDN.href &&
 							<a className="btn" href={plan.callToActionCDN.href} target={plan.callToActionCDN.target}>{plan.callToActionCDN.text}</a>
 						}
 					</div>

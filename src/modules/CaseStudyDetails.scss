@@ -88,11 +88,13 @@
     }
   }
 }
-  .case-study-details-container {
+.case-study-details-container {
 	  display:flex;
 	  flex-direction: row;
-	justify-content: space-between;
-
+	  justify-content: space-between;
+    img {
+      height: auto;
+    }
     .case-study-left {
 		flex-basis: 65%;
 		margin-right: 20px;
@@ -100,7 +102,7 @@
 		.rich-text {
 			margin-top: 0;
 		}
-    }
+  }
 
     .case-study-right {
 		flex-basis: 30%;

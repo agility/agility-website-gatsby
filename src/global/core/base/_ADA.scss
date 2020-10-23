@@ -1,0 +1,17 @@
+// css here
+.skip-link {
+  z-index: 1;
+  line-height: 3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease-in-out;
+
+  &:focus {
+    outline: none;
+    max-height: 50px;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}

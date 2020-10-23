@@ -1,0 +1,247 @@
+/* font-family other */
+$ml: 'Muli-Regular', sans-serif;
+$slick: 'slick';
+$icomoon: 'icomoon';
+$mlSemi: 'Muli-SemiBold', sans-serif;
+$mlBold: 'Muli-Bold', sans-serif;
+
+/* font-family body */
+$font-family-base: $ml;
+
+/* set screen */
+
+// variables gird
+$col-xs: 0;
+$col-sm: 481px;
+$col-md: 768px;
+$col-lg: 992px;
+// $col-sl: 1025px;
+$col-xl: 1200px;
+$col-xxl: 1366px;
+
+// variables max widths
+$media-sm: 100%;
+$media-md: 730px;
+$media-lg: 970px;
+$media-xl: 1150px;
+$media-xxl: 1336px;
+
+/* class bootstrap helper (d-md-none d-lg-none) */
+// $grid-breakpoints-custom: (xs: 0, md: $col-md, lg: $col-lg, sl:$col-sl);
+// $grid-breakpoints-mb: (xs: 0);
+// $grid-breakpoints-dt: (md: $col-md, lg: $col-lg, sl:$col-sl, xl: $col-xl);
+
+/* class media bootstrap reponsive helper @include media-breakpoint-up(xl) */
+// $grid-breakpoints-media: (xs: $col-xs, sm: $col-sm, md: $col-md, lg: $col-lg, xl: $col-xl);
+
+$grid-breakpoints: () !default;
+$grid-breakpoints: map-merge(
+  (
+    xs: $col-xs,
+    sm: $col-sm,
+    md: $col-md,
+    lg: $col-lg,
+    xl: $col-xl,
+    xxl: $col-xxl
+  ),
+  $grid-breakpoints
+);
+
+/* class gird (col-md-6, container max-width) */
+
+$container-max-widths: (sm: null, md: $media-md, lg: $media-lg,xl: $media-xl);
+
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+
+/* Color system */
+
+$white: #fff !default;
+$gray-100: #ebebeb !default;
+// $gray-200: #e9ecef !default;
+// $gray-300: #dee2e6 !default;
+// $gray-400: #ced4da !default;
+// $gray-500: #adb5bd !default;
+// $gray-600: #868e96 !default;
+// $gray-700: #495057 !default;
+// $gray-800: #343a40 !default;
+$gray-900: #00142a !default;
+
+
+$grays: ( // 100: $gray-100,
+  // 200: $gray-200,
+  // 300: $gray-300,
+  // 400: $gray-400,
+  // 500: $gray-500,
+  // 600: $gray-600,
+  // 700: $gray-700,
+  // 800: $gray-800,
+  900: $gray-900) !default;
+
+$blue: #5400ca !default;
+// $indigo:  #6610f2 !default;
+// $purple:  #6f42c1 !default;
+// $pink:    #e83e8c !default;
+$red: #cd2333 !default;
+// $orange:  #fd7e14 !default;
+// $yellow:  #ffc107 !default;
+// $green:   #28a745 !default;
+// $teal:    #20c997 !default;
+// $cyan:    #17a2b8 !default;
+
+$colors: (blue: $blue,
+// indigo: $indigo,
+  // purple: $purple,
+  // pink: $pink,
+  red: $red,
+// orange: $orange,
+  // yellow: $yellow,
+  // green: $green,
+  // teal: $teal,
+  // cyan: $cyan,
+  // white: $white,
+  // gray: $gray-600,
+  // gray-dark: $gray-800
+) !default;
+
+$theme-colors: (
+  primary: $blue,
+  // secondary: $gray-600,
+  // success: $green,
+  // info: $cyan,
+  // warning: $yellow,
+  // danger: $red,
+  // light: $gray-100,
+  // dark: $gray-800
+) !default;
+
+$color-2a: #2a3846;
+$color-4c: #4c6884;
+$color-58: #5800d4;
+$color-ff: #ffc414;
+$color-75: #7556e8;
+$color-e9: #e9eef1;
+$color-e9f: #e9f0f5;
+$color-6d: #6d06ff;
+$color-17: #171b20;
+$black: #000;
+$color-46: #4600a8;
+$color-f3: #f3edfc;
+$color-1d: #1d242a;
+$color-f4: #f4f7fa;
+$color-df: #DFE8F0;
+$color-c9: #c9d8e6;
+$color-e3: #380086;
+$color-ee: #EEF4F8;
+/* body */
+$body-bg: $white !default;
+$body-color: $color-4c !default;
+
+/* color heading */
+// set color for heading
+$color-h: $color-2a;
+$black: $gray-900 !default;
+
+$link-color: $blue !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+// Paragraphs
+$paragraph-margin-bottom: 1rem;
+
+// Options
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+// Components
+
+$btn-border-width: 2px !default;
+$border-color: $color-58 !default;
+$border-radius: 0 !default;
+$btn-line-height: 1.31 !default;
+
+/* btn custom */
+
+$btn-font-weight: 500 !default;
+//$btn-box-shadow:                 inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075) !default;
+//$btn-focus-box-shadow:           0 0 0 3px rgba(theme-color("primary"), .25) !default;
+//$btn-active-box-shadow:          inset 0 3px 5px rgba($black,.125) !default;
+$btn-link-disabled-color: $gray-900 !default;
+$btn-border-radius: $border-radius !default;
+$btn-transition: .25s all !default;
+$border-color: $border-color;
+$btn-padding-y: 14.5px;
+$btn-padding-x: 21px;
+
+/* font size */
+
+@function rem($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+$font-b: 17;
+$fontpx: 17px;
+
+/* set style body */
+
+$font-size-base : rem($font-b);
+$line-height-base : 1.76 !default;
+$font-weight-base : 400;
+$btn-font-size: rem(16);
+
+/* font heading */
+
+$h1-font-size : rem(40);
+$h2-font-size : rem(35);
+$h3-font-size : rem(24);
+$h4-font-size : rem(19);
+$h5-font-size : rem(13);
+
+/* heading custom */
+
+$headings-margin-bottom: 1rem !default;
+$headings-font-family: $mlSemi !default;
+$headings-font-weight: 600 !default;
+$headings-line-height: 1.25 !default;
+$headings-color: $color-2a !default;
+
+/* .form-control */
+
+$input-btn-padding-y: rem(17);
+$input-btn-padding-x: rem(20);
+$input-btn-line-height: 1.2;
+$input-color: $color-h;
+$input-bg: $body-bg;
+$input-btn-border-width: 1px;
+$input-border-color: $color-h;
+$input-border-radius: $border-radius;
+$input-placeholder-color: $gray-900;
+$input-disabled-bg: $gray-100;
+// $input-focus-box-shadow: 0 0 0 .2rem rgba(0, 81, 170, .3);
+// $input-box-shadow: 0 0 0 .2rem rgba(0, 81, 170, .3);
+
+/* .breadcrumb */
+
+$breadcrumb-padding-y: rem(1);
+$breadcrumb-padding-x: rem(0);
+$breadcrumb-bg: $white;
+
+@import './core/base/mixins';
+@import './core/base/placehoder';
+@import './variables-global';
