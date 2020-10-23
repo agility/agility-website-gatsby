@@ -4,12 +4,9 @@ import moment from 'moment'
 import { renderHTML } from '../agility/utils'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import CallToAction from "../components/call-to-action.jsx"
-
-import "./ResourceDetails.scss"
-import "./RichTextArea.scss"
-
+import './ResourceDetails.scss'
+import './RichTextArea.scss'
 const ResourceDetails = ({ item, dynamicPageItem }) => {
-
 	let resource = dynamicPageItem.customFields;
 	item = item.customFields;
 

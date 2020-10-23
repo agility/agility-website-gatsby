@@ -10,7 +10,6 @@ import './PostListing.scss'
 export default props => (
 	<StaticQuery
 		query={graphql`
-
 			query PartnerListingQuery {
 				allAgilityCustomTag(sort: {order: ASC, fields: properties___itemOrder}) {
 					nodes {
@@ -51,8 +50,6 @@ export default props => (
 				  }
 				}
 			  }
-
-
         `}
 		render={queryData => {
 

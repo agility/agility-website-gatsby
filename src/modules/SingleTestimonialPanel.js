@@ -1,8 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
-// import { renderHTML } from '../agility/utils';
 import LazyBackground from '../utils/LazyBackground'
-// import { renderHTML } from '../agility/utils'
 import './SingleTestimonialPanel.scss'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
@@ -14,8 +12,6 @@ const SingleTestimonialPanel = ({ item }) => {
 	if (fields.testimonials.length > 0) {
 		const randomItem = Math.floor(Math.random() * fields.testimonials.length)
 		const singeTestimonial = fields.testimonials[randomItem].customFields
-		// console.log('singeTestimonial: ', Math.floor(Math.random() * 10000), fields.testimonials)
-		// console.log('Item ramdom', randomItem)
 		return (
 			<React.Fragment>
 			<div className={classSection} data-item={randomItem}>

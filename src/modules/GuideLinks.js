@@ -44,8 +44,6 @@ export default props => (
 	)
 
 const GuideLinks = ({ item, listGuideLinks }) => {
-	// console.log('GuideLinks', item)
-
 	const fields = item.customFields;
 	const classSection = `module mod-user-guides has-btn-white text-white GuideLinks animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode': ''}`
 	const heading = fields.heading

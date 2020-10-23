@@ -186,6 +186,7 @@ class NewGlobalHeader extends Component {
 		document.addEventListener('click',(event) => {
 			const group = document.querySelectorAll('.group-search')[0]
 			if(group.classList.contains('open') && event.target.classList.length && !event.target.classList.contains('dectect-open')) {
+				console.log(event)
 				group.classList.remove('open')
 			}
 		})
@@ -267,11 +268,11 @@ class NewGlobalHeader extends Component {
 			if (links.length === 0) {
 				return null
 			}
-			const className = 'main-menu-ul navbar-nav ml-auto list-inline';
+			const className = 'main-menu-ul navbar-nav ml-auto list-inline dectect-open';
 			if (level === 0) {
 				const btnMenu = <li className="d-lg-flex align-items-center box-search-header" key="btnMenu">
 					<div className="group-search">
-					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center">
+					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center dectect-open">
 						<Lazyload offset={ Helpers.lazyOffset }><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
 					</button>
 						<form onSubmit={event => {
@@ -287,7 +288,7 @@ class NewGlobalHeader extends Component {
 						</button>
 						</form>
 					</div>
-					<Link to={primaryButton.href} blank={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</Link>
+					<a href={primaryButton.href} blank={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
 					<a blank={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				</li>
 				links.push(btnMenu)

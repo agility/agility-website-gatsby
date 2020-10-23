@@ -1,17 +1,12 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React, { useEffect,} from 'react';
-// import { Link, StaticQuery } from 'gatsby';
-// import React, { useState, useEffect,useRef,createRef } from 'react';
 import Slider from 'react-slick';
 import LazyLoad from 'react-lazyload'
 import '../global/core/lib/_slick-theme.scss'
-// import StringUtils from '../utils/string-utils'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
-
 import './ReviewRotator.scss'
 import { renderHTML } from '../agility/utils';
-
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -73,17 +68,17 @@ const ReviewRotator = ({ item, listReviews }) => {
 		const reviewer = fieldsReview.reviewer
 		const date = fieldsReview.reviewDate
 		const initClick = (nb) => {
-			let sibing = document.querySelectorAll(`.ReviewRotator-item[data-item='${nb}']`)
+			const sibing = document.querySelectorAll(`.ReviewRotator-item[data-item='${nb}']`)
 			if(!sibing[0].querySelectorAll('.content-smaller').length) {
 				if (sibing[0].classList.contains('open')) {
 					Array.from(sibing).forEach((ele,i) => {
-						let content = ele.querySelectorAll('.content-review')[0]
+						const content = ele.querySelectorAll('.content-review')[0]
 						content.style.height = '150px'
 						ele.classList.remove('open')
 					})
 				} else {
 					Array.from(sibing).forEach((ele,i) => {
-						let content = ele.querySelectorAll('.content-review')[0]
+						const content = ele.querySelectorAll('.content-review')[0]
 						content.style.height = content.scrollHeight + 'px'
 						ele.classList.add('open')
 					})
@@ -135,7 +130,6 @@ const ReviewRotator = ({ item, listReviews }) => {
 		rows: 1,
 		slidesToShow: 3,
     slidesToScroll: 1,
-    // adaptiveHeight: true,
     respondTo: 'slider',
     responsive: [{
       breakpoint: 1199,
@@ -156,10 +150,9 @@ const ReviewRotator = ({ item, listReviews }) => {
 		window.addEventListener('resize', checkHeight);
 	}
 	const checkHeight = () => {
-		var content = document.querySelectorAll('.content-review');
-		// let line = 6
-		let maxHeight = 150
-		Array.from(content).forEach((item,index) => {
+		const content = document.querySelectorAll('.content-review');
+		const maxHeight = 150
+		Array.from(content).forEach((item, index) => {
 			if(item.scrollHeight <= maxHeight) {
 				item.classList.add('smaller')
 				item.parentElement.classList.add('content-smaller')
@@ -170,10 +163,10 @@ const ReviewRotator = ({ item, listReviews }) => {
 			}
 		})
 		setTimeout (() => {
-			let active = document.querySelectorAll('.ReviewRotator-item.open .content-review')
-			Array.from(active).forEach((item,index) => {
+			const active = document.querySelectorAll('.ReviewRotator-item.open .content-review')
+			Array.from(active).forEach((item, index) => {
 				let h = 0
-				Array.from(item.childNodes).forEach((ele,idx) => {
+				Array.from(item.childNodes).forEach((ele, idx) => {
 					h += (ele.scrollHeight + 10)
 				})
 				item.style.height = h + 'px'
@@ -182,7 +175,6 @@ const ReviewRotator = ({ item, listReviews }) => {
 	}
 	useEffect(() => {
 		callcheckHeight()
-		// initClick()
   });
 	return (
 		<React.Fragment>

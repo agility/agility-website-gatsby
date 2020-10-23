@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from 'gatsby'
 import { renderHTML } from '../agility/utils'
 import './VerticalContentPanel.scss'
-import Lazyload, { forceCheck, forceVisible } from 'react-lazyload'
+import Lazyload, { forceCheck } from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 
@@ -44,7 +44,6 @@ export default props => (
           listPanelContent[i + 1] = tam
         }
       }
-      // console.log('queryData.allAgilityPanelContentItems', queryData.allAgilityPanelContentItems)
 			const viewModel = {
 				item: props.item,
 				listPanelContent
@@ -66,15 +65,11 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   const classPositionImage = `col-xl-6 d-none d-xl-flex list-image-ic delay-2 ${positionContent === 'right' ? '': ' '}`
   const lazyRef = useRef(null)
   const [active, setActive] = useState(1)
-  useEffect(() => {
-    init()
-    // initvertical()
-  }, [])
   const initClass = (ele) => {
-    let wH = window.innerHeight
-    let header = document.querySelectorAll('.header')[0].offsetHeight
-    let offset = wH - header
-    let calcHeight = ele.querySelectorAll('.title-i-c')[0].offsetHeight + 60 + ele.querySelectorAll('.wrap-lv2')[0].offsetHeight + 60
+    const wH = window.innerHeight
+    const header = document.querySelectorAll('.header')[0].offsetHeight
+    const offset = wH - header
+    const calcHeight = ele.querySelectorAll('.title-i-c')[0].offsetHeight + 60 + ele.querySelectorAll('.wrap-lv2')[0].offsetHeight + 60
     if (calcHeight < offset) {
       ele.classList.add('is-full')
       ele.classList.remove('is-lv2')
@@ -84,10 +79,10 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     }
   }
   const setheight = (ele) => {
-    let Fakeheight = ele.querySelectorAll('.fake-height')[0]
-    let title = ele.querySelectorAll('.title-i-c ')[0].offsetHeight
-    let item = ele.querySelectorAll('.list-image-ic .item-image-ic')
-    let list = ele.querySelectorAll('.list-content-ic')[0]
+    const Fakeheight = ele.querySelectorAll('.fake-height')[0]
+    const title = ele.querySelectorAll('.title-i-c ')[0].offsetHeight
+    const item = ele.querySelectorAll('.list-image-ic .item-image-ic')
+    const list = ele.querySelectorAll('.list-content-ic')[0]
     Fakeheight.style.height = title + item.length*list.offsetHeight*4/5 + 60 + 'px'
     Fakeheight.style.paddingTop = title + 60 +'px'
   }
@@ -116,6 +111,9 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
       })
     })
   }
+  useEffect(() => {
+    init()
+  }, [])
   const classPin = 'list-pin'
   const classPin2 = 'list-pin-bottom'
   let scrollTop
@@ -146,7 +144,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     const doc = document.documentElement;
     let offsetPin
     let rootOffset
-    let header = document.querySelectorAll('#header')[0].offsetHeight
+    const header = document.querySelectorAll('#header')[0].offsetHeight
     let trigger
     let listOffset
     if (window.innerWidth < 1200) {
@@ -158,8 +156,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     offsetPin = (window.innerHeight - document.querySelectorAll('#header')[0].offsetHeight - serviceLeft.offsetHeight) / 2
     listOffset = rootOffset + serviceRight.offsetHeight - add
     trigger = scrollTop + header + offsetPin
-
-    
     let item = $this.querySelectorAll('.fake-height .item-image-ic')
     if(item) {
       Array.from(item).forEach((elem,i) => {
@@ -170,14 +166,13 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
             activetab($this,i)
           }
         }
-      }) 
+      })
     }
     if (trigger > rootOffset) {
       if (trigger + serviceLeft.offsetHeight < listOffset) {
         serviceLeft.classList.remove(classPin2)
         serviceLeft.classList.add(classPin)
         serviceLeft.style.top = header + offsetPin + 'px'
-        
       } else {
         serviceLeft.classList.add(classPin2)
         serviceLeft.style.top = rootOffset - scrollTop + 'px'
@@ -213,15 +208,15 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
           if (positionContent === 'right') {
             return (
               <React.Fragment>
-                <Lazyload offset={ Helpers.lazyOffset }><img src='/images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload> 
-                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>  
+                <Lazyload offset={ Helpers.lazyOffset }><img src='/images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
+                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
               </React.Fragment>
             )
           } else {
             return (
               <React.Fragment>
                 <Lazyload offset={ Helpers.lazyOffset }><img src='/images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
-                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img> </Lazyload> 
+                <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img> </Lazyload>
               </React.Fragment>
             )
           }
@@ -249,7 +244,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
         </div>
       </div>
     )
-    return null
   })
   const imagePanels = listPanelContent.map((obj, idx) => {
     const customField = obj.customFields
@@ -261,7 +255,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
             <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
               <Lazyload offset={ Helpers.lazyOffset }><img src='/images/familiar.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
               <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-              
             </div>
           )
         } else {
@@ -269,7 +262,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
             <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
               <Lazyload offset={ Helpers.lazyOffset }><img src='/images/layer-content-image.png' className='layer-image' alt={customField.graphic.label}></img></Lazyload>
               <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} className='img-before' alt={customField.graphic.label}></img></Lazyload>
-              
             </div>
           )
         }
@@ -284,13 +276,6 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     return null
   })
 
-  const checkForceLazyImg = () => {
-    const top  = (window.pageYOffset || document.documentElement.scrollTop) + (window.innerHeight || document.documentElement.clientHeight)
-    const elem = lazyRef.current.getBoundingClientRect()
-    if (top >= elem.top) {
-      forceVisible()
-    }
-  }
   const itemfake = listPanelContent.map((obj, idx) => {
     const classNameImg = `item-image-ic ${idx + 1 === active ? 'tab-active': ''}`
     return (
@@ -330,9 +315,8 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
           </div>
           <div className='fake-height'>{itemfake}</div>
         </div>
-
       </section>
     <Spacing item={item}/>
   </React.Fragment>
-	);
+	)
 }

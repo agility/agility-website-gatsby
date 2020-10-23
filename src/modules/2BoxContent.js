@@ -3,8 +3,6 @@ import Spacing from './Spacing'
 import './2BoxContent.scss'
 
 const BoxContent = ({ item }) => {
-
-	// console.log('2BoxContent', item)
 	const fields = item.customFields
 	const classSection = `mod module-chanel 2BoxContent animation ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode': ''}`
 	const btnCta = fields.cTA
@@ -15,7 +13,6 @@ const BoxContent = ({ item }) => {
 	const heading2 = fields.heading2
 	const image = fields.image
 	const image2 = fields.image2
-	// console.log('typeof', typeof fields.mobileSpace)
 	const classitem  = ( btnCta || image || heading || description) && ( btnCta2 || image2 || heading2 || description2)  ? 'col-lg-6 item-chanel' : 'col-lg-8 item-chanel'
 	return (
 		<React.Fragment>

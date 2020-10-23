@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
-// Import css files
-// import 'slick-carousel/slick/slick.css';
 import '../global/core/lib/_slick-theme.scss'
 import StringUtils from '../utils/string-utils'
 import './CaseStudyRotator.scss';
@@ -12,7 +10,6 @@ import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 
 const CaseStudyRotator = ({ item }) => {
-  // console.log('CaseStudyRotator', item)
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
   const fields = item.customFields

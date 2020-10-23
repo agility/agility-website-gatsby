@@ -1,11 +1,8 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './BestofBothWorldsModule.scss'
 import '../global/_popup-video.scss'
-// import PopupVideo from 'react-modal-video'
-// import LazyLoad from 'react-lazyload'
 import './VideoPlayerModule.scss'
 import LazyBackground from '../utils/LazyBackground'
-// import YouTube from 'react-youtube';
 import ReactPlayer from 'react-player'
 import Spacing from './Spacing'
 
@@ -17,7 +14,6 @@ const VideoPlayerModule = ({ item }) => {
 	const [isPaused, setIsPaused] = useState(false);
 	const thumbnail = fields.thumbnailVideo
 	const urlThumbnail = thumbnail ? thumbnail.url : '/images/bg-video.jpg'
-	// console.log("VideoPlayerModule", item)
 	const togglePause = () => {
 		if(urlVideo !== null) {
 			setIsPaused(!isPaused);
@@ -28,9 +24,6 @@ const VideoPlayerModule = ({ item }) => {
 			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={true}/>
 		);
 	}
-	useEffect(() => {
-  });
-
 	return (
 		<React.Fragment>
 			<section className={classSection}>

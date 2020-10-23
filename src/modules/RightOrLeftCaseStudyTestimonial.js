@@ -4,8 +4,6 @@ import './RightOrLeftCaseStudyTestimonial.scss'
 import { renderHTML } from '../agility/utils';
 
 const RightOrLeftCaseStudyTestimonial = ({ item }) => {
-
-	// console.log('RightOrLeftCaseStudyTestimonial', item)
 	const fields = item.customFields
 	const classSection = `module mod-testimonial-detail RightOrLeftCaseStudyTestimonial animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode': ''}`
 	const labelCta = fields.cTA

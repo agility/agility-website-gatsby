@@ -10,6 +10,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: stretch;
+    width: 100%;
     img {
       height: auto;
     }
@@ -551,6 +552,13 @@
         flex: none;
         width: 100%;
       }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .ie {
+    .form-container .form-panel {
+      flex-wrap: nowrap;
     }
   }
 }
