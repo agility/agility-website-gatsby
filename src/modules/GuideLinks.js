@@ -59,7 +59,7 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 		const uRLGuide = customeFieldsGuide.uRL
 		return (
 			<div className="item-guides ps-rv small-paragraph last-mb-none" key={idx}>
-				<LazyLoad offset={ Helpers.lazyOffset }><img src='../images/right-icon.svg' className='icon-right' alt='icon right'></img></LazyLoad>
+				<LazyLoad offset={ Helpers.lazyOffset }><img src='/images/right-icon.svg' className='icon-right' alt='icon right'></img></LazyLoad>
 				{ uRLGuide && uRLGuide.href &&
 					<a href={uRLGuide.href} target={uRLGuide.target} className="ps-as"><span className="sr-only">{uRLGuide.text}</span></a>
 				}
@@ -85,7 +85,7 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 	return (
 		<React.Fragment>
 			<section className={classSection}>
-				<LazyLoad offset={ Helpers.lazyOffset }><img src="../images/computer.png" alt='Ready to dive in?' className='bg-guides'></img></LazyLoad>
+				<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/computer.png" alt='Ready to dive in?' className='bg-guides'></img></LazyLoad>
 				<span className="icomoon icon-gears"></span>
 				<div className="container">
 					<div className="row align-items-center">

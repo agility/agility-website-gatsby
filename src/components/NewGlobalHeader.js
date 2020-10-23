@@ -1,79 +1,69 @@
 import React, { Component } from 'react';
-import { Link, graphql, StaticQuery, navigate } from "gatsby"
+import { Link, graphql, StaticQuery, navigate } from 'gatsby'
 import Lazyload from 'react-lazyload'
-import HeaderSearch from './header-search.jsx'
 import { renderHTML } from '../agility/utils'
-// import SignIn from './sign-in.jsx'
 import Hamburger from './Newhamburger.jsx'
-// import HeaderSearch from './header-search.jsx'
-import Sticky from 'react-sticky-el'
-// import MarketingBanner from './marketing-banner.jsx'
 import Helpers from '../global/javascript/Helpers'
-
 export default props => (
 	<StaticQuery
 		query={graphql`
-        query NewGlobalHeaderQuery {
-			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
-				customFields {
-					hideMarketingBanner
-					marketingBanner
-					mobileLogo {
-						label
-						url
-					}
-					primaryButton {
-						href
-						target
-						text
-					}
-					secondaryButton {
-						href
-						target
-						text
-					}
-					stickyLogo {
-						url
-					}
-					logo {
-						url
-						label
-					}
-				}
-				preHeaderLinks {
+			query NewGlobalHeaderQuery {
+				agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
 					customFields {
-						title
-						uRL {
-						href
-						target
-						text
+						hideMarketingBanner
+						marketingBanner
+						mobileLogo {
+							label
+							url
+						}
+						primaryButton {
+							href
+							target
+							text
+						}
+						secondaryButton {
+							href
+							target
+							text
+						}
+						stickyLogo {
+							url
+						}
+						logo {
+							url
+							label
+						}
+					}
+					preHeaderLinks {
+						customFields {
+							title
+							uRL {
+							href
+							target
+							text
+							}
 						}
 					}
 				}
-			}
-			agilitynestedsitemap {
-				internal {
-					content
+				agilitynestedsitemap {
+					internal {
+						content
+					}
 				}
 			}
-		}
-
-        `}
+		`}
 		render={queryData => {
-
-			const nestedSitemapJSON = queryData.agilitynestedsitemap.internal.content;
-			const nestSitemap = JSON.parse(nestedSitemapJSON).nodes;
-
-
+			const nestedSitemapJSON = queryData.agilitynestedsitemap.internal.content
+			const nestSitemap = JSON.parse(nestedSitemapJSON).nodes
 			const viewModel = {
 				item: queryData.agilityGlobalHeader,
 				menu: nestSitemap.filter(node => {
-					return node.visible.menu;
+					return node.visible.menu
 				})
 			}
 			return (
 				<NewGlobalHeader {...viewModel} />
-			);
+			)
 		}}
 	/>
 )
@@ -82,19 +72,17 @@ class NewGlobalHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.header = React.createRef()
-
 		this.state = {
 			sticky: false,
 			openMenu: false,
 			menuLv2Opening: '',
 			activeMenu: ''
-		};
+		}
 		this.stickyHeader = this.stickyHeader.bind(this)
 		this.showMenuMobile = this.showMenuMobile.bind(this)
 		this.removeClassOpenMenuOnHtml = this.removeClassOpenMenuOnHtml.bind(this)
 	}
 	componentDidMount() {
-		// console.log('NewGlobalHeader', this.props.menu)
 		this.setState({activeMenu: window.location.pathname})
 		this.inputLine()
 		this.hiddenSeach()
@@ -106,8 +94,8 @@ class NewGlobalHeader extends Component {
 	setPaddingBody () {
 		setTimeout (() => {
 			if(!(window.innerWidth < 992 && document.querySelectorAll('html')[0].classList.contains('is-open-menu'))) {
-				let header = document.querySelectorAll('#header')[0].offsetHeight
-				let main = document.querySelectorAll('.main-content')[0]
+				const header = document.querySelectorAll('#header')[0].offsetHeight
+				const main = document.querySelectorAll('.main-content')[0]
 				main.style.paddingTop = header + 'px'
 			}
 		}, 200)
@@ -124,11 +112,9 @@ class NewGlobalHeader extends Component {
 			})
 		}
 	}
-
 	_handleActiveMenu(menuItem) {
 		this.setState({activeMenu: menuItem})
 	}
-
 	showMenuMobile () {
 		const w = window.innerWidth || document.documentElement.offsetWidth
 		if (w < 992) {
@@ -141,7 +127,6 @@ class NewGlobalHeader extends Component {
 	removeClassOpenMenuOnHtml() {
 		const isOpenMenuText = 'is-open-menu';
 		const html = document.querySelector('html')
-		// console.log(this.state.openMenu)
 		setTimeout(() => {
 			if (this.state.openMenu === false) {
 				html.classList.remove(isOpenMenuText)
@@ -166,7 +151,6 @@ class NewGlobalHeader extends Component {
 		if(window.innerWidth < 992) {
 			const target = event.currentTarget;
 			const parentMenu = target.closest('li')
-			// console.log(this.state.menuLv2Opening)
 			if (this.state.menuLv2Opening !== parentMenu.dataset.pageId) {
 				this.setState({	menuLv2Opening: parentMenu.dataset.pageId})
 			} else {
@@ -176,14 +160,13 @@ class NewGlobalHeader extends Component {
 	}
 
 	setNativeValue(element, value) {
-		const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
-		const prototype = Object.getPrototypeOf(element);
-		const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
-
+		const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set
+		const prototype = Object.getPrototypeOf(element)
+		const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set
 		if (valueSetter && valueSetter !== prototypeValueSetter) {
-			prototypeValueSetter.call(element, value);
+			prototypeValueSetter.call(element, value)
 		} else {
-			valueSetter.call(element, value);
+			valueSetter.call(element, value)
 		}
 	}
 
@@ -201,7 +184,7 @@ class NewGlobalHeader extends Component {
 	}
 	hiddenSeach () {
 		document.addEventListener('click',(event) => {
-			let group = document.querySelectorAll('.group-search')[0]
+			const group = document.querySelectorAll('.group-search')[0]
 			if(group.classList.contains('open') && event.target.classList.length && !event.target.classList.contains('dectect-open')) {
 				group.classList.remove('open')
 			}
@@ -210,51 +193,54 @@ class NewGlobalHeader extends Component {
 	showSearch () {
 		const searchFrame = document.querySelectorAll('.group-search')[0];
 		searchFrame.classList.add('open')
+		document.getElementById('search-page-header').focus()
 	}
 	hiddenMessage () {
 		document.querySelectorAll('.box-message')[0].classList.add('hidden-mess')
-		let main = document.querySelectorAll('.main-content')[0]
-		let header = document.querySelectorAll('#header .navbar')[0].offsetHeight
+		const main = document.querySelectorAll('.main-content')[0]
+		const header = document.querySelectorAll('#header .navbar')[0].offsetHeight
 		main.style.paddingTop = header + 'px'
 	}
 	render() {
-		let preHeaderLinks = this.props.item.preHeaderLinks;
-		let menuGetstart = this.props.item.customFields.secondaryButton;
-		let primaryButton = this.props.item.customFields.primaryButton;
+		const menuGetstart = this.props.item.customFields.secondaryButton;
+		const primaryButton = this.props.item.customFields.primaryButton;
 		const isOpenMenuText = 'is-open-menu';
 		const renderMenu = (menu, level) => {
-			let links = []
-			if (!menu || !menu.length || menu.length === 0) return null;
-			let itemClassName = "h-menu-li"
-
+			const links = []
+			if (!menu || !menu.length || menu.length === 0) {
+				return null
+			}
+			const itemClassName = 'h-menu-li'
 			menu.forEach((item) => {
-				if (!item.visible.menu) return;
+				if (!item.visible.menu) {
+					return
+				}
 				let path = item.path;
-				let path2 = item.path;
+				const path2 = item.path;
 				if (item.redirect) {
-					path = item.redirect.url.replace("~/", "/");
+					path = item.redirect.url.replace('~/', '/')
 				}
 				const isActive = (this.state.activeMenu.indexOf(path2) !== -1 ? 'active': '' )
+				if (level > 1) {
+					return null
+				}
 				const subLinks = renderMenu(item.children, level + 1);
 				if (subLinks === null || subLinks.length < 0) {
 					//no sub menu
 					links.push(<li className={isActive} key={item.pageID} onClick={this._handleActiveMenu.bind(this, path)}>
-						{path.indexOf("://") !== -1 ? <a href={path} target={item.target}>{item.menuText}</a> : 	<Link to={path} target={item.target}>{item.menuText}</Link> }
+						{path.indexOf('://') !== -1 ? <a href={path} target={item.target}>{item.menuText}</a> : <Link to={path} target={item.target}>{item.menuText}</Link> }
 						</li>)
 				} else {
 					//has a sub menu
 					let li = null;
 					if (!item.isFolder) {
 						//regular item...
-
 						li = <li className={isActive + ' has-sub  d-lg-flex align-items-center ' + (parseInt(this.state.menuLv2Opening) === item.pageID ? 'is-open-child' : '')} data-page-id={item.pageID} key={item.pageID}>
-
 							{ path.indexOf("://") !== -1 ?
 								<a href={path} target={item.target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</a>
 							:
 								<Link to={path} target={item.target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</Link>
 							}
-
 							<div className="nav-item-arrows arrows-lv1 d-lg-none" onClick={ (e) => this.clickNavArrowLv1(e) }>
 								<i className="icomoon icon-down-menu" aria-hidden="true"></i>
 							</div>
@@ -278,15 +264,11 @@ class NewGlobalHeader extends Component {
 					links.push(li);
 				}
 			});
-
-			if (links.length === 0) return null;
-
-			const className = "main-menu-ul navbar-nav ml-auto list-inline";
+			if (links.length === 0) {
+				return null
+			}
+			const className = 'main-menu-ul navbar-nav ml-auto list-inline';
 			if (level === 0) {
-				// const linkSignIn = preHeaderLinks.map((link, idx) => {
-				// 	const fieldCustome = link.customFields
-				// 	return <Link to={primaryButton.href} blank={primaryButton.target} key={idx} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</Link>
-				// })
 				const btnMenu = <li className="d-lg-flex align-items-center box-search-header" key="btnMenu">
 					<div className="group-search">
 					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center">
@@ -305,7 +287,6 @@ class NewGlobalHeader extends Component {
 						</button>
 						</form>
 					</div>
-				
 					<Link to={primaryButton.href} blank={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</Link>
 					<a blank={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				</li>
@@ -315,10 +296,10 @@ class NewGlobalHeader extends Component {
 		};
 
 		const onStickyActive = () => {
-
 			let stickyNow = false;
-			if (this.state) stickyNow = this.state.sticky;
-
+			if (this.state) {
+				stickyNow = this.state.sticky
+			}
 			this.setState({ sticky: !stickyNow })
 		}
 		const item = this.props.item.customFields;
@@ -326,21 +307,20 @@ class NewGlobalHeader extends Component {
 		const classMainMenu = `navbar-collapse main-menu menu-header-right ${this.state.openMenu === true ? isOpenMenuText : ''}`
 		return (
 			<React.Fragment>
-				{/* <HeaderSearch siteSearchSettings={this.props.item.customFields.siteSearchSettings} /> */}
 				<header id="header" className={classHeader} data-module="header">
 					<Link className="skip-link text-center d-block w-100 bg-black text-white" to="javascript:;">
 						<span>Skip to content</span></Link>
-					{ (item.hideMarketingBanner !== "true") && item.marketingBanner && item.marketingBanner.length > 0 &&
-					<div className="box-message text-white"> {/*version2: add class style-black */}
-						<div className="container last-mb-none text-center">
-							<div className="close-message" onClick={this.hiddenMessage}></div>
-							<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
+					{ (item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 &&
+						<div className="box-message text-white">
+							<div className="container last-mb-none text-center">
+								<div className="close-message" onClick={this.hiddenMessage}></div>
+								<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
+							</div>
 						</div>
-					</div>
 					}
 					<nav className="container navbar navbar-expand-lg">
 						<div className="header-mobile row align-items-center justify-content-between flex-wrap">
-							{item.logo ?
+							{ item.logo ?
 								<div className="col-9 col-lg-12">
 									<Link to="/" id="header-logo" title={item.logo.label} className="navbar-brand header-logo w-100">
 										<img src={item.stickyLogo.url} alt={item.logo.label} />
@@ -361,8 +341,6 @@ class NewGlobalHeader extends Component {
 			</React.Fragment>
 		);
 	}
-
-
 }
 
 

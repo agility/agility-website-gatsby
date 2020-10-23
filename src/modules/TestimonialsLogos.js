@@ -10,8 +10,6 @@ const TestimonialsLogos = ({ item }) => {
 	let testimonials =  ArrayUtils.getRandomElements( item.testimonials, 1);
 	let logos = item.logos;
 
-
-
 	testimonials = testimonials.map(function (t, index) {
 		if (index === 0) {
 			return <TestimonialContent item={t} key={t.contentID + "-" + moduleItem.contentID} />
@@ -23,7 +21,6 @@ const TestimonialsLogos = ({ item }) => {
 	logos = logos.map(function (logo) {
 		return <LogoContent item={logo} key={logo.contentID + "-" + moduleItem.contentID} />
 	})
-
 
 	return (
 

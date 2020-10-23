@@ -149,6 +149,7 @@
   }
   .bg-parallax {
     transform: translateX(-50%) !important;
+    max-height: 100%;
   }
 }
 @media (min-width: 768px) {

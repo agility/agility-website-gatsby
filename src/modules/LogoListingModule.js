@@ -18,7 +18,7 @@ const LogoListingModule = ({ item }) => {
 	// console.log("LogoListingModule", item)
 
 	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
-		//console.log(key.customFields.logo);
+		// console.log(key.customFields.logo);
 		const className = `logo-item logo-v${idx + 1}`
 		const logoImage = key.customFields.logo.url
 		const logoTitle = key.customFields.logo.label

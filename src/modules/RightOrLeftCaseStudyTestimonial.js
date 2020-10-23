@@ -1,18 +1,17 @@
 import React from 'react';
 import Spacing from './Spacing'
 import './RightOrLeftCaseStudyTestimonial.scss'
+import { renderHTML } from '../agility/utils';
 
 const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 
 	// console.log('RightOrLeftCaseStudyTestimonial', item)
 	const fields = item.customFields
 	const classSection = `module mod-testimonial-detail RightOrLeftCaseStudyTestimonial animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode': ''}`
-	const btnCta = fields.cTA
-	const logo = fields.logo
+	const labelCta = fields.cTA
 	const imgTest = fields.image
-	const heading = fields.heading
-	const description = fields.description
 	const testimonial = fields.testimonial
+	const caseStudy = fields.casestudy
 	const Testimonial = () => {
 		const fieldsTest = testimonial.customFields
 		if (! fieldsTest) return null
@@ -33,28 +32,40 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 			</div>
 		)
 	}
+	const CaseStudy = () => {
+		const fieldCase = caseStudy.customFields
+		const contentDes = fieldCase.contentPanelCopy
+		const logoCase = fieldCase.customerLogo
+		const titleCase = fieldCase.title
+		const url = `/resources/case-studies/${fieldCase.uRL}`
+		return (
+			<div className="box-right-deail last-mb-none">
+				{ logoCase &&
+					<img src={logoCase.url} alt={logoCase.label}></img>
+				}
+				{ titleCase &&
+					<h2>{titleCase}</h2>
+				}
+				{ contentDes &&
+					<p dangerouslySetInnerHTML={renderHTML(contentDes)}></p>
+				}
+				{ fieldCase.uRL &&
+					<p>
+						<a href={url} target="_self" className="btn btn-yellow text-decoration-none">{labelCta}</a>
+					</p>
+				}
+			</div>
+		)
+	}
 	return (
 		<React.Fragment>
 			<section className={classSection}>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 right-test-detail order-lg-2 anima-right">
-							<div className="box-right-deail last-mb-none">
-								{ logo &&
-									<img src={logo.url} alt={logo.label}></img>
-								}
-								{ heading &&
-									<h2>{heading}</h2>
-								}
-								{ description &&
-									<p>{description}</p>
-								}
-								{ btnCta && btnCta.href &&
-									<p>
-										<a href={btnCta.href} target={btnCta.target} className="btn btn-yellow text-decoration-none">{btnCta.text}</a>
-									</p>
-								}
-							</div>
+							{ caseStudy &&
+								<CaseStudy/>
+							}
 						</div>
 						<div className="col-lg-6 left-tes-detail anima-left">
 							{ imgTest &&

@@ -35,7 +35,7 @@ const BestofBothWorldsModule = ({ item }) => {
 			let inter
 			document.querySelectorAll('.best-HIW')[0].classList.add('is-active')
 			inter = setInterval(() => {
-				if(x[0].offsetWidth > 100) {
+				if( x.length && x[0].offsetWidth > 100) {
 					Array.from(document.querySelectorAll('.item-how input')).forEach(function(item) {
 						item.checked = true;
 					});
@@ -179,7 +179,7 @@ const BestofBothWorldsModule = ({ item }) => {
   };
 	function Video() {
 		return (
-			<ReactPlayer url={urlVideo.href} playing={true} controls={true}/>
+			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={true}/>
 		);
 	}
 	const listIemHIW = leftGroupedFeatures.map((key, idx) => {

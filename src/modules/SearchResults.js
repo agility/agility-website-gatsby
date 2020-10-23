@@ -74,8 +74,12 @@ const SearchResults = ({ item }) => {
 
   const handleSubmit = (e) => {
 		e.preventDefault()
-		setLoading(0)
-		loadResults(query)
+		if (query && query.trim().length > 0) {
+			setLoading(0)
+			loadResults(query)
+		} else {
+			setQuery('')
+		}
 	}
 
   const handlePaging = (idx, specialNum = null) => {
@@ -196,14 +200,14 @@ const SearchResults = ({ item }) => {
 						<input className="search-input" value={query} onKeyUp={(target) => {handleKeyUp(target)}} onInput={(target) => {handleChange(target)}} type="text" placeholder="Search"/>
 						<button type="submit">
 							<img src="/images/search-white.svg" alt="search"></img>
-						<span className="sr-only">Search</span> 
+						<span className="sr-only">Search</span>
 						{/* <span className="badge badge-primary"></span> */}
 						</button>
 						<span className={classinput} onClick={() => clickClear()}></span>
 					</form>
 				</div>
 				<div className='loading-search text-center'>
-					<img src="../images/ajax-loader.svg" alt='loading'></img>
+					<img src="/images/ajax-loader.svg" alt='loading'></img>
 				</div>
 				<div className='box-result-search'>
 					<div className='small-paragraph last-mb-none number-result'>

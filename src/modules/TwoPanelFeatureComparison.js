@@ -105,7 +105,7 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const title1 = item.customFields.group1Title
 	const title2 = item.customFields.group2Title
 	// console.log('dataQuery', dataQuery)
-	//console.log("TwoPanelFeatureComparison", item)
+	// console.log("TwoPanelFeatureComparison", item)
 	const groupPanels1 = dataQuery.listPanelItems1.map((panel, index) => {
 		const listCheckItem = panel.checkedItems ? panel.checkedItems.map(checkItem => {
 			const fieldCheck = checkItem.customFields

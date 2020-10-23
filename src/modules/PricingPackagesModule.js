@@ -319,10 +319,8 @@ const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackage
 			const listVal = listPackageFeatureValues.filter(val => {
 				return val.customFields.packageFeature.contentid === featureObj.itemID
 			})
-			// console.log('listPricingPackages', listPricingPackages.length)
 			for(let i = 0; i < listPricingPackages.length; i++) {
 				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID) || 'none'
-				// console.log('orderByPricing', orderByPricing)
 				if (orderByPricing) {
 					listValPricing.push(orderByPricing)
 				}
@@ -366,6 +364,8 @@ class PricingPackagesModule2 extends React.Component {
 			isMobile: false,
 			isPin: false
 		}
+		this.pinHeaderTable = this.pinHeaderTable.bind(this)
+		// this.caculatePin.bind(this)
 	}
 
 	showMoreAction() {
@@ -436,7 +436,7 @@ class PricingPackagesModule2 extends React.Component {
 			scrollTop = window.pageYOffset;
 			header = $header.clientHeight;
 			offsetPin = virtual.offsetTop;
-			listOffset = scrollArea.offsetTop + scrollArea.clientHeight - document.querySelector('.table-3').clientHeight - pinEle.clientHeight
+			listOffset = scrollArea.offsetTop + scrollArea.clientHeight - document.querySelector('.table-3').clientHeight - pinEle.clientHeight - 90
 			trigger = scrollTop + header
 
 			if (trigger > rootOffset && this.state.showMore) {
@@ -457,22 +457,16 @@ class PricingPackagesModule2 extends React.Component {
 
 	}
 
-	pinHeaderTable() {
+	pinHeaderTable(event) {
 		const pinEle = document.querySelector('.table-header')
 		const $header = document.querySelector('#header')
 		const virtual = document.querySelector('.virtual-pin-bar')
 		const scrollArea = document.querySelector('.price-desktop')
 
 		this.caculatePin(pinEle, $header, virtual, scrollArea);
-		window.addEventListener('scroll', (e) => {
-			if (document.querySelector('.PricingPackagesModule')) {
-				this.caculatePin(pinEle, $header, virtual, scrollArea);
-			}
-		})
 	}
 
 	componentDidMount() {
-		// console.log('value', this.props)
 		let oldWidth = window.innerWidth
 		this.checkIsMobile();
 		this.pinHeaderTable();
@@ -486,6 +480,7 @@ class PricingPackagesModule2 extends React.Component {
 		}, 200)
 
 		this.checkShowHideSection();
+		window.addEventListener('scroll', this.pinHeaderTable)
 		window.addEventListener('resize', () => {
 			if (oldWidth !== window.innerWidth) {
 				this.checkIsMobile();
@@ -495,16 +490,12 @@ class PricingPackagesModule2 extends React.Component {
 		});
 	}
 	componentDidUpdate() {
-		const pinEle = document.querySelector('.table-header');
-		const $header = document.querySelector('#header');
-		const virtual = document.querySelector('.virtual-pin-bar');
-		const scrollArea = document.querySelector('.price-desktop');
 		this.checkShowHideSection();
-		this.caculatePin(pinEle, $header, virtual, scrollArea);
+		this.pinHeaderTable();
 	}
 
 	componentWillUnmount() {
-		
+		window.removeEventListener('scroll', this.pinHeaderTable)
 	}
 
 	render() {

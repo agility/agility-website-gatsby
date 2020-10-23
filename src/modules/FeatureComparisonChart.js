@@ -92,7 +92,7 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
- // console.log("FeatureComparisonChart", item, dataQuery)
+  // console.log("FeatureComparisonChart", item, dataQuery)
   const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   const headline = item.customFields.heading
   const fullComparisonLink = item.customFields.fullComparisonLinkLabel
@@ -287,9 +287,9 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 	return (
     <React.Fragment>
       <section className={classSection}>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
         <div className="container anima-bottom">
           <div className="feature-head last-mb-none">
             {headline &&

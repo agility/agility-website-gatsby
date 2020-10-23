@@ -153,6 +153,8 @@
 .feat-text {
   font-weight: 600;
   color: $color-75;
+  display: inline-block;
+  padding: 2px 0;
 }
 .box-select {
   margin-top: 15px;
@@ -198,11 +200,11 @@
   .text-seclected {
     color: $color-2a;
   }
-  .current-select {
-    .text-seclected {
-      color: $white;
-    }
-  }
+  // .current-select {
+  //   .text-seclected {
+  //     color: $white;
+  //   }
+  // }
 }
 @media screen and (min-width: 768px) {
   .mod-feature-table {

@@ -112,7 +112,7 @@ const ReviewRotator = ({ item, listReviews }) => {
 								{collapseReviewText}
 							</span>
 							<LazyLoad offset={ Helpers.lazyOffset }>
-								<img src="../images/down-icon.svg" alt="five star"></img>
+								<img src="/images/down-icon.svg" alt="five star"></img>
 							</LazyLoad>
 						</span>
 					</div>
