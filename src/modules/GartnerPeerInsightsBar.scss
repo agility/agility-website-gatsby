@@ -30,6 +30,16 @@
     margin: 0;
   }
 }
+.wrap-before-star {
+  flex: 0 0 206px;
+  width: 206px;
+  max-width: 206px;
+}
+.wrap-inn-star {
+  flex: 0 0 152px;
+  width: 152px;
+  max-width: 152px;
+}
 @media (max-width: 991px) {
   .col-left {
     width: 100%;

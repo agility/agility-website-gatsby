@@ -14,9 +14,9 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 
 		modulesForThisContentZone.forEach(moduleItem => {
 			if (moduleItem.item) {
-
+			
 				const moduleDefName = moduleItem.item.properties.definitionName;
-
+				// console.log(moduleDefName, moduleItem.item)
 				const ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
 				const moduleProps = {
 					key: moduleItem.item.contentID,

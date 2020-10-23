@@ -2,18 +2,14 @@ import React, {useEffect, useState} from 'react';
 import { renderHTML } from '../agility/utils'
 import './RightORLeftContentModule.scss'
 import Spacing from './Spacing'
-// import LazyLoad from 'react-lazyload'
-
-
 const RightOrLeftContent = ({ item }) => {
-	// console.log('RightOrLeftContent', item)
 	const heading = item.customFields.title
 	const des = item.customFields.description
 	const breadcrumb = item.customFields.breadcrumb
 	const btn1 = item.customFields.cTA1Optional
 	const btn2 = item.customFields.cTA2Optional
 	const classSection = `module mod-banner right-or-left-content animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white': ''}`
-	let array = []
+	const array = []
 	const [isHomePage, setIsHomePage] = useState(false);
 	const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
 	const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
@@ -36,7 +32,7 @@ const RightOrLeftContent = ({ item }) => {
 	}
 	const init = () => {
 		callAnimation()
-		window.addEventListener("resize", callAnimation);
+		window.addEventListener('resize', callAnimation);
 	}
 	const callAnimation = () => {
 		let banner = document.getElementsByClassName('mod-banner')
@@ -49,7 +45,7 @@ const RightOrLeftContent = ({ item }) => {
 				}
 			}, 5);
 			inter = setInterval(() => {
-				if(banner[0].classList.contains('set-animation')) {
+				if(banner.length > 0 && banner[0] && banner[0].classList.contains('set-animation')) {
 					clearInterval(inter)
 					callLotie()
 				}
@@ -92,12 +88,12 @@ const RightOrLeftContent = ({ item }) => {
 	const parallaxBanner = () => {
 		const doc = document.documentElement;
 		const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		let item0 = document.getElementsByClassName('ani-banner')[0]
-		let item1 = document.getElementsByClassName('ani-banner')[1]
-		let item2 = document.getElementsByClassName('ani-banner')[2]
-		let item3 = document.getElementsByClassName('ani-banner')[3]
-		let item4 = document.getElementsByClassName('ani-banner')[4]
-		item0.style.transform = 'translateY(' + -(top / 6) + 'px)'
+		const item0 = document.getElementsByClassName('ani-banner')[0]
+		const item1 = document.getElementsByClassName('ani-banner')[1]
+		const item2 = document.getElementsByClassName('ani-banner')[2]
+		const item3 = document.getElementsByClassName('ani-banner')[3]
+		const item4 = document.getElementsByClassName('ani-banner')[4]
+		item0.style.transform =  'translateY(' + -(top / 6) + 'px)'
 		item1.style.transform = 'translateY(' + -(top / 5) + 'px)'
 		item2.style.transform = 'translateY(' + -(top / 3) + 'px)'
 		item3.style.transform = 'translateY(' + -(top / 2.3) + 'px)'
@@ -127,7 +123,7 @@ const RightOrLeftContent = ({ item }) => {
 		if (!imgModule && isHomePage) {
 			init()
 			if(!navigator.userAgent.match(/Trident\/7\./)) {
-				window.addEventListener("scroll", initParallax);
+				window.addEventListener('scroll', initParallax);
 			}
 		}
   });
@@ -152,7 +148,6 @@ const RightOrLeftContent = ({ item }) => {
 									{ btn1 && btn1.href &&
 										<a href={btn1.href} _target={btn1.target} className="text-decoration-none btn btn-primary">{btn1.text}</a>
 									}
-									{/* <br className={'d-md-none'} /> */}
 									{ btn2 && btn2.href &&
 										<a href={btn2.href} _target={btn2.target} className="text-decoration-none btn btn-outline-primary">{btn2.text}</a>
 									}

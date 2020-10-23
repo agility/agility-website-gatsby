@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from 'gatsby'
 import Spacing from './Spacing'
 import HelperFunc from '../global/javascript/Helpers.js'
 import './PricingPackagesModule.scss'
-
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -103,9 +102,9 @@ export default props => (
 	/>
 )
 
-const HeaderColumn = ({priceType, title, label, btnCta, btnCtaLabel, value, hasPopular}) => {
+const HeaderColumn = ({ priceType, title, label, btnCta, btnCtaLabel, value, hasPopular }) => {
 	const classColor = ['free', 'standard', 'pro', 'enterprise']
-	const popular = hasPopular && hasPopular === 'true' ? <span className={"most-popular"}><span className="icomoon icon-Star"></span>Most Popular</span>: ''
+	const popular = hasPopular && hasPopular === 'true' ? <span className={'most-popular'}><span className="icomoon icon-Star"></span>Most Popular</span>: ''
 	const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
 	/* insert ',' to number */
 	const filterValue = (value) => {
@@ -252,12 +251,6 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 		let oldWidth = window.innerWidth;
 		checkShowHideElement();
 		checkIsMobile();
-		// window.addEventListener('resize', () => {
-		// 	if (oldWidth !== window.innerWidth) {
-		// 		checkIsMobile();
-		// 		oldWidth = window.innerWidth;
-		// 	}
-		// })
 	})
 	const fieldLabel = data.customFields
 	const btnCtaMB = fieldLabel.cTAButton
@@ -319,10 +312,8 @@ const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackage
 			const listVal = listPackageFeatureValues.filter(val => {
 				return val.customFields.packageFeature.contentid === featureObj.itemID
 			})
-			// console.log('listPricingPackages', listPricingPackages.length)
 			for(let i = 0; i < listPricingPackages.length; i++) {
 				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID) || 'none'
-				// console.log('orderByPricing', orderByPricing)
 				if (orderByPricing) {
 					listValPricing.push(orderByPricing)
 				}
@@ -366,6 +357,7 @@ class PricingPackagesModule2 extends React.Component {
 			isMobile: false,
 			isPin: false
 		}
+		this.pinHeaderTable = this.pinHeaderTable.bind(this)
 	}
 
 	showMoreAction() {
@@ -436,7 +428,7 @@ class PricingPackagesModule2 extends React.Component {
 			scrollTop = window.pageYOffset;
 			header = $header.clientHeight;
 			offsetPin = virtual.offsetTop;
-			listOffset = scrollArea.offsetTop + scrollArea.clientHeight - document.querySelector('.table-3').clientHeight - pinEle.clientHeight
+			listOffset = scrollArea.offsetTop + scrollArea.clientHeight - document.querySelector('.table-3').clientHeight - pinEle.clientHeight - 90
 			trigger = scrollTop + header
 
 			if (trigger > rootOffset && this.state.showMore) {
@@ -457,28 +449,22 @@ class PricingPackagesModule2 extends React.Component {
 
 	}
 
-	pinHeaderTable() {
+	pinHeaderTable(event) {
 		const pinEle = document.querySelector('.table-header')
 		const $header = document.querySelector('#header')
 		const virtual = document.querySelector('.virtual-pin-bar')
 		const scrollArea = document.querySelector('.price-desktop')
 
 		this.caculatePin(pinEle, $header, virtual, scrollArea);
-		window.addEventListener('scroll', (e) => {
-			if (document.querySelector('.PricingPackagesModule')) {
-				this.caculatePin(pinEle, $header, virtual, scrollArea);
-			}
-		})
 	}
 
 	componentDidMount() {
-		// console.log('value', this.props)
 		let oldWidth = window.innerWidth
 		this.checkIsMobile();
 		this.pinHeaderTable();
 		this.setState({loaded: true});
 		const interCount = 0;
-		let inter = setInterval(() => {
+		const inter = setInterval(() => {
 			this.equalHeightHeader();
 			if (interCount > 9) {
 				clearInterval(inter);
@@ -486,6 +472,7 @@ class PricingPackagesModule2 extends React.Component {
 		}, 200)
 
 		this.checkShowHideSection();
+		window.addEventListener('scroll', this.pinHeaderTable)
 		window.addEventListener('resize', () => {
 			if (oldWidth !== window.innerWidth) {
 				this.checkIsMobile();
@@ -495,20 +482,15 @@ class PricingPackagesModule2 extends React.Component {
 		});
 	}
 	componentDidUpdate() {
-		const pinEle = document.querySelector('.table-header');
-		const $header = document.querySelector('#header');
-		const virtual = document.querySelector('.virtual-pin-bar');
-		const scrollArea = document.querySelector('.price-desktop');
 		this.checkShowHideSection();
-		this.caculatePin(pinEle, $header, virtual, scrollArea);
+		this.pinHeaderTable();
 	}
 
 	componentWillUnmount() {
-		
+		window.removeEventListener('scroll', this.pinHeaderTable)
 	}
 
-	render() {
-
+	render () {
 		const dataQuery = this.props.dataQuery
 		const fields = this.props.item.customFields
 		const btnShowMore = fields.showmoretext
@@ -572,33 +554,24 @@ class PricingPackagesModule2 extends React.Component {
 				</td>
 			)
 		}) : []
-
-
 		const BlockPriceDesktop = (<div className="price-desktop">
 			<div className="virtual-pin-bar" style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}}></div>
-			<div className={`table-header ${this.state.isPin ? 'table-pin' : ''}`}> 
-			{/* style={{ top: `${this.state.isPin ? document.querySelector('header').clientHeight + 'px' : ''}` }}  style={{height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}} */}
+			<div className={`table-header ${this.state.isPin ? 'table-pin' : ''}`}>
 				<div className={ this.state.isPin ? 'container' : ''}>
 					<table>
-						<tr>
-							<th></th>
-							{ listHeaderColumn && listHeaderColumn.length > 0 &&
-								listHeaderColumn
-							}
-						</tr>
+						<tbody>
+							<tr>
+								<th></th>
+								{ listHeaderColumn && listHeaderColumn.length > 0 &&
+									listHeaderColumn
+								}
+							</tr>
+						</tbody>
 					</table>
 				</div>
 			</div>
-
-
 			<table className="table-1">
 				<tbody>
-					{/* <tr>
-						<th></th>
-						{ listHeaderColumn && listHeaderColumn.length > 0 &&
-							listHeaderColumn
-						}
-					</tr> */}
 					<tr className="pr-tr-title">
 						<td className="pr-sub-title" colSpan="5">
 							{ primaryFeaturesTitle && primaryFeaturesTitle}
@@ -611,71 +584,63 @@ class PricingPackagesModule2 extends React.Component {
 					}
 				</tbody>
 			</table>
-
-
-					{/* Table show/hide */}
-					<div className="show-hide-act">
-						<table className={"table-2 "}>
-							<tbody>
-								<tr className="pr-tr-title">
-									<td className="pr-sub-title">
-										{ secondaryFeaturesTitle && secondaryFeaturesTitle}
-										{ !secondaryFeaturesTitle && <span className="hidden-text" tabIndex='-1'>hidden</span>}
-									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								{ rowListHidden && rowListHidden.length > 0 &&
-									rowListHidden
-								}
-							</tbody>
-						</table>
-					</div>
-					{/* End Table show/hide */}
-
-					{ listBtnColumn && listBtnColumn.length > 0 &&
-
-						<table className="table-3">
-							<tbody>
-								<tr className="pr-tr-title">
-									<td></td>
-									{
-										listBtnColumn
-									}
-								</tr>
-							</tbody>
-						</table>
-					}
-					<div className={`show-more text-center ${this.state.showMore ? 'show' : ''}`}>
-						<a href="#" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
-							{ this.state.showMore ?
-								(
-									<span>{btnShowLess}</span>
-								) :
-								(
-									<span>{btnShowMore}</span>
-								)
+				{/* Table show/hide */}
+				<div className="show-hide-act">
+					<table className={"table-2 "}>
+						<tbody>
+							<tr className="pr-tr-title">
+								<td className="pr-sub-title">
+									{ secondaryFeaturesTitle && secondaryFeaturesTitle}
+									{ !secondaryFeaturesTitle && <span className="hidden-text" tabIndex='-1'>hidden</span>}
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							{ rowListHidden && rowListHidden.length > 0 &&
+								rowListHidden
 							}
-							<span className="icomoon icon-down-menu"></span>
-						</a>
-					</div>
-				</div>);
-
-
+						</tbody>
+					</table>
+				</div>
+				{/* End Table show/hide */}
+				{ listBtnColumn && listBtnColumn.length > 0 &&
+					<table className="table-3">
+						<tbody>
+							<tr className="pr-tr-title">
+								<td></td>
+								{
+									listBtnColumn
+								}
+							</tr>
+						</tbody>
+					</table>
+				}
+				<div className={`show-more text-center ${this.state.showMore ? 'show' : ''}`}>
+					<a href="#" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
+						{ this.state.showMore ?
+							(
+								<span>{btnShowLess}</span>
+							) :
+							(
+								<span>{btnShowMore}</span>
+							)
+						}
+						<span className="icomoon icon-down-menu"></span>
+					</a>
+				</div>
+			</div>);
 		return (
 			<React.Fragment>
 			<section className={`PricingPackagesModule pricing-package animation anima-fixed ${!this.state.loaded ? 'opacity-0' : ''}`}>
 				<div className="container anima-bottom">
-
 					{this.state.isMobile &&
 						<BlockPriceMobile />
 					}
 					{!this.state.isMobile &&
 						BlockPriceDesktop
 					}
-
 				</div>
 			</section>
 				<Spacing item={this.props.item}/>

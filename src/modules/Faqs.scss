@@ -78,11 +78,6 @@
 			margin-top: 15px;
 		}
 	}
-	&:hover {
-		h4 {
-			color: $color-58;
-		}
-	}
 	&.open {
 		h4 {
 			color: $color-58;
@@ -109,6 +104,13 @@
 	.faqs {
 		.container:not(.max-w-940) {
 			max-width: 910px;
+		}
+	}
+	.faq-item {
+		&:hover {
+			h4 {
+				color: $color-58;
+			}
 		}
 	}
 }

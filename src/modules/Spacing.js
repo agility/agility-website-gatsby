@@ -1,6 +1,5 @@
 import React from 'react';
 const Spacing = ({ item }) => {
-  // console.log('Spacing', item)
   const fields = item.customFields
   let classSpace = 'mod-space '
   if (fields.mobileSpace || Number(fields.mobileSpace) >= 0) {

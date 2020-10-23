@@ -230,6 +230,8 @@ form  button[type='submit'] {
 }
 .blog-item-container .blog-item .btn {
   transition: all .35s;
+  margin: 0;
+  padding-right: 20px;
   &::after {
     display: none;
   }

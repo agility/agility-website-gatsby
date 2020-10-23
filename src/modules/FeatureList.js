@@ -1,19 +1,14 @@
 import React from 'react';
 
-import "./RichTextArea.scss"
-import "./FeatureList.scss"
-
+import './RichTextArea.scss'
+import './FeatureList.scss'
 const FeatureList = ({ item }) => {
-
 	const moduleItem = item.customFields;
 	item = item.customFields;
-
 	var features = item.featureList.map(function (f) {
 		return <FeatureListItem item={f} key={f.contentID + "-" + moduleItem.contentID} />;
 	})
-
 	return (
-
 		<section className="triangle-feature-list">
 			<div className="container-my">
 				<div className="">
@@ -28,19 +23,15 @@ const FeatureList = ({ item }) => {
 				</div>
 			</div>
 		</section>
-
-
 	);
 }
 
 export default FeatureList;
-
 const FeatureListItem = ({item}) => {
-
-        return (
-            <li>
-                <h4>{item.customFields.title}</h4>
-                <div dangerouslySetInnerHTML={{ __html: item.customFields.textblob }} />
-            </li>
-        );
-    }
+	return (
+		<li>
+			<h4>{item.customFields.title}</h4>
+			<div dangerouslySetInnerHTML={{ __html: item.customFields.textblob }} />
+		</li>
+	);
+}

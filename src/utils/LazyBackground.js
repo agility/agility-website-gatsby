@@ -23,7 +23,7 @@ export default class LazyImage extends React.Component {
 
   componentDidMount() {
     this.handleScroll();
-    
+
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -37,12 +37,12 @@ export default class LazyImage extends React.Component {
       const imgLoader = new Image();
       imgLoader.src = this.props.src;
       imgLoader.onload = () => {
-
-        this.bgElm.setAttribute(
-          `style`,
-          `background-image: url('${this.props.src}')`
-        );
-        // console.log({imgLoader})
+        if (this.bgElm) {
+          this.bgElm.setAttribute(
+            `style`,
+            `background-image: url('${this.props.src}')`
+          );
+        }
 
         this.setState({
           loaded: true

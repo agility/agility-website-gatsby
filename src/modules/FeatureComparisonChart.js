@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { graphql, StaticQuery } from "gatsby"
-import { Link } from "gatsby"
-import "./FeatureComparisonChart.scss"
+import { graphql, StaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
+import './FeatureComparisonChart.scss'
 import Lazyload from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
-
 export default props => (
   <StaticQuery
 		query={graphql`
@@ -92,7 +91,6 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
- // console.log("FeatureComparisonChart", item, dataQuery)
   const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
   const headline = item.customFields.heading
   const fullComparisonLink = item.customFields.fullComparisonLinkLabel
@@ -226,7 +224,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
     return (
       <td key={indx}>
-        <a href="javascript:void(0);" target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
+        <a href="#" onClick={(e) => {e.preventDefault()}} target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
       </td>
     )
   })
@@ -287,9 +285,9 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 	return (
     <React.Fragment>
       <section className={classSection}>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
-        <Lazyload offset={ Helpers.lazyOffset }><img src="../images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
+        <Lazyload offset={ Helpers.lazyOffset }><img src="/images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
         <div className="container anima-bottom">
           <div className="feature-head last-mb-none">
             {headline &&

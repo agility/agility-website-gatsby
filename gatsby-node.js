@@ -3,7 +3,7 @@ const agility = require('./src/agility/utils')
 //gatsy-node.js
 //CREATE RESOLVERS *******************************************************************************************
 exports.createResolvers = (args) => {
-	console.log("AGILITY WEBSITE: Creating Resolvers...")
+	// console.log("AGILITY WEBSITE: Creating Resolvers...")
 
 	const { createResolvers, getNode, createNodeId, createNode, createContentDigest, configOptions } = args;
 

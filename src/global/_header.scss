@@ -276,6 +276,9 @@
   }
   .header-logo {
     max-width: 180px;
+    img {
+      min-width: 180px;
+    }
   }
   .navbar-expand-lg {
     -webkit-box-orient: horizontal;

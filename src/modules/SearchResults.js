@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { renderHTML } from '../agility/utils'
 import './SearchResults.scss'
-
 const SearchResults = ({ item }) => {
 	const fields = item.customFields
 	const noResult = fields.noResultsMessage
@@ -13,11 +12,10 @@ const SearchResults = ({ item }) => {
 	const [noRes, setNoRes] = useState(false)
 	const [paging, setPaging] = useState(0)
 	const [totalItem, setTotalItem] = useState(0)
-	const [loading, setLoading] = useState(0)
+	const [loading, setLoading] = useState(true)
 	const [clearInput, setClear] = useState(0)
 	const classinput = `icomoon icon-uncheck clear-input ${ clearInput === 1 ? 'show' : ''}`
-	const classR = `SearchResults ${ loading === 1 ? 'done-search' : ''}`
-	// console.log('SearchResults', item)
+	const classR = `SearchResults ${ loading === false ? 'done-search' : ''}`
 	const loadResults = (queryData, pagingNum) => {
 		const skipSearch = pagingNum ? (pagingNum - 1) * Number(numTake) : 0;
 		const formData = new FormData()
@@ -36,13 +34,13 @@ const SearchResults = ({ item }) => {
 			}
 		}).then(response => response.json())
 		.then(data => {
-			setLoading(1)
+			setLoading(false)
 			if (data.IsError) {
 				//something went wrong
 				setNoRes(true)
 				setResults([])
 				setTotalItem(0)
-				setLoading(0)
+				setLoading(false)
 			} else if (data.ResponseData && data.ResponseData.Results) {
 				setNoRes(false)
 				const listRes = data.ResponseData.Results.map(function (result) {
@@ -74,8 +72,13 @@ const SearchResults = ({ item }) => {
 
   const handleSubmit = (e) => {
 		e.preventDefault()
-		setLoading(0)
-		loadResults(query)
+		if (query && query.trim().length > 0) {
+			setLoading(true)
+			loadResults(query)
+		} else {
+			setQuery('')
+			setClear(0)
+		}
 	}
 
   const handlePaging = (idx, specialNum = null) => {
@@ -89,8 +92,6 @@ const SearchResults = ({ item }) => {
 		}
 		loadResults(query, pagingShow)
 	}
-
-
 	const listResult = results.map((s, idx) => {
 		return (
 			<div className='item-result small-paragraph last-mb-none' key={idx}>
@@ -180,7 +181,7 @@ const SearchResults = ({ item }) => {
 				setQuery(paramsSearch)
 				loadResults(paramsSearch)
 			} else {
-				setLoading(1)
+				setLoading(false)
 			}
 		}
 		return () => {
@@ -193,17 +194,16 @@ const SearchResults = ({ item }) => {
 				<div className='text-center box-search'>
 					<h1>Search results for</h1>
 					<form onSubmit={(e) => {handleSubmit(e)}}>
-						<input className="search-input" value={query} onKeyUp={(target) => {handleKeyUp(target)}} onInput={(target) => {handleChange(target)}} type="text" placeholder="Search"/>
+						<input className="search-input" value={query} onKeyUp={(target) => {handleKeyUp(target)}} onChange={(target) => {handleChange(target)}} type="text" placeholder="Search"/>
 						<button type="submit">
 							<img src="/images/search-white.svg" alt="search"></img>
-						<span className="sr-only">Search</span> 
-						{/* <span className="badge badge-primary"></span> */}
+						<span className="sr-only">Search</span>
 						</button>
 						<span className={classinput} onClick={() => clickClear()}></span>
 					</form>
 				</div>
 				<div className='loading-search text-center'>
-					<img src="../images/ajax-loader.svg" alt='loading'></img>
+					<img src="/images/ajax-loader.svg" alt='loading'></img>
 				</div>
 				<div className='box-result-search'>
 					<div className='small-paragraph last-mb-none number-result'>

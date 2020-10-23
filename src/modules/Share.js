@@ -1,35 +1,29 @@
 import React from 'react';
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon } from 'react-share'
-
-import "./Share.scss"
-
+import './Share.scss'
 class Share extends React.Component {
-
-
-    componentDidMount() {
+    componentDidMount () {
 		if (typeof window === 'undefined') {
 			return;
 		}
-
-
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             let supportPageOffset = window.pageXOffset !== undefined;
             let isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
             let scroll = {
-               x: supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft,
-               y: supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
+            x: supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft,
+            y: supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
             };
 
             if(scroll.y > 1000){
-				let element = document.getElementsByClassName('share')[0]; // target element to change attribute
-				if (element && element.classList) {
-					element.classList.add('show');//change the attribute.
-				}
+                const element = document.getElementsByClassName('share')[0]; // target element to change attribute
+                if (element && element.classList) {
+                    element.classList.add('show');//change the attribute.
+                }
             } else {
-				let element = document.getElementsByClassName('share')[0]; // target element to change attribute
-				if (element && element.classList) {
-					element.classList.remove('show');
-				}
+                const element = document.getElementsByClassName('share')[0]; // target element to change attribute
+                if (element && element.classList) {
+                    element.classList.remove('show');
+                }
             }
         }, 300);//ms
     }

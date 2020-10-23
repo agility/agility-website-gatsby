@@ -14,9 +14,6 @@ const GartnerPeerInsightsBar = ({ item }) => {
 	const title = item.customFields.title
 	const graphic = item.customFields.gartnerLogo.url
 	const stars = item.customFields.starsGraphic.url
-	// console.log("GartnerPeerInsightsBar", item)
-
-
 	return (
 		<React.Fragment>
 			<section className={classSection}>
@@ -30,15 +27,19 @@ const GartnerPeerInsightsBar = ({ item }) => {
 					<div className="d-flex text-center justify-content-between flex-wrap ">
 						<div className="col-left d-flex justify-content-center align-items-center flex-wrap ">
 							{ graphic &&
-								<LazyLoad offset={ Helpers.lazyOffset }>
-								<img src={graphic} alt={title} className="intro-stars"></img>
-								</LazyLoad>
-								}
-							<div className="wrap-star last-mb-none ">
-								{ stars &&
+								<div className="wrap-before-star">
 									<LazyLoad offset={ Helpers.lazyOffset }>
-									<img src={stars} alt={title} className="img-stars"></img>
+									<img src={graphic} alt={title} className="intro-stars"></img>
 									</LazyLoad>
+								</div>
+								}
+							<div className="wrap-star align-items-center last-mb-none ">
+								{ stars &&
+									<div className="wrap-inn-star d-flex align-items-center">
+										<LazyLoad offset={ Helpers.lazyOffset }>
+										<img src={stars} alt={title} className="img-stars"></img>
+										</LazyLoad>
+									</div>
 								}
 								{title &&
 								<h4>{title}</h4>

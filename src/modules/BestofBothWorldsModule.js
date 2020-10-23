@@ -1,15 +1,11 @@
 import React, {useState, useEffect } from 'react';
 import './BestofBothWorldsModule.scss'
 import '../global/_popup-video.scss'
-// import PopupVideo from 'react-modal-video'
 import LazyLoad from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
-// import YouTube from 'react-youtube';
-// import Vimeo from 'react-vimeo';
 import Spacing from './Spacing'
 import ReactPlayer from 'react-player'
 import Helpers from '../global/javascript/Helpers'
-
 const BestofBothWorldsModule = ({ item }) => {
 	const fields = item.customFields
 	const ctaBtn = fields.cTA1
@@ -23,19 +19,17 @@ const BestofBothWorldsModule = ({ item }) => {
 	const urlVideo = fields.videoPath
 	const thumbnail = fields.thumbnail
 	const urlThumbnail = thumbnail ? thumbnail.url : '/images/bg-video.jpg'
-	// console.log("BestofBothWorldsModule", item)
-	// const [isOpen, setIsOpen] = useState(false);
 	const [isPaused, setIsPaused] = useState(false);
 	const initComparisons = () => {
 		var x, i;
 		x = document.getElementsByClassName('img-comp-overlay');
 		if (x.length) {
-			let wrap = document.getElementsByClassName('img-comp-container')[0];
-			let slider = document.getElementsByClassName('img-comp-slider')[0];
+			const wrap = document.getElementsByClassName('img-comp-container')[0];
+			const slider = document.getElementsByClassName('img-comp-slider')[0];
 			let inter
 			document.querySelectorAll('.best-HIW')[0].classList.add('is-active')
 			inter = setInterval(() => {
-				if(x[0].offsetWidth > 100) {
+				if( x.length && x[0].offsetWidth > 100) {
 					Array.from(document.querySelectorAll('.item-how input')).forEach(function(item) {
 						item.checked = true;
 					});
@@ -72,16 +66,15 @@ const BestofBothWorldsModule = ({ item }) => {
 					clicked = 0;
 					wrap.classList.add('add-transition')
 					slide((wrap.offsetWidth + comparImg*2 - 8)/2)
-					// console.log((wrap.offsetWidth + comparImg*2)/2)
 					setTimeout(() => {
 						wrap.classList.remove('add-transition')
 					}, 350)
 				}
 				function slideMove(e) {
 					var pos;
-					let hCurent = wrap.offsetHeight;
-					let wCurent = wrap.offsetWidth;
-					let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
+					const hCurent = wrap.offsetHeight;
+					const wCurent = wrap.offsetWidth;
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
 					if (clicked === 0) return false;
 					pos = getCursorPos(e)
 					if (pos < comparImg*1.5) pos = comparImg*1.5;
@@ -89,8 +82,8 @@ const BestofBothWorldsModule = ({ item }) => {
 					slide(pos);
 				}
 				function getCursorPos(e) {
-					let hCurent = wrap.offsetHeight;
-					let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
+					const hCurent = wrap.offsetHeight;
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
 					var a, x = 0;
 					e = e || window.event;
 					a = img.getBoundingClientRect();
@@ -103,17 +96,17 @@ const BestofBothWorldsModule = ({ item }) => {
 					return x;
 				}
 				function slide(x) {
-					let wCurent = wrap.offsetWidth;
-					let hCurent = wrap.offsetHeight;
-					let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
+					const wCurent = wrap.offsetWidth;
+					const hCurent = wrap.offsetHeight;
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
 					img.style.width = x/wCurent*100 + '%';
 					img.style.left = -comparImg + 'px';
 					slider.style.left = (x - 30.5 - comparImg)/wCurent*100  + '%';
-					let l = x - 30.5 - comparImg
+					const l = x - 30.5 - comparImg
 					Array.from(img.querySelectorAll('img')).forEach((ele) => {
 						ele.style.left = comparImg + 'px';
 					})
-					let best = document.getElementsByClassName('best-HIW')[0];
+					const best = document.getElementsByClassName('best-HIW')[0];
 					if(best){
 						if(l > wCurent/2 ) {
 							best.classList.remove('active-v2')
@@ -136,7 +129,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					}
 				}
 				document.getElementsByClassName('healine-v1')[0].addEventListener('click', () => {
-					let  comparImg = (1 / Math.tan(69 * Math.PI/180))*wrap.offsetHeight;
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*wrap.offsetHeight;
 					wrap.classList.add('add-transition')
 					slide(wrap.offsetWidth + comparImg/2 - 8)
 					setTimeout(() => {
@@ -144,7 +137,7 @@ const BestofBothWorldsModule = ({ item }) => {
 					}, 350)
 				});
 				document.getElementsByClassName('healine-v2')[0].addEventListener('click', () => {
-					let  comparImg = (1 / Math.tan(69 * Math.PI/180))*wrap.offsetHeight;
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*wrap.offsetHeight;
 					wrap.classList.add('add-transition')
 					slide(comparImg*1.5)
 					setTimeout(() => {
@@ -155,10 +148,10 @@ const BestofBothWorldsModule = ({ item }) => {
 			window.addEventListener("resize", displayWindowSize);
 			function displayWindowSize() {
 				if (x.length) {
-					let wCurent = wrap.offsetWidth;
-					let hCurent = wrap.offsetHeight;
-					let img = document.getElementsByClassName('img-comp-overlay')[0];
-					let comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
+					const wCurent = wrap.offsetWidth;
+					const hCurent = wrap.offsetHeight;
+					const img = document.getElementsByClassName('img-comp-overlay')[0];
+					const comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
 					img.style.left = -comparImg + 'px';
 					Array.from(img.querySelectorAll('img')).forEach((ele) => {
 						ele.style.left = comparImg + 'px';
@@ -179,7 +172,7 @@ const BestofBothWorldsModule = ({ item }) => {
   };
 	function Video() {
 		return (
-			<ReactPlayer url={urlVideo.href} playing={true} controls={true}/>
+			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={true}/>
 		);
 	}
 	const listIemHIW = leftGroupedFeatures.map((key, idx) => {
@@ -223,9 +216,7 @@ const BestofBothWorldsModule = ({ item }) => {
 								</div>
 							</LazyBackground>
 						</div>
-						{/* <LazyLoad> */}
 						<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className="bg-top-video" alt="image"></img></LazyLoad>
-						{/* </LazyLoad> */}
 					</div>
 				</div>
 				<div className="best-HIW animation anima-bottom">
@@ -236,7 +227,6 @@ const BestofBothWorldsModule = ({ item }) => {
 							</div>
 						}
 						<div className="middle-HIW last-mb-none text-center d-md-flex align-items-center">
-							{/* <img src="/images/compare.png" className="lazy compare-2img" alt="The best of both worlds"></img> */}
 							<div className="lazy compare-2img">
 								<img src="/images/bg-bottom2.svg" className="bg-2img-top" alt="image"></img>
 								<img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image"></img>
@@ -291,7 +281,6 @@ const BestofBothWorldsModule = ({ item }) => {
 					}
 					<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-bottom2.svg" className="bg-bottom" alt="image"></img></LazyLoad>
 				</div>
-				{/* <PopupVideo channel="youtube" isOpen={isOpen} videoId='5QiQU7uCHjU' onClose={() => setIsOpen(false)} /> */}
 			</section>
 			<Spacing item={item}/>
 		</React.Fragment>

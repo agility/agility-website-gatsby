@@ -4,11 +4,9 @@ import { renderHTML } from '../agility/utils'
 import './G2CrowdReviewListing.scss'
 
 const G2CrowdReviewListing = ({ item }) => {
-
 	const [state, setState] = useState({
-        loaded: false
+		loaded: false
 	})
-
 	useEffect(() => {
 
 		//load the g2 script...
@@ -17,23 +15,17 @@ const G2CrowdReviewListing = ({ item }) => {
 		if (state.loaded) return;
 
 		setTimeout(function() {
-
-
-			let script = document.createElement("script")
+			const script = document.createElement("script")
 			script.src = "https://apps.elfsight.com/p/platform.js"
 			script.async = true
 			document.body.appendChild(script)
-
 			setState({
 				loaded: true,
 			})
 		}, 1500);
-
-
 	});
 
 	return (
-
 		<section className="container-my">
 			<div className="g2-review-listing">
 				<h2 className="title-component">{item.customFields.heading}</h2>
@@ -45,8 +37,6 @@ const G2CrowdReviewListing = ({ item }) => {
 				</div>
 			</div>
 		</section>
-
-
 	);
 }
 
