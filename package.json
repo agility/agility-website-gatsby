@@ -16,7 +16,7 @@
 		"@agility/gatsby-source-agilitycms": "^1.5.0",
 		"abortcontroller-polyfill": "^1.4.0",
 		"dotenv": "^8.1.0",
-		"gatsby": "^2.24.80",
+		"gatsby": "^2.24.85",
 		"gatsby-plugin-feed": "^2.5.4",
 		"gatsby-plugin-google-tagmanager": "^2.2.1",
 		"gatsby-plugin-intercom-spa": "^0.2.0",
