@@ -172,7 +172,7 @@ const BestofBothWorldsModule = ({ item }) => {
   };
 	function Video() {
 		return (
-			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={true}/>
+			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={false} />
 		);
 	}
 	const listIemHIW = leftGroupedFeatures.map((key, idx) => {
