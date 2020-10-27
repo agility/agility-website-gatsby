@@ -217,6 +217,9 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     pinHeaderTable()
 
     window.addEventListener('scroll',pinHeaderTable)
+    return function cleanup() {
+      window.removeEventListener('scroll', pinHeaderTable)
+    }
   })
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
     const fieldLinks = platfor.customFields.fullComparisonLink
