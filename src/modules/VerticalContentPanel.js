@@ -60,7 +60,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   const title = fields.title
   const description = fields.description
   const positionContent = fields.textSide
-  const classSection = `module mod-image-content VerticalContentPanel  ${fields.darkMode && fields.darkMode === 'true'  ? 'dark-mode bg-17 text-white': ''}`
+  const classSection = `module mod-image-content VerticalContentPanel animation  ${fields.darkMode && fields.darkMode === 'true'  ? 'dark-mode bg-17 text-white': ''}`
   const classPositionContent = `list-content-ic small-paragraph col-xl-6 delay-2 ${positionContent === 'right' ? 'order-2 ': ' '}`
   const classPositionImage = `col-xl-6 d-none d-xl-flex list-image-ic delay-2 ${positionContent === 'right' ? '': ' '}`
   const lazyRef = useRef(null)
@@ -68,17 +68,8 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   const initClass = (ele) => {
     const wH = window.innerHeight
     const header = document.querySelectorAll('.header')[0].offsetHeight
-	const offset = wH - header
-
-	const titleIC = ele.querySelectorAll('.title-i-c')[0]
-	const wrapLv2 = ele.querySelectorAll('.wrap-lv2')[0]
-
-	let calcHeight = 0;
-
-	//mod joelv - null checks
-	if (titleIC && wrapLv2) {
-		calcHeight = titleIC.offsetHeight + 60 + wrapLv2.offsetHeight + 60
-	}
+    const offset = wH - header
+    const calcHeight = ele.querySelectorAll('.title-i-c')[0].offsetHeight + 60 + ele.querySelectorAll('.wrap-lv2')[0].offsetHeight + 60
     if (calcHeight < offset) {
       ele.classList.add('is-full')
       ele.classList.remove('is-lv2')
@@ -91,13 +82,9 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     const Fakeheight = ele.querySelectorAll('.fake-height')[0]
     const title = ele.querySelectorAll('.title-i-c ')[0].offsetHeight
     const item = ele.querySelectorAll('.list-image-ic .item-image-ic')
-	const list = ele.querySelectorAll('.list-content-ic')[0]
-
-	//mod joelv - check to see if the list object is available
-	if (list && list !== undefined) {
-		Fakeheight.style.height = title + item.length*list.offsetHeight*4/5 + 60 + 'px'
-		Fakeheight.style.paddingTop = title + 60 +'px'
-	}
+    const list = ele.querySelectorAll('.list-content-ic')[0]
+    Fakeheight.style.height = title + item.length*list.offsetHeight*4/5 + 60 + 'px'
+    Fakeheight.style.paddingTop = title + 60 +'px'
   }
   const init = () => {
     const section = document.querySelectorAll('.mod-image-content')
@@ -299,7 +286,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
 	return (
     <React.Fragment>
       <section ref={ lazyRef } className={classSection} data-max={listPanelContent.length}>
-        <div className="container">
+        <div className="container anima-bottom">
           <div className='wrap-box-vertical'>
           { title &&
             <div className="title-i-c text-center last-mb-none">

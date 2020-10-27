@@ -4,6 +4,7 @@ import Lazyload from 'react-lazyload'
 import { renderHTML } from '../agility/utils'
 import Hamburger from './Newhamburger.jsx'
 import Helpers from '../global/javascript/Helpers'
+
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -76,7 +77,9 @@ class NewGlobalHeader extends Component {
 			sticky: false,
 			openMenu: false,
 			menuLv2Opening: '',
-			activeMenu: ''
+			activeMenu: '',
+			webinar: '',
+			flag: false
 		}
 		this.stickyHeader = this.stickyHeader.bind(this)
 		this.showMenuMobile = this.showMenuMobile.bind(this)
@@ -84,10 +87,13 @@ class NewGlobalHeader extends Component {
 	}
 	componentDidMount() {
 		this.setState({activeMenu: window.location.pathname})
+		this.setState({webinar: Helpers.getCookie('WebinarHidden')})
+		this.setState({flag: true})
 		this.inputLine()
 		this.hiddenSeach()
 		this.removeClassOpenMenuOnHtml()
 		this.setPaddingBody()
+		this.clickAwebinar()
 		window.addEventListener('scroll', this.stickyHeader);
 		window.addEventListener('resize', this.setPaddingBody);
 	}
@@ -182,6 +188,14 @@ class NewGlobalHeader extends Component {
 			}
 		});
 	}
+	clickAwebinar () {
+		document.addEventListener('click',(event) => {
+			const target = event.target
+			if(target.classList.contains('link-line') && target.offsetParent.classList.contains('box-message')) {
+				Helpers.setCookie('WebinarHidden', 'true', { path: '/' })
+			}
+		})
+	}
 	hiddenSeach () {
 		document.addEventListener('click',(event) => {
 			const group = document.querySelectorAll('.group-search')[0]
@@ -201,6 +215,8 @@ class NewGlobalHeader extends Component {
 		const main = document.querySelectorAll('.main-content')[0]
 		const header = document.querySelectorAll('#header .navbar')[0].offsetHeight
 		main.style.paddingTop = header + 'px'
+		Helpers.setCookie('WebinarHidden', 'true', { path: '/' })
+		// Cookies.save('WebinarHidden', 'true', { path: '/' });
 	}
 	render() {
 		const menuGetstart = this.props.item.customFields.secondaryButton;
@@ -213,13 +229,16 @@ class NewGlobalHeader extends Component {
 			}
 			const itemClassName = 'h-menu-li'
 			menu.forEach((item) => {
+				// console.log(item)
 				if (!item.visible.menu) {
 					return
 				}
 				let path = item.path;
 				const path2 = item.path;
+				let target = item.target
 				if (item.redirect) {
 					path = item.redirect.url.replace('~/', '/')
+					target = item.redirect.target
 				}
 				const isActive = (this.state.activeMenu.indexOf(path2) !== -1 ? 'active': '' )
 				if (level > 1) {
@@ -229,7 +248,7 @@ class NewGlobalHeader extends Component {
 				if (subLinks === null || subLinks.length < 0) {
 					//no sub menu
 					links.push(<li className={isActive} key={item.pageID} onClick={this._handleActiveMenu.bind(this, path)}>
-						{path.indexOf('://') !== -1 ? <a href={path} target={item.target}>{item.menuText}</a> : <Link to={path} target={item.target}>{item.menuText}</Link> }
+						{path.indexOf('://') !== -1 ? <a href={path} target={target}>{item.menuText}</a> : <Link to={path} target={target}>{item.menuText}</Link> }
 						</li>)
 				} else {
 					//has a sub menu
@@ -238,9 +257,9 @@ class NewGlobalHeader extends Component {
 						//regular item...
 						li = <li className={isActive + ' has-sub  d-lg-flex align-items-center ' + (parseInt(this.state.menuLv2Opening) === item.pageID ? 'is-open-child' : '')} data-page-id={item.pageID} key={item.pageID}>
 							{ path.indexOf("://") !== -1 ?
-								<a href={path} target={item.target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</a>
+								<a href={path} target={target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</a>
 							:
-								<Link to={path} target={item.target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</Link>
+								<Link to={path} target={target} onClick={ (e) => this.openMenuLv1(e) }>{item.menuText}</Link>
 							}
 							<div className="nav-item-arrows arrows-lv1 d-lg-none" onClick={ (e) => this.clickNavArrowLv1(e) }>
 								<i className="icomoon icon-down-menu" aria-hidden="true"></i>
@@ -288,8 +307,8 @@ class NewGlobalHeader extends Component {
 						</button>
 						</form>
 					</div>
-					<a href={primaryButton.href} blank={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
-					<a blank={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
+					<a href={primaryButton.href} target={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
+					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				</li>
 				links.push(btnMenu)
 			}
@@ -309,9 +328,9 @@ class NewGlobalHeader extends Component {
 		return (
 			<React.Fragment>
 				<header id="header" className={classHeader} data-module="header">
-					<Link className="skip-link text-center d-block w-100 bg-black text-white" to="javascript:;">
-						<span>Skip to content</span></Link>
-					{ (item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 &&
+					{/* <a className="skip-link text-center d-block w-100 bg-black text-white" href="javascript:;">
+						<span>Skip to content</span></a> */}
+					{ (item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 && this.state.webinar !== 'true' && this.state.flag === true &&
 						<div className="box-message text-white">
 							<div className="container last-mb-none text-center">
 								<div className="close-message" onClick={this.hiddenMessage}></div>

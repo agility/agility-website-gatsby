@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
@@ -56,7 +56,7 @@ const CaseStudyRotator = ({ item }) => {
 	const settings = {
 		dots: false,
 		infinite: true,
-    speed: 500,
+    speed: 350,
     arrows: true,
     centerPadding: '0',
     centerMode: true,
@@ -88,7 +88,6 @@ const CaseStudyRotator = ({ item }) => {
       }
     }]
   };
-
 	return (
     <React.Fragment>
     <section className={classSection}>
@@ -109,7 +108,7 @@ const CaseStudyRotator = ({ item }) => {
       { listLogo.length > 0 &&
         <div className="container anima-bottom delay-6">
           <div className="text-center list-logo-feature">
-            <Slider asNavFor={nav1} ref={c => setNav2(c)} slidesToShow={3} slidesToScroll={1} swipeToSlide={true} focusOnSelect={true} centerMode={true}>
+            <Slider asNavFor={nav1} ref={c => setNav2(c)} slidesToShow={3} slidesToScroll={1} swipeToSlide={true} focusOnSelect={true} centerMode={true} speed={300}>
               {listLogo}
             </Slider>
           </div>

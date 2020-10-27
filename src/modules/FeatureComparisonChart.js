@@ -45,6 +45,7 @@ export default props => (
         allAgilityComparisonPlatform(sort: {fields: properties___itemOrder}) {
           nodes {
             itemID
+            contentID
             customFields {
               logo {
                 filesize
@@ -91,22 +92,26 @@ export default props => (
 	/>
 )
 const FeatureComparisonChart = ({ item, dataQuery }) => {
-  const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
-  const headline = item.customFields.heading
-  const fullComparisonLink = item.customFields.fullComparisonLinkLabel
-  const textviewFull = item.customFields.viewFullComparisonLabel
-  const ctaBtnText = item.customFields.bottomCTA.text
-  const ctaBtnhref = item.customFields.bottomCTA.href
-  const ctaBtnTaget = item.customFields.bottomCTA.target
+  const fields = item.customFields
+  const classSection = `mod-feature-table FeatureComparisonChart module animation ps-rv ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+  const headline = fields.heading
+  const fullComparisonLink = fields.fullComparisonLinkLabel
+  const textviewFull = fields.viewFullComparisonLabel
+  const ctaBtnText = fields.bottomCTA.text
+  const ctaBtnhref = fields.bottomCTA.href
+  const ctaBtnTaget = fields.bottomCTA.target
+  const listPlatFormCurrent = fields.defaultcompetitors
   // filter list platform
-  const [countPlatformShow, setCountPlatformShow] = useState(4)
   const [active, setActive] = useState(null)
   const [activeMB, setActiveMB] = useState(null)
   const [isOpenSelect, setIsOpenSelect] = useState(false)
+  const [isPin, setIsPin] = useState(false)
+
   // lấy danh sách platform được chọn trong cms
-  const listPlatformGet = dataQuery.listPlatformItems.filter(plat => {
-    return dataQuery.listPanelItems.map(obj => obj.customFields.platform.contentid).includes(plat.itemID)
+  let listPlatformGet = dataQuery.listPlatformItems.filter(plat => {
+    return plat.itemID === 2351
   })
+  listPlatformGet = [...listPlatformGet, ...listPlatFormCurrent]
   const [listPlatformFake, setListPlatformFake] = useState(listPlatformGet)
   const handleFilter = (name, platform) => {
     const listNewPlatform = listPlatformFake.map(obj => obj)
@@ -127,6 +132,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
   }
   // danh sách platform được show ra
+  const [countPlatformShow, setCountPlatformShow] = useState(listPlatformFake.length > 4 ? 4 : listPlatformFake.length)
   const listPlatformShow = listPlatformFake.filter((obj, idx) => idx < countPlatformShow)
   const displayPlatform = listPlatformShow.map((platform, index) => {
     const logo = platform.customFields.logo.url
@@ -163,23 +169,23 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
   // danh sách feature được show ra
   const checkBreakPoint = () => {
     if(window.innerWidth >= 992 & window.innerWidth <= 1199 && countPlatformShow !== 3) {
-      setCountPlatformShow(3)
+      setCountPlatformShow(listPlatformFake.length > 3 ? 3 : listPlatformFake.length)
     }
     if (window.innerWidth >= 1200 && countPlatformShow !== 4) {
-      setCountPlatformShow(4)
+      setCountPlatformShow(listPlatformFake.length > 4 ? 4 : listPlatformFake.length)
     }
     if (window.innerWidth <= 991 && countPlatformShow !== 2) {
-      setCountPlatformShow(2)
+      setCountPlatformShow(listPlatformFake.length > 2 ? 2 : listPlatformFake.length)
     }
     window.addEventListener('resize', () => {
       if(window.innerWidth >= 992 & window.innerWidth <= 1199 && countPlatformShow !== 3) {
-        setCountPlatformShow(3)
+        setCountPlatformShow(listPlatformFake.length > 3 ? 3 : listPlatformFake.length)
       }
       if (window.innerWidth >= 1200 && countPlatformShow !== 4) {
-        setCountPlatformShow(4)
+        setCountPlatformShow(listPlatformFake.length > 4 ? 4 : listPlatformFake.length)
       }
       if (window.innerWidth <= 991 && countPlatformShow !== 2) {
-        setCountPlatformShow(2)
+        setCountPlatformShow(listPlatformFake.length > 2 ? 2 : listPlatformFake.length)
       }
     })
   }
@@ -207,6 +213,13 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
   }
   useEffect(() => {
     checkBreakPoint()
+    // caculatePin()
+    pinHeaderTable()
+
+    window.addEventListener('scroll',pinHeaderTable)
+    return function cleanup() {
+      window.removeEventListener('scroll', pinHeaderTable)
+    }
   })
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
     const fieldLinks = platfor.customFields.fullComparisonLink
@@ -242,7 +255,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     const idFeatures = features.contentID
     // show list feature theo platform
     const orderListFeature = listPlatformShow.map(plat => {
-      return dataQuery.listPanelItems.find(panel => panel.customFields.platform.contentid === plat.itemID && panel.customFields.feature.contentid === idFeatures)
+      return dataQuery.listPanelItems.find(panel => panel.customFields.platform.contentid === plat.contentID && panel.customFields.feature.contentid === idFeatures)
     })
     const list = orderListFeature.map((contentFeature, idx) => {
       if (contentFeature !== undefined) {
@@ -282,12 +295,72 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
       </tr>
     )
   })
-	return (
+  
+  /* pin headertable */
+  const caculatePin = (pinEle, $header, virtual, scrollArea) => {
+		let offsetPin
+		let rootOffset
+		let header
+		let trigger
+		let listOffset
+		let scrollTop
+    const getElementOffset = (el) => {
+      let top = 0;
+      let left = 0;
+      let element = el;
+    
+      do {
+        top += element.offsetTop || 0;
+        left += element.offsetLeft || 0;
+        element = element.offsetParent;
+      } while (element);
+    
+      return {
+        top,
+        left,
+      };
+    }
+
+    rootOffset = getElementOffset(virtual).top;
+    scrollTop = window.pageYOffset;
+    header = $header.clientHeight;
+    offsetPin = getElementOffset(virtual);
+    listOffset = getElementOffset(scrollArea).top + scrollArea.clientHeight //- document.querySelector('.table-3').clientHeight - pinEle.clientHeight - 90
+    trigger = scrollTop + header 
+
+    if (trigger > rootOffset) {
+      pinEle.classList.add('table-pin');
+      pinEle.childNodes[0].classList.add('container');
+      virtual.style.height = pinEle.clientHeight + 'px'
+      if (trigger + pinEle.clientHeight < listOffset) {
+        pinEle.style.top = $header.clientHeight + 'px';
+      } else {
+        pinEle.style.top = listOffset - pinEle.clientHeight - scrollTop + 'px';
+      }
+    } else {
+      pinEle.classList.remove('table-pin')
+      virtual.style.height = '';
+      pinEle.childNodes[0].classList.remove('container');
+    }
+
+  }
+  const pinHeaderTable = (event) => {
+		const pinEle = document.querySelector('.table-header')
+		const $header = document.querySelector('#header')
+		const virtual = document.querySelector('.virtual-pin-bar')
+		const scrollArea = document.querySelector('.pin-section')
+
+		caculatePin(pinEle, $header, virtual, scrollArea);
+	}
+  /* end pin headertable */
+
+  return (
     <React.Fragment>
       <section className={classSection}>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>
+
         <div className="container anima-bottom">
           <div className="feature-head last-mb-none">
             {headline &&
@@ -298,24 +371,43 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
             <h4>Select a Competitor</h4>
             { <MobileListPlatform /> }
           </div>
-          <table className="feature-table full-w-mb">
-            <tbody>
-              <tr>
-                <th>Features</th>
-                {displayPlatform}
-              </tr>
-              {featuresName}
-            {linkFullComparion &&
-              <tr className="last-tr">
-                <td>{textviewFull}</td>
-                {linkFullComparion}
-              </tr>
-            }
-          </tbody></table>
+
+          {/* Pin section */}
+          <div className="pin-section">
+            <div className="virtual-pin-bar" style={{height: `${ isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}`}}></div>
+            <div className={`table-header ${isPin ? 'table-pin' : ''}`}>
+              <div className={ isPin ? 'container' : ''}>
+                <table className="feature-table full-w-mb">
+                  <tbody>
+                    <tr>
+                      <th>Features</th>
+                      {displayPlatform}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <table className="feature-table full-w-mb">
+              <tbody>
+                {/* <tr>
+                  <th>Features</th>
+                  {displayPlatform}
+                </tr> */}
+                {featuresName}
+                {linkFullComparion &&
+                  <tr className="last-tr">
+                    <td>{textviewFull}</td>
+                    {linkFullComparion}
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
           {linkFullComparionMB}
           { ctaBtnText && ctaBtnhref &&
               <div className='cta-feature-table text-center last-mb-none'>
-                <p><Link to={ctaBtnhref} href={ctaBtnTaget} className="btn btn-yellow text-decoration-none">{ctaBtnText}</Link></p>
+                <p><Link to={ctaBtnhref} target={ctaBtnTaget} className="btn btn-yellow text-decoration-none">{ctaBtnText}</Link></p>
               </div>
             }
         </div>

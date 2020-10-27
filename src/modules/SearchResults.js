@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { renderHTML } from '../agility/utils'
 import './SearchResults.scss'
+import Helper from '../global/javascript/Helpers'
 const SearchResults = ({ item }) => {
 	const fields = item.customFields
 	const noResult = fields.noResultsMessage
 	const numTake = fields.resultCount
 	const defaultTitle = fields.defaultContent
-	const pagingDisplay = 4
 	const [results, setResults] = useState([])
 	const [query, setQuery] = useState('')
 	const [noRes, setNoRes] = useState(false)
-	const [paging, setPaging] = useState(0)
 	const [totalItem, setTotalItem] = useState(0)
 	const [loading, setLoading] = useState(true)
 	const [clearInput, setClear] = useState(0)
+	const [skip, setSkip] = useState(0)
+	const [showLoading, setShowLoading] = useState(false)
+	const [showLoadMore, setShowLoadMore] = useState(false)
 	const classinput = `icomoon icon-uncheck clear-input ${ clearInput === 1 ? 'show' : ''}`
 	const classR = `SearchResults ${ loading === false ? 'done-search' : ''}`
-	const loadResults = (queryData, pagingNum) => {
-		const skipSearch = pagingNum ? (pagingNum - 1) * Number(numTake) : 0;
+	const loadResults = (queryData, more = false) => {
+		const skipSearch = more ? Number(skip) + Number(numTake) : 0;
 		const formData = new FormData()
 		formData.append('query', queryData)
 		formData.append('top', numTake)
 		formData.append('skip', skipSearch)
 		const abort = new AbortController()
+		setSkip(skipSearch)
 		fetch('https://search.agilitycms.com/search', {
 			method: 'post',
 			body: formData,
@@ -41,6 +44,8 @@ const SearchResults = ({ item }) => {
 				setResults([])
 				setTotalItem(0)
 				setLoading(false)
+				setShowLoadMore(false)
+				setShowLoading(false)
 			} else if (data.ResponseData && data.ResponseData.Results) {
 				setNoRes(false)
 				const listRes = data.ResponseData.Results.map(function (result) {
@@ -51,11 +56,25 @@ const SearchResults = ({ item }) => {
 						href: result.Url
 					}
 				})
-				setResults(listRes)
-				setQuery(queryData)
-				setPaging(pagingNum || 1)
+				if (more) {
+					setResults(results.concat(listRes))
+				} else {
+					setResults(listRes)
+				}
+				if (Number(data.ResponseData.ToNumber) < Number(data.ResponseData.Count)) {
+					setShowLoadMore(true)
+				} else {
+					setShowLoadMore(false)
+				}
+				const posScroll = data.ResponseData.ToNumber - Number(numTake) > 0 ? data.ResponseData.ToNumber - Number(numTake) : 0
+				if (posScroll > 0) {
+					const el = document.querySelectorAll('.item-result')[posScroll]
+					const offsetTop = el.offsetTop - el.clientHeight - document.querySelectorAll('#header')[0].offsetHeight + 90
+					// window.scrollTo({top: offsetTop, behavior: 'smooth'})
+					Helper.animateScrollTop(offsetTop, 350)
+				}
+				setShowLoading(false)
 				setTotalItem(data.ResponseData.Count)
-				window[`scrollTo`]({ top: 0, behavior: `smooth` })
 				if(queryData !== '') {
 					setClear(1)
 				} else {
@@ -65,6 +84,8 @@ const SearchResults = ({ item }) => {
 				setNoRes(true)
 				setResults([])
 				setTotalItem(0)
+				setShowLoadMore(false)
+				setShowLoading(false)
 			}
 			abort.abort()
 		})
@@ -74,95 +95,42 @@ const SearchResults = ({ item }) => {
 		e.preventDefault()
 		if (query && query.trim().length > 0) {
 			setLoading(true)
-			loadResults(query)
+			loadResults(query, false)
 		} else {
 			setQuery('')
 			setClear(0)
 		}
 	}
 
-  const handlePaging = (idx, specialNum = null) => {
-		let pagingShow = null
-		if (idx !== 0)
-		{
-			pagingShow = Number(idx)
-		}
-		if(!!specialNum) {
-			pagingShow = paging + Number(specialNum)
-		}
-		loadResults(query, pagingShow)
-	}
 	const listResult = results.map((s, idx) => {
+		const className = `item-result small-paragraph last-mb-none ${skip - numTake > 0 && skip - numTake === idx ? 'active-scroll' : '' }`
 		return (
-			<div className='item-result small-paragraph last-mb-none' key={idx}>
-				<h3>{s.title}</h3>
+			<div className={className} key={idx}>
+				<h3><a href={s.href}>{s.title}</a></h3>
 				<h4><a href={s.href}>{s.href}</a></h4>
 				<div dangerouslySetInnerHTML={renderHTML(s.text)}></div>
 			</div>
 		)
 	})
 
-	const PagingList = () => {
-		const pageItem = []
-		const totalPage = Math.floor(totalItem / numTake) +  (totalItem % numTake > 0 ? 1 : 0)
-		const classDisable = 'disable-paging'
-		const classDoubleBack = `page-item ${paging <= 2 ? classDisable: ''}`
-		const classSingleBack = `page-item ${paging === 1 ? classDisable : ''}`
-		const classDoubleNext = `page-item ${paging + 2 > totalPage ? classDisable : ''}`
-		const classSingleNext = `page-item ${paging + 1 > totalPage ? classDisable : ''}`
-		/** calc first and last value paging */
-		let maxLeft = (paging - Math.floor(pagingDisplay / 2))
-		let maxRight = (paging + Math.floor(pagingDisplay / 2))
-    if (maxLeft < 1) {
-			maxLeft = 1
-			maxRight = pagingDisplay
-		}
-		if (maxRight > totalPage) {
-			maxLeft = totalPage - (pagingDisplay - 1)
-			if (maxLeft < 1){
-				maxLeft = 1
-			}
-			maxRight = totalPage
-		}
-		/** end */
-		for( let i = maxLeft; i <= maxRight; i++) {
-			const classPaging = `page-item ${paging === i ? 'acitve' : ''}`
-			pageItem.push(
-				<li className={classPaging} key={i} data-paging={i} onClick={(e) => { e.preventDefault(); handlePaging(i) }}>
-					<span>{i}</span>
-				</li>
-			)
-		}
-		return (
-			<nav>
-				<ul className="pagination">
-					<li className={classDoubleBack} onClick={(e) => { e.preventDefault(); handlePaging(1) }}>
-						<a className="page-link page-double-prev style-double style-prev" href="#">
-							<span className="icomoon icon-arrow"></span>
-						</a>
-					</li>
-					<li className={classSingleBack} onClick={(e) => { e.preventDefault(); handlePaging(0, -1) }}><a className="page-link page-prev style-prev" href="#"><span className="icomoon icon-arrow"></span></a></li>
-					{ pageItem && pageItem.length > 0 &&
-						pageItem
-					}
-					<li className={classSingleNext} onClick={(e) => { e.preventDefault(); handlePaging(0, 1) }}><a className="page-link page-next" href="#"><span className="icomoon icon-arrow"></span></a></li>
-					<li className={classDoubleNext} onClick={(e) => { e.preventDefault(); handlePaging(Number(totalPage)) }}><a className="page-link page-double-next style-double" href="#"><span className="icomoon icon-arrow"></span></a></li>
-				</ul>
-			</nav>
-		)
-	}
-
 	const handleChange = ({ target }) => {
 		setQuery(target.value)
 	}
+
+	const loadMore = (e) => {
+		e.preventDefault()
+		setShowLoading(true)
+		loadResults(query, true)
+	}
+
 	const handleKeyUp = ({ target }) => {
 		if(query !== '') {
 			setClear(1)
 		} else {
 			setResults([])
 			setTotalItem(0)
-			setPaging(0)
 			setClear(0)
+			setShowLoadMore(false)
 		}
 	}
 	const clickClear = () => {
@@ -170,7 +138,7 @@ const SearchResults = ({ item }) => {
 		setQuery('')
 		setResults([])
 		setTotalItem(0)
-		setPaging(0)
+		setShowLoadMore(false)
 	}
   useEffect(() => {
 		const controller = new AbortController()
@@ -179,7 +147,7 @@ const SearchResults = ({ item }) => {
 			const paramsSearch = urlSearch.get('s')
 			if (paramsSearch && paramsSearch.length > 0) {
 				setQuery(paramsSearch)
-				loadResults(paramsSearch)
+				loadResults(paramsSearch, false)
 			} else {
 				setLoading(false)
 			}
@@ -208,7 +176,7 @@ const SearchResults = ({ item }) => {
 				<div className='box-result-search'>
 					<div className='small-paragraph last-mb-none number-result'>
 						{ totalItem > 0 &&
-							<p>{numTake > totalItem ? totalItem : numTake} of {totalItem} results</p>
+							<p>{results.length > totalItem ? totalItem : results.length} of {totalItem} results</p>
 						}
 					</div>
 					<div>
@@ -222,12 +190,20 @@ const SearchResults = ({ item }) => {
 							listResult
 						}
 					</div>
-					{ results && results.length > 0 && totalItem > numTake &&
-						<PagingList/>
+					{ showLoadMore &&
+						<div className="search-btn text-center ps-rv">
+							<button type="button" className={`btn text-decoration-none btn btn-outline-primary ${showLoading ? 'loading-btn' : ''}`} onClick={(e) => {
+								loadMore(e)
+							}} >
+								Load More
+							</button>
+							<img src="/images/ajax-loader.svg" className='load-more-search' alt="loading"></img>
+						</div>
 					}
 					<div></div>
 				</div>
 			</div>
+			<div className='space-60 space-dt-100'></div>
 		</section>
 	);
 }

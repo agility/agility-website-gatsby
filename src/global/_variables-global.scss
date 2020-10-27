@@ -33,6 +33,9 @@ $translate: 100px;
 .mx-auto {
   margin-left: auto!important;
 }
+.mx-auto {
+  margin-right: auto!important;
+}
 .rounded-0 {
   border-radius: 0!important;
 }
@@ -112,5 +115,8 @@ $translate: 100px;
   }
   .d-xl-flex {
     display: flex !important;
+  }
+  .d-xl-none {
+    display: none !important;
   }
 }

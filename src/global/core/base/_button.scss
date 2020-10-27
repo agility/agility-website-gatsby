@@ -8,6 +8,8 @@
   border: $btn-border-width solid $border-color;
   font-family: $mlBold;
   position: relative;
+  cursor: pointer;
+  transition: all .35s;
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include hover {
     transform: scale(1.03);

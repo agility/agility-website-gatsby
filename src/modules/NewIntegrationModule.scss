@@ -3,7 +3,7 @@
 
 .dark-mode {
   position: relative;
-  &.right-or-left-content {
+  &.NewIntegrationModule {
     h5 {
       color: $color-c9;
     }
@@ -18,11 +18,14 @@
     }
   }
 }
-.right-or-left-content {
+.NewIntegrationModule {
   .item-ani {
     position: absolute;
     top: 0;
     transition: .4s cubic-bezier(.235, .615, .185, .995);
+  }
+  .bg-white{
+    background-color: #fff;
   }
 }
 .wrap-ani-home {
@@ -37,9 +40,7 @@
   .item4 {
     z-index: 4;
   }
-  // img {
-  //   width: 100%;
-  // }
+ 
 }
 .ani-banner {
   position: absolute;
@@ -53,6 +54,29 @@
     display: none;
   }
 }
+.item-logo-partners {
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 10px);
+  box-shadow: 0 3px 20px -8px rgba(85, 63, 164, 0.25);
+  transition: all .35s;
+  img {
+    max-height: 140px;
+    width: auto;
+    transition: all .35s
+  }
+}
+.row.row-5{
+  margin-right: -5px;
+  margin-left: -5px;
+  >*{
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
 .page-new-why-agility,
 .page-why-agility {
   .internal-wrap {
@@ -62,7 +86,7 @@
     }
   }
 }
-.mod-framework + .mod-space + .right-or-left-content {
+.NewIntegrationModule {
   background-color: $color-e9f;
   padding: 75px 0 40px;
   .btn-primary {
@@ -70,15 +94,13 @@
     border-color: $color-58;
     color: $color-58;
   }
-  .internal-wrap img {
-    width: 100%;
-  }
+ 
   .large-paragraph {
     margin-bottom: 35px;
   }
 }
-@media (max-width: 767px){
-  .mod-framework + .mod-space + .right-or-left-content {
+@media (max-width: 991px){
+  .NewIntegrationModule {
     .col-right-lr {
       order: 2;
     }
@@ -98,7 +120,7 @@
   }
 }
 @media (min-width: 992px){
-  .mod-framework + .mod-space + .right-or-left-content {
+  .NewIntegrationModule {
     padding: 110px 0;
     .col-right-lr {
       flex: 0 0 66.66667%;
@@ -118,9 +140,17 @@
       opacity: 0;
     }
   }
-  .mod-framework + .mod-space + .right-or-left-content {
+  .NewIntegrationModule {
     .large-paragraph {
       padding-right: 50px;
+    }
+  }
+  .item-logo-partners {
+    &:hover {
+      box-shadow: 0 0 6px 0 rgba(85, 63, 164, 0.37);
+      img {
+        transform: scale(1.07);
+      }
     }
   }
 }

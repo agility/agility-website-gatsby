@@ -27,14 +27,17 @@ const animationEle = () =>  {
       if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
         $elm.classList.add('set-animation')
       } else {
-        if ($elm.offsetHeight + topcoords + add < wintop ||  topcoords + add > wintop + winH) {
+        // if ($elm.offsetHeight + topcoords + add < wintop ||  topcoords + add > wintop + winH) {
+        //   if(topcoords + add > wintop + winH) {
+        //     $elm.classList.remove('anima-revert')
+        //     $elm.classList.remove('set-animation')
+        //   } else {
+        //     $elm.classList.add('anima-revert')
+        //   }
+        // }
+        if(topcoords + add > wintop + winH) {
           $elm.classList.remove('set-animation')
-          if(topcoords + add > wintop + winH) {
-            $elm.classList.remove('anima-revert')
-          } else {
-            $elm.classList.add('anima-revert')
-          }
-        }
+        } 
       }
       return true
     })
@@ -55,7 +58,7 @@ const removeLoading = () => {
   }, 0)
 }
 const AnimationScrollPage = () => {
-  document.querySelector('html').scrollTop = 0;
+  // document.querySelector('html').scrollTop = 0;
   setTimeout (() => {
     if(document.querySelectorAll('.ani-banner').length) {
       let inter = setInterval(() => {

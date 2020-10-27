@@ -14,7 +14,7 @@ const CenteredCTAPanel = ({ item }) => {
 				<div className="container anima-bottom">
 					<div className="cta-mx text-center text-white last-mb-none">
 						{ fields.title &&
-							<h2>{fields.title}</h2>
+							<h3 className='h2'>{fields.title}</h3>
 						}
 						{ fields.title &&
 							<div className="three-dash-line">

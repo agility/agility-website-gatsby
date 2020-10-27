@@ -192,6 +192,7 @@ img {
     opacity: 0;
     transition: all .35s;
     z-index: 1;
+    margin-top: -1px;
   }
   > div:first-child {
     height: 100% !important;
@@ -359,7 +360,7 @@ input {
     position: relative;
     cursor: pointer;
     transition: all .35s;
-    &.acitve {
+    &.active {
       border-color: $color-58;
       color: $color-58;
     }
@@ -376,12 +377,17 @@ input {
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
   }
+  .page-next {
+    color: $blue;
+  }
   .style-prev {
+    color: $blue;
     .icon-arrow {
       transform: translateY(-50%) translateX(-50%) rotate(180deg);
     }
   }
   .style-double {
+    color: $blue;
     .icon-arrow::after {
       content: "\E906";
     }
