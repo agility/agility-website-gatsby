@@ -18,6 +18,7 @@ export default props => (
 					link {
 					  href
 					  text
+					  target
 					}
 					subtitle
 					title
