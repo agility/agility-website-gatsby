@@ -62,7 +62,8 @@
     transition: all .35s;
   }
   &.open {
-    width: 262px;
+    // width: 262px;
+    width: 170px;
     form {
       opacity: 1;
       z-index: 10;
@@ -111,6 +112,9 @@
     border-radius: 0;
     &::placeholder {
       color: #5800d4;
+    }
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $color-58
     }
   }
   .submit-search {
@@ -303,7 +307,13 @@
     display: inline-block;
   }
 }
-
+@media (min-width: 1500px) {
+  .group-search {
+    &.open {
+      width: 262px;
+    }
+  }
+}
 @keyframes pinheader {
   0% {
     opacity: 0.5;

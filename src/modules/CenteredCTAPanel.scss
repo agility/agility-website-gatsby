@@ -13,6 +13,21 @@
   .btn-outline-white {
     background-color: $color-46;
   }
+  &:nth-last-child(2) {
+    .container {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: 20px;
+        right: 20px;
+        height: 1px;
+        background-color: #7556e8;
+        z-index: 1;
+      }
+    }
+  }
 }
 .three-dash-line {
   span {
@@ -78,6 +93,9 @@
 @media (min-width: 768px){
   .mod-cta {
     padding-bottom: 65px;
+    &:nth-last-child(2) .container::before {
+      bottom: -65px;
+    }
   }
 }
 @media (max-width: 767px){

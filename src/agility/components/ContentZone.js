@@ -8,6 +8,7 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 		if (! page || page === undefined) {
 			console.log("Page was not defined ", name)
 		}
+
 		const modulesForThisContentZone = page.zones[name];
 
 		if (modulesForThisContentZone === undefined) {
@@ -17,7 +18,7 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 
 		modulesForThisContentZone.forEach(moduleItem => {
 			if (moduleItem.item) {
-
+			
 				const moduleDefName = moduleItem.item.properties.definitionName;
 				// console.log(moduleDefName, moduleItem.item)
 				const ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;

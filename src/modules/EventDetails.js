@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
-
+import HelperFunc from '../global/javascript/Helpers.js'
 import { renderHTML } from '../agility/utils'
 
 import "./EventDetails.scss"
@@ -57,7 +57,20 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 			setLoaded(true);
 		}, 100);
 
+		scrollToform()
 	});
+
+	const scrollToform = () => {
+		document.getElementsByClassName('scroll-to-form')[0].addEventListener('click', (e) => {
+			e.preventDefault()
+			let id = document.querySelectorAll(e.target.getAttribute('href'))
+			// console.log(id)
+			if (id.length) {
+				let header = document.querySelectorAll('#header')[0].offsetHeight
+				HelperFunc.animateScrollTop(id[0].offsetTop - header - 100, 350)
+			}
+		})
+	}
 
 	const loadEventBriteForm = () => {
 
@@ -119,7 +132,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 					{event.demioID && !isPastEvent &&
 						<div className="event-link">
-							<a href="#register-now" className="btn">Register Now</a>
+							<a href="#register-now" className="btn scroll-to-form">Register Now</a>
 						</div>
 					}
 

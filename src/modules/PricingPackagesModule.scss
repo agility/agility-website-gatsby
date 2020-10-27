@@ -347,6 +347,9 @@
 @media (min-width: 1200px) {
   .price-value {
     font-size: rem(35);
+    span:not(.pr-month) {
+      letter-spacing: -.1px;
+    }
   }
   .price-desktop {
     th,

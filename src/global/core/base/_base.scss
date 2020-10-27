@@ -19,7 +19,7 @@ html {
 
 body,
 html {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 h1,
@@ -83,6 +83,7 @@ h2,
   line-height: 1.26;
   letter-spacing: -.35px;
   margin-bottom: 24px;
+  font-family: $mlBold;
 }
 h3,
 .h3 {
@@ -94,6 +95,7 @@ h4,
 .h4 {
   line-height: 1.37;
   margin-bottom: 10px;
+  font-family: $mlBold;
 }
 h5,
 .h5 {

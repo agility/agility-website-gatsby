@@ -1,7 +1,7 @@
 @import "../global/_variables.scss";
 .box-thanks {
   display: none;
-  padding: 15px 0px;
+  padding: 12px 0px 26px;
   h3 {
     margin-bottom: 6px;
   }
@@ -17,6 +17,7 @@
   margin-bottom: 20px;
 }
 .thanks-subs {
+  display: flex;
   .box-sub {
     display: none;
   }
@@ -49,15 +50,15 @@
   }
   .container {
     position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      top: -44px;
-      left: 20px;
-      right: 20px;
-      height: 1px;
-      background-color: #7556e8;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: -44px;
+    //   left: 20px;
+    //   right: 20px;
+    //   height: 1px;
+    //   background-color: #7556e8;
+    // }
   }
   .foter-menu {
     margin-bottom: 23px;

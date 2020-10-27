@@ -206,6 +206,12 @@
   //   }
   // }
 }
+.table-pin {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
 @media screen and (min-width: 768px) {
   .mod-feature-table {
     padding-top: 85px;

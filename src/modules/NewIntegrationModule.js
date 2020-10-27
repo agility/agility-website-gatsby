@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import { renderHTML } from '../agility/utils'
-import './RightORLeftContentModule.scss'
+import './NewIntegrationModule.scss'
+import Helpers from '../global/javascript/Helpers'
+import Lazyload from 'react-lazyload'
 import Spacing from './Spacing'
-const RightOrLeftContent = ({ item }) => {
+const NewIntegrationModule = ({ item }) => {
 	const heading = item.customFields.title
 	const des = item.customFields.description
 	const breadcrumb = item.customFields.breadcrumb
 	const btn1 = item.customFields.cTA1Optional
 	const btn2 = item.customFields.cTA2Optional
-	const classSection = `module mod-banner right-or-left-content animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white': ''}`
+	const classSection = `module mod-banner NewIntegrationModule animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white': ''}`
 	const array = []
 	const [isHomePage, setIsHomePage] = useState(false);
 	const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
-	const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
-	let classAniImg = 'col-md-6 col-right-lr'
+  const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
+  console.log('NewIntegrationModule', item)
+	let classAniImg = 'col-lg-6 col-right-lr'
 	let imgModule
 	if (item.customFields.graphic && item.customFields.graphic.url) {
 		imgModule = item.customFields.graphic
@@ -29,7 +32,24 @@ const RightOrLeftContent = ({ item }) => {
 				setClassBtn('wrap-btn')
 			}
 		}
-	}
+  }
+
+  const listPartners = item.customFields.integrationPartners.map(partners => {
+    const customField = partners.customFields
+    const customUrl = '/partners/integrations/'+customField.uRL
+    if (customField.partnerLogo.url) {
+      return (
+        <div className="col-6 text-center" key={'logo-' + partners.contentID}>
+           <div className="item-logo-partners bg-white ps-rv" key={'logo-' + partners.contentID}>
+             <a href={customUrl} className='ps-as'></a>
+						 <Lazyload offset={ Helpers.lazyOffset }><img className='img-logo-partners' src={customField.partnerLogo.url} alt={customField.partnerLogo.label}></img></Lazyload>
+          </div>
+        </div>
+      )
+    }
+    return null
+  })
+
 	const init = () => {
 		callAnimation()
 		window.addEventListener('resize', callAnimation);
@@ -118,8 +138,42 @@ const RightOrLeftContent = ({ item }) => {
 		}
 		return <React.Fragment></React.Fragment>
 	}
+	const setHeightLogo = () => {
+		let h = 0
+		let length = 0
+		let module = document.querySelectorAll('.NewIntegrationModule ')[0]
+		let logo = module.querySelectorAll('.item-logo-partners')
+		if(logo) {
+			Array.from(logo).forEach((ele) => {
+				let image = ele.querySelectorAll('.img-logo-partners')
+				length = image.length
+				if (length) {
+					if ( h < image[0].offsetHeight + 20) {
+						h = image[0].offsetHeight + 20
+					}
+				}
+			})
+			Array.from(logo).forEach((ele) => {
+				if(length > 0 &&  h > 80) {
+					ele.style.height = h + 'px'
+					module.classList.add('height-done')
+				}
+			})
+		}
+	}
+	const ScrollSetHeight = () => {
+		window.addEventListener('scroll', () => {
+			let module = document.querySelectorAll('.NewIntegrationModule')
+			if (module.length > 0 && !module[0].classList.contains('height-done')) {
+				setHeightLogo()
+			}
+		});
+	} 
 	useEffect(() => {
 		detectHomePage()
+		setHeightLogo()
+		ScrollSetHeight()
+		window.addEventListener('resize', setHeightLogo);
 		if (!imgModule && isHomePage) {
 			init()
 			if(!navigator.userAgent.match(/Trident\/7\./)) {
@@ -134,10 +188,12 @@ const RightOrLeftContent = ({ item }) => {
 					<div className="row flex-md-row-reverse hero-text align-items-lg-center h1-big">
 						<div className={classAniImg}>
 							<div className={classWrap}>
-								{ imgModule ? <img src={imgModule.url} className="anima-right" alt={ imgModule.label ? imgModule.label : 'image video' } /> : <NoImg /> }
+								<div className="row row-5">
+                 {listPartners}
+                </div>
 							</div>
 						</div>
-						<div className="col-md-6 large-paragraph last-mb-none anima-left">
+						<div className="col-lg-6 large-paragraph last-mb-none anima-left">
 							{breadcrumb && <h5>{breadcrumb}</h5> }
 							{heading && <h1>{heading}</h1> }
 							{ des &&
@@ -146,7 +202,7 @@ const RightOrLeftContent = ({ item }) => {
 							{ (btn1 || btn2) &&
 								<p className={classBtn}>
 									{ btn1 && btn1.href &&
-										<a href={btn1.href} target={btn1.target} className="text-decoration-none btn btn-primary">{btn1.text}</a>
+										<a href={btn1.href} target={btn1.target} className="text-decoration-none btn btn-outline-primary">{btn1.text}</a>
 									}
 									{ btn2 && btn2.href &&
 										<a href={btn2.href} target={btn2.target} className="text-decoration-none btn btn-outline-primary">{btn2.text}</a>
@@ -162,6 +218,6 @@ const RightOrLeftContent = ({ item }) => {
 	);
 }
 
-export default RightOrLeftContent;
+export default NewIntegrationModule;
 
 
