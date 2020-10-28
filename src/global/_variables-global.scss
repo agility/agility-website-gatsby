@@ -67,6 +67,9 @@ $translate: 100px;
 .w-100 {
   width: 100% !important;
 }
+.row.row-25 {
+	margin: 0 -25px;
+}
 @media (min-width: 768px) {
   .d-md-flex {
     display: -webkit-box;

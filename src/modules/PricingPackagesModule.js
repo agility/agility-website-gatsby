@@ -618,7 +618,7 @@ class PricingPackagesModule2 extends React.Component {
 					</table>
 				}
 				<div className={`show-more text-center ${this.state.showMore ? 'show' : ''}`}>
-					<a href="#" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
+					<a href="javascript:;" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
 						{ this.state.showMore ?
 							(
 								<span>{btnShowLess}</span>

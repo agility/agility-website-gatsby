@@ -4,6 +4,9 @@
 .getting-starter {
 	padding-bottom: 80px;
 	padding-top: 45px;
+	.stater-col {
+		padding: 0 35px;
+	}
 }
 .starter-card {
 	box-shadow: 0 5px 30px -8px rgba(85, 63, 164, 0.25);
@@ -45,9 +48,17 @@
 	margin-bottom: 40px;
 }
 .framk-logo {
-	max-width: 87px;
 	img {
 		max-height: 25px;
+		max-width: 87px;
+	}
+	h5 {
+		margin-bottom: 0;
+		white-space: nowrap;
+		margin-right: 7px;
+		text-transform: inherit;
+		color: $color-2a;
+		font-size: rem(14);
 	}
 }
 .btn-load-more {
@@ -61,6 +72,9 @@
 	max-width: 880px;
 	padding-bottom: 50px;
 	// margin: 0 auto;
+}
+.row.row-custom {
+	margin: 0 -35px;
 }
 @media (max-width: 767px) {
 	.safari .black-starters:before {
@@ -82,9 +96,19 @@
 			margin-bottom: 0;
 		}
 	}
+	.row-custom {
+		max-width: 771px;
+	}
 }
-
+@media (min-width: 992px) {
+	.row.row-custom {
+		margin: 0 auto;
+	}
+}
 @media (min-width: 1200px) {
+	.row-custom {
+		max-width: 1105px;
+	}
 	.getting-starter {
 		padding-top: 50px;
 		padding-bottom: 100px;
@@ -111,25 +135,32 @@
 	}
 }
 
-@media (min-width: 1501px) {
-	.stater-col {
-		&:nth-child(3n + 1) {
-			.starter-card {
-				margin-right: 10px;
-			}
-		}
-		&:nth-child(3n + 2) {
-			.starter-card {
-				margin: 0 5px;
-			}
-		}
-		&:nth-child(3n + 3) {
-			.starter-card {
-				margin-left: 10px;
-			}
-		}
-	}
-}
+// @media (min-width: 1501px) {
+// 	.row.row-custom {
+// 		margin: 0 -65px;
+// 	}
+// 	.getting-starter .stater-col {
+// 		padding: 0 65px;
+// 	}
+// }
+// 	.stater-col {
+// 		&:nth-child(3n + 1) {
+// 			.starter-card {
+// 				margin-right: 10px;
+// 			}
+// 		}
+// 		&:nth-child(3n + 2) {
+// 			.starter-card {
+// 				margin: 0 5px;
+// 			}
+// 		}
+// 		&:nth-child(3n + 3) {
+// 			.starter-card {
+// 				margin-left: 10px;
+// 			}
+// 		}
+// 	}
+// }
 
 @media (max-width: 767px) {
 	

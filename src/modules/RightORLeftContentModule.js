@@ -30,6 +30,12 @@ const RightOrLeftContent = ({ item }) => {
 			}
 		}
 	}
+	const appenLottie = () => {
+		const script = document.createElement("script");
+		script.src = "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie_light_html.min.js";
+		script.async = true;
+		document.body.appendChild(script);
+	}
 	const init = () => {
 		callAnimation()
 		window.addEventListener('resize', callAnimation);
@@ -38,6 +44,7 @@ const RightOrLeftContent = ({ item }) => {
 		let banner = document.getElementsByClassName('mod-banner')
 		let inter,inter2
 		if (banner.length && window.innerWidth >= 1200 && !banner[0].classList.contains('done-ani')) {
+			appenLottie()
 			inter2 = setInterval(() => {
 				if(window.lottie) {
 					loadAni()

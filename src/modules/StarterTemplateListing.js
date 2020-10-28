@@ -62,38 +62,14 @@ export default props => (
 )
 const StarterTemplateListing = ({ moduleItem, templates }) => {
 
-	console.log('moduleItem', moduleItem)
-	const cardPerPage = 6;
-	let quantityPage = Math.ceil(templates.length / cardPerPage);
-	const [currentPage, setCurrentPage] = useState(0);
+	// console.log('templates', templates)
 	useEffect(() => {
-		init()
 		equalHeightContent()
 
 		window.addEventListener('resize', (e) => {
 			equalHeightContent();
 		})
 	})
-	const init = () => {
-		let url_string = window.location.href;
-		let url = new URL(url_string);
-		let page = url.searchParams.get('page');
-		page = page - quantityPage < 0 ? page : quantityPage
-		let current = (page - 1) >= 0 ? (page - 1) : 0
-		// console.log(current)
-		setCurrentPage(current);
-		window.history.replaceState({},'', '/starters?page='+ (current + 1) +'');
-	}
-	const currentList = templates.filter((item, idx) => {
-		if (idx < cardPerPage * currentPage + cardPerPage) {
-			return item;
-		}
-	});
-
-	const loadMoreAction = () => {
-		setCurrentPage(currentPage + 1);
-		window.history.replaceState({},'', '/starters?page='+ (currentPage + 2) +'');
-	}
 
 	const equalHeightContent = () => {
 		const contents = document.querySelectorAll('.starter-content')
@@ -133,7 +109,7 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 		}
 		return true;
 	}
-	const templates2 = currentList.map((template, index) => {
+	const templates2 = templates.map((template, index) => {
 		return <div className="col-md-6 col-xl-4 stater-col" key={moduleItem.contentID + "-" + template.contentID}>
 						<StarterCard moduleItem={moduleItem} template={template} index={index} />
 					</div>
@@ -155,16 +131,9 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 							<p>{ moduleItem.customFields.description }</p>
 						}
 					</div>
-					<div className="row animation anima-bottom delay-2">
+					<div className="row animation anima-bottom delay-2 row-custom justify-content-center">
 						{ templates2 }
 					</div>
-					{ currentPage < quantityPage - 1 &&
-						<div className="text-center btn-load-more  animation anima-bottom delay-4">
-							<span className={`text-decoration-none btn btn-outline-primary`} onClick={() => {loadMoreAction(); }}>Load More</span>
-						</div>
-					}
-
-
 				</div>
 			</section>
 			<Spacing item={moduleItem}/>
@@ -182,11 +151,11 @@ const StarterCard = ({ moduleItem, template, index }) => {
 	return (
 		<div className="starter-card ps-rv">
 			<LazyBackground className="starter-thumb ps-rv bg lazy" src={ item.image.url }>
-				<Link to={url} className="ps-as stater-hover d-flex align-items-center justify-content-center">
+				<div className="ps-as stater-hover d-flex align-items-center justify-content-center">
 					{ moduleItem.customFields.viewDetailsLabel &&
 						<Link to={url} className="btn btn-arrow">{moduleItem.customFields.viewDetailsLabel}</Link>
 					}
-				</Link>
+				</div>
 			</LazyBackground>
 			<div className="starter-content last-mb-none small-paragraph ps-rv">
 				{ item.name &&
@@ -198,15 +167,13 @@ const StarterCard = ({ moduleItem, template, index }) => {
 			</div>
 			<div className="starter-logo">
 			{ frameworks.map(framework => (
-					<div key={framework.contentID} className="framk-logo">
-						<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
+					<div key={framework.contentID} className="framk-logo d-flex align-items-center">
+						<h5>Developed With:</h5><img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
 					</div>
 				))
 			}
-			{ moduleItem.customFields.viewDetailsLabel &&
-				<Link to={url} className="ps-as d-lg-none"><span className='sr-only'>{moduleItem.customFields.viewDetailsLabel}</span></Link>
-			}
 			</div>
+			<Link to={url} className="ps-as"><span className='sr-only'>{moduleItem.customFields.viewDetailsLabel}</span></Link>
 		</div>
 	)
 }

@@ -6,7 +6,7 @@ import './RichTextArea.scss'
 // import Spacing from './Spacing';
 const StarterDetails = ({ item, dynamicPageItem, page }) => {
 	const starterTemplate = dynamicPageItem.customFields;
-	console.log(dynamicPageItem)
+	// console.log(dynamicPageItem)
 	const [isMobile, setState] = useState(false)
 	//const externalLink = "https://manager.agilitycms.com/org/?plan=agility-pro&template=gatsby-blog"
 	// const externalLink = `https://manager.agilitycms.com/org/?template=${starterTemplate.slug}`
@@ -32,9 +32,6 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 		<React.Fragment>
 			<section className='module mod-star-detail animation'>
 				<div className='container'>
-					<div className='last-md-none wrap-black anima-bottom '>
-						<Link to="/starters" className='black-starters'>Back to Starters</Link>
-					</div>
 					<div className='row justify-content-between'>
 						<div className='col-lg-7 last-mb-none anima-left delay-4'>
 							{starterTemplate.name && 
@@ -51,8 +48,15 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 								</p>
 							}
 							{ starterTemplate.image &&
-							<div className="star-image">
-								<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+								<div className="star-image">
+									{starterTemplate.previewURL ?
+										(<Link to={starterTemplate.previewURL} target="_blank" rel="noopener">
+											<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+										</Link>): (
+											<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+										)
+									}
+								 	
 								</div>
 							}
 						</div>
@@ -100,9 +104,12 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 							}
 						</div>
 					</div>
+					<div className='last-md-none wrap-black wrap-black-bot anima-bottom delay-2'>
+						<Link to="/starters" className='black-starters'>Back to Starters</Link>
+					</div>
 				</div>
 			</section>
-			<section class="mod-space space-80 space-dt-110"></section>
+			<section className="mod-space space-80 space-dt-110"></section>
 			{/* <Spacing item={dynamicPageItem}/> */}
 		</React.Fragment>
 	);

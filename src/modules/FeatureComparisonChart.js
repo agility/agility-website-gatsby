@@ -237,7 +237,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
     return (
       <td key={indx}>
-        <a href="#" onClick={(e) => {e.preventDefault()}} target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
+        <a href="javascript:;" onClick={(e) => {e.preventDefault()}} target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
       </td>
     )
   })

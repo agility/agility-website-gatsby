@@ -15,7 +15,7 @@ const NewIntegrationModule = ({ item }) => {
 	const [isHomePage, setIsHomePage] = useState(false);
 	const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
   const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
-  console.log('NewIntegrationModule', item)
+  // console.log('NewIntegrationModule', item)
 	let classAniImg = 'col-lg-6 col-right-lr'
 	let imgModule
 	if (item.customFields.graphic && item.customFields.graphic.url) {
@@ -141,9 +141,9 @@ const NewIntegrationModule = ({ item }) => {
 	const setHeightLogo = () => {
 		let h = 0
 		let length = 0
-		let module = document.querySelectorAll('.NewIntegrationModule ')[0]
-		let logo = module.querySelectorAll('.item-logo-partners')
-		if(logo) {
+		if(module.length > 0) {
+			let module = document.querySelectorAll('.NewIntegrationModule ')
+			let logo = module[0].querySelectorAll('.item-logo-partners')
 			Array.from(logo).forEach((ele) => {
 				let image = ele.querySelectorAll('.img-logo-partners')
 				length = image.length

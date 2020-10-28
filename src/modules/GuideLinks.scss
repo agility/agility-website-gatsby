@@ -68,6 +68,12 @@
 	transform: translateY(-29%) translateX(24%);
 }
 @media (min-width: 768px) {
+	.list-guides {
+		padding: 25px 30;
+	}
+	.item-guides .icon-right {
+		top: 25px;
+	}
 	@media (max-width: 991px) {
 		.mod-user-guides {
 			.container {
@@ -85,7 +91,7 @@
 		padding: 21px 50px 21px 25px;
 		.icon-right {
 			right: 20px;
-			top: 38px;
+			top: 24px;
 		}
 	}
 	.col-content-guide {
@@ -115,6 +121,10 @@
     .container:not(.max-w-940) {
       max-width: 1150px;
     }
+	}
+	.item-guides .icon-right {
+		top: 50%;
+  	transform: translateY(-50%);
 	}
 	.mod-user-guides {
 		.icon-gears {
