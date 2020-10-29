@@ -200,7 +200,7 @@ class NewGlobalHeader extends Component {
 		document.addEventListener('click',(event) => {
 			const group = document.querySelectorAll('.group-search')[0]
 			if(group.classList.contains('open') && event.target.classList.length && !event.target.classList.contains('dectect-open')) {
-				console.log(event)
+				// console.log(event)
 				group.classList.remove('open')
 			}
 		})
@@ -297,7 +297,11 @@ class NewGlobalHeader extends Component {
 						<form onSubmit={event => {
 							event.preventDefault()
 							const valSearch = document.querySelectorAll('#search-page-header')[0]
-							navigate(`/search?s=${valSearch.value}`)
+							if (valSearch && valSearch.value.trim().length > 0) {
+								navigate(`/search?s=${valSearch.value}`)
+							} else {
+								valSearch.value = ''
+							}
 						}}>
 							<label htmlFor="search-page-header" className="sr-only">Search...</label>
 							<input name="s" id="search-page-header" type="text" className="aniamtion-input dectect-open" placeholder="Search.."></input>

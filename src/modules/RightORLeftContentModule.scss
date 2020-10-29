@@ -111,13 +111,15 @@
     }
   }
 }
-
-@media (min-width: 1200px){
+@media (min-width: 1025px){
   .wrap-ani-home {
     .img-mb {
       opacity: 0;
     }
   }
+}
+@media (min-width: 1200px){
+
   .mod-framework + .mod-space + .right-or-left-content {
     .large-paragraph {
       padding-right: 50px;

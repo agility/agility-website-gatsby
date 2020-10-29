@@ -67,6 +67,9 @@ $translate: 100px;
 .w-100 {
   width: 100% !important;
 }
+.row.row-25 {
+	margin: 0 -25px;
+}
 @media (min-width: 768px) {
   .d-md-flex {
     display: -webkit-box;
@@ -107,6 +110,11 @@ $translate: 100px;
   }
   .text-lg-right {
     text-align: right !important;
+  }
+}
+@media (min-width: 1025px) {
+  .d-sl-block {
+    display: block !important;
   }
 }
 @media (min-width: 1200px) {

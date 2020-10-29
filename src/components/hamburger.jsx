@@ -137,7 +137,7 @@ class Hamburger extends React.Component {
 
 					link =
 						<li key={item.pageID + "-" + item.path + "-2"} className="mobile-menu-li has-children" onClick={toggleSubmenu} >
-							<a href="#" className="mobile-menu-a" >{item.menuText}</a>
+							<a href="javascript:;" className="mobile-menu-a" >{item.menuText}</a>
 							<span className="sub-menu-icon">
 								<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse"></img>
 							</span>

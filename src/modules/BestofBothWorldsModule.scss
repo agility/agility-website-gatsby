@@ -207,6 +207,9 @@
     // width: 380px;
     max-width: none;
     max-height: 100%;
+    &:last-child {
+      left: 22%;
+    }
   }
 }
 .img-primary {

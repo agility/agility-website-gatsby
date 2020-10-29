@@ -6,7 +6,7 @@ import './RichTextArea.scss'
 // import Spacing from './Spacing';
 const StarterDetails = ({ item, dynamicPageItem, page }) => {
 	const starterTemplate = dynamicPageItem.customFields;
-	console.log(dynamicPageItem)
+	// console.log(dynamicPageItem)
 	const [isMobile, setState] = useState(false)
 	//const externalLink = "https://manager.agilitycms.com/org/?plan=agility-pro&template=gatsby-blog"
 	// const externalLink = `https://manager.agilitycms.com/org/?template=${starterTemplate.slug}`
@@ -32,12 +32,9 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 		<React.Fragment>
 			<section className='module mod-star-detail animation'>
 				<div className='container'>
-					<div className='last-md-none wrap-black anima-bottom '>
-						<Link to="/starters" className='black-starters'>Back to Starters</Link>
-					</div>
 					<div className='row justify-content-between'>
 						<div className='col-lg-7 last-mb-none anima-left delay-4'>
-							{starterTemplate.name && 
+							{starterTemplate.name &&
 								<h1>{starterTemplate.name}</h1>
 							}
 							{starterTemplate.details &&
@@ -51,13 +48,20 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 								</p>
 							}
 							{ starterTemplate.image &&
-							<div className="star-image">
-								<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+								<div className="star-image">
+									{starterTemplate.previewURL ?
+										(<Link to={starterTemplate.previewURL} target="_blank" rel="noopener">
+											<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+										</Link>): (
+											<img src={starterTemplate.image.url} alt={starterTemplate.image.label} />
+										)
+									}
+
 								</div>
 							}
 						</div>
 						<div className='col-lg-4 col-r-start anima-right delay-4'>
-							{!isMobile && 
+							{!isMobile &&
 								<div className="template-frameworks-datail ps-rv">
 									{frameworks.map(framework => (
 										<div className='wrap-img-frame text-center ps-rv' key={framework.contentID}>
@@ -65,10 +69,10 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 										</div>
 									))}
 									<div className='content-frameworks last-mb-none ps-rv small-paragraph'>
-										{starterTemplate.name && 
+										{starterTemplate.name &&
 											<h3 className='h4'>{starterTemplate.name}</h3>
 										}
-										{starterTemplate.description && 
+										{starterTemplate.description &&
 											<p>{starterTemplate.description}</p>
 										}
 										{startproject && startproject.href &&
@@ -80,29 +84,32 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 								</div>
 							}
 							<div className='child-item-right last-mb-none small-paragraph'>
-								{starterTemplate.previewURL && 
+								{starterTemplate.previewURL &&
 									<React.Fragment>
-										<h4>Preview URL</h4>
+										<h4>Live Preview</h4>
 										<Link to={starterTemplate.previewURL} target="_blank" rel="noopener">{starterTemplate.previewURL}</Link>
 									</React.Fragment>
 								}
 							</div>
 							<div className='child-item-right last-mb-none small-paragraph'>
-								{starterTemplate.githubLink && 
+								{starterTemplate.githubLink &&
 									<React.Fragment>
 										<h4>Github repo</h4>
 										<Link to={starterTemplate.githubLink} target="_blank" rel="noopener">{starterTemplate.githubLink}</Link>
 									</React.Fragment>
 								}
 							</div>
-							{starterTemplate.moreinfoHere && 
+							{starterTemplate.moreinfoHere &&
 								<div className='child-item-right last-mb-none small-paragraph' dangerouslySetInnerHTML={renderHTML(starterTemplate.moreinfoHere)}></div>
 							}
 						</div>
 					</div>
+					<div className='last-md-none wrap-black wrap-black-bot anima-bottom delay-2'>
+						<Link to="/starters" className='black-starters'>Back to Starters</Link>
+					</div>
 				</div>
 			</section>
-			<section class="mod-space space-80 space-dt-110"></section>
+			<section className="mod-space space-80 space-dt-110"></section>
 			{/* <Spacing item={dynamicPageItem}/> */}
 		</React.Fragment>
 	);

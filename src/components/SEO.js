@@ -16,8 +16,10 @@ const SEO = ({ page }) => {
 
 	return (
 		<Helmet>
-			<meta charSet="utf-8" />
+			<meta charset="utf-8" />
 			<title>{title}</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
 
 			<meta property="og:site_name" content="Agility CMS" />
 			<meta property="twitter:title" content={title} />
@@ -127,6 +129,10 @@ const SEO = ({ page }) => {
 			<link rel="preconnect" href="//cdnjs.cloudflare.com" />
 			<link rel="preconnect" href="//www.google.com" />
 			<link rel="preconnect" href="//www.googletagmanager.com" />
+
+			<link rel="apple-touch-icon" sizes="114x114" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-144x144.png"/>
+			<meta name="apple-mobile-web-app-capable" content="yes"/>
+			<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 
 			<link rel="apple-touch-startup-image" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-152x152.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-57x57.png" />

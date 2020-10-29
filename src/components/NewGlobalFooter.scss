@@ -13,6 +13,21 @@
     font-family: 'Muli-Bold', sans-serif;
   }
 }
+.img-footer {
+  width: 240px;
+  height: 240px;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  &.img-fo-top {
+    left: -78px;
+    top: -45px;
+  }
+  &.img-fo-bot {
+    bottom: -73px;
+    right: -71px;
+  }
+}
 .image-thanks {
   margin-bottom: 20px;
 }
@@ -227,59 +242,25 @@
           margin-bottom: 0;
         }
       }
-      // [type="submit"] {
-      //   width: 102px;
-      //   height: 36px;
-      //   border-radius: $border-radius;
-      //   box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
-      //   background-color: $darkerSecondaryColor;
-      //   font-family: $bold;
-      //   font-size: 13px;
-      //   font-weight: bold;
-      //   font-style: normal;
-      //   font-stretch: normal;
-      //   line-height: normal;
-      //   letter-spacing: normal;
-      //   text-align: center;
-      //   color: $white;
-      //   position: absolute;
-      //   border: none;
-      //   outline: none;
-      //   top: 50%;
-      //   right: 2px;
-      //   z-index: 5;
-      //   transform: translate(0, -50%);
-      //   transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
-      //   cursor: pointer;
-
-      //   &:hover,
-      //   &:focus {
-      //     outline: none;
-      //     -moz-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-      //     -webkit-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-      //     box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-      //     background-color: $btnhov;
-      //   }
-      // }
     }
-    &::before,
-    &::after {
-      content: '';
-      background-image: url('/images/bg-top.svg');
-      width: 240px;
-      height: 290px;
-      background-repeat: no-repeat;
-      position: absolute;
-      z-index: -1;
-    }
-    &::after {
-      right: -71px;
-      bottom: -120px;
-    }
-    &::before {
-      left: -78px;
-    top: -45px;
-    }
+    // &::before,
+    // &::after {
+    //   content: '';
+    //   background-image: url('/images/bg-top.svg');
+    //   width: 240px;
+    //   height: 290px;
+    //   background-repeat: no-repeat;
+    //   position: absolute;
+    //   z-index: -1;
+    // }
+    // &::after {
+    //   right: -71px;
+    //   bottom: -120px;
+    // }
+    // &::before {
+    //   left: -78px;
+    // top: -45px;
+    // }
   }
 
   .foter-copyright {

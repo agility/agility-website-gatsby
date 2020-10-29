@@ -7,6 +7,7 @@ const BrowserDetection = {
     let isFirefox = navigator.userAgent.indexOf('Firefox') > -1
     let isSafari = navigator.userAgent.indexOf('Safari') > -1
     let isChrome = navigator.userAgent.indexOf('Chrome') > -1
+    let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (isExplorer || document.documentMode) {
       $html.classList.add('ie')
     }
@@ -21,6 +22,9 @@ const BrowserDetection = {
     }
     if (/Edge/.test(navigator.userAgent)) {
       $html.classList.add('edge')
+    }
+    if(isIOS) {
+      $html.classList.add('ios')
     }
 	}
 }

@@ -141,7 +141,7 @@ class PostListItem extends React.Component {
 						<div className="author">
 							<div className="author-image">
 
-								<img src={author.customFields.image ? author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt="" loading="lazy" />
+								<img src={author.customFields.image ? author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={ author.customFields.image.alt ? author.customFields.image.alt : 'author image' } loading="lazy" />
 							</div>
 							<h5 className="h5">{author.customFields.title}</h5>
 						</div>

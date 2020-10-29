@@ -109,16 +109,16 @@ module.exports = {
     //     onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
     //   },
 		// },
-		{
-			resolve: 'gatsby-plugin-load-script',
-      options: {
-        // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie_light_html.min.js',
-				crossorigin: 'anonymous',
-				onLoad: '',
-				// onLoad: '() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})',
-      },
-		},
+		// {
+		// 	resolve: 'gatsby-plugin-load-script',
+    //   options: {
+    //     // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
+    //     src: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie_light_html.min.js',
+		// 		crossorigin: 'anonymous',
+		// 		onLoad: '',
+		// 		// onLoad: '() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})',
+    //   },
+		// },
 		{
 			resolve: `gatsby-plugin-feed`,
 			options: {

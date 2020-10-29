@@ -2,6 +2,7 @@ import React from 'react';
 import Spacing from './Spacing'
 import './RightOrLeftCaseStudyTestimonial.scss'
 import { renderHTML } from '../agility/utils';
+import LazyBackground from '../utils/LazyBackground'
 
 const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 	const fields = item.customFields
@@ -67,7 +68,7 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 						</div>
 						<div className="col-lg-6 left-tes-detail anima-left">
 							{ imgTest &&
-								<div className="bg bg-test-detail bg-center" style={{ backgroundImage: `url(${imgTest.url})` }}></div>
+								<LazyBackground className="bg bg-test-detail bg-center" src={imgTest.url}></LazyBackground>
 							}
 							{ testimonial &&
 								<Testimonial></Testimonial>
