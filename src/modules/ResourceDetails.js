@@ -21,7 +21,7 @@ const ResourceDetails = ({ item, dynamicPageItem }) => {
 					<div className="meta">
 
 							<div className="author-image">
-								<img src={resource.author.customFields.image ? resource.author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={resource.author.customFields.title} />
+								<img src={resource.author.customFields.image ? resource.author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={resource.author.customFields.title ? resource.author.customFields.title : 'author image'} />
 							</div>
 							<h5 className="h5">{resource.author.customFields.title}</h5>
 

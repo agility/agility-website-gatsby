@@ -43,7 +43,7 @@ const RightOrLeftContent = ({ item }) => {
 	const callAnimation = () => {
 		let banner = document.getElementsByClassName('mod-banner')
 		let inter,inter2
-		if (banner.length && window.innerWidth >= 1200 && !banner[0].classList.contains('done-ani')) {
+		if (banner.length && window.innerWidth >= 1025 && !banner[0].classList.contains('done-ani')) {
 			appenLottie()
 			inter2 = setInterval(() => {
 				if(window.lottie) {
@@ -107,27 +107,34 @@ const RightOrLeftContent = ({ item }) => {
 		item4.style.transform = 'translateY(' + -(top / 3.5) + 'px)'
 	}
 	const NoImg = () => {
+		return <React.Fragment></React.Fragment>
+	}
+	const HasImg = ({img}) => {
 		if (isHomePage) {
 			return (
 				<React.Fragment>
-					<img src="/images/homepage-illustration.png" alt="image video" className="img-mb" />
-					<div className="d-none d-xl-block">
+					{/* <picture>
+						<source srcSet={img.url}></source>
+					  <img src={img.url} alt={ img.label ? img.label : 'image video' } className="img-mb"  />
+					</picture> */}
+					<img src={img.url} alt={ img.label ? img.label : 'image video' } className="img-mb"  />
+					<div className="d-none d-sl-block">
 						<div className="ani-banner"></div>
 						<div className="ani-banner"></div>
 						<div className="ani-banner"></div>
 						<div className="ani-banner item-bg"></div>
 						<div className="ani-banner"></div>
-						<img className='d-none' src="/images/ani-banner/img_0.png" alt="image video" />
-						<img className='d-none' src="/images/ani-banner/img_1.png" alt="image video" />
 					</div>
 				</React.Fragment>
 			)
 		}
-		return <React.Fragment></React.Fragment>
+		return (
+			<img src={img.url} className="anima-right" alt={ img.label ? img.label : 'image video' } />
+		)
 	}
 	useEffect(() => {
 		detectHomePage()
-		if (!imgModule && isHomePage) {
+		if (imgModule && isHomePage) {
 			init()
 			if(!navigator.userAgent.match(/Trident\/7\./)) {
 				window.addEventListener('scroll', initParallax);
@@ -141,7 +148,7 @@ const RightOrLeftContent = ({ item }) => {
 					<div className="row flex-md-row-reverse hero-text align-items-lg-center h1-big">
 						<div className={classAniImg}>
 							<div className={classWrap}>
-								{ imgModule ? <img src={imgModule.url} className="anima-right" alt={ imgModule.label ? imgModule.label : 'image video' } /> : <NoImg /> }
+								{ imgModule ? <HasImg img={imgModule}/> : <NoImg /> }
 							</div>
 						</div>
 						<div className="col-md-6 large-paragraph last-mb-none anima-left">

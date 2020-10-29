@@ -65,6 +65,8 @@ const BestofBothWorldsModule = ({ item }) => {
 				function slideFinish() {
 					clicked = 0;
 					wrap.classList.add('add-transition')
+					let h = wrap.offsetHeight;
+					let comparImg = (1 / Math.tan(69 * Math.PI/180))*h;
 					slide((wrap.offsetWidth + comparImg*2 - 8)/2)
 					setTimeout(() => {
 						wrap.classList.remove('add-transition')
@@ -216,7 +218,7 @@ const BestofBothWorldsModule = ({ item }) => {
 								</div>
 							</LazyBackground>
 						</div>
-						<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className="bg-top-video" alt="image"></img></LazyLoad>
+						<LazyLoad offset={0}><img src="/images/bg-top.svg" className="bg-top-video" alt="image"></img></LazyLoad>
 					</div>
 				</div>
 				<div className="best-HIW animation anima-bottom">
@@ -228,14 +230,14 @@ const BestofBothWorldsModule = ({ item }) => {
 						}
 						<div className="middle-HIW last-mb-none text-center d-md-flex align-items-center">
 							<div className="lazy compare-2img">
-								<img src="/images/bg-bottom2.svg" className="bg-2img-top" alt="image"></img>
-								<img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image"></img>
+							<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-bottom2.svg" className="bg-2img-top" alt="image"></img></LazyLoad>
+							<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image"></img></LazyLoad>
 								<div className="img-comp-container">
 									<div className="img-comp-img">
 									{ rightGroupName &&
 									  <React.Fragment>
-										  <img src="/images/author-image.png" className='img-primary'  alt={rightGroupName.text}></img>
-											<img src="/images/image-author-2.png" className='img-second-author' alt={rightGroupName.text}></img>
+										  <img src="/images/image-fake.jpg" className='img-primary'  alt={rightGroupName.text}></img>
+											<LazyLoad offset={ Helpers.lazyOffsetRes }><img src="/images/image-author-2.png" className='img-second-author' alt={rightGroupName.text}></img></LazyLoad>
 										</React.Fragment>
 									}
 									</div>
@@ -251,8 +253,8 @@ const BestofBothWorldsModule = ({ item }) => {
 									<div className="img-comp-img img-comp-overlay">
 										{ leftGroupName &&
 										  <React.Fragment>
-												<img src="/images/dev-image.png" className='img-primary' alt={leftGroupName.text}></img>
-                        <img src="/images/image-dev-2.png" className='img-second-dev' alt={leftGroupName.text}></img>
+												<img src="/images/image-fake.jpg" className='img-primary' alt={leftGroupName.text}></img>
+                        <LazyLoad offset={ Helpers.lazyOffsetRes }><img src="/images/image-dev-2.png" className='img-second-dev' alt={leftGroupName.text}></img></LazyLoad>
 										  </React.Fragment>
 										}
 									</div>

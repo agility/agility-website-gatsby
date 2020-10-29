@@ -112,6 +112,11 @@ $translate: 100px;
     text-align: right !important;
   }
 }
+@media (min-width: 1025px) {
+  .d-sl-block {
+    display: block !important;
+  }
+}
 @media (min-width: 1200px) {
   .d-xl-block {
     display: block !important;

@@ -54,7 +54,7 @@
   opacity: 0;
   z-index: 0;
   right: 0;
-  opacity: -1;
+  opacity: 1;
   width: 90%;
 }
 .ie {
@@ -82,7 +82,7 @@
   }
   .wrap-box-vertical,
   .wrap-lv2 {
-    width: 100%;
+    width: 100% !important;
   }
   .fake-height {
     display: none;
@@ -173,6 +173,7 @@
     right: auto;
     left: 50%;
     transform: translateY(0) translateX(-50%);
+    opacity: 0;
   }
   .full-panel {
     overflow: hidden;

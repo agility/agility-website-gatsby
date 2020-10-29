@@ -2,7 +2,7 @@ import React from 'react';
 
 import PostUtil from '../utils/post-util.js';
 import { getLeadSource } from '../utils/lead-utils.js'
-import Lazyload from 'react-lazyload'
+import Lazyload, {forceVisible} from 'react-lazyload'
 import { Link, graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 
@@ -157,7 +157,6 @@ class Footer extends React.Component {
 	* It stops the default form submission process and proceeds with custom validation.
 	**/
 	submitHandler(event) {
-
 		event.preventDefault();
 
 		let postURL = this.props.item.customFields.subscribePOSTUrl;
@@ -180,7 +179,7 @@ class Footer extends React.Component {
 		data["leadsourcedetail"] = leadSourceDetail;
 
 		this.setState({ isSubmitting: true, subscribeButtonLabel: "Sign up"});
-
+		forceVisible()
 
 		PostUtil.postData(
 			postURL,
@@ -190,7 +189,7 @@ class Footer extends React.Component {
 			if(response.status===202){
 				document.querySelectorAll('.foter-subscribe')[0].classList.add('thanks-subs')
 			}
-			console.table('response', response)
+			// console.table('response', response)
 		}).catch(err => {
 
 			this.setState({
@@ -282,6 +281,7 @@ class Footer extends React.Component {
 						</ul>
 
 						<div className={classSub}>{/*  remove class thanks-subs"> */}
+							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you'></img></Lazyload>
 							<div className="box-sub">
 								<span>{item.subscribeTitle}</span>
 								<p>{item.subscribeDescription}</p>
@@ -292,7 +292,7 @@ class Footer extends React.Component {
 										{/* <input type="submit" value={this.state.subscribeButtonLabel} className="btn btn-outline-white text-decoration-non" /> */}
 										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
 										<div  className='loading-sub text-center'>
-											<img src='/images/ajax-loader-white.svg' alt='loading'></img>
+										<Lazyload offset={ Helpers.lazyOffset }><img src='/images/ajax-loader-white.svg' alt='loading'></img></Lazyload>
 										</div>
 										<input type="hidden" name="_autopilot_session_id" />
 									</form>
@@ -300,11 +300,11 @@ class Footer extends React.Component {
 							</div>
 							<div className="box-thanks justify-content-between flex-wrap align-items-center">
 							<div className='image-thanks order-md-2 w-100'>
-								<img src="/images/mail.svg" alt='mail thank you'></img>
+							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/mail.svg" alt='mail thank you'></img></Lazyload>
 								</div>
 								<div className="col-left-thanks last-mb-none text-white small-paragraph" dangerouslySetInnerHTML={renderHTML(thankText)}></div>
 							</div>
-
+							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-bot' alt='mail thank you'></img></Lazyload>
 						</div>
 
 					</div>

@@ -20,6 +20,7 @@ const HelperFunc = {
 			}
 		})
   },
+	lazyOffsetRes: 0,
 	lazyOffset: 500,
 	 setCookie: (cname, cvalue, exdays) => {
 		var d = new Date();

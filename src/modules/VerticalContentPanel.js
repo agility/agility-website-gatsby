@@ -222,7 +222,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
           }
         } else {
           return (
-            <img src={customField.graphic.url} alt={customField.graphic.label}></img>
+            <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
           )
         }
       } else {
@@ -268,7 +268,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
 			} else {
         return (
           <div className={classNameImg}  data-image={idx + 1} key={'image-' + idx}>
-            <img src={customField.graphic.url} alt={customField.graphic.label}></img>
+            <Lazyload offset={ Helpers.lazyOffset }><img src={customField.graphic.url} alt={customField.graphic.label}></img></Lazyload>
           </div>
         )
       }
