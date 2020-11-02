@@ -50,9 +50,9 @@
   z-index: 1;
   transition: .5s cubic-bezier(.235, .615, .185, .995);
   height: 100%;
-  svg:not(:first-child) {
-    display: none;
-  }
+  // svg:not(:first-child) {
+  //   display: none;
+  // }
 }
 .item-logo-partners {
   margin-bottom: 10px;

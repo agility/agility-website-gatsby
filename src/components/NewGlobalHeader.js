@@ -240,6 +240,10 @@ class NewGlobalHeader extends Component {
 					path = item.redirect.url.replace('~/', '/')
 					target = item.redirect.target
 				}
+				let rel = ''
+				if (target === '_blank') {
+					rel = 'noopener noreferrer'
+				}
 				const isActive = (this.state.activeMenu.indexOf(path2) !== -1 ? 'active': '' )
 				if (level > 1) {
 					return null
@@ -248,7 +252,7 @@ class NewGlobalHeader extends Component {
 				if (subLinks === null || subLinks.length < 0) {
 					//no sub menu
 					links.push(<li className={isActive} key={item.pageID} onClick={this._handleActiveMenu.bind(this, path)}>
-						{path.indexOf('://') !== -1 ? <a href={path} target={target}>{item.menuText}</a> : <Link to={path} target={target}>{item.menuText}</Link> }
+						{path.indexOf('://') !== -1 ? <a href={path} target={target} rel={rel} >{item.menuText}</a> : <Link to={path} target={target} rel={rel}>{item.menuText}</Link> }
 						</li>)
 				} else {
 					//has a sub menu
@@ -311,7 +315,7 @@ class NewGlobalHeader extends Component {
 						</button>
 						</form>
 					</div>
-					<a href={primaryButton.href} target={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
+					<a href={primaryButton.href} target={primaryButton.target} rel='noopener noreferrer' className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
 					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				</li>
 				links.push(btnMenu)

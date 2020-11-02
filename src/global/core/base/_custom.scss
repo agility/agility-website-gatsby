@@ -401,6 +401,12 @@ input {
 .opacity-0 {
   opacity: 0;
 }
+.shadow-box {
+  box-shadow: 10px 30px 40px -10px rgba(23, 10, 41, 0.28), inset -1px -8px 30px 11px rgba(233, 240, 245, 0.7), inset -3px -8px 7px 0 rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px;
+  padding: 10px;
+  background: $white;
+}
 @include media-breakpoint-up(sm) {
   .main-content {
     padding-top: 105px;
@@ -408,6 +414,9 @@ input {
 }
 
 @include media-breakpoint-up(md) {
+  .shadow-box {
+    padding: 15px;
+  }
   .wrap-video {
     .icon-video {
       @include size(76px);

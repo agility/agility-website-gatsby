@@ -11,6 +11,9 @@
 .starter-card {
 	box-shadow: 0 5px 30px -8px rgba(85, 63, 164, 0.25);
 	transition: all .25s;
+	& > .ps-as {
+		z-index: 4;
+	}
 }
 .starter-thumb {
 	padding-bottom: 85.2%;
@@ -24,6 +27,7 @@
 }
 .starter-content {
 	padding: 24px 20px;
+	overflow: hidden;
 	&::after {
 		content: '';
 		position: absolute;
@@ -83,6 +87,11 @@
 }
 .ios .black-starters:before {
 	top: -2px;
+}
+@media (max-width: 1024px) {
+	.safari .black-starters:before {
+		top: -2px;
+	}
 }
 @media (min-width: 768px) {
 	.starter-thumb {

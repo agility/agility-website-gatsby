@@ -160,7 +160,8 @@ const SEO = ({ page }) => {
 			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulibold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliregular.woff2" />
 
-			<link rel="stylesheet" href="/fonts.css" />
+			{/* <link rel="stylesheet" href="/fonts.css" /> */}
+
 
 		</Helmet>
 	)

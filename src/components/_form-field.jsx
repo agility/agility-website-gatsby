@@ -22,7 +22,7 @@ class FormField extends React.Component {
 				<div className="invalid-feedback"></div>
 				<label htmlFor={this.props.id} >{this.props.label}</label>
 				{this.props.children}
-
+				{/* pattern email: [a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,} */}
 				{/* <input id={this.props.id} className="form-control" required={this.props.required} name={this.props.label} type={type} />
 				 */}
 

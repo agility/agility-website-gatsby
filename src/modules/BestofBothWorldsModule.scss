@@ -573,6 +573,11 @@
 }
 
 @media (min-width: 1200px){
+  .img-comp-overlay {
+    img:last-child {
+      left: 28%;
+    }
+  }
   .compare-2img {
     max-width: 48%;
   }

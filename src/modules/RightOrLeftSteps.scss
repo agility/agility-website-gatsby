@@ -20,7 +20,8 @@
   position: absolute;
   z-index: 0;
 	bottom: -25px;
-	width: 123px
+  width: 36%;
+  min-width: 123px;
 }
 .bg-left-step {
   left: -30px;
@@ -28,7 +29,8 @@
   z-index: 0;
   bottom: -25px;
 	opacity: 0;
-	width: 123px
+  width: 36%;
+  min-width: 123px;
 }
 .item-step {
 	// padding: 25px;
@@ -71,10 +73,18 @@
   z-index: 1;
   max-height: 350px;
   max-width: calc(100% + 30px);
+  &.shadow-box {
+    max-width: calc(100% - 20px);
+    margin-right: 10px;
+  }
 }
 .style-right {
   .img-step {
     margin-left: -30px;
+    &.shadow-box {
+      margin-left: 0;
+      display: block;
+    }
   }
 }
 .step-img {
@@ -93,9 +103,6 @@
 }
 .style-back {
   &.mod-framework {
-    // background-color: $color-17;
-    // @extend %color-white;
-    // color: $white;
     .bg-black-frame {
       display: block;
     }
@@ -124,6 +131,17 @@
     background-color: $color-ff;
   }
 }
+@media (max-width: 991px) {
+  .bg-black-frame {
+    &.bg-right-step {
+      right: 10px;
+    }
+    &.bg-left-step {
+      left: 10px;
+      bottom: -5px;
+    }
+  }
+}
 @media (max-width: 767px) {
 	.item-step {
 		&:last-child {
@@ -131,17 +149,52 @@
 		}
   }
   .dark-mode {
+    .bg-left-step,
+    .bg-right-step {
+      min-width: 155px;
+    }
+    @media (min-width: 480px) {
+      .step-img {
+        margin: 0 auto;
+      }
+    }
     .img-step {
       max-width: 100%;
       margin: 0;
     }
+    .has-place {
+      .img-step {
+        max-width: calc(100% - 30px);
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
 }
 @media (min-width: 768px) {
-  .bg-right-step,
-	.bg-left-step  {
-		width: 221px;
-	}
+  .dark-mode {
+    .has-place {
+      .step-img {
+        margin-right: 0;
+      }
+      .img-step {
+        max-width: 100%;
+      }
+    }
+    .img-step {
+      margin-left: -30px;
+    }
+  }
+  .bg-white-frame {
+    width: 36%;
+    bottom: -50px;
+    &.bg-right-step {
+      right: -10%;
+    }
+    &.bg-left-step {
+      left: -10%;
+    }
+  }
 	.item-step {
     padding: 20px 10px 20px 30px;
 		&::before {
@@ -179,6 +232,10 @@
 	}
 }
 @media (min-width: 992px) {
+  .bg-right-step,
+	.bg-left-step  {
+		width: 221px;
+  }
   .style-back {
     .bg-left-step {
       bottom: 30px;
@@ -217,10 +274,18 @@
       margin-left: -60px;
     }
   }
+  .dark-mode {
+    .style-right .has-place .img-step {
+      margin-left: 0;
+    }
+  }
 }
 @media (min-width: 1500px) {
   .item-step {
     padding-left: 95px;
     padding-right: 95px;
+    .step-img.has-place {
+      margin-right: 0;
+    }
   }
 }

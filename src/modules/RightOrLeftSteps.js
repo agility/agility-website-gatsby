@@ -12,9 +12,12 @@ const RightOrLeftSteps = ({ item }) => {
 	const description = fields.description
 	const step = fields.step
 	const textSide = fields.textSide
+	const placeImage = fields.placeholderImage
+	const darkMode = fields.darkMode
 	const imgURL = fields.image && fields.image.url.length > 0 ? fields.image.url : null
-	const classSection = `module mod-framework RightOrLeftSteps animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode style-back text-white bg-17': ''}`
+	const classSection = `module mod-framework RightOrLeftSteps animation ${darkMode && darkMode === 'true' ? ' dark-mode style-back text-white bg-17': ''}`
 	const classTextSlide = `item-step row ps-rv align-items-center justify-content-space-betwwen anima-bottom delay-2 ${textSide === 'right' ? 'style-right' : ''}`
+	// console.log(item)
 	return (
 		<React.Fragment>
 			<section className={classSection}>
@@ -41,11 +44,25 @@ const RightOrLeftSteps = ({ item }) => {
 								<p>{description}</p>
 							}
 						</div>
-						<div className="step-img ps-rv col-md-6">
+						<div className={`step-img ps-rv col-md-6 ${(placeImage && placeImage === 'false') ? 'has-place': ''}`}>
 
-							{ imgURL &&
+							{ imgURL && ( placeImage === 'true' || !placeImage ) &&
 								<React.Fragment>
 									<Lazyload offset={ Helpers.lazyOffset }><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
+								</React.Fragment>
+							}
+							{ imgURL && placeImage === 'false' && !darkMode &&
+								<React.Fragment>
+									<Lazyload><img src="/images/triangle-purple.png" className="bg-left-step bg-white-frame" alt="Create your content structure"></img></Lazyload>
+									<Lazyload offset={ Helpers.lazyOffset }><img src={imgURL} className="ps-rv img-step shadow-box" alt="Create your content structure"></img></Lazyload>
+									<Lazyload><img src="/images/triangle-purple.png" className="bg-right-step bg-white-frame" alt="Create your content structure"></img></Lazyload>
+								</React.Fragment>
+							}
+							{ imgURL && placeImage === 'false' && darkMode && darkMode === 'true' &&
+								<React.Fragment>
+									<Lazyload><img src="/images/bg-top.svg" className="bg-left-step bg-black-frame" alt="Create your content structure"></img></Lazyload>
+									<Lazyload offset={ Helpers.lazyOffset }><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
+									<Lazyload><img src="/images/bg-top.svg" className="bg-right-step bg-black-frame" alt="Create your content structure"></img></Lazyload>
 								</React.Fragment>
 							}
 						</div>

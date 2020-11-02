@@ -49,8 +49,10 @@
   z-index: 1;
   transition: .5s cubic-bezier(.235, .615, .185, .995);
   height: 100%;
-  svg:not(:first-child) {
-    display: none;
+  svg:not(:last-child) {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
   }
 }
 .page-new-why-agility,
@@ -109,6 +111,12 @@
       max-width: 33.33333%;
       margin-bottom: 0;
     }
+  }
+}
+
+@media (max-width: 1024px){
+  .wrap-ani {
+    opacity: 0;
   }
 }
 @media (min-width: 1025px){

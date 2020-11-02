@@ -9,7 +9,7 @@ const RightOrLeftContent = ({ item }) => {
 	const btn1 = item.customFields.cTA1Optional
 	const btn2 = item.customFields.cTA2Optional
 	const classSection = `module mod-banner right-or-left-content animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white': ''}`
-	const array = []
+	let array = []
 	const [isHomePage, setIsHomePage] = useState(false);
 	const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
 	const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
@@ -43,8 +43,12 @@ const RightOrLeftContent = ({ item }) => {
 	const callAnimation = () => {
 		let banner = document.getElementsByClassName('mod-banner')
 		let inter,inter2
-		if (banner.length && window.innerWidth >= 1025 && !banner[0].classList.contains('done-ani')) {
-			appenLottie()
+		if (banner.length && window.innerWidth >= 1025 && !banner[0].classList.contains('done-ani') && !banner[0].classList.contains('banner-runing')) {
+			banner[0].classList.add('banner-runing')
+			if (!banner[0].classList.contains('appen-lottie')) {
+				appenLottie()
+				banner[0].classList.add('appen-lottie')
+			}
 			inter2 = setInterval(() => {
 				if(window.lottie) {
 					loadAni()
@@ -61,6 +65,7 @@ const RightOrLeftContent = ({ item }) => {
 	}
 	const loadAni = () => {
 		let temp = 0
+		array = []
 		Array.from(document.querySelectorAll('.ani-banner')).forEach((item,index) => {
 			array[index] = window.lottie.loadAnimation({
 				container: item,
@@ -84,8 +89,11 @@ const RightOrLeftContent = ({ item }) => {
 			array.forEach(element => element.play());
 		}, 400)
 		setTimeout(() => {
-			document.getElementsByClassName('mod-banner')[0].classList.remove('done-ani')
-		}, 1000)
+			let banner = document.getElementsByClassName('mod-banner')
+			if(banner.length) {
+				banner[0].classList.remove('banner-runing')
+			}
+		}, 4000)
 	}
 	const initParallax = () => {
 		if (document.getElementsByClassName('ani-banner').length) {
@@ -113,12 +121,8 @@ const RightOrLeftContent = ({ item }) => {
 		if (isHomePage) {
 			return (
 				<React.Fragment>
-					{/* <picture>
-						<source srcSet={img.url}></source>
-					  <img src={img.url} alt={ img.label ? img.label : 'image video' } className="img-mb"  />
-					</picture> */}
 					<img src={img.url} alt={ img.label ? img.label : 'image video' } className="img-mb"  />
-					<div className="d-none d-sl-block">
+					<div className="wrap-ani">
 						<div className="ani-banner"></div>
 						<div className="ani-banner"></div>
 						<div className="ani-banner"></div>

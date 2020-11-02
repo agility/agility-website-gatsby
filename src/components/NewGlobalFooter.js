@@ -219,8 +219,11 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-
-				links.push(<li className="foter-menu-li" key={lnk.contentID + "-footer"}><a href={lnk.customFields.uRL.href} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</a></li>)
+				let rel = ''
+				if(lnk.customFields.uRL.target === '_blank') {
+					rel='noopener noreferrer'
+				}
+				links.push(<li className="foter-menu-li" key={lnk.contentID + "-footer"}><a href={lnk.customFields.uRL.href} rel={rel} target={lnk.customFields.uRL.target}>{lnk.customFields.title}</a></li>)
 			});
 
 			return <ul>{links}</ul>;

@@ -49,7 +49,8 @@ const BestofBothWorldsModule = ({ item }) => {
 				img.style.left = -comparImg + 'px';
 
 				Array.from(img.querySelectorAll('img')).forEach((ele) => {
-					ele.style.left = comparImg + 'px';
+					ele.style.left = comparImg - 8 + 'px';
+					ele.classList.remove('doing-dev')
 				})
 				slider.style.left = (w / 2) - 30.5  + 'px';
 				slider.addEventListener('mousedown', slideReady);
@@ -106,7 +107,8 @@ const BestofBothWorldsModule = ({ item }) => {
 					slider.style.left = (x - 30.5 - comparImg)/wCurent*100  + '%';
 					const l = x - 30.5 - comparImg
 					Array.from(img.querySelectorAll('img')).forEach((ele) => {
-						ele.style.left = comparImg + 'px';
+						ele.style.left = comparImg - 8 + 'px';
+						ele.classList.remove('doing-dev')
 					})
 					const best = document.getElementsByClassName('best-HIW')[0];
 					if(best){
@@ -156,7 +158,8 @@ const BestofBothWorldsModule = ({ item }) => {
 					const comparImg = (1 / Math.tan(69 * Math.PI/180))*hCurent;
 					img.style.left = -comparImg + 'px';
 					Array.from(img.querySelectorAll('img')).forEach((ele) => {
-						ele.style.left = comparImg + 'px';
+						ele.style.left = comparImg - 8 + 'px';
+						ele.classList.remove('doing-dev')
 					})
 					slider.style.left = (img.offsetWidth - 30.5 - comparImg)/wCurent*100  + '%';
 				}
@@ -168,6 +171,16 @@ const BestofBothWorldsModule = ({ item }) => {
 	});
 	const calluseEffect = () => {
 		initComparisons()
+		scrollAddLeft()
+	}
+	const scrollAddLeft = () => {
+		window.addEventListener('scroll', function() {
+			let img = document.querySelectorAll('.doing-dev')
+			if(img.length) {
+				let left = document.querySelectorAll('.img-comp-overlay .img-primary')[0].style.left
+				img[0].style.left = left
+			}
+		});
 	}
 	const togglePause = () => {
     setIsPaused(!isPaused);
@@ -254,7 +267,7 @@ const BestofBothWorldsModule = ({ item }) => {
 										{ leftGroupName &&
 										  <React.Fragment>
 												<img src="/images/image-fake.jpg" className='img-primary' alt={leftGroupName.text}></img>
-                        <LazyLoad offset={ Helpers.lazyOffsetRes }><img src="/images/image-dev-2.png" className='img-second-dev' alt={leftGroupName.text}></img></LazyLoad>
+                        <LazyLoad offset={ Helpers.lazyOffsetRes }><img src="/images/image-dev-2.png" className='img-second-dev doing-dev' alt={leftGroupName.text}></img></LazyLoad>
 										  </React.Fragment>
 										}
 									</div>
