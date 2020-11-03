@@ -7,7 +7,7 @@ import { renderHTML } from '../agility/utils'
 import "./EventDetails.scss"
 import "./RichTextArea.scss"
 
-//TEST COMMENT
+
 const EventDetails = ({ item, dynamicPageItem, page }) => {
 	const [loaded, setLoaded] = useState(false)
 

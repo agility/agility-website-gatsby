@@ -19,11 +19,6 @@ export default props => (
 					label
 					}
 					title
-					uRL {
-					href
-					target
-					text
-					}
 				}
 				contentID
 				languageCode
@@ -67,21 +62,21 @@ const LogoListing = ({ item, logos }) => {
 
 		const key = logo.contentID + "-" + item.contentID;
 		logo = logo.customFields;
-		logo.url = logo.uRL;
+		//logo.url = logo.uRL;
 
 		//render one tab
 		return (
 
 			<li className="logo-item" key={key}>
 				<div className="image">
-					{logo.url &&
+
 						<span>
 							{logo.logo &&
 								<ResponsiveImage img={logo.logo}
 									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
 							}
 						</span>
-					}
+
 
 				</div>
 
