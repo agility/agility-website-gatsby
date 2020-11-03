@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="519px" height="467px" viewBox="0 0 519 467" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Image</title>
+    <defs>
+        <linearGradient x1="50%" y1="20.5331778%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0.468107842" y="0.604790419" width="168.924051" height="126"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#8A6CF9" offset="0%"></stop>
+            <stop stop-color="#6D57E2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#8A6CF9" offset="0%"></stop>
+            <stop stop-color="#6D57E2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#8A6CF9" offset="0%"></stop>
+            <stop stop-color="#6D57E2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-7">
+            <stop stop-color="#8A6CF9" offset="0%"></stop>
+            <stop stop-color="#6D57E2" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-8" x="0" y="0" width="394.639594" height="172" rx="10"></rect>
+        <filter x="-12.7%" y="-17.4%" width="130.4%" height="169.8%" filterUnits="objectBoundingBox" id="filter-9">
+            <feMorphology radius="5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="10" dy="30" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0903223218   0 0 0 0 0.0395715411   0 0 0 0 0.161373415  0 0 0 0.28 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-11.3%" y="-14.2%" width="127.6%" height="163.4%" filterUnits="objectBoundingBox" id="filter-10">
+            <feMorphology radius="11" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feGaussianBlur stdDeviation="15" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="-1" dy="-8" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.960784314  0 0 0 0.696159309 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feGaussianBlur stdDeviation="3.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
+            <feOffset dx="-3" dy="-8" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-11">
+            <stop stop-color="#8A6CF9" offset="0%"></stop>
+            <stop stop-color="#6D57E2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-12">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#E9F0F5" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-13" cx="33" cy="33" r="33"></circle>
+        <filter x="-43.2%" y="-29.5%" width="186.4%" height="218.2%" filterUnits="objectBoundingBox" id="filter-15">
+            <feMorphology radius="5.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="30" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.22233192   0 0 0 0 0.176508138   0 0 0 0 0.39232337  0 0 0 0.215089598 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="features-marketing-2" transform="translate(-66.000000, -56.000000)">
+            <g id="Image" transform="translate(66.000000, 56.000000)">
+                <g id="Group-34">
+                    <g id="Group-5" transform="translate(384.000000, 277.500000) scale(-1, 1) translate(-384.000000, -277.500000) translate(273.000000, 172.000000)" opacity="0.191173735">
+                    </g>
+                    <polygon id="Path" fill="#4C6884" fill-rule="nonzero" opacity="0.049567" points="271.969456 314 272 0 0 157.028481"></polygon>
+                    <polygon id="Path" fill="#4C6884" fill-rule="nonzero" opacity="0.049567" transform="translate(266.081637, 380.739507) rotate(-31.000000) translate(-266.081637, -380.739507) " points="278.637505 412.239507 298.581637 349.239507 233.581637 362.408467"></polygon>
+
+                </g>
+                <polygon id="Path" fill="#4C6884" fill-rule="nonzero" opacity="0.049567" transform="translate(105.000000, 30.500000) scale(-1, 1) translate(-105.000000, -30.500000) " points="110.795016 45 120 16 90 22.0619021"></polygon>
+                <g id="Group-3" transform="translate(130.000000, 334.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

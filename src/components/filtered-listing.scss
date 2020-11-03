@@ -237,6 +237,9 @@
 				//   }
 				// }
 			}
+			@media (min-width: 768px) {
+				width: calc(100% - 320px);
+			}
 		}
 	}
 }

@@ -1,0 +1,122 @@
+@import '../global/setting';
+.GartnerPeerInsightsBar {
+  padding-top: 53px;
+  padding-bottom: 53px;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(to left, #300868 20%, #4600a8);
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+}
+.bg-left-star {
+  width: 220px;
+  @include position(absolute,-52px,null,null,-132px,0)
+}
+.bg-right-star {
+  width: 220px;
+  @include position(absolute,null,-96px,-87px,null,0)
+}
+.intro-stars {
+  margin-bottom: 25px;
+}
+.img-stars {
+  margin-bottom: 11px;
+}
+.col-right {
+  margin-top: 30px;
+  .btn {
+    margin: 0;
+  }
+}
+.wrap-before-star {
+  flex: 0 0 206px;
+  width: 206px;
+  max-width: 206px;
+}
+.wrap-inn-star {
+  flex: 0 0 152px;
+  width: 152px;
+  max-width: 152px;
+  margin: 0 auto;
+}
+@media (max-width: 991px) {
+  .col-left {
+    width: 100%;
+  }
+  .col-right {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .wrap-star {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .intro-stars {
+    margin-bottom: 0;
+  } 
+  .col-right {
+    margin-top: 45px;
+  }
+  .GartnerPeerInsightsBar {
+    padding-top: 45px;
+  }
+  .wrap-star {
+    margin-left: 55px;
+    position: relative;
+    &::after {
+      content: '';
+      @include position(absolute,0,null,0,-35px);
+      width: 1px;
+      background-color: $color-75;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .col-right {
+    margin-top: 0;
+    padding-right: 10px;
+  }
+  .col-right {
+    padding-left: 45px;
+  }
+  .bg-left-star {
+    left: -44px;
+  }
+  .bg-right-star {
+    right: -29px;
+    bottom: -69px;
+  }
+}
+@media (min-width: 1200px) {
+  .GartnerPeerInsightsBar {
+    padding-top: 55px;
+  }
+  .wrap-star {
+    display: flex;
+    &::after {
+      top: -10px;
+      bottom: -10px;
+    }
+    img {
+      margin-bottom: 0;
+    }
+    h4 {
+      margin-left: 30px;
+    }
+  }
+  .col-left {
+    padding-left: 0;
+  }
+}
+@media (min-width: 1501px) {
+  .col-left {
+    padding-left: 45px;
+  }
+  .col-right {
+    padding-right: 45px;
+  }
+}

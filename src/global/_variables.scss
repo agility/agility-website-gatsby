@@ -1,10 +1,14 @@
+// @import "./_setting.scss";
+// @import "./_mixins.scss";
+// @import "./_placehoder.scss";
+
 $primaryColor: #ffcb28;
 $secondaryColor: #5400ca;
 $darkerSecondaryColor: #4600a8;
 $greyColor: #717171;
 $lightGreyColor: #ebebeb;
 $medGreyColor: #dfdfdf;
-
+$color-2a: #2a3846;
 //fonts
 $regular: "Muli-Regular", sans-serif;
 $semibold: "Muli-Semibold", sans-serif;
@@ -56,3 +60,5 @@ $border-radius: 8px;
 $panel-box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.08);
 $panel-box-shadow-hover: 0 1px 15px 0 rgba(0, 0, 0, 0.15);
 $panel-box-shadow-active: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+
+

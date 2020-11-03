@@ -55,7 +55,7 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid #ebeef0;
-
+    list-style: none;
     .react-tabs__tab {
       font-size: 18px;
       font-weight: normal;
@@ -68,7 +68,7 @@
       text-align: center;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
-
+      margin-bottom: 0;
       &:hover {
         color: $colorBasic;
       }

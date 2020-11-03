@@ -158,8 +158,10 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 									<div className="rich-text" dangerouslySetInnerHTML={renderHTML(g.customFields.content)}></div>
 
 									<div className="item-ctas">
-										<a className="btn primary-cta" href={g.customFields.primaryButton.href} target={g.customFields.primaryButton.target}>{g.customFields.primaryButton.text}</a>
-										{g.customFields.secondaryButton &&
+										{ g.customFields.primaryButton && g.customFields.primaryButton.href &&
+											<a className="btn primary-cta" href={g.customFields.primaryButton.href} target={g.customFields.primaryButton.target}>{g.customFields.primaryButton.text}</a>
+										}
+										{g.customFields.secondaryButton && g.customFields.secondaryButton.href &&
 											<a className="btn secondary-cta" href={g.customFields.secondaryButton.href} target={g.customFields.secondaryButton.target}>{g.customFields.secondaryButton.text}</a>
 										}
 									</div>

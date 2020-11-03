@@ -1,0 +1,130 @@
+$time: .6s;
+$translate: 100px;
+.align-items-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.vertical-middle {
+  vertical-align: middle !important;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+.d-table {
+  display: table !important;
+}
+.d-table-cell {
+  display: table-cell !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
+.flex-wrap {
+  flex-wrap: wrap!important;
+}
+.ml-auto,
+.mx-auto {
+  margin-left: auto!important;
+}
+.mx-auto {
+  margin-right: auto!important;
+}
+.rounded-0 {
+  border-radius: 0!important;
+}
+.d-flex {
+  display: flex !important;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.text-right {
+  text-align: right!important;
+}
+.border-0 {
+  border: 0!important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.row.row-25 {
+	margin: 0 -25px;
+}
+@media (min-width: 768px) {
+  .d-md-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex !important;
+  }
+  .d-md-block {
+    display: block !important;
+  }
+  .flex-md-row-reverse {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
+    -ms-flex-direction: row-reverse !important;
+    flex-direction: row-reverse !important;
+  }
+  .order-md-2 {
+    order: 2;
+  }
+}
+@media (min-width: 992px) {
+  .align-items-lg-center {
+    align-items: center !important;
+  }
+  .d-lg-none {
+    display: none!important;
+  }
+  .d-lg-flex {
+    display: flex !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+  .order-lg-2 {
+    order: 2;
+  }
+  .text-lg-left {
+    text-align: left !important;
+  }
+  .text-lg-right {
+    text-align: right !important;
+  }
+}
+@media (min-width: 1025px) {
+  .d-sl-block {
+    display: block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .d-xl-block {
+    display: block !important;
+  }
+  .d-xl-flex {
+    display: flex !important;
+  }
+  .d-xl-none {
+    display: none !important;
+  }
+}

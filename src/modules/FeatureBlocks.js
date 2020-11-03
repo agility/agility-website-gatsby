@@ -35,7 +35,7 @@ class FeatureBlocks extends Component {
 							{features}
 						</div>
 
-						{item.primaryButton &&
+						{item.primaryButton && item.primaryButton.href &&
 							<div className="ben-button">
 								<a href={item.primaryButton.href} target={item.primaryButton.target} className="btn">{item.primaryButton.text}</a>
 							</div>

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 
 import "./PricingTable.scss"
-
 export default props => (
 	<StaticQuery
 		query={graphql`

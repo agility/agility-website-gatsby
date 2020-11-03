@@ -1,9 +1,13 @@
-import React from 'react';
-import moment from 'moment'
-import { Link, graphql, StaticQuery } from "gatsby"
+import React, { useEffect, useState } from 'react';
+import { Link, graphql, StaticQuery } from "gatsby";
+import Spacing from './Spacing';
+
+import LazyBackground from '../utils/LazyBackground';
+
 
 import "./StarterTemplateListing.scss"
 
+import './StarterTemplateListing.scss'
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -42,83 +46,134 @@ export default props => (
 				}
 			}
 		}
-        `}
-		render={queryData => {
 
-
-			let templates = queryData.allAgilityProjectTemplate.nodes;
-
-			const viewModel = {
-				moduleItem: props.item,
-				templates
-			}
-			return (
-				<StarterTemplateListing {...viewModel} />
-			);
-		}}
+	`}
+	render={queryData => {
+		const templates = queryData.allAgilityProjectTemplate.nodes;
+		const viewModel = {
+			moduleItem: props.item,
+			templates
+		}
+		return (
+			<StarterTemplateListing {...viewModel} />
+		);
+	}}
 	/>
 )
-
-
 const StarterTemplateListing = ({ moduleItem, templates }) => {
 
-	const item = moduleItem.customFields;
+	// console.log('templates', templates)
+	useEffect(() => {
+		equalHeightContent()
 
-	templates = templates.map((template, index) => {
-		return <StarterTemplate moduleItem={moduleItem} template={template} key={moduleItem.contentID + "-" + template.contentID} index={index} />
+		window.addEventListener('resize', (e) => {
+			equalHeightContent();
+		})
+	})
+
+	const equalHeightContent = () => {
+		const contents = document.querySelectorAll('.starter-content')
+		let itemPerRows = [];
+		if (!contents.length) {
+			return false;
+		}
+		Array.from(contents).forEach((ele) => {
+			ele.style.height = '';
+		})
+
+		let offset = contents[0].offsetTop;
+		let height = contents[0].clientHeight;
+		if (window.innerWidth > 767) {
+			Array.from(contents).forEach((ele) => {
+				if (ele.offsetTop !== offset) {
+					Array.from(itemPerRows).forEach(itemRow => {
+						itemRow.style.height = height + 'px';
+					})
+
+					offset = ele.offsetTop;
+					height = ele.clientHeight;
+					itemPerRows = [];
+				} else {
+					itemPerRows.push(ele);
+					if (ele.clientHeight > height) {
+						height = ele.clientHeight;
+					}
+				}
+			})
+			// console.log(height, offset, itemPerRows)
+
+			Array.from(itemPerRows).forEach(itemRow => {
+				itemRow.style.height = height + 'px';
+			})
+
+		}
+		return true;
+	}
+	const templates2 = templates.map((template, index) => {
+		return <div className="col-md-6 col-xl-4 stater-col" key={moduleItem.contentID + "-" + template.contentID}>
+						<StarterCard moduleItem={moduleItem} template={template} index={index} />
+					</div>
 	});
 
+
 	return (
-		<section className="template-list">
-
-			<div className="container-my">
-				<div className="rotated-bg"></div>
-
-				{item.title &&
-					<h2 className="title-component">{item.title}</h2>}
-				{item.description &&
-					<p className="sub-title">{item.description}</p>}
-				<div className="template-list-wrapper">
-					{templates}
+		<React.Fragment>
+			<section className="getting-starter">
+				<div className="container">
+					<div className="text-center starter-head mx-auto animation anima-bottom last-mb-none">
+						{ moduleItem.customFields.section &&
+							<h5>{ moduleItem.customFields.section }</h5>
+						}
+						{ moduleItem.customFields.title &&
+							<h1 className="">{ moduleItem.customFields.title }</h1>
+						}
+						{ moduleItem.customFields.description &&
+							<p>{ moduleItem.customFields.description }</p>
+						}
+					</div>
+					<div className="row animation anima-bottom delay-2 row-custom justify-content-center">
+						{ templates2 }
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<Spacing item={moduleItem}/>
+		</React.Fragment>
 	)
 }
 
-const StarterTemplate = ({ moduleItem, template, index }) => {
 
+const StarterCard = ({ moduleItem, template, index }) => {
 	let item = template.customFields;
-	const url = `/get-started/starter-templates/${item.slug}`
+	const url = `/starters/${item.slug}`
 
 	const frameworks = template.frameworks;
 
 	return (
-		<div className="starter-template">
-
-			<div className="template-image">
-				{item.image &&
-					<Link to={url}><img src={item.image.url + "?w=600"} alt={item.image.label} loading="lazy" /></Link>}
-			</div>
-			<div className="template-content">
-				<Link to={url}><h2>{item.title}</h2></Link>
-
-				<p>
-					{item.description}
-				</p>
-				<div className="template-frameworks">
-					{ frameworks.map(framework => (
-						<div key={framework.contentID}>
-							<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
-						</div>
-					)) }
-
+		<div className="starter-card ps-rv">
+			<LazyBackground className="starter-thumb ps-rv bg lazy" src={ item.image.url }>
+				<div className="ps-as stater-hover d-flex align-items-center justify-content-center">
+					{ moduleItem.customFields.viewDetailsLabel &&
+						<Link to={url} className="btn btn-arrow">{moduleItem.customFields.viewDetailsLabel}</Link>
+					}
 				</div>
-				<div className="read-more-btn">
-					<Link to={url} className="btn">{moduleItem.customFields.viewDetailsLabel}</Link>
-				</div>
+			</LazyBackground>
+			<div className="starter-content last-mb-none small-paragraph ps-rv">
+				{ item.name &&
+					<h2 className='h4'><Link to={url}>{ item.name }</Link></h2>
+				}
+				{ item.description &&
+					<p>{ item.description }</p>
+				}
 			</div>
+			<div className="starter-logo">
+			{ frameworks.map(framework => (
+					<div key={framework.contentID} className="framk-logo d-flex align-items-center">
+						<h5>Developed With:</h5><img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
+					</div>
+				))
+			}
+			</div>
+			<Link to={url} className="ps-as"><span className='sr-only'>{moduleItem.customFields.viewDetailsLabel}</span></Link>
 		</div>
 	)
-
 }

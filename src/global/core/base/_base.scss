@@ -1,0 +1,178 @@
+// *:focus,
+// button:focus,
+// input:focus,
+// *,
+// input,
+// button,
+// *:active,
+// input:active,
+// button:active,
+// option {
+//   outline: none !important;
+//   outline: 0 !important;
+// }
+
+html {
+  margin: 0 auto;
+  // background-color: $black;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  a {
+    @extend %link-inhert;
+    font-style: normal;
+    font-weight: inherit;
+    text-decoration: none;
+
+    // &:hover,
+    // &:focus {
+    //   text-decoration: none !important;
+    // }
+  }
+}
+
+ol,
+ul {
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.bold,
+b,
+strong {
+  font-weight: 700;
+}
+
+a {
+  transition: .25s all;
+  &:hover {
+    transition: .25s all;
+  }
+}
+h1,
+.h1 {
+  letter-spacing: -.3px;
+}
+h2,
+.h2 {
+  line-height: 1.26;
+  letter-spacing: -.35px;
+  margin-bottom: 24px;
+  font-family: $mlBold;
+}
+h3,
+.h3 {
+  line-height: 1.29;
+  letter-spacing: -.46px;
+  margin-bottom: 15px;
+}
+h4,
+.h4 {
+  line-height: 1.37;
+  margin-bottom: 10px;
+  font-family: $mlBold;
+}
+h5,
+.h5 {
+  line-height: 1.37;
+  letter-spacing: .65px;
+  color: $color-4c;
+  text-transform: uppercase;
+  font-family: $mlBold;
+}
+h6,
+.h6 {
+  line-height: 1.43;
+  letter-spacing: 1px;
+  font-family: $mlBold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.hero-text {
+  h1,
+  .h1 {
+    line-height: 1.31;
+    letter-spacing: -.26px;
+    font-size: rem(35);
+  }
+}
+.small-paragraph {
+  font-size: rem(15);
+  line-height: 1.73;
+}
+.h3-big {
+  h3,
+  .h3 {
+    font-size: rem(31);
+    font-family: $mlBold;
+    line-height: 1.29;
+    letter-spacing: -.31px;
+    margin-bottom: 13px;
+  }
+}
+p{
+  margin-bottom: 27px;
+}
+.large-paragraph {
+  font-size: rem(17);
+}
+
+@include media-breakpoint-up(md) {
+  h4,
+  .h4 {
+    margin-bottom: 16px;
+  }
+}
+@include media-breakpoint-up(lg) {
+  h4,
+  .h4 {
+    margin-bottom: 11px;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .hero-text {
+    h1,
+    .h1 {
+      letter-spacing: -.3px;
+      font-size: rem(40);
+    }
+  }
+}
+@include media-custom-up(1500) {
+  .hero-text.h1-big {
+    h1,
+    .h1 {
+      letter-spacing: -.34px;
+      font-size: rem(45);
+      margin-bottom: 24px;
+    }
+  }
+  p {
+    margin-bottom: 30px;
+  }
+}

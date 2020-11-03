@@ -1,30 +1,25 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 import { renderHTML } from '../agility/utils'
-
 import ResponsiveImage from '../components/responsive-image.jsx'
 import ArrayUtils from '../utils/array-utils.js';
 import './PartnerLogoListing.scss'
-
-
 export default props => (
 	<StaticQuery
 		query={graphql`
-        query SitemapQuery {
-			allAgilitySitemapNode(filter: {contentID: {gt: 0}}) {
-				nodes {
-				path
-				title
-				pageID
-				contentID
-				languageCode
+			query SitemapQuery {
+				allAgilitySitemapNode(filter: {contentID: {gt: 0}}) {
+					nodes {
+					path
+					title
+					pageID
+					contentID
+					languageCode
+					}
 				}
 			}
-		}
-
-        `}
+		`}
 		render={queryData => {
-
 			const viewModel = {
 				moduleItem: props.item,
 				sitemapNodes: queryData.allAgilitySitemapNode.nodes
@@ -37,55 +32,41 @@ export default props => (
 )
 
 const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
-
-	let item = moduleItem.customFields;
+	const item = moduleItem.customFields;
 	let partners = item.partners;
 
 	let logoCount = parseInt(item.logoCount);
-	if (isNaN(logoCount) || logoCount < 1) logoCount = 6;
+	if (isNaN(logoCount) || logoCount < 1) {
+		logoCount = 6
+	}
 
 	partners = ArrayUtils.getRandomElements(partners, logoCount);
-
 	const renderPartner = (partner) => {
-
-		const key = partner.contentID + "-" + moduleItem.contentID;
-
+		const key = partner.contentID + '-' + moduleItem.contentID;
 		const node = sitemapNodes.find(n => {
-
 			return n.contentID === partner.contentID;
 		});
-
 		partner = partner.customFields;
-
 		if (node) {
 			partner.url = node.path;
 		}
-
-
 		//render one tab
 		return (
-
-
 			<li className="partner-item" key={key}>
 				<div className="image">
 					{partner.url &&
 						<a href={partner.url}>
 							{partner.partnerLogo &&
-
 								<ResponsiveImage img={partner.partnerLogo}
 									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
 							}
 						</a>
 					}
-
 					{!partner.url && partner.partnerLogo &&
 						<img src={partner.partnerLogo.url} alt={partner.partnerLogo.label} loading="lazy" />
 					}
-
 				</div>
-
 			</li>
-
 		);
 	}
 
@@ -115,17 +96,16 @@ const PartnerLogoListing = ({ moduleItem, sitemapNodes }) => {
 						</ul>
 					</div>
 				}
-
 				{
 					(item.primaryButton || item.secondaryButton) &&
 					<div className="buttons">
 						{
-							item.primaryButton &&
+							item.primaryButton && item.primaryButton.href &&
 							<a className="btn" href={item.primaryButton.href} target={item.primaryButton.target}>{item.primaryButton.text}</a>
 						}
 
 						{
-							item.secondaryButton &&
+							item.secondaryButton && item.secondaryButton.href &&
 							<a className="btn" href={item.secondaryButton.href} target={item.secondaryButton.target}>{item.secondaryButton.text}</a>
 						}
 					</div>

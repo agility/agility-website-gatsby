@@ -26,7 +26,7 @@ class HeaderSearch extends React.Component {
 			query: '',
 			loading: false,
 			count: 0,
-			take: 10,
+			take: 1,
 			skip: 0
 		}
 		this.abortController = null;
@@ -41,7 +41,7 @@ class HeaderSearch extends React.Component {
 		}
 
 		this.timer = null;
-
+		// console.log('load search')
 		//dropdown Menu
 		if (document) {
 			this.abortController = new AbortController();
@@ -66,9 +66,6 @@ class HeaderSearch extends React.Component {
 	}
 
 	loadResults(query, loadingMore) {
-
-
-
 		let skip = loadingMore ? this.state.skip + this.state.take : 0;
 		let formData = new FormData();
 		formData.append('query', query);
@@ -186,9 +183,9 @@ class HeaderSearch extends React.Component {
 	}
 
 	hideSearch() {
-
 		if (document) {
 			var searchFrame = document.querySelector('.search-frame');
+			// console.log('searchFrame', searchFrame)
 			searchFrame.classList.toggle('open');
 			document.querySelector('html').classList.toggle('search-open');
 			document.querySelector('button.open-search').classList.toggle('close');

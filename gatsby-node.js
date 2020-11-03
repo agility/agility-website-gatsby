@@ -3,7 +3,7 @@ const agility = require('./src/agility/utils')
 //gatsy-node.js
 //CREATE RESOLVERS *******************************************************************************************
 exports.createResolvers = (args) => {
-	console.log("AGILITY WEBSITE: Creating Resolvers...")
+	// console.log("AGILITY WEBSITE: Creating Resolvers...")
 
 	const { createResolvers, getNode, createNodeId, createNode, createContentDigest, configOptions } = args;
 
@@ -56,4 +56,19 @@ exports.createResolvers = (args) => {
 		// }
 	}
 	createResolvers(resolvers)
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type agilityFeatureListItemCustomFields implements Node {
+      moreInfoLink: agilityFeatureListItemCustomFieldsMoreInfoLink
+		}
+		type agilityFeatureListItemCustomFieldsMoreInfoLink {
+			href: String,
+			target: String,
+			text:String
+		}
+  `
+  createTypes(typeDefs)
 }

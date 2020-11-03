@@ -1,24 +1,13 @@
 import React from 'react';
-// import LazyLoad from 'react-lazyload';
-
 import ResponsiveImage from '../components/responsive-image.jsx'
-
 import './FeaturedCaseStudies.scss'
-
-
-
 const FeaturedCaseStudies = ({ item }) => {
-
-
 	let moduleItem = item.customFields;
-
 	//render the case studies
 	let caseStudies = moduleItem.caseStudies.map(function (cs) {
 		return <FeaturedCaseStudy key={cs.contentID + "-" + item.contentID} item={cs} />
 	});
-
 	return (
-
 		<section className="features p-w featured-case-studies">
 			<div className="container-my">
 				<h2 className="title-component">{moduleItem.title}</h2>
@@ -28,12 +17,11 @@ const FeaturedCaseStudies = ({ item }) => {
 					</div>
 				</div>
 				{
-					moduleItem.primaryButton &&
+					moduleItem.primaryButton && moduleItem.primaryButton.href &&
 					<a className="btn" href={moduleItem.primaryButton.href} target={moduleItem.primaryButton.target}>{moduleItem.primaryButton.text}</a>
 				}
 			</div>
 		</section>
-
 	);
 }
 
@@ -42,15 +30,12 @@ export default FeaturedCaseStudies;
 
 class FeaturedCaseStudy extends React.Component {
 	render() {
-
-
-		let caseStudyItem = this.props.item;
-		let caseStudy = caseStudyItem.customFields;
-
+		const caseStudyItem = this.props.item;
+		const caseStudy = caseStudyItem.customFields;
 		return (
 			<div className="case-item">
 				<div className="case-item-inner">
-					<a href={"/resources/case-studies/" + caseStudy.uRL}>
+					<a href={'/resources/case-studies/' + caseStudy.uRL}>
 						<div className="image">
 
 							<ResponsiveImage img={caseStudy.image}

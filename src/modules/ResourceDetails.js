@@ -4,12 +4,9 @@ import moment from 'moment'
 import { renderHTML } from '../agility/utils'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import CallToAction from "../components/call-to-action.jsx"
-
-import "./ResourceDetails.scss"
-import "./RichTextArea.scss"
-
+import './ResourceDetails.scss'
+import './RichTextArea.scss'
 const ResourceDetails = ({ item, dynamicPageItem }) => {
-
 	let resource = dynamicPageItem.customFields;
 	item = item.customFields;
 
@@ -24,7 +21,7 @@ const ResourceDetails = ({ item, dynamicPageItem }) => {
 					<div className="meta">
 
 							<div className="author-image">
-								<img src={resource.author.customFields.image ? resource.author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={resource.author.customFields.title} />
+								<img src={resource.author.customFields.image ? resource.author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={resource.author.customFields.title ? resource.author.customFields.title : 'author image'} />
 							</div>
 							<h5 className="h5">{resource.author.customFields.title}</h5>
 

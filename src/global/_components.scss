@@ -70,37 +70,37 @@ p.intro {
 
 }
 
-// buttons
-.btn {
-  display: inline-block;
-  border: none;
-  outline: none;
-  background-color: $btn;
-  font-size: 13px;
-  font-family: $bold;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #ffffff;
-  min-height: 48px;
-  line-height: 48px;
-  border-radius: 5px;
-  box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
-  padding: 0 23px 0 22px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
+// // buttons
+// .btn {
+//   display: inline-block;
+//   border: none;
+//   outline: none;
+//   background-color: $btn;
+//   font-size: 13px;
+//   font-family: $bold;
+//   font-weight: bold;
+//   font-style: normal;
+//   font-stretch: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   text-align: center;
+//   color: #ffffff;
+//   min-height: 48px;
+//   line-height: 48px;
+//   border-radius: 5px;
+//   box-shadow: 0 5px 35px 0 rgba(109, 6, 255, 0.25);
+//   padding: 0 23px 0 22px;
+//   cursor: pointer;
+//   transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
 
-  &:hover,
-  &:focus {
-    -moz-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-    -webkit-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-    box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
-    background-color: $btnhov;
-  }
-}
+//   &:hover,
+//   &:focus {
+//     -moz-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+//     -webkit-box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+//     box-shadow: 0 5px 46px 0 rgba(109, 6, 255, 0.39);
+//     background-color: $btnhov;
+//   }
+// }
 
 .btn-secondary {
   background-color: $primaryColor;
