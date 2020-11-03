@@ -15,13 +15,13 @@ const LogoListingModule = ({ item }) => {
 		const className = `logo-item logo-v${idx + 1}`
 		const logoImage = key.customFields.logo.url
 		const logoTitle = key.customFields.logo.label
-		const link = key.customFields.uRL.href
-		const taget = key.customFields.uRL.target
+		// const link = key.customFields.uRL.href
+		// const taget = key.customFields.uRL.target
 		return (
 			<div className={className} key={idx}>
-				<Link target={taget} to={link} className='d-block'>
+				<div className='d-block'>
 						<Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle}></img></Lazyload>
-				</Link>
+				</div>
 			</div>
 		)
 	})
