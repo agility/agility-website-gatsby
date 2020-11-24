@@ -44,8 +44,10 @@ export default props => (
 						customFields {
 							cTAButtonLabel
 							cost
+							saleCost
 							costLabel
 							isMostPopular
+							isSaleOn
 							title
 							cTAButton {
 								target
@@ -102,21 +104,11 @@ export default props => (
 	/>
 )
 
-const HeaderColumn = ({ priceType, title, label, btnCta, btnCtaLabel, value, hasPopular }) => {
+const HeaderColumn = ({ priceType, title, label, btnCta, btnCtaLabel, value, saleCost, hasPopular }) => {
 	const classColor = ['free', 'standard', 'pro', 'enterprise']
 	const popular = hasPopular && hasPopular === 'true' ? <span className={'most-popular'}><span className="icomoon icon-Star"></span>Most Popular</span>: ''
 	const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
-	/* insert ',' to number */
-	const filterValue = (value) => {
-		let newVal = [];
-		for (let i = 0; i < value.length; i++) {
-			newVal.push(value[value.length - 1 - i]);
-			if (i % 3 === 2 && (i < value.length - 1)) {
-				newVal.push(',');
-			}
-		}
-		return newVal.reverse().join('');
-	}
+
 	return (
 		<div className={'price-head ps-rv type-' + classColor[Number(priceType) % 4] }>
 			<div className="price-type ps-rv">
@@ -125,7 +117,20 @@ const HeaderColumn = ({ priceType, title, label, btnCta, btnCtaLabel, value, has
 			</div>
 			<div>
 				<div className="price-value">
-					<span>${ filterValue(value) }</span>
+					{ !saleCost  &&
+						<>
+						<span>${ value }</span>
+						{/* <span className={`pr-month ${label ? '' : 'pr-hidden'}`}> {label}</span> */}
+						</>
+					}
+					{ saleCost  &&
+					<>
+						<span className="sale-override">${ value }</span>&nbsp;
+						{/* <span className={`pr-month strike-through ${label ? '' : 'pr-hidden'}`}> {label}</span><br/> */}
+						<span className="sale-price">${ saleCost }</span>
+						{/* <span className={`pr-month ${label ? '' : 'pr-hidden'}`}> {label}</span> */}
+					</>
+					}
 					<span className={`pr-month ${label ? '' : 'pr-hidden'}`}> {label}</span>
 				</div>
 				{ btnCta && btnCta.href && btnCta.href.length > 0 &&
@@ -252,11 +257,17 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 		checkShowHideElement();
 		checkIsMobile();
 	})
+
 	const fieldLabel = data.customFields
 	const btnCtaMB = fieldLabel.cTAButton
 	const btnCtaMBLabel = fieldLabel.cTAButtonLabel
 	const costMB = fieldLabel.cost
 	const costLabelMB = fieldLabel.costLabel
+	const isSaleOn = fieldLabel.isSaleOn
+	let saleCost = fieldLabel.saleCost
+
+	if (isSaleOn != "true") saleCost = null
+
 	const isMostPopularMB = fieldLabel.isMostPopular
 	const titleMB = fieldLabel.title
 	const primaryShow = data.listPrimary.map((el, idx) => {
@@ -277,7 +288,7 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 	})
 	return (
 		<div className={`price-item-mb item-${classColor[priceType % 4]} ` + (!showMore ? '' : 'is-show-more') }>
-			<HeaderColumn priceType={priceType} title={titleMB} label={costLabelMB} btnCta={btnCtaMB} btnCtaLabel={btnCtaMBLabel} value={costMB} hasPopular={isMostPopularMB} />
+			<HeaderColumn priceType={priceType} title={titleMB} label={costLabelMB} btnCta={btnCtaMB} btnCtaLabel={btnCtaMBLabel} value={costMB} saleCost={saleCost} hasPopular={isMostPopularMB} />
 			<div className="show-hide-table-mb" ref={showHideEle}>
 				<table>
 					<tbody>
@@ -531,9 +542,13 @@ class PricingPackagesModule2 extends React.Component {
 			const costLabel = fieldLabel.costLabel
 			const isMostPopular = fieldLabel.isMostPopular
 			const title = fieldLabel.title
+			let saleCost = fieldLabel.saleCost
+			let isSaleOn = fieldLabel.isSaleOn
+			if (isSaleOn != "true") saleCost = null
+console.log({saleCost, isSaleOn})
 			return (
 				<th key={idx}>
-					<HeaderColumn priceType={idx} title={title} label={costLabel} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} hasPopular={isMostPopular} />
+					<HeaderColumn priceType={idx} title={title} label={costLabel} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} saleCost={saleCost} hasPopular={isMostPopular} />
 				</th>
 			)
 		}) : []
@@ -618,7 +633,7 @@ class PricingPackagesModule2 extends React.Component {
 					</table>
 				}
 				<div className={`show-more text-center ${this.state.showMore ? 'show' : ''}`}>
-					<a href="javascript:;" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
+					<a href="#" onClick={(e) => { e.preventDefault(); this.showMoreAction() }} >
 						{ this.state.showMore ?
 							(
 								<span>{btnShowLess}</span>
