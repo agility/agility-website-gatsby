@@ -545,7 +545,7 @@ class PricingPackagesModule2 extends React.Component {
 			let saleCost = fieldLabel.saleCost
 			let isSaleOn = fieldLabel.isSaleOn
 			if (isSaleOn != "true") saleCost = null
-console.log({saleCost, isSaleOn})
+
 			return (
 				<th key={idx}>
 					<HeaderColumn priceType={idx} title={title} label={costLabel} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} saleCost={saleCost} hasPopular={isMostPopular} />
