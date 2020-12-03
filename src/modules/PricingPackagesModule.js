@@ -6,63 +6,65 @@ import './PricingPackagesModule.scss'
 export default props => (
 	<StaticQuery
 		query={graphql`
-			query getPricingItems {
-				allAgilityPackageFeatureValues(sort: {fields: properties___itemOrder}) {
-					nodes {
-						customFields {
-							packageFeature {
-								contentid
-							}
-							pricingPackage {
-								contentid
-							}
-							textValue
-							trueFalseValue
-						}
-						properties {
-							itemOrder
-							referenceName
-						}
-						itemID
-					}
+		query getPricingItems {
+			allAgilityPackageFeatureValues(sort: {fields: properties___itemOrder}) {
+			  nodes {
+				customFields {
+				  packageFeature {
+					contentid
+				  }
+				  pricingPackage {
+					contentid
+				  }
+				  textValue
+				  trueFalseValue
 				}
-				allAgilityPackageFeatures(sort: {fields: properties___itemOrder}) {
-					nodes {
-						customFields {
-							isPrimary
-							title
-						}
-						properties {
-							referenceName
-							itemOrder
-						}
-						itemID
-					}
+				properties {
+				  itemOrder
+				  referenceName
 				}
-				allAgilityPricingPackages(sort: {fields: properties___itemOrder}) {
-					nodes {
-						customFields {
-							cTAButtonLabel
-							cost
-							saleCost
-							costLabel
-							isMostPopular
-							isSaleOn
-							title
-							cTAButton {
-								target
-								href
-								text
-							}
-						}
-						properties {
-							referenceName
-							itemOrder
-						}
-						itemID
-					}
-				}
+				itemID
+			  }
 			}
+			allAgilityPackageFeatures(sort: {fields: properties___itemOrder}) {
+			  nodes {
+				customFields {
+				  isPrimary
+				  title
+				}
+				properties {
+				  referenceName
+				  itemOrder
+				}
+				itemID
+			  }
+			}
+			allAgilityPricingPackages(sort: {fields: properties___itemOrder}, filter: {customFields: {displayInManager: {eq: "true"}}}) {
+			  nodes {
+				customFields {
+				  cTAButtonLabel
+				  cost
+				  saleCost
+				  costLabel
+				  isMostPopular
+				  isSaleOn
+				  title
+				  cTAButton {
+					target
+					href
+					text
+				  }
+				}
+				properties {
+				  referenceName
+				  itemOrder
+				}
+				itemID
+			  }
+			}
+		  }
+
+
 		`}
 		render={queryData => {
 			/**pricing header */
