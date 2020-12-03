@@ -39,7 +39,7 @@ export default props => (
 				itemID
 			  }
 			}
-			allAgilityPricingPackages(sort: {fields: properties___itemOrder}, filter: {customFields: {displayInManager: {eq: "true"}}}) {
+			allAgilityPricingPackages(sort: {fields: properties___itemOrder}, filter: {customFields: {displayOnWebsite: {eq: "true"}}}) {
 			  nodes {
 				customFields {
 				  cTAButtonLabel
