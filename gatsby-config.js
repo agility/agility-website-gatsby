@@ -27,6 +27,7 @@ module.exports = {
 		`gatsby-plugin-netlify`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify`,
+		`gatsby-plugin-gatsby-cloud`,
 		{
 			//the name of the plugin
 			resolve: "@agility/gatsby-source-agilitycms",
