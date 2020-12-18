@@ -12,40 +12,42 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query StarterTemplateListQuery {
-			allAgilityProjectTemplate(sort: {fields: properties___itemOrder, order: ASC}) {
-				nodes {
-					contentID
-					languageCode
-					properties {
-						itemOrder
-					}
-					customFields {
-						name
-						previewURL
-						qATemplateID
-						templateID
-						image {
-							url
-						}
-						documentationLink {
-							href
-						}
-						description
-						slug
-					}
-					frameworks {
-						contentID
-						customFields {
-						  title
-						  logo {
-							url
-							label
-						  }
-						}
-					  }
+			allAgilityProjectTemplate(sort: {fields: properties___itemOrder, order: ASC}, filter: {customFields: {showOnWebsite: {eq: "true"}}}) {
+			  nodes {
+				contentID
+				languageCode
+				properties {
+				  itemOrder
 				}
+				customFields {
+				  name
+				  previewURL
+				  qATemplateID
+				  templateID
+				  image {
+					url
+				  }
+				  documentationLink {
+					href
+				  }
+				  description
+				  slug
+				  showOnWebsite
+				}
+				frameworks {
+				  contentID
+				  customFields {
+					title
+					logo {
+					  url
+					  label
+					}
+				  }
+				}
+			  }
 			}
-		}
+		  }
+
 
 	`}
 	render={queryData => {
