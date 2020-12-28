@@ -88,7 +88,7 @@ export default props => (
 			const listPackageFeaturePrimary = queryData.allAgilityPackageFeatures.nodes
 			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && obj.customFields.isPrimary && obj.customFields.isPrimary=== 'true'})
 			const listPackageFeatureMore = queryData.allAgilityPackageFeatures.nodes
-			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && !obj.customFields.isPrimary && obj.customFields.isPrimary=== 'false'})
+			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && obj.customFields.isPrimary=== '' && obj.customFields.isPrimary=== 'false'})
 			/**end */
 			const viewModel = {
 				item: props.item,
