@@ -82,13 +82,25 @@ export default props => (
 			/**end */
 			/**row value */
 			const packageFeatureValues = props.item.customFields.packageFeatureValues.referencename
-			const listPackageFeatureValues = queryData.allAgilityPackageFeatureValues.nodes
-			.filter(obj => { return obj.properties.referenceName === packageFeatureValues})
+			const listPackageFeatureValues = queryData.allAgilityPackageFeatureValues.nodes.filter(obj => {
+				return obj.properties.referenceName === packageFeatureValues
+			})
+
 			const packageFeatureLabels = props.item.customFields.packageFeatureLabels.referencename
-			const listPackageFeaturePrimary = queryData.allAgilityPackageFeatures.nodes
-			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && obj.customFields.isPrimary && obj.customFields.isPrimary=== 'true'})
-			const listPackageFeatureMore = queryData.allAgilityPackageFeatures.nodes
-			.filter(obj => { return obj.properties.referenceName === packageFeatureLabels && !obj.customFields.isPrimary})
+
+			const listPackageFeaturePrimary = queryData.allAgilityPackageFeatures.nodes.filter(obj => {
+				return obj.properties.referenceName === packageFeatureLabels
+						&& obj.customFields.isPrimary !== undefined
+						&& obj.customFields.isPrimary !== null
+						&& obj.customFields.isPrimary=== 'true'
+			})
+
+			const listPackageFeatureMore = queryData.allAgilityPackageFeatures.nodes.filter(obj => {
+				return obj.properties.referenceName === packageFeatureLabels
+				&& ( obj.customFields.isPrimary === undefined
+					|| obj.customFields.isPrimary === null
+					|| obj.customFields.isPrimary === 'false')
+			})
 			/**end */
 			const viewModel = {
 				item: props.item,
