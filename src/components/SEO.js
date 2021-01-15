@@ -18,7 +18,6 @@ const SEO = ({ page }) => {
 
 	let metaRawHtml = null
 	if (page.seo.metaHTML) {
-		console.log("Meta HTML:", page.seo.metaHTML)
 		metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
 	}
 
