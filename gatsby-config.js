@@ -7,7 +7,7 @@ require("dotenv").config({
 const agilityConfig = {
 	guid: process.env.AGILITY_GUID,
 	apiKey: process.env.AGILITY_API_KEY,
-	isPreview: process.env.AGILITY_API_ISPREVIEW
+	isPreview: process.env.AGILITY_API_ISPREVIEW === "true"
 }
 
 /**
@@ -175,7 +175,7 @@ module.exports = {
 			  ],
 			},
 			},
-			
+
 
 	],
 }
