@@ -10,25 +10,30 @@ export default props => (
 	<StaticQuery
 		query={graphql`
 		query CaseStudyListingQuery {
-			allAgilityCaseStudy(filter: {properties: {referenceName: {eq: "casestudies"}}}) {
-				nodes {
-				  properties {
-					itemOrder
+			allAgilityCaseStudy(filter: {properties: {referenceName: {eq: "casestudies"}}}, sort: {fields: properties___itemOrder}) {
+			  nodes {
+				properties {
+				  itemOrder
+				}
+				contentID
+				languageCode
+				customFields {
+				  excerpt
+				  title
+				  uRL
+				  postImage: image {
+					url
+					label
 				  }
-				  contentID
-				  languageCode
-				  customFields {
-					excerpt
-					title
-					uRL
-					postImage: image {
-					  url
-					  label
-					}
+				  logo: customerLogo {
+					url
+					label
 				  }
 				}
+			  }
 			}
-			}
+		  }
+
 		`}
 		render={queryData => {
 
