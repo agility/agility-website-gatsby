@@ -87,7 +87,14 @@
           color: #484b4d;
         }
       }
-
+	  .logo-image {
+		  float:right;
+		  margin-left: 10px;
+		  margin-bottom: 10px;
+		  img {
+			  width: 100px
+		  }
+	  }
       .text {
         margin-bottom: 17px;
 

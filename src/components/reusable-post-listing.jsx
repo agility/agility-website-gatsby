@@ -104,6 +104,7 @@ class PostListItem extends React.Component {
 
 		const author = this.props.item.author;
 		const image = item.postImage
+		const logo = item.logo
 
 		let url = this.props.url;
 
@@ -133,6 +134,12 @@ class PostListItem extends React.Component {
 					</div>
 				}
 				<div className="content">
+					{
+						logo &&
+						<div className="logo-image">
+							<img src={logo.url} alt={ logo.label } loading="lazy" />
+						</div>
+					}
 					<h3 className="h3"><Link to={url}>{item.title}</Link></h3>
 					<PostTags post={this.props.item} />
 
@@ -140,12 +147,13 @@ class PostListItem extends React.Component {
 						author &&
 						<div className="author">
 							<div className="author-image">
-
 								<img src={author.customFields.image ? author.customFields.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={ author.customFields.image ? author.customFields.image.label : 'author image' } loading="lazy" />
 							</div>
 							<h5 className="h5">{author.customFields.title}</h5>
 						</div>
 					}
+
+
 
 
 
