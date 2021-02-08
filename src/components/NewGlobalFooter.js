@@ -289,7 +289,6 @@ class Footer extends React.Component {
 									<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
 										<label htmlFor='email-subscribe' className="sr-only">email</label>
 										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
-										{/* <input type="submit" value={this.state.subscribeButtonLabel} className="btn btn-outline-white text-decoration-non" /> */}
 										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
 										<div  className='loading-sub text-center'>
 										<Lazyload offset={ Helpers.lazyOffset }><img src='/images/ajax-loader-white.svg' alt='loading'></img></Lazyload>
@@ -297,6 +296,7 @@ class Footer extends React.Component {
 										<input type="hidden" name="_autopilot_session_id" />
 									</form>
 								}
+
 							</div>
 							<div className="box-thanks justify-content-between flex-wrap align-items-center">
 							<div className='image-thanks order-md-2 w-100'>

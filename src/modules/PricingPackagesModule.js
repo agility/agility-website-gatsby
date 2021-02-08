@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Spacing from './Spacing'
 import HelperFunc from '../global/javascript/Helpers.js'
 import './PricingPackagesModule.scss'
-export default props => (
+const ModuleWithQuery = props => (
 	<StaticQuery
 		query={graphql`
 		query getPricingItems {
@@ -70,15 +70,17 @@ export default props => (
 			/**pricing header */
 			const pricingPackages = props.item.customFields.pricingPackages.referencename
 			const listPricingPackages = queryData.allAgilityPricingPackages.nodes
-			.filter(obj => { return obj.properties.referenceName === pricingPackages})
-			// order
-			for(let i = 0; i < listPricingPackages.length - 1; i++) {
-				if (listPricingPackages[i].properties.itemOrder > listPricingPackages[i + 1].properties.itemOrder) {
-					const tam = listPricingPackages[i]
-					listPricingPackages[i] = listPricingPackages[i + 1]
-					listPricingPackages[i + 1] = tam
-				}
-			}
+				.filter(obj => { return obj.properties.referenceName === pricingPackages})
+				.sort((a, b) => a.properties.itemOrder - b.properties.itemOrder)
+
+			// // order
+			// for(let i = 0; i < listPricingPackages.length - 1; i++) {
+			// 	if (listPricingPackages[i].properties.itemOrder > listPricingPackages[i + 1].properties.itemOrder) {
+			// 		const tam = listPricingPackages[i]
+			// 		listPricingPackages[i] = listPricingPackages[i + 1]
+			// 		listPricingPackages[i + 1] = tam
+			// 	}
+			// }
 			/**end */
 			/**row value */
 			const packageFeatureValues = props.item.customFields.packageFeatureValues.referencename
@@ -166,11 +168,13 @@ const RowItem = ({props, maxCol}) => {
 	const rowFields = props.customFields
 	const title = rowFields.title
 	const CheckIsBoolean = ({textVal, checkedVal}) => {
+
 		if ((textVal && checkedVal) || (textVal && !checkedVal) ) {
-			return <span>{textVal}</span>
+			return <span dangerouslySetInnerHTML={{__html:textVal}}></span>
 		}
 		if (!textVal && checkedVal) {
-			return  (checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span>-</span>);
+			console.log(textVal, checkedVal)
+			return  (checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span className="icomoon icon-uncheck"></span>);
 		}
 	}
 	const rowFeatures = props.features.map((el, idx) => {
@@ -184,7 +188,7 @@ const RowItem = ({props, maxCol}) => {
 		}
 		return (
 			<td key={idx} className={`type-${classColor[Number(idx) % 4]}`}>
-				<div><span>-</span></div>
+				<div><span className="icomoon icon-uncheck"></span></div>
 			</td>
 		)
 	})
@@ -683,3 +687,5 @@ class PricingPackagesModule2 extends React.Component {
 		);
 	}
 }
+
+export default ModuleWithQuery

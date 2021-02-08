@@ -17,6 +17,10 @@ const agilityConfig = {
  */
 
 module.exports = {
+	flags: {
+		DEV_SSR: false,
+		FAST_REFRESH: false
+	},
 	siteMetadata: {
 		title: "Agility CMS",
 		siteUrl: `https://agilitycms.com`,
