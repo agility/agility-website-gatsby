@@ -253,6 +253,9 @@
       &.type-pro {
         // background-color: rgba(117, 86, 232, .1);
         color: #5800d4;
+		.icomoon:before {
+			color: #5800d4;
+		}
         &::before {
           background-color: rgba(117, 86, 232, .1);
         }
@@ -260,6 +263,9 @@
       &.type-enterprise {
         // background-color: rgba(255, 196, 20, .15);
         color: #171b20;
+		.icomoon:before {
+			color: #171b20;
+		}
         &::before {
           background-color: rgba(255, 196, 20, .15);
         }
