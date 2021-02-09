@@ -8,7 +8,7 @@ const SEO = ({ page }) => {
 	let title = page.title
 	const description = page.seo.metaDescription;
 
-	if (title.indexOf("Agility") === -1) title += " - Agility CMS";
+	//if (title.indexOf("Agility") === -1) title += " - Agility CMS";
 
 	let canonicalUrl = page.seo.canonicalUrl;
 	if (canonicalUrl && canonicalUrl.lastIndexOf("/") !== canonicalUrl.length - 1) {
