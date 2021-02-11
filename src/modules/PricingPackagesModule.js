@@ -307,16 +307,21 @@ const PriceItemMobile = ({priceType, primaryFeaturesTitle, secondaryFeaturesTitl
 	return (
 		<div className={`price-item-mb item-${classColor[priceType % 4]} ` + (!showMore ? '' : 'is-show-more') }>
 			<HeaderColumn priceType={priceType} title={titleMB} label={costLabelMB} btnCta={btnCtaMB} btnCtaLabel={btnCtaMBLabel} value={costMB} saleCost={saleCost} hasPopular={isMostPopularMB} />
-			<div className="show-hide-table-mb" ref={showHideEle}>
+			<div>
 				<table>
 					<tbody>
-						<tr className="pr-tr-title">
+						{/* <tr className="pr-tr-title">
 							<td colSpan="2" className="pr-sub-title">{primaryFeaturesTitle}</td>
-						</tr>
-
+						</tr> */}
 						{ primaryShow && primaryShow.length > 0 &&
 							primaryShow
 						}
+					</tbody>
+				</table>
+			</div>
+			<div className="show-hide-table-mb" ref={showHideEle}>
+				<table>
+					<tbody>
 						<tr className="pr-tr-title">
 						<td colSpan="2" className="pr-sub-title">{secondaryFeaturesTitle}</td>
 						</tr>
