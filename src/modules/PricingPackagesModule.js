@@ -194,7 +194,7 @@ const RowItem = ({props, maxCol}) => {
 	return (
 		<tr>
 			{ title &&
-				<td>{ title }</td>
+				<td dangerouslySetInnerHTML={{__html: title}}></td>
 			}
 			{ rowFeatures && rowFeatures.length > 0 &&
 				rowFeatures
