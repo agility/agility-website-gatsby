@@ -339,7 +339,7 @@ const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackage
 		const listValPricing = []
 		if(featureObj.itemID) {
 			const listVal = listPackageFeatureValues.filter(val => {
-				return val.customFields.packageFeature.contentid === featureObj.itemID
+				return val.customFields.packageFeature?.contentid === featureObj?.itemID
 			})
 			for(let i = 0; i < listPricingPackages.length; i++) {
 				const orderByPricing = listVal.find(el => el.customFields.pricingPackage.contentid === listPricingPackages[i].itemID) || 'none'
@@ -360,14 +360,14 @@ const filterAllowColumn = (listFilterPrimary, listFilterMore, listPackageFeature
 		const listPrimary = listFilterPrimary.map(fil => {
 			const filObj = Object.assign({}, fil)
 			filObj.featureVal = listPackageFeatureValues.find(fe => {
-				return fe.customFields.packageFeature.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
+				return fe.customFields.packageFeature?.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
 			})
 			return filObj
 		})
 		const listMore = listFilterMore.map(fil => {
 			const filObj = Object.assign({}, fil)
 			filObj.featureVal = listPackageFeatureValues.find(fe => {
-				return fe.customFields.packageFeature.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
+				return fe.customFields.packageFeature?.contentid === filObj.itemID && fe.customFields.pricingPackage.contentid === itemID
 			})
 			return filObj
 		})
