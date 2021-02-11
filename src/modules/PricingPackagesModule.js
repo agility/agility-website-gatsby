@@ -95,14 +95,15 @@ const ModuleWithQuery = props => (
 						&& obj.customFields.isPrimary !== undefined
 						&& obj.customFields.isPrimary !== null
 						&& obj.customFields.isPrimary=== 'true'
-			})
+			}).sort((a, b) => a.properties.itemOrder - b.properties.itemOrder)
 
 			const listPackageFeatureMore = queryData.allAgilityPackageFeatures.nodes.filter(obj => {
 				return obj.properties.referenceName === packageFeatureLabels
 				&& ( obj.customFields.isPrimary === undefined
 					|| obj.customFields.isPrimary === null
 					|| obj.customFields.isPrimary === 'false')
-			})
+			}).sort((a, b) => a.properties.itemOrder - b.properties.itemOrder)
+
 			/**end */
 			const viewModel = {
 				item: props.item,
@@ -172,7 +173,6 @@ const RowItem = ({props, maxCol}) => {
 			return <span dangerouslySetInnerHTML={{__html:textVal}}></span>
 		}
 		if (!textVal && checkedVal) {
-			console.log(textVal, checkedVal)
 			return  (checkedVal === 'true' ? <span className="icomoon icon-check"></span> : <span className="icomoon icon-uncheck"></span>);
 		}
 	}
