@@ -18,10 +18,19 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 
 		modulesForThisContentZone.forEach(moduleItem => {
 			if (moduleItem.item) {
-			
+
 				const moduleDefName = moduleItem.item.properties.definitionName;
 				// console.log(moduleDefName, moduleItem.item)
-				const ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
+				let ModuleComponentToRender = null
+				try {
+					ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
+				} catch (er) {}
+				if (! ModuleComponentToRender) {
+					try {
+						ModuleComponentToRender = require(`../../modules/${moduleDefName}.jsx`).default;
+					} catch (er) {}
+
+				}
 				const moduleProps = {
 					key: moduleItem.item.contentID,
 					dynamicPageItem: dynamicPageItem,
