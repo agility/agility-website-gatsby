@@ -9,7 +9,7 @@ export default props => (
   <StaticQuery
 		query={graphql`
 			query agilityComparisonQuery {
-        allAgilityComparisonPlatformFeatures(sort: {fields: properties___itemOrder}) {
+        allAgilityComparisonPlatformFeatures(sort: {fields: customFields___platformName}) {
           nodes {
             customFields {
               featureName
@@ -295,7 +295,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
       </tr>
     )
   })
-  
+
   /* pin headertable */
   const caculatePin = (pinEle, $header, virtual, scrollArea) => {
 		let offsetPin
@@ -308,13 +308,13 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
       let top = 0;
       let left = 0;
       let element = el;
-    
+
       do {
         top += element.offsetTop || 0;
         left += element.offsetLeft || 0;
         element = element.offsetParent;
       } while (element);
-    
+
       return {
         top,
         left,
@@ -326,7 +326,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     header = $header.clientHeight;
     offsetPin = getElementOffset(virtual);
     listOffset = getElementOffset(scrollArea).top + scrollArea.clientHeight //- document.querySelector('.table-3').clientHeight - pinEle.clientHeight - 90
-    trigger = scrollTop + header 
+    trigger = scrollTop + header
 
     if (trigger > rootOffset) {
       pinEle.classList.add('table-pin');
