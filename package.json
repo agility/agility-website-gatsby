@@ -17,6 +17,7 @@
 		"abortcontroller-polyfill": "^1.4.0",
 		"dotenv": "^8.1.0",
 		"gatsby": "^2.32.6",
+		"gatsby-plugin-gatsby-cloud": "^0.0.5",
 		"gatsby-plugin-feed": "^2.5.4",
 		"gatsby-plugin-google-tagmanager": "^2.2.1",
 		"gatsby-plugin-intercom-spa": "^0.2.0",
