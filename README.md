@@ -42,6 +42,7 @@ docker run -p 80:80 --name agility-website-gatsby agility-website-gatsby
 #{OR}
 docker-compose up --build
 ```
+
 ### Publish to Docker Container Registry
 ```shell
 docker build -f Dockerfile.dev -t {containerRegistryUrl}/agility-gatsby-dev .
