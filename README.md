@@ -49,3 +49,4 @@ docker build -f Dockerfile.dev -t {containerRegistryUrl}/agility-gatsby-dev .
 docker login -u {username} -p {password} {containerRegistryUrl}
 docker push {containerRegistryUrl}/agility-website-gatsby
 ```
+
