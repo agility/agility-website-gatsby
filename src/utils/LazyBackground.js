@@ -52,8 +52,18 @@ export default class LazyImage extends React.Component {
   }
 
   render() {
+
+	//use a blurry version of the image...
+	let baseImage = this.props.src
+	if (baseImage.indexOf("?") > 2) {
+		baseImage = baseImage.substring(0, baseImage.lastIndexOf("?"))
+	}
+
+	const placeHolder = `${baseImage}?w=20`
+	const style = {backgroundImage: `url(${placeHolder})`}
+
     return (
-      <div ref={bgElm => this.bgElm = bgElm} className={this.props.className}>
+      <div ref={bgElm => this.bgElm = bgElm} className={this.props.className} style={style}>
         { this.props.children }
       </div>
     )

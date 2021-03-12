@@ -129,9 +129,7 @@ class PostListItem extends React.Component {
 				{image &&
 					<div className="image">
 						<Link to={url}>
-							{/* <ResponsiveImage img={image}
-								breaks={[{ w: 640, max: 640 }, { w: 780, max: 800 }]} /> */}
-							<AgilityImage image={image}   />
+							<ResponsiveImage img={image} />
 						</Link>
 					</div>
 				}

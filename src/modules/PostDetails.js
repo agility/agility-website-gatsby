@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
-import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
 import PostTags from "../components/PostTags.jsx"
@@ -16,7 +15,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 	item = item.customFields;
 	const post = dynamicPageItem.customFields;
 	const author = post.author.customFields;
-
+console.log("POST", post)
 	//see if the post has a tweet in it...
 	const hasTweets = post.textblob && post.textblob.indexOf('class="twitter-tweet"') !== -1;
 
@@ -74,7 +73,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 
 					{post.postImage &&
 						<div className="image">
-							<AgilityImage image={post.postImage} layout="fullWidth" />
+							<ResponsiveImage img={post.postImage} layout="fullWidth" />
 						</div>
 					}
 

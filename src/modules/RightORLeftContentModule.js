@@ -22,12 +22,17 @@ const RightOrLeftContent = ({ item }) => {
 	}
 	const detectHomePage = () => {
 		if(typeof window !== `undefined`) {
+
 			const detectHome = ['/new-home', '/new-home/', '/'].includes(window.location.pathname)
+
 			setIsHomePage(detectHome)
-			if (isHomePage) {
+
+			if (isHomePage || detectHome) {
+
 				setClassWrap('wrap-ani-home ps-rv')
 				setClassBtn('wrap-btn')
 			}
+
 		}
 	}
 	const appenLottie = () => {
