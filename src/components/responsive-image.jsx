@@ -28,6 +28,11 @@ const ResponsiveImage = ({img, layout, breaks}) => {
 		let smallestSrc = url;
 		let smallestWidth = -1;
 
+		if (! breaks) {
+			//if we don't have height/width data, and we don't have break info...
+			return <img src={url} alt={alt} />
+		}
+
 		const sources = breaks.map((res, index) => {
 
 			let media = "";

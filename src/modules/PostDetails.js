@@ -15,7 +15,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 	item = item.customFields;
 	const post = dynamicPageItem.customFields;
 	const author = post.author.customFields;
-console.log("POST", post)
+
 	//see if the post has a tweet in it...
 	const hasTweets = post.textblob && post.textblob.indexOf('class="twitter-tweet"') !== -1;
 
