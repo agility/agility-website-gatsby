@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 import './marketing-banner.scss'
 import { renderHTML } from '../agility/utils'
 
@@ -20,4 +19,4 @@ class MarketingBanner extends React.Component {
 		);
 	}
 }
-export default hot(MarketingBanner);
+export default MarketingBanner;

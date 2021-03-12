@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import { Link, graphql, StaticQuery } from "gatsby"
 
 import "./EventListing.scss"
@@ -19,6 +20,10 @@ export default props => (
 				  uRL
 				  mainImage {
 					url
+					label
+					filesize
+					height
+					width
 				  }
 				}
 			  }
@@ -103,7 +108,9 @@ const Event = ({ moduleItem, event, index }) => {
 
 			<div className="event-image">
 				{item.mainImage &&
-					<Link to={url}><img src={item.mainImage.url + "?w=600"} alt={item.mainImage.label} loading="lazy" /></Link>}
+					<Link to={url}>
+						<AgilityImage image={item.mainImage} layout="constrained" width="600" />
+					</Link>}
 			</div>
 			<div className="event-content">
 				<Link to={url}><h2>{item.title}</h2></Link>

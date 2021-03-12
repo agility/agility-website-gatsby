@@ -222,6 +222,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
   })
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
+
     const fieldLinks = platfor.customFields.fullComparisonLink
     if (fieldLinks && fieldLinks.href) {
       return (
@@ -237,7 +238,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
     return (
       <td key={indx}>
-        <a href="javascript:;" onClick={(e) => {e.preventDefault()}} target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
+        <a href="#" onClick={(e) => {e.preventDefault()}} target="_self" className="hidden-text" tabIndex='-1'>hidden</a>
       </td>
     )
   })

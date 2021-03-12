@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 import PostUtil from '../utils/post-util.js';
 import { renderHTML } from '../agility/utils'
 
@@ -351,4 +350,4 @@ class Form extends React.Component {
 	}
 }
 
-export default hot(Form);
+export default Form;

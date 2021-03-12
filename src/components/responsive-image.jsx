@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 
 
 class ResponsiveImage extends React.Component {
@@ -58,4 +57,4 @@ class ResponsiveImage extends React.Component {
 
 }
 
-export default hot(ResponsiveImage);
+export default ResponsiveImage;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 
 class FormField extends React.Component {
 
@@ -31,4 +30,4 @@ class FormField extends React.Component {
 	}
 }
 
-export default hot(FormField);
+export default FormField;

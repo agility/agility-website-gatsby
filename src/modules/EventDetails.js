@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import moment from 'moment'
 import HelperFunc from '../global/javascript/Helpers.js'
 import { renderHTML } from '../agility/utils'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 
 import "./EventDetails.scss"
 import "./RichTextArea.scss"
@@ -118,7 +119,9 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 				<div className="event-image">
 					{
 						event.mainImage &&
-						<a href={externalLink} target={exernalTarget}><img src={event.mainImage.url + "?w=800"} alt={event.mainImage.label} /></a>
+						<a href={externalLink} target={exernalTarget}>
+							<AgilityImage image={event.mainImage} layout="fullWidth" />
+						</a>
 					}
 				</div>
 

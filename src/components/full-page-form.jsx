@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 import './full-page-form.scss'
 import Form from './_form.jsx'
 import { renderHTML } from '../agility/utils'
@@ -49,4 +48,4 @@ class FullPageForm extends React.Component {
         );
     }
 }
-export default hot(FullPageForm);
+export default FullPageForm;

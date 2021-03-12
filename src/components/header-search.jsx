@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 import './header-search.scss'
 import { renderHTML } from '../agility/utils'
 
@@ -305,4 +304,4 @@ class HeaderSearchResult extends React.Component {
 	}
 }
 
-export default hot(HeaderSearch);
+export default HeaderSearch;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
 import './sign-in.scss'
 
 
@@ -58,7 +57,7 @@ class SignIn extends React.Component {
 		);
 	}
 }
-export default hot(SignIn);
+export default SignIn;
 
 class TopHeaderLink extends React.Component {
 

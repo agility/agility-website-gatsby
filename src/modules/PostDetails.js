@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
 import moment from 'moment'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
 import PostTags from "../components/PostTags.jsx"
@@ -73,8 +74,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 
 					{post.postImage &&
 						<div className="image">
-							<ResponsiveImage img={post.postImage}
-								breaks={[{ w: 640, max: 640 }, { w: 780, max: 800 }, { w: 1200, max: 1920 }]} />
+							<AgilityImage image={post.postImage} layout="fullWidth" />
 						</div>
 					}
 
