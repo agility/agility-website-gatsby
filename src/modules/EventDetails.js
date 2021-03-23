@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import HelperFunc from '../global/javascript/Helpers.js'
 import { renderHTML } from '../agility/utils'
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
@@ -14,8 +14,8 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	const event = dynamicPageItem.customFields;
 
-	const eventDate = moment(event.date)
-	const isPastEvent = eventDate.isBefore()
+	const eventDate = DateTime.fromISO(event.date)
+	const isPastEvent = eventDate.diffNow("seconds").seconds > 0
 
 	let externalLink = null;
 	let exernalTarget = null;
@@ -109,10 +109,10 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 				<div className="event-date">
 					<span className="event-type">{event.eventType.customFields.title}</span>
 					<span className="date">
-						{eventDate.format("MMM Do, YYYY")}
+						{eventDate.toFormat("MMM d, yyyy")}
 					</span>
 					<span className="time">
-						{eventDate.format("h:mma")}
+						{eventDate.toFormat("h:mma")}
 					</span>
 				</div>
 

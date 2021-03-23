@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import { Link, graphql, StaticQuery } from "gatsby"
 
@@ -37,25 +37,25 @@ export default props => (
 
 			const pastEventsOnly = props.item.customFields.showPastEventsOnly === "true";
 
-			let today = moment()
+			let today = new Date()
 
 			events = events.filter(event => {
 				if (pastEventsOnly) {
 					//in the past
-					return moment(event.customFields.date).isBefore()
+					return  DateTime.fromISO(event.customFields.date).diffNow("minutes").minutes < 1
 				} else {
 					//in the future
-					return moment(event.customFields.date).isAfter()
+					return DateTime.fromISO(event.customFields.date).diffNow("minutes").minutes > 1
 				}
 			});
 
 			if (pastEventsOnly) {
 				//sort by date descending for past events...
 				events = events.sort((a, b) => {
-					const adate = moment(a.customFields.date)
-					const bdate = moment(b.customFields.date)
+					const adate = DateTime.fromISO(a.customFields.date)
+					const bdate = DateTime.fromISO(b.customFields.date)
 
-					if (adate.isAfter(bdate)) return -1
+					if (adate.diff(bdate, "minutes").minutes > 0) return -1
 					return 1
 				})
 			}
@@ -117,10 +117,10 @@ const Event = ({ moduleItem, event, index }) => {
 
 				<div className="event-date">
 					<span className="date">
-						{moment(item.date).format("MMM Do, YYYY")}
+						{DateTime.fromISO(item.date).toFormat("MMM d, yyyy")}
 					</span>
 					<span className="time">
-						{moment(item.date).format("h:mma")}
+						{DateTime.fromISO(item.date).toFormat("h:mma")}
 					</span>
 				</div>
 				<p>

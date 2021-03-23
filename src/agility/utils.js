@@ -1,5 +1,6 @@
 const he = require('he')
-const moment = require('moment')
+const DateTime = require("luxon").DateTime
+
 
 const getDynamicPageItem = ({ contentID, agilityItem }) => {
 	if (contentID > 0 && agilityItem && agilityItem.itemJson) {
@@ -90,8 +91,8 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 
 			}
 
-			let datePublished = moment(dynamicPageItem.customFields.date);
-			let dateModified = moment(dynamicPageItem.properties.modified);
+			let datePublished = DateTime.fromISO(dynamicPageItem.customFields.date);
+			let dateModified = DateTime.fromISO(dynamicPageItem.properties.modified);
 
 			//build the structural event data...
 			let structData = {
@@ -102,8 +103,8 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 					"@id": "https://google.com/article"
 				},
 				"headline": dynamicPageItem.customFields.title,
-				"datePublished": datePublished.toISOString(true),
-				"dateModified": dateModified.toISOString(true),
+				"datePublished": datePublished.toISO(),
+				"dateModified": dateModified.toISO(),
 
 				"publisher": {
 					"@type": "Organization",
@@ -233,9 +234,9 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 			}
 
 
-			let validFrom = moment();
-			let startTime = moment(dynamicPageItem.customFields.date);
-			let endTime = moment(startTime).add(1, "hours");
+			let validFrom = new Date();
+			let startTime = DateTime.fromISO(dynamicPageItem.customFields.date);
+			let endTime = DateTime.fromISO(startTime).plus({hours: 1})
 
 			let extLink = canonicalUrl;
 			if (dynamicPageItem.customFields.externalLink) extLink = dynamicPageItem.customFields.externalLink.href;
@@ -261,8 +262,8 @@ const customSEOProcessing = ({ pageContext, data, page, dynamicPageItem, locatio
 				"@context": "https://schema.org",
 				"@type": "Event",
 				"name": dynamicPageItem.customFields.title,
-				"startDate": startTime.toISOString(true),
-				"endDate": endTime.toISOString(true),
+				"startDate": startTime.toISO(),
+				"endDate": endTime.toISO(),
 				"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
 				"eventStatus": "https://schema.org/EventScheduled",
 				"location": {

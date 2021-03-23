@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import { renderHTML } from '../agility/utils'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import CallToAction from "../components/call-to-action.jsx"
@@ -25,7 +25,7 @@ const ResourceDetails = ({ item, dynamicPageItem }) => {
 							</div>
 							<h5 className="h5">{resource.author.customFields.title}</h5>
 
-						<span className="date">{moment(resource.date).format("LL")}</span>
+						<span className="date">{DateTime.fromISO(resource.date).toFormat("MMM d, yyyy")}</span>
 					</div>
 
 					{resource.image &&
