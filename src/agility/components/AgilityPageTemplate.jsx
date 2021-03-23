@@ -20,7 +20,6 @@ const AgilityPageTemplate = (props) => {
 
 	}
 
-	console.log("PageTemplateComponentToRender", PageTemplateComponentToRender)
 
 	//get the page template name that we need to render
 
