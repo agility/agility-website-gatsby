@@ -18,7 +18,7 @@ const agilityConfig = {
 
 module.exports = {
 	flags: {
-		DEV_SSR: false
+		DEV_SSR: true
 	},
 	siteMetadata: {
 		title: "Agility CMS",
@@ -32,6 +32,7 @@ module.exports = {
 		`gatsby-plugin-netlify`,
 		`gatsby-plugin-image`,
 		`gatsby-plugin-gatsby-cloud`,
+		`gatsby-plugin-loadable-components-ssr`,
 		{
 			//the name of the plugin
 			resolve: "@agility/gatsby-source-agilitycms",

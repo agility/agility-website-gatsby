@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { getModule} from "../../modules"
 
 const ContentZone = ({ name, page, dynamicPageItem }) => {
 
@@ -22,15 +22,14 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 				const moduleDefName = moduleItem.item.properties.definitionName;
 				// console.log(moduleDefName, moduleItem.item)
 				let ModuleComponentToRender = null
-				try {
-					ModuleComponentToRender = require(`../../modules/${moduleDefName}.js`).default;
-				} catch (er) {}
-				if (! ModuleComponentToRender) {
-					try {
-						ModuleComponentToRender = require(`../../modules/${moduleDefName}.jsx`).default;
-					} catch (er) {}
 
+				try {
+					ModuleComponentToRender = getModule(moduleDefName)
+
+				} catch (er) {
+					console.error(`Could not load module ${moduleDefName}`, er)
 				}
+
 				const moduleProps = {
 					key: moduleItem.item.contentID,
 					dynamicPageItem: dynamicPageItem,
@@ -49,6 +48,7 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 
 		return modules;
 	}
+
 
 	return (<Modules />)
 }

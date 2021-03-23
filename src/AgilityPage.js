@@ -29,8 +29,9 @@ const AgilityPage = ({ pageContext, data, location }) => {
 		return "Page data could not be accessed."
 	}
 
+
 	var classes = 'main-content main page-'+viewModel.page.name
-	
+
 
 	// console.log('viewModel',viewModel.page.name)
 	viewModel.isLandingPage = viewModel.page.templateName === "Landing Page Template";
