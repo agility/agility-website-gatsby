@@ -20,6 +20,9 @@
     .btn-menu {
       display: none;
     }
+    .btn-menu-v2 {
+      display: block;
+    }
     .btn-pin {
       display: block;
     }
@@ -300,6 +303,11 @@
   }
   .navbar-nav{
     display: flex;
+  }
+  .box-search-header {
+    .btn-menu:not(.btn-menu-v2){
+      order: 5;
+    }
   }
 }
 @media (max-width: 991px) {

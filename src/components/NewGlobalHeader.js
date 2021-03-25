@@ -22,6 +22,11 @@ export default props => (
 							target
 							text
 						}
+						contactus {
+							href
+							target
+							text
+						}
 						secondaryButton {
 							href
 							target
@@ -221,6 +226,7 @@ class NewGlobalHeader extends Component {
 	render() {
 		const menuGetstart = this.props.item.customFields.secondaryButton;
 		const primaryButton = this.props.item.customFields.primaryButton;
+		const contactButton = this.props.item.customFields.contactus;
 		const isOpenMenuText = 'is-open-menu';
 		const renderMenu = (menu, level) => {
 			const links = []
@@ -312,7 +318,10 @@ class NewGlobalHeader extends Component {
 						</form>
 					</div>
 					<a href={primaryButton.href} target={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
-					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
+					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-outline-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
+					{ contactButton?.href && contactButton?.text &&
+					 <a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2  ">{contactButton.text}</a>
+					}
 				</li>
 				links.push(btnMenu)
 			}

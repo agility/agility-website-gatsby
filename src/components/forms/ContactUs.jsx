@@ -76,6 +76,9 @@ const ContactUs = ({ item }) => {
 			<FormField id="lastname" label="Last Name">
 				<input id="lastname" className="changed" type="text" placeholder="Last Name" required />
 			</FormField>
+			<FormField id="company" label="Company">
+				<input id="company" className="changed" type="text" placeholder="Company" required />
+			</FormField>
 			<FormField id="email" label="Email">
 				<input id="email" className="changed" type="email" placeholder="Email" required />
 			</FormField>
@@ -83,9 +86,6 @@ const ContactUs = ({ item }) => {
 				<input id="phonenumber" className="changed" type="tel" placeholder="Phone" minLength="9" maxLength="20" message="Please enter your phone number." required />
 			</FormField>
 
-			<FormField id="company" label="Company">
-				<input id="company" className="changed" type="text" placeholder="Company" required />
-			</FormField>
 
 			{/* <FormField id="role" label="Role">
 

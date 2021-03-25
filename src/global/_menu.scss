@@ -314,7 +314,10 @@
       padding: 15px 26px;
     }
     .btn-menu {
-      margin-left: 33px;
+      margin-left: 24px;
+      &:last-child {
+        margin-left: 33px;
+      }
     }
     .link-search {
       margin-left: 30px;

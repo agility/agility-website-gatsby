@@ -3,50 +3,53 @@ import { hot } from 'react-hot-loader/root'
 import './full-page-form.scss'
 import Form from './_form.jsx'
 import { renderHTML } from '../agility/utils'
-
+import Helpers from '../global/javascript/Helpers'
+import Lazyload from 'react-lazyload'
 class FullPageForm extends React.Component {
+	render() {
 
-    render() {
+		// var overallColour = this.props.colour;
 
-        var overallColour = this.props.colour;
-
-        var isPrimaryTheme = overallColour === 'yellow';
-        var btnStyles = 'btn' + (isPrimaryTheme ? ' btn-secondary' : '');
-
+		// var isPrimaryTheme = overallColour === 'yellow';
+		// var btnStyles = 'btn' + (isPrimaryTheme ? ' btn-secondary' : '');
+		var btnStyles = 'btn btn-yellow';
 		return (
-            <div id="form-page">
-                <section className={"form-container " + overallColour} >
-                    <div className="container-my">
-                        <div className="form-panel">
+			<div id="form-page">
+				<section className={"form-container "} >
+					<div className="container-my">
+						<div className="form-panel">
 							<div className="form-left">
-								<h2 className="h2">{this.props.title}</h2>
+								<h1>{this.props.title}</h1>
 								<h3 className="h3">{this.props.subTitle}</h3>
-								<div dangerouslySetInnerHTML={renderHTML(this.props.text )}></div>
+								<div dangerouslySetInnerHTML={renderHTML(this.props.text)}></div>
 							</div>
 							<div className="form-right" >
-
-								<Form
-									beforeSubmit={this.beforeSubmit}
-									postURL={this.props.postURL}
-									thanksMessage={this.props.thanksMessage}
-									conversionScript={this.props.conversionScript}
-									redirectURL={this.props.redirectURL}
-									errorMessage={this.props.errorMessage}
-									validationMessage={this.props.validationMessage}
-									btnStyles={btnStyles}
-									submissionCopy={this.props.submissionCopy}
-								>
-									<h3 className="form-title">{this.props.formTitle}</h3>
-									{this.props.children}
-								</Form>
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-top' alt='Form Triangle Pattern'></img></Lazyload>
+								<div className="wrap-f-right">
+									<Form
+										beforeSubmit={this.beforeSubmit}
+										postURL={this.props.postURL}
+										thanksMessage={this.props.thanksMessage}
+										conversionScript={this.props.conversionScript}
+										redirectURL={this.props.redirectURL}
+										errorMessage={this.props.errorMessage}
+										validationMessage={this.props.validationMessage}
+										btnStyles={btnStyles}
+										submissionCopy={this.props.submissionCopy}
+									>
+										<h3 className="form-title">{this.props.formTitle}</h3>
+										{this.props.children}
+									</Form>
+								</div>
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-bottom' alt='Form Triangle Pattern'></img></Lazyload>
 							</div>
 
-                        </div>
-                    </div>
-                </section>
-            </div>
+						</div>
+					</div>
+				</section>
+			</div>
 
-        );
-    }
+		);
+	}
 }
 export default hot(FullPageForm);
