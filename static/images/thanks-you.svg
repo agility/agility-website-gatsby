@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="218.5" height="166.243" viewBox="0 0 218.5 166.243">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8a6cf9"/>
+      <stop offset="1" stop-color="#6d57e2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc414"/>
+      <stop offset="1" stop-color="#ffb20b"/>
+    </linearGradient>
+    <filter id="Stroke_4" x="48.5" y="0" width="170" height="165.209" filterUnits="userSpaceOnUse">
+      <feOffset dx="6" dy="16" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="11.5" result="blur"/>
+      <feFlood flood-color="#170a29" flood-opacity="0.322"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Icon" transform="translate(0 18.5)">
+    <g id="purple_speech" data-name="purple speech" transform="translate(0 46)">
+      <path id="Stroke_4-2" data-name="Stroke 4" d="M-12,0A12,12,0,0,1,0,12V55.514a12,12,0,0,1-12,12H-51.383V84L-73.1,67.514H-77a12,12,0,0,1-12-12V12A12,12,0,0,1-77,0Z" transform="translate(89)" fill="url(#linear-gradient)"/>
+      <path id="Stroke_1" data-name="Stroke 1" d="M0,.5H51" transform="translate(20 22)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Stroke_2" data-name="Stroke 2" d="M0,.5H51" transform="translate(20 34)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Stroke_3" data-name="Stroke 3" d="M0,.5H51" transform="translate(20 46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+    <g id="Foreground" transform="translate(77)">
+      <g id="customer_service_icon" data-name="customer service icon" transform="translate(14 81)">
+        <g id="Group_23" data-name="Group 23">
+          <path id="Fill_1" data-name="Fill 1" d="M27.076,13.6A13.538,13.538,0,1,1,13.538,0,13.57,13.57,0,0,1,27.076,13.6" transform="translate(20.991 25.6)" fill="url(#linear-gradient-2)"/>
+          <path id="Combined_Shape" data-name="Combined Shape" d="M12.921,1.976A1.966,1.966,0,1,1,14.887,3.95,1.971,1.971,0,0,1,12.921,1.976Zm-6.461,0A1.967,1.967,0,1,1,8.427,3.95,1.971,1.971,0,0,1,6.46,1.976ZM0,1.976A1.966,1.966,0,1,1,1.967,3.95,1.971,1.971,0,0,1,0,1.976Z" transform="translate(26.609 36.886)" fill="#2a3846"/>
+          <path id="Combined_Shape-2" data-name="Combined Shape" d="M23.638,66.743a2.785,2.785,0,0,1-2.628-1.879A15.84,15.84,0,0,1,6.238,52.577,8.158,8.158,0,0,1,0,44.645V35.506a8.16,8.16,0,0,1,6-7.871.769.769,0,0,1-.172-.486,24.489,24.489,0,0,1,1.891-9.47,3.752,3.752,0,0,1-.713-4.726A26.475,26.475,0,0,1,29.859,0h8.748A26.481,26.481,0,0,1,61.455,12.952a3.756,3.756,0,0,1-.818,4.817,24.509,24.509,0,0,1,1.851,9.379.768.768,0,0,1-.219.538,8.157,8.157,0,0,1,6.412,7.972V44.8a8.142,8.142,0,0,1-8.114,8.15H59.432A3.542,3.542,0,0,1,56.554,54.7l-.167,0a3.249,3.249,0,0,1-3.237-3.253V28.85A3.249,3.249,0,0,1,56.388,25.6a3.527,3.527,0,0,1,3.127,1.908h1.052q.243,0,.483.014a.768.768,0,0,1-.1-.372,22.973,22.973,0,0,0-1.682-8.663,3.686,3.686,0,0,1-1,.137,3.735,3.735,0,0,1-3.185-1.8A19.105,19.105,0,0,0,38.607,7.472H29.859a19.108,19.108,0,0,0-16.484,9.346,3.705,3.705,0,0,1-4.31,1.629,22.954,22.954,0,0,0-1.7,8.7.774.774,0,0,1-.039.244q.39-.038.79-.038H9.251A3.525,3.525,0,0,1,12.3,25.6a3.248,3.248,0,0,1,3.236,3.253V51.457a3.258,3.258,0,0,1-3.256,3.252l-.167,0A3.525,3.525,0,0,1,9.166,52.8H8.116q-.122,0-.244,0A14.307,14.307,0,0,0,20.93,63.319a2.787,2.787,0,0,1,2.708-2.157H28.8a2.788,2.788,0,0,1,2.711,2.175H37.3a.77.77,0,0,1,.089,1.535l-.089.005H31.423A2.785,2.785,0,0,1,28.8,66.743Zm0-1.54H28.8a1.248,1.248,0,0,0,1.174-.834.776.776,0,0,1,.051-.639A1.25,1.25,0,0,0,28.8,62.7H23.638a1.25,1.25,0,0,0-1.246,1.221.774.774,0,0,1,.022.184c0,.023,0,.046,0,.068A1.249,1.249,0,0,0,23.638,65.2ZM12.17,53.165l.127,0A1.71,1.71,0,0,0,14,51.457V28.85a1.71,1.71,0,0,0-1.7-1.714,1.99,1.99,0,0,0-1.663.9V52.274A1.961,1.961,0,0,0,12.17,53.165ZM54.684,28.85V51.456a1.7,1.7,0,0,0,1.684,1.712l.126,0a1.985,1.985,0,0,0,1.555-.894V28.037a1.989,1.989,0,0,0-1.661-.9A1.709,1.709,0,0,0,54.684,28.85Zm5.882,22.56A6.6,6.6,0,0,0,67.148,44.8V35.658a6.6,6.6,0,0,0-6.582-6.612h-.655q0,.047,0,.095V51.166q0,.123-.008.244Zm-59.03-16.1,0,.2v9.139a6.6,6.6,0,0,0,6.583,6.612h.655q0-.046,0-.092V29.138q0-.123.008-.244H8.116A6.563,6.563,0,0,0,1.536,35.307ZM38.607,5.932A20.624,20.624,0,0,1,56.4,16.022a2.176,2.176,0,0,0,2.8.85.767.767,0,0,1,.159-.1l.06-.024a2.205,2.205,0,0,0,.718-3A24.958,24.958,0,0,0,38.607,1.54H29.859A24.955,24.955,0,0,0,8.322,13.749a2.206,2.206,0,0,0,.74,3.016,2.176,2.176,0,0,0,3-.744,20.633,20.633,0,0,1,17.8-10.089Z" transform="translate(-0.001 0)" fill="#2a3846"/>
+        </g>
+      </g>
+      <g id="gray_speech" data-name="gray speech">
+        <g transform="matrix(1, 0, 0, 1, -77, -18.5)" filter="url(#Stroke_4)">
+          <path id="Stroke_4-3" data-name="Stroke 4" d="M12,0A12,12,0,0,0,0,12V62.227a12,12,0,0,0,12,12H49.737V96.209l29.6-21.981H89a12,12,0,0,0,12-12V12A12,12,0,0,0,89,0Z" transform="translate(77 18.5)" fill="#fff"/>
+        </g>
+        <path id="Combined_Shape-3" data-name="Combined Shape" d="M31.3,4.723a4.763,4.763,0,1,1,4.763,4.722A4.743,4.743,0,0,1,31.3,4.723Zm-15.651,0a4.763,4.763,0,1,1,4.763,4.722A4.743,4.743,0,0,1,15.651,4.723ZM0,4.723A4.763,4.763,0,1,1,4.764,9.446,4.743,4.743,0,0,1,0,4.723Z" transform="translate(30 34)" fill="#6d06ff"/>
+      </g>
+    </g>
+  </g>
+</svg>
