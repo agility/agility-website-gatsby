@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import ResponsiveImage from './responsive-image.jsx'
 import InfiniteScroll from 'react-infinite-scroller';
 import PostTags from "./PostTags.jsx"
@@ -129,15 +129,20 @@ class PostListItem extends React.Component {
 				{image &&
 					<div className="image">
 						<Link to={url}>
-							<ResponsiveImage img={image}
-								breaks={[{ w: 640, max: 640 }, { w: 780, max: 800 }]} /></Link>
+							<ResponsiveImage img={image} />
+						</Link>
 					</div>
 				}
 				<div className="content">
 					{
 						logo &&
 						<div className="logo-image">
-							<img src={logo.url} alt={ logo.label } loading="lazy" />
+							{ logo.url.indexOf(".svg") !== -1 &&
+								<img src={logo.url} alt={ logo.label } loading="lazy" />
+							}
+							{ logo.url.indexOf(".svg") === -1 &&
+								<AgilityImage image={logo} layout="constrained" width="200"   />
+							}
 						</div>
 					}
 					<h3 className="h3"><Link to={url}>{item.title}</Link></h3>

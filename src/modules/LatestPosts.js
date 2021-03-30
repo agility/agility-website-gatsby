@@ -22,6 +22,8 @@ export default props => (
 				  postImage {
 					url
 					label
+					height
+					width
 				  }
 				}
 				category {
@@ -34,6 +36,8 @@ export default props => (
 					image {
 					  url
 					  label
+					  height
+					  width
 					}
 					title
 				  }

@@ -24,10 +24,16 @@ export default props => (
 				  postImage: image {
 					url
 					label
+					filesize
+					height
+					width
 				  }
 				  logo: customerLogo {
 					url
 					label
+					filesize
+					height
+					width
 				  }
 				}
 			  }

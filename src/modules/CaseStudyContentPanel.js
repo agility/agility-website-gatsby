@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderHTML } from '../agility/utils'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import "./CaseStudyContentPanel.scss"
 
 const CaseStudyContentPanel = ({ item, dynamicPageItem }) => {
@@ -20,7 +21,9 @@ const CaseStudyContentPanel = ({ item, dynamicPageItem }) => {
 					{caseStudy.imagePosition === 'left' &&
 
 						<div className="start-image">
-							{caseStudy.image && caseStudy.image != null ? <img src={caseStudy.image.url + '?w=500&h=500'} alt={caseStudy.image.label} /> : null}
+							{caseStudy.image && caseStudy.image != null &&
+								<AgilityImage image={caseStudy.image} layout="constrained" width="500"   />
+							}
 						</div>
 
 					}

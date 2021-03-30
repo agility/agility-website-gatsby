@@ -32,6 +32,8 @@ export default props => (
 				  image {
 					url
 					label
+					height
+					width
 				  }
 				  subTitle
 				  slug: uRL,

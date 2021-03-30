@@ -15,8 +15,10 @@ export default props => (
 			nodes {
 				customFields {
 					logo {
-					url
-					label
+						url
+						label
+						width
+						height
 					}
 					title
 				}

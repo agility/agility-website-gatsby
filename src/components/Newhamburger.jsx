@@ -1,5 +1,5 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
+
 // import './hamburger.scss'
 
 class Hamburger extends React.Component {
@@ -39,7 +39,7 @@ class Hamburger extends React.Component {
 			// });
 		}
   }
-  
+
 	render() {
 		return (
       <button className="border-0 hamburger-menu" type="button" data-toggle="collapse" data-target="#main-menu"
@@ -50,9 +50,9 @@ class Hamburger extends React.Component {
         <span className="icomoon icon-close"></span>
         <span className="sr-only">Open Menu</span>
       </button>
-        
+
 		);
 	}
 }
-export default hot(Hamburger);
+export default Hamburger;
 
