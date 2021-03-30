@@ -48,7 +48,7 @@ const GartnerPeerInsightsBar = ({ item }) => {
 						</div>
 						<div className="col-right last-mb-none">
 							{ textButton && linkButton &&
-							<Link to={linkButton} target={targetButton} className="btn btn-primary text-decoration-none">{textButton}</Link>
+							<a href={linkButton} target={targetButton} className="btn btn-primary text-decoration-none">{textButton}</a>
 							}
 						</div>
 					</div>

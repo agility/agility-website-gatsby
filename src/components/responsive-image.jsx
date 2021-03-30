@@ -1,12 +1,12 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 
 
-class ResponsiveImage extends React.Component {
+const ResponsiveImage = ({img, layout, breaks}) => {
 
+		let image = img;
 
-	render() {
-		let image = this.props.img;
+		if (layout === undefined || ! layout) layout = "constrained"
 		if (!image || !image.url) return null;
 
 		let url = image.url;
@@ -21,10 +21,19 @@ class ResponsiveImage extends React.Component {
 			return <img src={urlNoQuery} alt={alt} />
 		}
 
+		if (image.height && image.width) {
+			return <AgilityImage image={image} layout={layout} />
+		}
+
 		let smallestSrc = url;
 		let smallestWidth = -1;
 
-		const sources = this.props.breaks.map((res, index) => {
+		if (! breaks) {
+			//if we don't have height/width data, and we don't have break info...
+			return <img src={url} alt={alt} />
+		}
+
+		const sources = breaks.map((res, index) => {
 
 			let media = "";
 			if (res.max) {
@@ -54,8 +63,6 @@ class ResponsiveImage extends React.Component {
 				<img src={smallestSrc} alt={ alt ? alt : 'image resource' }  loading="lazy" />
 			</picture>
 		)
-	}
-
 }
 
-export default hot(ResponsiveImage);
+export default ResponsiveImage;

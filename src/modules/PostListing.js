@@ -21,8 +21,11 @@ export default props => (
 				  title
 				  uRL
 				  postImage {
-					url
 					label
+					url
+					filesize
+					height
+					width
 				  }
 				}
 				category {

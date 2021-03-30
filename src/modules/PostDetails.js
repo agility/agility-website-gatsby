@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
 import PostTags from "../components/PostTags.jsx"
@@ -66,15 +66,14 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 							</div>
 							<h5 className="h5">{author.title}</h5>
 						</div>
-						<span className="date">{moment(post.date).format("LL")}</span>
+						<span className="date">{DateTime.fromISO(post.date).toFormat("MMM d, yyyy")}</span>
 					</div>
 
 
 
 					{post.postImage &&
 						<div className="image">
-							<ResponsiveImage img={post.postImage}
-								breaks={[{ w: 640, max: 640 }, { w: 780, max: 800 }, { w: 1200, max: 1920 }]} />
+							<ResponsiveImage img={post.postImage} layout="fullWidth" />
 						</div>
 					}
 

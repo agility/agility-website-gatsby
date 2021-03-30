@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import { renderHTML } from '../agility/utils'
 import "./PodcastDetail.scss"
@@ -19,7 +19,7 @@ const PodcastDetail = ({ item, dynamicPageItem }) => {
                             <div className="author d-flex ai-center">
                                 <h5 className="h5">Episode #{item.episodeNumber}</h5>
                             </div>
-                            <span className="date">{moment(item.date).format("LL")}</span>
+                            <span className="date">{DateTime.fromISO(item.date).toFormat("MMM d, yyyy")}</span>
                         </div>
                         <div className="image" >
                             <ResponsiveImage img={item.mainImage}

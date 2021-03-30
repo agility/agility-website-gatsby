@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby"
-import moment from 'moment'
+import {DateTime} from 'luxon'
 import HelperFunc from '../global/javascript/Helpers.js'
 import { renderHTML } from '../agility/utils'
+import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 
 import "./EventDetails.scss"
 import "./RichTextArea.scss"
@@ -13,8 +14,8 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 
 	const event = dynamicPageItem.customFields;
 
-	const eventDate = moment(event.date)
-	const isPastEvent = eventDate.isBefore()
+	const eventDate = DateTime.fromISO(event.date)
+	const isPastEvent = eventDate.diffNow("seconds").seconds > 0
 
 	let externalLink = null;
 	let exernalTarget = null;
@@ -108,17 +109,19 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 				<div className="event-date">
 					<span className="event-type">{event.eventType.customFields.title}</span>
 					<span className="date">
-						{eventDate.format("MMM Do, YYYY")}
+						{eventDate.toFormat("MMM d, yyyy")}
 					</span>
 					<span className="time">
-						{eventDate.format("h:mma")}
+						{eventDate.toFormat("h:mma")}
 					</span>
 				</div>
 
 				<div className="event-image">
 					{
 						event.mainImage &&
-						<a href={externalLink} target={exernalTarget}><img src={event.mainImage.url + "?w=800"} alt={event.mainImage.label} /></a>
+						<a href={externalLink} target={exernalTarget}>
+							<AgilityImage image={event.mainImage} layout="fullWidth" />
+						</a>
 					}
 				</div>
 
