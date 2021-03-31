@@ -15,7 +15,8 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
 	const event = dynamicPageItem.customFields;
 
 	const eventDate = DateTime.fromISO(event.date)
-	const isPastEvent = eventDate.diffNow("seconds").seconds > 0
+
+	const isPastEvent = eventDate.diffNow("seconds").seconds < 0
 
 	let externalLink = null;
 	let exernalTarget = null;
