@@ -69,13 +69,28 @@ exports.createSchemaCustomization = ({ actions }) => {
 			target: String,
 			text:String
 		}
-		type agilityGlobalHeaderCustomFields implements Node {
-			contactus: agilityGlobalHeaderCustomFieldsContactus
+    type agilityGlobalHeaderCustomFields implements Node {
+      contactus: agilityGlobalHeaderCustomFieldsContactus
 		}
 		type agilityGlobalHeaderCustomFieldsContactus {
-				href: String,
-				target: String,
-				text:String
+			href: String,
+			target: String,
+			text:String
+		}
+		type agilityPackageFeaturesCustomFields implements Node {
+			description: String
+		}
+		type agilityPricingPackagesCustomFields implements Node {
+			pricingPlan: String,
+			yearlyPricingPlan: String,
+			yearlyCostLabel: String,
+			costLabel: String,
+			yearlyCTAButton: agilityPricingPackagesCustomFieldsYearlyCTAButton
+		}
+		type agilityPricingPackagesCustomFieldsYearlyCTAButton {
+			href: String,
+			target: String,
+			text:String
 		}
   `
   createTypes(typeDefs)

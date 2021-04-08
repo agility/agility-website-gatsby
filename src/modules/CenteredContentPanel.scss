@@ -6,27 +6,31 @@
 .page-pricing {
   .mod-intro {
     position: relative;
-    padding-top: 60px;
-    padding-bottom: 75px;
-    overflow: hidden;
+    padding-top: 37px;
+    padding-bottom: 10px;
     h1 {
       font-size: rem(40);
+      margin-bottom: 11px;
+    }
+    h5 {
+      margin-bottom: 10px;
     }
     &::before {
       content: '';
-      @include position(absolute,0,0,0,0,0);
+      @include position(absolute,calc(100% + 85px),0,null,0,0);
+      height: 1500px;
       opacity: 0.5;
       background-image: linear-gradient(to bottom, #e9f0f5, #ffffff 100%);
     }
-    &::after {
-      content: '';
-      @include position(absolute,$bottom: 0,$left: -340px,$index: 0);
-      @include sizeEx(719px,621px);
-      background-image: url('/images/icon-agility.svg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: right bottom;
-    }
+    // &::after {
+    //   content: '';
+    //   @include position(absolute,$bottom: 0,$left: -340px,$index: 0);
+    //   @include sizeEx(719px,621px);
+    //   background-image: url('/images/icon-agility.svg');
+    //   background-size: cover;
+    //   background-repeat: no-repeat;
+    //   background-position: right bottom;
+    // }
     .container {
       position: relative;
       z-index: 1;
@@ -40,25 +44,11 @@
   .page-new-pricing,
   .page-pricing {
     .mod-intro {
-      padding-top: 75px;
-      padding-bottom: 115px;
-      &::after {
-        left: -245px;
-        width: 557px;
-        height: 481px;
-      }
-    }
-  }
-}
-@media (min-width: 992px) {
-  .page-new-pricing,
-  .page-pricing {
-    .mod-intro {
-      padding-bottom: 165px;
-      &::after {
-        left: -223px;
-        width: 687px;
-        height: 595px;
+      padding-top: 45px;
+      // padding-bottom: 115px;
+      &::before {
+        height: 506px;
+        top: calc(100% + 265px);
       }
     }
   }
@@ -67,22 +57,8 @@
   .page-new-pricing,
   .page-pricing {
     .mod-intro {
-      padding-bottom: 230px;
-      &::after {
-        left: -360px;
-        width: 866px;
-        height: 748px;
-      }
-    }
-  }
-}
-@media (min-width: 1500px) {
-  .page-new-pricing,
-  .page-pricing {
-    .mod-intro {
-      padding-bottom: 230px;
-      &::after {
-        left: -315px
+      &::before {
+        top: calc(100% + 275px);
       }
     }
   }

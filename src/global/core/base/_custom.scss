@@ -401,6 +401,15 @@ input {
 .opacity-0 {
   opacity: 0;
 }
+.overflow-hidden {
+  overflow: hidden;
+}
+.transition-25 {
+  transition: all .25s;
+}
+.font-bold {
+  font-family: $mlBold, sans-serif;
+}
 @include media-breakpoint-up(sm) {
   .main-content {
     padding-top: 105px;

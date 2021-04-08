@@ -173,7 +173,7 @@ class Form extends React.Component {
 				});
 			})
 		}
-		document.addEventListener('click', (event) =>  { 
+		document.addEventListener('click', (event) =>  {
 			let $target = event.target
 			if(!$target.closest('.form-item')) {
 				this.checkFocus()

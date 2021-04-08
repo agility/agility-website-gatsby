@@ -1,4 +1,44 @@
 
+
+import Helper from './Helpers'
+export const animationElementInnerComponent = ($elmComponent) =>  {
+  let $elems = $elmComponent?.classList?.contains('animation') ? [$elmComponent] : $elmComponent?.querySelectorAll('.animation')
+  let winH = window.innerHeight
+  let winW = window.innerWidth
+  let offset
+  let add = 0
+  if (winH > 1500) {
+    offset = 0.7
+  } else {
+    offset = 0.88
+  }
+  if (winW > 1024) {
+    let wintop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+    if ($elems) {
+      [...$elems].map($elm => {
+        if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed')) {
+          return true
+        }
+        let topcoords = Helper.findOffsetTop($elm)
+        if ($elm.classList.contains('mod-user-guides')) {
+          add = 300
+        } else {
+          add = 0
+        }
+        if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
+          $elm.classList.add('set-animation')
+        } else {
+          if(topcoords + add > wintop + winH) {
+            $elm.classList.remove('set-animation')
+          } 
+        }
+      })
+    }
+  } else {
+      $elmComponent.classList.add('set-animation')
+  }
+}
+
 const animationEle = () =>  {
   let $elems = document.querySelectorAll('.animation')
   let winH = window.innerHeight
@@ -14,7 +54,7 @@ const animationEle = () =>  {
     let wintop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     Array.from($elems).forEach((ele) => {
       const $elm = ele
-      if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed')) {
+      if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed') && $elm.classList.contains('anima-inner-component')) {
         return true
       }
       let topcoords = $elm.offsetTop + $elm.offsetParent.offsetTop
@@ -23,7 +63,6 @@ const animationEle = () =>  {
       } else {
         add = 0
       }
-      // console.log(wintop,$elm.offsetHeight + topcoords + add ,ele)
       if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
         $elm.classList.add('set-animation')
       } else {
@@ -49,13 +88,11 @@ const animationEle = () =>  {
   }
 }
 const removeLoading = () => {
-  setTimeout(() => {
     document.getElementsByTagName('html')[0].classList.add('hide-loader')
     animationEle()
     window.addEventListener('scroll', function(e) {
       animationEle()
     })
-  }, 0)
 }
 const AnimationScrollPage = () => {
   // document.querySelector('html').scrollTop = 0;
@@ -71,7 +108,7 @@ const AnimationScrollPage = () => {
       removeLoading()
     }
 
-  }, 300)
+  }, 400)
   dectectEventClick()
 }
 const dectectEventClick = () => {
