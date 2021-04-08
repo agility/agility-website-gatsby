@@ -49,6 +49,16 @@
     color: $color-2a;
   }
 }
+.btn-gray {
+  color: $white;
+  background-color: $color-c9;
+  border-color: $color-c9;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
 .btn-outline-yellow {
   background-color: $white;
   border-color: $color-ff;
