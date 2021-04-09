@@ -88,7 +88,8 @@
   }
   .bind-text {
     font-size: 16px;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     color: transparent;
     max-height: 2px;
     overflow: hidden;
@@ -111,7 +112,8 @@
     outline: none;
     color: #5800d4;
     font-size: 16px;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     border-radius: 0;
     &::placeholder {
       color: #5800d4;

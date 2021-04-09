@@ -1,3 +1,4 @@
+@import '../global/setting';
 .two-column-page {
   .right-col {
     > div {
@@ -14,7 +15,8 @@
       .h4 {
         margin-bottom: 30px;
         font-size: 20px;
-        font-family: "Muli-bold", sans-serif;
+        // font-family: "Muli-bold", sans-serif;
+        font-weight: $fw-bold;
         color: #2a3846;
       }
 
@@ -39,7 +41,8 @@
 
           span {
             font-size: 16px;
-            font-family: "Muli-Regular", sans-serif;
+            // font-family: "Muli-Regular", sans-serif;
+            font-weight: $fw-regular;
             color: #484b4d;
           }
         }

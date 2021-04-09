@@ -4,7 +4,8 @@
     display: none;
   }
   .search-input {
-    font-family: $mlSemi;
+    // font-family: $mlSemi;
+    font-weight: $fw-semi-bold;
     font-size: rem(24);
     font-weight: 600;
     letter-spacing: -0.46px;
@@ -114,7 +115,8 @@
   }
   h4 {
     color: $color-58;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     font-size: rem(16);
     a {
       text-decoration: underline;

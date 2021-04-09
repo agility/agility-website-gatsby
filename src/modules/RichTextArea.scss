@@ -12,7 +12,8 @@
     margin-bottom: 20px;
     font-size: 30px;
     line-height: 1.4;
-    font-family: "Muli-bold", sans-serif;
+    // font-family: "Muli-bold", sans-serif;
+    font-weight: $fw-bold;
     color: #2a3846;
 
     @media (max-width: 767px) {
@@ -24,7 +25,8 @@
     margin: 30px 0 20px;
     font-size: 30px;
     line-height: 1.6;
-    font-family: "Muli-bold", sans-serif;
+    // font-family: "Muli-bold", sans-serif;
+    font-weight: $fw-bold;
     color: #484b4d;
 
     @media (max-width: 767px) {
@@ -36,7 +38,8 @@
     margin: 25px 0 15px;
     font-size: 20px;
     line-height: 1.4;
-    font-family: "Muli-bold", sans-serif;
+    // font-family: "Muli-bold", sans-serif;
+    font-weight: $fw-bold;
     color: #484b4d;
 
     @media (max-width: 767px) {
@@ -48,7 +51,8 @@
     margin: 20px 0 10px;
     font-size: 20px;
     line-height: 1.6;
-    font-family: "Muli-SemiBold", sans-serif;
+    // font-family: "Muli-SemiBold", sans-serif;
+    font-weight: $fw-semi-bold;
     color: #484b4d;
 
     @media (max-width: 767px) {
@@ -58,19 +62,22 @@
   h5 {
 	margin: 20px 0 10px;
     font-size: 18px;
-    font-family: "Muli-SemiBold", sans-serif;
+    // font-family: "Muli-SemiBold", sans-serif;
+    font-weight: $fw-semi-bold;
   }
   h6 {
 	margin: 20px 0 10px;
     font-size: 16px;
-    font-family: "Muli-SemiBold", sans-serif;
+    // font-family: "Muli-SemiBold", sans-serif;
+    font-weight: $fw-semi-bold;
   }
 
   p {
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.8;
-    font-family: "Muli-Regular", sans-serif;
+    // font-family: "Muli-Regular", sans-serif;
+    font-weight: $fw-regular;
     color: #6d7882;
 
     @media (max-width: 767px) {
@@ -87,7 +94,8 @@
   a {
     font-size: 16px;
     line-height: 1.8;
-    font-family: "Muli-Regular", sans-serif;
+    // font-family: "Muli-Regular", sans-serif;
+    font-weight: $fw-regular;
     color: #4600a8;
     text-decoration: underline;
 
@@ -104,7 +112,8 @@
   b {
     font-size: 16px;
     line-height: 1.8;
-    font-family: "Muli-Bold", sans-serif;
+    // font-family: "Muli-Bold", sans-serif;
+    font-weight: $fw-bold;
     color: #6d7882;
 
     @media (max-width: 767px) {
@@ -131,7 +140,8 @@
     li {
       font-size: 16px;
       line-height: 1.5;
-      font-family: "Muli-Regular", sans-serif;
+      // font-family: "Muli-Regular", sans-serif;
+      font-weight: $fw-regular;
       color: #6d7882;
 
       a {
@@ -174,11 +184,13 @@
       padding: 10px;
       font-size: 16px;
       line-height: 1.8;
-      font-family: "Muli-Regular", sans-serif;
+      // font-family: "Muli-Regular", sans-serif;
+      font-weight: $fw-regular;
       color: #6d7882;
     }
     th {
-      font-family: "Muli-Bold", sans-serif;
+      // font-family: "Muli-Bold", sans-serif;
+      font-weight: $fw-bold;
     }
   }
 

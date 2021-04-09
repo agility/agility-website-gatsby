@@ -24,7 +24,7 @@
 		margin-top:-5px;
 		margin-bottom: 15px;
 		a {
-			padding: 3px 8px;
+			padding: 6px 8px 2px;
 			margin: 5px;
 			font-size: 14px;
 			border-radius: 4px;
@@ -54,7 +54,8 @@
 
         a {
           font-size: 20px;
-          font-family: "Muli-bold", sans-serif;
+          // font-family: "Muli-bold", sans-serif;
+          font-weight: $fw-bold;
           color: #2a3846;
         }
       }
@@ -83,7 +84,8 @@
 
         .h5 {
           font-size: 16px;
-          font-family: "Muli-Regular", sans-serif;
+          // font-family: "Muli-Regular", sans-serif;
+          font-weight: $fw-regular;
           color: #484b4d;
 		  margin: 0;
         }
@@ -102,14 +104,16 @@
         p {
           font-size: 16px;
           line-height: 1.8;
-          font-family: "Muli-Regular", sans-serif;
+          // font-family: "Muli-Regular", sans-serif;
+          font-weight: $fw-regular;
           color: #6d7882;
         }
       }
 
       .date {
         font-size: 16px;
-        font-family: "Muli-Regular", sans-serif;
+        // font-family: "Muli-Regular", sans-serif;
+        font-weight: $fw-regular;
         color: #9fa7b0;
       }
     }

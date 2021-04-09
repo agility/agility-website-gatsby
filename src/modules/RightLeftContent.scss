@@ -46,9 +46,10 @@
       width: 60%;
       h2 {
         font-size: 30px;
-        font-weight: 600;
+        // font-weight: 600;
         margin-bottom: 26px;
-        font-family: $bold;
+        // font-family: $bold;
+        font-weight: $fw-bold;
       }
       .rl-panel {
         margin-left: 18px;
@@ -70,9 +71,10 @@
 
             h3 {
               font-size: 16px;
-              font-weight: 600;
+              // font-weight: 600;
               line-height: 30px;
-              font-family: $bold;
+              // font-family: $bold;
+              font-weight: $fw-bold;
             }
 
             &:before {

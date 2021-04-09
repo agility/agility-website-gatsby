@@ -83,7 +83,8 @@
 		}
 
 		h1 {
-			font-family: $bold;
+			// font-family: $bold;
+			font-weight: $fw-bold;
 			font-size: 30px;
 			font-weight: bold;
 			font-style: normal;
@@ -100,9 +101,10 @@
 		}
 
 		h2 {
-			font-family: $semibold;
+			// font-family: $semibold;
+			font-weight: $fw-semi-bold;
 			font-size: 18px;
-			font-weight: 600;
+			// font-weight: 600;
 			font-style: normal;
 			font-stretch: normal;
 			line-height: 1.6;
@@ -112,9 +114,10 @@
 		}
 
 		p {
-			font-family: $regular;
+			// font-family: $regular;
+			font-weight: $fw-regular;
 			font-size: 16px;
-			font-weight: normal;
+			// font-weight: normal;
 			font-style: normal;
 			font-stretch: normal;
 			line-height: 1.3;
@@ -152,8 +155,9 @@
 			.btn-link {
 				display: flex;
 				align-items: center;
-				font-family: $bold;
-				font-weight: bold;
+				// font-family: $bold;
+				// font-weight: bold;
+				font-weight: $fw-bold;
 				font-style: normal;
 				font-stretch: normal;
 				line-height: normal;
@@ -194,7 +198,8 @@
 				display: block;
 				padding-top: 10px;
 				font-size: 0.8em;
-				font-family: $bold;
+				// font-family: $bold;
+				font-weight: $fw-bold;
 			}
 
 			p:last-of-type {
@@ -350,7 +355,8 @@
 				border-top-right-radius: 5px;
 				padding: 16px 30px;
 
-				font-weight: 600;
+				// font-weight: 600;
+				font-weight: $fw-bold;
 				font-size: 24px;
 				line-height: 30px;
 				text-align: center;
@@ -425,8 +431,9 @@
 				outline: none;
 				background-color: $darkerSecondaryColor;
 				font-size: 16px;
-				font-family: "Muli-bold", sans-serif;
-				font-weight: bold;
+				// font-family: "Muli-bold", sans-serif;
+				// font-weight: bold;
+				font-weight: $fw-bold;
 				font-style: normal;
 				font-stretch: normal;
 				line-height: normal;

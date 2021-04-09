@@ -1,5 +1,5 @@
 /* font-family other */
-$ml: 'Muli-Regular', sans-serif;
+$ml: 'muli', sans-serif;
 $slick: 'slick';
 $icomoon: 'icomoon';
 $mlSemi: 'Muli-SemiBold', sans-serif;
@@ -7,6 +7,10 @@ $mlBold: 'Muli-Bold', sans-serif;
 
 /* font-family body */
 $font-family-base: $ml;
+$fw-regular: 400;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+$fw-extra-bold: 800;
 
 /* set screen */
 
@@ -216,7 +220,7 @@ $h5-font-size : rem(13);
 /* heading custom */
 
 $headings-margin-bottom: 1rem !default;
-$headings-font-family: $mlSemi !default;
+// $headings-font-family: $mlSemi !default;
 $headings-font-weight: 600 !default;
 $headings-line-height: 1.25 !default;
 $headings-color: $color-2a !default;

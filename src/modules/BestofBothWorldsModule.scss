@@ -5,7 +5,8 @@
   h5 {
     text-transform: uppercase;
     color: $color-58;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
   }
   &::after {
     content: '';
@@ -71,7 +72,8 @@
 .middle-HIW {
   h3 {
     font-size: rem(16);
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     line-height: 1.42;
     letter-spacing: 1.2px;
     color: $color-ff;
@@ -148,7 +150,7 @@
     &::after,
     &::before {
       content: '';
-      @include position(absolute,$top: 7px,$left: 0);
+      @include position(absolute,$top: 4px,$left: 0);
       @include sizeEx(14px);
       background-size: contain;
     }

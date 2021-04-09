@@ -20,7 +20,8 @@
     margin: 0;
     position: relative;
     color: $color-2a;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     line-height: 1.5;
 
     a:not(.btn-menu) {

@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import '../global/setting';
 
 .feature-block-w-text {
 	.products-features {
@@ -16,7 +17,8 @@
 				margin-bottom: 30px;
 				font-size: 20px;
 				line-height: 1.67;
-				font-family: "Muli-bold", sans-serif;
+				// font-family: "Muli-bold", sans-serif;
+				font-weight: $fw-bold;
 				color: #2a3846;
 
 				@media (max-width: 480px) {
@@ -28,7 +30,8 @@
 				margin-bottom: 10px;
 				font-size: 16px;
 				line-height: 1.8;
-				font-family: "Muli-Regular", sans-serif;
+				// font-family: "Muli-Regular", sans-serif;
+				font-weight: $fw-regular;
 				color: #6d7882;
 
 				@media (max-width: 767px) {
@@ -95,7 +98,8 @@
 
 							h4 {
 								font-size: 18px;
-								font-family: "Muli-SemiBold", sans-serif;
+								// font-family: "Muli-SemiBold", sans-serif;
+								font-weight: $fw-semi-bold;
 								color: #2a3846;
 							}
 						}
@@ -104,7 +108,8 @@
 							margin-bottom: 5px;
 							font-size: 16px;
 							line-height: 1.5;
-							font-family: "Muli-Regular", sans-serif;
+							// font-family: "Muli-Regular", sans-serif;
+							font-weight: $fw-regular;
 							color: #6d7882;
 						}
 						.arrow-button {

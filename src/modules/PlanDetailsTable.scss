@@ -15,7 +15,8 @@
   a { color: $secondaryColor; text-decoration: underline; }
 
   h1 {
-    font-family: $bold;
+    // font-family: $bold;
+    font-weight: $fw-bold;
     font-size: 30px;
     text-align: center;
     margin: 70px 0 10px 0;
@@ -47,8 +48,9 @@
           text-align: center;
           background-color: #e4e4e4;
           font-size: 18px;
-          font-weight: bold;
-          font-family: $bold;
+          // font-weight: bold;
+          // font-family: $bold;
+          font-weight: $fw-bold;
           padding: 10px 0;
         }
 
@@ -110,8 +112,9 @@
       }
 
       td.title-col {
-        font-weight: bold;
-        font-family: $bold;
+        // font-weight: bold;
+        // font-family: $bold;
+        font-weight: $fw-bold;
         border-right: none;
       }
 
@@ -130,13 +133,17 @@
     h4 {
       margin-right: 30px;
       font-size: 1.15em;
-      font-family: $bold;
+      // font-family: $bold;
+      font-weight: $fw-bold;
     }
     div > p {
       margin-bottom: 5px;
     }
 
-    strong { font-family: $bold; }
+    strong { 
+      // font-family: $bold;
+      font-weight: $fw-bold;
+    }
   }
 }
 

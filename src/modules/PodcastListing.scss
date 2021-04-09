@@ -1,3 +1,4 @@
+@import '../global/variables';
 .jc-c {
   justify-content: center;
   -webkit-box-pack: center;
@@ -159,7 +160,8 @@
 
             a {
                 font-size: 20px;
-                font-family: "Muli-bold", sans-serif;
+                // font-family: "Muli-bold", sans-serif;
+                font-weight: $fw-bold;
                 color: #2a3846;
             }
             }
@@ -188,7 +190,8 @@
 
             .h5 {
                 font-size: 16px;
-                font-family: "Muli-Regular", sans-serif;
+                // font-family: "Muli-Regular", sans-serif;
+                font-weight: $fw-regular;
                 color: #484b4d;
             }
             }
@@ -199,14 +202,16 @@
             p {
                 font-size: 16px;
                 line-height: 1.8;
-                font-family: "Muli-Regular", sans-serif;
+                // font-family: "Muli-Regular", sans-serif;
+                font-weight: $fw-regular;
                 color: #6d7882;
             }
             }
 
             .date {
             font-size: 16px;
-            font-family: "Muli-Regular", sans-serif;
+            // font-family: "Muli-Regular", sans-serif;
+            font-weight: $fw-regular;
             color: #9fa7b0;
             }
         }
@@ -225,7 +230,8 @@
         .author {
           .h5 {
             font-size: 16px;
-            font-family: "Muli-Bold", sans-serif;
+            // font-family: "Muli-Bold", sans-serif;
+            font-weight: $fw-bold;
             text-transform: uppercase;
             color: #717171;
           }
@@ -244,7 +250,8 @@
 
           a {
             font-size: 20px;
-            font-family: "Muli-bold", sans-serif;
+            // font-family: "Muli-bold", sans-serif;
+            font-weight: $fw-bold;
             color: #2a3846;
           }
         }
@@ -273,7 +280,8 @@
 
           .h5 {
             font-size: 16px;
-            font-family: "Muli-Regular", sans-serif;
+            // font-family: "Muli-Regular", sans-serif;
+            font-weight: $fw-regular;
             color: #484b4d;
           }
         }
@@ -284,14 +292,16 @@
           p {
             font-size: 16px;
             line-height: 1.8;
-            font-family: "Muli-Regular", sans-serif;
+            // font-family: "Muli-Regular", sans-serif;
+            font-weight: $fw-regular;
             color: #6d7882;
           }
         }
 
         .date {
           font-size: 16px;
-          font-family: "Muli-Regular", sans-serif;
+          // font-family: "Muli-Regular", sans-serif;
+          font-weight: $fw-regular;
           color: #9fa7b0;
         }
       }
@@ -308,7 +318,8 @@
 
     a {
       font-size: 16px;
-      font-family: "Muli-Bold", sans-serif;
+      // font-family: "Muli-Bold", sans-serif;
+      font-weight: $fw-bold;
     }
   }
 }

@@ -83,7 +83,8 @@ h2,
   line-height: 1.26;
   letter-spacing: -.35px;
   margin-bottom: 24px;
-  font-family: $mlBold;
+  // font-family: $mlBold;
+  font-weight: $fw-bold;
 }
 h3,
 .h3 {
@@ -95,7 +96,8 @@ h4,
 .h4 {
   line-height: 1.37;
   margin-bottom: 10px;
-  font-family: $mlBold;
+  // font-family: $mlBold;
+  font-weight: $fw-bold;
 }
 h5,
 .h5 {
@@ -103,13 +105,15 @@ h5,
   letter-spacing: .65px;
   color: $color-4c;
   text-transform: uppercase;
-  font-family: $mlBold;
+  // font-family: $mlBold;
+  font-weight: $fw-bold;
 }
 h6,
 .h6 {
   line-height: 1.43;
   letter-spacing: 1px;
-  font-family: $mlBold;
+  // font-family: $mlBold;
+  font-weight: $fw-bold;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
@@ -129,7 +133,8 @@ h6,
   h3,
   .h3 {
     font-size: rem(31);
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     line-height: 1.29;
     letter-spacing: -.31px;
     margin-bottom: 13px;

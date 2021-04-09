@@ -2,7 +2,8 @@
 /* mod-framework  */
 .step {
   text-transform: uppercase;
-  font-family: 'Muli-Bold', sans-serif;;
+  // font-family: 'Muli-Bold', sans-serif;;
+  font-weight: $fw-bold;
   font-size: rem(13);
   letter-spacing: .65px;
   line-height: 26px;
@@ -11,7 +12,7 @@
   text-align: center;
   display: inline-block;
   margin-bottom: 25px;
-  padding: 2px 0;
+  padding: 4px 0 0;
   color: #fff;
   background-color: #6d06ff;
 }

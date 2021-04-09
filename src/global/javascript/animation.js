@@ -57,7 +57,7 @@ const animationEle = () =>  {
       if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed') && $elm.classList.contains('anima-inner-component')) {
         return true
       }
-      let topcoords = $elm.offsetTop + $elm.offsetParent.offsetTop
+      let topcoords = Helper.findOffsetTop($elm)  // $elm.offsetTop + $elm.offsetParent.offsetTop
       if ($elm.classList.contains('mod-user-guides')) {
         add = 300
       } else {
@@ -107,8 +107,7 @@ const AnimationScrollPage = () => {
     } else {
       removeLoading()
     }
-
-  }, 400)
+  }, 300)
   dectectEventClick()
 }
 const dectectEventClick = () => {

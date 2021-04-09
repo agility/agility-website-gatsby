@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import "../global/setting";
 
 .event-details {
 	padding-bottom: 80px;
@@ -18,7 +19,7 @@
 
 		span {
 			padding: 8px 10px 8px 30px;
-			font-weight: 600;
+			font-weight: $fw-bold;
 			font-size: 14px;
 			color: $greyColor;
 			background-repeat: no-repeat;
@@ -137,7 +138,8 @@
 
 		span {
 			font-size: 16px;
-			font-family: "Muli-Bold", sans-serif;
+			// font-family: "Muli-Bold", sans-serif;
+			font-weight: $fw-bold;
 			color: #484b4d;
 		}
 

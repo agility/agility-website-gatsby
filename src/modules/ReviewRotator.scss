@@ -42,7 +42,8 @@
   }
   .show-less {
     display: inline-block;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     position: relative;
     z-index: -1;
     font-size: rem(16);
@@ -52,7 +53,7 @@
     color: $color-58;
     margin-top: 10px;
     img {
-      @include position(absolute,$top: 12px,$right: 0);
+      @include position(absolute,$top: 10px,$right: 0);
       width: 10px;
       transition: all .35s;
     }

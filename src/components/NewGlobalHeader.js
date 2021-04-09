@@ -101,6 +101,13 @@ class NewGlobalHeader extends Component {
 		this.clickAwebinar()
 		window.addEventListener('scroll', this.stickyHeader);
 		window.addEventListener('resize', this.setPaddingBody);
+
+		if (navigator.platform.indexOf('Mac') > -1) {
+			document.querySelector('html').classList.add('mac-os')
+		}
+		if (navigator.platform.indexOf('Win') > -1) {
+			document.querySelector('html').classList.add('window-os')
+		}
 	}
 	setPaddingBody () {
 		setTimeout (() => {
@@ -362,7 +369,7 @@ class NewGlobalHeader extends Component {
 							:
 								''
 							}
-							<div className="col-3 text-right d-lg-none">
+							<div className="col-3 text-right d-lg-none d-flex justify-content-end align-items-center">
 								<Hamburger showMenuMobile={ () => this.showMenuMobile() } />
 							</div>
 						</div>
