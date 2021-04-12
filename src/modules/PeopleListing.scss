@@ -11,7 +11,7 @@
 		margin: 30px 10px 40px;
 		font-size: 20px;
 		line-height: 1.6;
-		font-weight: bold;
+		font-weight: $fw-semi-bold;
 		color: #484b4d;
 
 		@media screen and (max-width: $mobile-width) {
@@ -21,6 +21,7 @@
 	}
 
 	.team-content {
+		width: 100%;
 		.team-item {
 			display: flex;
 			margin-bottom: 60px;

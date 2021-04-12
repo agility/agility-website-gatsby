@@ -1,5 +1,4 @@
 @import "../global/_variables.scss";
-@import '../global//setting';
 
 .filtered-listing {
 	margin-bottom: 40px;
@@ -99,7 +98,7 @@
 						&:before {
 							position: absolute;
 							left: 0;
-							top: -3px;
+							top: 0;
 							display: block;
 							content: "";
 							width: 22px;
@@ -248,6 +247,16 @@
 			@media (min-width: 768px) {
 				width: calc(100% - 320px);
 			}
+		}
+	}
+}
+
+/* ----------------------------- */
+/* Css for window OS - fix font  */
+.window-os {
+	.filtered-listing {
+		.listing-wrapper .listing-left .item-type-picker .assets button:before {
+			top: -3px;
 		}
 	}
 }
