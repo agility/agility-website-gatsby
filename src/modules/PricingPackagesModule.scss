@@ -275,9 +275,14 @@
     }
   }
 }
+.window-os {
+  .item-t-price {
+    padding: 6px 0 3px;  
+  }
+}
 .item-t-price {
   border-radius: 14px;
-  padding: 6px 0 3px;
+  padding: 5px 0;
   width: 87px;
   text-align: center;
   position: relative;
@@ -696,7 +701,7 @@
     margin-top: 0;
   }
   .trigger-catelogy {
-    padding: 17px 15px 13px;
+    padding: 15px;
     .icomoon {
       right: 13px;
     }
@@ -704,6 +709,13 @@
       left: 0;
       right: 0
       ;
+    }
+  }
+  /* ---------------------------- */
+  /* Css for window OS - fix font */
+  .window-os {
+    .trigger-catelogy {
+      padding: 17px 15px 13px;
     }
   }
 }
