@@ -85,7 +85,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 			yearlyPricingPlan: String,
 			yearlyCostLabel: String,
 			costLabel: String,
-			yearlyCTAButton: agilityPricingPackagesCustomFieldsYearlyCTAButton
+			yearlyCTAButton: agilityPricingPackagesCustomFieldsYearlyCTAButton,
+			yearlySaleCost: String
 		}
 		type agilityPricingPackagesCustomFieldsYearlyCTAButton {
 			href: String,
