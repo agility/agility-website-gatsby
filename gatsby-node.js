@@ -83,8 +83,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 		type agilityPricingPackagesCustomFields implements Node {
 			pricingPlan: String,
 			yearlyPricingPlan: String,
-			yearlyCostLabel: String,
-			costLabel: String,
 			yearlyCTAButton: agilityPricingPackagesCustomFieldsYearlyCTAButton,
 			yearlySaleCost: String
 		}
