@@ -11,7 +11,7 @@
 		margin: 30px 10px 40px;
 		font-size: 20px;
 		line-height: 1.6;
-		font-weight: bold;
+		font-weight: $fw-semi-bold;
 		color: #484b4d;
 
 		@media screen and (max-width: $mobile-width) {
@@ -21,6 +21,7 @@
 	}
 
 	.team-content {
+		width: 100%;
 		.team-item {
 			display: flex;
 			margin-bottom: 60px;
@@ -54,12 +55,14 @@
 					margin-bottom: 3px;
 					font-size: 20px;
 					line-height: 1.5;
-					font-family: "Muli-ExtraBold", sans-serif;
+					// font-family: "Muli-ExtraBold", sans-serif;
+					font-weight: $fw-extra-bold;
 					color: #2a3846;
 				}
 
 				em {
-					font-family: "Muli-SemiBold", sans-serif;
+					// font-family: "Muli-SemiBold", sans-serif;
+					font-weight: $fw-semi-bold;
 					font-style: italic;
 					color: #484b4d;
 				}
@@ -68,7 +71,8 @@
 					margin-top: 20px;
 					font-size: 16px;
 					line-height: 1.5;
-					font-family: "Muli-Regular", sans-serif;
+					// font-family: "Muli-Regular", sans-serif;
+					font-weight: $fw-regular;
 					color: #6d7882;
 				}
 

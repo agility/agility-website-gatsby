@@ -93,7 +93,8 @@
 
 			h3 {
 				font-size: 1.2em;
-				font-family: "Muli-Bold", "Sans-Serif";
+				// font-family: "Muli-Bold", "Sans-Serif";
+				font-weight: $fw-bold;
 			}
 		}
 
@@ -123,7 +124,8 @@
 				margin-bottom: 8px;
 				color: #b3b3b3;
 				font-weight: normal;
-				font-family: "Muli-Regular", "Sans-Serif";
+				// font-family: "Muli-Regular", "Sans-Serif";
+				font-weight: $fw-regular;
 				min-height: 50px;
 			}
 
@@ -166,7 +168,8 @@
 					font-size: 1.2em;
 					display: block;
 					font-weight: bold;
-					font-family: "Muli-Bold", "Sans-Serif";
+					// font-family: "Muli-Bold", "Sans-Serif";
+					font-weight: $fw-bold;
 				}
 			}
 			li.single {
@@ -250,7 +253,8 @@
 			text-align: center;
 			padding-bottom: 5px;
 			border-bottom: 1px solid #e9eef1;
-			font-family: "Muli-Bold", "Sans-Serif";
+			// font-family: "Muli-Bold", "Sans-Serif";
+			font-weight: $fw-bold;
 		}
 
 		ul.two-column {

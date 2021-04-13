@@ -113,13 +113,13 @@ const SEO = ({ page }) => {
 			<meta name="msapplication-square150x150logo" content="https://static.agilitycms.com/favicon-web/mstile-150x150.png" />
 			<meta name="msapplication-wide310x150logo" content="https://static.agilitycms.com/favicon-web/mstile-310x150.png" />
 			<meta name="msapplication-square310x310logo" content="https://static.agilitycms.com/favicon-web/mstile-310x310.png" />
-
-			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulisemibold.woff2" />
+			<link rel="stylesheet" crossOrigin="anonymous" href="https://use.typekit.net/arl7bjd.css" />
+			{/* <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulisemibold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliextrabold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulibold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliregular.woff2" />
 
-			<link rel="stylesheet" href="/fonts.css" />
+			<link rel="stylesheet" href="/fonts.css" /> */}
 
 		</Helmet>
 	)

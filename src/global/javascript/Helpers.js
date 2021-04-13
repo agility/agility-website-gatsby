@@ -43,6 +43,19 @@ const HelperFunc = {
 			}
 		}
 		return "";
+	},
+	findOffsetTop: (elm) => {
+		let node = elm
+		let curtop = 0;
+		let curtopscroll = 0;
+		if (node.offsetParent) {
+			do {
+				curtop += node.offsetTop;
+				curtopscroll += node.offsetParent ? node.offsetParent.scrollTop : 0;
+				node = node.offsetParent
+			} while (node);
+		}
+		return (curtop - curtopscroll)
 	}
 }
 

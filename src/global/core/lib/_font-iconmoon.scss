@@ -25,6 +25,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-check-bg .path1:before {
+  content: "\e917";
+  color: rgb(117, 86, 232);
+}
+.icon-check-bg .path2:before {
+  content: "\e918";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
 .icon-down-menu:before {
   content: "\e916";
 }

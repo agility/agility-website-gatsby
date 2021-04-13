@@ -44,7 +44,8 @@
 				.h5 {
 					margin: 0 ;
 					font-size: 16px;
-					font-family: "Muli-Regular", sans-serif;
+					// font-family: "Muli-Regular", sans-serif;
+					font-weight: $fw-bold;
 					color: #484b4d;
 				}
 			}
@@ -52,7 +53,8 @@
 			.date {
 				margin-top: 2px;
 				font-size: 16px;
-				font-family: "Muli-Regular", sans-serif;
+				// font-family: "Muli-Regular", sans-serif;
+				font-weight: $fw-regular;
 				color: #9fa7b0;
 			}
 		}
@@ -62,7 +64,7 @@
 			margin-bottom: 25px;
 			a {
 				text-decoration: none;
-				padding: 3px 8px;
+				padding: 6px 8px 3px;
 				margin: 5px;
 				font-size: 14px;
 				border-radius: 4px;
@@ -104,7 +106,8 @@
 
 			span {
 				font-size: 16px;
-				font-family: "Muli-Bold", sans-serif;
+				// font-family: "Muli-Bold", sans-serif;
+				font-weight: $fw-bold;
 				color: #484b4d;
 			}
 
@@ -129,7 +132,8 @@
 			padding-top: 0;
 		}
 		a.btn {
-			font-family: "Muli-bold", sans-serif;
+			// font-family: "Muli-bold", sans-serif;
+			font-weight: $fw-bold;
 			color: #fff;
 			text-decoration: none;
 			line-height: 48px;

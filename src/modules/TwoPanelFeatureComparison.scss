@@ -10,6 +10,11 @@
     background-color: $color-17;
   }
 }
+.window-os {
+  .features-tab {
+    padding: 14px 40px 6px;
+  }
+}
 .features-tab {
   transition: all .35s;
   cursor: pointer;
@@ -27,7 +32,8 @@
     text-transform: uppercase;
     color: inherit;
     font-size: inherit;
-    font-family: 'Muli-Bold',sans-serif;
+    // font-family: 'Muli-Bold',sans-serif;
+    font-weight: $fw-bold;
     line-height: 1.86;
     letter-spacing: 0.66px;
   }
@@ -58,6 +64,13 @@
     margin-bottom: 0;
   }
 }
+.window-os {
+  .list-url {
+    li {
+      padding: 14px 20px 9px 43px;
+    }
+  }
+}
 .list-url {
   padding: 0;
   list-style: none;
@@ -73,7 +86,7 @@
     color: #2a3846;
     &::after {
       content: '';
-      @include position(absolute,$top: 17px,$left: 16px);
+      @include position(absolute,$top: 18px,$left: 16px);
       @include sizeEx(14px);
       background-size: contain;
       background-image: url('/images/check-purple.svg')

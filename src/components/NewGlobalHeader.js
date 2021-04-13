@@ -22,6 +22,11 @@ export default props => (
 							target
 							text
 						}
+						contactus {
+							href
+							target
+							text
+						}
 						secondaryButton {
 							href
 							target
@@ -96,6 +101,13 @@ class NewGlobalHeader extends Component {
 		this.clickAwebinar()
 		window.addEventListener('scroll', this.stickyHeader);
 		window.addEventListener('resize', this.setPaddingBody);
+
+		if (navigator.platform.indexOf('Mac') > -1) {
+			document.querySelector('html').classList.add('mac-os')
+		}
+		if (navigator.platform.indexOf('Win') > -1) {
+			document.querySelector('html').classList.add('window-os')
+		}
 	}
 	setPaddingBody () {
 		setTimeout (() => {
@@ -221,6 +233,7 @@ class NewGlobalHeader extends Component {
 	render() {
 		const menuGetstart = this.props.item.customFields.secondaryButton;
 		const primaryButton = this.props.item.customFields.primaryButton;
+		const contactButton = this.props.item.customFields.contactus;
 		const isOpenMenuText = 'is-open-menu';
 		const renderMenu = (menu, level) => {
 			const links = []
@@ -312,7 +325,10 @@ class NewGlobalHeader extends Component {
 						</form>
 					</div>
 					<a href={primaryButton.href} target={primaryButton.target} className="text-decoration-none btn btn-outline-primary 12 btn-menu">{primaryButton.text}</a>
-					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
+					<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-outline-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
+					{ contactButton?.href && contactButton?.text &&
+					 <a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2  ">{contactButton.text}</a>
+					}
 				</li>
 				links.push(btnMenu)
 			}
@@ -353,7 +369,7 @@ class NewGlobalHeader extends Component {
 							:
 								''
 							}
-							<div className="col-3 text-right d-lg-none">
+							<div className="col-3 text-right d-lg-none d-flex justify-content-end align-items-center">
 								<Hamburger showMenuMobile={ () => this.showMenuMobile() } />
 							</div>
 						</div>

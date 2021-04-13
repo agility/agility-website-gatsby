@@ -1,4 +1,6 @@
 @import "../global/_variables.scss";
+@import "../global/setting";
+
 
 
 .featured-plan-cta {
@@ -16,7 +18,8 @@
         max-width: 210px;
 		margin: 0 !important;
         padding: 0;
-        font-family: $bold;
+        // font-family: $bold;
+        font-weight: $fw-bold;
         line-height: 22px;
         text-align: center;
 

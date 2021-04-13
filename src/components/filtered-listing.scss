@@ -9,7 +9,8 @@
 		margin: 0 auto 42px;
 		font-size: 30px;
 		line-height: 1.56;
-		font-family: "Muli-bold", sans-serif;
+		// font-family: "Muli-bold", sans-serif;
+		font-weight: $fw-bold;
 		color: #2a3846;
 		text-align: center;
 
@@ -24,7 +25,8 @@
 		margin: 0 auto 80px;
 		font-size: 20px;
 		line-height: 1.6;
-		font-family: "Muli-SemiBold", sans-serif;
+		// font-family: "Muli-SemiBold", sans-serif;
+		font-weight: $fw-semi-bold;
 		color: #484b4d;
 		text-align: center;
 	}
@@ -56,7 +58,7 @@
 					margin-bottom: 40px;
 					font-size: 20px;
 					line-height: 40px;
-					font-weight: bold;
+					font-weight: $fw-semi-bold;
 					color: #2a3846;
 				}
 
@@ -88,7 +90,8 @@
 						font-size: 16px;
 						height: 24px;
 						line-height: 1.8;
-						font-family: "Muli-Regular", sans-serif;
+						// font-family: "Muli-Regular", sans-serif;
+						font-weight: $fw-regular;
 						color: #484b4d;
 						cursor: pointer;
 
@@ -161,7 +164,8 @@
 							border-radius: 0 3px 3px 0;
 							background-color: #ffcb28;
 							font-size: 16px;
-							font-family: "Muli-bold", sans-serif;
+							// font-family: "Muli-bold", sans-serif;
+							font-weight: $fw-bold;
 							color: #fff;
 						}
 					}
@@ -177,7 +181,8 @@
 						.h4 {
 							margin-bottom: 17px;
 							font-size: 20px;
-							font-family: "Muli-ExtraBold", sans-serif;
+							// font-family: "Muli-ExtraBold", sans-serif;
+							font-weight: $fw-extra-bold;
 							color: #2a3846;
 							text-align: left;
 						}
@@ -186,7 +191,8 @@
 							margin-bottom: 27px;
 							font-size: 16px;
 							line-height: 1.8;
-							font-family: "Muli-Regular", sans-serif;
+							// font-family: "Muli-Regular", sans-serif;
+							font-weight: $fw-regular;
 							color: #6d7882;
 							text-align: left;
 						}
@@ -202,10 +208,11 @@
 							width: 100%;
 							background-color: #d9e0e4;
 							font-size: 16px;
-							font-family: "Muli-bold", sans-serif;
+							// font-family: "Muli-bold", sans-serif;
+							font-weight: $fw-bold;
 							color: #484b4d;
 							text-align: center;
-							padding: 12px 0;
+							padding: 14px 0 10px;
 							&:hover,
 							&:focus {
 								background-color: #e9eef1;
@@ -240,6 +247,16 @@
 			@media (min-width: 768px) {
 				width: calc(100% - 320px);
 			}
+		}
+	}
+}
+
+/* ----------------------------- */
+/* Css for window OS - fix font  */
+.window-os {
+	.filtered-listing {
+		.listing-wrapper .listing-left .item-type-picker .assets button:before {
+			top: -3px;
 		}
 	}
 }

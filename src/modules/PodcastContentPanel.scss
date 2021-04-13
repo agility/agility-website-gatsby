@@ -58,9 +58,10 @@
     }
 
     h1 {
-      font-family: $bold;
+      // font-family: $bold;
       font-size: 30px;
-      font-weight: bold;
+      // font-weight: bold;
+      font-weight: $fw-bold;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.33;
@@ -75,9 +76,10 @@
     }
 
     h2 {
-      font-family: $semibold;
+      // font-family: $semibold;
       font-size: 18px;
-      font-weight: 600;
+      // font-weight: 600;
+      font-weight: $fw-semi-bold;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.6;
@@ -87,9 +89,9 @@
     }
 
     p {
-      font-family: $regular;
+      // font-family: $regular;
       font-size: 16px;
-      font-weight: normal;
+      font-weight: $fw-regular;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.8;
@@ -114,9 +116,9 @@
       .btn-link {
         display: flex;
         align-items: center;
-        font-family: $bold;
+        // font-family: $bold;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: $fw-bold;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;

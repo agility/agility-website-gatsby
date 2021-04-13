@@ -15,14 +15,16 @@
 
             h3 {
                 font-size: 1.75em;
-                font-weight: bold;
-                font-family: $bold;
+                // font-weight: bold;
+                // font-family: $bold;
+                font-weight: $fw-bold;
             }
 
             h4 {
                 font-size: 1.25em;
-                font-weight: bold;
-                font-family: $bold;
+                // font-weight: bold;
+                // font-family: $bold;
+                font-weight: $fw-bold;
                 color: $gray;
                 margin-bottom: 15px;
             }

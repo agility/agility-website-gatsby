@@ -68,7 +68,9 @@
           .h5 {
             margin-bottom: 0;
             font-size: 16px;
-            font-family: "Muli-Regular", sans-serif;
+            // font-family: "Muli-Regular", sans-serif;
+            font-weight: $fw-bold; // co font wieht 600
+
             color: #484b4d;
           }
         }
@@ -76,7 +78,8 @@
         .date {
           margin-top: 2px;
           font-size: 16px;
-          font-family: "Muli-Regular", sans-serif;
+          // font-family: "Muli-Regular", sans-serif;
+          font-weight: $fw-regular;
           color: #9fa7b0;
         }
       }
@@ -100,7 +103,8 @@
 
         span {
           font-size: 16px;
-          font-family: "Muli-Bold", sans-serif;
+          // font-family: "Muli-Bold", sans-serif;
+          font-weight: $fw-bold;
           color: #484b4d;
         }
 

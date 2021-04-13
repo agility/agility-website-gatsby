@@ -20,6 +20,9 @@
     .btn-menu {
       display: none;
     }
+    .btn-menu-v2 {
+      display: block;
+    }
     .btn-pin {
       display: block;
     }
@@ -85,7 +88,8 @@
   }
   .bind-text {
     font-size: 16px;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     color: transparent;
     max-height: 2px;
     overflow: hidden;
@@ -108,7 +112,8 @@
     outline: none;
     color: #5800d4;
     font-size: 16px;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     border-radius: 0;
     &::placeholder {
       color: #5800d4;
@@ -300,6 +305,11 @@
   }
   .navbar-nav{
     display: flex;
+  }
+  .box-search-header {
+    .btn-menu:not(.btn-menu-v2){
+      order: 5;
+    }
   }
 }
 @media (max-width: 991px) {

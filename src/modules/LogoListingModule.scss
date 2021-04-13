@@ -4,7 +4,8 @@
   h5 {
     text-transform: uppercase;
     color: $color-58;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     display: inline-block;
     position: relative;
     &::before,

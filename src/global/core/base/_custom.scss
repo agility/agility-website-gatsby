@@ -211,22 +211,27 @@ img {
 
 form  button[type='submit'] {
   transition: all .35s;
+  &.btn {
+    // padding-right: 35px !important;
+  }
   &::after {
-    display: none;
+    // display: none !important;
+    // content: none;
+    margin-left: 8px;
   }
   span {
     margin-bottom: 0;
     display: inline-block;
     position: relative;
-    &::after {
-      content: '\e906';
-      font-family: 'icomoon';
-      position: absolute;
-      top: 5px;
-      right: -16px;
-      font-size: 11px;
-      font-weight: normal;
-    }
+    // &::after {
+    //   content: '\e906';
+    //   font-family: 'icomoon';
+    //   position: absolute;
+    //   top: 2px;
+    //   right: -16px;
+    //   font-size: 11px;
+    //   font-weight: normal;
+    // }
   }
 }
 .blog-item-container .blog-item .btn {
@@ -269,7 +274,7 @@ form  button[type='submit'] {
     max-height: 0;
   }
   .container {
-    padding: 10px 60px;
+    padding: 11px 60px 9px;
   }
   p {
     font-size: rem(16);
@@ -356,7 +361,8 @@ input {
     padding: 0 7px;
     border: 2px solid transparent;
     color: $color-4c;
-    font-family: $mlBold;
+    // font-family: $mlBold;
+    font-weight: $fw-bold;
     position: relative;
     cursor: pointer;
     transition: all .35s;
@@ -400,6 +406,16 @@ input {
 }
 .opacity-0 {
   opacity: 0;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.transition-25 {
+  transition: all .25s;
+}
+.font-bold {
+  // font-family: $mlBold, sans-serif;
+  font-weight: $fw-bold;
 }
 @include media-breakpoint-up(sm) {
   .main-content {

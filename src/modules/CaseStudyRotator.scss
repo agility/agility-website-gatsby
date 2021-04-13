@@ -22,12 +22,18 @@
   position: relative;
   cursor: pointer;
   flex-direction: column;
+  /* Fix slider has Image render gatsby */
+  .lazyload-wrapper {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
   img {
     // max-width: 80%;
     // max-height: 65%;
 	width: 100px;
 	height: auto;
-    position: relative;
+    // position: relative;
     z-index: 1;
     margin: 0 auto;
   }
@@ -113,6 +119,8 @@
     transition: height .3s;
   }
 }
+
+
 @media (min-width: 375px){
   .list-logo-feature .slick-slide {
     min-width: 110px;

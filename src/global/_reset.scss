@@ -71,9 +71,10 @@ html, body {
 }
 
 body {
-  font-family: "Muli-Regular", sans-serif;
+  // font-family: "Muli-Regular", sans-serif;
+  font-weight: $fw-regular;
   font-style: normal;
-  font-weight: normal;
+  // font-weight: normal;
   line-height: normal;
   color: $colorBasic;
 }

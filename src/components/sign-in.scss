@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import '../global/setting';
 
 .sign-in {
   position: relative;
@@ -122,7 +123,8 @@
         border: none;
         line-height: 1.88px;
         font-size: 16px;
-        font-family: "Muli-Regular", sans-serif;
+        // font-family: "Muli-Regular", sans-serif;
+        // font-weight: $fw-regular;
         color: #484b4d;
         box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.13);
         background: #fff url(../../dist/img/gray.svg) 8px center no-repeat;
@@ -161,9 +163,10 @@
     }
 
     a {
-      font-family: $regular;
+      // font-family: $regular;
+      font-weight: $fw-regular;
       font-size: 14px;
-      font-weight: normal;
+      // font-weight: normal;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -178,8 +181,8 @@
     }
 
     .sign-in-log {
-      font-family: $bold;
-      font-weight: bold;
+      // font-family: $bold;
+      font-weight: $fw-regular;
 
       &:hover {
         color: #000;

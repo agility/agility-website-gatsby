@@ -1,5 +1,6 @@
 //main-width "padding-width"
 @import "./_variables.scss";
+@import '../global/setting';
 
 html.search-open {
   overflow: hidden;
@@ -23,7 +24,8 @@ p.intro {
   margin: 0 auto 30px;
   font-size: 20px;
   line-height: 1.6;
-  font-family: "Muli-SemiBold", sans-serif;
+  // font-family: "Muli-SemiBold", sans-serif;
+  font-weight: $fw-semi-bold;
   color: #484b4d;
   text-align: center;
 }
@@ -138,9 +140,10 @@ p {
 
 // titles
 .title-component {
-  font-family: $bold;
+  // font-family: $bold;
+  font-weight: $fw-bold;
   font-size: 30px;
-  font-weight: bold;
+  // font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -161,9 +164,10 @@ p {
 
 i.more {
   display: none;
-  font-family: $bold;
+  // font-family: $bold;
+  font-weight: $fw-bold;
   font-size: 12px;
-  font-weight: bold;
+  // font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -197,7 +201,8 @@ a.arrow-button {
     display: block;
     padding-right: 8px;
     font-size: 16px;
-    font-family: "Muli-bold", sans-serif;
+    // font-family: "Muli-bold", sans-serif;
+    font-weight: $fw-bold;
     color: #484b4d;
     -webkit-transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
     -moz-transition: all 0.2s cubic-bezier(0.24, 0.35, 0, 1.01);
@@ -244,5 +249,6 @@ a.arrow-button {
 }
 
 input, textarea, select {
-	font-family: $regular;
+	// font-family: $regular;
+  font-weight: $fw-regular;
 }

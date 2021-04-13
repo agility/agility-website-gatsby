@@ -28,9 +28,9 @@
   }
 
   p {
-    font-family: $semibold;
+    // font-family: $semibold;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: $fw-semi-bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.6;

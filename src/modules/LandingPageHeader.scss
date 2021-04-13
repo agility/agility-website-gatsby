@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import "../global/setting";
 
 .landing-page-header {
     color: #fff;
@@ -20,9 +21,10 @@
 
         h1 {
             font-size: 2em;
-            font-weight: bold;
+            // font-weight: bold;
             margin-bottom: 20px;
-            font-family: $bold;
+            // font-family: $bold;
+            font-weight: $fw-bold;
         }
 
         p {
@@ -65,8 +67,9 @@
             font-size: 2em;
             text-align: center;
             margin-bottom: 20px;
-            font-family: "Muli-bold", sans-serif;
-            font-weight: bold;
+            // font-family: "Muli-bold", sans-serif;
+            // font-weight: bold;
+            font-weight: $fw-bold;
           }
 
           .form-item {

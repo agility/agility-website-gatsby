@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import "../global/setting";
 .box-thanks {
   display: none;
   padding: 12px 0px 26px;
@@ -10,7 +11,8 @@
   }
   a:not(.btn) {
     color: #ffc414;
-    font-family: 'Muli-Bold', sans-serif;
+    // font-family: 'Muli-Bold', sans-serif;
+    font-weight: $fw-bold;
   }
 }
 .img-footer {
@@ -79,9 +81,10 @@
     margin-bottom: 23px;
     padding: 0 10px;
     .foter-menu-li.title {
-      font-family: $bold;
+      // font-family: $bold;
+      font-weight: $fw-bold;
       font-size: 16px;
-      font-weight: 800;
+      // font-weight: 800;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -91,9 +94,10 @@
     }
 
     .foter-menu-li a {
-      font-family: $regular;
+      // font-family: $regular;
+      font-weight: $fw-regular;
       font-size: 15px;
-      font-weight: normal;
+      // font-weight: normal;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -173,9 +177,10 @@
     margin: 56px 0;
     position: relative;
     span {
-      font-family: $bold;
+      // font-family: $bold;
+      font-weight: $fw-bold;
       font-size: 16px;
-      font-weight: 800;
+      // font-weight: 800;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -189,9 +194,10 @@
       position: relative;
       margin-top: -12px;
       input[type="email"] {
-        font-family: $bold;
+        // font-family: $bold;
+        font-weight: $fw-bold;
         font-size: 15px;
-        font-weight: normal;
+        // font-weight: normal;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
@@ -200,12 +206,12 @@
         border: none;
         outline: none;
         z-index: 4;
-        padding-left: 24px;
+        padding: 17px 5px 17px 24px;
         width: 100%;
-        height: 100%;
+        // height: 100%;
         left: 0;
         top: 0;
-        height: 54px;
+        // height: 54px;
         margin-bottom: 15px;
         border-radius: 0;
         &:-webkit-autofill {
@@ -233,13 +239,16 @@
       [type="submit"] {
         margin: -3px 0 0;
         width: 100%;
+        // height: 54px;
         transition: all .35s;
         cursor: pointer;
+        line-height: 1;
         &:focus {
           outline: none;
         }
         span {
           margin-bottom: 0;
+          display: inline-block;
         }
       }
     }
@@ -290,9 +299,10 @@
     }
 
     p {
-      font-family: $regular;
+      // font-family: $regular;
+      font-weight: $fw-regular;
       font-size: 11px;
-      font-weight: normal;
+      // font-weight: normal;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -349,9 +359,10 @@
       }
 
       a {
-        font-family: $regular;
+        // font-family: $regular;
+        font-weight: $fw-regular;
         font-size: 13px;
-        font-weight: normal;
+        // font-weight: normal;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
@@ -379,6 +390,21 @@
     }
   }
 }
+/* Css for window OS - fix font  */
+
+.window-os {
+  .foter {
+    .foter-subscribe {
+      .foter-subscribe-form {
+        input[type=email] {
+          padding-top: 21px;
+          padding-bottom: 18px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .foter {
     .foter-menu {
@@ -421,12 +447,18 @@
       padding: 40px 40px 30px;
       margin-bottom: 65px;
       .foter-subscribe-form {
+        display: flex;
+        margin-bottom: 15px;
         input[type="email"] {
           max-width: calc(100% - 135px);
           margin-right: 15px;
+          margin-bottom: 0;
+          flex-grow: 1;
         }
         [type="submit"] {
           width: 120px;
+          flex: 0 0 120px;
+          margin: 0;
         }
       }
     }
@@ -458,6 +490,7 @@
     text-align: right;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .foter {
     .foter-menu {
@@ -496,7 +529,7 @@
       margin-bottom: 0;
     }
     .foter-copyright {
-      padding: 17px 0 22px;
+      padding: 19px 0 20px;
     }
   }
 }

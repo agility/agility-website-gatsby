@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import "../global/setting";
 
 #sec-2 {
   margin: $module-margin-spacing;
@@ -79,7 +80,8 @@
       }
 
       .ben-title {
-        font-family: $bold;
+        // font-family: $bold;
+        font-weight: $fw-bold;
         font-size: 18px;
         font-weight: 600;
         font-style: normal;

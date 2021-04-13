@@ -1,4 +1,5 @@
 @import "../global/_variables";
+@import "../global/setting";
 
 .callout {
 	padding: 40px 20px 50px;
@@ -28,7 +29,8 @@
 		margin: 0 auto 40px auto;
 		font-size: 30px;
 		line-height: 1.56;
-		font-family: "Muli-bold", sans-serif;
+		// font-family: "Muli-bold", sans-serif;
+		font-weight: $fw-bold;
 		color: #2a3846;
 
 		@media (max-width: 767px) {
@@ -42,7 +44,8 @@
 		max-width: 1008px;
 		font-size: 20px;
 		line-height: 1.6;
-		font-family: "Muli-SemiBold", sans-serif;
+		// font-family: "Muli-SemiBold", sans-serif;
+		font-weight: $fw-semi-bold;
 		color: #484b4d;
 
 		@media (max-width: 767px) {
