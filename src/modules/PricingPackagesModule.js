@@ -546,20 +546,25 @@ class PricingPackagesModule2 extends React.Component {
 		const BlockPriceDesktop = (
 			<div className="price-desktop">
 				<div className="virtual-pin-bar" style={{ height: `${this.state.isPin ? document.querySelector('.table-header').clientHeight + 'px' : ''}` }}></div>
-				<table className="table-header-pin table-header">
-					<tbody>
-						<tr>
-							<td>
-								<div className="text-pin d-none">
-									All Features
-							</div>
-							</td>
-							{ShowTilePin &&
-								ShowTilePin
-							}
-						</tr>
-					</tbody>
-				</table>
+				<div className="table-header-pin table-header">
+					<div className="container">
+						<table className="w-100">
+							<tbody>
+								<tr>
+									<td>
+										<div className="text-pin d-none">
+											All Features
+									</div>
+									</td>
+									{ShowTilePin &&
+										ShowTilePin
+									}
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
 				<div className="wrap-price-catelogy">
 					{listCategory && listCategory.length > 0 &&
 						listCategory
