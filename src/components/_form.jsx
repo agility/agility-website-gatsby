@@ -267,8 +267,9 @@ class Form extends React.Component {
 			if (this.props.redirectURL !== undefined
 				&& this.props.redirectURL
 				&& this.props.redirectURL.href) {
+					const redirectUrl =  this.props.redirectURL.href
 					setTimeout(function() {
-						window.location.href = this.props.redirectURL.href;
+						window.location.href = redirectUrl;
 					}, 500)
 
 				return;
