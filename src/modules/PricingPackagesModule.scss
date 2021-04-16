@@ -19,10 +19,10 @@
 }
 .table-pin {
   position: fixed;
-  left: 50% !important;
+  // left: 50% !important;
   z-index: 10;
   border-color: transparent !important;
-  transform: translateX(-50%);
+  // transform: translateX(-50%);
 }
 .wrap-price-head {
   margin-top: 82px;
@@ -88,11 +88,12 @@
     }
   }
 }
-.table-header {
-  max-width: 970px;
-  // background-color: #fff;
-  max-width: 100%;
-}
+// .table-header {
+//   // max-width: 970px;
+//   // max-width: 690px;
+//   // background-color: #fff;
+//   // max-width: 100%;
+// }
 
 .price-type {
   font-size: rem(24);
@@ -295,8 +296,10 @@
 }
 .table-header-pin {
   // border-bottom: 1px solid rgba(76, 104, 132, 0.2);
-  padding: 0 20px;
+  // padding: 0 20px;
   margin: 0 auto;
+  margin-left: -20px;
+  margin-right: -20px; 
   &::before {
     content: '';
     position: absolute;
@@ -521,9 +524,9 @@
 @media (max-width: 767px) {
   .table-header-pin {
     &.table-pin {
-      left: 20px !important;
+      // left: 20px !important;
       transform: none !important;
-      width: calc(100% - 40px);
+      // width: calc(100% - 40px);
       margin: 0 !important;
     }
     td {
@@ -568,8 +571,11 @@
     letter-spacing: -0.24px;
   }
   .price-desktop {
-    .table-header-pin td:not(.pr-sub-title) div {
-      padding: 15px 0;
+    .table-header-pin {
+      padding: 0;
+      td:not(.pr-sub-title) div {
+        padding: 15px 0;
+      }
     }
   }
   .description {
@@ -577,9 +583,9 @@
   }
 }
 @media (min-width: 992px) {
-  .table-header {
-    max-width: 930px;
-  }
+  // .table-header {
+  //   // max-width: 930px;
+  // }
   .pricing-package {
     // margin-top: -135px;
     // max-width: 645px;
@@ -721,9 +727,9 @@
 }
 
 @media (min-width: 1200px) {
-  .table-header {
-    max-width: 1110px;
-  }
+  // .table-header {
+  //   // max-width: 1110px;
+  // }
   .wrap-price-head {
     max-width: none;
     margin-top: 78px;
@@ -798,9 +804,9 @@
   // }
 }
 @media (min-width: 1501px) {
-  .table-header {
-    max-width: 1340px;
-  }
+  // .table-header {
+  //   // max-width: 1340px;
+  // }
   .price-head {
     padding: 36px 37px 22px;
   }
