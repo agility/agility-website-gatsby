@@ -189,6 +189,24 @@ class Footer extends React.Component {
 			if(response.status===202){
 				document.querySelectorAll('.foter-subscribe')[0].classList.add('thanks-subs')
 			}
+
+			//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
+			try {
+				const email = data["email"]
+				const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
+				var visitorObject = window[vgoAlias];
+				if (email && typeof visitorObject !== 'undefined') {
+					if (console) console.log("setting active campaign user to ", email)
+					visitorObject('setEmail', email);
+					visitorObject('update');
+				} else {
+					if (console) console.log("could not set active campaign user", email, visitorObject)
+				}
+
+			} catch (error) {
+				if (console) console.log("Error sending Email to Active Campaign", error)
+			}
+
 			// console.table('response', response)
 		}).catch(err => {
 
