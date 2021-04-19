@@ -35,6 +35,7 @@ class FullPageForm extends React.Component {
 										validationMessage={this.props.validationMessage}
 										btnStyles={btnStyles}
 										submissionCopy={this.props.submissionCopy}
+										submitButtonLabel={ this.props.submitButtonLabel }
 									>
 										<h3 className="form-title">{this.props.formTitle}</h3>
 										{this.props.children}
