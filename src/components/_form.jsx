@@ -336,7 +336,8 @@ class Form extends React.Component {
 
 		let btnClass = props.btnStyles + (this.state.isSubmitting ? " submitting" : "");
 		// let submitMsg = this.state.isSubmitting ? "Send Message" : "Send Message";
-		let submitMsg = "Send Message";
+		// let submitMsg = "Send Message";
+		let submitMsg = this.props.submitButtonLabel ?? "Send Message";
 		if (this.state.isSubmitting) {
 			btnClass += " submitting";
 			classNames.push(" submitting");
