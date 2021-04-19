@@ -233,16 +233,33 @@ class Form extends React.Component {
 
 		this.setState({ isSubmitting: true });
 
-
 		PostUtil.postData(
 			this.props.postURL,
 			data
 		).then(response => {
 
+			const email = data.email
 			//and response in the 200s is ok
 			if (response.status < 200 && response.status > 299) {
 				this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
 				return;
+			}
+
+			//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
+			try {
+
+				const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
+				var visitorObject = window[vgoAlias];
+				if (email && typeof visitorObject !== 'undefined') {
+					if (console) console.log("setting active campaign user to ", email)
+					visitorObject('setEmail', email);
+					visitorObject('update');
+				} else {
+					if (console) console.log("could not set active campaign user", email, visitorObject)
+				}
+
+			} catch (error) {
+				if (console) console.log("Error sending Email to Active Campaign", error)
 			}
 
 
@@ -250,7 +267,11 @@ class Form extends React.Component {
 			if (this.props.redirectURL !== undefined
 				&& this.props.redirectURL
 				&& this.props.redirectURL.href) {
-				window.location.href = this.props.redirectURL.href;
+					const redirectUrl =  this.props.redirectURL.href
+					setTimeout(function() {
+						window.location.href = redirectUrl;
+					}, 500)
+
 				return;
 			};
 
