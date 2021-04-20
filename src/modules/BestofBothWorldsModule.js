@@ -54,13 +54,13 @@ const BestofBothWorldsModule = ({ item }) => {
 				slider.style.left = (w / 2) - 30.5  + 'px';
 				slider.addEventListener('mousedown', slideReady);
 				window.addEventListener('mouseup', slideFinish);
-				slider.addEventListener('touchstart', slideReady);
-				window.addEventListener('touchend', slideFinish);
+				slider.addEventListener('touchstart', slideReady, {passive: true});
+				window.addEventListener('touchend', slideFinish, {passive: true});
 				function slideReady(e) {
 					e.preventDefault();
 					clicked = 1;
 					window.addEventListener('mousemove', slideMove);
-					window.addEventListener('touchmove', slideMove);
+					window.addEventListener('touchmove', slideMove, {passive: true});
 				}
 				function slideFinish() {
 					clicked = 0;
@@ -198,6 +198,7 @@ const BestofBothWorldsModule = ({ item }) => {
 			</div>
 		)
 	})
+
 	return (
 		<React.Fragment>
 			<section className={classSection}>
