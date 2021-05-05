@@ -4,6 +4,6 @@
 /community/agileliving 		/resources/agileliving
 /community/agileliving/* 	/resources/agileliving/:splat
 
-https://blog.agilitycms.com/*	https://agilitycms.com/:splat 301!
+https://blog.agilitycms.com/*	https://agilitycms.com/resources/posts/:splat 301!
 
 https://agilitycms.com/blog/:category/* https://agilitycms.com/resources/posts/:splat
