@@ -5,10 +5,8 @@
   padding-bottom: 50px;
   position: relative;
   overflow: hidden;
-  @media (max-width: 480px) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  padding-left: 15px;
+  padding-right: 15px;
   .container-my {
     @media (max-width: 480px) {
       padding-left: 0;
@@ -107,6 +105,8 @@
   }
 
   .features-toggle-tab-items {
+    flex: 0 0 100%;
+    max-width: 100%;
     .react-tabs__tab-panel {
       height: 0;
       padding: 0 60px;

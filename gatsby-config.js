@@ -29,7 +29,6 @@ module.exports = {
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-netlify`,
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-netlify`,
 		`gatsby-plugin-image`,
 		`gatsby-plugin-gatsby-cloud`,
 		`gatsby-plugin-loadable-components-ssr`,

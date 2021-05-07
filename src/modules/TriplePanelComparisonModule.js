@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useRef, useEffect } from 'react';
 import { renderHTML } from '../agility/utils'
 import './TriplePanelComparisonModule.scss'
 import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const TriplePanelComparisonModule = ({ item }) => {
 	const classSection = `module TriplePanelComparisonModule ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
@@ -25,13 +26,28 @@ const TriplePanelComparisonModule = ({ item }) => {
 	const panel3Title = item.customFields.panel3Title
 	const panel3Icon = item.customFields.panel3Graphic && item.customFields.panel3Graphic.url ? item.customFields.panel3Graphic.url : 'images/icon3col.svg'
 	const panel3UncheckedContent = item.customFields.panel3UncheckedContent
+	const thisModuleRef = useRef(null)
 
 
 	//item = item.customFields;
 	// console.log("TriplePanelComparisonModule", item)
+
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className='space-80 space-dt-100'></div>
 				<div className="container last-mb-none max-w-940 text-center anima-bottom animation">
 				{ heading &&

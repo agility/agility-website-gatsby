@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useState,useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import './LogoListingModule.scss'
@@ -7,6 +7,8 @@ import '../global/core/lib/_slick-theme.scss'
 import ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
+
 const LogoListingModule = ({ item }) => {
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
@@ -71,9 +73,23 @@ const LogoListingModule = ({ item }) => {
     }]
   };
 
+	/* animation module */
+	const thisModuleRef = useRef(null)
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="container">
 					<div className="LogoListingModule-heading anima-bottom text-center last-mb-none">
 						{ heading &&

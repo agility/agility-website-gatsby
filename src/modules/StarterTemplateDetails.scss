@@ -135,7 +135,7 @@
 	&::before {
 		content: '\E906';
 		font-family: $icomoon;
-		@include position(absolute,$top: -4px,$left: -2px);
+		@include position(absolute,$top: -7px,$left: -2px);
 		color: inherit;
 		transform: rotate(180deg);
     font-size: 11px;
@@ -299,7 +299,7 @@
 	.black-starters {
 		&::after {
 			content: '';
-			@include position(absolute,null,null,-4px,12px,0);
+			@include position(absolute,null,null,-6px,12px,0);
 			height: 2px;
 			background-color: $color-58;
 			transition: all .35s;

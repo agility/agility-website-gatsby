@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Spacing from './Spacing'
 import './2BoxContent.scss'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const BoxContent = ({ item }) => {
 	const fields = item.customFields
@@ -14,9 +15,31 @@ const BoxContent = ({ item }) => {
 	const image = fields.image
 	const image2 = fields.image2
 	const classitem  = ( btnCta || image || heading || description) && ( btnCta2 || image2 || heading2 || description2)  ? 'col-lg-6 item-chanel' : 'col-lg-8 item-chanel'
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
+	useEffect(() => {
+		const prevElem = thisModuleRef.current.previousElementSibling?.previousElementSibling
+		if (prevElem && typeof prevElem === 'object' && prevElem.classList.contains('mod-user-guides')) {
+			prevElem.classList.add('has-chanel')
+		}
+	})
+
 	return (
 		<React.Fragment>
-		<section className={classSection}>
+		<section className={classSection} ref={ thisModuleRef }>
 			<div className="container">
 				<div className="row justify-content-center anima-bottom">
 					{ (btnCta || image || heading || description) &&

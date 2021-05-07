@@ -27,6 +27,9 @@
 }
 .wrap-ani-home {
   margin-bottom: 37px;
+  &.is-home img {
+    width: 100%;
+  }
   .item2 {
     position: relative;
     z-index: 1;

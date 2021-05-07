@@ -24,8 +24,8 @@ const ContentZone = ({ name, page, dynamicPageItem }) => {
 				let ModuleComponentToRender = null
 
 				try {
+					// ModuleComponentToRender = require(`../../modules/${moduleDefName}`).default // getModule(moduleDefName)
 					ModuleComponentToRender = getModule(moduleDefName)
-
 				} catch (er) {
 					console.error(`Could not load module ${moduleDefName}`, er)
 				}

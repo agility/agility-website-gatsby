@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { renderHTML } from '../agility/utils'
 import './NewIntegrationModule.scss'
 import Helpers from '../global/javascript/Helpers'
 import Lazyload from 'react-lazyload'
 import Spacing from './Spacing'
+import { animationElementInnerComponent } from '../global/javascript/animation'
+
 const NewIntegrationModule = ({ item }) => {
 	const heading = item.customFields.title
 	const des = item.customFields.description
@@ -50,75 +52,75 @@ const NewIntegrationModule = ({ item }) => {
     return null
   })
 
-	const init = () => {
-		callAnimation()
-		window.addEventListener('resize', callAnimation);
-	}
-	const callAnimation = () => {
-		let banner = document.getElementsByClassName('mod-banner')
-		let inter,inter2
-		if (banner.length && window.innerWidth >= 1200 && !banner[0].classList.contains('done-ani')) {
-			inter2 = setInterval(() => {
-				if(window.lottie) {
-					loadAni()
-					clearInterval(inter2)
-				}
-			}, 5);
-			inter = setInterval(() => {
-				if(banner.length > 0 && banner[0] && banner[0].classList.contains('set-animation')) {
-					clearInterval(inter)
-					callLotie()
-				}
-			}, 5);
-		}
-	}
-	const loadAni = () => {
-		let temp = 0
-		Array.from(document.querySelectorAll('.ani-banner')).forEach((item,index) => {
-			array[index] = window.lottie.loadAnimation({
-				container: item,
-				renderer: 'svg',
-				loop: false,
-				autoplay: false,
-				path:  `/js/layer_${index}.json`
-			})
-			if(index === 2 || index === 3) {
-				array[index].addEventListener('loaded_images', function (e) {
-					temp++
-					if (temp === 2) {
-						document.getElementsByClassName('mod-banner')[0].classList.add('done-ani')
-					}
-				})
-			}
-		})
-	}
-	const callLotie = () => {
-		setTimeout(() => {
-			array.forEach(element => element.play());
-		}, 400)
-		setTimeout(() => {
-			document.getElementsByClassName('mod-banner')[0].classList.remove('done-ani')
-		}, 1000)
-	}
-	const initParallax = () => {
-		if (document.getElementsByClassName('ani-banner').length) {
-			parallaxBanner()
-		}
-	}
-	const parallaxBanner = () => {
-		const doc = document.documentElement;
-		const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		const item0 = document.getElementsByClassName('ani-banner')[0]
-		const item1 = document.getElementsByClassName('ani-banner')[1]
-		const item2 = document.getElementsByClassName('ani-banner')[2]
-		const item3 = document.getElementsByClassName('ani-banner')[3]
-		const item4 = document.getElementsByClassName('ani-banner')[4]
-		item0.style.transform =  'translateY(' + -(top / 6) + 'px)'
-		item1.style.transform = 'translateY(' + -(top / 5) + 'px)'
-		item2.style.transform = 'translateY(' + -(top / 3) + 'px)'
-		item3.style.transform = 'translateY(' + -(top / 2.3) + 'px)'
-		item4.style.transform = 'translateY(' + -(top / 3.5) + 'px)'
-	}
+	// const init = () => {
+	// 	callAnimation()
+	// 	window.addEventListener('resize', callAnimation);
+	// }
+	// const callAnimation = () => {
+	// 	let banner = document.getElementsByClassName('mod-banner')
+	// 	let inter,inter2
+	// 	if (banner.length && window.innerWidth >= 1200 && !banner[0].classList.contains('done-ani')) {
+	// 		inter2 = setInterval(() => {
+	// 			if(window.lottie) {
+	// 				loadAni()
+	// 				clearInterval(inter2)
+	// 			}
+	// 		}, 5);
+	// 		inter = setInterval(() => {
+	// 			if(banner.length > 0 && banner[0] && banner[0].classList.contains('set-animation')) {
+	// 				clearInterval(inter)
+	// 				callLotie()
+	// 			}
+	// 		}, 5);
+	// 	}
+	// }
+	// const loadAni = () => {
+	// 	let temp = 0
+	// 	Array.from(document.querySelectorAll('.ani-banner')).forEach((item,index) => {
+	// 		array[index] = window.lottie.loadAnimation({
+	// 			container: item,
+	// 			renderer: 'svg',
+	// 			loop: false,
+	// 			autoplay: false,
+	// 			path:  `/js/layer_${index}.json`
+	// 		})
+	// 		if(index === 2 || index === 3) {
+	// 			array[index].addEventListener('loaded_images', function (e) {
+	// 				temp++
+	// 				if (temp === 2) {
+	// 					document.getElementsByClassName('mod-banner')[0].classList.add('done-ani')
+	// 				}
+	// 			})
+	// 		}
+	// 	})
+	// }
+	// const callLotie = () => {
+	// 	setTimeout(() => {
+	// 		array.forEach(element => element.play());
+	// 	}, 400)
+	// 	setTimeout(() => {
+	// 		document.getElementsByClassName('mod-banner')[0].classList.remove('done-ani')
+	// 	}, 1000)
+	// }
+	// const initParallax = () => {
+	// 	if (document.getElementsByClassName('ani-banner').length) {
+	// 		parallaxBanner()
+	// 	}
+	// }
+	// const parallaxBanner = () => {
+	// 	const doc = document.documentElement;
+	// 	const top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+	// 	const item0 = document.getElementsByClassName('ani-banner')[0]
+	// 	const item1 = document.getElementsByClassName('ani-banner')[1]
+	// 	const item2 = document.getElementsByClassName('ani-banner')[2]
+	// 	const item3 = document.getElementsByClassName('ani-banner')[3]
+	// 	const item4 = document.getElementsByClassName('ani-banner')[4]
+	// 	item0.style.transform =  'translateY(' + -(top / 6) + 'px)'
+	// 	item1.style.transform = 'translateY(' + -(top / 5) + 'px)'
+	// 	item2.style.transform = 'translateY(' + -(top / 3) + 'px)'
+	// 	item3.style.transform = 'translateY(' + -(top / 2.3) + 'px)'
+	// 	item4.style.transform = 'translateY(' + -(top / 3.5) + 'px)'
+	// }
 	const NoImg = () => {
 		if (isHomePage) {
 			return (
@@ -174,16 +176,34 @@ const NewIntegrationModule = ({ item }) => {
 		setHeightLogo()
 		ScrollSetHeight()
 		window.addEventListener('resize', setHeightLogo);
-		if (!imgModule && isHomePage) {
-			init()
-			if(!navigator.userAgent.match(/Trident\/7\./)) {
-				window.addEventListener('scroll', initParallax);
-			}
+		// if (!imgModule && isHomePage) {
+		// 	// init()
+		// 	if(!navigator.userAgent.match(/Trident\/7\./)) {
+		// 		window.addEventListener('scroll', initParallax);
+		// 	}
+		// }
+		return () => {
+			window.removeEventListener('resize', setHeightLogo);
 		}
   });
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="container">
 					<div className="row flex-md-row-reverse hero-text align-items-lg-center h1-big">
 						<div className={classAniImg}>

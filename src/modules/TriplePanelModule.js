@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 import './TriplePanelModule.scss'
 import LazyLoad from 'react-lazyload';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 export default props => (
 	<StaticQuery
@@ -75,9 +76,25 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 			</div>
 		)
 	})
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
+
 	return (
 	<React.Fragment>
-		<section className={classSection}>
+		<section className={classSection} ref={ thisModuleRef }>
 		<div className="container last-mb-none max-w-940 text-center animation anima-bottom">
 			{ heading &&
 				<h2>{heading}</h2>

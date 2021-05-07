@@ -78,29 +78,39 @@ class NewGlobalHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.header = React.createRef()
+		this.mainNode = React.createRef()
+		this.heightHeaderBackup = React.createRef()
+		this.boxMessage = React.createRef()
 		this.state = {
 			sticky: false,
 			openMenu: false,
+			pinHeader: false,
 			menuLv2Opening: '',
 			activeMenu: '',
 			webinar: '',
 			flag: false
 		}
 		this.stickyHeader = this.stickyHeader.bind(this)
+		this.setHeightFakeHeader = this.setHeightFakeHeader.bind(this)
+		this.updatePinHeader = this.updatePinHeader.bind(this)
+		this.updateHeighHeaderBackup = this.updateHeighHeaderBackup.bind(this)
+		this.hiddenMessage = this.hiddenMessage.bind(this)
 		this.showMenuMobile = this.showMenuMobile.bind(this)
 		this.removeClassOpenMenuOnHtml = this.removeClassOpenMenuOnHtml.bind(this)
+		this.resizeWindow = this.resizeWindow.bind(this)
+		this.scrollWindow = this.scrollWindow.bind(this)
 	}
 	componentDidMount() {
+		this.mainNode = document.querySelector('.main-content')
 		this.setState({activeMenu: window.location.pathname})
 		this.setState({webinar: Helpers.getCookie('WebinarHidden')})
 		this.setState({flag: true})
 		this.inputLine()
 		this.hiddenSeach()
 		this.removeClassOpenMenuOnHtml()
-		this.setPaddingBody()
 		this.clickAwebinar()
-		window.addEventListener('scroll', this.stickyHeader);
-		window.addEventListener('resize', this.setPaddingBody);
+		window.addEventListener('scroll', this.scrollWindow);
+		window.addEventListener('resize', this.resizeWindow);
 
 		if (navigator.platform.indexOf('Mac') > -1) {
 			document.querySelector('html').classList.add('mac-os')
@@ -108,19 +118,58 @@ class NewGlobalHeader extends Component {
 		if (navigator.platform.indexOf('Win') > -1) {
 			document.querySelector('html').classList.add('window-os')
 		}
+
+		this.updateHeighHeaderBackup()
+		// this.setState({ pinHeader: true })
+		// this.setHeightFakeHeader()
 	}
-	setPaddingBody () {
-		setTimeout (() => {
-			if(!(window.innerWidth < 992 && document.querySelectorAll('html')[0].classList.contains('is-open-menu'))) {
-				const header = document.querySelectorAll('#header')[0].offsetHeight
-				const main = document.querySelectorAll('.main-content')[0]
-				main.style.paddingTop = header + 'px'
-			}
-		}, 200)
+
+	componentDidUpdate(prevProps, prevState) {
+		this.removeClassOpenMenuOnHtml()
+		if (prevState.webinar !== this.state.webinar) {
+			this.updateHeighHeaderBackup()
+			this.updatePinHeader()
+		}
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.resizeWindow)
+		window.removeEventListener('scroll', this.scrollWindow)
+	}
+
+	/* resize Window */
+	resizeWindow() {
+		this.updateHeighHeaderBackup()
+		this.updatePinHeader()
+	}
+	/* SCROLL */
+	scrollWindow() {
+		this.updatePinHeader()
+		this.stickyHeader()
+	}
+
+	updatePinHeader() {
+		this.setState({ pinHeader: true })
+		this.setHeightFakeHeader()
+	}
+
+	/* update height value ò header prepare for append space */
+	updateHeighHeaderBackup() {
+		if(!(window.innerWidth < 992 && this.state.openMenu)) {
+			this.heightHeaderBackup = this.header.offsetHeight
+		}
+	}
+	setHeightFakeHeader() {
+		// if(!(window.innerWidth < 992 && this.state.openMenu)) {
+		// 	this.mainNode.style.paddingTop = this.header.offsetHeight + 'px'
+		// 	this.heightHeaderBackup = this.header.offsetHeight
+		// } else {
+			this.mainNode.style.paddingTop = this.heightHeaderBackup + 'px'
+		// }
 	}
 	stickyHeader () {
 		const winScroll = document.body.scrollTop || document.documentElement.scrollTop
-		if(winScroll > 50) {
+		if(winScroll > 1) {
 			this.setState({
 				sticky: true
 			})
@@ -135,23 +184,24 @@ class NewGlobalHeader extends Component {
 	}
 	showMenuMobile () {
 		const w = window.innerWidth || document.documentElement.offsetWidth
+
 		if (w < 992) {
 			this.setState({
 				openMenu: !this.state.openMenu
 			})
-			this.removeClassOpenMenuOnHtml()
+			this.updatePinHeader()
+
+			// this.removeClassOpenMenuOnHtml()
 		}
 	}
 	removeClassOpenMenuOnHtml() {
 		const isOpenMenuText = 'is-open-menu';
 		const html = document.querySelector('html')
-		setTimeout(() => {
 			if (this.state.openMenu === false) {
 				html.classList.remove(isOpenMenuText)
 			} else {
 				html.classList.add(isOpenMenuText)
 			}
-		}, 50)
 	}
 	openMenuLv1(event) {
 		if(window.innerWidth < 992) {
@@ -205,6 +255,8 @@ class NewGlobalHeader extends Component {
 			const target = event.target
 			if(target.classList.contains('link-line') && target.offsetParent.classList.contains('box-message')) {
 				Helpers.setCookie('WebinarHidden', 'true', { path: '/' })
+				this.updateHeighHeaderBackup()
+				this.updatePinHeader()
 			}
 		})
 	}
@@ -212,7 +264,6 @@ class NewGlobalHeader extends Component {
 		document.addEventListener('click',(event) => {
 			const group = document.querySelectorAll('.group-search')[0]
 			if(group.classList.contains('open') && event.target.classList.length && !event.target.classList.contains('dectect-open')) {
-				// console.log(event)
 				group.classList.remove('open')
 			}
 		})
@@ -223,12 +274,10 @@ class NewGlobalHeader extends Component {
 		document.getElementById('search-page-header').focus()
 	}
 	hiddenMessage () {
-		document.querySelectorAll('.box-message')[0].classList.add('hidden-mess')
-		const main = document.querySelectorAll('.main-content')[0]
-		const header = document.querySelectorAll('#header .navbar')[0].offsetHeight
-		main.style.paddingTop = header + 'px'
+		this.mainNode.style.paddingTop = this.heightHeaderBackup - (this.boxMessage ? this.boxMessage.offsetHeight : 0) + 'px'
+		this.setState({ webinar: 'true' })
 		Helpers.setCookie('WebinarHidden', 'true', { path: '/' })
-		// Cookies.save('WebinarHidden', 'true', { path: '/' });
+		// this.setHeightFakeHeader()
 	}
 	render() {
 		const menuGetstart = this.props.item.customFields.secondaryButton;
@@ -305,7 +354,7 @@ class NewGlobalHeader extends Component {
 				const btnMenu = <li className="d-lg-flex align-items-center box-search-header" key="btnMenu">
 					<div className="group-search">
 					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center dectect-open">
-						<Lazyload offset={ Helpers.lazyOffset }><img src={'/images/search.svg'} className="lazy dectect-open" alt="search" /></Lazyload>
+						<Lazyload offset={ Helpers.lazyOffset }><img src={'/images/search.svg'} className="lazy dectect-open" width="25" height="25" alt="search" /></Lazyload>
 					</button>
 						<form onSubmit={event => {
 							event.preventDefault()
@@ -335,23 +384,16 @@ class NewGlobalHeader extends Component {
 			return <ul className={level === 0 ? className: 'list-inline'}>{links}</ul>;
 		};
 
-		const onStickyActive = () => {
-			let stickyNow = false;
-			if (this.state) {
-				stickyNow = this.state.sticky
-			}
-			this.setState({ sticky: !stickyNow })
-		}
 		const item = this.props.item.customFields;
-		const classHeader = `module header ${this.state.sticky === true ? 'pin-header' : 'unpin-header'}  ${this.state.openMenu === true ? isOpenMenuText : ''}`;
+		const classHeader = `module header ${this.state.sticky === true ? 'pin-header' : 'unpin-header'}  ${this.state.openMenu === true ? isOpenMenuText : ''} ${this.state.pinHeader === true ? 'pos-fixed' : ''}`;
 		const classMainMenu = `navbar-collapse main-menu menu-header-right ${this.state.openMenu === true ? isOpenMenuText : ''}`
 		return (
 			<React.Fragment>
-				<header id="header" className={classHeader} data-module="header">
+				<header id="header" className={classHeader} data-module="header" ref={ reference => ( this.header = reference)}>
 					{/* <a className="skip-link text-center d-block w-100 bg-black text-white" href="javascript:;">
 						<span>Skip to content</span></a> */}
-					{ (item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 && this.state.webinar !== 'true' && this.state.flag === true &&
-						<div className="box-message text-white">
+					{ (item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 && this.state.webinar !== 'true' &&
+						<div className={`box-message text-white `} ref={ this.boxMessage }>
 							<div className="container last-mb-none text-center">
 								<div className="close-message" onClick={this.hiddenMessage}></div>
 								<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
@@ -363,7 +405,7 @@ class NewGlobalHeader extends Component {
 							{ item.logo ?
 								<div className="col-9 col-lg-12">
 									<Link to="/" id="header-logo" title={item.logo.label} className="navbar-brand header-logo w-100">
-										<img src={item.stickyLogo.url} alt={item.logo.label} />
+										<img src={item.stickyLogo.url} alt={item.logo.label} width="158" height="40" className="w-100"/>
 									</Link>
 								</div>
 							:

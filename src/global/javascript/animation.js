@@ -1,7 +1,7 @@
 
 
 import Helper from './Helpers'
-export const animationElementInnerComponent = ($elmComponent) =>  {
+export const animationElementInnerComponent = ($elmComponent) => {
   let $elems = $elmComponent?.classList?.contains('animation') ? [$elmComponent] : $elmComponent?.querySelectorAll('.animation')
   let winH = window.innerHeight
   let winW = window.innerWidth
@@ -25,21 +25,21 @@ export const animationElementInnerComponent = ($elmComponent) =>  {
         } else {
           add = 0
         }
-        if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
+        if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset)) > wintop) {
           $elm.classList.add('set-animation')
         } else {
-          if(topcoords + add > wintop + winH) {
+          if (topcoords + add > wintop + winH) {
             $elm.classList.remove('set-animation')
-          } 
+          }
         }
       })
     }
   } else {
-      $elmComponent.classList.add('set-animation')
+    $elmComponent.classList.add('set-animation')
   }
 }
 
-const animationEle = () =>  {
+export const animationEle = () => {
   let $elems = document.querySelectorAll('.animation')
   let winH = window.innerHeight
   let winW = window.innerWidth
@@ -63,7 +63,7 @@ const animationEle = () =>  {
       } else {
         add = 0
       }
-      if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset))  > wintop ) {
+      if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset)) > wintop) {
         $elm.classList.add('set-animation')
       } else {
         // if ($elm.offsetHeight + topcoords + add < wintop ||  topcoords + add > wintop + winH) {
@@ -74,9 +74,9 @@ const animationEle = () =>  {
         //     $elm.classList.add('anima-revert')
         //   }
         // }
-        if(topcoords + add > wintop + winH) {
+        if (topcoords + add > wintop + winH) {
           $elm.classList.remove('set-animation')
-        } 
+        }
       }
       return true
     })
@@ -88,33 +88,35 @@ const animationEle = () =>  {
   }
 }
 const removeLoading = () => {
-    document.getElementsByTagName('html')[0].classList.add('hide-loader')
-    animationEle()
-    window.addEventListener('scroll', function(e) {
-      animationEle()
-    })
+  document.getElementsByTagName('html')[0].classList.add('hide-loader')
+  // animationEle()
+  // window.addEventListener('scroll', function (e) {
+  //   animationEle()
+  // })
 }
 const AnimationScrollPage = () => {
   // document.querySelector('html').scrollTop = 0;
-  setTimeout (() => {
-    if(document.querySelectorAll('.ani-banner').length) {
-      let inter = setInterval(() => {
-        if (document.querySelectorAll('.done-ani').length) {
-          clearInterval(inter)
-          removeLoading()
-        }
-      }, 5)
-    } else {
+  // if (window.innerWidth > 991) {
+  //   // setTimeout(() => {
+  //     // if(document.querySelectorAll('.ani-banner').length) {
+  //     //   let inter = setInterval(() => {
+  //     //     if (document.querySelectorAll('.done-ani').length) {
+  //     //       clearInterval(inter)
+  //     //       removeLoading()
+  //     //     }
+  //     //   }, 5)
+  //     // } else {
       removeLoading()
-    }
-  }, 300)
+  //     // }
+  //   // }, 300)
+  // }
   dectectEventClick()
 }
 const dectectEventClick = () => {
   let tagA = document.querySelectorAll('a')
   Array.from(tagA).forEach((ele) => {
     ele.addEventListener('click', (e) => {
-      if(ele.getAttribute('href') === '#') {
+      if (ele.getAttribute('href') === '#') {
         e.preventDefault()
       }
     })

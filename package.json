@@ -32,7 +32,7 @@
 		"gatsby-plugin-sharp": "^3.0.1",
 		"gatsby-plugin-sitemap": "^3.0.0",
 		"he": "^1.2.0",
-		"html-react-parser": "^0.10.2",
+		"html-react-parser": "^0.10.5",
 		"i": "^0.3.6",
 		"luxon": "^1.26.0",
 		"npm": "^7.6.3",

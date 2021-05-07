@@ -4,7 +4,7 @@
 .event-list {
   margin: $module-margin-spacing;
   position: relative;
-
+  z-index: 1;
 	.container-my {
 		padding: 0 45px;
 	}

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import './GartnerPeerInsightsBar.scss'
 import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const GartnerPeerInsightsBar = ({ item }) => {
 	const classSection = `GartnerPeerInsightsBar bg-46 text-white animation anima-bottom ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
@@ -14,9 +15,24 @@ const GartnerPeerInsightsBar = ({ item }) => {
 	const title = item.customFields.title
 	const graphic = item.customFields.gartnerLogo.url
 	const stars = item.customFields.starsGraphic.url
+	const thisModuleRef = useRef(null)
+
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<LazyLoad offset={ Helpers.lazyOffset }>
 					<img src="/images/bg-top.svg" className="bg-left-star" alt="image"></img>
 				</LazyLoad>

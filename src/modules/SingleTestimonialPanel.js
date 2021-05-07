@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import LazyLoad from 'react-lazyload';
 import LazyBackground from '../utils/LazyBackground'
 import './SingleTestimonialPanel.scss'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const SingleTestimonialPanel = ({ item }) => {
 	const fields = item.customFields
 	const btnCta = fields.cTAButton
 	const classSection = `SingleTestimonialPanel ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+
+	const thisModuleRef = useRef(null)
+	  /* animation module */
+		useEffect(() => {
+			const scrollEventFunc = () => {
+				animationElementInnerComponent(thisModuleRef.current)
+			}
+			animationElementInnerComponent(thisModuleRef.current)
+			window.addEventListener('scroll', scrollEventFunc)
+	
+			return () => {
+				window.removeEventListener('scroll', scrollEventFunc)
+			}
+		}, [])
+
 	if (fields.testimonials.length > 0) {
 		const randomItem = Math.floor(Math.random() * fields.testimonials.length)
 		const singeTestimonial = fields.testimonials[randomItem].customFields
 		return (
 			<React.Fragment>
-			<div className={classSection} data-item={randomItem}>
+			<div className={classSection} data-item={randomItem} ref={ thisModuleRef }>
 				<section className="module mod-testimonial animation">
 					<div className="container">
 						<div className="mess-tesi anima-bottom">
@@ -55,7 +71,7 @@ const SingleTestimonialPanel = ({ item }) => {
 			</React.Fragment>
 		);
 	}
-	return null
+	return <div ref={thisModuleRef}></div>
 }
 
 export default SingleTestimonialPanel;
