@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby";
 import Spacing from './Spacing';
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 import LazyBackground from '../utils/LazyBackground';
 
@@ -67,11 +68,15 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 	// console.log('templates', templates)
 	useEffect(() => {
 		equalHeightContent()
-
-		window.addEventListener('resize', (e) => {
+		const resizeWindow = (e) => {
 			equalHeightContent();
-		})
-	})
+		}
+		window.addEventListener('resize', resizeWindow)
+		
+		return () => {
+			window.removeEventListener('resize', resizeWindow)
+		}
+	}, [])
 
 	const equalHeightContent = () => {
 		const contents = document.querySelectorAll('.starter-content')
@@ -117,10 +122,23 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 					</div>
 	});
 
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
 
 	return (
 		<React.Fragment>
-			<section className="getting-starter">
+			<section className="getting-starter" ref={ thisModuleRef }>
 				<div className="container">
 					<div className="text-center starter-head mx-auto animation anima-bottom last-mb-none">
 						{ moduleItem.customFields.section &&

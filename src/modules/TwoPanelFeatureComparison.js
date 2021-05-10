@@ -1,10 +1,12 @@
-import React, {useEffect } from 'react';
+import React, {useEffect, useRef } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 import './TwoPanelFeatureComparison.scss'
 import Spacing from './Spacing'
 import Lazyload from 'react-lazyload'
 import Helpers from '../global/javascript/Helpers.js'
+import { animationElementInnerComponent } from '../global/javascript/animation'
+
 export default props => (
 <StaticQuery
 		query={graphql`
@@ -104,6 +106,8 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 	const classSection = `TwoPanelFeatureComparison module mod-feature ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode': ''}`
 	const title1 = item.customFields.group1Title
 	const title2 = item.customFields.group2Title
+	const thisModuleRef = useRef(null)
+
 	// console.log('dataQuery', dataQuery)
 	// console.log("TwoPanelFeatureComparison", item)
 	const groupPanels1 = dataQuery.listPanelItems1.map((panel, index) => {
@@ -324,9 +328,23 @@ const TwoPanelFeatureComparison = ({ item, dataQuery }) => {
 		checkActive()
 		pinImg()
   });
+
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="title-feature fix-item animation anima-fixed" >
 					<div className="container">
 						<div className="row align-items-center">

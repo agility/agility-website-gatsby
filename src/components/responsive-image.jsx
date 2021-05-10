@@ -2,7 +2,7 @@ import React from 'react';
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 
 
-const ResponsiveImage = ({img, layout, breaks}) => {
+const ResponsiveImage = ({img, layout, breaks, className}) => {
 
 		let image = img;
 
@@ -18,7 +18,7 @@ const ResponsiveImage = ({img, layout, breaks}) => {
 
 		//if this is an svg, just output it
 		if (urlNoQuery.indexOf(".svg") !== -1) {
-			return <img src={urlNoQuery} alt={alt} />
+			return <img src={urlNoQuery} alt={alt} className={className} />
 		}
 
 		if (image.height && image.width) {
@@ -30,7 +30,7 @@ const ResponsiveImage = ({img, layout, breaks}) => {
 
 		if (! breaks) {
 			//if we don't have height/width data, and we don't have break info...
-			return <img src={url} alt={alt} />
+			return <img src={url} alt={alt} className={className} />
 		}
 
 		const sources = breaks.map((res, index) => {

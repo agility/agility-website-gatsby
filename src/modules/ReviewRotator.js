@@ -1,5 +1,5 @@
 import { graphql, StaticQuery } from 'gatsby';
-import React, { useEffect,} from 'react';
+import React, { useEffect, useRef,} from 'react';
 import Slider from 'react-slick';
 import LazyLoad from 'react-lazyload'
 import '../global/core/lib/_slick-theme.scss'
@@ -7,6 +7,8 @@ import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import './ReviewRotator.scss'
 import { renderHTML } from '../agility/utils';
+import { animationElementInnerComponent } from '../global/javascript/animation'
+
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -60,6 +62,8 @@ const ReviewRotator = ({ item, listReviews }) => {
 	const heading = item.customFields.title
 	const collapseReviewText = item.customFields.collapseReviewText
 	const expandReviewText = item.customFields.expandReviewText
+	const thisModuleRef = useRef(null)
+
 	// console.log("ReviewRotator", item)
 	const slideReviews = listReviews.length > 0 ? listReviews.map((item, idx) => {
 		const fieldsReview = item.customFields
@@ -67,6 +71,7 @@ const ReviewRotator = ({ item, listReviews }) => {
 		const review = fieldsReview.review
 		const reviewer = fieldsReview.reviewer
 		const date = fieldsReview.reviewDate
+		
 		const initClick = (nb) => {
 			const sibing = document.querySelectorAll(`.ReviewRotator-item[data-item='${nb}']`)
 			if(!sibing[0].querySelectorAll('.content-smaller').length) {
@@ -145,10 +150,10 @@ const ReviewRotator = ({ item, listReviews }) => {
       }
     }]
 	};
-	const callcheckHeight = () => {
-		checkHeight()
-		window.addEventListener('resize', checkHeight);
-	}
+	// const callcheckHeight = () => {
+	// 	checkHeight()
+	// 	window.addEventListener('resize', checkHeight);
+	// }
 	const checkHeight = () => {
 		const content = document.querySelectorAll('.content-review');
 		const maxHeight = 150
@@ -174,11 +179,31 @@ const ReviewRotator = ({ item, listReviews }) => {
 		}, 200)
 	}
 	useEffect(() => {
-		callcheckHeight()
+		// callcheckHeight()
+		checkHeight()
+		window.addEventListener('resize', checkHeight);
+
+		return () => {
+			window.removeEventListener('resize', checkHeight);
+		}
   });
+
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="container last-mb-none max-w-940 text-center anima-bottom headling-review">
 					{ heading &&
 						<h2>{heading}</h2>

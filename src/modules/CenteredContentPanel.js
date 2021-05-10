@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { renderHTML } from '../agility/utils'
 import Spacing from './Spacing'
 import './CenteredContentPanel.scss'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const CenteredContentPanel = ({ item }) => {
 	const section = item.customFields.section
@@ -10,9 +11,24 @@ const CenteredContentPanel = ({ item }) => {
 	const btn1 = item.customFields.cTA1
 	const btn2 = item.customFields.cTA2
 	const classSection = `CenteredContentPanel animation mod-intro hero-text ${item.customFields.darkMode && item.customFields.darkMode === 'true'  ? 'dark-mode': ''}`
+	
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-		<section className={classSection}>
+		<section className={classSection} ref={ thisModuleRef }>
 			<div className="container last-mb-none max-w-940 text-center anima-bottom">
 				{ section &&
 					<h5>{section}</h5>

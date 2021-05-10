@@ -6,6 +6,7 @@ import Lazyload, { forceCheck } from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import ResponsiveImage from '../components/responsive-image';
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 export default props => (
 <StaticQuery
@@ -88,33 +89,78 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     Fakeheight.style.paddingTop = title + 60 +'px'
   }
   const init = () => {
-    const section = document.querySelectorAll('.mod-image-content')
-    Array.from(section).forEach((ele) => {
-      const $this = ele
-      setheight($this)
-      initClass($this)
-      if (ele.classList.contains('is-full')) {
-        setUpCanBeReset($this.querySelectorAll('.fake-height')[0])
-      } else {
-        setUpCanBeReset($this.querySelectorAll('.wrap-box-vertical')[0])
-      }
-      caculatePin($this)
-      setInterval (() => {
-        setheight($this)
-      }, 3000)
-      window.addEventListener('scroll', () => {
-        caculatePin($this)
-      } )
-      window.addEventListener('resize', () => {
-        initClass($this)
-        setheight($this)
-        caculatePin($this)
-      })
-    })
+    // const section = document.querySelectorAll('.mod-image-content')
+    // Array.from(section).forEach((lazyRef.current) => {
+    // const $this = lazyRef.current
+    // let flag = true
+    // setheight($this)
+    // initClass($this)
+    // if (lazyRef.current.classList.contains('is-full')) {
+    //   setUpCanBeReset($this.querySelectorAll('.fake-height')[0])
+    // } else {
+    //   setUpCanBeReset($this.querySelectorAll('.wrap-box-vertical')[0])
+    // }
+    // caculatePin($this)
+    // window.addEventListener('scroll', () => {
+    //   caculatePin($this)
+    //   if (flag === true) {
+    //     setheight($this)
+    //     flag = false
+    //   }
+    // } )
+    // window.addEventListener('resize', () => {
+    //   initClass($this)
+    //   setheight($this)
+    //   caculatePin($this)
+    // })
+    // })
   }
   useEffect(() => {
-    init()
+    const $this = lazyRef.current
+    let flag = true
+    setheight($this)
+    initClass($this)
+    if (lazyRef.current.classList.contains('is-full')) {
+      setUpCanBeReset($this.querySelectorAll('.fake-height')[0])
+    } else {
+      setUpCanBeReset($this.querySelectorAll('.wrap-box-vertical')[0])
+    }
+
+    const scrollWindow = () => {
+      caculatePin($this)
+      if (flag === true) {
+        setheight($this)
+        flag = false
+      }
+    }
+    const resizeWindow = () => {
+      initClass($this)
+      setheight($this)
+      caculatePin($this)
+    }
+    caculatePin($this)
+    window.addEventListener('scroll',  scrollWindow)
+    window.addEventListener('resize', resizeWindow)
+
+    return () => {
+      window.removeEventListener('scroll',  scrollWindow)
+      window.removeEventListener('resize', resizeWindow)
+    }
   }, [])
+
+  /* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(lazyRef.current)
+		}
+		animationElementInnerComponent(lazyRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
   const classPin = 'list-pin'
   const classPin2 = 'list-pin-bottom'
   let scrollTop

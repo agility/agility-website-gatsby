@@ -1,9 +1,10 @@
-import React ,{useEffect} from 'react';
+import React ,{useEffect, useRef} from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 import LazyLoad from 'react-lazyload'
 import './GuideLinks.scss'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 export default props => (
 	<StaticQuery
@@ -50,6 +51,8 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 	const description = fields.description
 	const btnCta = fields.mainCTA
 	const imgURL = fields.guideIcon && fields.guideIcon.url.length > 0 ? fields.guideIcon.url : null
+	const thisModuleRef = useRef(null)
+
 	const listGuide = listGuideLinks.map((guide, idx) => {
 		const customeFieldsGuide = guide.customFields
 		const descriptionGuide = customeFieldsGuide.description
@@ -70,19 +73,32 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 			</div>
 		)
 	})
+
 	const init = (() => {
-		Array.from(document.querySelectorAll('.mod-user-guides')).forEach((ele) => {
-      	if(ele && ele.nextSibling && ele.nextSibling.nextSibling && ele.nextSibling.nextSibling.classList.contains('module-chanel')) {
-				ele.classList.add('has-chanel')
-			}
-    })
+		const nextElm = thisModuleRef.current.nextElementSibling?.nextElementSibling
+		if (nextElm && typeof nextElm === 'object' && nextElm.classList.contains('module-chanel')) {
+			thisModuleRef.current.classList.add('has-chanel')
+		}
 	})
 	useEffect(() => {
 		init()
   });
+
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<LazyLoad offset={ Helpers.lazyOffset }><img src="/images/computer.png" alt='Ready to dive in?' className='bg-guides'></img></LazyLoad>
 				<span className="icomoon icon-gears"></span>
 				<div className="container">

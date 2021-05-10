@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 import { Link } from 'gatsby'
 import './FeatureComparisonChart.scss'
 import Lazyload from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 export default props => (
   <StaticQuery
 		query={graphql`
@@ -106,6 +107,8 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
   const [activeMB, setActiveMB] = useState(null)
   const [isOpenSelect, setIsOpenSelect] = useState(false)
   const [isPin, setIsPin] = useState(false)
+
+  const thisModuleRef = useRef(null)
 
   // lấy danh sách platform được chọn trong cms
   let listPlatformGet = dataQuery.listPlatformItems.filter(plat => {
@@ -221,6 +224,21 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
       window.removeEventListener('scroll', pinHeaderTable)
     }
   })
+
+  /* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
+  
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
 
     const fieldLinks = platfor.customFields.fullComparisonLink
@@ -357,7 +375,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 
   return (
     <React.Fragment>
-      <section className={classSection}>
+      <section className={classSection} ref={ thisModuleRef }>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns1 d-none d-xl-block'></img></Lazyload>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/patterns-purple.svg" alt='patterns' className='patterns2 d-none d-xl-block'></img></Lazyload>
         <Lazyload offset={ Helpers.lazyOffset }><img src="/images/parrent2.svg" alt='patterns' className='patterns3 d-none d-md-block'></img></Lazyload>

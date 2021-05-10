@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Spacing from './Spacing'
 import './RightOrLeftCaseStudyTestimonial.scss'
 import { renderHTML } from '../agility/utils';
 import LazyBackground from '../utils/LazyBackground'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 	const fields = item.customFields
@@ -56,9 +57,24 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 			</div>
 		)
 	}
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6 right-test-detail order-lg-2 anima-right">

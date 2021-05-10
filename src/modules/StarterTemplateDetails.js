@@ -1,8 +1,9 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect, useRef} from 'react';
 import { Link } from 'gatsby'
 import { renderHTML } from '../agility/utils'
 import './StarterTemplateDetails.scss'
 import './RichTextArea.scss'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 // import Spacing from './Spacing';
 const StarterDetails = ({ item, dynamicPageItem, page }) => {
 	const starterTemplate = dynamicPageItem.customFields;
@@ -27,10 +28,29 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 	useEffect(() => {
 		checkIsMobile()
 		window.addEventListener('resize', checkIsMobile)
+
+		return () => {
+			window.removeEventListener('resize', checkIsMobile)
+		}
   });
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
-			<section className='module mod-star-detail animation'>
+			<section className='module mod-star-detail animation' ref={ thisModuleRef }>
 				<div className='container'>
 					<div className='row justify-content-between'>
 						<div className='col-lg-7 last-mb-none anima-left delay-4'>

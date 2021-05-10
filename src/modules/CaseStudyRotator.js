@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
@@ -9,6 +9,7 @@ import './CaseStudyRotator.scss';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import ResponsiveImage from '../components/responsive-image';
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const CaseStudyRotator = ({ item }) => {
   const [nav1, setNav1] = useState();
@@ -92,9 +93,25 @@ const CaseStudyRotator = ({ item }) => {
       }
     }]
   };
+
+  const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
+
 	return (
     <React.Fragment>
-    <section className={classSection}>
+    <section className={classSection} ref={ thisModuleRef }>
       { title &&
         <div className="container">
           <div className="title-f-casestudy text-center last-mb-none anima-bottom">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from 'html-react-parser';
 
 
 const SEO = ({ page }) => {
@@ -39,6 +39,12 @@ const SEO = ({ page }) => {
 
 			<meta name="ahrefs-site-verification" content="c196da25d25defd7b56d5883e72e28eb7d6be33aeea6f20dfa8a4eee4ce0c427" />
 
+			<link rel="preload" href="https://use.typekit.net/af/7fe570/00000000000000007735a0ee/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3" as="font" crossOrigin="anonymous" />
+			<link rel="preload" href="https://use.typekit.net/af/b0bf15/00000000000000007735a103/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3" as="font" crossOrigin="anonymous" />
+			<link rel="preload" href="https://use.typekit.net/af/1e8fb7/00000000000000007735a0fe/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3" as="font" crossOrigin="anonymous" />
+			<link rel="preload" href="https://use.typekit.net/af/437da9/00000000000000007735a0e5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3" as="font" crossOrigin="anonymous" />
+			<link rel="preload" href="https://use.typekit.net/arl7bjd.css" as="style" crossOrigin="anonymous"/>
+
 			{ metaRawHtml }
 
 			{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
@@ -59,8 +65,11 @@ const SEO = ({ page }) => {
 			<link rel="dns-prefetch" href="//www.google-analytics.com" />
 			<link rel="dns-prefetch" href="//www.googleadservices.com" />
 			<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+			<link rel="dns-prefetch" href="//p.typekit.net" />
+			<link rel="dns-prefetch" href="//use.typekit.net" />
+			<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 
-			<link rel="dns-prefetch" href="//t.co" />
+			{/* <link rel="dns-prefetch" href="//t.co" />
 			<link rel="dns-prefetch" href="//stats.g.doubleclick.net" />
 			<link rel="dns-prefetch" href="//www.google.com" />
 
@@ -76,12 +85,9 @@ const SEO = ({ page }) => {
 			<link rel="dns-prefetch" href="//t.co" />
 			<link rel="dns-prefetch" href="//analytics.twitter.com" />
 			<link rel="dns-prefetch" href="//static.ads-twitter.com" />
-			<link rel="dns-prefetch" href="//www.google.com" />
-			<link rel="dns-prefetch" href="//www.google-analytics.com" />
 			<link rel="dns-prefetch" href="//js.intercomcdn.com" />
 			<link rel="dns-prefetch" href="//widget.intercom.io" />
-			<link rel="dns-prefetch" href="//api-iam.intercom.io" />
-			<link rel="dns-prefetch" href="//use.typekit.net" />
+			<link rel="dns-prefetch" href="//api-iam.intercom.io" /> */}
 
 			<link rel="preconnect" href="//t.co" />
 			<link rel="preconnect" href="//www.google.com" />
@@ -89,7 +95,9 @@ const SEO = ({ page }) => {
 			<link rel="preconnect" href="//js.intercomcdn.com" />
 			<link rel="preconnect" href="//widget.intercom.io" />
 			<link rel="preconnect" href="//api-iam.intercom.io" />
+			<link rel="preconnect" href="//p.typekit.net" />
 			<link rel="preconnect" href="//use.typekit.net" />
+			<link rel="preconnect" href="//cdnjs.cloudflare.com" />
 
 			<link rel="apple-touch-icon" sizes="114x114" href="https://static.agilitycms.com/favicon-web/apple-touch-icon-144x144.png"/>
 			<meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -115,7 +123,10 @@ const SEO = ({ page }) => {
 			<meta name="msapplication-square150x150logo" content="https://static.agilitycms.com/favicon-web/mstile-150x150.png" />
 			<meta name="msapplication-wide310x150logo" content="https://static.agilitycms.com/favicon-web/mstile-310x150.png" />
 			<meta name="msapplication-square310x310logo" content="https://static.agilitycms.com/favicon-web/mstile-310x310.png" />
-			<link rel="stylesheet" crossOrigin="anonymous" href="https://use.typekit.net/arl7bjd.css" />
+
+			<link rel="preload" href="/fonts/icomoon.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+			<link rel="stylesheet" crossOrigin="anonymous" href="https://use.typekit.net/arl7bjd.css" type='text/css' media="screen and (min-width: 1px)" />
+
 			{/* <link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulisemibold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Muliextrabold.woff2" />
 			<link rel="preload" as="font" type="font/woff2" crossOrigin="anonymous" href="https://static.agilitycms.com/layout/fonts/Mulibold.woff2" />

@@ -3,8 +3,8 @@
 // }
 
 .main-content {
-  padding-top: 90px;
-  transition: padding .25s;
+  // padding-top: 69px;
+  // transition: padding .25s, transform .25s;
   > .mod-banner:first-child:not(.mod-intro) {
     margin-top: 20px;
   }
@@ -46,7 +46,7 @@
 //   @extend %parent-link-inhert;
 // }
 html.hide-loader {
-  min-height: 100vh; 
+  min-height: 100vh;
   background-color: $color-e3;
 }
 .bg {
@@ -266,7 +266,7 @@ form  button[type='submit'] {
   position: relative;
   // background-image: linear-gradient(to bottom, #f6fbff, #e9f0f5);
   background-color: $color-e3;
-  transition: all .35s;
+  transition: all .35s, opacity 0s;
   overflow: hidden;
   min-height: 48px;
   &.hidden-mess {
@@ -417,11 +417,11 @@ input {
   // font-family: $mlBold, sans-serif;
   font-weight: $fw-bold;
 }
-@include media-breakpoint-up(sm) {
-  .main-content {
-    padding-top: 105px;
-  }
-}
+// @include media-breakpoint-up(sm) {
+//   .main-content {
+//     padding-top: 105px;
+//   }
+// }
 
 @include media-breakpoint-up(md) {
   .wrap-video {
@@ -438,7 +438,8 @@ input {
 
 @include media-breakpoint-up(lg) {
   .main-content {
-    padding-top: 135px;
+    // padding-top: 135px;
+    // padding-top: 95px;
     > .mod-banner:first-child:not(.mod-intro) {
       margin-top: 40px;
     }

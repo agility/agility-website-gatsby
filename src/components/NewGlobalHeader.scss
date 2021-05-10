@@ -25,7 +25,13 @@
 .header-logo {
   max-width: 158px;
 }
-
+.ie {
+  .header-logo {
+    img {
+      height: 100%;
+    }
+  }
+}
 @media (min-width: 992px) {
   .header {
     padding: 0;

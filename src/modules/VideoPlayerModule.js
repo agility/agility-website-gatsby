@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './BestofBothWorldsModule.scss'
 import '../global/_popup-video.scss'
 import './VideoPlayerModule.scss'
 import LazyBackground from '../utils/LazyBackground'
 import ReactPlayer from 'react-player'
 import Spacing from './Spacing'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 const VideoPlayerModule = ({ item }) => {
 	const fields = item.customFields
@@ -24,10 +25,25 @@ const VideoPlayerModule = ({ item }) => {
 			<ReactPlayer url={urlVideo.href} playing={true} controls={true} loop={false}/>
 		);
 	}
+
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 		<React.Fragment>
 			<section className={classSection}>
-				<div className="container animation">
+				<div className="container animation" ref={ thisModuleRef }>
 					{ title &&
 						<div className="text-center title-HIW last-mb-none anima-bottom delay-4">
 							<h5>{title}</h5>

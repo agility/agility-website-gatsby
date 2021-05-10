@@ -2,30 +2,41 @@ import React from 'react';
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon } from 'react-share'
 import './Share.scss'
 class Share extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.scrollWindow = this.scrollWindow.bind(this)
+    }
+
+    scrollWindow () {
+        let supportPageOffset = window.pageXOffset !== undefined;
+        let isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+        let scroll = {
+        x: supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft,
+        y: supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
+        };
+
+        if(scroll.y > 1000){
+            const element = document.getElementsByClassName('share')[0]; // target element to change attribute
+            if (element && element.classList) {
+                element.classList.add('show');//change the attribute.
+            }
+        } else {
+            const element = document.getElementsByClassName('share')[0]; // target element to change attribute
+            if (element && element.classList) {
+                element.classList.remove('show');
+            }
+        }
+    }
     componentDidMount () {
 		if (typeof window === 'undefined') {
 			return;
 		}
-        window.addEventListener('scroll', function () {
-            let supportPageOffset = window.pageXOffset !== undefined;
-            let isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
-            let scroll = {
-            x: supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft,
-            y: supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
-            };
+        window.addEventListener('scroll', this.scrollWindow, 300);//ms
+    }
 
-            if(scroll.y > 1000){
-                const element = document.getElementsByClassName('share')[0]; // target element to change attribute
-                if (element && element.classList) {
-                    element.classList.add('show');//change the attribute.
-                }
-            } else {
-                const element = document.getElementsByClassName('share')[0]; // target element to change attribute
-                if (element && element.classList) {
-                    element.classList.remove('show');
-                }
-            }
-        }, 300);//ms
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.scrollWindow)
     }
 
 	render() {

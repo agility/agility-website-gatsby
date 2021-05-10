@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Triangles from "../components/triangles.jsx";
 import { renderHTML } from '../agility/utils'
 import './Faqs.scss'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 
 
 export default props => (
@@ -56,9 +57,23 @@ const Faqs = ({ item, faqs }) => {
 		return <FaqsContent key={faq.contentID + "-" + moduleItem.contentID} item={faq.customFields}/>
 	});
 
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+
 	return (
 
-		<section className="features p-w faqs animation">
+		<section className="features p-w faqs animation" ref={ thisModuleRef }>
 			<div className="container">
 				<div className="headline-faq last-mb-none text-center anima-bottom">
 					<h2>{item.title}</h2>
@@ -117,6 +132,9 @@ const FaqsContent = ({ item }) => {
 	useEffect(() => {
 		resizeHeight()
 		window.addEventListener('resize', resizeHeight)
+		return () => {
+			window.removeEventListener('resize', resizeHeight)
+		}
   });
 	return (
 		<div ref={ lazyRef } className="faq-item" onClick={() => { checkFQA(lazyRef)}}>

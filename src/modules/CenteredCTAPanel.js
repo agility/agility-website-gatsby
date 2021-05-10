@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { renderHTML } from '../agility/utils';
 import './CenteredCTAPanel.scss'
 import Spacing from './Spacing'
+import { animationElementInnerComponent } from '../global/javascript/animation'
 const CenteredCTAPanel = ({ item }) => {
 	const fields = item.customFields;
 	const classSection = `module mod-cta ps-rv bg-46 CenteredCTAPanel animation ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 	const btnCta1 = fields.cTA1
 	const btnCta2 = fields.cTA2
+	const thisModuleRef = useRef(null)
+	/* animation module */
+	useEffect(() => {
+		const scrollEventFunc = () => {
+			animationElementInnerComponent(thisModuleRef.current)
+		}
+		animationElementInnerComponent(thisModuleRef.current)
+		window.addEventListener('scroll', scrollEventFunc)
+
+		return () => {
+			window.removeEventListener('scroll', scrollEventFunc)
+		}
+	}, [])
+	
 	return (
 		<React.Fragment>
-			<section className={classSection}>
+			<section className={classSection} ref={ thisModuleRef }>
 				<div className="triangle-white"></div>
 				<div className="container anima-bottom">
 					<div className="cta-mx text-center text-white last-mb-none">
