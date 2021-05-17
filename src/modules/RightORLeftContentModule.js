@@ -59,8 +59,7 @@ const RightOrLeftContent = ({ item }) => {
 	const classSection = `module mod-banner right-or-left-content animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white' : ''}`
 	const array = []
 	const [isHomePage, setIsHomePage] = useState(false);
-	// const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
-	// const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
+
 	let classAniImg = 'col-md-6 col-right-lr'
 	let imgModule
 	if (item.customFields.graphic && item.customFields.graphic.url) {
