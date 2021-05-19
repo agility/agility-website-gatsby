@@ -8,21 +8,25 @@ import ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import { animationElementInnerComponent } from '../global/javascript/animation'
-
+import { AgilityImage }  from "@agility/gatsby-image-agilitycms"
 const LogoListingModule = ({ item }) => {
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
 	const classSection = `module LogoListingModule animation  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
 		const className = `logo-item logo-v${idx + 1}`
-		const logoImage = key.customFields.logo.url
+		let logoImage = key.customFields.logo.url
+		if (logoImage.indexOf(".svg") === -1) {
+			logoImage = `${logoImage}?w=200`
+		}
 		const logoTitle = key.customFields.logo.label
 		// const link = key.customFields.uRL.href
 		// const taget = key.customFields.uRL.target
 		return (
 			<div className={className} key={idx}>
 				<div className='d-block'>
-						<Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle}></img></Lazyload>
+						<AgilityImage image={key.customFields.logo} />
+						{/* <Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle} loading="lazy"></img></Lazyload> */}
 				</div>
 			</div>
 		)
