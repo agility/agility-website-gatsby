@@ -34,10 +34,10 @@ const GartnerPeerInsightsBar = ({ item }) => {
 		<React.Fragment>
 			<section className={classSection} ref={ thisModuleRef }>
 				<LazyLoad offset={ Helpers.lazyOffset }>
-					<img src="/images/bg-top.svg" className="bg-left-star" alt="image"></img>
+					<img src="/images/bg-top.svg" className="bg-left-star" alt="image" loading="lazy"></img>
 				</LazyLoad>
 				<LazyLoad offset={ Helpers.lazyOffset }>
-					<img src="/images/bg-top.svg" className="bg-right-star" alt="image"></img>
+					<img src="/images/bg-top.svg" className="bg-right-star" alt="image" loading="lazy"></img>
 				</LazyLoad>
 				<div className="container">
 					<div className="d-flex text-center justify-content-between flex-wrap ">
@@ -45,7 +45,7 @@ const GartnerPeerInsightsBar = ({ item }) => {
 							{ graphic &&
 								<div className="wrap-before-star">
 									<LazyLoad offset={ Helpers.lazyOffset }>
-									<img src={graphic} alt={title} className="intro-stars"></img>
+									<img src={graphic} alt={title} className="intro-stars" loading="lazy"></img>
 									</LazyLoad>
 								</div>
 								}
@@ -53,7 +53,7 @@ const GartnerPeerInsightsBar = ({ item }) => {
 								{ stars &&
 									<div className="wrap-inn-star d-flex align-items-center">
 										<LazyLoad offset={ Helpers.lazyOffset }>
-										<img src={stars} alt={title} className="img-stars"></img>
+										<img src={stars} alt={title} className="img-stars" loading="lazy"></img>
 										</LazyLoad>
 									</div>
 								}

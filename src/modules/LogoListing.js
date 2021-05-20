@@ -74,8 +74,7 @@ const LogoListing = ({ item, logos }) => {
 
 						<span>
 							{logo.logo &&
-								<ResponsiveImage img={logo.logo}
-									breaks={[{ w: 180, max: 380 }, { w: 180, max: 800 }, { w: 180, max: 1190 }]} />
+								<ResponsiveImage img={logo.logo} />
 							}
 						</span>
 

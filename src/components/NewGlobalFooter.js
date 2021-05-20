@@ -249,7 +249,7 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-				var img = <Lazyload offset={ Helpers.lazyOffset }><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img></Lazyload>;
+				var img = <Lazyload offset={ Helpers.lazyOffset }><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy"/></Lazyload>;
 				var a = <a rel="noopener noreferrer" href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
@@ -299,7 +299,7 @@ class Footer extends React.Component {
 						</ul>
 
 						<div className={classSub}>{/*  remove class thanks-subs"> */}
-							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you'></img></Lazyload>
+							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you' loading="lazy" /></Lazyload>
 							<div className="box-sub">
 								<span>{item.subscribeTitle}</span>
 								<p>{item.subscribeDescription}</p>
@@ -309,7 +309,7 @@ class Footer extends React.Component {
 										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
 										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
 										<div  className='loading-sub text-center'>
-										<Lazyload offset={ Helpers.lazyOffset }><img src='/images/ajax-loader-white.svg' alt='loading'></img></Lazyload>
+										<Lazyload offset={ Helpers.lazyOffset }><img src='/images/ajax-loader-white.svg' alt='loading' /></Lazyload>
 										</div>
 										<input type="hidden" name="_autopilot_session_id" />
 									</form>

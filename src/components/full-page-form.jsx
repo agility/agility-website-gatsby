@@ -23,7 +23,7 @@ class FullPageForm extends React.Component {
 								<div dangerouslySetInnerHTML={renderHTML(this.props.text)}></div>
 							</div>
 							<div className="form-right" >
-								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-top' alt='Form Triangle Pattern'></img></Lazyload>
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-top' alt='Form Triangle Pattern' loading="lazy"/></Lazyload>
 								<div className="wrap-f-right">
 									<Form
 										beforeSubmit={this.beforeSubmit}
@@ -41,7 +41,7 @@ class FullPageForm extends React.Component {
 										{this.props.children}
 									</Form>
 								</div>
-								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-bottom' alt='Form Triangle Pattern'></img></Lazyload>
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-bottom' alt='Form Triangle Pattern' loading="lazy" /></Lazyload>
 							</div>
 
 						</div>

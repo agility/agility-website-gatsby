@@ -153,7 +153,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     return (
       <th key={index}>
         <div className="d-flex align-items-center justidy-content-center box-feature-logo">
-          <img className="feature-logo-tab" src={logo} alt={title} />
+          <img className="feature-logo-tab" src={logo} alt={title} loading="lazy" />
         </div>
         { index > 0 && listPlatformFake.length > countPlatformShow &&
           <div className={classBox}>
@@ -238,7 +238,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 		}
 	}, [])
 
-  
+
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
 
     const fieldLinks = platfor.customFields.fullComparisonLink

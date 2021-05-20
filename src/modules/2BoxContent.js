@@ -49,7 +49,7 @@ const BoxContent = ({ item }) => {
 								<a href={btnCta.href} target={btnCta.target} className="ps-as"><span className='sr-only'>{btnCta.text}</span></a>
 							}
 							{ image &&
-								<img src={image.url} alt={image.label}></img>
+								<img src={image.url} alt={image.label} loading="lazy"/>
 							}
 							{ heading &&
 								<h2>{heading}</h2>
@@ -70,7 +70,7 @@ const BoxContent = ({ item }) => {
 									<a href={btnCta2.href} target={btnCta2.target} className="ps-as"><span className='sr-only'>{btnCta2.text}</span></a>
 								}
 								{ image2 &&
-									<img src={image2.url} alt={image2.label}></img>
+									<img src={image2.url} alt={image2.label} loading="lazy"/>
 								}
 								{ heading2 &&
 									<h2>{heading2}</h2>
