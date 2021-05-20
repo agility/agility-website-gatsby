@@ -309,7 +309,7 @@ class NewGlobalHeader extends Component {
 				const subLinks = renderMenu(item.children, level + 1);
 				if (subLinks === null || subLinks.length < 0) {
 					//no sub menu
-					links.push(<li className={isActive} key={item.pageID} onClick={this._handleActiveMenu.bind(this, path)}>
+					links.push(<li className={ `${isActive} d-lg-flex align-items-center`} key={item.pageID} onClick={this._handleActiveMenu.bind(this, path)}>
 						{path.indexOf('://') !== -1 ? <a href={path} target={target}>{item.menuText}</a> : <Link to={path} target={target}>{item.menuText}</Link> }
 						</li>)
 				} else {
