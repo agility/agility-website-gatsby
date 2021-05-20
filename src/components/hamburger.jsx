@@ -138,7 +138,7 @@ class Hamburger extends React.Component {
 						<li key={item.pageID + "-" + item.path + "-2"} className="mobile-menu-li has-children" onClick={toggleSubmenu} >
 							<a href="javascript:;" className="mobile-menu-a" >{item.menuText}</a>
 							<span className="sub-menu-icon">
-								<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse"></img>
+								<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" loading="lazy"/>
 							</span>
 							<div className="sub-menu-inner">
 								<ul className="sub-menu">
@@ -196,7 +196,7 @@ class Hamburger extends React.Component {
 					<div className="inner">
 						<div className="mobile-logo">
 							{this.props.item.customFields.mobileLogo &&
-								<a href="/"><img src={this.props.item.customFields.mobileLogo.url} alt={this.props.item.customFields.mobileLogo.label} /></a>
+								<a href="/"><img src={this.props.item.customFields.mobileLogo.url} alt={this.props.item.customFields.mobileLogo.label} loading="lazy"/></a>
 							}
 						</div>
 						<div className="search-mobile">

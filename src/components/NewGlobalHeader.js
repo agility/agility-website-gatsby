@@ -335,7 +335,7 @@ class NewGlobalHeader extends Component {
 						li = <li className={itemClassName + ' has-children'} key={item.pageID}><span>{item.menuText}</span>
 							<span className="sub-menu-icon">
 								<Lazyload offset={ Helpers.lazyOffset }>
-									<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" />
+									<img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" loading="lazy" />
 								</Lazyload>
 								</span>
 							<div className="sub-menu-inner">
@@ -405,7 +405,7 @@ class NewGlobalHeader extends Component {
 							{ item.logo ?
 								<div className="col-9 col-lg-12">
 									<Link to="/" id="header-logo" title={item.logo.label} className="navbar-brand header-logo w-100">
-										<img src={item.stickyLogo.url} alt={item.logo.label} width="158" height="40" className="w-100"/>
+										<img src={item.stickyLogo.url} alt={item.logo.label} width="158" height="40" className="w-100" loading="lazy"/>
 									</Link>
 								</div>
 							:

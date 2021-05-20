@@ -152,7 +152,7 @@ const GettingStarted = ({ item, gettingStartedItems }) => {
 						<div className={`item ${g.contentID === selectedID ? "selected" : ""}`} key={`gsi-${g.contentID}`}>
 							<div className="item-flex">
 
-								<div className="item-image"><img src={`${g.customFields.image.url}?w=800`} alt={g.customFields.image.label} /></div>
+								<div className="item-image"><img src={`${g.customFields.image.url}?w=800`} alt={g.customFields.image.label} loading="lazy" /></div>
 								<div className="item-content" id={`item-content-${g.customFields.personaCookieValue}`}>
 									<h3>{g.customFields.heading}</h3>
 									<div className="rich-text" dangerouslySetInnerHTML={renderHTML(g.customFields.content)}></div>

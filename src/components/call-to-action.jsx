@@ -17,7 +17,7 @@ const CallToAction = ({ item }) => {
 			{cta.richText && <div className="rich" dangerouslySetInnerHTML={renderHTML(cta.richText)}></div>}
 
 			{cta.link && cta.image &&
-				<a href={cta.link.href} target={cta.link.target} title={cta.link.title}><img src={cta.image.url} alt={cta.image.label} /></a>
+				<a href={cta.link.href} target={cta.link.target} title={cta.link.title}><img src={cta.image.url} alt={cta.image.label} loading="lazy" /></a>
 			}
 
 		</div>

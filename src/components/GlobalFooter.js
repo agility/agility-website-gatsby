@@ -218,7 +218,7 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label}></img>;
+				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy"/>;
 				var a = <a href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});

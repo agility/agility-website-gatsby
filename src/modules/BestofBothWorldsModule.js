@@ -305,14 +305,14 @@ const BestofBothWorldsModule = ({ item }) => {
 						}
 						<div className="middle-HIW last-mb-none text-center d-md-flex align-items-center">
 							<div className="lazy compare-2img">
-								<LazyLoad offset={Helpers.lazyOffset}><img src="/images/bg-bottom2.svg" className="bg-2img-top" alt="image"></img></LazyLoad>
-								<LazyLoad offset={Helpers.lazyOffset}><img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image"></img></LazyLoad>
+								<LazyLoad offset={Helpers.lazyOffset}><img src="/images/bg-bottom2.svg" className="bg-2img-top" alt="image" loading="lazy"></img></LazyLoad>
+								<LazyLoad offset={Helpers.lazyOffset}><img src="/images/bg-bottom2.svg" className="bg-2img-bottom" alt="image" loading="lazy"></img></LazyLoad>
 								<div className="img-comp-container">
 									<div className="img-comp-img">
 										{rightGroupName &&
 											<React.Fragment>
 												<img src="/images/image-fake.jpg" className='img-primary' alt={rightGroupName.text} onLoad={() => { compareImages(imgOverlayRef.current); }}></img>
-												<LazyLoad offset={Helpers.lazyOffsetRes}><img src="/images/image-author-2.png" className='img-second-author' alt={rightGroupName.text}></img></LazyLoad>
+												<LazyLoad offset={Helpers.lazyOffsetRes}><img src="/images/image-author-2.png" className='img-second-author' alt={rightGroupName.text} loading="lazy"></img></LazyLoad>
 											</React.Fragment>
 										}
 									</div>
