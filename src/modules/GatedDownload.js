@@ -38,9 +38,9 @@ const GatedDownload = ({ item }) => {
 				<FormField id="email" label={ emailLabel }>
 					<input id="email" className="changed" type="email" placeholder={ emailLabel } required />
 				</FormField>
-				<FormField id="phonenumber" label={ phoneLabel }>
+				{/* <FormField id="phonenumber" label={ phoneLabel }>
 					<input id="phonenumber" className="changed" type="tel" placeholder="XXX-XXX-XXXX" minLength="9" maxLength="20" required />
-				</FormField>
+				</FormField> */}
 
 				<FormField id="company" label={ companyLabel }>
 					<input id="company" className="changed" type="text" placeholder={ companyLabel } required />
