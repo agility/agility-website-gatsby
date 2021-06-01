@@ -5,7 +5,7 @@ import { Toggle } from "react-toggle-component";
 
 import "./PricingPlans.scss"
 
-export default props => (
+const PricingPlanModule = props => (
 	<StaticQuery
 		query={graphql`
 		query PricingPlansQuery {
@@ -244,3 +244,5 @@ class PlanInclude extends React.Component {
 		)
 	}
 }
+
+export default PricingPlanModule

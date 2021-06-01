@@ -1,11 +1,13 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 
-import ArrayUtils from '../utils/array-utils.js';
+import * as ArrayUtils from '../utils/array-utils.js';
 import { renderHTML } from '../agility/utils'
 import ResponsiveImage from '../components/responsive-image.jsx'
 import Triangles from '../components/triangles'
 import './LogoListing.scss'
+
+
 
 export default props => (
 	<StaticQuery

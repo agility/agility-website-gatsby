@@ -23,9 +23,11 @@ const SEO = ({ page }) => {
 		metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
 	}
 
-
 	return (
-		<Helmet>
+		<Helmet htmlAttributes={{
+			lang: 'en-US',
+		}}>
+
 			<meta charset="utf-8" />
 			<title>{title}</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
