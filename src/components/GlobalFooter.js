@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostUtil from '../utils/post-util.js';
+import * as PostUtil from '../utils/post-util.js';
 import { getLeadSource } from '../utils/lead-utils.js'
 
 import { Link, graphql, StaticQuery } from "gatsby"

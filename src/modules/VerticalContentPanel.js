@@ -88,33 +88,7 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
     Fakeheight.style.height = title + item.length*list.offsetHeight*4/5 + 60 + 'px'
     Fakeheight.style.paddingTop = title + 60 +'px'
   }
-  const init = () => {
-    // const section = document.querySelectorAll('.mod-image-content')
-    // Array.from(section).forEach((lazyRef.current) => {
-    // const $this = lazyRef.current
-    // let flag = true
-    // setheight($this)
-    // initClass($this)
-    // if (lazyRef.current.classList.contains('is-full')) {
-    //   setUpCanBeReset($this.querySelectorAll('.fake-height')[0])
-    // } else {
-    //   setUpCanBeReset($this.querySelectorAll('.wrap-box-vertical')[0])
-    // }
-    // caculatePin($this)
-    // window.addEventListener('scroll', () => {
-    //   caculatePin($this)
-    //   if (flag === true) {
-    //     setheight($this)
-    //     flag = false
-    //   }
-    // } )
-    // window.addEventListener('resize', () => {
-    //   initClass($this)
-    //   setheight($this)
-    //   caculatePin($this)
-    // })
-    // })
-  }
+
   useEffect(() => {
     const $this = lazyRef.current
     let flag = true

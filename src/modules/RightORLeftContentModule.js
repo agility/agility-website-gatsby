@@ -26,7 +26,12 @@ const HasImg = ({ img, isHomePage }) => {
 				</Helmet>
 
 
-			<img src={img.url} width={ !isLoaded ? '320' : '' } height={ !isLoaded ? '208' : '' } alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} />
+
+			<img
+				src={img.url}
+				// width={ !isLoaded ? '320' : '' }
+				// height={ !isLoaded ? '208' : '' }
+				alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} />
 			{isHomePage &&
 				<div className="d-none d-sl-block">
 					<div className="ani-banner"></div>

@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import './LogoListingModule.scss'
 import '../global/core/lib/_slick-theme.scss'
-import ArrayUtils from '../utils/array-utils.js';
+import * as ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import { animationElementInnerComponent } from '../global/javascript/animation'

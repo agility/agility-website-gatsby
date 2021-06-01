@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import Lazyload from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
 import '../global/core/lib/_slick-theme.scss'
-import StringUtils from '../utils/string-utils'
+import * as StringUtils from '../utils/string-utils'
 import './CaseStudyRotator.scss';
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'

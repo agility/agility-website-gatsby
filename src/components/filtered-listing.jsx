@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from "gatsby"
 import './filtered-listing.scss'
 import ResponsiveImage from './responsive-image.jsx'
-import StringUtils from "../utils/string-utils"
-
+import * as StringUtils from "../utils/string-utils"
 
 class FilteredListing extends React.Component {
 
