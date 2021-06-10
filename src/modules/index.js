@@ -1,8 +1,5 @@
 import loadable from '@loadable/component'
 
-
-
-
 const TwoBoxContent = loadable(() => import('./2BoxContent'))
 const BestofBothWorldsModule = loadable(() => import('./BestofBothWorldsModule'))
 const CTABlocks = loadable(() => import("./CTABlocks"))
