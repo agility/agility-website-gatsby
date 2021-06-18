@@ -19,7 +19,7 @@ const SingleTestimonialPanel = ({ item }) => {
 			}
 			animationElementInnerComponent(thisModuleRef.current)
 			window.addEventListener('scroll', scrollEventFunc)
-	
+
 			return () => {
 				window.removeEventListener('scroll', scrollEventFunc)
 			}
@@ -38,7 +38,7 @@ const SingleTestimonialPanel = ({ item }) => {
 								<div className="quote-content last-mb-none">{singeTestimonial.excerpt}</div>
 							}
 							<div className="sub-content ps-rv last-mb-none">
-								{ singeTestimonial.companyLogo.url &&
+								{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
 									<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-none d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 								}
 								{ singeTestimonial.title &&
@@ -50,10 +50,10 @@ const SingleTestimonialPanel = ({ item }) => {
 							</div>
 						</div>
 						<div className="avatar-testi d-flex align-items-center justify-content-between anima-bottom delay-2">
-							{ singeTestimonial.headshot.url &&
+							{ singeTestimonial.headshot && singeTestimonial.headshot.url &&
 								<LazyBackground className="avarta-img bg bg-center" src={singeTestimonial.headshot.url} alt={singeTestimonial.title}></LazyBackground>
 							}
-							{ singeTestimonial.companyLogo.url &&
+							{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
 								<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-md-none" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 							}
 						</div>
