@@ -18,7 +18,7 @@
 		"@loadable/component": "^5.14.1",
 		"abortcontroller-polyfill": "^1.4.0",
 		"dotenv": "^8.1.0",
-		"gatsby": "^3.6.1",
+		"gatsby": "^3.7.2",
 		"gatsby-plugin-feed": "^3.5.0",
 		"gatsby-plugin-gatsby-cloud": "^2.6.1",
 		"gatsby-plugin-google-tagmanager": "^3.0.0",
