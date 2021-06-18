@@ -50,10 +50,10 @@ const SingleTestimonialPanel = ({ item }) => {
 							</div>
 						</div>
 						<div className="avatar-testi d-flex align-items-center justify-content-between anima-bottom delay-2">
-							{ singeTestimonial.headshot.url &&
+							{ singeTestimonial.headshot && singeTestimonial.headshot.url &&
 								<LazyBackground className="avarta-img bg bg-center" src={singeTestimonial.headshot.url} alt={singeTestimonial.title}></LazyBackground>
 							}
-							{ singeTestimonial.companyLogo.url &&
+							{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
 								<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-md-none" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 							}
 						</div>
