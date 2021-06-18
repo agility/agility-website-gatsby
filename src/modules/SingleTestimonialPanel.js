@@ -19,7 +19,7 @@ const SingleTestimonialPanel = ({ item }) => {
 			}
 			animationElementInnerComponent(thisModuleRef.current)
 			window.addEventListener('scroll', scrollEventFunc)
-	
+
 			return () => {
 				window.removeEventListener('scroll', scrollEventFunc)
 			}
@@ -38,7 +38,7 @@ const SingleTestimonialPanel = ({ item }) => {
 								<div className="quote-content last-mb-none">{singeTestimonial.excerpt}</div>
 							}
 							<div className="sub-content ps-rv last-mb-none">
-								{ singeTestimonial.companyLogo.url &&
+								{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
 									<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-none d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 								}
 								{ singeTestimonial.title &&
