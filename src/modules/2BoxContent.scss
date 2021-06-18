@@ -1,13 +1,13 @@
-@import '../global/setting';
+@import "../global/setting";
 .wrap-chanel {
   // box-shadow: 0 3px 20px -8px rgba(85, 63, 164, .25);
   box-shadow: 0 5px 30px 0px rgba(85, 63, 164, 0.25);
   background-color: #fff;
   padding: 40px;
-  transition: all .35s;
+  transition: all 0.35s;
   img {
-		margin-bottom: 12px;
-		height: 100px;
+    margin-bottom: 12px;
+    // height: 100px;
   }
   p {
     a {
@@ -30,7 +30,7 @@
     padding: 57px 85px;
     height: 100%;
     &:hover {
-      box-shadow: 0 0 6px 0px rgba(85,63,164,0.37);
+      box-shadow: 0 0 6px 0px rgba(85, 63, 164, 0.37);
     }
-	}
+  }
 }
