@@ -1,28 +1,46 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useRef, useState } from 'react';
 import { renderHTML } from '../agility/utils'
 
 import './G2CrowdReviewListing.scss'
 
 const G2CrowdReviewListing = ({ item }) => {
-	const [state, setState] = useState({
-		loaded: false
-	})
+	const [loaded, setLoaded] = useState(false)
+	const widgetContainerRef = useRef()
+
+	const loadGarterWidget = () => {
+
+		window.GartnerPI_Widget({
+			size: item.customFields.gartnerWidgetSize,
+			theme: item.customFields.gartnerWidgetTheme,
+			sourcingLink: item.customFields.gartnerSourcingLink,
+			widget_id: item.customFields.gartnerWidgetID,
+			version: "2",
+			container: widgetContainerRef.current
+		})
+	}
+
 	useEffect(() => {
 
-		//load the g2 script...
+		//load the correct script...
 		if (typeof window === 'undefined') return;
 
-		if (state.loaded) return;
+		if (loaded) return;
 
-		setTimeout(function() {
-			const script = document.createElement("script")
-			script.src = "https://apps.elfsight.com/p/platform.js"
-			script.async = true
-			document.body.appendChild(script)
-			setState({
-				loaded: true,
-			})
-		}, 1500);
+		if (item.customFields.gartnerSourcingLink) {
+
+			if (window.GartnerPI_Widget === undefined) {
+
+				const script = document.createElement("script")
+				script.src = "https://www.gartner.com/reviews/public/Widget/js/widget.js"
+				script.async = true
+				script.onload = () => {
+					loadGarterWidget()
+				}
+				document.body.appendChild(script)
+			} else {
+				loadGarterWidget()
+			}
+		}
 	});
 
 	return (
@@ -32,7 +50,7 @@ const G2CrowdReviewListing = ({ item }) => {
 				<p className="intro">{item.customFields.subHeading}</p>
 				<div>
 					<div className="g2-review-panel">
-						<div className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
+						<div ref={widgetContainerRef} className="g2-review-widget" dangerouslySetInnerHTML={renderHTML(item.customFields.widgetCode)}></div>
 					</div>
 				</div>
 			</div>
