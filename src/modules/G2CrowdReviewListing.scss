@@ -5,16 +5,17 @@
   width:100%;
 
   h2 {
-    margin-bottom: 65px; 
+    margin-bottom: 65px;
   }
 
   p.intro {
     margin-bottom: 30px;
   }
-  
+
   .g2-review-panel {
+	display: flex;
+	justify-content: center;
     .g2-review-widget {
-      width: 100%;
     }
   }
 }
