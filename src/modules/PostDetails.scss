@@ -1,6 +1,8 @@
 @import "../global/_variables.scss";
 
 .blog-post-details {
+	margin:auto;
+	max-width: $max-reading-width;
 	padding-bottom: 80px;
 
 	.container.p-w-small {
@@ -140,5 +142,22 @@
 			font-size: 13px;
 			font-weight: bold;
 		}
+	}
+
+	@media (max-width: 900px) {
+		margin: 0 100px;
+	}
+
+	@media (max-width: 767px) {
+		margin: 0 60px;
+
+	}
+
+	@media (max-width: 600px) {
+		margin: 0 40px;
+	}
+
+	@media (max-width: 400px) {
+		margin: 0 20px;
 	}
 }
