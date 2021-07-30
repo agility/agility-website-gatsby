@@ -13,8 +13,8 @@
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
 	},
 	"dependencies": {
-		"@agility/gatsby-image-agilitycms": "^1.0.0",
-		"@agility/gatsby-source-agilitycms": "^3.0.0",
+		"@agility/gatsby-image-agilitycms": "^1.0.6",
+		"@agility/gatsby-source-agilitycms": "^3.0.1",
 		"@loadable/component": "^5.15.0",
 		"abortcontroller-polyfill": "^1.4.0",
 		"dotenv": "^8.1.0",
