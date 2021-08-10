@@ -5,7 +5,7 @@ import Spacing from './Spacing'
 import { animationElementInnerComponent } from '../global/javascript/animation'
 const CenteredCTAPanel = ({ item }) => {
 	const fields = item.customFields;
-	const classSection = `module mod-cta ps-rv bg-46 CenteredCTAPanel animation ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	const classSection = `module mod-cta ps-rv bg-46 CenteredCTAPanel animation opacity-0 ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 	const btnCta1 = fields.cTA1
 	const btnCta2 = fields.cTA2
 	const thisModuleRef = useRef(null)
@@ -13,6 +13,9 @@ const CenteredCTAPanel = ({ item }) => {
 	useEffect(() => {
 		const scrollEventFunc = () => {
 			animationElementInnerComponent(thisModuleRef.current)
+			if (thisModuleRef.current && thisModuleRef.current.classList && thisModuleRef.current.classList.contains('opacity-0')) {
+				thisModuleRef.current.classList.remove('opacity-0')
+			}
 		}
 		animationElementInnerComponent(thisModuleRef.current)
 		window.addEventListener('scroll', scrollEventFunc)
@@ -21,7 +24,7 @@ const CenteredCTAPanel = ({ item }) => {
 			window.removeEventListener('scroll', scrollEventFunc)
 		}
 	}, [])
-	
+
 	return (
 		<React.Fragment>
 			<section className={classSection} ref={ thisModuleRef }>
@@ -29,7 +32,7 @@ const CenteredCTAPanel = ({ item }) => {
 				<div className="container anima-bottom">
 					<div className="cta-mx text-center text-white last-mb-none">
 						{ fields.title &&
-							<h3 className='h2'>{fields.title}</h3>
+							<h2>{fields.title}</h2>
 						}
 						{ fields.title &&
 							<div className="three-dash-line">

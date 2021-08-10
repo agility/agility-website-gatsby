@@ -136,7 +136,7 @@ $color-e3: #380086;
 $color-ee: #EEF4F8;
 /* body */
 $body-bg: $white !default;
-$body-color: $color-4c !default;
+$body-color: $color-2a !default;
 
 /* color heading */
 // set color for heading
@@ -201,7 +201,7 @@ $fontpx: 17px;
 /* set style body */
 
 $font-size-base : rem($fontpx);
-$line-height-base : 1.76 !default;
+$line-height-base : 1.647 !default;
 $font-weight-base : 400;
 
 /* font heading */
@@ -209,7 +209,8 @@ $font-weight-base : 400;
 $h1-font-size : rem(40);
 $h2-font-size : rem(35);
 $h3-font-size : rem(24);
-$h4-font-size : rem(19);
+// $h4-font-size : rem(19);
+$h4-font-size : rem(17);
 $h5-font-size : rem(13);
 $h6-font-size : rem(14);
 

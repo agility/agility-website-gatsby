@@ -35,7 +35,11 @@ const SingleTestimonialPanel = ({ item }) => {
 					<div className="container">
 						<div className="mess-tesi anima-bottom">
 							{ singeTestimonial.excerpt &&
-								<div className="quote-content last-mb-none">{singeTestimonial.excerpt}</div>
+								<div className="quote-content last-mb-none">
+									<blockquote>
+										{singeTestimonial.excerpt}
+									</blockquote>
+								</div>
 							}
 							<div className="sub-content ps-rv last-mb-none">
 								{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&

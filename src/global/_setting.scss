@@ -84,7 +84,7 @@ $grays: ( // 100: $gray-100,
   // 800: $gray-800,
   900: $gray-900) !default;
 
-$blue: #5400ca !default;
+$blue: #5800d4 !default;
 // $indigo:  #6610f2 !default;
 // $purple:  #6f42c1 !default;
 // $pink:    #e83e8c !default;
@@ -141,7 +141,8 @@ $color-e3: #380086;
 $color-ee: #EEF4F8;
 /* body */
 $body-bg: $white !default;
-$body-color: $color-4c !default;
+// $body-color: $color-4c !default;
+$body-color: $color-2a !default;
 
 /* color heading */
 // set color for heading
@@ -170,7 +171,7 @@ $enable-print-styles: true !default;
 $btn-border-width: 2px !default;
 $border-color: $color-58 !default;
 $border-radius: 0 !default;
-$btn-line-height: 1.31 !default;
+$btn-line-height: 1.4 !default;
 
 /* btn custom */
 
@@ -205,17 +206,20 @@ $fontpx: 17px;
 /* set style body */
 
 $font-size-base : rem($font-b);
-$line-height-base : 1.76 !default;
+$line-height-base : 1.647 !default;
 $font-weight-base : 400;
-$btn-font-size: rem(16);
+// $btn-font-size: rem(16);
+$btn-font-size: rem(15);
 
 /* font heading */
 
 $h1-font-size : rem(40);
 $h2-font-size : rem(35);
 $h3-font-size : rem(24);
-$h4-font-size : rem(19);
+// $h4-font-size : rem(19);
+$h4-font-size : rem(17);
 $h5-font-size : rem(13);
+$h6-font-size : rem(14);
 
 /* heading custom */
 

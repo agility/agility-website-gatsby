@@ -19,7 +19,12 @@ exports.createResolvers = (args) => {
 		// 	//linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
 		// },
 		agilityGlobalHeader: {
-			preHeaderLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'preHeaderLinks' })
+			preHeaderLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'preHeaderLinks' }),
+			menuStructure: agility.getLinkedContentList({ type: 'agilityNavigationTopLevel', linkedContentFieldName: 'menuStructure' }),
+		},
+		agilityNavigationTopLevel: {
+			subNavigation: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'subNavigation' }),
+			megaContent: agility.getLinkedContentList({ type: 'agilityNavigationMegaMenuContent', linkedContentFieldName: 'megaContent' }),
 		},
 		agilityGlobalFooter: {
 			column1Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column1Links' }),
@@ -59,8 +64,8 @@ exports.createResolvers = (args) => {
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
+	const { createTypes } = actions
+	const typeDefs = `
     type agilityFeatureListItemCustomFields implements Node {
       moreInfoLink: agilityFeatureListItemCustomFieldsMoreInfoLink
 		}
@@ -71,8 +76,14 @@ exports.createSchemaCustomization = ({ actions }) => {
 		}
     type agilityGlobalHeaderCustomFields implements Node {
       contactus: agilityGlobalHeaderCustomFieldsContactus
+			marketingBannerButton: agilityGlobalHeaderCustomFieldsMarketingButton
 		}
 		type agilityGlobalHeaderCustomFieldsContactus {
+			href: String,
+			target: String,
+			text:String
+		}
+		type agilityGlobalHeaderCustomFieldsMarketingButton {
 			href: String,
 			target: String,
 			text:String
@@ -92,5 +103,5 @@ exports.createSchemaCustomization = ({ actions }) => {
 			text:String
 		}
   `
-  createTypes(typeDefs)
+	createTypes(typeDefs)
 }

@@ -1,9 +1,35 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import ReactHtmlParser from 'html-react-parser';
+import { graphql, useStaticQuery } from 'gatsby';
 
 
 const SEO = ({ page }) => {
+
+	/* Query default SEO Image in content header */
+
+		const query = useStaticQuery(graphql`
+		query NewGlobalHeaderQuerySEO {
+			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
+				customFields {
+					sEOImage {
+						url
+						height
+						width
+					}
+				}
+			}
+		}
+	`)
+
+	const defaultSEOImage = query.agilityGlobalHeader.customFields.sEOImage
+
+	if(!page?.seo?.image) {
+		page.seo.image =  defaultSEOImage
+	}
+
+
+	/* ----------------------- */
 
 	let title = page.title || "Agility CMS"
 	const description = page.seo.metaDescription;

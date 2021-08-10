@@ -1,4 +1,5 @@
 @import "../global/_variables.scss";
+@import "../global//setting";
 
 .filtered-listing {
 	margin-bottom: 40px;
@@ -7,16 +8,16 @@
 		max-width: 1008px;
 		display: block;
 		margin: 0 auto 42px;
-		font-size: 30px;
-		line-height: 1.56;
+		// font-size: 30px;
+		// line-height: 1.56;
 		// font-family: "Muli-bold", sans-serif;
-		font-weight: $fw-bold;
-		color: #2a3846;
+		// font-weight: $fw-bold;
+		// color: #2a3846;
 		text-align: center;
 
-		@media (max-width: 767px) {
-			font-size: 30px;
-		}
+		// @media (max-width: 767px) {
+		// 	font-size: 30px;
+		// }
 	}
 
 	p.intro {
@@ -110,15 +111,15 @@
 
 						&.active {
 							&:before {
-								background-color: #4600a8;
-								border: 1px solid #4600a8;
+								background-color: $color-58;
+								border: 1px solid $color-58;
 							}
 						}
 
 						&:hover,
 						&:focus {
 							&:before {
-								border: 1px solid #4600a8;
+								border: 1px solid $color-58;
 							}
 						}
 					}
@@ -251,6 +252,12 @@
 	}
 }
 
+
+@media screen and (max-width: 360px) {
+	.filtered-listing .listing-wrapper .listing-left {
+		min-width: auto;
+	}
+}
 /* ----------------------------- */
 /* Css for window OS - fix font  */
 .window-os {

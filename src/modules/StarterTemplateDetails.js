@@ -52,6 +52,9 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 		<React.Fragment>
 			<section className='module mod-star-detail animation' ref={ thisModuleRef }>
 				<div className='container'>
+					<div className='last-md-none wrap-black wrap-black-bot anima-bottom delay-2'>
+						<Link to="/starters" className='black-starters'><span className="icomoon icon-arrow"></span><span className="line-anim ps-rv">Back to Starters</span></Link>
+					</div>
 					<div className='row justify-content-between'>
 						<div className='col-lg-7 last-mb-none anima-left delay-4'>
 							{starterTemplate.name &&
@@ -123,9 +126,6 @@ const StarterDetails = ({ item, dynamicPageItem, page }) => {
 								<div className='child-item-right last-mb-none small-paragraph' dangerouslySetInnerHTML={renderHTML(starterTemplate.moreinfoHere)}></div>
 							}
 						</div>
-					</div>
-					<div className='last-md-none wrap-black wrap-black-bot anima-bottom delay-2'>
-						<Link to="/starters" className='black-starters'>Back to Starters</Link>
 					</div>
 				</div>
 			</section>
