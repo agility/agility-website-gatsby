@@ -591,6 +591,11 @@
       text-transform: none;
     }
   }
+  .ie {
+    .main-menu-dropdown {
+      border: none !important;
+    }
+  }
 }
 @media (min-width: 1501px)  {
   .main-menu-ul {
