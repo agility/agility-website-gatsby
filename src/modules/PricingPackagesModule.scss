@@ -15,7 +15,7 @@
       font-size: rem(11);
     }
   }
-  
+
 }
 .table-pin {
   position: fixed;
@@ -26,6 +26,9 @@
 }
 .wrap-price-head {
   margin-top: 82px;
+	.row {
+		justify-content: center;
+	}
 }
 .price-head {
   padding: 37px 38px 29px;
@@ -62,7 +65,7 @@
     // border-color: $color-ff;
   }
   &.type-standard {
-    
+
     .btn {
       color: $color-17;
       background-color: $color-ff;
@@ -278,7 +281,7 @@
 }
 .window-os {
   .item-t-price {
-    padding: 6px 0 3px;  
+    padding: 6px 0 3px;
   }
 }
 .item-t-price {
@@ -299,7 +302,7 @@
   // padding: 0 20px;
   margin: 0 auto;
   margin-left: -20px;
-  margin-right: -20px; 
+  margin-right: -20px;
   &::before {
     content: '';
     position: absolute;
@@ -464,7 +467,7 @@
         min-height: 0;
       }
     }
-   
+
 
     div {
       padding: 6.5px 5px 6.5px 0;
@@ -733,6 +736,7 @@
   .wrap-price-head {
     max-width: none;
     margin-top: 78px;
+
   }
   .price-head {
     padding: 39px 28px 35px;
