@@ -151,7 +151,8 @@ $black: $gray-900 !default;
 
 $link-color: $blue !default;
 $link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%) !default;
+// $link-hover-color: darken($link-color, 15%) !default;
+$link-hover-color: $color-75 !default;
 $link-hover-decoration: underline !default;
 
 // Paragraphs
@@ -252,4 +253,4 @@ $breadcrumb-bg: $white;
 
 @import './core/base/mixins';
 @import './core/base/placehoder';
-@import './variables-global';
+// @import './variables-global';

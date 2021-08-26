@@ -1,6 +1,9 @@
 @import '../global/setting';
 .mod-intro {
-  padding-top: 20px;
+  padding-top: 35px;
+  h5 {
+    margin-bottom: 30px;
+  }
 }
 .page-new-pricing,
 .page-pricing {
@@ -40,6 +43,12 @@
 @media (min-width: 768px) {
   .mod-intro {
     padding-top: 40px;
+    h5 {
+      margin-bottom: 25px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
   }
   .page-new-pricing,
   .page-pricing {

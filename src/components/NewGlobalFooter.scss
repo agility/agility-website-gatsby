@@ -56,6 +56,11 @@
     list-style: none;
     padding-left: 0;
   }
+  li {
+    &::before {
+      display: none;
+    }
+  }
   .foter-inner {
     padding-top: 27px;
     display: flex;

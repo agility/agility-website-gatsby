@@ -607,7 +607,7 @@ class PricingPackagesModule2 extends React.Component {
 
 						</div>
 						<div className="wrap-price-head">
-							<div className="row">
+							<div className="row justify-content-center">
 								{listHeaderColumn && listHeaderColumn.length > 0 &&
 									listHeaderColumn
 								}

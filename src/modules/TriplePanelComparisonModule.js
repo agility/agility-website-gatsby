@@ -30,7 +30,6 @@ const TriplePanelComparisonModule = ({ item }) => {
 
 
 	//item = item.customFields;
-	// console.log("TriplePanelComparisonModule", item)
 
 	/* animation module */
 	useEffect(() => {

@@ -31,7 +31,6 @@ const HasImg = ({ img, isHomePage, page }) => {
 		setIsLoaded(true)
 	}, [])
 
-	// console.log('listLottieOptions', listLottieOptions);
 
 	return (
 		<React.Fragment>

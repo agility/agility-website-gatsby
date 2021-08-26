@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "gatsby clean && gatsby build",
+		"clean": "gatsby clean",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "npm run develop",
@@ -13,6 +14,7 @@
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
 	},
 	"dependencies": {
+		"@agility/content-fetch": "^1.1.1",
 		"@agility/gatsby-image-agilitycms": "^1.0.6",
 		"@agility/gatsby-source-agilitycms": "^3.0.1",
 		"@loadable/component": "^5.15.0",
@@ -31,6 +33,7 @@
 		"gatsby-plugin-sass": "^4.0.2",
 		"gatsby-plugin-sharp": "^3.0.1",
 		"gatsby-plugin-sitemap": "^4.1.0",
+		"gatsby-source-filesystem": "^3.11.0",
 		"he": "^1.2.0",
 		"html-react-parser": "^0.10.5",
 		"i": "^0.3.6",
@@ -38,12 +41,14 @@
 		"npm": "^7.6.3",
 		"pure-react-carousel": "^1.26.1",
 		"react": "^17.0.1",
+		"react-custom-scrollbars": "^4.2.1",
 		"react-dom": "^17.0.1",
 		"react-equal-height": "^1.0.3",
 		"react-helmet": "^6.1.0",
 		"react-html-parser": "^2.0.2",
 		"react-infinite-scroller": "^1.2.4",
 		"react-lazyload": "^3.2.0",
+		"react-lottie": "^1.2.3",
 		"react-modal-video": "^1.2.5",
 		"react-player": "^2.6.2",
 		"react-select": "^3.1.0",
@@ -56,7 +61,8 @@
 		"slick-carousel": "^1.8.1",
 		"smoothscroll-polyfill": "^0.4.4",
 		"styled-components": "^5.1.1",
-		"truncate-html": "^1.0.2"
+		"truncate-html": "^1.0.2",
+		"util": "^0.12.4"
 	},
 	"devDependencies": {
 		"prettier": "^1.18.2"

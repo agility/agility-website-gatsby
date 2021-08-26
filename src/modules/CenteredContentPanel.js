@@ -10,7 +10,7 @@ const CenteredContentPanel = ({ item }) => {
 	const des = item.customFields.description
 	const btn1 = item.customFields.cTA1
 	const btn2 = item.customFields.cTA2
-	const classSection = `CenteredContentPanel animation mod-intro hero-text ${item.customFields.darkMode && item.customFields.darkMode === 'true'  ? 'dark-mode': ''}`
+	const classSection = `CenteredContentPanel animation mod-intro hero-text beauty-ul ${item.customFields.darkMode && item.customFields.darkMode === 'true'  ? 'dark-mode': ''}`
 	
 	const thisModuleRef = useRef(null)
 	/* animation module */
@@ -29,7 +29,7 @@ const CenteredContentPanel = ({ item }) => {
 	return (
 		<React.Fragment>
 		<section className={classSection} ref={ thisModuleRef }>
-			<div className="container last-mb-none max-w-940 text-center anima-bottom">
+			<div className="container last-mb-none max-w-940 text-center beauty-ul anima-bottom">
 				{ section &&
 					<h5>{section}</h5>
 				}
@@ -37,7 +37,7 @@ const CenteredContentPanel = ({ item }) => {
 					<h1>{heading}</h1>
 				}
 				{ des &&
-					<div dangerouslySetInnerHTML={renderHTML(des)} />
+					<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
 				}
 				{ (btn1 || btn2) &&
 					<p>
