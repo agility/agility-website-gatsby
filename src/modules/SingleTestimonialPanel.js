@@ -9,8 +9,7 @@ import { animationElementInnerComponent } from '../global/javascript/animation'
 const SingleTestimonialPanel = ({ item }) => {
 	const fields = item.customFields
 	const btnCta = fields.cTAButton
-	const classSection = `SingleTestimonialPanel ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
-
+	const classSection = `SingleTestimonialPanel`
 	const thisModuleRef = useRef(null)
 	  /* animation module */
 		useEffect(() => {
@@ -36,30 +35,28 @@ const SingleTestimonialPanel = ({ item }) => {
 						<div className="mess-tesi anima-bottom">
 							{ singeTestimonial.excerpt &&
 								<div className="quote-content last-mb-none">
-									<blockquote>
-										{singeTestimonial.excerpt}
-									</blockquote>
+									{singeTestimonial.excerpt}
 								</div>
 							}
 							<div className="sub-content ps-rv last-mb-none">
 								{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
-									<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-none d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
+									<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-md-block logo-desktop" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
 								}
 								{ singeTestimonial.title &&
-									<h6>{singeTestimonial.title}</h6>
+									<h6 className="font-bold">{singeTestimonial.title}</h6>
 								}
 								{ singeTestimonial.jobTitle &&
 									<p className="position">{singeTestimonial.jobTitle}</p>
 								}
 							</div>
 						</div>
-						<div className="avatar-testi d-flex align-items-center justify-content-between anima-bottom delay-2">
+						<div className="avatar-testi d-flex align-items-center justify-content-center justify-content-md-start anima-bottom delay-2">
 							{ singeTestimonial.headshot && singeTestimonial.headshot.url &&
 								<LazyBackground className="avarta-img bg bg-center" src={singeTestimonial.headshot.url} alt={singeTestimonial.title}></LazyBackground>
 							}
-							{ singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
+							{/* { singeTestimonial.companyLogo && singeTestimonial.companyLogo.url &&
 								<LazyLoad offset={ Helpers.lazyOffset }><img className="lazy d-md-none" src={singeTestimonial.companyLogo.url} alt={singeTestimonial.companyName} /></LazyLoad>
-							}
+							} */}
 						</div>
 						{ btnCta && btnCta.href &&
 							<div className="ps-rv anima-bottom delay-4">

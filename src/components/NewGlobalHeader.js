@@ -348,12 +348,12 @@ class NewGlobalHeader extends Component {
 	inputLine() {
 		const input = document.querySelectorAll('#search-page-header')[0]
 		const line = document.querySelectorAll('.bind-text')[0]
-		input.addEventListener('keyup', function () {
+		input?.addEventListener('keyup', function () {
 			line.textContent = input.value
 			if (input.value === '') {
-				line.classList.remove('change-text')
+				line?.classList.remove('change-text')
 			} else {
-				line.classList.add('change-text')
+				line?.classList.add('change-text')
 			}
 		});
 	}
@@ -369,15 +369,15 @@ class NewGlobalHeader extends Component {
 	}
 	hiddenSeach(event) {
 		const group = document.querySelectorAll('.group-search')[0]
-		if (group.classList.contains('open')
+		if (group?.classList.contains('open')
 			&& (!event.target.classList.contains('group-search')
 				&& !event.target.closest('.group-search'))) {
-			group.classList.remove('open')
+			group?.classList.remove('open')
 		}
 	}
 	showSearch() {
 		const searchFrame = document.querySelectorAll('.group-search')[0];
-		searchFrame.classList.add('open')
+		searchFrame?.classList.add('open')
 		document.getElementById('search-page-header').focus()
 	}
 	hiddenMessage() {
@@ -412,9 +412,9 @@ class NewGlobalHeader extends Component {
 						onClick={!subMenu?.length ? this._handleActiveMenu.bind(this, menuItem.id) : () => { }}
 						data-page-id={menuItem.id}>
 						{url.href.indexOf("://") !== -1 ?
-							<a href={url.href} target={url.target} onClick={subMenu?.length ? (e) => this.openMenuLv1(e) : () => {}}>{menuItem.customFields?.title || url.text}</a>
+							<a href={url.href} target={url.target} onClick={subMenu?.length ? (e) => this.openMenuLv1(e) : () => { }}>{menuItem.customFields?.title || url.text}</a>
 							:
-							<Link to={url.href} target={url.target} onClick={subMenu?.length ? (e) => this.openMenuLv1(e) : () => {}}>{menuItem.customFields?.title || url.text}</Link>
+							<Link to={url.href} target={url.target} onClick={subMenu?.length ? (e) => this.openMenuLv1(e) : () => { }}>{menuItem.customFields?.title || url.text}</Link>
 						}
 
 						{/* sub navigation */}
@@ -425,7 +425,7 @@ class NewGlobalHeader extends Component {
 
 			/* search layout */
 			const btnMenu = <li className="d-xl-flex align-items-center box-search-header" key="btnMenu">
-				<div className="group-search">
+				{/* <div className="group-search">
 					<button onClick={this.showSearch} className="open-search link-search d-flex align-items-center justify-content-center ">
 						<Lazyload offset={Helpers.lazyOffset}><img src={'/images/search.svg'} className="lazy " width="25" height="25" alt="search" /></Lazyload>
 					</button>
@@ -445,10 +445,10 @@ class NewGlobalHeader extends Component {
 							<Lazyload offset={Helpers.lazyOffset}><img src={'/images/search.svg'} className="lazy " alt="search" /></Lazyload>
 						</button>
 					</form>
-				</div>
+				</div> */}
 				<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-outline-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				{contactButton?.href && contactButton?.text &&
-					<a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2  ">{contactButton.text}</a>
+					<a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2 d-md-none d-xl-block">{contactButton.text}</a>
 				}
 			</li>
 
@@ -514,7 +514,7 @@ class NewGlobalHeader extends Component {
 							<>
 								{image &&
 									<div className="spotlight-thumb">
-										<Lazyload offset={Helpers.lazyOffset}><img src={image.url} className="lazy" alt={customFields?.title || customFields?.description} /></Lazyload>
+										<Lazyload offset={Helpers.lazyOffset}><img src={image.url + '?w=236'} className="lazy" alt={customFields?.title || customFields?.description} /></Lazyload>
 									</div>
 								}
 								{customFields?.title &&
@@ -563,9 +563,9 @@ class NewGlobalHeader extends Component {
 			<React.Fragment>
 				<header id="header" className={`module header ${this.state.sticky === true ? 'pin-header' : 'unpin-header'}  ${this.state.openMenu === true ? isOpenMenuText : ''} ${this.state.pinHeader === true ? 'pos-fixed' : ''}`} ref={reference => (this.header = reference)}>
 					{(item.hideMarketingBanner !== 'true') && item.marketingBanner && item.marketingBanner.length > 0 && this.state.webinar !== 'true' &&
-						<div className={`box-message text-white d-none d-xl-block`} ref={this.boxMessage}>
+						<div className={`box-message text-white d-none d-xl-flex align-items-center`} ref={this.boxMessage}>
 							<div className="container last-mb-none">
-								<div className="close-message" onClick={this.hiddenMessage}></div>
+								{/* <div className="close-message d-none" onClick={this.hiddenMessage}></div> */}
 								<div className="row">
 									<div className="col-7 col-xl-8">
 										<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(item.marketingBanner)} />
@@ -603,8 +603,8 @@ class NewGlobalHeader extends Component {
 								</ul>
 
 								<div className="box-mess-mb ps-rv text-white text-center d-xl-none">
-									<a className="d-inline-block flash-btn" href={primaryButton?.href} target={primaryButton?.target}>{primaryButton?.text}</a>
-									<a className="d-inline-block flash-btn" href={marketingBannerButton?.href} target={marketingBannerButton?.target}>{marketingBannerButton?.text}</a>
+									<a className="d-block flash-btn" href={marketingBannerButton?.href} target={marketingBannerButton?.target}>{marketingBannerButton?.text}</a>
+									<a className="d-block flash-btn" href={primaryButton?.href} target={primaryButton?.target}>{primaryButton?.text}</a>
 								</div>
 							</div>
 						</div>

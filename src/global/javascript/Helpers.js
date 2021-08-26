@@ -59,5 +59,43 @@ const HelperFunc = {
 	}
 }
 
+export const addUrlParam = (key, val) => {
+  let search = window.location.search
+  let newParam = val ? key + '=' + val : ''
+  let params = ''
+  search = search.replace(new RegExp('([?&])' + key + '[^&]*', 'g'), '')
+  if (search.indexOf('&') === 0) {
+    search = '?' + search.substring(1)
+  }
+  if (newParam) {
+    if (search) {
+      params = search + '&' + newParam
+    } else {
+      params = '?' + newParam
+    }
+  } else {
+    params = search
+  }
+  return window.location.origin + window.location.pathname + params
+}
+
+export const removeURLParam = (key) => {
+	let url = ''
+	let search = window.location.search.substring(1)
+	if (search) {
+		search = search.split('&')
+		search = search.filter(item => {
+			if (item.indexOf(key) === -1) {
+				return item
+			}
+		})
+		search = search.join('&')
+		search = search ? '?' + search : ''
+
+		url = window.location.origin + window.location.pathname + search
+	}
+
+	return url
+}
 
 export default HelperFunc

@@ -65,7 +65,6 @@ export default props => (
 )
 const StarterTemplateListing = ({ moduleItem, templates }) => {
 
-	// console.log('templates', templates)
 	useEffect(() => {
 		equalHeightContent()
 		const resizeWindow = (e) => {
@@ -107,7 +106,6 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 					}
 				}
 			})
-			// console.log(height, offset, itemPerRows)
 
 			Array.from(itemPerRows).forEach(itemRow => {
 				itemRow.style.height = height + 'px';

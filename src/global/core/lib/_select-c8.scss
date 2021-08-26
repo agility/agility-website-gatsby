@@ -36,6 +36,10 @@
   font-size: 1em;
   border: 1px solid $input-border-color;
   border-top: none;
+  background-color: rebeccapurple;
+  &::before {
+    display: none !important;
+  }
 }
 
 .dropdown-select-c8 {

@@ -38,6 +38,7 @@ const LandingPageHeader = loadable(() => import("./LandingPageHeader"))
 const LandingPageHeaderForm = loadable(() => import("./LandingPageHeaderForm"))
 const LatestPosts = loadable(() => import("./LatestPosts"))
 const LatestResources = loadable(() => import("./LatestResources"))
+const RelatedResources = loadable(() => import("./RelatedResources"))
 const LogoListing = loadable(() => import("./LogoListing"))
 const LogoListingModule = loadable(() => import("./LogoListingModule"))
 
@@ -123,6 +124,7 @@ const allModules = {
 	"LandingPageHeaderForm": LandingPageHeaderForm,
 	"LatestPosts": LatestPosts,
 	"LatestResources": LatestResources,
+	"RelatedResources": RelatedResources,
 	"LogoListing": LogoListing,
 	"LogoListingModule": LogoListingModule,
 	"MostViewedArticles": MostViewedArticles,
