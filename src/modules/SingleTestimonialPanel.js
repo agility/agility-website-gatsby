@@ -24,7 +24,7 @@ const SingleTestimonialPanel = ({ item }) => {
 			}
 		}, [])
 
-	if (fields.testimonials.length > 0) {
+	if (fields.testimonials && fields.testimonials.length > 0) {
 		const randomItem = Math.floor(Math.random() * fields.testimonials.length)
 		const singeTestimonial = fields.testimonials[randomItem].customFields
 		return (
