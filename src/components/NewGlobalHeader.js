@@ -8,111 +8,136 @@ import Helpers from '../global/javascript/Helpers'
 export default props => (
 	<StaticQuery
 		query={graphql`
-			query NewGlobalHeaderQuery {
-				agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
-					customFields {
-						hideMarketingBanner
-						marketingBanner
-						mobileLogo {
-							label
-							url
-						}
-						primaryButton {
-							href
-							target
-							text
-						}
-						contactus {
-							href
-							target
-							text
-						}
-						secondaryButton {
-							href
-							target
-							text
-						}
-						marketingBannerButton {
-							href
-							target
-							text
-						}
-						stickyLogo {
-							url
-						}
-						logo {
-							url
-							label
-						}
-					}
-					preHeaderLinks {
-						customFields {
-							title
-							uRL {
-							href
-							target
-							text
-							}
-						}
-					}
-					menuStructure {
-						id
-						customFields {
-							subNavigation {
-								referencename
-							}
-							linkorSpotlight
-							megaTitle
-							megaContent {
-								referencename
-							}
-							title
-							uRL {
-								href
-								target
-								text
-							}
-						}
-						subNavigation {
-							id
-							customFields {
-								description
-								title
-								uRL {
-									href
-									target
-									text
-								}
-							}
-						}
-						megaContent {
-							customFields {
-								title
-								description
-								uRL {
-									href
-									target
-									text
-								}
-								imageorIcon {
-									url
-									width
-									height
-								}
-							}
-						}
-					}
+		query NewGlobalHeaderQuery {
+			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
+			  customFields {
+				hideMarketingBanner
+				marketingBanner
+				mobileLogo {
+				  label
+				  url
 				}
+				primaryButton {
+				  href
+				  target
+				  text
+				}
+				contactus {
+				  href
+				  target
+				  text
+				}
+				secondaryButton {
+				  href
+				  target
+				  text
+				}
+				marketingBannerButton {
+				  href
+				  target
+				  text
+				}
+				stickyLogo {
+				  url
+				}
+				logo {
+				  url
+				  label
+				}
+			  }
+			  preHeaderLinks {
+				customFields {
+				  title
+				  uRL {
+					href
+					target
+					text
+				  }
+				}
+			  }
+			  menuStructure {
+				id
+				customFields {
+				  subNavigation {
+					referencename
+				  }
+				  linkorSpotlight
+				  megaTitle
+				  megaContent {
+					referencename
+				  }
+				  title
+				  uRL {
+					href
+					target
+					text
+				  }
+				}
+				subNavigation {
+				  id
+				  customFields {
+					description
+					title
+					uRL {
+					  href
+					  target
+					  text
+					}
+				  }
+				   properties {
+					itemOrder
+				  }
+				}
+				megaContent {
+				  customFields {
+					title
+					description
+					uRL {
+					  href
+					  target
+					  text
+					}
+					imageorIcon {
+					  url
+					  width
+					  height
+					}
+				  }
+				  properties {
+					itemOrder
+				  }
+				}
+				properties {
+				  itemOrder
+				}
+			  }
 			}
+		  }
+
+
 		`}
 		render={queryData => {
 
-			const navigationTopLevel = queryData.agilityGlobalHeader?.menuStructure
+			const navigationTopLevel = queryData.agilityGlobalHeader?.menuStructure.sort((a, b) => {
+				return a.properties.itemOrder > b.properties.itemOrder ? 1 : -1
+			})
+
+			navigationTopLevel.forEach(n => {
+				n.megaContent = n.megaContent.sort((a, b) => {
+					return a.properties.itemOrder > b.properties.itemOrder ? 1 : -1
+				})
+
+				n.subNavigation = n.subNavigation.sort((a, b) => {
+					return a.properties.itemOrder > b.properties.itemOrder ? 1 : -1
+				})
+			})
+
+
 			const viewModel = {
 				item: queryData.agilityGlobalHeader,
 				menu2: navigationTopLevel
 			}
-
+console.log(navigationTopLevel)
 			return (
 				<NewGlobalHeader {...viewModel} />
 			)
