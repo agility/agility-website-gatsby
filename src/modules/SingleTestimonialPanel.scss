@@ -17,7 +17,7 @@
   }
 }
 .quote-content {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   font-style: italic;
   font-size: rem(18);
   line-height: 1.78;
@@ -25,8 +25,9 @@
   color: $color-2a;
 }
 .mess-tesi {
-  border: solid 2px $color-75;
+  border: solid 1px $color-75;
   padding: 32px 30px 37px;
+  margin-left: 10px;
   border-radius: 10px;
   background-color: $white;
   position: relative;
@@ -37,7 +38,7 @@
       font-size: rem(18);
       font-style: italic;
       line-height: 1.78;
-      letter-spacing: -.14px;
+      letter-spacing: 0;
       margin-bottom: 20px;
     }
   }
@@ -54,26 +55,36 @@
     background-size: contain;
     background-position: top left;
     background-repeat: no-repeat;
-    @include position(absolute,$top: 100%,$left: 85px);
+    @include position(absolute,$top: 100%,$left: calc(50% - 133px));
     width: 54px;
     height: 100px;
+    transform: scaleX(-1);
   }
 }
 .avarta-img {
   // @include size(100px);
-  width: 100px;
-  height: 100px;
+  width: 175px;
+  height: 175px;
   overflow: hidden;
   border-radius: 50%;
   background-color: rgba(233,240,245,.5);
 }
 .avatar-testi {
   margin-top: 22px;
-  padding-right: 30px;
-  margin-bottom: 40px;
+  padding-right: 0;
+  margin-bottom: 20px;
   img {
     max-width: 60px;
   }
+}
+.sub-content {
+  padding-right: 100px;
+}
+.logo-desktop {
+  @include position(absolute,$top: 50%, $right: 0);
+  transform: translateY(-50%);
+  max-width: 100px;
+  max-height: 65px;
 }
 
 
@@ -81,6 +92,7 @@
   .mess-tesi {
     &::after {
       left: 58px;
+      transform: none;
     }
   }
   .d-md-block {
@@ -95,15 +107,6 @@
       max-width: 580px;
     }
   }
-  .logo-desktop {
-    @include position(absolute,$top: 50%, $right: 0);
-    transform: translateY(-50%);
-    max-width: 100px;
-    max-height: 65px;
-  }
-  .sub-content {
-    padding-right: 100px;
-  }
   .avatar-testi {
     margin-top: 15px;
     img:last-child {
@@ -112,8 +115,8 @@
     }
   }
   .avarta-img {
-    @include sizeEx(130px);
-    margin-left: -37px;
+    // @include sizeEx(130px);
+    margin-left: -75px;
   }
   .cta-testimonial {
     position: absolute;
@@ -123,13 +126,27 @@
     padding: 0 110px;
     width: 100%;
   }
+  .mess-tesi {
+    margin-left: 0;
+  }
+}
+@media (min-width: 992px){
+  .avarta-img {
+    margin-left: -135px;
+  }
 }
 @media (min-width: 1200px){
   .mod-testimonial {
     padding: 0 0 65px;
     .container:not(.max-w-940) {
-      max-width: 690px;
+      max-width: 695px;
     }
+  }
+  .quote-content {
+    margin-bottom: 24px;
+  }
+  .mess-tesi {
+    padding: 39px 36px 37px;
   }
   .mess-tesi::after {
     left: 25px;
@@ -140,9 +157,19 @@
   }
   .avatar-testi {
     margin-top: -40px;
+    margin-bottom: 50px;
   }
   .cta-testimonial {
     bottom: 65px;
   }
 }
+
+@media screen and (max-width: 374px) {
+  .mess-tesi {
+    &::after {
+      left: 20px;
+    }
+  }
+}
+
 

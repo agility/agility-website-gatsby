@@ -34,8 +34,7 @@
   }
   p {
     font-size: rem(17);
-    color: $color-4c;
-    line-height: 1.76;
+    line-height: 1.667;
   }
   .form-success {
     text-align: center;
@@ -158,17 +157,17 @@
         box-shadow: none;
         p {
           font-size: 12px;
-          color: #b3b3b3;
-          margin: 8px 5px;
+          // color: #b3b3b3;
+          margin: 8px 5px 8px 0;
   
           a {
             font-size: 12px;
-            color: #b3b3b3;
-            text-decoration: underline;
+            color: $color-58;
+            // text-decoration: underline;
   
-            &:hover {
-              color: $colorBasic;
-            }
+            // &:hover {
+            //   color: $colorBasic;
+            // }
           }
         }
       }
@@ -226,10 +225,11 @@
           display: block;
           margin-bottom: 6px;
           font-size: rem(15);
-          font-family: $mlBold;
+          // font-family: $mlBold;
+          font-weight: $fw-bold;
           color: rgba(76, 104, 132, .65);
           position: absolute;
-          top: 15px;
+          top: 17px;
           left: 16px;
           z-index: 3;
           transition: all .25s;
@@ -256,7 +256,8 @@
           padding-left: 16px;
           padding-right: 16px;
           font-size: rem(15);
-          font-family: $mlBold;
+          // font-family: $mlBold;
+          font-weight: $fw-bold;
           color: $color-17;
           z-index: 2;
           border: none;

@@ -10,6 +10,7 @@
 		height: 100px;
   }
   p {
+    margin-bottom: 38px;
     a {
       position: relative;
       z-index: 3;
@@ -19,7 +20,7 @@
     }
   }
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 }
 .item-chanel {
@@ -27,10 +28,27 @@
 }
 @media (min-width: 992px) {
   .wrap-chanel {
-    padding: 57px 85px;
+    padding: 57px 85px 78px;
     height: 100%;
+    z-index: 1;
     &:hover {
       box-shadow: 0 0 6px 0px rgba(85,63,164,0.37);
+      // &:after {
+      //   box-shadow: 0 0 6px 0px $color-46;
+      // }
+    }
+    // &:after {
+    //   content: "";
+    //   @include position(absolute,null,0,0,0,-2);
+    //   height: 200px;
+    //   background-color: $white;
+    //   box-shadow: 0 0 0 -8px rgba(85, 63, 164, .25);
+    //   transition: all .35s;
+    // }
+    &::before {
+      content: "";
+      @include position(absolute,0,0,0,0,-1);
+      background-color: $white;
     }
 	}
 }

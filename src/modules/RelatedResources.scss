@@ -1,0 +1,70 @@
+@import '../global/setting';
+
+.related-resources {
+  .container {
+    padding-top: 75px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background-color: $color-c9;
+    }
+  }
+}
+.relate-col {
+  margin-bottom: 40px;
+}
+.relate-re-box {
+  border: 1px solid $color-c9;
+  &:hover {
+    box-shadow:  0 5px 30px -8px rgba(85, 63, 164, 0.25);
+    .relate-re-thumb {
+      transform: scale3d(1.03, 1.03, 1);
+    }
+  }
+}
+
+.relate-re-thumb {
+  height: 200px;
+}
+
+.relate-re-cont {
+  padding: 29px 17px 27px;
+}
+
+@media (min-width: 992px) {
+  .relate-col {
+    margin-bottom: 0;
+  }
+  .relate-re-thumb {
+    height: 224px;
+  }
+}
+@media (min-width: 1501px) {
+  .related-resources {
+    margin-bottom: 85px;
+    h2 {
+      margin-bottom: 36px;
+    }
+    .container {
+      padding-top: 128px;
+    }
+  }
+  .relate-re-cont {
+    padding: 35px 25px 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .relate-col {
+    h3 {
+      font-size: rem(19);
+      line-height: 1.37;
+      font-weight: $fw-bold;
+    }
+  }
+}

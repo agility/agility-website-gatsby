@@ -14,8 +14,8 @@ const RightOrLeftSteps = ({ item }) => {
 	const step = fields.step
 	const textSide = fields.textSide
 	const imgURL = fields.image && fields.image.url.length > 0 ? fields.image.url : null
-	const classSection = `module mod-framework RightOrLeftSteps animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode style-back text-white bg-17': ''}`
-	const classTextSlide = `item-step row ps-rv align-items-center justify-content-space-betwwen anima-bottom delay-2 ${textSide === 'right' ? 'style-right' : ''}`
+	const classSection = `module mod-framework RightOrLeftSteps animation ${fields.darkMode && fields.darkMode === 'true' ? ' dark-mode style-back text-white bg-17' : ''}`
+	const classTextSlide = `item-step row ps-rv align-items-center justify-content-between anima-bottom delay-2 ${textSide === 'right' ? 'style-right' : ''}`
 
 	const thisModuleRef = useRef(null)
 	/* animation module */
@@ -33,36 +33,38 @@ const RightOrLeftSteps = ({ item }) => {
 
 	return (
 		<React.Fragment>
-			<section className={classSection} ref={ thisModuleRef }>
+			<section className={classSection} ref={thisModuleRef}>
 				<div className="container">
-					{ (title || subTitle) &&
+					{(title || subTitle) &&
 						<div className="title-framework last-mb-none text-center anima-bottom ">
-							{ title &&
+							{title &&
 								<h2>{title}</h2>
 							}
-							{ subTitle &&
+							{subTitle &&
 								<p>{subTitle}</p>
 							}
 						</div>
 					}
 					<div className={classTextSlide}>
-						<div className="col-md-6 content-step ps-rv last-mb-none small-paragraph">
-							{ step &&
-								<span className="step">{step}</span>
-							}
-							{ heading &&
-								<h3>{heading}</h3>
-							}
-							{ description &&
-								<p>{description}</p>
-							}
+						<div className="col-md-6 content-step ps-rv">
+							<div className="content-step-inner last-mb-none small-paragraph">
+								{step &&
+									<span className="step">{step}</span>
+								}
+								{heading &&
+									<h3>{heading}</h3>
+								}
+								{description &&
+									<p>{description}</p>
+								}
+							</div>
 						</div>
 						<div className="step-img ps-rv col-md-6 d-table">
 							<div className="d-table-cell align-middle">
-								
-								{ imgURL &&
+
+								{imgURL &&
 									<React.Fragment>
-										<Lazyload offset={ Helpers.lazyOffset }><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
+										<Lazyload offset={Helpers.lazyOffset}><img src={imgURL} className="ps-rv img-step" alt="Create your content structure"></img></Lazyload>
 									</React.Fragment>
 								}
 							</div>
@@ -70,7 +72,7 @@ const RightOrLeftSteps = ({ item }) => {
 					</div>
 				</div>
 			</section>
-			<Spacing item={item}/>
+			<Spacing item={item} />
 		</React.Fragment>
 	);
 }

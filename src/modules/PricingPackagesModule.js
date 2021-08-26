@@ -305,7 +305,7 @@ class PricingPackagesModule2 extends React.Component {
 		super(props);
 		let isMonthly = props.item.customFields.loadsByDefault === 'Monthly' ? true : false
 		this.state = {
-			loaded: false,
+			// loaded: false,
 			showMore: false,
 			isMobile: false,
 			isPin: false,
@@ -314,8 +314,10 @@ class PricingPackagesModule2 extends React.Component {
 		}
 		this.pinHeaderTable = this.pinHeaderTable.bind(this)
 		this.eventScrollFunc = this.eventScrollFunc.bind(this)
+		this.eventClickFunc = this.eventClickFunc.bind(this)
 		this.textSaleRef = React.createRef(null)
 		this.thisElm = React.createRef(null)
+		this.toggerPrice = React.createRef(null)
 
 	}
 
@@ -398,29 +400,33 @@ class PricingPackagesModule2 extends React.Component {
 			})
 		})
 	}
+
+	/* set Width sale Text */
+	toggleWidthSaleText() {
+		const textSaleElm = this.textSaleRef.current.querySelector('span')
+		const w = textSaleElm.offsetWidth > 0 ? textSaleElm.offsetWidth + 5 : 0
+		this.setState({ widthSaleText: w })
+	}
+
+	/* event scroll window */
 	eventScrollFunc(event) {
 		this.pinHeaderTable()
 		this.setheightTable()
 		animationElementInnerComponent(this.thisElm.current)
 	}
+	/* event click Window */
+	eventClickFunc() {
+		this.pinHeaderTable()
+		this.setheightTable()
+	}
 	componentDidMount() {
-		let oldWidth = window.innerWidth
 		this.pinHeaderTable();
 		this.setheightTable()
 		this.toggerTable()
-		this.setState({ loaded: true });
-
-		/* set Width sale Text */
-		const textSaleElm = this.textSaleRef.current.querySelector('span')
-		const w = textSaleElm ? textSaleElm.offsetWidth + 2 : 0
-		this.setState({ widthSaleText: w })
+		this.toggleWidthSaleText()
 
 		window.addEventListener('scroll', this.eventScrollFunc)
-		window.addEventListener('resize', () => {
-			if (oldWidth !== window.innerWidth) {
-				oldWidth = window.innerWidth;
-			}
-		});
+		window.addEventListener('click', this.eventClickFunc)
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -429,14 +435,16 @@ class PricingPackagesModule2 extends React.Component {
 
 		/* set Width sale Text Month or Year */
 		if (prevProps.textSale !== this.props.textSale || prevProps.textSaleYearly !== this.props.textSaleYearly || prevState.isMonthly !== this.state.isMonthly) {
-			const textSaleElm = this.textSaleRef.current.querySelector('span')
-			const w = textSaleElm ? textSaleElm.offsetWidth + 2 : 0;
-			this.setState({ widthSaleText: w });
+			this.toggleWidthSaleText()
+			// const textSaleElm = this.textSaleRef.current.querySelector('span')
+			// const w = textSaleElm ? textSaleElm.offsetWidth + 5 : 0;
+			// this.setState({ widthSaleText: w });
 		}
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.eventScrollFunc)
+		window.removeEventListener('click', this.eventClickFunc)
 	}
 
 	render() {
@@ -459,7 +467,7 @@ class PricingPackagesModule2 extends React.Component {
 			return (
 				<div className="item-price-catelogy" key={index}>
 					<div className="trigger-catelogy" >
-						<h3>
+						<h3 className="h4">
 							{category && category}
 						</h3>
 						<span className="icomoon icon-keyboard_arrow_right"></span>
@@ -549,7 +557,7 @@ class PricingPackagesModule2 extends React.Component {
 									<td>
 										<div className="text-pin d-none">
 											All Features
-									</div>
+										</div>
 									</td>
 									{ShowTilePin &&
 										ShowTilePin
@@ -560,7 +568,7 @@ class PricingPackagesModule2 extends React.Component {
 					</div>
 				</div>
 
-				<div className="wrap-price-catelogy">
+				<div className="wrap-price-catelogy last-mb-none">
 					{listCategory && listCategory.length > 0 &&
 						listCategory
 					}
@@ -570,34 +578,36 @@ class PricingPackagesModule2 extends React.Component {
 
 		return (
 			<React.Fragment>
-				<section className={`PricingPackagesModule pricing-package animation anima-fixed anima-inner-component ${!this.state.loaded ? 'opacity-0' : ''}`} ref={ this.thisElm }>
+				<section className={`PricingPackagesModule pricing-package animation anima-fixed anima-inner-component`} ref={this.thisElm}>
 					<div className="container anima-bottom">
-						<div className="wrap-togger-price d-flex justify-content-center align-items-center">
+						<div ref={this.toggerPrice} className="wrap-togger-price d-flex justify-content-center align-items-center transition-25"
+						>
 							<div className="togger-price">
 								<div className={`item-t-price ${(this.state.isMonthly == true) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(true) }}>
 									Monthly
-							</div>
+								</div>
 								<div className={`item-t-price ${(this.state.isMonthly == false) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(false) }}>
 									Yearly
-							</div>
+								</div>
 								<div className="overlay-active">
 
 								</div>
 							</div>
 							<span className="transition-25 ps-rv overflow-hidden sale-text text-purple"
-							style={{ width: `${this.state.widthSaleText !== 'auto' ? this.state.widthSaleText + 'px' : this.state.widthSaleText}` }}
-							ref={this.textSaleRef}>
-								{this.state.isMonthly && textSale &&
+								style={{ width: this.state.widthSaleText }}
+								ref={this.textSaleRef}>
+								<span className="text-purple">{this.state.isMonthly ? textSale : textSaleYearly}</span>
+								{/* {this.state.isMonthly && textSale &&
 									<span className="text-purple" dangerouslySetInnerHTML={renderHTML(textSale)}></span>
 								}
 								{!this.state.isMonthly && textSaleYearly &&
 									<span className="text-purple" dangerouslySetInnerHTML={renderHTML(textSaleYearly)}></span>
-								}
+								} */}
 							</span>
 
 						</div>
 						<div className="wrap-price-head">
-							<div className="row">
+							<div className="row justify-content-center">
 								{listHeaderColumn && listHeaderColumn.length > 0 &&
 									listHeaderColumn
 								}

@@ -44,7 +44,7 @@
 		padding-right: 45px;
 	}
 	p {
-		line-height: 30px;
+		line-height: 28px;
 	}
 	// @media (max-width: 767px) {
 	// 	padding-top: 0;
@@ -90,11 +90,11 @@
 }
 .headline-faq {
 	margin-bottom: 40px;
-	h2 {
-		// font-family: $ml;
-		// font-weight: 400;
-		font-weight: $fw-regular;
-	}
+	// h2 {
+	// 	// font-family: $ml;
+	// 	// font-weight: 400;
+	// 	font-weight: $fw-regular;
+	// }
 }
 .faqs {
 	padding: 90px 0;
@@ -130,6 +130,8 @@
 		}
 	}
 	.faq-item {
+		margin-bottom: 37px;
+    padding-bottom: 37px;
 		&:hover {
 			h4 {
 				color: $color-58;

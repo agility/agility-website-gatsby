@@ -1,0 +1,160 @@
+@import "../global/_variables.scss";
+@import '../global/setting';
+
+/* ------------------- */
+/* Banner */
+/* ------------------- */
+// .case-ban-left {
+//   flex: 0 0 56.4%;
+//   max-width: 56.4%;
+//   z-index: 1;
+//   .d-table {
+//     width: 60%;
+//   }
+// }
+// .case-ban-right {
+//   flex: 0 0 43.6%;
+//   max-width: 43.6%;
+//   z-index: 2;
+// }
+
+// .case-ban-bg {
+//   min-height: 300px;
+// }
+// .full-screen {
+//   width: 100vw;
+// }
+
+// .in-left {
+//   flex-direction: column;
+// }
+
+// .col-cs-left {
+//   z-index: 2;
+//   .d-table {
+//     height: 200px;
+//     padding: 40px 0;
+//   }
+// }
+// .cs-feature {
+//   padding: 30px;
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: -50vw;
+//     right: -50vw;
+//     bottom: 0;
+//     background-color: $color-6d;
+//     z-index: -1;
+//   }
+// }
+// .cs-f-item {
+//   color: $white;
+// }
+
+// @media (min-width: 992px) {
+//   .col-cs {
+//     padding-left: 0;
+//     padding-right: 0;
+//   }
+//   .col-cs-left {
+//     padding-right: 0;
+//     .d-table {
+//       height: 400px;
+//     }
+//   }
+//   .case-ban-bg {
+//     width: calc(43.65vw);
+//   }
+//   .in-left {
+//     width: calc(100% + 6.35vw);
+//   }
+//   .in-right {
+//     margin-left: 6.35vw;
+//   }
+//   .cs-feature {
+//     padding: 30px 6.35vw 30px 0;
+//     &::before {
+//       right: 0;
+//     }
+//   }
+//   .cs-f-item {
+//     max-width: 155px;
+//   }
+// }
+
+// @media (max-width: 991px) {
+//   .in-right {
+//     position: relative;
+//     width: 100vw;
+//     left: calc(-50vw + 50%);
+//   }
+//   .col-cs-left {
+//     order: 3;
+//   }
+// }
+/* ------------------- */
+/* END Banner */
+/* ------------------- */
+
+
+/* Resources */
+/* ------------------- */
+// .relate-re-box {
+//   &:hover {
+//     .relate-re-thumb {
+//       transform: scale3d(1.03, 1.03, 1);
+//     }
+//   }
+// }
+// .relate-re-thumb {
+//   height: 224px;
+// }
+// .relate-re-cont {
+//   padding: 35px 25px 40px;
+// }
+/* ------------------- */
+/* END Resources */
+/* ------------------- */
+
+// .gal-slider {
+//   padding: 65px 0 70px;
+//   margin-bottom: 50px;
+//   background-color: rgba(201, 216, 230, 0.25);
+//   .slick-prev {
+//     left: 20px;
+//     &:hover {
+//       transform: translateY(-50%) rotate(180deg);
+//     }
+//   }
+//   .slick-next {
+//     right: 20px;
+//     &:hover {
+//       transform: translateY(-50%);
+//     }
+//   }
+//   .slick-arrow {
+//     transition: all .25s;
+//     width: 48px;
+//     height: 48px;
+//     max-width: 48px;
+//     border-radius: 50px;
+//     background-color: rgba(255, 255, 255, 0.5);
+//     &::before {
+//       color: $color-17;
+//       left: 6px;
+//     }
+//     &:hover {
+//       background-color: $white;
+//     }
+//   }
+//   .slick-list {
+//     max-width: 640px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     box-shadow: 0 5px 30px -8px rgba(201, 216, 230, 0.5);
+//     transition: height .25s;
+//   }
+// }
+

@@ -2,16 +2,15 @@
 /* mod-framework  */
 .step {
   text-transform: uppercase;
-  // font-family: 'Muli-Bold', sans-serif;;
-  font-weight: $fw-bold;
+  font-weight: $fw-semi-bold;
   font-size: rem(13);
-  letter-spacing: .65px;
+  letter-spacing: 1.08px;
   line-height: 26px;
   border-radius: 16px;
   min-width: 85px;
   text-align: center;
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 36px;
   padding: 2px 0;
   color: #fff;
   background-color: #6d06ff;
@@ -72,27 +71,20 @@
 .title-framework {
   margin-bottom: 45px;
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 17px;
   }
 }
 .img-step {
   z-index: 1;
-  max-height: 350px;
-  max-width: calc(100% + 30px);
-}
-.style-right {
-  .img-step {
-    margin-left: -30px;
-  }
-}
-.step-img {
-  margin-left: -20px;
-  margin-right: -25px;
-  // min-height: 350px;
-  width: auto !important;
+  max-height: 370px;
 }
 .content-step {
 	margin-bottom: 30px;
+  h3,
+  .h3 {
+    letter-spacing: 0;
+    margin-bottom: 14px;
+  }
 }
 .mod-framework {
   padding-bottom: 50px;
@@ -102,9 +94,6 @@
 }
 .style-back {
   &.mod-framework {
-    // background-color: $color-17;
-    // @extend %color-white;
-    // color: $white;
     .bg-black-frame {
       display: block;
     }
@@ -151,29 +140,37 @@
   }
   .img-step {
     max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .step-img {
     margin-left: 0;
     margin-right: 0;
+    width: 100%;
   } 
-  .style-right .img-step {
-    margin-left: 0;
-    
-  }
 }
 @media (min-width: 768px) {
+  .dark-mode {
+    .item-step {
+      padding-top: 13px;
+      padding-bottom: 10px;
+    }
+  }
   .bg-right-step,
 	.bg-left-step  {
 		width: 221px;
 	}
 	.item-step {
-    padding: 20px 10px 20px 30px;
+    padding: 33px 0 20px 30px;
 		&::before {
 			width: 80%;
 			height: 100%;
 			background: linear-gradient(90deg, rgb(233, 240, 245) 0%, rgb(255, 255, 255) 100%);
 		}
 		&.style-right {
+      padding-left: 0;
+      padding-right: 30px;
 			&::before {
 				left: auto;
 				right: 0;
@@ -181,7 +178,6 @@
       }
       .step-img {
         margin-right: 0;
-        margin-left: -40px;
       }
     }
     .content-step {
@@ -193,7 +189,7 @@
       text-align: right;
       display: inline-block;
       flex: 0 0 auto;
-      margin: 0 -40px 0 0;
+      margin: 0 -15px 0 0;
     }
   }
   .style-back {
@@ -203,6 +199,7 @@
 	}
   .step-img {
     height: 342px;
+    width: auto !important;
   }
 }
 @media (min-width: 992px) {
@@ -217,40 +214,67 @@
   }
   .item-step {
     min-height: 390px;
-    padding-left: 50px;
   }
   .step-img {
     height: 350px;
   }
 }
-@media (min-width: 1200px) {
-  .title-framework {
-    margin-bottom: 55px;
-  }
-	// .item-step {
-	// 	padding-left: 95px;
-	// 	padding-right: 95px;
+@media (min-width: 1025px) {
+  // .img-step {
+  //   // max-width: calc(100% + 30px);
+  //   // margin-left: -30px;
   // }
-  .mod-framework {
-    padding-bottom: 84px;
-  }
-  .style-back {
-    .item-step.style-right .step-img {
-      margin-left: -80px;
-    }
-  }
-  .img-step {
-    max-width: calc(100% + 60px);
-  }
   .style-right {
     .img-step {
-      margin-left: -60px;
+      margin-left: -15px;
     }
   }
 }
+@media (min-width: 1200px) {
+  .title-framework {
+    margin-bottom: 52px;
+  }
+  .mod-framework {
+    padding-bottom: 84px;
+  }
+  // .img-step {
+  //   // max-width: calc(100% + 60px);
+  //   margin-left: 0;
+  // }
+}
 @media (min-width: 1500px) {
   .item-step {
-    padding-left: 95px;
-    padding-right: 95px;
+    padding: 22px 95px !important;
+    .content-step,
+    .step-img {
+      max-width: 50%;
+      width: 50% !important;
+    }
+    .step-img {
+      text-align: left;
+      margin-right: 0;
+    }
+  }
+  .img-step {
+    max-width: calc(100% + 95px);
+  }
+  .content-step-inner{
+    max-width: 436px;
+  }
+  .style-right {
+    .content-step-inner {
+      margin-left: auto;
+    }
+    .img-step {
+      margin-left: -110px; // for case not use gatsby-lazy-image
+    }
+    .lazyload-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      .img-step {
+        margin-left: 0; // for case use gatsby-lazy-image
+      }
+    }
+
   }
 }

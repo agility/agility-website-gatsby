@@ -15,7 +15,7 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include hover {
     transform: scale(1.03);
-    opacity: .93;
+    // opacity: .93;
   }
   &:not(.btn-menu) {
     padding-right: 22px;
@@ -112,8 +112,8 @@
   }
 }
 .link-line {
-  font-size: rem(16);
-  line-height: 1.31;
+  font-size: rem(15);
+  line-height: 1.4;
   // font-family: $mlBold;
   font-weight: $fw-bold;
   position: relative;

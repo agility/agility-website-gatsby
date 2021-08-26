@@ -30,7 +30,6 @@ const TriplePanelComparisonModule = ({ item }) => {
 
 
 	//item = item.customFields;
-	// console.log("TriplePanelComparisonModule", item)
 
 	/* animation module */
 	useEffect(() => {
@@ -48,13 +47,13 @@ const TriplePanelComparisonModule = ({ item }) => {
 	return (
 		<React.Fragment>
 			<section className={classSection} ref={ thisModuleRef }>
-				<div className='space-80 space-dt-100'></div>
-				<div className="container last-mb-none max-w-940 text-center anima-bottom animation">
+				{/* <div className='space-80 space-dt-100'></div> */}
+				<div className="container last-mb-none max-w-940 text-center anima-bottom animation trip-head-box">
 				{ heading &&
 					<h2>{heading}</h2>
 				}
 				{ des &&
-					<div dangerouslySetInnerHTML={renderHTML(des)} />
+					<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
 				}
 				</div>
 				<div className="container small-paragraph animation">

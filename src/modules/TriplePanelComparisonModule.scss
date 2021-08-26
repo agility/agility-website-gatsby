@@ -8,11 +8,11 @@
     width: 60px;
     height: 60px;
   }
-  .content-3col {
-    h4 {
-      color: $color-58;
-    }
-  }
+  // .content-3col {
+  //   h4 {
+  //     color: $color-58;
+  //   }
+  // }
 }
 .list-check {
   padding-left: 30px;
@@ -22,7 +22,7 @@
   margin-top: 20px;
   color: $color-2a;
   // font-family: $mlBold;
-  font-weight: $fw-bold;
+  font-weight: $fw-semi-bold;
   &::after {
     content: "\e90e";
     font-family: $icomoon;
@@ -33,7 +33,8 @@
 .uncheck {
   margin-top: 22px;
   color: $color-4c;
-  font-size: rem(14);
+  font-size: rem(15);
+  line-height: 1.67;
   &::after {
     content: "\e909";
     font-family: $icomoon;
@@ -42,6 +43,7 @@
   }
 }
 .TriplePanelComparisonModule {
+  padding-top: 80px;
   position: relative;
   .container {
     position: relative;
@@ -54,9 +56,36 @@
     opacity: .5;
     background-image: linear-gradient(to bottom, #e9f0f5, #ffffff 100%);
   }
+  h2,
+  .h2 {
+    margin-bottom: 18px;
+  }
+}
+.trip-head-box {
+  margin-bottom: 27px;
 }
 @media (min-width: 767px){
   .item-3col-v2 {
     margin-bottom: 45px;
+  }
+}
+@media (min-width: 1200px){
+  .item-3col-v2 {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+@media (min-width: 1280px){
+  .trip-head-box {
+    margin-bottom: 65px;
+  }
+}
+@media (min-width: 1501px){
+  .TriplePanelComparisonModule {
+    padding-top: 125px;
+  }
+  .item-3col-v2 {
+    padding-left: 55px;
+    padding-right: 55px;
   }
 }

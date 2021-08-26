@@ -1,5 +1,14 @@
 const agility = require('./src/agility/utils')
-
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
+const contentFetch = require('@agility/content-fetch')
+require("dotenv").config({
+	path: `.env.${process.env.NODE_ENV}`,
+})
+const agilityConfig = {
+	guid: process.env.AGILITY_GUID,
+	apiKey: process.env.AGILITY_API_KEY,
+	isPreview: process.env.AGILITY_API_ISPREVIEW === "true"
+}
 //gatsy-node.js
 //CREATE RESOLVERS *******************************************************************************************
 exports.createResolvers = (args) => {
@@ -19,7 +28,12 @@ exports.createResolvers = (args) => {
 		// 	//linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
 		// },
 		agilityGlobalHeader: {
-			preHeaderLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'preHeaderLinks' })
+			preHeaderLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'preHeaderLinks' }),
+			menuStructure: agility.getLinkedContentList({ type: 'agilityNavigationTopLevel', linkedContentFieldName: 'menuStructure' }),
+		},
+		agilityNavigationTopLevel: {
+			subNavigation: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'subNavigation' }),
+			megaContent: agility.getLinkedContentList({ type: 'agilityNavigationMegaMenuContent', linkedContentFieldName: 'megaContent' }),
 		},
 		agilityGlobalFooter: {
 			column1Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column1Links' }),
@@ -59,8 +73,8 @@ exports.createResolvers = (args) => {
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
+	const { createTypes } = actions
+	const typeDefs = `
     type agilityFeatureListItemCustomFields implements Node {
       moreInfoLink: agilityFeatureListItemCustomFieldsMoreInfoLink
 		}
@@ -71,8 +85,14 @@ exports.createSchemaCustomization = ({ actions }) => {
 		}
     type agilityGlobalHeaderCustomFields implements Node {
       contactus: agilityGlobalHeaderCustomFieldsContactus
+			marketingBannerButton: agilityGlobalHeaderCustomFieldsMarketingButton
 		}
 		type agilityGlobalHeaderCustomFieldsContactus {
+			href: String,
+			target: String,
+			text:String
+		}
+		type agilityGlobalHeaderCustomFieldsMarketingButton {
 			href: String,
 			target: String,
 			text:String
@@ -91,6 +111,45 @@ exports.createSchemaCustomization = ({ actions }) => {
 			target: String,
 			text:String
 		}
+		type agilityCaseStudyCustomFields {
+			caseStudyIndustries_TextField: String
+			caseStudyChallenges_TextField: String
+		}
   `
-  createTypes(typeDefs)
+	createTypes(typeDefs)
+}
+
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+			fallback: {
+        util: require.resolve("util/")
+      }
+    },
+  })
+}
+
+exports.onCreateNode = async ({
+  node, // the node that was just created
+  actions: { createNode, createNodeField },
+  createNodeId,
+  getCache,
+}) => {
+	try {
+		if (node.internal.type === 'agilityCaseStudy') {
+			node.customFields.media = null
+			if (node.customFields.gallery && node.customFields.gallery.galleryid) {
+				const api = contentFetch.getApi({
+					guid: agilityConfig.guid,
+					apiKey: agilityConfig.apiKey,
+					isPreview: agilityConfig.isPreview
+				});
+				const id = node.customFields.gallery.galleryid
+				const gallery = await api.getGallery({galleryID: id})
+				node.customFields.media = gallery.media
+			}
+		}
+	} catch(err) {
+		console.error('Failed to intergrate gallery')
+	}
 }
