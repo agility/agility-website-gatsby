@@ -18,11 +18,11 @@ const ResponsiveImage = ({img, layout, breaks, className}) => {
 
 		//if this is an svg, just output it
 		if (urlNoQuery.indexOf(".svg") !== -1) {
-			return <img src={urlNoQuery} alt={alt} className={className} />
+			return <img src={urlNoQuery} alt={alt} className={className} loading="lazy" />
 		}
 
 		if (image.height && image.width) {
-			return <AgilityImage image={image} layout={layout} />
+			return <AgilityImage image={image} layout={layout} loading="lazy" />
 		}
 
 		let smallestSrc = url;
@@ -30,7 +30,7 @@ const ResponsiveImage = ({img, layout, breaks, className}) => {
 
 		if (! breaks) {
 			//if we don't have height/width data, and we don't have break info...
-			return <img src={url} alt={alt} className={className} />
+			return <img src={url} alt={alt} className={className} loading="lazy" />
 		}
 
 		const sources = breaks.map((res, index) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderHTML } from '../agility/utils'
-import ArrayUtils from '../utils/array-utils.js';
+import * as ArrayUtils from '../utils/array-utils.js';
 import "./TestimonialsLogos.scss"
 
 const TestimonialsLogos = ({ item }) => {

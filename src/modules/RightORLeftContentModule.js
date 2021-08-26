@@ -7,13 +7,31 @@ import { animationElementInnerComponent } from '../global/javascript/animation'
 
 
 
-const HasImg = ({ img, isHomePage }) => {
+const HasImg = ({ img, isHomePage, page }) => {
 
 	const [isLoaded, setIsLoaded] = useState(false)
 
+	// const dataLayerList = [layer0, layer1, layer2, layer3, layer4]
+	// let listLottieOptions = []
+
+	// for (let i = 0; i < 5; i++) {
+	// 	let opts = {
+	// 		loop: false,
+	// 		autoplay: isLoaded,
+	// 		// animationData: dataLayerList[i],
+	// 		path: `/js/layer_${i}.json`,
+	// 		rendererSettings: {
+	// 			preserveAspectRatio: 'xMidYMid slice'
+	// 		}
+	// 	}
+	// 	listLottieOptions.push(opts)
+	// }
+
 	useEffect(() => {
-			setIsLoaded(true)
+		setIsLoaded(true)
 	}, [])
+
+	// console.log('listLottieOptions', listLottieOptions);
 
 	return (
 		<React.Fragment>
@@ -26,7 +44,12 @@ const HasImg = ({ img, isHomePage }) => {
 				</Helmet>
 
 
-			<img src={img.url} width={ !isLoaded ? '320' : '' } height={ !isLoaded ? '208' : '' } alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} />
+
+			<img
+				src={img.url}
+				// width={ !isLoaded ? '320' : '' }
+				// height={ !isLoaded ? '208' : '' }
+				alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} />
 			{isHomePage &&
 				<div className="d-none d-sl-block">
 					<div className="ani-banner"></div>
@@ -36,6 +59,7 @@ const HasImg = ({ img, isHomePage }) => {
 					<div className="ani-banner"></div>
 				</div>
 			}
+
 
 		</React.Fragment>
 	)
@@ -48,17 +72,19 @@ const ImgRender = React.memo(HasImg)
 
 
 const RightOrLeftContent = ({ item }) => {
+
+
 	const heading = item.customFields.title
 	const des = item.customFields.description
 	const breadcrumb = item.customFields.breadcrumb
 	const btn1 = item.customFields.cTA1Optional
 	const btn2 = item.customFields.cTA2Optional
+	const textSide = item.customFields.textSide
 	const classSection = `module mod-banner right-or-left-content animation ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white has-btn-white' : ''}`
 	const array = []
 	const [isHomePage, setIsHomePage] = useState(false);
-	// const [classWrap, setClassWrap] = useState('wrap-ani-home ps-rv internal-wrap');
-	// const [classBtn, setClassBtn] = useState('wrap-btn internal-btn');
-	let classAniImg = 'col-md-6 col-right-lr'
+
+	let classAniImg = 'col-md-6 col-lg-7 col-right-lr'
 	let imgModule
 	if (item.customFields.graphic && item.customFields.graphic.url) {
 		imgModule = item.customFields.graphic
@@ -74,27 +100,17 @@ const RightOrLeftContent = ({ item }) => {
 
 	/*  */
 	const detectHomePage = () => {
-		// if(typeof window !== `undefined`) {
-
 		const detectHome = ['/new-home', '/new-home/', '/'].includes(window.location.pathname)
-
 		setIsHomePage(detectHome)
-
-		// if (isHomePage || detectHome) {
-
-		// 	// setClassWrap('wrap-ani-home ps-rv')
-		// 	// setClassBtn('wrap-btn')
-		// }
-
-		// }
 	}
+
 	const appenLottie = (callback = function () { }) => {
 		const script = document.createElement("script");
+		script.id = 'lottie-script'
 		script.src = "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie_light_html.min.js";
 		script.async = true;
 		document.body.appendChild(script);
 		script.onload = () => {
-			// console.log('loottie', window.lottie);
 			callback()
 		}
 	}
@@ -107,7 +123,11 @@ const RightOrLeftContent = ({ item }) => {
 	const callAnimation = () => {
 		let banner = bannerRef.current
 		if (banner.classList.contains('mod-banner') && window.innerWidth >= 1025 && !banner.classList.contains('done-ani')) {
-			appenLottie(() => { setIsLottieLoad(true) })
+			if (!document.querySelectorAll('#lottie-script').length) {
+				appenLottie(() => { setIsLottieLoad(true) })
+			} else {
+				setIsLottieLoad(true)
+			}
 		}
 	}
 	const loadAni = () => {
@@ -124,7 +144,7 @@ const RightOrLeftContent = ({ item }) => {
 				array[index].addEventListener('loaded_images', function (e) {
 					temp++
 					if (temp === 2) {
-						document.getElementsByClassName('mod-banner')[0].classList.add('done-ani')
+						bannerRef.current?.classList.add('done-ani')
 					}
 				})
 			}
@@ -154,12 +174,7 @@ const RightOrLeftContent = ({ item }) => {
 		item3.style.transform = 'translateY(' + -(top / 2.3) + 'px)'
 		item4.style.transform = 'translateY(' + -(top / 3.5) + 'px)'
 	}
-	const NoImg = () => {
-		return <React.Fragment></React.Fragment>
-	}
 
-
-	
 	useEffect(() => {
 		detectHomePage()
 
@@ -202,13 +217,13 @@ const RightOrLeftContent = ({ item }) => {
 		<React.Fragment>
 			<section className={classSection} ref={bannerRef}>
 				<div className="container">
-					<div className="row flex-md-row-reverse hero-text align-items-lg-center h1-big">
+					<div className={`row ${textSide === 'right' ? 'flex-md-row' : 'flex-md-row-reverse'} align-items-lg-center h1-big`}>
 						<div className={classAniImg}>
-							<div className={`wrap-ani-home ps-rv ${isHomePage ? 'is-home' : 'internal-wrap'}`}>
+							<div className={`wrap-ani-home text-center ${textSide === 'right' ? 'text-md-left' : 'text-md-right'} ps-rv ${isHomePage ? 'is-home' : 'internal-wrap'}`}>
 								<ImgRender img={imgModule} isHomePage={isHomePage} />
 							</div>
 						</div>
-						<div className="col-md-6 large-paragraph last-mb-none anima-left">
+						<div className="col-md-6 col-lg-5 banner-col-text large-paragraph anima-left">
 							{breadcrumb && <h5>{breadcrumb}</h5>}
 							<h1>{heading}</h1>
 							{des &&

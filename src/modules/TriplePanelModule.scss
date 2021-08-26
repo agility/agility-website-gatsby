@@ -2,19 +2,29 @@
 @import '../global/setting';
 
 .img-3col {
-  width: 120px;
-  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
   // background-image: linear-gradient(to bottom, #f6fbff, #e9f0f5);
   border-radius: 50%;
   margin-bottom: 22px;
 }
 .mod-three-columns {
+  // padding-top: 80px;
   .mod-content-center {
     margin-bottom: 32px;
+  }
+  // &:not(.dark-mode) {
+  //   background: linear-gradient(-180deg, rgb(233, 240, 245) 0%, rgb(255, 255, 255) 100%);
+  // }
+  .there-col-head {
+    margin-bottom: 45px;
   }
 }
 .item-3col {
   margin-bottom: 55px;
+}
+.box-3col {
+  color: $color-4c;
 }
 
 .page-new-persona-marketer,
@@ -25,6 +35,7 @@
       @include position(absolute,0,0,0,0,0);
       opacity: .5;
       background-image: linear-gradient(to bottom, #e9f0f5, #ffffff 100%);
+      max-height: 304px;
     }
     .btn-yellow {
       background-color: transparent;
@@ -43,7 +54,8 @@
       height: 304px;
     }
     .box-3col {
-      background-color: rgb(42, 56, 70);
+      background-color: rgb(42, 56, 70);   
+      color: $white;
     }
     .btn-yellow {
       color: #fff;
@@ -66,7 +78,7 @@
     .max-w-940 {
       margin-bottom: 40px;
       h2 {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
     .row {
@@ -80,17 +92,17 @@
     margin-bottom: 25px;
   }
   .box-3col {
-    background-color: #e4ebf2;
-    padding: 35px 30px;
-    border-bottom: 3px solid $color-58;
+    background-color: rgba($color-c9, .5);
+    padding: 35px 30px 40px;
+    border-bottom: 3px solid $color-75;
     height: 100%;
     img {
       width: 60px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
   }
   .cta-3col  {
-    margin-top: 35px;
+    margin-top: 25px;
   }
   .img-3col {
     width: 60px;
@@ -119,16 +131,28 @@
   .page-new-persona-developer,
   .page-developers {
     .mod-three-columns {
-      padding: 105px 0;
+      padding: 105px 0 85px;
     }
     .cta-3col {
       margin-bottom: 22px;
     }
   }
+  .content-3col {
+    h4 {
+      margin-bottom: 13px;
+    }
+  }
 }
 @media (min-width: 1200px){
+  // .mod-three-columns {
+  //   padding-top: 100px;
+  // }
   .cta-3col {
     margin-top: 10px;
+  }
+  .box-3col {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media (min-width: 1500px) {
@@ -139,5 +163,14 @@
     .mod-three-columns .container:not(.max-w-940) {
       max-width: 1150px;
     }
+  }
+  .mod-three-columns {
+    .there-col-head {
+      margin-bottom: 65px;
+    }
+  }
+  .box-3col {
+    padding-left: 35px;
+    padding-right: 35px;
   }
 }

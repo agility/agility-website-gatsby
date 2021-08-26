@@ -1,6 +1,6 @@
 @import '../global/setting';
 .mess-review {
-  border-radius: 10px;
+  border-radius: 6px;
   border: 2px solid $color-e9;
   position: relative;
   padding: 25px;
@@ -30,15 +30,17 @@
     right: auto;
     border-width: 12px 15px;
   }
-  & > img {
+  img {
     margin-bottom: 18px;
     max-width: 111px;
+    max-height: 16px;
   }
   h4 {
-    font-size: rem(18);
+    font-size: rem(17);
     font-style: italic;
     line-height: 1.5;
     letter-spacing: -0.14px;
+    font-weight: $fw-regular;
   }
   .show-less {
     display: inline-block;
@@ -51,7 +53,7 @@
     min-width: 98px;
     cursor: pointer;
     color: $color-58;
-    margin-top: 10px;
+    margin-top: 20px;
     img {
       @include position(absolute,$top: 10px,$right: 0);
       width: 10px;
@@ -81,6 +83,7 @@
   h6 {
     color: $color-4c;
     margin-bottom: 0;
+    font-size: rem(13);
   }
   p {
     font-size: rem(14);
@@ -99,6 +102,9 @@
   }
 }
 .content-review {
+  font-size: rem(14);
+  color: $color-4c;
+  line-height: 1.71;
   &:not(.smaller) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -155,7 +161,7 @@
     }
   }
   .headling-review {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .mess-review {
     padding-top: 30px;

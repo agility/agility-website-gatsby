@@ -135,7 +135,7 @@ class GlobalHeader extends Component {
 							{path.indexOf("://") === -1 &&
 								<Link to={path} target={item.target} className={aClassName}>{item.menuText}</Link>
 							}
-							<span className="sub-menu-icon"><img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" /></span>
+							<span className="sub-menu-icon"><img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" loading="lazy" /></span>
 							<div className="sub-menu-inner">
 								{subLinks}
 							</div>
@@ -143,7 +143,7 @@ class GlobalHeader extends Component {
 					} else {
 						//folder
 						li = <li className={itemClassName + ' has-children'} key={item.pageID}><span className={aClassName}>{item.menuText}</span>
-							<span className="sub-menu-icon"><img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse" /></span>
+							<span className="sub-menu-icon"><img src="https://static.agilitycms.com/layout/img/ico/down.svg" alt="Expand/Collapse"  loading="lazy"/></span>
 							<div className="sub-menu-inner">
 								{subLinks}
 							</div>
@@ -189,14 +189,14 @@ class GlobalHeader extends Component {
 							<div className="container-my">
 								{item.logo &&
 									<div className="header-logo">
-										<Link to="/"><img src={item.logo.url} alt={item.logo.label} /></Link>
+										<Link to="/"><img src={item.logo.url} alt={item.logo.label} loading="lazy"/></Link>
 
 									</div>
 								}
 
 								{item.stickyLogo &&
 									<div className="header-logo-sticky">
-										<Link to="/"><img src={item.stickyLogo.url} alt={item.stickyLogo.label} /></Link>
+										<Link to="/"><img src={item.stickyLogo.url} alt={item.stickyLogo.label} loading="lazy"/></Link>
 									</div>
 								}
 

@@ -19,11 +19,17 @@
     display: block;
     img:not(.layer-image) {
       animation: opacity .6s;
-      // animation-fill-mode: forwards; // comment for bug with gatsby-image plugin render
+      animation-fill-mode: forwards; // comment for bug with gatsby-image plugin render
     }
     .layer-image {
       animation: opacityLayer .6s .35s;
       animation-fill-mode: forwards;
+    }
+  }
+
+  .gatsby-image-wrapper {
+    img {
+      animation: none !important;
     }
   }
 }
@@ -57,6 +63,16 @@
   opacity: 1;
   width: 90%;
 }
+.box-content {
+  font-size: rem(15);
+  line-height: 1.67;
+}
+// .tab-active {
+//   .box-content {
+//     font-size: rem(14);
+//     line-height: 25px;
+//   }
+// }
 .ie {
   .item-image-ic {
     img {
@@ -80,8 +96,7 @@
   .box-left {
     width: auto !important;
   }
-  .wrap-box-vertical,
-  .wrap-lv2 {
+  .wrap-box-vertical {
     width: 100% !important;
   }
   .fake-height {
@@ -191,7 +206,7 @@
   }
   .title-i-c {
     max-width: 880px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     // height: 115px;
     // .box-title {
     //   position: absolute;
@@ -200,6 +215,9 @@
     //   max-width: 100%;
     //   left: 50%;
     // }
+    h2 {
+      margin-bottom: 12px;
+    }
   }
   .box-content {
     transition: background-color .35s;
@@ -216,11 +234,12 @@
     cursor: pointer;
     margin-bottom: 12px;
     .box-content {
-      padding: 25px 30px;
+      padding: 25px 30px 22px 40px;
+      color: $color-4c;
     }
     &.flex-md-row-reverse {
       .box-content {
-        padding-left: 30px;
+        padding-left: 40px;
       }
     }
     &.tab-active {
@@ -229,6 +248,7 @@
       }
       .box-content {
         background-color: rgba(233, 240, 245, .5);
+        color: $color-2a;
         &::after {
           height: 100%;
         }
@@ -269,6 +289,9 @@
         margin-bottom: 7px;
       }
     }
+  }
+  .wrap-lv2 {
+    margin-left: -15px !important;
   }
 }
 

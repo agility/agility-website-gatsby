@@ -11,16 +11,16 @@
     max-width: 1008px;
     display: block;
     margin: 0 auto 20px;
-    font-size: 30px;
-    line-height: 1.56;
+    // font-size: 30px;
+    // line-height: 1.56;
     // font-family: "Muli-bold", sans-serif;
-    font-weight: $fw-bold;
-    color: #2a3846;
+    // font-weight: $fw-bold;
+    // color: #2a3846;
     text-align: center;
 
-    @media (max-width: 767px) {
-      font-size: 30px;
-    }
+    // @media (max-width: 767px) {
+    //   font-size: 30px;
+    // }
   }
 
   p.intro {
@@ -59,7 +59,7 @@
       margin-bottom: 30px;
       border-radius: 5px;
       overflow: hidden;
-      box-shadow: 0 2px 26px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 30px -8px rgb(85 63 164 / 25%);
       background-color: #fff;
 
       .image {

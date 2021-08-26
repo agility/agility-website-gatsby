@@ -88,6 +88,12 @@ $translate: 100px;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
   }
+  .text-md-right {
+    text-align: right !important;
+  }
+  .text-md-left {
+    text-align: left !important;
+  }
   .order-md-2 {
     order: 2;
   }

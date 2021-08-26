@@ -117,9 +117,11 @@ const Event = ({ moduleItem, event, index }) => {
 
 				<div className="event-date">
 					<span className="date">
+					<img style={{width: '18px'}} src="https://static.agilitycms.com/layout/img/ico/calendar-check-gray.svg" />
 						{DateTime.fromISO(item.date).toFormat("MMM d, yyyy")}
 					</span>
 					<span className="time">
+					<img style={{width: '18px'}} src="https://static.agilitycms.com/layout/img/ico/clock-gray.svg" />
 						{DateTime.fromISO(item.date).toFormat("h:mma")}
 					</span>
 				</div>

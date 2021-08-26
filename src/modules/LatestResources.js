@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby'
-import StringUtils from '../utils/string-utils'
+import * as StringUtils from '../utils/string-utils'
 import FilteredListing from '../components/filtered-listing.jsx'
 export default props => (
 	<StaticQuery

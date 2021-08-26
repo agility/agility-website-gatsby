@@ -5,33 +5,33 @@
   @extend %add-tr;
   background-color: $white;
   padding: 11px 0;
-  .btn-pin {
-    display: none;
-  }
+  // .btn-pin {
+  //   display: none;
+  // }
   &.pin-header {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .11);
-    .btn-menu {
-      display: none;
-    }
+    // .btn-menu {
+    //   display: none;
+    // }
     .btn-menu-v2 {
       display: block;
     }
-    .btn-pin {
-      display: block;
-    }
+    // .btn-pin {
+    //   display: block;
+    // }
   }
 }
 
 .header-logo {
   max-width: 158px;
 }
-.ie {
-  .header-logo {
-    img {
-      height: 100%;
-    }
-  }
-}
+// .ie {
+//   .header-logo {
+//     img {
+//       height: 100%;
+//     }
+//   }
+// }
 @media (min-width: 992px) {
   .header {
     padding: 0;

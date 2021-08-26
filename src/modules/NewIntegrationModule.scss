@@ -141,11 +141,19 @@
     }
   }
   .NewIntegrationModule {
+    h2,
+    .h2 {
+      margin-bottom: 16px;
+    }
     .large-paragraph {
       padding-right: 50px;
     }
   }
   .item-logo-partners {
+    padding: 0 10px;
+    img {
+      max-height: 160px;
+    }
     &:hover {
       box-shadow: 0 0 6px 0 rgba(85, 63, 164, 0.37);
       img {

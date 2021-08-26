@@ -1,14 +1,42 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import ReactHtmlParser from 'html-react-parser';
+import { graphql, useStaticQuery } from 'gatsby';
 
 
 const SEO = ({ page }) => {
 
-	let title = page.title
+	/* Query default SEO Image in content header */
+
+		const query = useStaticQuery(graphql`
+		query NewGlobalHeaderQuerySEO {
+			agilityGlobalHeader(properties: {referenceName: {eq: "globalheader"}}) {
+				customFields {
+					sEOImage {
+						url
+						height
+						width
+					}
+				}
+			}
+		}
+	`)
+
+	const defaultSEOImage = query.agilityGlobalHeader.customFields.sEOImage
+
+	if(!page?.seo?.image) {
+		page.seo.image =  defaultSEOImage
+	}
+
+
+	/* ----------------------- */
+
+	let title = page.title || "Agility CMS"
 	const description = page.seo.metaDescription;
 
-	//if (title.indexOf("Agility") === -1) title += " - Agility CMS";
+	if (title.indexOf("Agility") === -1) {
+		title = `${title} | Agility CMS`;
+	}
 
 	let canonicalUrl = page.seo.canonicalUrl;
 	if (canonicalUrl && canonicalUrl.lastIndexOf("/") !== canonicalUrl.length - 1) {
@@ -21,9 +49,11 @@ const SEO = ({ page }) => {
 		metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
 	}
 
-
 	return (
-		<Helmet>
+		<Helmet htmlAttributes={{
+			lang: 'en-US',
+		}}>
+
 			<meta charset="utf-8" />
 			<title>{title}</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>

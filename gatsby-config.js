@@ -18,7 +18,9 @@ const agilityConfig = {
 
 module.exports = {
 	flags: {
-		DEV_SSR: false
+		DEV_SSR: false,
+		PRESERVE_WEBPACK_CACHE: true,
+		PRESERVE_FILE_DOWNLOAD_CACHE: true
 	},
 	siteMetadata: {
 		title: "Agility CMS",
@@ -81,53 +83,42 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
-				output: `/sitemap.xml`,
-				//exclude: [`/category/*`, `/path/to/page`],
-
+				output: `/`,
+				entryLimit: 1000,
 				query: `
 				{
-					allSitePage:allAgilitySitemapNode(filter: {visible: {sitemap: {eq: true}}}) {
-
-						edges {
-						  node {
-							path
-						  }
+					allSitePage: allAgilitySitemapNode(
+						filter: {visible: {sitemap: {eq: true}}, redirect: {url: {eq: null}}, isFolder: {eq: false}}
+					  ) {
+						nodes {
+						  path
 						}
 					  }
-					  site {
-						siteMetadata {
-						  siteUrl
+				  }`,
+				  resolveSiteUrl: () => "https://agilitycms.com",
+				serialize: (p) => {
+					let path = p.path
+					if (path === "/home") {
+						return {
+							url: `/`,
+							changefreq: `daily`,
+							priority: 0.7
 						}
-					  }
-				  }`
+					} else {
+						return {
+							url: `${p.path}/`,
+							changefreq: `daily`,
+							priority: 0.7
+						}
+					}
+				}
 
 			}
 		},
-		// {
-		// 	resolve: 'gatsby-plugin-load-script',
-    //   options: {
-    //     // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
-    //     src: 'https://browser.sentry-cdn.com/5.15.4/bundle.min.js',
-    //     integrity:
-    //       'sha384-Nrg+xiw+qRl3grVrxJtWazjeZmUwoSt0FAVsbthlJ5OMpx0G08bqIq3b/v0hPjhB',
-    //     crossorigin: 'anonymous',
-    //     onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
-    //   },
-		// },
-		// {
-		// 	resolve: 'gatsby-plugin-load-script',
-    //   options: {
-    //     // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
-    //     src: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie_light_html.min.js',
-		// 		crossorigin: 'anonymous',
-		// 		onLoad: '',
-		// 		// onLoad: '() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})',
-    //   },
-		// },
 		{
 			resolve: `gatsby-plugin-feed`,
 			options: {
-			  query: `
+				query: `
 				{
 				  site {
 					siteMetadata {
@@ -138,24 +129,24 @@ module.exports = {
 				  }
 				}
 			  `,
-			  feeds: [
-				{
-				  serialize: ({ query: { site, allAgilityBlogPost } }) => {
-					return allAgilityBlogPost.nodes.map(node => {
-					  return {
-						title: node.customFields.title,
-						description: node.customFields.excerpt,
-						date: node.customFields.date,
-						url: 'https://agilitycms.com/resources/posts/' + node.customFields.uRL,
-						guid: node.id,
-						enclosure: node.customFields.postImage && {
-							url: node.customFields.postImage.url
-						},
+				feeds: [
+					{
+						serialize: ({ query: { site, allAgilityBlogPost } }) => {
+							return allAgilityBlogPost.nodes.map(node => {
+								return {
+									title: node.customFields.title,
+									description: node.customFields.excerpt,
+									date: node.customFields.date,
+									url: 'https://agilitycms.com/resources/posts/' + node.customFields.uRL,
+									guid: node.id,
+									enclosure: node.customFields.postImage && {
+										url: node.customFields.postImage.url
+									},
 
-					  }
-					})
-				  },
-				  query: `
+								}
+							})
+						},
+						query: `
 					{
 						allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}, limit: 100) {
 							nodes {
@@ -174,12 +165,12 @@ module.exports = {
 						  }
 					}
 				  `,
-				  output: "/posts.xml",
-				  title: "Agility CMS Blog",
-				},
-			  ],
+						output: "/posts.xml",
+						title: "Agility CMS Blog",
+					},
+				],
 			},
-			},
+		},
 
 
 	],

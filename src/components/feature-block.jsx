@@ -10,7 +10,7 @@ class FeatureBlock extends React.Component {
 			//whole thing is a link
 			return (
 				<a className="ben-item slide" href={this.props.data.bottomLink.href} title={this.props.data.bottomLink.text} target={this.props.data.bottomLink.target}>
-					<div className="img"><img src={this.props.data.icon.url} alt={this.props.data.icon.label} /></div>
+					<div className="img"><img src={this.props.data.icon.url} alt={this.props.data.icon.label} loading="lazy"/></div>
 					<h3 className="ben-title">{this.props.data.title}</h3>
 					{this.props.data.subtitle &&
 						<h4 className="ben-subtitle">{this.props.data.subtitle}</h4>
@@ -22,7 +22,7 @@ class FeatureBlock extends React.Component {
 			//no link
 			return (
 				<div className="ben-item slide">
-					<div className="img"><img src={this.props.data.icon.url} alt={this.props.data.icon.label} /></div>
+					<div className="img"><img src={this.props.data.icon.url} alt={this.props.data.icon.label}  loading="lazy"/></div>
 					<h3 className="ben-title">{this.props.data.title}</h3>
 					{
 						this.props.data.subtitle &&

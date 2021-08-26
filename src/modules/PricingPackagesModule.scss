@@ -50,7 +50,7 @@
   }
   .btn {
     color: $white;
-    padding: 15px 10px 12px!important;
+    padding: 11px 10px 11px !important;
     background-color: $color-4c;
     border-color: $color-4c;
     box-shadow: 1px 0px 1px 0 $white;
@@ -99,20 +99,20 @@
   font-size: rem(24);
   line-height: 1.29;
   letter-spacing: -0.46px;
-  margin-bottom: 21px;
+  margin-bottom: 24px;
   font-weight: 600;
-  color: $color-17;
+  color: $color-2a;
   span:not(.pr-month) {
-    line-height: 0.97;
-    letter-spacing: 0.5px;
+    // line-height: 0.97;
+    letter-spacing: 0px;
   }
 }
 .price-value {
   font-size: rem(35);
   // font-weight: $fw-bold;
-  line-height: 1.11;
+  line-height: 0.971;
   letter-spacing: 0.5px;
-  margin-bottom: 11px;
+  margin-bottom: 14px;
   .sale-price-cover {
     overflow: hidden;
     margin-top: -7px;
@@ -126,7 +126,7 @@
     opacity: .75;
 	  font-size: rem(24);
     line-height: 1.29;
-    letter-spacing: 0.34px;
+    letter-spacing: 0.34px !important;
 	  color: $color-4c;
     margin-bottom: 4px;
   }
@@ -138,7 +138,7 @@
     line-height: 1.57;
     color: $color-17;
     // font-weight: 400;
-    margin-top: 7px;
+    margin-top: 10px;
     letter-spacing: 0;
   }
 }
@@ -182,21 +182,26 @@
     font-size: rem(34);
   }
 }
+.window-os {
+  .most-popular {
+    padding: 5px 5px 3px;
+  }
+}
 .most-popular {
   border-radius: 2px;
   background-color: #e9f0f5;
   font-size: rem(12);
   font-weight: 600;
-  letter-spacing: .2px !important;
+  letter-spacing: 0px !important;
   font-style: italic;
-  line-height: 1.75;
-  padding: 2px 5px;
+  line-height: 2.083;
+  padding: 4px 5px;
   position: relative;
   top: -3px;
   margin-left: 6px;
   color: $color-58;
   // font-family: $mlSemi;
-  font-weight: $fw-semi-bold;
+  font-weight: $fw-regular;
   .icomoon {
     margin-right: 5px;
     font-size: rem(10);
@@ -234,6 +239,7 @@
   width: 115px;
   height: 23px;
   transform: rotate(45deg);
+  line-height: 1.571;
 }
 .togger-price {
   display: flex;
@@ -246,6 +252,7 @@
   // font-family: $mlBold;
   font-weight: $fw-bold;
   line-height: 1.29;
+  min-width: 160px;
   .overlay-active {
     background-color: #5800d4;
     border-radius: 14px;
@@ -262,11 +269,13 @@
   }
 }
 .wrap-togger-price {
+  margin-left: auto;
+  margin-right: auto;
   .sale-text {
     font-size: 12px;
     // font-weight: 600;
-    font-weight: $fw-bold;
-    line-height: 1.75;
+    font-weight: $fw-regular;
+    line-height: 1.5;
     color: $color-4c;
     margin-left: 11px;
     font-style: italic;
@@ -278,7 +287,7 @@
 }
 .window-os {
   .item-t-price {
-    padding: 6px 0 3px;  
+    padding: 6px 0 4px;  
   }
 }
 .item-t-price {
@@ -341,13 +350,14 @@
   h2 {
     // font-family: $ml;
     // font-weight: 400;
-    font-weight: $fw-regular;
+    // font-weight: $fw-regular;
+    letter-spacing: 0;
   }
 }
 .trigger-catelogy {
   // padding: 11px 8px  11px 18px;
   padding: 15px 0;
-  background-color: #e4ecf3;
+  background-color: rgba(201, 216, 230, 0.5);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -447,10 +457,10 @@
     overflow: hidden;
     position: relative;
     // font-family: $mlSemi;
-    font-weight: $fw-semi-bold;
+    font-weight: $fw-regular;
     &:first-child {
       // font-weight: $fw-regular;
-      font-size: rem(16);
+      font-size: rem(15);
       color: $color-2a;
       .content-catelogy {
         display: block;
@@ -459,7 +469,7 @@
         letter-spacing: -0.14px;
         color: $color-4c;
         opacity: .8;
-        margin-top: 6px;
+        margin-top: 4px;
         text-align: left;
         min-height: 0;
       }
@@ -479,6 +489,10 @@
         display: none;
         text-align: left;
         padding-left: 0 !important;
+        color: $color-2a;
+        font-weight: $fw-semi-bold;
+        font-size: rem(24);
+        line-height: 1.29;
       }
     }
   }
@@ -566,9 +580,9 @@
     margin-bottom: 33px;
   }
   .table-header-pin td div {
-    font-size: 24px;
-    line-height: 1.29;
-    letter-spacing: -0.24px;
+    font-size: rem(17);
+    line-height: 1.471;
+    letter-spacing: 0;
   }
   .price-desktop {
     .table-header-pin {
@@ -660,18 +674,15 @@
       }
     }
     td:not(.pr-sub-title) {
-      font-size: 16px;
-      line-height: 1.56;
-      letter-spacing: -0.16px;
+      font-size: rem(15);
+      line-height: 1.667;
+      letter-spacing: -0.15px;
       padding: 17px 15px 15px 15px;
       &:first-child {
         padding-left: 12px;
-        // font-family: $mlBold;
-        font-weight: $fw-bold;
+        font-weight: $fw-semi-bold;
         .content-catelogy {
-          // font-family: $ml;
           font-weight: $fw-regular;
-          // margin-left: 4px;
         }
       }
     }
@@ -699,7 +710,7 @@
     &:not(.hidden) {
       padding-bottom: 0;
       .table-togger {
-        margin-top: 19px;
+        margin-top: 28px;
       }
     }
   }
@@ -707,7 +718,7 @@
     margin-top: 0;
   }
   .trigger-catelogy {
-    padding: 15px;
+    padding: 17px;
     .icomoon {
       right: 13px;
     }
@@ -732,7 +743,7 @@
   // }
   .wrap-price-head {
     max-width: none;
-    margin-top: 78px;
+    margin-top: 85px;
   }
   .price-head {
     padding: 39px 28px 35px;
@@ -740,28 +751,28 @@
   .table-header-pin {
     td {
       div {
-        line-height: 1.29;
-        letter-spacing: -0.46px;
-        font-size: 24px;
+        // line-height: 1.29;
+        // letter-spacing: -0.46px;
+        // font-size: 24px;
         padding: 15px 20px;
       }
     }
     &.table-pin {
       .btn {
         display: block;
-        margin-top: 12px;
+        margin-top: 16px;
         padding-right: 25px;
       }
     }
   }
   .content-pricing {
-    margin-top: 50px;
-    margin-bottom: 60px;
+    margin-top: 76px;
+    margin-bottom: 58px;
   }
   .price-value {
     font-size: rem(35);
     span:not(.pr-month) {
-      letter-spacing: -.1px;
+      letter-spacing: .5px;
     }
   }
   .price-desktop {
@@ -793,11 +804,14 @@
     }
   }
   .description {
-    margin-bottom: 33px;
+    margin-bottom: 26px;
   }
   .icon-check-bg {
     margin-top: 5px;
     display: inline-block;
+  }
+  .togger-price {
+    min-width: 174px;
   }
   // .item-price-catelogy {
   //   margin-bottom: 42px;
@@ -808,7 +822,7 @@
   //   // max-width: 1340px;
   // }
   .price-head {
-    padding: 36px 37px 22px;
+    padding: 36px;
   }
   .trigger-catelogy {
     padding-left: 17px;
@@ -908,6 +922,18 @@
   .is-show-more {
     .icomoon {
       transform: scale(-1);
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .wrap-togger-price {
+    flex-wrap: wrap;
+    .sale-text {
+      margin-top: 15px;
+      white-space: normal;
+      width: 100% !important;
+      text-align: center;
     }
   }
 }

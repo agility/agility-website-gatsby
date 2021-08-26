@@ -1,4 +1,4 @@
-sitemap: https://agilitycms.com/sitemap.xml
+sitemap: https://agilitycms.com/sitemap-index.xml
 
 User-agent: *
 

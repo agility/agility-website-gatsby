@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-import StringUtils from "../utils/string-utils"
+import * as StringUtils from "../utils/string-utils"
 import ResponsiveImage from '../components/responsive-image.jsx'
 import "./FeaturedResources.scss"
 const FeaturedResources = ({ item }) => {

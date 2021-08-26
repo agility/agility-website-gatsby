@@ -1,47 +1,52 @@
-import { Link } from 'gatsby';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
-import Lazyload from 'react-lazyload'
 import './LogoListingModule.scss'
 import '../global/core/lib/_slick-theme.scss'
-import ArrayUtils from '../utils/array-utils.js';
+import * as ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
-import Helpers from '../global/javascript/Helpers'
 import { animationElementInnerComponent } from '../global/javascript/animation'
-
+import { AgilityImage }  from "@agility/gatsby-image-agilitycms"
 const LogoListingModule = ({ item }) => {
+
+	const [spaceBottom, setSpaceBottom] = useState(false)
+
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
 	const classSection = `module LogoListingModule animation  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
 	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
 		const className = `logo-item logo-v${idx + 1}`
-		const logoImage = key.customFields.logo.url
+		let logoImage = key.customFields.logo.url
+		if (logoImage.indexOf(".svg") === -1) {
+			logoImage = `${logoImage}?w=200`
+		}
 		const logoTitle = key.customFields.logo.label
 		// const link = key.customFields.uRL.href
 		// const taget = key.customFields.uRL.target
 		return (
 			<div className={className} key={idx}>
 				<div className='d-block'>
-						<Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle}></img></Lazyload>
+						<AgilityImage image={key.customFields.logo} />
+						{/* <Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle} loading="lazy"></img></Lazyload> */}
 				</div>
 			</div>
 		)
 	})
 
-	const initLogo = () => {
-		let inter
-		const section = document.getElementsByClassName('LogoListingModule')[0]
-		inter = setInterval(() => {
-			if(section.classList.contains('set-animation') && section.querySelectorAll('.slick-list').length) {
-				clearInterval(inter)
-				section.querySelectorAll('.slick-list')[0].style.height = 'auto'
+	// const initLogo = () => {
+	// 	console.log('init logo');
+	// 	let inter
+	// 	const section = document.getElementsByClassName('LogoListingModule')[0]
+	// 	inter = setInterval(() => {
+	// 		if(section.classList.contains('set-animation') && section.querySelectorAll('.slick-list').length) {
+	// 			clearInterval(inter)
+	// 			section.querySelectorAll('.slick-list')[0].style.height = 'auto'
 
-			}
-		}, 5);
-	}
-	useEffect(() => {
-		initLogo()
-  });
+	// 		}
+	// 	}, 5);
+	// }
+	// useEffect(() => {
+	// 	initLogo()
+  // });
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -50,7 +55,7 @@ const LogoListingModule = ({ item }) => {
 		rows: 1,
 		slidesToShow: 6,
     slidesToScroll: 6,
-		adaptiveHeight: true,
+		adaptiveHeight: false,
     respondTo: 'slider',
     responsive: [{
       breakpoint: 1199,
@@ -72,6 +77,24 @@ const LogoListingModule = ({ item }) => {
       }
     }]
   };
+
+	const checkHasDots = () => {
+		if (thisModuleRef.current.querySelector('.slick-dots')) {
+			setSpaceBottom(false)
+		} else {
+			setSpaceBottom(true)
+		}
+	}
+
+	useEffect(() => {
+		checkHasDots()
+
+		window.addEventListener('resize', checkHasDots)
+
+		return () => {
+			window.removeEventListener('resize', checkHasDots)
+		}
+	}, [])
 
 	/* animation module */
 	const thisModuleRef = useRef(null)
@@ -97,7 +120,9 @@ const LogoListingModule = ({ item }) => {
 						}
 					</div>
 					{ logos.length > 0 &&
-					<div className="slider-lazy list-logos-slide anima-bottom">
+					<div className={`slider-lazy list-logos-slide anima-bottom ${!heading ? 'has-no-heading' : ''}`}
+						style={{ marginBottom: spaceBottom ? '0' : '' }}
+					>
 							<Slider {...settings}>
 								{listLogos}
 							</Slider>

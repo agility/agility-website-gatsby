@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 import ResponsiveImage from '../components/responsive-image.jsx'
 
-import StringUtils from "../utils/string-utils"
+import * as StringUtils from "../utils/string-utils"
 
 import './LatestPosts.scss'
 

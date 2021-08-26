@@ -62,7 +62,7 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 			<div className="col-md-4 item-3col anima-bottom delay-4" key={idx}>
 				<div className='box-3col'>
 					{ customField.graphic && customField.graphic.url &&
-						<div className="img-3col d-flex align-items-center justify-content-center">
+						<div className="img-3col d-flex align-items-center">
 							<LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={customField.graphic.url} alt={customField.graphic.label} />
 							</LazyLoad>
@@ -95,12 +95,12 @@ const TriplePanelModule = ({ item, tripePanels }) => {
 	return (
 	<React.Fragment>
 		<section className={classSection} ref={ thisModuleRef }>
-		<div className="container last-mb-none max-w-940 text-center animation anima-bottom">
+		<div className="container there-col-head last-mb-none max-w-940 text-center animation anima-bottom">
 			{ heading &&
 				<h2>{heading}</h2>
 			}
 			{ des &&
-				<div dangerouslySetInnerHTML={renderHTML(des)} />
+				<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
 			}
 		</div>
 		<div className="container small-paragraph animation">

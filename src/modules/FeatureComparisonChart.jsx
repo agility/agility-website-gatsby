@@ -153,7 +153,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     return (
       <th key={index}>
         <div className="d-flex align-items-center justidy-content-center box-feature-logo">
-          <img className="feature-logo-tab" src={logo} alt={title} />
+          <img className="feature-logo-tab" src={logo} alt={title} loading="lazy" />
         </div>
         { index > 0 && listPlatformFake.length > countPlatformShow &&
           <div className={classBox}>
@@ -225,6 +225,22 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
     }
   })
 
+  /* click document to close active Box */
+  useEffect(() => {
+    const clickToCloseActiveBox = (e) => {
+      const target = e.target
+      if (!target.classList.contains('box-select') && !target.closest('.box-select')) {
+        setActive(false)
+        setActiveMB(false)
+      }
+    }
+    document.addEventListener('click', clickToCloseActiveBox)
+
+    return () => {
+      document.removeEventListener('click', clickToCloseActiveBox)
+    }
+  }, [])
+
   /* animation module */
 	useEffect(() => {
 		const scrollEventFunc = () => {
@@ -238,7 +254,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
 		}
 	}, [])
 
-  
+
   const linkFullComparion = listPlatformShow.map((platfor, indx) => {
 
     const fieldLinks = platfor.customFields.fullComparisonLink
@@ -287,7 +303,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
             )
           } else {
             return (
-              <td key={idx}><span className="icomoon icon-check feat-check"></span></td>
+              <td key={idx}><span className="icomoon icon-check-bg"><span className="path1"></span><span className="path2"></span></span></td>
             )
           }
         } else {
@@ -297,7 +313,7 @@ const FeatureComparisonChart = ({ item, dataQuery }) => {
             )
           } else {
             return (
-              <td key={idx}><span className="feat-check feat-no-support"></span></td>
+              <td key={idx}><span>-</span></td>
             )
           }
         }

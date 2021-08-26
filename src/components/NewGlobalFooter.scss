@@ -83,11 +83,11 @@
     .foter-menu-li.title {
       // font-family: $bold;
       font-weight: $fw-bold;
-      font-size: 16px;
+      font-size: 15px;
       // font-weight: 800;
       font-style: normal;
       font-stretch: normal;
-      line-height: normal;
+      line-height: 22px;
       letter-spacing: normal;
       color: $white;
       margin-bottom: 20px;
@@ -96,23 +96,23 @@
     .foter-menu-li a {
       // font-family: $regular;
       font-weight: $fw-regular;
-      font-size: 15px;
+      font-size: 14px;
       // font-weight: normal;
       font-style: normal;
       font-stretch: normal;
-      line-height: normal;
+      line-height: 24px;
       letter-spacing: normal;
       color: $flc;
       display: block;
       cursor: pointer;
-      margin-bottom: 19px;
+      margin-bottom: 15px;
       transition: all 0.2s ease-in-out;
 
       &:hover {
         //MOD: joelv - removed this to take away the text jump... switched to the text shadow below
         //font-weight: 600;
         color: $white;
-        text-shadow: #fff 1px 0px;
+        // text-shadow: #fff 1px 0px;
       }
     }
   }
@@ -149,7 +149,7 @@
       width: 40px;
       text-align: center;
       align-self: center;
-      margin-right: 25px;
+      margin-right: 18px;
       &:last-child {
         margin-right: 0;
       }
@@ -179,20 +179,23 @@
     span {
       // font-family: $bold;
       font-weight: $fw-bold;
-      font-size: 16px;
+      font-size: 17px;
       // font-weight: 800;
       font-style: normal;
       font-stretch: normal;
-      line-height: normal;
+      line-height: 25px;
       letter-spacing: normal;
       margin-bottom: 12px;
       display: block;
+    }
+    p {
+      line-height: 24px;
     }
 
     .foter-subscribe-form {
       width: 100%;
       position: relative;
-      margin-top: -12px;
+      // margin-top: -12px;
       input[type="email"] {
         // font-family: $bold;
         font-weight: $fw-bold;
@@ -206,7 +209,7 @@
         border: none;
         outline: none;
         z-index: 4;
-        padding: 17px 5px 17px 24px;
+        padding: 17px 24px;
         width: 100%;
         // height: 100%;
         left: 0;
@@ -214,6 +217,7 @@
         // height: 54px;
         margin-bottom: 15px;
         border-radius: 0;
+        // opacity: .6;
         &:-webkit-autofill {
           box-shadow: 0 0 0 40px #fff inset !important;
           -webkit-text-fill-color: #2a3846
@@ -221,21 +225,22 @@
       }
 
       input[type="email"]::-webkit-input-placeholder {
-        color: $color-2a;
+        color: rgba(42, 56, 70, 0.6) !important;
+        // opacity: .6;
       }
 
       input[type="email"]:-ms-input-placeholder {
-        color: $color-2a;
+        color: rgba(42, 56, 70, 0.6) !important;
       }
-
       input[type="email"]::-moz-placeholder {
-        color: $color-2a;
-        opacity: 1;
+        color: rgba(42, 56, 70) !important;
+        opacity: 0.6;
+      }
+      input[type="email"]:-moz-placeholder {
+        color: rgba(42, 56, 70) !important;
+        opacity: 0.6;
       }
 
-      input[type="email"]:-moz-placeholder {
-        color: $color-2a;
-      }
       [type="submit"] {
         margin: -3px 0 0;
         width: 100%;
@@ -249,6 +254,8 @@
         span {
           margin-bottom: 0;
           display: inline-block;
+          font-size: rem(15);
+          line-height: 21px;
         }
       }
     }
@@ -321,9 +328,10 @@
     }
 
     .foter-copyright-menu {
-      font-size: 12px;
+      font-size: 13px;
       display: flex;
       align-items: center;
+      line-height: 24px;
       @media (max-width: 767px) {
         max-width: 100%;
         -webkit-box: 0 0 100%;
@@ -365,7 +373,7 @@
         // font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
+        line-height: 24px;
         letter-spacing: normal;
         color: $white;
         &:hover {
@@ -444,14 +452,14 @@
     .foter-subscribe {
       margin-left: 10px;
       margin-right: 10px;
-      padding: 40px 40px 30px;
-      margin-bottom: 65px;
+      padding: 35px 37px 30px 44px;
+      margin-bottom: 99px;
       .foter-subscribe-form {
         display: flex;
         margin-bottom: 15px;
         input[type="email"] {
           max-width: calc(100% - 135px);
-          margin-right: 15px;
+          margin-right: 17px;
           margin-bottom: 0;
           flex-grow: 1;
         }
@@ -554,6 +562,11 @@
     a:not(.btn):hover {
       text-decoration: none;
     }
+  }
+}
+@media screen and (min-width: 1500px) {
+  .foter-menu:not(:first-child) {
+    transform: translateX(-35px);
   }
 }
 @media (max-width: 1500px) {

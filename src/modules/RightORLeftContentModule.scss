@@ -80,7 +80,11 @@
     margin-bottom: 35px;
   }
 }
-
+// .col-right-lr {
+//   img {
+//     max-width: 100%;
+//   }
+// }
 @media (max-width: 530px){
 	.wrap-ani-home {
 		.img-mb {
@@ -101,6 +105,13 @@
   }
   .wrap-btn:not(.internal-btn) {
     width: 130%;
+  }
+  .banner-col-text {
+    padding-top: 35px;
+    padding-bottom: 37px;
+    h5 {
+      margin-bottom: 27px;
+    }
   }
 }
 @media (min-width: 992px){
@@ -147,6 +158,18 @@
       img {
         width: 70%;
       }
+    }
+  }
+  .page-developers {
+    .internal-wrap {
+      // transform: translateY(51px);
+      img {
+        width: 103%;
+        max-width: 103%;
+      }
+    }
+    h1 {
+      margin-bottom: 22px;
     }
   }
 }

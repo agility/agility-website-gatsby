@@ -5,12 +5,17 @@
 	padding-bottom: 80px;
 	padding-top: 45px;
 	.stater-col {
-		padding: 0 35px;
+		padding: 0 22px;
+	}
+	.row {
+		margin-left: -22px;
+		margin-right: -22px;
 	}
 }
 .starter-card {
 	box-shadow: 0 5px 30px -8px rgba(85, 63, 164, 0.25);
 	transition: all .25s;
+	height: 100%;
 }
 .starter-thumb {
 	padding-bottom: 85.2%;
@@ -28,10 +33,13 @@
 		content: '';
 		position: absolute;
 		bottom: 0;
-		left: 20px;
-		right: 20px;
+		left: 24px;
+		right: 24px;
 		height: 1px;
 		background-color: $color-c9;
+	}
+	p {
+		color: $color-4c;
 	}
 }
 .starter-logo {
@@ -47,6 +55,9 @@
 		color: $color-58;
 		border: 0;
 		margin: 0;
+		// &::after {
+		// 	margin-left: 54px;
+		// }
 	}
 }
 .stater-col {
@@ -78,13 +89,17 @@
 	max-width: 880px;
 	padding-bottom: 50px;
 	// margin: 0 auto;
+	ul,
+	ol {
+		text-align: left;
+	}
 }
-.row.row-custom {
-	margin: 0 -35px;
-}
-.ios .black-starters:before {
-	top: -2px;
-}
+// .row.row-custom {
+// 	margin: 0 -35px;
+// }
+// .ios .black-starters:before {
+// 	top: -2px;
+// }
 @media (min-width: 768px) {
 	.starter-thumb {
 		padding-bottom: 70.84%;
@@ -94,38 +109,52 @@
 	}
 	.stater-col {
 		// padding: 0 25px;
-		margin-bottom: 50px;
-		&:nth-last-child(1),
-		&:nth-last-child(2) {
-			margin-bottom: 0;
+		margin-bottom: 0;
+		margin-top: 48px;
+		&:nth-child(1),
+		&:nth-child(2) {
+			margin-top: 0;
 		}
 	}
-	.row-custom {
-		max-width: 771px;
+	// .row-custom {
+	// 	max-width: 771px;
+	// }
+	.starter-head {
+		padding-bottom: 88px;
+		h5 {
+			// max-width: 357px;
+			// margin-left: auto;
+			// margin-right: auto;
+			// text-align: left;
+			margin-bottom: 24px;
+		}
 	}
 }
-@media (min-width: 992px) {
-	.row.row-custom {
-		margin: 0 auto;
-	}
-}
+// @media (min-width: 992px) {
+// 	.row.row-custom {
+// 		margin: 0 auto;
+// 	}
+// }
 @media (min-width: 1200px) {
-	.row-custom {
-		max-width: 1105px;
-	}
+	// .row-custom {
+	// 	max-width: 1105px;
+	// }
 	.getting-starter {
-		padding-top: 50px;
-		padding-bottom: 100px;
+		padding-top: 40px;
+		padding-bottom: 150px;
+		h1 {
+			margin-bottom: 12px;
+		}
 	}
 	.starter-thumb {
-		padding-bottom: 85.2%;
+		padding-bottom: 71%;
 	}
 	// .starter-head {
 	// 	padding-bottom: 40px;
 	// }
 	.stater-col {
-		&:nth-last-child(3) {
-			margin-bottom: 0;
+		&:nth-child(3) {
+			margin-top: 0;
 		}
 	}
 	.starter-card {

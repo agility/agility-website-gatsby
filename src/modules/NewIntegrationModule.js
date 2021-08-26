@@ -215,7 +215,7 @@ const NewIntegrationModule = ({ item }) => {
 						</div>
 						<div className="col-lg-6 large-paragraph last-mb-none anima-left">
 							{breadcrumb && <h5>{breadcrumb}</h5> }
-							{heading && <h2 className='h1'>{heading}</h2> }
+							{heading && <h2>{heading}</h2> }
 							{ des &&
 								<div dangerouslySetInnerHTML={renderHTML(des)}></div>
 							}

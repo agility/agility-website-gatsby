@@ -151,7 +151,7 @@ const StarterTemplateListing = ({ moduleItem, templates }) => {
 							<p>{ moduleItem.customFields.description }</p>
 						}
 					</div>
-					<div className="row animation anima-bottom delay-2 row-custom justify-content-center">
+					<div className="row animation anima-bottom delay-2 justify-content-center">
 						{ templates2 }
 					</div>
 				</div>
@@ -188,7 +188,8 @@ const StarterCard = ({ moduleItem, template, index }) => {
 			<div className="starter-logo">
 			{ frameworks.map(framework => (
 					<div key={framework.contentID} className="framk-logo d-flex align-items-center">
-						<h5>Developed With:</h5><img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
+						{/* <h5>Developed With:</h5> */}
+						<img src={framework.customFields.logo.url} alt={framework.customFields.logo.label}/>
 					</div>
 				))
 			}

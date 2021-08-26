@@ -1,5 +1,5 @@
 import React from 'react';
-import PostUtil from '../utils/post-util.js';
+import * as PostUtil from '../utils/post-util.js';
 import { renderHTML } from '../agility/utils'
 
 class Form extends React.Component {

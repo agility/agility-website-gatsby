@@ -85,7 +85,7 @@
 				width: 100%;
 				max-width: 170px;
 				height: 6px;
-				background: #ffcb28;
+				background: $color-ff;
 			}
 			p {
 				margin: 10px 0;
@@ -146,6 +146,24 @@
 			img {
 				margin-left: -5px;
 				margin-right: 15px;
+			}
+		}
+	}
+}
+.ie {
+	.event-details {
+		.event-date {
+			span.event-type {
+				background-size: 48px;
+				background-position: -9px 7px;
+			}
+			span.date {
+				background-size: 62px;
+				background-position: -14px 5px;
+			}
+			span.time {
+				background-size: 43px;
+				background-position: -6px 5px;
 			}
 		}
 	}
