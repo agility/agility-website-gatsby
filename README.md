@@ -5,7 +5,7 @@
 ### Redirects
 
 Redirects are located here: https://github.com/agility/agility-cms-website-preview-functions
-
+.
 ### Local build for dev
 ```shell
 gatsby develop
