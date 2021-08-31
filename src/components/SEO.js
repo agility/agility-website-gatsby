@@ -33,7 +33,7 @@ const SEO = ({ page, metaTitle }) => {
   // set up title
   let title
 
-  // use the blogMetaTitle if we have that, otherwise fallback to page title
+  // use the metatitle if we have that, otherwise fallback to page title
   if (metaTitle) {
     title = metaTitle
   } else {
