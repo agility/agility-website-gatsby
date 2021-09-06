@@ -67,7 +67,7 @@ const CaseStudyReskin = ({ item, posts = [] }) => {
   }
   const tmpChallengesOpts = {
     name: 'challenges',
-    options: { ...challenges, 1: 'All Challenges' },
+    options: { ...challenges, 1: 'All Solutions' },
     selectedOption: [1],
   }
 
