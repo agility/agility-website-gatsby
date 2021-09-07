@@ -10,3 +10,4 @@ https://blog.agilitycms.com/blog/:category/* https://agilitycms.com/resources/po
 https://blog.agilitycms.com/*	https://agilitycms.com/resources/posts/:splat 301!
 
 /docs https://agilitycms-documentation-site.vercel.app/docs 200
+/docs/* https://agilitycms-documentation-site.vercel.app/docs/:splat 200
