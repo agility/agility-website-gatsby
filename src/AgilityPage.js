@@ -39,10 +39,10 @@ const AgilityPage = ({ pageContext, data, location }) => {
   viewModel.isLandingPage =
     viewModel.page.templateName === "Landing Page Template"
 
-  // set up blog meta title
+  // set up meta title
   let metaTitle
 
-  // if were on a dynamic page item and the reference name is `blogposts`, set metaTitle to meta title field or fallback to title
+  // if were on a dynamic page item, set metaTitle to meta title field override or fall back to title
   if (viewModel.dynamicPageItem) {
     metaTitle =
       viewModel.dynamicPageItem.customFields.metaTitle ||

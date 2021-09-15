@@ -30,6 +30,8 @@ const SEO = ({ page, metaTitle }) => {
 
   /* ----------------------- */
 
+  // let title = page.title || "Agility CMS"
+
   // set up title
   let title
 
@@ -42,9 +44,9 @@ const SEO = ({ page, metaTitle }) => {
 
   const description = page.seo.metaDescription
 
-  if (title.indexOf("Agility") === -1) {
-    title = `${title} | Agility CMS`
-  }
+  // if (title.indexOf("Agility") === -1) {
+  // 	title = `${title} | Agility CMS`;
+  // }
 
   let canonicalUrl = page.seo.canonicalUrl
   if (
