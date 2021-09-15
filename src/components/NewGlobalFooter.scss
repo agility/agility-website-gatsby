@@ -421,7 +421,7 @@
 @media screen and (max-width: 1023px) {
   .foter {
     .foter-menu {
-      width: 33.33%;
+      width: 50%;
     }
     .menu-social {
       margin: 0 14px 20px;
@@ -437,9 +437,9 @@
 }
 @media screen and (max-width: 767px) {
   .foter {
-    .foter-menu {
-      width: 50%;
-    }
+    // .foter-menu {
+    //   width: 50%;
+    // }
     .foter-subscribe {
       margin-bottom: 30px;
     }
@@ -519,7 +519,7 @@
       padding-top: 95px;
     }
     .foter-subscribe {
-      margin-left: 60px;
+      margin-left: 30px;
       width: 40%;
       margin-top: -30px;
       .foter-subscribe-form {
@@ -569,11 +569,11 @@
     }
   }
 }
-@media screen and (min-width: 1500px) {
-  .foter-menu:not(:first-child) {
-    transform: translateX(-35px);
-  }
-}
+// @media screen and (min-width: 1500px) {
+//   .foter-menu:not(:first-child) {
+//     transform: translateX(-35px);
+//   }
+// }
 @media (max-width: 1500px) {
   .box-thanks {
     p {

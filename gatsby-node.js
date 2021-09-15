@@ -39,6 +39,7 @@ exports.createResolvers = (args) => {
 			column1Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column1Links' }),
 			column2Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column2Links' }),
 			column3Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column3Links' }),
+			column4Links: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'column4Links' }),
 			followLinks: agility.getLinkedContentList({ type: 'agilitySocialFollowLink', linkedContentFieldName: 'followLinks' }),
 			bottomLinks: agility.getLinkedContentList({ type: 'agilityLink', linkedContentFieldName: 'bottomLinks' })
 		},
