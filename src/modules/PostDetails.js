@@ -62,9 +62,9 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
 					<div className="meta">
 						<div className="author">
 							<div className="author-image">
-								<img src={author.image ? author.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={ author.title ? author.title : 'image author' } />
+								<img src={author && author.image ? author.image.url + '?w=100' : "https://static.agilitycms.com/authors/blank-head-profile-pic.jpg?w=100"} alt={ author && author.title ? author.title : 'image author' } />
 							</div>
-							<h5 className="h5">{author.title}</h5>
+							<h5 className="h5">{author?.title}</h5>
 						</div>
 						<span className="date">{DateTime.fromISO(post.date).toFormat("MMM d, yyyy")}</span>
 					</div>
