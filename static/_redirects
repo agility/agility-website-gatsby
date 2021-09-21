@@ -16,9 +16,9 @@ https://blog.agilitycms.com/*	https://agilitycms.com/resources/posts/:splat 301!
 #legacy help.agilitycms.com redirects
 #todo: update origin `stage-help.agilitycms.com` to `help.agilitycms.com` on launch day
 #todo: update destination `help.agilitycms.com` to `support.agilitycms.com` on launch day
-https://stage-help.agilitycms.com/    https://agilitycms.com/docs 301
+https://stage-help.agilitycms.com    https://agilitycms.com/docs 301
 https://stage-help.agilitycms.com/hc    https://agilitycms.com/docs 301
 https://stage-help.agilitycms.com/hc/en-us  https://agilitycms.com/docs 301
 https://stage-help.agilitycms.com/hc/en-us/articles/360002996392    https://agilitycms.com/docs/overview/what-is-agility-cms 301
 #wildcard re-route to legacy doc site if none of the above rules are matched
-https://stage-help.agilitycms.com/hc/en-us/* https://help.agilitycms.com/:splat 200 
+https://stage-help.agilitycms.com/* https://help.agilitycms.com/:splat 200 
