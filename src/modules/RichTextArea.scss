@@ -160,7 +160,10 @@
     }
     li {
       display: list-item;
-      list-style-type: decimal;
+      /*
+		mod:joelv - this was causing a "double ordering" issue...
+	  list-style-type: decimal;
+	  */
       position: relative;
       margin-bottom: 20px;
       padding-left: 0;
