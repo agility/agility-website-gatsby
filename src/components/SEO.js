@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import ReactHtmlParser from "html-react-parser"
 import { graphql, useStaticQuery } from "gatsby"
 
-const SEO = ({ page, metaTitle }) => {
+const SEO = ({ page, metaTitle, dynamicPageItem }) => {
   /* Query default SEO Image in content header */
 
   const query = useStaticQuery(graphql`
@@ -75,6 +75,12 @@ const SEO = ({ page, metaTitle }) => {
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+      {/* add no index for blog tags */}
+      {dynamicPageItem &&
+        dynamicPageItem.properties.referenceName === "blogtags" && (
+          <meta name="robots" content="noindex" />
+        )}
 
       <meta property="og:site_name" content="Agility CMS" />
       <meta property="twitter:title" content={title} />
