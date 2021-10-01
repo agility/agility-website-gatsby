@@ -51,7 +51,11 @@ const AgilityPage = ({ pageContext, data, location }) => {
 
   return (
     <LayoutTemplate page={viewModel.page}>
-      <SEO page={viewModel.page} metaTitle={metaTitle} />
+      <SEO
+        page={viewModel.page}
+        dynamicPageItem={viewModel.dynamicPageItem}
+        metaTitle={metaTitle}
+      />
       <PreviewBar isPreview={viewModel.isPreview} />
       {viewModel.isLandingPage === false && <NewGlobalHeader {...viewModel} />}
       <main className={classes}>
