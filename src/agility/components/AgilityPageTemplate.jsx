@@ -20,6 +20,12 @@ const AgilityPageTemplate = (props) => {
 
 	}
 
+	if (! PageTemplateComponentToRender) {
+		return (
+			<div style={{ padding: 50, textAlign:"center"}}>Error: Page template <strong>{pageTemplateName}</strong> could not be found.</div>
+		)
+	}
+
 
 	//get the page template name that we need to render
 
