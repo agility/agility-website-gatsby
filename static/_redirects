@@ -460,4 +460,4 @@ https://help.agilitycms.com/hc/en-us/articles/4404251900059-Working-with-Dates-T
 
 
 #wildcard re-route to legacy doc site if none of the above rules are matched
-https://help.agilitycms.com/* https://help.agilitycms.com/:splat 301!
+https://help.agilitycms.com/* https://support.agilitycms.com/:splat 301!
