@@ -47,7 +47,9 @@
   line-height: 5px;
   transform: scale(-1);
 }
-
+.scrollbar-custom-c8 {
+  max-height: none !important;
+}
 .dropdown-menu-c8 {
   font-size: 1em;
   color: $color-2a;

@@ -1,0 +1,3505 @@
+{
+  "hash": "b0658c86287823db676d",
+  "publicPath": "/",
+  "outputPath": "D:\\Workplace\\9thWonder\\agility-website-gatsby",
+  "assetsByChunkName": {
+    "polyfill": [
+      "polyfill.js",
+      "polyfill.69108f97b33af7ff714a.hot-update.js"
+    ],
+    "commons": [
+      "commons.css",
+      "commons.js",
+      "commons.69108f97b33af7ff714a.hot-update.js"
+    ],
+    "component---src-agility-components-dynamic-preview-page-js": [
+      "component---src-agility-components-dynamic-preview-page-js.js"
+    ],
+    "component---src-agility-page-js": [
+      "component---src-agility-page-js.js"
+    ],
+    "component---src-pages-casestudy-detail-reskin-js": [
+      "component---src-pages-casestudy-detail-reskin-js.js"
+    ],
+    "2BoxContent": [
+      "2BoxContent.js"
+    ],
+    "BestofBothWorldsModule": [
+      "BestofBothWorldsModule.js"
+    ],
+    "CTABlocks": [
+      "CTABlocks.js"
+    ],
+    "Callout": [
+      "Callout.js"
+    ],
+    "CaseStudyContentPanel": [
+      "CaseStudyContentPanel.js"
+    ],
+    "CaseStudyDetails": [
+      "CaseStudyDetails.js"
+    ],
+    "CaseStudyListing": [
+      "CaseStudyListing.js"
+    ],
+    "CaseStudyRotator": [
+      "CaseStudyRotator.js"
+    ],
+    "CaseStudyTechStack": [
+      "CaseStudyTechStack.js"
+    ],
+    "CenteredContentPanel": [
+      "CenteredContentPanel.js"
+    ],
+    "CenteredCTAPanel": [
+      "CenteredCTAPanel.js"
+    ],
+    "ContentPanel": [
+      "ContentPanel.js"
+    ],
+    "ContentPanelForm": [
+      "ContentPanelForm.js"
+    ],
+    "EventDetails": [
+      "EventDetails.js"
+    ],
+    "EventListing": [
+      "EventListing.js"
+    ],
+    "Faqs": [
+      "Faqs.js"
+    ],
+    "FeatureBlocks": [
+      "FeatureBlocks.js"
+    ],
+    "FeatureBlocksWithText": [
+      "FeatureBlocksWithText.js"
+    ],
+    "FeatureComparisonChart": [
+      "FeatureComparisonChart.js"
+    ],
+    "FeatureList": [
+      "FeatureList.js"
+    ],
+    "FeatureListing": [
+      "FeatureListing.js"
+    ],
+    "FeaturedCaseStudies": [
+      "FeaturedCaseStudies.js"
+    ],
+    "FeaturedPlanCTA": [
+      "FeaturedPlanCTA.js"
+    ],
+    "FeaturedResources": [
+      "FeaturedResources.js"
+    ],
+    "G2CrowdReviewListing": [
+      "G2CrowdReviewListing.js"
+    ],
+    "GartnerPeerInsightsBar": [
+      "GartnerPeerInsightsBar.js"
+    ],
+    "GatedDownload": [
+      "GatedDownload.js"
+    ],
+    "GettingStarted": [
+      "GettingStarted.js"
+    ],
+    "GuideLinks": [
+      "GuideLinks.js"
+    ],
+    "InfoBox": [
+      "InfoBox.js"
+    ],
+    "JobListing": [
+      "JobListing.js"
+    ],
+    "LandingPageHeader": [
+      "LandingPageHeader.js"
+    ],
+    "LandingPageHeaderForm": [
+      "LandingPageHeaderForm.js"
+    ],
+    "LatestPosts": [
+      "LatestPosts.js"
+    ],
+    "LatestResources": [
+      "LatestResources.js"
+    ],
+    "RelatedResources": [
+      "RelatedResources.js"
+    ],
+    "LogoListing": [
+      "LogoListing.js"
+    ],
+    "LogoListingModule": [
+      "LogoListingModule.js"
+    ],
+    "MostViewedArticles": [
+      "MostViewedArticles.js"
+    ],
+    "NewIntegrationModule": [
+      "NewIntegrationModule.js"
+    ],
+    "PartnerContentPanel": [
+      "PartnerContentPanel.js"
+    ],
+    "PartnerDetails": [
+      "PartnerDetails.js"
+    ],
+    "PartnerListing": [
+      "PartnerListing.js"
+    ],
+    "NewPartnerListingModule": [
+      "NewPartnerListingModule.js"
+    ],
+    "NewIntegrationListingModule": [
+      "NewIntegrationListingModule.js"
+    ],
+    "PartnerLogoListing": [
+      "PartnerLogoListing.js"
+    ],
+    "PeopleListing": [
+      "PeopleListing.js"
+    ],
+    "PlanDetailsTable": [
+      "PlanDetailsTable.js"
+    ],
+    "PlanFeaturesCTA": [
+      "PlanFeaturesCTA.js"
+    ],
+    "PodcastContentPanel": [
+      "PodcastContentPanel.js"
+    ],
+    "PodcastDetail": [
+      "PodcastDetail.js"
+    ],
+    "PodcastListing": [
+      "PodcastListing.js"
+    ],
+    "PostDetails": [
+      "PostDetails.js"
+    ],
+    "PostListing": [
+      "PostListing.js"
+    ],
+    "PricingPackagesModule": [
+      "PricingPackagesModule.js"
+    ],
+    "PricingPlans": [
+      "PricingPlans.js"
+    ],
+    "PricingTable": [
+      "PricingTable.js"
+    ],
+    "ResourceDetails": [
+      "ResourceDetails.js"
+    ],
+    "ReviewRotator": [
+      "ReviewRotator.js"
+    ],
+    "RichTextArea": [
+      "RichTextArea.js"
+    ],
+    "RightLeftContent": [
+      "RightLeftContent.js"
+    ],
+    "RightORLeftContentModule": [
+      "RightORLeftContentModule.js"
+    ],
+    "RightOrLeftCaseStudyTestimonial": [
+      "RightOrLeftCaseStudyTestimonial.js"
+    ],
+    "RightOrLeftSteps": [
+      "RightOrLeftSteps.js"
+    ],
+    "SearchResults": [
+      "SearchResults.js"
+    ],
+    "SectionBreadcrumbModule": [
+      "SectionBreadcrumbModule.js"
+    ],
+    "Share": [
+      "Share.js"
+    ],
+    "SingleTestimonialPanel": [
+      "SingleTestimonialPanel.js"
+    ],
+    "Spacing": [
+      "Spacing.js"
+    ],
+    "StarterTemplateDetails": [
+      "StarterTemplateDetails.js"
+    ],
+    "StarterTemplateListing": [
+      "StarterTemplateListing.js"
+    ],
+    "StayInTouch": [
+      "StayInTouch.js"
+    ],
+    "SubmissionForm": [
+      "SubmissionForm.js"
+    ],
+    "SubscribedThankYou": [
+      "SubscribedThankYou.js"
+    ],
+    "TabPanels": [
+      "TabPanels.js"
+    ],
+    "TestDrive": [
+      "TestDrive.js"
+    ],
+    "Testimonials": [
+      "Testimonials.js"
+    ],
+    "TestimonialsLogos": [
+      "TestimonialsLogos.js"
+    ],
+    "TriplePanelComparisonModule": [
+      "TriplePanelComparisonModule.js"
+    ],
+    "TriplePanelModule": [
+      "TriplePanelModule.js"
+    ],
+    "TwoPanelFeatureComparison": [
+      "TwoPanelFeatureComparison.js"
+    ],
+    "VerticalContentPanel": [
+      "VerticalContentPanel.js"
+    ],
+    "VideoPlayerModule": [
+      "VideoPlayerModule.js"
+    ],
+    "framework": [
+      "framework.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "assets by status",
+      "cached": true,
+      "filteredChildren": 98,
+      "size": 21533579
+    }
+  ],
+  "namedChunkGroups": {
+    "polyfill": {
+      "name": "polyfill",
+      "chunks": [
+        "polyfill"
+      ],
+      "assets": [
+        {
+          "name": "polyfill.js"
+        },
+        {
+          "name": "polyfill.69108f97b33af7ff714a.hot-update.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "commons": {
+      "name": "commons",
+      "chunks": [
+        "framework",
+        "commons"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "component---cache-dev-404-page-js": {
+      "name": "component---cache-dev-404-page-js",
+      "chunks": [],
+      "assets": [],
+      "filteredAssets": 0,
+      "assetsSize": 0,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "component---src-agility-components-dynamic-preview-page-js": {
+      "name": "component---src-agility-components-dynamic-preview-page-js",
+      "chunks": [
+        "component---src-agility-components-dynamic-preview-page-js"
+      ],
+      "assets": [
+        {
+          "name": "component---src-agility-components-dynamic-preview-page-js.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "component---src-agility-page-js": {
+      "name": "component---src-agility-page-js",
+      "chunks": [
+        "framework",
+        "commons",
+        "component---src-agility-page-js"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "component---src-agility-page-js.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "component---src-pages-casestudy-detail-reskin-js": {
+      "name": "component---src-pages-casestudy-detail-reskin-js",
+      "chunks": [
+        "framework",
+        "commons",
+        "component---src-pages-casestudy-detail-reskin-js"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "component---src-pages-casestudy-detail-reskin-js.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "2BoxContent": {
+      "name": "2BoxContent",
+      "chunks": [
+        "framework",
+        "commons",
+        "2BoxContent"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "2BoxContent.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "BestofBothWorldsModule": {
+      "name": "BestofBothWorldsModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "BestofBothWorldsModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "BestofBothWorldsModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CTABlocks": {
+      "name": "CTABlocks",
+      "chunks": [
+        "framework",
+        "commons",
+        "CTABlocks"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CTABlocks.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "Callout": {
+      "name": "Callout",
+      "chunks": [
+        "framework",
+        "commons",
+        "Callout"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "Callout.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CaseStudyContentPanel": {
+      "name": "CaseStudyContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "CaseStudyContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CaseStudyContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CaseStudyDetails": {
+      "name": "CaseStudyDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "CaseStudyDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CaseStudyDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CaseStudyListing": {
+      "name": "CaseStudyListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "CaseStudyListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CaseStudyListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CaseStudyRotator": {
+      "name": "CaseStudyRotator",
+      "chunks": [
+        "framework",
+        "commons",
+        "CaseStudyRotator"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CaseStudyRotator.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CaseStudyTechStack": {
+      "name": "CaseStudyTechStack",
+      "chunks": [
+        "CaseStudyTechStack"
+      ],
+      "assets": [
+        {
+          "name": "CaseStudyTechStack.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CenteredContentPanel": {
+      "name": "CenteredContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "CenteredContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CenteredContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "CenteredCTAPanel": {
+      "name": "CenteredCTAPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "CenteredCTAPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "CenteredCTAPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "ContentPanel": {
+      "name": "ContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "ContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "ContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "ContentPanelForm": {
+      "name": "ContentPanelForm",
+      "chunks": [
+        "framework",
+        "commons",
+        "ContentPanelForm"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "ContentPanelForm.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "EventDetails": {
+      "name": "EventDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "EventDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "EventDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "EventListing": {
+      "name": "EventListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "EventListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "EventListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "Faqs": {
+      "name": "Faqs",
+      "chunks": [
+        "framework",
+        "commons",
+        "Faqs"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "Faqs.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeatureBlocks": {
+      "name": "FeatureBlocks",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeatureBlocks"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeatureBlocks.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeatureBlocksWithText": {
+      "name": "FeatureBlocksWithText",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeatureBlocksWithText"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeatureBlocksWithText.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeatureComparisonChart": {
+      "name": "FeatureComparisonChart",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeatureComparisonChart"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeatureComparisonChart.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeatureList": {
+      "name": "FeatureList",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeatureList"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeatureList.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeatureListing": {
+      "name": "FeatureListing",
+      "chunks": [
+        "FeatureListing"
+      ],
+      "assets": [
+        {
+          "name": "FeatureListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeaturedCaseStudies": {
+      "name": "FeaturedCaseStudies",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeaturedCaseStudies"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeaturedCaseStudies.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeaturedPlanCTA": {
+      "name": "FeaturedPlanCTA",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeaturedPlanCTA"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeaturedPlanCTA.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "FeaturedResources": {
+      "name": "FeaturedResources",
+      "chunks": [
+        "framework",
+        "commons",
+        "FeaturedResources"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "FeaturedResources.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "G2CrowdReviewListing": {
+      "name": "G2CrowdReviewListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "G2CrowdReviewListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "G2CrowdReviewListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "GartnerPeerInsightsBar": {
+      "name": "GartnerPeerInsightsBar",
+      "chunks": [
+        "framework",
+        "commons",
+        "GartnerPeerInsightsBar"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "GartnerPeerInsightsBar.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "GatedDownload": {
+      "name": "GatedDownload",
+      "chunks": [
+        "framework",
+        "commons",
+        "GatedDownload"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "GatedDownload.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "GettingStarted": {
+      "name": "GettingStarted",
+      "chunks": [
+        "framework",
+        "commons",
+        "GettingStarted"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "GettingStarted.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "GuideLinks": {
+      "name": "GuideLinks",
+      "chunks": [
+        "framework",
+        "commons",
+        "GuideLinks"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "GuideLinks.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "InfoBox": {
+      "name": "InfoBox",
+      "chunks": [
+        "framework",
+        "commons",
+        "InfoBox"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "InfoBox.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "JobListing": {
+      "name": "JobListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "JobListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "JobListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LandingPageHeader": {
+      "name": "LandingPageHeader",
+      "chunks": [
+        "framework",
+        "commons",
+        "LandingPageHeader"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LandingPageHeader.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LandingPageHeaderForm": {
+      "name": "LandingPageHeaderForm",
+      "chunks": [
+        "framework",
+        "commons",
+        "LandingPageHeaderForm"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LandingPageHeaderForm.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LatestPosts": {
+      "name": "LatestPosts",
+      "chunks": [
+        "framework",
+        "commons",
+        "LatestPosts"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LatestPosts.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LatestResources": {
+      "name": "LatestResources",
+      "chunks": [
+        "framework",
+        "commons",
+        "LatestResources"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LatestResources.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RelatedResources": {
+      "name": "RelatedResources",
+      "chunks": [
+        "framework",
+        "commons",
+        "RelatedResources"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RelatedResources.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LogoListing": {
+      "name": "LogoListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "LogoListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LogoListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "LogoListingModule": {
+      "name": "LogoListingModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "LogoListingModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "LogoListingModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "MostViewedArticles": {
+      "name": "MostViewedArticles",
+      "chunks": [
+        "framework",
+        "commons",
+        "MostViewedArticles"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "MostViewedArticles.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "NewIntegrationModule": {
+      "name": "NewIntegrationModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "NewIntegrationModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "NewIntegrationModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PartnerContentPanel": {
+      "name": "PartnerContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "PartnerContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PartnerContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PartnerDetails": {
+      "name": "PartnerDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "PartnerDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PartnerDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PartnerListing": {
+      "name": "PartnerListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "PartnerListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PartnerListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "NewPartnerListingModule": {
+      "name": "NewPartnerListingModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "NewPartnerListingModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "NewPartnerListingModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "NewIntegrationListingModule": {
+      "name": "NewIntegrationListingModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "NewIntegrationListingModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "NewIntegrationListingModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PartnerLogoListing": {
+      "name": "PartnerLogoListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "PartnerLogoListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PartnerLogoListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PeopleListing": {
+      "name": "PeopleListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "PeopleListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PeopleListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PlanDetailsTable": {
+      "name": "PlanDetailsTable",
+      "chunks": [
+        "framework",
+        "commons",
+        "PlanDetailsTable"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PlanDetailsTable.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PlanFeaturesCTA": {
+      "name": "PlanFeaturesCTA",
+      "chunks": [
+        "framework",
+        "commons",
+        "PlanFeaturesCTA"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PlanFeaturesCTA.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PodcastContentPanel": {
+      "name": "PodcastContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "PodcastContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PodcastContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PodcastDetail": {
+      "name": "PodcastDetail",
+      "chunks": [
+        "framework",
+        "commons",
+        "PodcastDetail"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PodcastDetail.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PodcastListing": {
+      "name": "PodcastListing",
+      "chunks": [
+        "PodcastListing"
+      ],
+      "assets": [
+        {
+          "name": "PodcastListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PostDetails": {
+      "name": "PostDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "PostDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PostDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PostListing": {
+      "name": "PostListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "PostListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PostListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PricingPackagesModule": {
+      "name": "PricingPackagesModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "PricingPackagesModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PricingPackagesModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PricingPlans": {
+      "name": "PricingPlans",
+      "chunks": [
+        "framework",
+        "commons",
+        "PricingPlans"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PricingPlans.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "PricingTable": {
+      "name": "PricingTable",
+      "chunks": [
+        "framework",
+        "commons",
+        "PricingTable"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "PricingTable.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "ResourceDetails": {
+      "name": "ResourceDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "ResourceDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "ResourceDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "ReviewRotator": {
+      "name": "ReviewRotator",
+      "chunks": [
+        "framework",
+        "commons",
+        "ReviewRotator"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "ReviewRotator.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RichTextArea": {
+      "name": "RichTextArea",
+      "chunks": [
+        "framework",
+        "commons",
+        "RichTextArea"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RichTextArea.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RightLeftContent": {
+      "name": "RightLeftContent",
+      "chunks": [
+        "framework",
+        "commons",
+        "RightLeftContent"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RightLeftContent.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RightORLeftContentModule": {
+      "name": "RightORLeftContentModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "RightORLeftContentModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RightORLeftContentModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RightOrLeftCaseStudyTestimonial": {
+      "name": "RightOrLeftCaseStudyTestimonial",
+      "chunks": [
+        "framework",
+        "commons",
+        "RightOrLeftCaseStudyTestimonial"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RightOrLeftCaseStudyTestimonial.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "RightOrLeftSteps": {
+      "name": "RightOrLeftSteps",
+      "chunks": [
+        "framework",
+        "commons",
+        "RightOrLeftSteps"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "RightOrLeftSteps.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "SearchResults": {
+      "name": "SearchResults",
+      "chunks": [
+        "framework",
+        "commons",
+        "SearchResults"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "SearchResults.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "SectionBreadcrumbModule": {
+      "name": "SectionBreadcrumbModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "SectionBreadcrumbModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "SectionBreadcrumbModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "Share": {
+      "name": "Share",
+      "chunks": [
+        "framework",
+        "commons",
+        "Share"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "Share.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "SingleTestimonialPanel": {
+      "name": "SingleTestimonialPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "SingleTestimonialPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "SingleTestimonialPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "Spacing": {
+      "name": "Spacing",
+      "chunks": [
+        "Spacing"
+      ],
+      "assets": [
+        {
+          "name": "Spacing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "StarterTemplateDetails": {
+      "name": "StarterTemplateDetails",
+      "chunks": [
+        "framework",
+        "commons",
+        "StarterTemplateDetails"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "StarterTemplateDetails.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "StarterTemplateListing": {
+      "name": "StarterTemplateListing",
+      "chunks": [
+        "framework",
+        "commons",
+        "StarterTemplateListing"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "StarterTemplateListing.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "StayInTouch": {
+      "name": "StayInTouch",
+      "chunks": [
+        "framework",
+        "commons",
+        "StayInTouch"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "StayInTouch.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "SubmissionForm": {
+      "name": "SubmissionForm",
+      "chunks": [
+        "framework",
+        "commons",
+        "SubmissionForm"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "SubmissionForm.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "SubscribedThankYou": {
+      "name": "SubscribedThankYou",
+      "chunks": [
+        "framework",
+        "commons",
+        "SubscribedThankYou"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "SubscribedThankYou.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TabPanels": {
+      "name": "TabPanels",
+      "chunks": [
+        "framework",
+        "commons",
+        "TabPanels"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TabPanels.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TestDrive": {
+      "name": "TestDrive",
+      "chunks": [
+        "framework",
+        "commons",
+        "TestDrive"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TestDrive.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "Testimonials": {
+      "name": "Testimonials",
+      "chunks": [
+        "framework",
+        "commons",
+        "Testimonials"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "Testimonials.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TestimonialsLogos": {
+      "name": "TestimonialsLogos",
+      "chunks": [
+        "framework",
+        "commons",
+        "TestimonialsLogos"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TestimonialsLogos.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TriplePanelComparisonModule": {
+      "name": "TriplePanelComparisonModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "TriplePanelComparisonModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TriplePanelComparisonModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TriplePanelModule": {
+      "name": "TriplePanelModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "TriplePanelModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TriplePanelModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "TwoPanelFeatureComparison": {
+      "name": "TwoPanelFeatureComparison",
+      "chunks": [
+        "framework",
+        "commons",
+        "TwoPanelFeatureComparison"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "TwoPanelFeatureComparison.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "VerticalContentPanel": {
+      "name": "VerticalContentPanel",
+      "chunks": [
+        "framework",
+        "commons",
+        "VerticalContentPanel"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "VerticalContentPanel.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    },
+    "VideoPlayerModule": {
+      "name": "VideoPlayerModule",
+      "chunks": [
+        "framework",
+        "commons",
+        "VideoPlayerModule"
+      ],
+      "assets": [
+        {
+          "name": "framework.js"
+        },
+        {
+          "name": "commons.css"
+        },
+        {
+          "name": "commons.js"
+        },
+        {
+          "name": "commons.69108f97b33af7ff714a.hot-update.js"
+        },
+        {
+          "name": "VideoPlayerModule.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": "polyfill",
+      "files": [
+        "polyfill.js",
+        "polyfill.69108f97b33af7ff714a.hot-update.js"
+      ]
+    },
+    {
+      "id": "commons",
+      "files": [
+        "commons.css",
+        "commons.js",
+        "commons.69108f97b33af7ff714a.hot-update.js"
+      ]
+    },
+    {
+      "id": "_cache_dummy_js",
+      "files": [
+        "_cache_dummy_js.js"
+      ]
+    },
+    {
+      "id": "node_modules_objectFitPolyfill_dist_objectFitPolyfill_min_js",
+      "files": [
+        "node_modules_objectFitPolyfill_dist_objectFitPolyfill_min_js.js"
+      ]
+    },
+    {
+      "id": "node_modules_gatsby-plugin-image_dist_lazy-hydrate-99f9d741_js",
+      "files": [
+        "node_modules_gatsby-plugin-image_dist_lazy-hydrate-99f9d741_js.js"
+      ]
+    },
+    {
+      "id": "node_modules_gatsby-plugin-image_dist_intersection-observer-6b794dd8_js",
+      "files": [
+        "node_modules_gatsby-plugin-image_dist_intersection-observer-6b794dd8_js.js"
+      ]
+    },
+    {
+      "id": "component---src-agility-components-dynamic-preview-page-js",
+      "files": [
+        "component---src-agility-components-dynamic-preview-page-js.js"
+      ]
+    },
+    {
+      "id": "component---src-agility-page-js",
+      "files": [
+        "component---src-agility-page-js.js"
+      ]
+    },
+    {
+      "id": "component---src-pages-casestudy-detail-reskin-js",
+      "files": [
+        "component---src-pages-casestudy-detail-reskin-js.js"
+      ]
+    },
+    {
+      "id": "2BoxContent",
+      "files": [
+        "2BoxContent.js"
+      ]
+    },
+    {
+      "id": "BestofBothWorldsModule",
+      "files": [
+        "BestofBothWorldsModule.js"
+      ]
+    },
+    {
+      "id": "CTABlocks",
+      "files": [
+        "CTABlocks.js"
+      ]
+    },
+    {
+      "id": "Callout",
+      "files": [
+        "Callout.js"
+      ]
+    },
+    {
+      "id": "CaseStudyContentPanel",
+      "files": [
+        "CaseStudyContentPanel.js"
+      ]
+    },
+    {
+      "id": "CaseStudyDetails",
+      "files": [
+        "CaseStudyDetails.js"
+      ]
+    },
+    {
+      "id": "CaseStudyListing",
+      "files": [
+        "CaseStudyListing.js"
+      ]
+    },
+    {
+      "id": "CaseStudyRotator",
+      "files": [
+        "CaseStudyRotator.js"
+      ]
+    },
+    {
+      "id": "CaseStudyTechStack",
+      "files": [
+        "CaseStudyTechStack.js"
+      ]
+    },
+    {
+      "id": "CenteredContentPanel",
+      "files": [
+        "CenteredContentPanel.js"
+      ]
+    },
+    {
+      "id": "CenteredCTAPanel",
+      "files": [
+        "CenteredCTAPanel.js"
+      ]
+    },
+    {
+      "id": "ContentPanel",
+      "files": [
+        "ContentPanel.js"
+      ]
+    },
+    {
+      "id": "ContentPanelForm",
+      "files": [
+        "ContentPanelForm.js"
+      ]
+    },
+    {
+      "id": "EventDetails",
+      "files": [
+        "EventDetails.js"
+      ]
+    },
+    {
+      "id": "EventListing",
+      "files": [
+        "EventListing.js"
+      ]
+    },
+    {
+      "id": "Faqs",
+      "files": [
+        "Faqs.js"
+      ]
+    },
+    {
+      "id": "FeatureBlocks",
+      "files": [
+        "FeatureBlocks.js"
+      ]
+    },
+    {
+      "id": "FeatureBlocksWithText",
+      "files": [
+        "FeatureBlocksWithText.js"
+      ]
+    },
+    {
+      "id": "FeatureComparisonChart",
+      "files": [
+        "FeatureComparisonChart.js"
+      ]
+    },
+    {
+      "id": "FeatureList",
+      "files": [
+        "FeatureList.js"
+      ]
+    },
+    {
+      "id": "FeatureListing",
+      "files": [
+        "FeatureListing.js"
+      ]
+    },
+    {
+      "id": "FeaturedCaseStudies",
+      "files": [
+        "FeaturedCaseStudies.js"
+      ]
+    },
+    {
+      "id": "FeaturedPlanCTA",
+      "files": [
+        "FeaturedPlanCTA.js"
+      ]
+    },
+    {
+      "id": "FeaturedResources",
+      "files": [
+        "FeaturedResources.js"
+      ]
+    },
+    {
+      "id": "G2CrowdReviewListing",
+      "files": [
+        "G2CrowdReviewListing.js"
+      ]
+    },
+    {
+      "id": "GartnerPeerInsightsBar",
+      "files": [
+        "GartnerPeerInsightsBar.js"
+      ]
+    },
+    {
+      "id": "GatedDownload",
+      "files": [
+        "GatedDownload.js"
+      ]
+    },
+    {
+      "id": "GettingStarted",
+      "files": [
+        "GettingStarted.js"
+      ]
+    },
+    {
+      "id": "GuideLinks",
+      "files": [
+        "GuideLinks.js"
+      ]
+    },
+    {
+      "id": "InfoBox",
+      "files": [
+        "InfoBox.js"
+      ]
+    },
+    {
+      "id": "JobListing",
+      "files": [
+        "JobListing.js"
+      ]
+    },
+    {
+      "id": "LandingPageHeader",
+      "files": [
+        "LandingPageHeader.js"
+      ]
+    },
+    {
+      "id": "LandingPageHeaderForm",
+      "files": [
+        "LandingPageHeaderForm.js"
+      ]
+    },
+    {
+      "id": "LatestPosts",
+      "files": [
+        "LatestPosts.js"
+      ]
+    },
+    {
+      "id": "LatestResources",
+      "files": [
+        "LatestResources.js"
+      ]
+    },
+    {
+      "id": "RelatedResources",
+      "files": [
+        "RelatedResources.js"
+      ]
+    },
+    {
+      "id": "LogoListing",
+      "files": [
+        "LogoListing.js"
+      ]
+    },
+    {
+      "id": "LogoListingModule",
+      "files": [
+        "LogoListingModule.js"
+      ]
+    },
+    {
+      "id": "MostViewedArticles",
+      "files": [
+        "MostViewedArticles.js"
+      ]
+    },
+    {
+      "id": "NewIntegrationModule",
+      "files": [
+        "NewIntegrationModule.js"
+      ]
+    },
+    {
+      "id": "PartnerContentPanel",
+      "files": [
+        "PartnerContentPanel.js"
+      ]
+    },
+    {
+      "id": "PartnerDetails",
+      "files": [
+        "PartnerDetails.js"
+      ]
+    },
+    {
+      "id": "PartnerListing",
+      "files": [
+        "PartnerListing.js"
+      ]
+    },
+    {
+      "id": "NewPartnerListingModule",
+      "files": [
+        "NewPartnerListingModule.js"
+      ]
+    },
+    {
+      "id": "NewIntegrationListingModule",
+      "files": [
+        "NewIntegrationListingModule.js"
+      ]
+    },
+    {
+      "id": "PartnerLogoListing",
+      "files": [
+        "PartnerLogoListing.js"
+      ]
+    },
+    {
+      "id": "PeopleListing",
+      "files": [
+        "PeopleListing.js"
+      ]
+    },
+    {
+      "id": "PlanDetailsTable",
+      "files": [
+        "PlanDetailsTable.js"
+      ]
+    },
+    {
+      "id": "PlanFeaturesCTA",
+      "files": [
+        "PlanFeaturesCTA.js"
+      ]
+    },
+    {
+      "id": "PodcastContentPanel",
+      "files": [
+        "PodcastContentPanel.js"
+      ]
+    },
+    {
+      "id": "PodcastDetail",
+      "files": [
+        "PodcastDetail.js"
+      ]
+    },
+    {
+      "id": "PodcastListing",
+      "files": [
+        "PodcastListing.js"
+      ]
+    },
+    {
+      "id": "PostDetails",
+      "files": [
+        "PostDetails.js"
+      ]
+    },
+    {
+      "id": "PostListing",
+      "files": [
+        "PostListing.js"
+      ]
+    },
+    {
+      "id": "PricingPackagesModule",
+      "files": [
+        "PricingPackagesModule.js"
+      ]
+    },
+    {
+      "id": "PricingPlans",
+      "files": [
+        "PricingPlans.js"
+      ]
+    },
+    {
+      "id": "PricingTable",
+      "files": [
+        "PricingTable.js"
+      ]
+    },
+    {
+      "id": "ResourceDetails",
+      "files": [
+        "ResourceDetails.js"
+      ]
+    },
+    {
+      "id": "ReviewRotator",
+      "files": [
+        "ReviewRotator.js"
+      ]
+    },
+    {
+      "id": "RichTextArea",
+      "files": [
+        "RichTextArea.js"
+      ]
+    },
+    {
+      "id": "RightLeftContent",
+      "files": [
+        "RightLeftContent.js"
+      ]
+    },
+    {
+      "id": "RightORLeftContentModule",
+      "files": [
+        "RightORLeftContentModule.js"
+      ]
+    },
+    {
+      "id": "RightOrLeftCaseStudyTestimonial",
+      "files": [
+        "RightOrLeftCaseStudyTestimonial.js"
+      ]
+    },
+    {
+      "id": "RightOrLeftSteps",
+      "files": [
+        "RightOrLeftSteps.js"
+      ]
+    },
+    {
+      "id": "SearchResults",
+      "files": [
+        "SearchResults.js"
+      ]
+    },
+    {
+      "id": "SectionBreadcrumbModule",
+      "files": [
+        "SectionBreadcrumbModule.js"
+      ]
+    },
+    {
+      "id": "Share",
+      "files": [
+        "Share.js"
+      ]
+    },
+    {
+      "id": "SingleTestimonialPanel",
+      "files": [
+        "SingleTestimonialPanel.js"
+      ]
+    },
+    {
+      "id": "Spacing",
+      "files": [
+        "Spacing.js"
+      ]
+    },
+    {
+      "id": "StarterTemplateDetails",
+      "files": [
+        "StarterTemplateDetails.js"
+      ]
+    },
+    {
+      "id": "StarterTemplateListing",
+      "files": [
+        "StarterTemplateListing.js"
+      ]
+    },
+    {
+      "id": "StayInTouch",
+      "files": [
+        "StayInTouch.js"
+      ]
+    },
+    {
+      "id": "SubmissionForm",
+      "files": [
+        "SubmissionForm.js"
+      ]
+    },
+    {
+      "id": "SubscribedThankYou",
+      "files": [
+        "SubscribedThankYou.js"
+      ]
+    },
+    {
+      "id": "TabPanels",
+      "files": [
+        "TabPanels.js"
+      ]
+    },
+    {
+      "id": "TestDrive",
+      "files": [
+        "TestDrive.js"
+      ]
+    },
+    {
+      "id": "Testimonials",
+      "files": [
+        "Testimonials.js"
+      ]
+    },
+    {
+      "id": "TestimonialsLogos",
+      "files": [
+        "TestimonialsLogos.js"
+      ]
+    },
+    {
+      "id": "TriplePanelComparisonModule",
+      "files": [
+        "TriplePanelComparisonModule.js"
+      ]
+    },
+    {
+      "id": "TriplePanelModule",
+      "files": [
+        "TriplePanelModule.js"
+      ]
+    },
+    {
+      "id": "TwoPanelFeatureComparison",
+      "files": [
+        "TwoPanelFeatureComparison.js"
+      ]
+    },
+    {
+      "id": "VerticalContentPanel",
+      "files": [
+        "VerticalContentPanel.js"
+      ]
+    },
+    {
+      "id": "VideoPlayerModule",
+      "files": [
+        "VideoPlayerModule.js"
+      ]
+    },
+    {
+      "id": "framework",
+      "files": [
+        "framework.js"
+      ]
+    }
+  ]
+}

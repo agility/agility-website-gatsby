@@ -40,6 +40,16 @@
     }
   }
 }
+.page-integrations {
+  .mod-intro {
+    p:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    p:last-child {
+      margin-bottom: 26px;
+    }
+  }
+}
 @media (min-width: 768px) {
   .mod-intro {
     padding-top: 40px;

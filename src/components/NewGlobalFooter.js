@@ -21,60 +21,75 @@ export default props => (
       query NewGlobalFooterQuery {
 				agilityGlobalFooter {
 					customFields {
-					subscribeTitle
-					subscribeRedirect
-					subscribePOSTUrl
-					subscribeEmailPlaceholder
-					subscribeDescription
-					subscribeButtonLabel
-					subscribeConfirmationMessage
-					followTitle
-					copyright
-					column3Title
-					column2Title
-					column1Title
+						subscribeTitle
+						subscribeRedirect
+						subscribePOSTUrl
+						subscribeEmailPlaceholder
+						subscribeDescription
+						subscribeButtonLabel
+						subscribeConfirmationMessage
+						followTitle
+						copyright
+						column4Title
+						column3Title
+						column2Title
+						column1Title
 					}
 					column1Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
+						contentID
+						customFields {
+							title
+							uRL {
+								href
+								target
+								text
+							}
 						}
-					}
-					properties {
-						itemOrder
-					}
+						properties {
+							itemOrder
+						}
 					}
 					column2Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
+						contentID
+						customFields {
+							title
+							uRL {
+								href
+								target
+								text
+							}
 						}
-					}
-					properties {
-						itemOrder
-					}
+						properties {
+							itemOrder
+						}
 					}
 					column3Links {
-					contentID
-					customFields {
-						title
-						uRL {
-						href
-						target
-						text
+						contentID
+						customFields {
+							title
+							uRL {
+								href
+								target
+								text
+							}
+						}
+						properties {
+							itemOrder
 						}
 					}
-					properties {
-						itemOrder
-					}
+					column4Links {
+						contentID
+						customFields {
+							title
+							uRL {
+								href
+								target
+								text
+							}
+						}
+						properties {
+							itemOrder
+						}
 					}
 					followLinks {
 					contentID
@@ -114,10 +129,7 @@ export default props => (
 						textblob
 					}
 				}
-		  }
-
-
-        `}
+		  }`}
 		render={queryData => {
 
 
@@ -229,6 +241,7 @@ class Footer extends React.Component {
 		let column1Links = this.props.item.column1Links.sort(sortFunc);
 		let column2Links = this.props.item.column2Links.sort(sortFunc);
 		let column3Links = this.props.item.column3Links.sort(sortFunc);
+		let column4Links = (this.props.item.column4Links || []).sort(sortFunc);
 		let followLinks = this.props.item.followLinks.sort(sortFunc);
 		let bottomLinks = this.props.item.bottomLinks.sort(sortFunc);
 
@@ -277,6 +290,14 @@ class Footer extends React.Component {
 			return d.getFullYear();
 		}
 		const classSub = `foter-subscribe small-paragraph `
+
+		let column4th = ''
+		if (column4Links.length) {
+			column4th = <ul className="foter-menu menu-fourth">
+				<li className="foter-menu-li title"><span>{item.column4Title}</span></li>
+				{outputLinks(column4Links)}
+			</ul>
+		}
 		return (
 
 			// </footer>
@@ -297,6 +318,7 @@ class Footer extends React.Component {
 							<li className="foter-menu-li title"><span>{item.column3Title}</span></li>
 							{outputLinks(column3Links)}
 						</ul>
+						{column4th}
 
 						<div id="subscribe" className={classSub}>{/*  remove class thanks-subs"> */}
 							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you' loading="lazy" /></Lazyload>

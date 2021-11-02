@@ -191,7 +191,7 @@ const CaseStudyDetails = (props) => {
 
 							{caseStudy?.caseStudyChallenges && caseStudy?.caseStudyChallenges.length > 0 &&
 								<div className="small-paragraph cs-tag-wrap last-mb-none">
-									<h4>Challenges</h4>
+									<h4>Solutions</h4>
 									<p>
 										{renderTags(caseStudy?.caseStudyChallenges, 'challenge')}
 									</p>

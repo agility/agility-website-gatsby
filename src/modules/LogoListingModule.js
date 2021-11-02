@@ -6,27 +6,37 @@ import * as ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 import { animationElementInnerComponent } from '../global/javascript/animation'
 import { AgilityImage }  from "@agility/gatsby-image-agilitycms"
+import Helpers from '../global/javascript/Helpers'
+import Lazyload from 'react-lazyload'
+
 const LogoListingModule = ({ item }) => {
-
 	const [spaceBottom, setSpaceBottom] = useState(false)
-
+	const [isIntegration, setIsIntegration] = useState(false);
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
 	const classSection = `module LogoListingModule animation  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+
 	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
 		const className = `logo-item logo-v${idx + 1}`
 		let logoImage = key.customFields.logo.url
+		let imageSlider = <AgilityImage image={key.customFields.logo}/>
+		const logoTitle = key.customFields.logo.label
+		const link = key?.customFields?.uRL?.href
+		const target = key?.customFields?.uRL?.target
+
 		if (logoImage.indexOf(".svg") === -1) {
 			logoImage = `${logoImage}?w=200`
+		} else {
+			imageSlider = <Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle} loading="lazy"></img></Lazyload>
 		}
-		const logoTitle = key.customFields.logo.label
-		// const link = key.customFields.uRL.href
-		// const taget = key.customFields.uRL.target
+
 		return (
 			<div className={className} key={idx}>
 				<div className='d-block'>
-						<AgilityImage image={key.customFields.logo} />
-						{/* <Lazyload offset={ Helpers.lazyOffset }><img src={logoImage} alt={logoTitle} loading="lazy"></img></Lazyload> */}
+					{isIntegration && <a href={link} target={target}>
+						{imageSlider}
+					</a>}
+					{!isIntegration && imageSlider }
 				</div>
 			</div>
 		)
@@ -44,9 +54,13 @@ const LogoListingModule = ({ item }) => {
 	// 		}
 	// 	}, 5);
 	// }
-	// useEffect(() => {
-	// 	initLogo()
-  // });
+	const detectIntegration = () => {
+		const detectIntegration = window.location.pathname.includes('/integrations')
+		setIsIntegration(detectIntegration)
+	}
+	useEffect(() => {
+		detectIntegration()
+  });
 	const settings = {
 		dots: true,
 		infinite: true,

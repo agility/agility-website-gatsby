@@ -1,0 +1,260 @@
+// @import "../global/_variables.scss";
+@import '../global/setting';
+
+.mod-integration-detail-banner {
+  padding: 124px 0 109px;
+  h1 {
+    margin-bottom: 40px;
+  }
+  .item-ani {
+    position: absolute;
+    top: 0;
+    transition: .4s cubic-bezier(.235, .615, .185, .995);
+  }
+  .img-banner {
+    width: 100%;
+    max-width: 629px;
+    // min-height: 317px;
+    padding-top: 41.3%;
+    background-color: white;
+    box-shadow: 0px 5px 30px #553FA43F;
+    border-radius: 8px;
+    z-index: 1;
+    overflow: hidden;
+    img {
+      margin: auto;
+    }
+    .img-wrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 100px);
+      text-align: center;
+    }
+  }
+  .img-offset {
+    position: absolute;
+    width: 521px;
+    height: 326px;
+    right: -65px;
+    bottom: -65px;
+    img {
+      width: 100%;
+    }
+  }
+  .banner-col-text {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0
+  }
+  .content-wrap {
+    max-width: 565px;
+  }
+  .description {
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+  .box-message {
+    .link-line {
+      margin-left: 20px;
+      &::after {
+        position: absolute;
+        left: -25px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .col-right-lr {
+    justify-content: center;
+  }
+}
+
+.wrap-ani-home {
+  margin-bottom: 37px;
+  &.is-home img {
+    width: 100%;
+  }
+  .item2 {
+    position: relative;
+    z-index: 1;
+  }
+  .item3 {
+    z-index: 2;
+  }
+  .item4 {
+    z-index: 4;
+  }
+  // img {
+  //   width: 100%;
+  // }
+}
+.ani-banner {
+  position: absolute;
+  top: -25px;
+  width: 153%;
+  left: -23%;
+  z-index: 1;
+  transition: .5s cubic-bezier(.235, .615, .185, .995);
+  height: 100%;
+  svg:not(:first-child) {
+    display: none;
+  }
+}
+
+.mod-framework + .mod-space + .mod-integration-detail-banner {
+  background-color: $color-e9f;
+  padding: 75px 0 40px;
+  .btn-primary {
+    background-color: transparent;
+    border-color: $color-58;
+    color: $color-58;
+  }
+  .internal-wrap img {
+    width: 100%;
+  }
+  .large-paragraph {
+    margin-bottom: 35px;
+  }
+}
+// .col-right-lr {
+//   img {
+//     max-width: 100%;
+//   }
+// }
+@media (max-width: 1200px){
+  .mod-integration-detail-banner {
+    h1 {
+      margin-bottom: 20px;
+    }
+    .img-banner {
+      padding-top: 50%;
+    }
+  }
+}
+
+@media (max-width: 530px){
+	.wrap-ani-home {
+		.img-mb {
+		  width: 100%;
+		}
+	  }
+}
+@media (max-width: 767px){
+  .mod-framework + .mod-space + .mod-integration-detail-banner {
+    .col-right-lr {
+      order: 2;
+    }
+  }
+
+  .mod-integration-detail-banner {
+    padding: 25px 20px 50px;
+    h1 {
+      margin-bottom: 20px;
+    }
+    .col-right-lr {
+      margin-bottom: 35px;
+    }
+    .img-offset {
+      width: 80%;
+    }
+    .h1-big {
+      flex-direction: column-reverse;
+    }
+    .link-url {
+      &.d-none {
+        display: block;
+      }
+      &.d-block {
+        display: none;
+      }
+    }
+    .banner-col-text {
+      margin-bottom: 40px;
+    }
+    .img-banner {
+      padding-top: 40%;
+    }
+    .col-right-lr {
+      padding: 0;
+      justify-content: center;
+    }
+  }
+}
+@media (min-width: 768px){
+  .wrap-ani-home {
+    margin-bottom: 0;
+  }
+  .wrap-btn:not(.internal-btn) {
+    width: 130%;
+  }
+  .mod-integration-detail-banner {
+    .banner-col-text {
+      padding-right: 15px;
+      h5 {
+        margin-bottom: 27px;
+      }
+    }
+    .col-right-lr {
+      padding-left: 15px;
+    }
+    .col-right-lr {
+      justify-content: flex-end;
+    }
+  }
+}
+@media (min-width: 992px){
+  .wrap-btn:not(.internal-btn) {
+    width: 100%;
+  }
+}
+@media (min-width: 992px){
+  .mod-framework + .mod-space + .mod-integration-detail-banner {
+    padding: 110px 0;
+    .col-right-lr {
+      flex: 0 0 66.66667%;
+      max-width: 66.66667%;
+    }
+    .large-paragraph {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+      margin-bottom: 0;
+    }
+  }
+}
+@media (min-width: 1025px){
+  .wrap-ani-home {
+    .img-mb {
+      opacity: 0;
+    }
+  }
+}
+@media (min-width: 1200px){
+  .mod-framework + .mod-space + .mod-integration-detail-banner {
+    .large-paragraph {
+      padding-right: 50px;
+    }
+  }
+}
+@media (min-width: 1501px){
+  .page-new-why-agility,
+  .page-why-agility {
+    .internal-wrap {
+      img {
+        width: 70%;
+      }
+    }
+  }
+  .page-developers {
+    .internal-wrap {
+      // transform: translateY(51px);
+      img {
+        width: 103%;
+        max-width: 103%;
+      }
+    }
+    h1 {
+      margin-bottom: 22px;
+    }
+  }
+}
