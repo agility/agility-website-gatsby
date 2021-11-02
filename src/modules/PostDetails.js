@@ -10,6 +10,7 @@ import "./RichTextArea.scss"
 import "./PostDetails.scss"
 
 const PostDetails = ({ item, dynamicPageItem, page }) => {
+
   item = item.customFields
   const post = dynamicPageItem.customFields
   const author = post.author.customFields
@@ -98,6 +99,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
       </div>
     </section>
   )
+
 }
 
 export default PostDetails

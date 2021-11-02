@@ -320,7 +320,7 @@ class Footer extends React.Component {
 						</ul>
 						{column4th}
 
-						<div className={classSub}>{/*  remove class thanks-subs"> */}
+						<div id="subscribe" className={classSub}>{/*  remove class thanks-subs"> */}
 							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you' loading="lazy" /></Lazyload>
 							<div className="box-sub">
 								<span>{item.subscribeTitle}</span>
