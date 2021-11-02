@@ -137,7 +137,7 @@ export default props => (
 				item: queryData.agilityGlobalHeader,
 				menu2: navigationTopLevel
 			}
-console.log(navigationTopLevel)
+
 			return (
 				<NewGlobalHeader {...viewModel} />
 			)

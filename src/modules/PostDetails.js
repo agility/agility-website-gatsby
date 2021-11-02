@@ -52,6 +52,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
           <PostTags post={post} />
 
           <div className="meta">
+          {author &&
             <div className="author">
               <div className="author-image">
                 <img
@@ -65,6 +66,7 @@ const PostDetails = ({ item, dynamicPageItem, page }) => {
               </div>
               <h5 className="h5">{author.title}</h5>
             </div>
+            }
             <span className="date">
               {DateTime.fromISO(post.date).toFormat("MMM d, yyyy")}
             </span>
