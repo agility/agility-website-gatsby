@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import SelectC8 from '../utils/SelectC8'
 import './NewPartnerListingModule.scss'
 import './CaseStudyReskin.scss'
+
 import PostItem from './PostItem'
 import { graphql, StaticQuery } from "gatsby"
 import * as StringUtils from "../utils/string-utils"
