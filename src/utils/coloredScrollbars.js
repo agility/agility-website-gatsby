@@ -44,6 +44,7 @@ export default class ColoredScrollbars extends Component {
   render() {
     return (
       <Scrollbars
+        className="scrollbar-custom-c8"
         universal
         renderView={this.renderView}
         renderThumbHorizontal={this.renderThumb}

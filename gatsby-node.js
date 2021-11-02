@@ -137,16 +137,17 @@ exports.onCreateNode = async ({
   getCache,
 }) => {
 	try {
-		if (node.internal.type === 'agilityCaseStudy') {
+		if (['agilityCaseStudy', 'agilityPartner', 'agilityIntegrations'].includes(node.internal.type)) {
 			node.customFields.media = null
-			if (node.customFields.gallery && node.customFields.gallery.galleryid) {
+			const galleryId = node.internal.type === 'agilityIntegrations' ? node.customFields.screenshots && node.customFields.screenshots.galleryid : node.customFields.gallery && node.customFields.gallery.galleryid
+			if (galleryId) {
 				const api = contentFetch.getApi({
 					guid: agilityConfig.guid,
 					apiKey: agilityConfig.apiKey,
 					isPreview: agilityConfig.isPreview
 				});
-				const id = node.customFields.gallery.galleryid
-				const gallery = await api.getGallery({galleryID: id})
+				const id = galleryId
+				const gallery = await api.getGallery({ galleryID: id })
 				node.customFields.media = gallery.media
 			}
 		}

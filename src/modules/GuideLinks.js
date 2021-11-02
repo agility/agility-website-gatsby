@@ -50,7 +50,7 @@ const GuideLinks = ({ item, listGuideLinks }) => {
 	const heading = fields.heading
 	const description = fields.description
 	const btnCta = fields.mainCTA
-	const imgURL = fields.guideIcon && fields.guideIcon.url.length > 0 ? fields.guideIcon.url : null
+	const imgURL = fields.guideIcon && fields.guideIcon.url.length > 0 ? fields.guideIcon.url : '/images/icon-userguide.svg'
 	const thisModuleRef = useRef(null)
 
 	const listGuide = listGuideLinks.map((guide, idx) => {

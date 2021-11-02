@@ -13,7 +13,7 @@
   .btn-outline-white {
     background-color: $color-46;
   }
-  &:nth-last-child(2) {
+  &:nth-last-child(2), &.is-footer {
     .container {
       position: relative;
       &::before {

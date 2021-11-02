@@ -48,6 +48,15 @@ $translate: 100px;
 .d-flex {
   display: flex !important;
 }
+.flex-column {
+  flex-direction: column;
+}
+.flex {
+  flex: 1 1 auto;
+}
+.flex-0-0 {
+  flex: 0 0 auto;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
