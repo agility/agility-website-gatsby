@@ -10,6 +10,7 @@ import SelectC8 from '../utils/SelectC8'
 import Spacing from './Spacing'
 import SingleTestimonialPanel from './SingleTestimonialPanel'
 import { animationElementInnerComponent } from '../global/javascript/animation'
+import PostItem from './PostItem'
 
 const CaseStudyReskin = ({ item, posts = [] }) => {
 
@@ -335,7 +336,7 @@ const CaseStudyReskin = ({ item, posts = [] }) => {
         } else {
           return (
             <div key={index} className="col-md-6 col-lg-4 case-col">
-              < PostItem post={post} />
+              < PostItem showCustomerLogo={true} post={post} />
             </div>)
         }
       } else {
@@ -359,9 +360,10 @@ const CaseStudyReskin = ({ item, posts = [] }) => {
               < PostSpecialItem post={post} isSpecial={isPurpleBackground} />
             </div>)
         }
+
         return (
           <div key={index} className="col-md-6 col-lg-4 case-col">
-            < PostItem post={post} />
+            < PostItem showCustomerLogo={true} post={post} />
           </div>)
       }
     })
@@ -427,27 +429,7 @@ const trimText = (text) => {
   let txt = text.split(' ')
   return txt.length > 18 ? txt.slice(0, 18).join(' ').concat('...') : txt.join(' ')
 }
-const PostItem = ({ post }) => {
-  const thumbUrl = post?.customFields?.postImage?.url
-  const link = post?.url
-  const title = post?.customFields?.title
-  const body = post?.customFields?.excerpt
-  return (
-    <div className="case-box h-100 transition-25 ps-rv">
-      <div className="case-thumb ps-rv overflow-hidden">
-        <LazyBackground className="ps-as z-2 bg transition-25" src={thumbUrl} />
-      </div>
-      <div className="case-content small-paragraph">
-        <h3>{title}</h3>
-        <p>{trimText(body)}</p>
-        {link &&
-          <Link to={link} className="link-line link-purple">Read More</Link>
-        }
-      </div>
-      <Link to={link} className=" ps-as"><span className="sr-only">{title}</span></Link>
-    </div>
-  )
-}
+
 const PostSpecialItem = ({ post, longBox = false, isSpecial = false }) => {
 
   const thumbUrl = post?.customFields?.postImage?.url

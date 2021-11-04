@@ -5,6 +5,7 @@ import { renderHTML } from '../agility/utils'
 import Slider from 'react-slick'
 // import ResponsiveImage from '../components/responsive-image'
 import CaseStudyRotator from './CaseStudyRotator';
+import CaseStudyGallery from './CaseStudyGallery';
 import RelatedResources from './RelatedResources';
 import Spacing from './Spacing'
 // import LazyLoad from 'react-lazyload'
@@ -13,8 +14,6 @@ import "./CaseStudyDetails.scss"
 import "./RichTextArea.scss"
 
 const CaseStudyDetails = (props) => {
-
-
 	const query = useStaticQuery(graphql`
 		query CustomRelatedResources {
 			rotator: allAgilityCaseStudy(
@@ -149,7 +148,6 @@ const CaseStudyDetails = (props) => {
 		})
 	}
 
-	
   const thisModuleRef = useRef(null)
   /* animation module */
   useEffect(() => {
@@ -251,20 +249,10 @@ const CaseStudyDetails = (props) => {
 
 export default CaseStudyDetails
 
-
-
 const CaseStudySocialShare = ({ link, title }) => {
-
 	let shareLink = link.charAt(0) === '/' ? link.replace('/', '') : link
 	shareLink = shareLink.trim()
 	const domain = 'https://agilitycms.com'
-	useEffect(() => {
-
-		return () => {
-
-		}
-	}, [])
-
 	return (
 		<>
 			<div className="cs-d-social">
@@ -281,55 +269,6 @@ const CaseStudySocialShare = ({ link, title }) => {
 					</a>
 				</div>
 			</div>
-		</>
-	)
-}
-
-const CaseStudyGallery = ({ dataList, galleryId, title }) => {
-
-	const mediaLists = dataList // query?.allAgilityCaseStudy?.edges
-	const founded = mediaLists?.filter(i => {
-		if (i.node?.customFields?.gallery?.galleryid === galleryId) {
-			return i.node.customFields
-		}
-	})
-
-	let listMedia = []
-	if (founded && founded.length > 0) {
-		listMedia = founded[0].node.customFields.media
-	}
-
-	const settings = {
-		dots: true,
-		infinite: true,
-		speed: 250,
-		arrows: true,
-		rows: 1,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-	}
-	const galleries = listMedia?.map((i, index) => {
-		return (
-			<div key={index} className="gal-item">
-				{/* <ResponsiveImage img={i} /> */}
-				{/* <LazyLoad><img src={i.url} alt="ab" /></LazyLoad> */}
-				<img src={i.url} alt={title} />
-			</div>
-
-		)
-	});
-
-	return (
-		<>
-			<section className={`case-d-gallery `} >
-				{listMedia && listMedia.length > 0 &&
-					<Slider {...settings} className={`gal-slider ${galleries?.length > 1 ? 'has-slide' : ''}`}>
-						{galleries}
-					</Slider>
-				}
-
-			</section>
 		</>
 	)
 }

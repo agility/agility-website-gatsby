@@ -64,6 +64,7 @@ export default props => (
 				if (excerpt) {
 					p.customFields.excerpt = StringUtils.stripHtml(excerpt, 200);
 				}
+				// console.log('postttttttttttttttt', p.customFields.customerWhiteLogo, p.customFields.customerLogo)
 
 				p.url = "/resources/case-studies/" + p.customFields.uRL;
 
