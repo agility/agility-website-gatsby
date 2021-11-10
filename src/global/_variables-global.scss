@@ -112,6 +112,9 @@ $translate: 100px;
   .order-md-2 {
     order: 2;
   }
+  .d-md-none {
+    display: none !important;
+  }
 }
 @media (min-width: 992px) {
   .align-items-lg-center {
