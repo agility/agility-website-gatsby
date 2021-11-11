@@ -319,7 +319,7 @@ export default props => (
 				<section className="mod-integration-partner">
 					{ isIntegration && <>
 						<IntegrationDetailContent viewModel={viewModel}/>
-						<CaseStudyGallery dataList={mediaLists} galleryId={customFields?.gallery?.galleryid || customFields?.screenshots?.galleryId} title={customFields.title} />
+						<CaseStudyGallery dataList={mediaLists} galleryId={customFields?.gallery?.galleryid || customFields?.screenshots?.galleryid} title={customFields.title} />
 						{steps && steps.length > 0 && <IntegrationDetailGuideLink viewModel={viewModel}/>}
 						<IntegrationDetailSimilar viewModel={viewModel} />
 						</>
