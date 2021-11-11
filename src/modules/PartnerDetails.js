@@ -14,7 +14,8 @@ import "./RichTextArea.scss"
 const CaseStudyGallery = ({ dataList, galleryId, title, settingsOveride }) => {
   const mediaLists = dataList // query?.allAgilityCaseStudy?.edges
   const founded = mediaLists?.filter(i => {
-    if (i.node?.customFields?.gallery?.galleryid === galleryId) {
+		const galleryidSelect = i.node?.customFields?.gallery?.galleryid || i.node?.customFields?.screenshots?.galleryid
+    if (galleryidSelect === galleryId) {
       return i.node.customFields
     }
   })
@@ -38,7 +39,7 @@ const CaseStudyGallery = ({ dataList, galleryId, title, settingsOveride }) => {
   const galleries = listMedia?.map((i, index) => {
     return (
       <div key={index} className="gal-item">
-        <img src={i.url} alt={title} />
+        <img src={i.url + '?w=700'} alt={title} />
       </div>
     )
   });
