@@ -95,16 +95,16 @@
 
     .event-content {
       padding-top: 10px;
-      &:before,
-      &:after {
-        display: block;
-        content: "";
-        margin: 25px auto;
-        width: 100%;
-        max-width: 170px;
-        height: 6px;
-        background: $color-ff;
-      }
+      // &:before,
+      // &:after {
+      //   display: block;
+      //   content: "";
+      //   margin: 25px auto;
+      //   width: 100%;
+      //   max-width: 170px;
+      //   height: 6px;
+      //   background: $color-ff;
+      // }
       p {
         margin: 10px 0;
       }
