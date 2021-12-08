@@ -116,6 +116,31 @@ exports.createSchemaCustomization = ({ actions }) => {
 			caseStudyIndustries_TextField: String
 			caseStudyChallenges_TextField: String
 		}
+		type agilityJob implements Node {
+			languageCode: String,
+			contentID: Int,
+			properties: agilityJobProperties,
+			customFields: agilityJobCustomFields
+		}
+		type agilityJobProperties {
+			referenceName: String,
+			itemOrder: Int
+		}
+		type agilityJobCustomFields {
+			title: String,
+			textblob: String,
+			icon: agilityJobCustomFieldsIcon
+			bottomLink: agilityJobCustomFieldsBottomLink
+		}
+		type agilityJobCustomFieldsIcon {
+			label: String,
+			url: String
+		}
+		type agilityJobCustomFieldsBottomLink {
+			href: String,
+			target: String,
+			text: String
+		}
   `
 	createTypes(typeDefs)
 }
