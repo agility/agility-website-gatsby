@@ -161,7 +161,7 @@ class Form extends React.Component {
 	focus() {
 		const form = document.querySelector('.form-container form')
 		if (form !== null) {
-			const input = form.querySelectorAll('input,textarea')
+			const input = form.querySelectorAll('input,textarea,select')
 			Array.from(input).forEach((item,index) => {
 				item.addEventListener('focus', (event) => {
 					this.checkFocus()
