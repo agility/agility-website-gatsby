@@ -48,6 +48,8 @@ const PartnerContentPanel = loadable(() => import("./PartnerContentPanel"))
 const PartnerDetails = loadable(() => import("./PartnerDetails"))
 const PartnerListing = loadable(() => import("./PartnerListing"))
 const NewPartnerListingModule = loadable(() => import("./NewPartnerListingModule"))
+const NewResourcesTagTitle = loadable(() => import("./NewResourcesTagTitle"))
+const NewResourceTagList = loadable(() => import("./NewResourceTagList"))
 const NewIntegrationListingModule = loadable(() => import("./NewIntegrationListingModule"))
 const PartnerLogoListing = loadable(() => import("./PartnerLogoListing"))
 const PeopleListing = loadable(() => import("./PeopleListing"))
@@ -90,6 +92,14 @@ const VerticalContentPanel = loadable(() => import("./VerticalContentPanel"))
 const VideoPlayerModule = loadable(() => import("./VideoPlayerModule"))
 const VideoModule = loadable(() => import("./VideoModule"))
 
+//==== New Resource ======//
+const NewFeaturedResource = loadable(() => import("./NewFeaturedResource"))
+const NewDowloadableEbooks = loadable(() => import("./NewDowloadableEbooks"))
+const NewWebinarDowload = loadable(() => import("./NewWebinarDowload"))
+const NewFeaturedCaseStudies = loadable(() => import("./NewFeaturedCaseStudies"))
+const NewAllResources = loadable(() => import("./NewAllResources"))
+const NewEBookThankYou = loadable(() => import("./NewEBookThankYou"))
+const NEWWebinarThankYou = loadable(() => import("./NewEBookThankYou"))
 
 const allModules = {
 	"2BoxContent": TwoBoxContent,
@@ -137,6 +147,9 @@ const allModules = {
 	"NEW-IntegrationDetail": PartnerDetails,
 	"PartnerListing": PartnerListing,
 	"NewPartnerListingModule": NewPartnerListingModule,
+	"NEW-ResourceTagTitle": NewResourcesTagTitle,
+	'NEW-ResourceTagTagList': NewResourceTagList,
+	'NEWResourceListingByTopic': NewResourceTagList,
 	"NewIntegrationListingModule": NewIntegrationListingModule,
 	"PartnerLogoListing": PartnerLogoListing,
 	"PeopleListing": PeopleListing,
@@ -164,6 +177,7 @@ const allModules = {
 	"Share": Share,
 	"SingleTestimonialPanel": SingleTestimonialPanel,
 	"Spacing": Spacing,
+	"Space": Spacing,
 	"StarterTemplateDetails": StarterTemplateDetails,
 	"StarterTemplateListing": StarterTemplateListing,
 	"StayInTouch": StayInTouch,
@@ -179,8 +193,13 @@ const allModules = {
 	"VerticalContentPanel": VerticalContentPanel,
 	"VideoPlayerModule": VideoPlayerModule,
 	"VideoModule": VideoModule,
-
-
+	"NEWFeaturedResource": NewFeaturedResource,
+	"NEWDownloadableeBooks": NewDowloadableEbooks,
+	"NEWWebinarDownload": NewWebinarDowload,
+	"NEWFeaturedCaseStudies": NewFeaturedCaseStudies,
+	"NEWAllResources": NewAllResources,
+	"NEWeBookThankYou": NewEBookThankYou,
+	"NEWWebinarThankYou": NEWWebinarThankYou,
 }
 
 export const getModule = (name) => {

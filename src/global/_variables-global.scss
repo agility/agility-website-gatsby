@@ -5,6 +5,9 @@ $translate: 100px;
   -ms-flex-align: center;
   align-items: center !important;
 }
+.align-items-end {
+  align-items: flex-end !important;
+}
 .justify-content-between {
   justify-content: space-between !important;
 }
@@ -73,6 +76,9 @@ $translate: 100px;
 .text-right {
   text-align: right!important;
 }
+.text-uppercase {
+  text-transform: uppercase;
+}
 .border-0 {
   border: 0!important;
 }
@@ -115,6 +121,9 @@ $translate: 100px;
   .d-md-none {
     display: none !important;
   }
+}
+.z-1 {
+  z-index: 1;
 }
 @media (min-width: 992px) {
   .align-items-lg-center {

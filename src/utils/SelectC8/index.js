@@ -79,7 +79,6 @@ const RenderSelectC8 = ({ data, onChange, multipleSelect = false, className }, r
       optionChoose.name = data.name
       optionChoose.value = selectedArray
     }
-    console.log(`optionChoose`, optionChoose)
     onChange(optionChoose)
   }
 
@@ -129,7 +128,7 @@ const RenderSelectC8 = ({ data, onChange, multipleSelect = false, className }, r
           <ColoredScrollbars
             autoHeight
             autoHeightMin={0}
-            autoHeightMax={1000}>
+            autoHeightMax={600}>
             <ul className="list-inline m-0">
 
               {optionKeys.map((optionKey, idx) => {

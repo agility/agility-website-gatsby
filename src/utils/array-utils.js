@@ -9,14 +9,16 @@ const getRandomElements = (array, n = {}) => {
 }
 
 const shuffleArray = (array) => {
+    const tmp = [...array];
     let j, x, i;
-    for (i = array.length - 1; i > 0; i--) {
+    for (i = tmp.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
-        x = array[i];
-        array[i] = array[j];
-        array[j] = x;
+        // x = tmp[i];
+        // tmp[i] = tmp[j];
+        // tmp[j] = x;
+        [tmp[i], tmp[j]] = [tmp[j], tmp[i]]
     }
-    return array;
+    return tmp;
 }
 
 export {

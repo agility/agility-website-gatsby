@@ -30,6 +30,21 @@
       margin-left: 7px;
     }
   }
+
+  &.btn-arrow-before {
+    padding-right: 22px;
+    &::before {
+      content: '\e906';
+      font-family: $icomoon;
+      font-weight: $fw-regular;
+      // @include position(absolute,$top: 19px,$right: 21px);
+      position: relative;
+      display: inline-block;
+      font-size: rem(11);
+      transform: rotate(180deg);
+      margin-right: 7px;
+    }
+  }
 }
 .window-os {
   .btn {
@@ -181,6 +196,14 @@
     color: $white;
     border-color: $white;
     background-color: transparent;
+  }
+}
+
+.btn-browser-all {
+  padding-left: 15px;
+  padding-right: 15px !important;
+  &::after {
+    margin-left: 17px !important;
   }
 }
 @include media-breakpoint-up(md) {

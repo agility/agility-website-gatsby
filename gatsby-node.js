@@ -141,6 +141,41 @@ exports.createSchemaCustomization = ({ actions }) => {
 			target: String,
 			text: String
 		}
+		type agilityResourceCustomFields {
+			topReads_TextField: String,
+			downloadButtonText: String,
+			topWebinars_TextField: String,
+			topWebinars_ValueField: String,
+			resourceTopics_TextField: String,
+			resourceTopics_ValueField: String,
+			topReads_ValueField: String,
+			thankYouContent: String,
+
+			bookCover: agilityResourceCustomFieldsBookCover,
+			resourceTopics: agilityResourceCustomFieldsResourceTopics,
+			topReads: agilityResourceCustomFieldsTopReads,
+			topWebinars: agilityResourceCustomFieldsTopWebinars
+		}
+		type agilityResourceCustomFieldsBookCover {
+			url: String
+			filesize: Int
+			pixelWidth: String
+			height: Int
+			width: Int
+		}
+
+		 type agilityResourceCustomFieldsResourceTopics {
+			referencename: String
+			sortids: String
+		 }
+		 type agilityResourceCustomFieldsTopReads {
+			referencename: String
+			sortids: String
+		 }
+		 type agilityResourceCustomFieldsTopWebinars {
+			referencename: String
+			sortids: String
+		 }
   `
 	createTypes(typeDefs)
 }

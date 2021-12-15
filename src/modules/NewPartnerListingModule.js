@@ -152,7 +152,7 @@ const NewPartnerListingModule = ({ options, list, item }) => {
             .filter((item, index) => index < loadMoreIdx)
             .map((post, index) => {
               return <div key={index} className="col-md-6 col-xl-4 case-col">
-                < PostItem post={post} isIntegration={true} />
+                <PostItem post={post} isIntegration={true} />
               </div>
             })
           }

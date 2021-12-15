@@ -72,7 +72,6 @@ const CaseStudyContentPanel = ({ item, dynamicPageItem }) => {
 			window.removeEventListener('scroll', scrollEventFunc)
 		}
 	}, [])
-	console.log('caseStudyyyyyyyyyyyyyyy', caseStudy)
 
 	return (
 		<>
