@@ -1,0 +1,50 @@
+.mod-new-stay-in-touch {
+  a {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .icon-image {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    margin-right: 18px;
+    img {
+      max-width: 24px;
+    }
+  }
+  .cta-mx {
+    margin-bottom: 43px;
+  }
+  .wrap-stay-in-touch {
+    flex-wrap: wrap;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mod-new-stay-in-touch {
+    a {
+      width: 50%;
+    }
+    .wrap-stay-in-touch {
+      padding: 0 20px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .mod-new-stay-in-touch {
+    a {
+      margin-right: 15px;
+      margin-bottom: 0;
+      width: auto;
+    }
+    .wrap-stay-in-touch {
+      flex-wrap: nowrap;
+    }
+  }
+}
