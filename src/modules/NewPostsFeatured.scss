@@ -1,0 +1,36 @@
+.mod-new-posts-featured {
+	margin-bottom: 20px;
+	.case-thumb::before {
+		padding-bottom: 56%;
+	}
+	.posts-feature-item-col {
+		width: 100%;
+		padding: 0 16px;
+		margin-bottom: 20px;
+	}
+	.case-box {
+		border: none;
+	}
+	.posts-feature-item-wrap {
+		flex-direction: column;
+		justify-content: space-between;
+		&:hover {
+			box-shadow: 0 5px 30px -8px rgb(85 63 164 / 75%);
+		}
+	}
+	.btn-outline-white {
+		background-color: transparent;
+		margin-bottom: 0;
+	}
+	.content-wrap {
+		padding: 22px 36px 41px;
+	}
+}
+
+@media (min-width: 992px) {
+  .new-posts-featured {
+		.heading {
+			margin-bottom: 50px;
+		}
+	}
+}

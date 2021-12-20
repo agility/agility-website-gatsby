@@ -59,6 +59,9 @@ const PodcastListing = loadable(() => import("./PodcastListing"))
 
 const PostDetails = loadable(() => import("./PostDetails"))
 const PostListing = loadable(() => import("./PostListing"))
+const NewPostsFeatured = loadable(() => import("./NewPostsFeatured"))
+const NewPostListing = loadable(() => import("./NewPostListing"))
+const NewStayInTouch = loadable(() => import("./NewStayInTouch"))
 const PricingPackagesModule = loadable(() => import("./PricingPackagesModule"))
 const PricingPlans = loadable(() => import("./PricingPlans"))
 const PricingTable = loadable(() => import("./PricingTable"))
@@ -147,6 +150,9 @@ const allModules = {
 	"PodcastListing": PodcastListing,
 	"PostListing": PostListing,
 	"PostDetails": PostDetails,
+	"NewPostListing": NewPostListing,
+	"NewPostsFeatured": NewPostsFeatured,
+	'NewStayInTouch': NewStayInTouch,
 	"PricingPackagesModule": PricingPackagesModule,
 	"PricingPlans": PricingPlans,
 	"PricingTable": PricingTable,
