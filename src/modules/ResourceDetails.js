@@ -77,38 +77,37 @@ const TopReads = ({ item, isWebinar }) => {
 	);
 }
 
-const RecommendedWebinar = ({item}) => {
-	if (item) {
-		const customFields = item.customFields
-		let resType = customFields?.resourceTypeName?.toLowerCase().replace(/ /g, "-") || ''
-  	const link = `/resources/${resType ? resType + '/' : ''}${customFields.uRL}`
-		return (
-			<div className="recommend-webinar">
-				<h3>Recommended Webinars</h3>
-				<LazyBackground className="re-webina-thumb bg ps-rv" src={customFields.image?.url} >
-					<Link to={link} className="ps-as d-flex align-items-center justify-content-center"><span className="sr-only">{customFields.title}</span>
-						<span className="icomoon icon-video"><span className="path3"></span></span>
-					</Link>
-				</LazyBackground>
-				<div className="content-blog">
-					<p>
-						{renderTags(customFields.resourceType, 'category')}
-					</p>
-					{customFields.title &&
-						<h3>{customFields.title}</h3>
-					}
-					<Link to={link} className="link-line link-purple">Watch Now</Link>
-				</div>
-			</div>
-		)
-	}
+const RecommendedWebinar = ({ item, customFieldsPage }) => {
+	const title = customFieldsPage.resourceHeading || 'Recommended for You'
+	const customFields = item.customFields || {}
+	const customFieldResourceItem = customFieldsPage?.resourceItem?.customFields || {}
+	let resType = customFieldResourceItem?.resourceTypeName?.toLowerCase().replace(/ /g, "-") || ''
+	const link = `/resources/${resType ? resType + '/' : ''}${customFieldResourceItem.uRL}`
+
 	return (
-	<div className="recommend-webinar">
-		<h3>Recommended Webinars</h3>
-	</div>
+		<div className="recommend-webinar">
+			<h3>{title}</h3>
+			{
+				customFieldsPage?.resourceItem && <>
+					<LazyBackground className="re-webina-thumb bg ps-rv" src={customFieldResourceItem.image?.url} >
+						<Link to={link} className="ps-as d-flex align-items-center justify-content-center"><span className="sr-only">{customFields.title}</span>
+							<span className="icomoon icon-video"><span className="path3"></span></span>
+						</Link>
+					</LazyBackground>
+					<div className="content-blog">
+						<p>
+							{renderTags(customFieldResourceItem.resourceType, 'category')}
+						</p>
+						{customFieldResourceItem.title &&
+							<h3>{customFieldResourceItem.title}</h3>
+						}
+						<Link to={link} className="link-line link-purple">{customFieldsPage?.resourceButtonText || 'Watch Now'}</Link>
+					</div>
+				</>
+			}
+		</div>
 	)
 }
-
 
 /* ______________________ */
 /* ______________________ */
@@ -163,11 +162,6 @@ export default props => (
             cTA {
               contentid
             }
-            fileDownload {
-              url
-              label
-              filesize
-            }
             downloadButtonText
           }
           contentID
@@ -218,11 +212,6 @@ export default props => (
             cTA {
               contentid
             }
-            fileDownload {
-              url
-              label
-              filesize
-            }
             downloadButtonText
           }
           contentID
@@ -242,16 +231,19 @@ export default props => (
 		}}
 	/>
 )
-const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 
-	// console.log('dynamicPageItem', item, dynamicPageItem);
+const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 	let resource = dynamicPageItem.customFields;
 	item = item.customFields;
+	item.formTitle = resource.formTitle || resource.title
+	// item.submissionPOSTURL = resource.submissionPOSTURL
 	const resourceTypes = Array.isArray(resource.resourceType) || !resource.resourceType ? resource.resourceType : [resource.resourceType]
 	const resourceTopics = Array.isArray(resource.resourceTopics) || !resource.resourceTopics ? resource.resourceTopics : [resource.resourceTopics]
 
 	const isWebinar = resource.resourceTypeName.toLowerCase() === 'webinar'
 	const isEbook = resource.resourceTypeName.toLowerCase() === 'ebook'
+	item.autopilotJourneyTrigger = resource.autopilotJourneyTrigger || (isWebinar ? 'gatedwebinar' : resource.uRL)
+
 	const classModule = resource.resourceTypeName &&
 	(isEbook || isWebinar) ? 'res-download-detail' : '';
 
@@ -314,6 +306,7 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 			window.removeEventListener('scroll', scrollEventFunc)
 		}
 	}, [])
+	const contentCTA = (resource?.rightColumnCTATitle ? '<h3>' + resource?.rightColumnCTATitle + '</h3>' : '') + resource?.rightCTAContent
 	return (
 		<React.Fragment>
 		<section ref={thisModuleRef} className={`resource-details new-resource-detail animation ${classModule}`}>
@@ -359,21 +352,19 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 								</p>
 							</div>
 						}
-						{(resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'ebook' || resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'webinar') &&
-							<DownloadEbookForm item={{customFields: item}} slug={resource.uRL} />
-						}
+						{/* (resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'ebook' || resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'webinar') && */}
+						{resource.gated === 'true' && <DownloadEbookForm item={{customFields: item}} slug={resource.uRL} />}
 						<div className="space-50 space-dt-0"></div>
 						<SocialShare url={linkResource} />
-						<div className="space-50 space-dt-80"></div>
+						<div className="space-50 space-dt-50"></div>
 						{topWebinar &&
 							<>
-								<RecommendedWebinar item={topWebinar} />
+								<RecommendedWebinar item={topWebinar} customFieldsPage={dynamicPageItem.customFields}/>
 								<div className="space-50 space-dt-80"></div>
 							</>
 						}
             {/* <CTA /> */}
-						<RightCTA rightCTAButton={resource.rightCTAButton} rightCTAContent={resource.rightCTAContent} />
-
+						<RightCTA rightCTAButton={resource.rightCTAButton} rightCTAContent={contentCTA} />
           </div>
         </div>
       </div>

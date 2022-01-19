@@ -1,9 +1,32 @@
 @import "../global/_variables.scss";
+@import '../global/setting';
 
 .blog-post-details {
 	margin:auto;
-	max-width: $max-reading-width;
+	// max-width: $max-reading-width;
 	padding-bottom: 80px;
+	h1 {
+		font-size: 40px;
+		line-height: 1.25;
+		font-weight: 700;
+	}
+	.cs-tag {
+		margin-right: 10px;
+		margin-bottom: 10px;
+		font-size: 15px;
+	}
+	.learn-more-section {
+		padding: 20px;
+		p {
+			font-size: 15px;
+		}
+		a {
+			margin: 0;
+		}
+	}
+	.case-thumb::before {
+		padding-bottom: 56%;
+	}
 
 	.container.p-w-small {
 		> .h4 {
@@ -23,20 +46,52 @@
 				margin-right: 0;
 			}
 		}
+		.date {
+			font-size: 15px;
+			font-family: $regular;
+			color: #9fa7b0;
+			margin-bottom: 10px;
+		}
 
 		.meta {
 			display: flex;
 			margin-bottom: 32px;
 			align-items: center;
+			&.about-author {
+				.author {
+					margin-right: 0;
+					p {
+						margin-bottom: 10px;
+					}
+					.h5 {
+						font-size: 13px;
+						font-weight: 500;
+						color: #4c6884;
+						text-transform: uppercase;
+						margin-bottom: 17px;
+					}
+					.author-image {
+						margin-right: 50px;
+						width: 168px;
+						height: 168px;
+						img {
+							width: 100%;
+						}
+					}
+					.text-blob {
+						font-size: 17px;
+					}
+				}
+			}
 			.author {
 				display: flex;
 				align-items: center;
 				margin-right: 10px;
 
 				.author-image {
-					margin-right: 16px;
-					width: 52px;
-					height: 52px;
+					margin-right: 10px;
+					width: 37px;
+					height: 37px;
 					-webkit-border-radius: 50%;
 					-moz-border-radius: 50%;
 					border-radius: 50%;
@@ -45,19 +100,11 @@
 
 				.h5 {
 					margin: 0 ;
-					font-size: 16px;
-					// font-family: "Muli-Regular", sans-serif;
-					font-weight: $fw-bold;
+					font-size: 15px;
+					text-transform: none;
+					font-weight: 700;
 					color: #484b4d;
 				}
-			}
-
-			.date {
-				margin-top: 2px;
-				font-size: 16px;
-				// font-family: "Muli-Regular", sans-serif;
-				font-weight: $fw-regular;
-				color: #9fa7b0;
 			}
 		}
 
@@ -89,8 +136,8 @@
 		a.back {
 			text-decoration: none;
 			display: flex;
-
 			align-items: center;
+			margin-bottom: 20px;
 
 			img {
 				-webkit-transform: rotate(180deg);
@@ -103,10 +150,11 @@
 			}
 
 			span {
-				font-size: 16px;
-				// font-family: "Muli-Bold", sans-serif;
-				font-weight: $fw-bold;
+				font-size: 13px;
+				font-family: $semibold;
+				font-weight: 500;
 				color: #484b4d;
+				letter-spacing: 1px;
 			}
 
 			&:hover {
@@ -114,6 +162,15 @@
 					margin-left: -5px;
 					margin-right: 15px;
 				}
+				.icomoon {
+					left: -20px;
+				}
+
+			}
+			.icomoon {
+				position: absolute;
+				left: -16px;
+				transition: all 0.15s ease-out;
 			}
 		}
 	}
@@ -138,6 +195,89 @@
 			font-size: 13px;
 			font-weight: bold;
 		}
+		h4 {
+			font-size: 17px;
+		}
+		.note {
+			margin-top: 0;
+			max-width: 100%;
+			padding: 51px 60px 20px 76px;
+			margin-bottom: 65px;
+			margin-right: 0;
+
+			&::after {
+				content: "\e90e";
+			}
+			p {
+				font-style: normal;
+			}
+		}
+		pre {code {
+			padding: 0;
+			margin: 0;
+		}}
+		code {
+			pre {
+				padding: 0;
+				margin: 0;
+			}
+		}
+		pre, code {
+			background-color: #282C34;
+			white-space: pre-wrap;
+			color: #ABB2BF;
+			padding: 20px;
+			margin-bottom: 20px;
+			.hljs-symbol, .hljs-built_in {
+				color: #ABB2BF;
+			}
+			.hljs-string{
+				color: #7B9C67;
+			}
+			.hljs-literal {
+				color: #50A8B4
+			}
+			.hljs-number {
+				color: #D19A66
+			}
+			br {
+				display: none;
+			}
+		}
+	}
+	.info-wrap {
+		margin-bottom: 28px;
+	}
+	.cs-d-social {
+		margin-top: 33px;
+	}
+	@media (max-width: 991px) {
+		.cs-d-social {
+			text-align: left;
+			a {
+				width: 26px;
+				height: 26px;
+				font-size: 0.875rem;
+			}
+		}
+		.soc-box {
+			justify-content: left;
+		}
+		.rich-text {
+			.note {
+				padding: 45px 20px 20px 45px;
+			}
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.cs-tag {
+      font-size: 13px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
 	}
 
 	@media (max-width: 900px) {
@@ -146,14 +286,140 @@
 
 	@media (max-width: 767px) {
 		margin: 0 60px;
-
+		padding-bottom: 40px;
+		.container.p-w-small{
+			.meta {
+				margin-bottom: 0;
+				&.top {
+					.author {
+						display: flex;
+					}
+					.author-image {
+						float: none;
+						width: 50px;
+						height: 50px;
+						margin-bottom: 0;
+						margin-right: 20px;
+					}
+				}
+				.author {
+					display: block;
+				}
+				.author-image {
+					margin-bottom: 20px;
+					float: left;
+				}
+			}
+		}
 	}
 
 	@media (max-width: 600px) {
 		margin: 0 40px;
+		.container.p-w-small{
+			.meta {
+				.author-image {
+					float: none;
+				}
+			}
+		}
 	}
 
 	@media (max-width: 400px) {
 		margin: 0 20px;
+	}
+}
+
+.mod-related-resources {
+	h2 {
+		margin-bottom: 42px;
+	}
+	.case-thumb::before {
+		padding-bottom: 56%;
+	}
+	.heading {
+		margin-bottom: 20px;
+	}
+	.container {
+		padding-top: 60px;
+		border-top: 1px solid #C9D8E6;
+	}
+
+	.cs-tag {
+		margin-bottom: 16px;
+	}
+	.post-item {
+		margin-bottom: 30px;
+	}
+}
+
+.mod-related-resources,.addition-info {
+	.case-content {
+		padding: 17px 24px 20px;
+	}
+	.new-post:not(:last-child) {
+		margin-bottom: 50px;
+	}
+}
+
+.new-post {
+  .case-thumb {
+    .lazyload-wrapper {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 100%;
+      padding: 0 20px;
+      img {
+        margin: 0 auto;
+        max-width: 360px;
+        width: 100%;
+        display: block;
+      }
+      .image-default {
+        max-width: 100%;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        transform: translate(-50%, -50%);
+        position: absolute;
+      }
+    }
+  }
+}
+
+.bg-c9-o25 {
+  background-color: rgba($color-c9, 0.25);
+}
+
+@media (min-width: 767px) {
+	.blog-post-details {
+		.container.p-w-small {
+			a.back {
+				margin-bottom: 45px;
+			}
+		}
+	}
+	.mod-related-resources {
+		.container {
+			padding-top: 120px;
+		}
+	}
+}
+
+@media (min-width: 991px) {
+	.blog-post-details {
+		.learn-more-section {
+			min-height: 382px;
+			padding: 20px 50px;
+		}
+		.addition-info {
+			margin-top: 800px;
+		}
+	}
+	.mod-related-resources {
+		.post-item {
+			margin-bottom: 0;
+		}
 	}
 }

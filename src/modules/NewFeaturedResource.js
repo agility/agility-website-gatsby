@@ -11,6 +11,7 @@ const NewFeaturedResource = ({ item }) => {
   const { image, bookCover, resourceTypeName, title, uRL, textblob, fileDownload } = item?.customFields?.featuredResource?.customFields
 
   bookCover.label = bookCover.label ? bookCover.label : title
+  const link = `/resources/${resourceTypeName.toLowerCase()}/${uRL}`
   /* animation module */
 	const thisModuleRef = useRef(null)
 	useEffect(() => {
@@ -38,9 +39,9 @@ const NewFeaturedResource = ({ item }) => {
         <div className="row">
           <div className="col col-12 col-lg-6">
             <div className="resource-lp-left max-w-400 ps-rv mb-45 lg-mb-0 last-mb-none">
-              <div className="ps-rv">
+              <a className="ps-rv" href={link} >
                 <ResponsiveImage img={bookCover} />
-              </div>
+              </a>
             </div>
           </div>
           <div className="col col-12 col-lg-6">
@@ -58,7 +59,7 @@ const NewFeaturedResource = ({ item }) => {
                   <div dangerouslySetInnerHTML={renderHTML(trimText(textblob))}></div>
                 }
                 { uRL && resourceTypeName &&
-                  <a href={`/resources/${resourceTypeName.toLowerCase()}/${uRL}`} className="btn mb-0">Download</a>
+                  <a href={link} className="btn mb-0">Download</a>
                 }
               </div>
             </div>

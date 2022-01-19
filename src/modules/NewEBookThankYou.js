@@ -60,11 +60,6 @@ export default props => (
             cTA {
               contentid
             }
-            fileDownload {
-              url
-              label
-              filesize
-            }
             downloadButtonText
           }
           contentID
@@ -115,12 +110,34 @@ export default props => (
             cTA {
               contentid
             }
-            fileDownload {
-              url
-              label
-              filesize
-            }
             downloadButtonText
+          }
+          contentID
+        }
+      }
+      all:allAgilityResource {
+        nodes {
+          customFields {
+            autopilotJourneyTrigger
+            thankYouContent
+            downloadButtonText
+            title
+            thankYouContent
+            bookCover {
+              url
+            }
+            image {
+              url
+              width
+              height
+              label
+            }
+            uRL
+            resourceTypeName
+            topReads_ValueField
+            topWebinars_ValueField
+            uRLGatedContent
+            excerpt
           }
           contentID
         }
@@ -130,10 +147,12 @@ export default props => (
 		render={queryData => {
 			//filter out only those logos that we want...
 			let resources = queryData.eBook.nodes.concat(queryData.Webinar.nodes)
+      let allResources = queryData.all.nodes
 			const viewModel = {
 				item: props.item,
         dynamicPageItem: props.dynamicPageItem,
 				resources,
+        allResources
 			}
 			return (<NewEBookThankYou {...viewModel}/>);
 		}}
@@ -196,10 +215,9 @@ const DownloadEbook = ({topReads, isVerticalImage}) => {
 }
 
 const FeatureRes = ({ eBookSelected }) => {
-  const { downloadButtonText, fileDownload, webinarURL, image, excerpt, title, thankYouContent, bookCover, resourceTypeName} = eBookSelected?.customFields
+  const { downloadButtonText, image, excerpt, title, thankYouContent, bookCover, resourceTypeName} = eBookSelected?.customFields
   const urlCover = bookCover ? bookCover.url : '/images/ebook-cover-default.png'
-  const isWebinar = resourceTypeName.toLowerCase() === 'webinar'
-  const buttonCtaUrl = isWebinar ? (webinarURL ? webinarURL.href : '') : (fileDownload ? fileDownload?.url : '')
+  let buttonCtaUrl = eBookSelected?.customFields?.uRLGatedContent
 
   return (
     <section className="thanks-block">
@@ -212,8 +230,8 @@ const FeatureRes = ({ eBookSelected }) => {
                 { thankYouContent &&
                   <div dangerouslySetInnerHTML={renderHTML(thankYouContent)}></div>
                 }
-                { downloadButtonText &&
-                  <a href={buttonCtaUrl || '#'} className="btn btn-yellow text-uppercase">{downloadButtonText}</a>
+                { buttonCtaUrl &&
+                  <a href={buttonCtaUrl || '#'} className="btn btn-yellow text-uppercase">{downloadButtonText || 'Download'}</a>
                 }
               </div>
             </div>
@@ -229,10 +247,35 @@ const FeatureRes = ({ eBookSelected }) => {
   )
 }
 
-const NewEBookThankYou = ({ item, resources, dynamicPageItem }) => {
+const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) => {
   const [eBookSelected, setEBookSelected] = useState(dynamicPageItem)
   const topWebinarIds = eBookSelected?.customFields?.topWebinars
   const topReadIds = eBookSelected?.customFields?.topReads
+
+  useEffect (() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const resourceSlug = urlParams.get('resource')
+    if (!dynamicPageItem && resourceSlug && resourceSlug !== '') {
+      const findResource = allResources.find(resource => resource.customFields.uRL === resourceSlug || resource.customFields.autopilotJourneyTrigger === resourceSlug)
+      if (findResource) {
+        const splitTopReadsId = findResource.customFields.topReads_ValueField.split(',')
+        const splitTopWebinarsId = findResource.customFields.topWebinars_ValueField.split(',')
+        const topWebinars = []
+        const topReads = []
+        allResources.forEach(resource => {
+          if (splitTopWebinarsId.includes(String(resource.contentID))) {
+            topWebinars.push(resource)
+          }
+          if (splitTopReadsId.includes(String(resource.contentID))) {
+            topReads.push(resource)
+          }
+        })
+        findResource.customFields.topReads = topReads
+        findResource.customFields.topWebinars = topWebinars
+        setEBookSelected(findResource)
+      }
+    }
+  }, [])
 
   // const isWebinar = dynamicPageItem.customFields.resourceTypeName.toLowerCase() === 'webinar'
 	// const isEbook = dynamicPageItem.customFields.resourceTypeName.toLowerCase() === 'ebook'

@@ -4,7 +4,7 @@ import LazyBackground from '../utils/LazyBackground'
 import Lazyload from 'react-lazyload'
 import Helpers from '../global/javascript/Helpers'
 
-const DownloadableItem = ({ post, isVerticalImage }) => {
+const DownloadableItem = ({ post, isVerticalImage, buttonItemText = 'Download' }) => {
   let thumbUrl = isVerticalImage ? (post?.customFields?.bookCover ? post?.customFields?.bookCover?.url : '/images/ebook-cover-default.png') : post?.customFields?.image?.url
   let resType = post?.customFields?.resourceTypeName?.toLowerCase().replace(/ /g, "-") || ''
   const link = `/resources/${resType ? resType + '/' : ''}${post?.customFields?.uRL}`
@@ -47,7 +47,7 @@ const DownloadableItem = ({ post, isVerticalImage }) => {
           <p>{trimText(body)}</p>
         </div>
         {link &&
-          <Link to={link} className="link-line link-purple mt-15">Download</Link>
+          <Link to={link} className="link-line link-purple mt-15">{buttonItemText}</Link>
         }
       </div>
     </div>

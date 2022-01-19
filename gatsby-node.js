@@ -151,6 +151,9 @@ exports.createSchemaCustomization = ({ actions }) => {
 			topReads_ValueField: String,
 			thankYouContent: String,
 
+			autopilotJourneyTrigger: String,
+			uRLGatedContent: String,
+
 			bookCover: agilityResourceCustomFieldsBookCover,
 			resourceTopics: agilityResourceCustomFieldsResourceTopics,
 			topReads: agilityResourceCustomFieldsTopReads,

@@ -8,12 +8,11 @@ import { animationElementInnerComponent } from '../global/javascript/animation';
 
 
 const NewDowloadableEbooks = ({ item }) => {
-  const { content, cTAButton, listWebinar } = item?.customFields
-  // console.log('NewDowloadableEbooks', item);
+  const { content, cTAButton, listWebinar, buttonItemText = 'Download' } = item?.customFields
   const listWebinars = listWebinar?.map((post, index) => {
     return (
       <div className="col-md-6 col-lg-4 mb-45" key={index}>
-        <PostItemImageVertical post={post} isVerticalImage= {false} />
+        <PostItemImageVertical post={post} buttonItemText={buttonItemText} isVerticalImage= {false} />
       </div>
     )
   })
