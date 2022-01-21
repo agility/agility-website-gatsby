@@ -6,22 +6,42 @@ import * as ArrayUtils from '../utils/array-utils.js';
 import Spacing from './Spacing'
 import { animationElementInnerComponent } from '../global/javascript/animation'
 import { AgilityImage }  from "@agility/gatsby-image-agilitycms"
+import ResponsiveImage from '../components/responsive-image';
 import Helpers from '../global/javascript/Helpers'
 import Lazyload from 'react-lazyload'
+import { Link } from 'gatsby';
 
-const LogoListingModule = ({ item }) => {
+const LogoListingModule = ({item, page}) => {
+	// console.log('dynamicPageItem', page, item);
 	const [spaceBottom, setSpaceBottom] = useState(false)
 	const [isIntegration, setIsIntegration] = useState(false);
 	const heading = item.customFields.title
 	const logos = item.customFields.logos
 	const classSection = `module LogoListingModule animation  ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	let shuffleLogos = []
+	// let tmpIndex = [];
+	// for(let i = 0; i < logos.length; i++) {
+	// 		tmpIndex.push(i)
+	// }
 
-	const listLogos = ArrayUtils.shuffleArray(logos).map((key, idx) => {
+	/* not shuffle for this page, bug when shuffle */
+	if (page?.name !== 'implementation') {
+		shuffleLogos = ArrayUtils.shuffleArray(logos)
+	} else {
+		shuffleLogos = logos
+	}
+	const listLogos = shuffleLogos.map((key, idx) => {
+
+		/* update alt for iamge */
+		// console.log(key.customFields.logo.label, key.customFields.logo.label === null);
+		if (!key.customFields?.logo?.label) {
+			key.customFields.logo.label = key.customFields?.title || 'Agility'
+		}
 		const className = `logo-item logo-v${idx + 1}`
 		let logoImage = key.customFields.logo.url
 		let imageSlider = <AgilityImage image={key.customFields.logo}/>
 		const logoTitle = key.customFields.logo.label
-		const link = key?.customFields?.uRL?.href
+		const link = key?.customFields?.uRL?.href ?? ''
 		const target = key?.customFields?.uRL?.target
 
 		if (logoImage.indexOf(".svg") === -1) {
@@ -33,14 +53,16 @@ const LogoListingModule = ({ item }) => {
 		return (
 			<div className={className} key={idx}>
 				<div className='d-block'>
-					{isIntegration && <a href={link} target={target}>
+					{(isIntegration || page?.name === 'implementation') && link.length > 0 && <Link to={link} target={target}>
 						{imageSlider}
-					</a>}
-					{!isIntegration && imageSlider }
+					</Link>}
+					{((!isIntegration && page?.name !== 'implementation') || link.length === 0) && imageSlider }
 				</div>
 			</div>
 		)
 	})
+
+
 
 	// const initLogo = () => {
 	// 	console.log('init logo');
@@ -55,7 +77,7 @@ const LogoListingModule = ({ item }) => {
 	// 	}, 5);
 	// }
 	const detectIntegration = () => {
-		const detectIntegration = window.location.pathname.includes('/integrations')
+		const detectIntegration = window.location.pathname.includes('/integrations') // || window.location.pathname.includes('/partners')
 		setIsIntegration(detectIntegration)
 	}
 	useEffect(() => {

@@ -560,6 +560,31 @@ ol {
   }
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+.mt-35 {
+  margin-top: 35px;
+}
+.mt-45 {
+  margin-top: 45px;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mb-25 {
+  margin-bottom: 25px;
+}
+.mb-35 {
+  margin-bottom: 35px;
+}
+.mb-45 {
+  margin-bottom: 45px;
+}
+.z-2 {
+  z-index: 2;
+}
+
 // @include media-breakpoint-up(sm) {
 //   .main-content {
 //     padding-top: 105px;
@@ -614,6 +639,9 @@ ol {
 
   .max-w-940 {
     max-width: 805px;
+  }
+  .lg-mb-0 {
+    margin-bottom: 0 !important;
   }
 }
 

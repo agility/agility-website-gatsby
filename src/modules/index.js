@@ -47,6 +47,7 @@ const NewIntegrationModule = loadable(() => import("./NewIntegrationModule"))
 const PartnerContentPanel = loadable(() => import("./PartnerContentPanel"))
 const PartnerDetails = loadable(() => import("./PartnerDetails"))
 const PartnerListing = loadable(() => import("./PartnerListing"))
+const NewPartnerListing = loadable(() => import("./NewPartnerListing"))
 const NewPartnerListingModule = loadable(() => import("./NewPartnerListingModule"))
 const NewIntegrationListingModule = loadable(() => import("./NewIntegrationListingModule"))
 const PartnerLogoListing = loadable(() => import("./PartnerLogoListing"))
@@ -138,7 +139,7 @@ const allModules = {
 	"PartnerContentPanel": PartnerContentPanel,
 	"PartnerDetails": PartnerDetails,
 	"NEW-IntegrationDetail": PartnerDetails,
-	"PartnerListing": PartnerListing,
+	"PartnerListing": NewPartnerListing,
 	"NewPartnerListingModule": NewPartnerListingModule,
 	"NewIntegrationListingModule": NewIntegrationListingModule,
 	"PartnerLogoListing": PartnerLogoListing,

@@ -11,7 +11,7 @@ const CenteredContentPanel = ({ item }) => {
 	const btn1 = item.customFields.cTA1
 	const btn2 = item.customFields.cTA2
 	const classSection = `CenteredContentPanel animation mod-intro hero-text beauty-ul ${item.customFields.darkMode && item.customFields.darkMode === 'true'  ? 'dark-mode': ''}`
-	
+
 	const thisModuleRef = useRef(null)
 	/* animation module */
 	useEffect(() => {
@@ -37,7 +37,7 @@ const CenteredContentPanel = ({ item }) => {
 					<h1>{heading}</h1>
 				}
 				{ des &&
-					<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
+					<div className="last-mb-none mb-35" dangerouslySetInnerHTML={renderHTML(des)} />
 				}
 				{ (btn1 || btn2) &&
 					<p>
