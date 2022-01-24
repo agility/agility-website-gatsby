@@ -4,9 +4,9 @@ import LazyBackground from '../utils/LazyBackground'
 import Lazyload from 'react-lazyload'
 import Helpers from '../global/javascript/Helpers'
 
-const PostItem = ({ post, isIntegration, showCustomerLogo }) => {
-  const thumbUrl = post?.customFields?.postImage?.url
-  const link = post?.url
+const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = false }) => {
+  const thumbUrl = post?.customFields?.postImage?.url || post?.customFields?.image?.url
+  const link = post?.url || post?.customFields?.uRL
   const title = post?.customFields?.title
   const body = post?.customFields?.excerpt || ''
   const urlCustomer = post?.customFields?.customerWhiteLogo?.url

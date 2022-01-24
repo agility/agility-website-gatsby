@@ -1,0 +1,76 @@
+@import "../global/_variables.scss";
+@import '../global/setting';
+.downloadable-box {
+  max-width: 355px;
+}
+.horizon {
+  .downloadable-thumb {
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 30px 0 rgba(23, 10, 41, 0.28), inset -1px -8px 30px 0 rgba(233, 240, 245, 0.7);
+    &:hover {
+      .icon-video {
+        background: rgba(255, 255, 255, 0.93);
+      }
+    }
+    .icon-video {
+      width: 60px;
+      height: 60px;
+      font-size: 50px;
+      background: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      transition: all .25s;
+      >.path3 {
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+}
+.vertical {
+  .downloadable-thumb-vertical {
+    &:hover {
+      .downloadable-img img {
+        box-shadow: 10px 30px 40px 0 rgba(23, 10, 41, 0.22), inset -1px -8px 30px 0 rgba(233, 240, 245, 0.3);
+      }
+    }
+  }
+}
+.downloadable-thumb {
+  margin-bottom: 60px;
+  border-radius: 8px;
+  height: 186px;
+
+  // box-shadow: inset -3px -8px 7px rgba($color: $black, $alpha: 0.1), 0 27px 57px rgba($color: $black, $alpha: 0.16);
+  box-shadow: 10px 30px 40px 0 rgba(23, 10, 41, 0.28), inset -1px -8px 30px 0 rgba(233, 240, 245, 0.7);
+}
+
+.downloadable-img {
+  position: absolute;
+  top: 44px;
+  bottom: 44px;
+  left: 44px;
+  right: 44px;
+  .lazyload-wrapper {
+    height: 100%;
+  }
+  img {
+    max-height: 100%;
+    box-shadow: inset -3px -8px 7px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 30px 40px 0 rgba(23, 10, 41, 0.28), inset -1px -8px 30px 0 rgba(233, 240, 245, 0.7);
+    border-radius: 8px;
+    background: $white;
+  }
+}
+.downloadable-content{
+  padding-top: 26px;
+}
+
+@media screen and (max-width: 991px) {
+  .downloadable-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

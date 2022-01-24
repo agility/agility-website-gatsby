@@ -84,8 +84,19 @@ const InfoPost = ({ post, item, link }) => {
 }
 
 const PostDetailItem = ({post}) => {
-  const thumbUrl = post?.customFields?.postImage?.url
-  const link = '/resources/posts/' + post?.customFields?.uRL
+  const thumbUrl = post?.customFields?.postImage?.url || post?.customFields?.image?.url
+  const resourceType = (post?.customFields?.resourceTypeName || '').toLowerCase()
+  const urlPre = {
+    '': 'resources/posts',
+    'ebook': 'resources/ebook',
+    'guide': 'resources/guide',
+    'webinar': 'resources/webinar',
+    'videos': 'resources/video',
+    'whitepaper': 'resources/whitepaper',
+    'cms comparison': 'resources/cms-comparison',
+    'agility sneak peek': 'resources/agility-sneak-peek',
+  }
+  const link = `/${urlPre[resourceType] || 'resources/posts'}/` + post?.customFields?.uRL
   return <div className="case-box h-100 transition-25 flex-column new-post ps-rv d-flex">
     <div className="case-thumb ps-rv overflow-hidden bg-c9-o25">
       {thumbUrl && <LazyBackground className="ps-as z-2 bg transition-25" src={thumbUrl} />}

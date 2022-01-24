@@ -9,7 +9,7 @@ const RightCTA = ({rightCTAButton, rightCTAContent}) => {
 
   return (
 		<>
-			{rightCTAContent && rightCTAButton.href &&
+			{rightCTAContent && rightCTAButton?.href &&
 				<div className="learn-more-cta bg-58 text-white">
 					<div className="d-table w-100">
 						<div className="d-table-cell align-middle text-center small-paragraph last-mb-none">
