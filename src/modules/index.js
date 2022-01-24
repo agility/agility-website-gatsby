@@ -47,6 +47,7 @@ const NewIntegrationModule = loadable(() => import("./NewIntegrationModule"))
 const PartnerContentPanel = loadable(() => import("./PartnerContentPanel"))
 const PartnerDetails = loadable(() => import("./PartnerDetails"))
 const PartnerListing = loadable(() => import("./PartnerListing"))
+const NewPartnerListing = loadable(() => import("./NewPartnerListing"))
 const NewPartnerListingModule = loadable(() => import("./NewPartnerListingModule"))
 const NewResourcesTagTitle = loadable(() => import("./NewResourcesTagTitle"))
 const NewResourceTagList = loadable(() => import("./NewResourceTagList"))
@@ -61,6 +62,9 @@ const PodcastListing = loadable(() => import("./PodcastListing"))
 
 const PostDetails = loadable(() => import("./PostDetails"))
 const PostListing = loadable(() => import("./PostListing"))
+const NewPostsFeatured = loadable(() => import("./NewPostsFeatured"))
+const NewPostListing = loadable(() => import("./NewPostListing"))
+const NewStayInTouch = loadable(() => import("./NewStayInTouch"))
 const PricingPackagesModule = loadable(() => import("./PricingPackagesModule"))
 const PricingPlans = loadable(() => import("./PricingPlans"))
 const PricingTable = loadable(() => import("./PricingTable"))
@@ -145,7 +149,7 @@ const allModules = {
 	"PartnerContentPanel": PartnerContentPanel,
 	"PartnerDetails": PartnerDetails,
 	"NEW-IntegrationDetail": PartnerDetails,
-	"PartnerListing": PartnerListing,
+	"PartnerListing": NewPartnerListing,
 	"NewPartnerListingModule": NewPartnerListingModule,
 	"NEW-ResourceTagTitle": NewResourcesTagTitle,
 	'NEW-ResourceTagTagList': NewResourceTagList,
@@ -160,6 +164,9 @@ const allModules = {
 	"PodcastListing": PodcastListing,
 	"PostListing": PostListing,
 	"PostDetails": PostDetails,
+	"NewPostListing": NewPostListing,
+	"NewPostsFeatured": NewPostsFeatured,
+	'NewStayInTouch': NewStayInTouch,
 	"PricingPackagesModule": PricingPackagesModule,
 	"PricingPlans": PricingPlans,
 	"PricingTable": PricingTable,

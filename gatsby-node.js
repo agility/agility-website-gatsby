@@ -76,6 +76,13 @@ exports.createResolvers = (args) => {
 exports.createSchemaCustomization = ({ actions }) => {
 	const { createTypes } = actions
 	const typeDefs = `
+		type agilityNEWBlogCategory implements Node {
+			contentID: Int,
+			customFields: agilityNEWBlogCategoryCustomFields
+		}
+		type agilityNEWBlogCategoryCustomFields {
+			title: String
+		}
     type agilityFeatureListItemCustomFields implements Node {
       moreInfoLink: agilityFeatureListItemCustomFieldsMoreInfoLink
 		}

@@ -299,8 +299,9 @@
     font-weight: $fw-semi-bold;
     a {
       padding: 5px 15px;
-      color: inherit;
+      color: $color-1d !important;
       text-decoration: none !important;
+	  background-color: white;
     }
     &::after {
       content: "";

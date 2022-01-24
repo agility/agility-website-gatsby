@@ -16,26 +16,26 @@ export const animationElementInnerComponent = ($elmComponent) => {
     let wintop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
     if ($elems) {
       [...$elems].map($elm => {
-        if ($elm.classList.contains('set-animation') && $elm.classList.contains('anima-fixed')) {
+        if ($elm?.classList?.contains('set-animation') && $elm?.classList?.contains('anima-fixed')) {
           return true
         }
         let topcoords = Helper.findOffsetTop($elm)
-        if ($elm.classList.contains('mod-user-guides')) {
+        if ($elm?.classList?.contains('mod-user-guides')) {
           add = 300
         } else {
           add = 0
         }
         if (wintop > (topcoords - (winH * offset) + add) && $elm.offsetHeight + topcoords - add - (winH * (1 - offset)) > wintop) {
-          $elm.classList.add('set-animation')
+          $elm?.classList?.add('set-animation')
         } else {
           if (topcoords + add > wintop + winH) {
-            $elm.classList.remove('set-animation')
+            $elm?.classList?.remove('set-animation')
           }
         }
       })
     }
   } else {
-    $elmComponent.classList.add('set-animation')
+    $elmComponent?.classList?.add('set-animation')
   }
 }
 

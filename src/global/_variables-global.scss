@@ -23,6 +23,9 @@ $translate: 100px;
 .align-items-start {
   align-items: flex-start;
 }
+.align-items-center {
+  align-items: center;
+}
 .d-table {
   display: table !important;
 }
@@ -90,6 +93,9 @@ $translate: 100px;
 }
 .row.row-25 {
 	margin: 0 -25px;
+}
+.pointer {
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .d-md-flex {

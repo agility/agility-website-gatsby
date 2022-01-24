@@ -473,7 +473,7 @@ class NewGlobalHeader extends Component {
 				</div> */}
 				<a target={menuGetstart.target} href={menuGetstart.href} className="text-decoration-none btn btn-outline-primary pin btn-menu btn-pin ">{menuGetstart.text}</a>
 				{contactButton?.href && contactButton?.text &&
-					<a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2 d-md-none d-xl-block">{contactButton.text}</a>
+					<a target={contactButton.target} href={contactButton.href} className="text-decoration-none btn btn-primary btn-menu btn-menu-v2 d-sm-none d-xl-block">{contactButton.text}</a>
 				}
 			</li>
 
@@ -628,7 +628,7 @@ class NewGlobalHeader extends Component {
 								</ul>
 
 								<div className="box-mess-mb ps-rv text-white text-center d-xl-none">
-									<a className="d-block flash-btn" href={marketingBannerButton?.href} target={marketingBannerButton?.target}>{marketingBannerButton?.text}</a>
+									<a className="d-block flash-btn" style={{marginBottom: 5}} href={marketingBannerButton?.href} target={marketingBannerButton?.target}>{marketingBannerButton?.text}</a>
 									<a className="d-block flash-btn" href={primaryButton?.href} target={primaryButton?.target}>{primaryButton?.text}</a>
 								</div>
 							</div>

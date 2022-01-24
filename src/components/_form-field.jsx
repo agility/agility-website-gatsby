@@ -17,7 +17,7 @@ class FormField extends React.Component {
 
 		return (
 
-			<div className="form-item">
+			<div className="form-item" style={this.props.style}>
 				<div className="invalid-feedback"></div>
 				<label htmlFor={this.props.id} >{this.props.label}</label>
 				{this.props.children}

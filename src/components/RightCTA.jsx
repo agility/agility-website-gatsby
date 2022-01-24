@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import React from "react"
 import { renderHTML } from '../agility/utils'
 
+import './RightCTA.scss'
+
 const RightCTA = ({rightCTAButton, rightCTAContent}) => {
 
   return (
