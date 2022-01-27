@@ -58,6 +58,10 @@ export default props => (
 		render={queryData => {
 			//filter out only those logos that we want...
 			let resources = queryData.allAgilityPartner.nodes
+			const partnerSelected = props?.item?.customFields?.partners?.referencename
+			if (partnerSelected) {
+				resources = resources.filter(resource => resource?.properties?.referenceName === partnerSelected)
+			}
 			const resourceType = queryData.allAgilityCustomTag.nodes
 			const viewModel = {
 				item: props.item,
