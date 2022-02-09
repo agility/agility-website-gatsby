@@ -112,12 +112,13 @@ const PostResult = ({posts, loadMoreIdx}) => {
 
 const NewAllResources = ({item, resources, resourceType, content, numberItemPerPage}) => {
 	const [loadMoreIdx, setLoadMoreIdx] = useState( numberItemPerPage ? Number(numberItemPerPage) : 12)
+	const textSelect =  item?.customFields?.categorySelectText || 'Category'
 	const tmpPostOptions = {
 		name: 'posts',
 		options: { ...resourceType.reduce((obj, node) => {
 			obj[node.contentID] = node.customFields.title
 			return obj
-		}, {}), 1: 'Asset Category' },
+		}, {}), 1: textSelect },
 		selectedOption: [1]
 	}
 	const [postOpts, setPostOpts] = useState(tmpPostOptions)
