@@ -8,7 +8,8 @@ import './NewFeaturedResource.scss'
 
 
 const NewFeaturedResource = ({ item }) => {
-  const { image, bookCover, resourceTypeName, title, uRL, textblob, fileDownload } = item?.customFields?.featuredResource?.customFields
+  console.log(item?.customFields?.featuredResource?.customFields)
+  const { image, bookCover, resourceTypeName, title, uRL, textblob, fileDownload, excerpt } = item?.customFields?.featuredResource?.customFields
 
   bookCover.label = bookCover.label ? bookCover.label : title
   const link = `/resources/${resourceTypeName.toLowerCase()}/${uRL}`
@@ -38,7 +39,7 @@ const NewFeaturedResource = ({ item }) => {
       <div className="container ps-rv z-2 bg anima-bottom">
         <div className="row">
           <div className="col col-12 col-lg-6">
-            <div className="resource-lp-left max-w-400 ps-rv mb-45 lg-mb-0 last-mb-none">
+            <div className="resource-lp-left max-w-350 ps-rv mb-45 lg-mb-0 last-mb-none">
               <a className="ps-rv" href={link} >
                 <ResponsiveImage img={bookCover} />
               </a>
@@ -55,8 +56,8 @@ const NewFeaturedResource = ({ item }) => {
                   <h2 className="h1">{title}</h2>
                 }
                 {
-                  textblob &&
-                  <div dangerouslySetInnerHTML={renderHTML(trimText(textblob))}></div>
+                  excerpt &&
+                  <div dangerouslySetInnerHTML={renderHTML(trimText(excerpt))} className='paragraph excerpt-feature'></div>
                 }
                 { uRL && resourceTypeName &&
                   <a href={link} className="btn mb-0">Download</a>

@@ -13,6 +13,9 @@
   &.max-w-400 {
     max-width: 400px;
   }
+  &.max-w-350 {
+    max-width: 350px;
+  }
   .gatsby-image-wrapper{
     position: relative;
     &::before {
@@ -51,6 +54,9 @@
   }
   .container {
     z-index: 2;
+  }
+  .excerpt-feature {
+    white-space: pre-wrap;
   }
 }
 
