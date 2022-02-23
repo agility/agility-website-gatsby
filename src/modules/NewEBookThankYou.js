@@ -258,8 +258,8 @@ const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) =>
     if (!dynamicPageItem && resourceSlug && resourceSlug !== '') {
       const findResource = allResources.find(resource => resource.customFields.uRL === resourceSlug || resource.customFields.autopilotJourneyTrigger === resourceSlug)
       if (findResource) {
-        const splitTopReadsId = findResource.customFields.topReads_ValueField.split(',')
-        const splitTopWebinarsId = findResource.customFields.topWebinars_ValueField.split(',')
+        const splitTopReadsId = (findResource.customFields.topReads_ValueField || '').split(',')
+        const splitTopWebinarsId = (findResource.customFields.topWebinars_ValueField || '').split(',')
         const topWebinars = []
         const topReads = []
         allResources.forEach(resource => {
