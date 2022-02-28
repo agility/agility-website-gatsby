@@ -132,8 +132,7 @@ export default class LazyImage extends React.Component {
 		if (baseImage && baseImage.indexOf("?") > 2 && !this.state.loaded) {
 			baseImage = baseImage.substring(0, baseImage.lastIndexOf("?"))
 		}
-
-		const placeHolder = this.state.loaded ? `${baseImage}` : `${baseImage}?w=20`
+        const placeHolder = encodeURI(this.state.loaded ? `${baseImage}` : `${baseImage}?w=20`)
 		const style = { backgroundImage: `url(${placeHolder})` }
 		return (
 			<div ref={bgElm => this.bgElm = bgElm} className={this.props.className} style={style}>

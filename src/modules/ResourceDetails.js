@@ -306,7 +306,7 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 			window.removeEventListener('scroll', scrollEventFunc)
 		}
 	}, [])
-	const contentCTA = (resource?.rightColumnCTATitle ? '<h3>' + resource?.rightColumnCTATitle + '</h3>' : '') + resource?.rightCTAContent
+	const contentCTA = (resource?.rightColumnCTATitle ? '<h3>' + resource?.rightColumnCTATitle + '</h3>' : '') + (resource?.rightCTAContent || '')
 	return (
 		<React.Fragment>
 		<section ref={thisModuleRef} className={`resource-details new-resource-detail animation ${classModule}`}>
