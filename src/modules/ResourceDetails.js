@@ -59,7 +59,9 @@ const renderTags = (tags, type) => {
 
 
 const TopReads = ({ item, isWebinar }) => {
-	// console.log('itemitem', item);
+	if (isWebinar && !item?.customFields?.buttonItemText) {
+		item.customFields.buttonItemText = 'Download'
+	}
 	return (
 		<>
 			<div className="top-read-for-u">
@@ -68,7 +70,7 @@ const TopReads = ({ item, isWebinar }) => {
 				</div>
 			</div>
 			{isWebinar &&
-			<NewWebinarDowload item={item} />
+				<NewWebinarDowload item={item} />
 			}
 			{!isWebinar &&
 				<NewDowloadableEbooks item={item} />
@@ -77,12 +79,12 @@ const TopReads = ({ item, isWebinar }) => {
 	);
 }
 
-const RecommendedWebinar = ({ item, customFieldsPage }) => {
+const RecommendedWebinar = ({ customFieldsPage }) => {
 	const title = customFieldsPage.resourceHeading || 'Recommended for You'
-	const customFields = item.customFields || {}
 	const customFieldResourceItem = customFieldsPage?.resourceItem?.customFields || {}
 	let resType = customFieldResourceItem?.resourceTypeName?.toLowerCase().replace(/ /g, "-") || ''
 	const link = `/resources/${resType ? resType + '/' : ''}${customFieldResourceItem.uRL}`
+	const isWebinar = resType.includes('webinar')
 
 	return (
 		<div className="recommend-webinar">
@@ -90,8 +92,8 @@ const RecommendedWebinar = ({ item, customFieldsPage }) => {
 			{
 				customFieldsPage?.resourceItem && <>
 					<LazyBackground className="re-webina-thumb bg ps-rv" src={customFieldResourceItem.image?.url} >
-						<Link to={link} className="ps-as d-flex align-items-center justify-content-center"><span className="sr-only">{customFields.title}</span>
-							<span className="icomoon icon-video"><span className="path3"></span></span>
+						<Link to={link} className="ps-as d-flex align-items-center justify-content-center"><span className="sr-only">{customFieldsPage.title}</span>
+							{isWebinar && <span className="icomoon icon-video"><span className="path3"></span></span>}
 						</Link>
 					</LazyBackground>
 					<div className="content-blog">
@@ -236,16 +238,18 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 	let resource = dynamicPageItem.customFields;
 	item = item.customFields;
 	item.formTitle = resource.formTitle || resource.title
-	// item.submissionPOSTURL = resource.submissionPOSTURL
+	// item.submissionPOSTURL = resource.submissio nPOSTURL
 	const resourceTypes = Array.isArray(resource.resourceType) || !resource.resourceType ? resource.resourceType : [resource.resourceType]
 	const resourceTopics = Array.isArray(resource.resourceTopics) || !resource.resourceTopics ? resource.resourceTopics : [resource.resourceTopics]
+	const resourceTypeName = resource.resourceTypeName || ''
+	const isWebinar = resourceTypeName.toLowerCase().includes('webinar')
+	const isEbook = resourceTypeName.toLowerCase().includes('ebook')
 
-	const isWebinar = resource.resourceTypeName.toLowerCase() === 'webinar'
-	const isEbook = resource.resourceTypeName.toLowerCase() === 'ebook'
 	item.autopilotJourneyTrigger = resource.autopilotJourneyTrigger || (isWebinar ? 'gatedwebinar' : resource.uRL)
 
-	const classModule = resource.resourceTypeName &&
-	(isEbook || isWebinar) ? 'res-download-detail' : '';
+	// const classModule = resource.resourceTypeName &&
+	// (isEbook || isWebinar) ? 'res-download-detail' : '';
+	const classModule = 'res-download-detail'
 
 	const thumbImage = resource.resourceTypeName &&
 	(isEbook || isWebinar) ? resource.bookCover : resource.image;
@@ -281,13 +285,18 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 		customFields: {
 			listeBooks: handleGetTopReads(topReadIds),
 			listWebinar: handleGetTopReads(topReadIds),
+			buttonItemText: resource?.buttonTextTopRead,
 			cTAButton: {
 				href: '/resources',
 				text: 'View All Resources'
 			}
 		}
 	}
-	topReadsItem.customFields.content = isWebinar ? '<h2>Top Webinars For You</h2>' : '<h2>Top Picks For You</h2>';
+	topReadsItem.customFields.content = isWebinar ? 'Top Recommended For You' : 'Top Reads For You';
+	if (dynamicPageItem?.customFields?.headingTopReads) {
+		topReadsItem.customFields.content = `${dynamicPageItem?.customFields?.headingTopReads}`
+	}
+	topReadsItem.customFields.content = `<h2>${topReadsItem.customFields.content}</h2>`
 	/*  */
 
 	const linkResource = `/resources/${resource.resourceTypeName.toLowerCase()}/${resource.uRL}`
@@ -307,6 +316,11 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 		}
 	}, [])
 	const contentCTA = (resource?.rightColumnCTATitle ? '<h3>' + resource?.rightColumnCTATitle + '</h3>' : '') + (resource?.rightCTAContent || '')
+	let topReadsContent = <TopReads item={topReadsItem} isWebinar={ isWebinar } />
+	if (!resource?.topReads || resource?.topReads?.length === 0) {
+		topReadsContent = ''
+	}
+
 	return (
 		<React.Fragment>
 		<section ref={thisModuleRef} className={`resource-details new-resource-detail animation ${classModule}`}>
@@ -334,7 +348,6 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 						</div>
             </div>
           </div>
-          {/*  */}
           <div className="cs-detail-cont-right anima-right">
 						{resourceTypes && resourceTypes.length &&
 							<div className="small-paragraph cs-tag-wrap last-mb-none">
@@ -357,9 +370,9 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 						<div className="space-50 space-dt-0"></div>
 						<SocialShare url={linkResource} />
 						<div className="space-50 space-dt-50"></div>
-						{topWebinar &&
+						{dynamicPageItem?.customFields?.resourceItem &&
 							<>
-								<RecommendedWebinar item={topWebinar} customFieldsPage={dynamicPageItem.customFields}/>
+								<RecommendedWebinar customFieldsPage={dynamicPageItem.customFields}/>
 								<div className="space-50 space-dt-80"></div>
 							</>
 						}
@@ -370,12 +383,9 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
       </div>
 		</section>
 
-		{(resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'ebook' || resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'webinar') &&
-			<>
-				<TopReads item={topReadsItem} isWebinar={ isWebinar } />
-				<div className="space-80"></div>
-			</>
-		}
+		{topReadsContent}
+		<div className="space-80"></div>
+
 		</React.Fragment>
 	);
 }

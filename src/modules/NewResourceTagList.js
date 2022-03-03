@@ -62,7 +62,7 @@ export default props => (
 const NewResourcesTagList = ({ allResource, page, item, dynamicPageItem }) => {
   const [loadMoreIdx, setLoadMoreIdx] = useState(12)
   const stringContentId = dynamicPageItem.contentID.toString()
-  const [checkIsEbook, setCheckIsEbook] = useState(false)
+  const checkIsEbook = (dynamicPageItem?.customFields?.title || '').toLowerCase().includes('ebook')
   const listResourceTopic = allResource.filter(resourceItem => {
     const data = {
       ...resourceItem.customFields,
@@ -77,12 +77,6 @@ const NewResourcesTagList = ({ allResource, page, item, dynamicPageItem }) => {
     }
     return condition
   })
-
-  useEffect (() => {
-    if ((dynamicPageItem?.customFields?.title || '').toLowerCase() === 'ebook') {
-      setCheckIsEbook(true)
-    }
-  }, [])
 
   const loadMoreHandler = () => {
     let tmpLoadMoreIdx = loadMoreIdx
@@ -101,7 +95,7 @@ const NewResourcesTagList = ({ allResource, page, item, dynamicPageItem }) => {
             const url = `/resources/${resType}/${item.customFields.slug}`
             const customFields = item.customFields
             return <div className="col-sm-6 col-xl-4 last-mb-none col-item d-flex" key={`resouce-${item.id}`}>
-              <div className="item-resource d-flex flex-column">
+              <div className="item-resource d-flex flex-column w-100">
 
                 {checkIsEbook && <div className="img-item ebook ps-rv z-1">
                   <Link to={url}>

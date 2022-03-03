@@ -4,7 +4,7 @@ import LazyBackground from '../utils/LazyBackground'
 import Lazyload from 'react-lazyload'
 import Helpers from '../global/javascript/Helpers'
 
-const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = false }) => {
+const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = false, showPlayIcon = false, buttonText = 'Read More' }) => {
   const thumbUrl = post?.customFields?.postImage?.url || post?.customFields?.image?.url
   const link = post?.url || post?.customFields?.uRL
   const title = post?.customFields?.title
@@ -17,7 +17,7 @@ const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = fal
 	}
 
   return (
-    <div className="case-box h-100 transition-25 ps-rv d-flex flex-column">
+    <div className="case-box h-100 transition-25 ps-rv d-flex flex-column enable-icon-video">
       <div className="case-thumb ps-rv overflow-hidden">
         {!isIntegration && <LazyBackground className="ps-as z-2 bg transition-25" src={thumbUrl} />}
         {isIntegration && <Lazyload offset={Helpers.lazyOffset}><img src={thumbUrl} className="bg transition-25"></img></Lazyload>}
@@ -30,6 +30,12 @@ const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = fal
         </div>
         </>
         }
+        {showPlayIcon && <div className="ps-as d-flex align-items-center justify-content-center">
+        <span className="icomoon icon-video">
+          <span className="path3"></span>
+          </span>
+          </div>
+        }
       </div>
       <div className="case-content d-flex flex-column small-paragraph flex">
         <div className="flex-0-0">
@@ -39,7 +45,7 @@ const PostItem = ({ post, isIntegration, showCustomerLogo, hideDescription = fal
           <p>{trimText(body)}</p>
         </div>
         {link &&
-          <Link to={link} className="link-line link-purple">Read More</Link>
+          <Link to={link} className="link-line link-purple">{buttonText}</Link>
         }
       </div>
       <Link to={link} className=" ps-as"><span className="sr-only">{title}</span></Link>

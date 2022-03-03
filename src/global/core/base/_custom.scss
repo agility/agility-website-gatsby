@@ -602,6 +602,14 @@ ol {
     }
   }
 }
+.content {
+  video {
+    max-width: 100%;
+  }
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
 
 @include media-breakpoint-up(md) {
   .wrap-video {

@@ -151,6 +151,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 		type agilityResourceCustomFields {
 			topReads_TextField: String,
 			downloadButtonText: String,
+			buttonTextTopWebinar: String,
 			topWebinars_TextField: String,
 			topWebinars_ValueField: String,
 			resourceTopics_TextField: String,

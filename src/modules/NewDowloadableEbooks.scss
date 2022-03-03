@@ -29,6 +29,29 @@
     }
   }
 }
+.enable-icon-video {
+  &:hover {
+    .icon-video {
+      background: rgba(255, 255, 255, 0.93);
+    }
+  }
+  .icon-video {
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    transition: all .25s;
+    >.path3 {
+      position: relative;
+      top: 4px;
+    }
+  }
+}
+
 .vertical {
   .downloadable-thumb-vertical {
     &:hover {

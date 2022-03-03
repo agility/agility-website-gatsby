@@ -212,16 +212,19 @@
 	}
 }
 .recommend-webinar {
-	max-width: 432px;
+	// max-width: 432px;
 	h3 {
 		font-size: rem(24);
 	}
 }
-.learn-more-cta {
-	padding: 35px;
-	max-width: 432px;
-	.d-table {
-		height: 310px;
+.res-download-detail {
+	.learn-more-cta {
+		padding: 35px;
+		// max-width: 432px;
+		max-width: 100%;
+		.d-table {
+			height: 310px;
+		}
 	}
 }
 .date-box {

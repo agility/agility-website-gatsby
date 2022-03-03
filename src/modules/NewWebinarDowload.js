@@ -33,16 +33,15 @@ const NewDowloadableEbooks = ({ item }) => {
 
 	return (
     <>
-    <section ref={thisModuleRef} className="mod-webi animation">
+    { listWebinars && listWebinars.length > 0 && 
+    <> <section ref={thisModuleRef} className="mod-webi animation">
       <div className="container ps-rv bg anima-bottom">
         { content &&
           <div className="mx-auto mb-45 last-mb-none max-w-940 text-center beauty-ul" dangerouslySetInnerHTML={renderHTML(content)}></div>
         }
-        { listWebinars && listWebinars.length &&
-          <div className="row">
+          <div className="row justify-content-evenly">
             { listWebinars }
           </div>
-        }
         { cTAButton && cTAButton.href &&
           <div className="text-center mt-35">
             <Link to={cTAButton?.href} className="btn btn-browser-all">
@@ -53,6 +52,8 @@ const NewDowloadableEbooks = ({ item }) => {
       </div>
     </section>
     <Spacing item={item}/>
+    </>
+     }
     </>
 	);
 }
