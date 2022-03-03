@@ -118,7 +118,6 @@ export default props => (
 				if (findCategory) {
 					tmpPostOptions.selectedOption = [findCategory.contentID]
 				}
-				console.log(tagContentID)
 
 				postsFilter = posts.filter(p => {
 					if (! p.tags || ! (p.tags.length > 0)) return false;

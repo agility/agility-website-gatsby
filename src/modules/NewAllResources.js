@@ -28,6 +28,7 @@ export default props => (
 						resourceType {
 							contentid
 						}
+						resourceTopics_ValueField
 						date(formatString: "MMMM D, YYYY")
 						title
 						uRL
@@ -46,17 +47,31 @@ export default props => (
 					contentID
 				}
 			}
+			allAgilityNewResourceTopic {
+				nodes {
+				  customFields {
+					title
+				  }
+				  contentID
+				}
+			  }
 		  }
     `}
 		render={queryData => {
 			//filter out only those logos that we want...
 			let resources = queryData.allAgilityResource.nodes
 			const resourceType = queryData.allAgilityResourceType.nodes
+			const resourceTopic = queryData.allAgilityNewResourceTopic.nodes
 			let {content, numberItemPerPage} = props.item?.customFields
+			resources = resources.map(resource => {
+				resource.customFields.resourceTopics = resource?.customFields?.resourceTopics_ValueField ? resource.customFields.resourceTopics_ValueField.split(',').map((item) => parseInt(item)) : []
+				return resource
+			})
 			const viewModel = {
 				item: props.item,
 				resources,
 				resourceType,
+				resourceTopic,
 				content,
 				numberItemPerPage
 			}
@@ -106,44 +121,62 @@ const PostResult = ({posts, loadMoreIdx}) => {
 		return (<>{postResults}</>)
 	}
 	return (
-		<h3 className="text-center col-12">There are no resource in this type. Please check back later.</h3>
+		<h3 className="text-center col-12">There are no resource item with your current filter. Please change your filter options.</h3>
 	)
 }
 
-const NewAllResources = ({item, resources, resourceType, content, numberItemPerPage}) => {
-	const [loadMoreIdx, setLoadMoreIdx] = useState( numberItemPerPage ? Number(numberItemPerPage) : 12)
-	const textSelect =  item?.customFields?.categorySelectText || 'Category'
+const NewAllResources = ({item, resources, resourceType, content, numberItemPerPage, resourceTopic}) => {
+	numberItemPerPage = numberItemPerPage ? Number(numberItemPerPage) : 12
+	const [loadMoreIdx, setLoadMoreIdx] = useState(numberItemPerPage)
+	const textSelectCategory =  item?.customFields?.categorySelectText || 'Category'
+	const textSelectTopics = item?.customFields?.topicSelectText || 'Topics'
 	const tmpPostOptions = {
 		name: 'posts',
 		options: { ...resourceType.reduce((obj, node) => {
 			obj[node.contentID] = node.customFields.title
 			return obj
-		}, {}), 1: textSelect },
+		}, {}), 1: textSelectCategory },
+		selectedOption: [1]
+	}
+	const tmpTopicOptions = {
+		name: 'topics',
+		options: { ...resourceTopic.reduce((obj, node) => {
+			obj[node.contentID] = node.customFields.title
+			return obj
+		}, {}), 1: textSelectTopics},
 		selectedOption: [1]
 	}
 	const [postOpts, setPostOpts] = useState(tmpPostOptions)
+	const [topicOpts, setTopicOpts] = useState(tmpTopicOptions)
 	const [postRender, setPostRender] = useState(resources)
 
-	const onChangeFilter = ({ name, value }) => {
-		if (value.includes(1)) {
-			setPostRender(resources)
-			setPostOpts({...tmpPostOptions, selectedOption: [1]})
-		} else {
-			const detailCategory = resourceType.find((node) => {
-				return value.includes(node.contentID)
-			})
-			const newResoucesFilter = resources.filter(res => {
-				return value.includes(+res.customFields?.resourceTypeID)
-			})
-			setPostRender(newResoucesFilter)
-			setPostOpts({...tmpPostOptions, selectedOption: value})
+	const filterPostHandler = ({ name, value }, type) => {
+		let filterPost = {
+			type: postOpts.selectedOption,
+			topic: topicOpts.selectedOption
 		}
-		setLoadMoreIdx(numberItemPerPage ? Number(numberItemPerPage) : 12)
+		filterPost[type] = value
+
+		let cloneResources = JSON.parse(JSON.stringify(resources))
+		if (filterPost.type && !filterPost.type.includes(1)) {
+			cloneResources = cloneResources.filter((resource) => {
+				return filterPost.type.includes(+resource?.customFields?.resourceTypeID)
+			})
+			setPostOpts({...tmpPostOptions, selectedOption: filterPost.type})
+		}
+		if (filterPost.topic && !filterPost.topic.includes(1)) {
+			cloneResources = cloneResources.filter((resource) => {
+				return (resource?.customFields?.resourceTopics || []).some((topic) => filterPost.topic.includes(topic))
+			})
+			setTopicOpts({...tmpTopicOptions, selectedOption: filterPost.topic})
+		}
+
+		setPostRender(cloneResources)
 	}
 
 	const loadMoreHandler = () => {
 		let tmpLoadMoreIdx = loadMoreIdx
-		tmpLoadMoreIdx += 12
+		tmpLoadMoreIdx += numberItemPerPage
 		setLoadMoreIdx(tmpLoadMoreIdx)
 	}
 
@@ -165,7 +198,8 @@ const NewAllResources = ({item, resources, resourceType, content, numberItemPerP
 						<div className="mx-auto mb-45 last-mb-none max-w-940 text-center beauty-ul" dangerouslySetInnerHTML={renderHTML(content)}></div>
 					}
 					<div className="filter-wrap small-paragraph case-filter-box">
-						<SelectC8 className="d-inline-block" data={postOpts} onChange={onChangeFilter} />
+						<SelectC8 className="d-inline-block" data={postOpts} onChange={(params) => { filterPostHandler(params, 'type') }} />
+						<SelectC8 className="d-inline-block w-300" data={topicOpts} onChange={(params) => { filterPostHandler(params, 'topic') }} />
 					</div>
 
 					<div className="row">

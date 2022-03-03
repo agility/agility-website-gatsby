@@ -3,6 +3,9 @@
 
 .form-select-c8{
   font-weight: 400;
+  &.w-300 {
+    width: 300px;
+  }
 }
 .dropdown-toggle {
   display: block;

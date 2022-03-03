@@ -25,7 +25,6 @@ export default props => (
     }
     `}
     render={queryData => {
-			console.log('queryData, props', props)
       return <NewResourcesTagTitle dynamicPageItem={props.dynamicPageItem} page={props.page} item={props.item}/>
     }}
   />

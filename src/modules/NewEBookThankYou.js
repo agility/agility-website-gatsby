@@ -138,6 +138,7 @@ export default props => (
             topWebinars_ValueField
             uRLGatedContent
             excerpt
+            buttonTextTopWebinar
           }
           contentID
         }
@@ -160,7 +161,7 @@ export default props => (
 )
 
 /*  */
-const FeatureCaseStudies = ({topWebinar}) => {
+const FeatureCaseStudies = ({topWebinar, eBookSelected}) => {
   return (
     <section>
     <div className="container ps-rv bg">
@@ -174,7 +175,7 @@ const FeatureCaseStudies = ({topWebinar}) => {
           post.url = `/resources/${resType ? resType + '/' : ''}${post?.customFields?.uRL}`
           return (
             <div className="col-md-6 col-lg-4 mb-45 lg-mb-0" key={index}>
-              <PostItem showCustomerLogo={true} post={post} hideDescription={true} />
+              <PostItem showCustomerLogo={true} post={post} hideDescription={true} showPlayIcon={resType.includes('webinar')} buttonText={eBookSelected?.customFields?.buttonTextTopWebinar ||'Watch'}/>
             </div>
           )
         })}
@@ -200,7 +201,7 @@ const DownloadEbook = ({topReads, isVerticalImage}) => {
           {topReads.map((post, index) => {
             return (
               <div className="col-md-6 col-lg-4 mb-45 lg-mb-0" key={index}>
-                < PostItemImageVertical post={post} isVerticalImage= {isVerticalImage} />
+                <PostItemImageVertical post={post} isVerticalImage= {isVerticalImage} showPlayIcon={(post?.customFields?.resourceTypeName || '').toLowerCase().includes('webinar')}/>
               </div>
             )
           })}
@@ -238,7 +239,10 @@ const FeatureRes = ({ eBookSelected }) => {
           </div>
           <div className="col col-12 col-lg-6 col-second">
             <div className="resource-lp-left ps-rv last-mb-none">
-              <img src={urlCover} alt={title}/>
+              {buttonCtaUrl && <a class=" ps-as" href={buttonCtaUrl}>
+                <span class="sr-only">{title}</span>
+              </a>}
+              <img src={urlCover} alt={title} />
             </div>
           </div>
         </div>
@@ -258,8 +262,8 @@ const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) =>
     if (!dynamicPageItem && resourceSlug && resourceSlug !== '') {
       const findResource = allResources.find(resource => resource.customFields.uRL === resourceSlug || resource.customFields.autopilotJourneyTrigger === resourceSlug)
       if (findResource) {
-        const splitTopReadsId = (findResource.customFields.topReads_ValueField || '').split(',')
-        const splitTopWebinarsId = (findResource.customFields.topWebinars_ValueField || '').split(',')
+        const splitTopReadsId = (findResource.customFields.topReads_ValueField || '').split(',').filter(item => item !== '')
+        const splitTopWebinarsId = (findResource.customFields.topWebinars_ValueField || '').split(',').filter(item => item !== '')
         const topWebinars = []
         const topReads = []
         allResources.forEach(resource => {
@@ -285,8 +289,10 @@ const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) =>
 
     if(results.length < 3) {
       let count = results.length
+      const issetItemId = results.map(item => item.contentID)
       for(let i = 0; i < resources.length; i++) {
-        if (count < 3 && resources[i].customFields?.resourceTypeName === 'Webinar') {
+        const resourceItem = resources[i]
+        if (count < 3 && resourceItem?.customFields?.resourceTypeName === 'Webinar' && !issetItemId.includes(resourceItem.contentID)) {
           results.push(resources[i])
           count++
         }
@@ -303,8 +309,10 @@ const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) =>
 
     if(results.length < 3) {
       let count = results.length
+      const issetItemId = results.map(item => item.contentID)
       for(let i = 0; i < resources.length; i++) {
-        if (count < 3 && resources[i].customFields?.resourceTypeName === 'eBook') {
+        const resourceItem = resources[i]
+        if (count < 3 && resourceItem?.customFields?.resourceTypeName === 'eBook' && !issetItemId.includes(resourceItem.contentID)) {
           results.push(resources[i])
           count++
         }
@@ -327,7 +335,7 @@ const NewEBookThankYou = ({ item, resources, dynamicPageItem, allResources }) =>
       <FeatureRes eBookSelected={eBookSelected} />
 			<section className="mod-new-post-listing">
         <div className="space-60 space-dt-80"></div>
-        <FeatureCaseStudies topWebinar={topWebinar} />
+        <FeatureCaseStudies topWebinar={topWebinar} eBookSelected={eBookSelected}/>
         <div className="space-30 space-dt-80"></div>
         {topRead && topRead.length &&
         <>
