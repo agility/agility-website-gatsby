@@ -57,9 +57,6 @@ export default props => (
             topWebinars_TextField
             topWebinars_ValueField
             excerpt
-            cTA {
-              contentid
-            }
             downloadButtonText
           }
           contentID
@@ -107,9 +104,6 @@ export default props => (
             topWebinars_TextField
             topWebinars_ValueField
             excerpt
-            cTA {
-              contentid
-            }
             downloadButtonText
           }
           contentID
