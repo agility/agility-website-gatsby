@@ -64,3 +64,24 @@
     }
   }
 }
+
+
+@media (min-width: 1200px) and (max-width: 1500px){
+  .mod-resource-tag-list {
+    .resource-bg {
+      &.ebook{
+        padding-bottom: 124%;
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) and (max-width: 991px){
+  .mod-resource-tag-list {
+    .resource-bg {
+      &.ebook{
+        padding-bottom: 124%;
+      }
+    }
+  }
+}
