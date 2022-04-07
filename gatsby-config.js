@@ -18,9 +18,7 @@ const agilityConfig = {
 
 module.exports = {
 	flags: {
-		DEV_SSR: false,
-		PRESERVE_WEBPACK_CACHE: true,
-		PRESERVE_FILE_DOWNLOAD_CACHE: true
+		DEV_SSR: false
 	},
 	siteMetadata: {
 		title: "Agility CMS",
