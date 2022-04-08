@@ -59,6 +59,7 @@ const PlanFeaturesCTA = loadable(() => import("./PlanFeaturesCTA"))
 const PodcastContentPanel = loadable(() => import("./PodcastContentPanel"))
 const PodcastDetail = loadable(() => import("./PodcastDetail"))
 const PodcastListing = loadable(() => import("./PodcastListing"))
+const PodcastSubscribe = loadable(() => import("./PodcastSubscribe"))
 
 const PostDetails = loadable(() => import("./PostDetails"))
 const PostListing = loadable(() => import("./PostListing"))
@@ -162,6 +163,7 @@ const allModules = {
 	"PodcastContentPanel": PodcastContentPanel,
 	"PodcastDetail": PodcastDetail,
 	"PodcastListing": PodcastListing,
+	"PodcastSubscribe": PodcastSubscribe,
 	"PostListing": PostListing,
 	"PostDetails": PostDetails,
 	"NewPostListing": NewPostListing,

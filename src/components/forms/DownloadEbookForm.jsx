@@ -17,7 +17,7 @@ const DownloadEbookForm = ({ item, slug }) => {
   const phoneLabel = item.phoneLabel ?? 'Phone'
   const companyLabel = item.companyLabel ?? 'Company'
   const autopilotJourneyTrigger = item.autopilotJourneyTrigger || ""
-  console.log("DOWNLOAD FORM", item)
+
   // const redirectUrl = item.redirectURL//.replace('##URL##', slug)
   const redirectUrl = {
     ...item.redirectURL,
