@@ -280,7 +280,7 @@
     > a {
       position: relative;
       &::after {
-        content: '\e916';
+        content: '\e906';
         font-family: 'icomoon' !important;
         speak: none;
         font-style: normal;
@@ -289,10 +289,11 @@
         text-transform: none;
         line-height: 1;
         position: absolute;
-        font-size: rem(6);
+        font-size: 0.7rem;
         transform: translateY(-50%) scale(-1);
+        transform: rotate(90deg);
         transition: all .25s;
-        top: 50%;
+        top: 42%;
         right: 2px;
       }
 
@@ -301,6 +302,7 @@
       > a {
         &::after {
           transform: translateY(-50%) scale(1);
+          transform: rotate(-90deg);
         }
       }
 
