@@ -232,7 +232,6 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 	let resource = dynamicPageItem.customFields;
 	item = item.customFields;
 	item.formTitle = resource.formTitle || resource.title
-	console.log(resource)
 	// item.submissionPOSTURL = resource.submissio nPOSTURL
 	const resourceTypes = Array.isArray(resource.resourceType) || !resource.resourceType ? resource.resourceType : [resource.resourceType]
 	const resourceTopics = Array.isArray(resource.resourceTopics) || !resource.resourceTopics ? resource.resourceTopics : [resource.resourceTopics]
