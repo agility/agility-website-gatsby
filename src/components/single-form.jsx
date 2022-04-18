@@ -24,6 +24,7 @@ class SingleForm extends React.Component {
 								btnStyles={btnStyles}
 								submissionCopy={this.props.submissionCopy}
 								submitButtonLabel={ this.props.submitButtonLabel }
+								allowGmail={this.props.allowGmail}
 							>
 								<h3 className="form-title">{this.props.formTitle}</h3>
 								{this.props.children}
