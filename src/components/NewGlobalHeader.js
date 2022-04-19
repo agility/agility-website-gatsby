@@ -511,11 +511,11 @@ class NewGlobalHeader extends Component {
 								})}
 							</ul>
 						</div>
-						{hasMegaMenuContent &&
+						{hasMegaMenuContent ? (
 							<div className="dr-navi-col">
 								{megaMenuContent(megaContent, megaTitle, linkOrSpotlight)}
 							</div>
-						}
+						) : null}
 					</div>
 				</>
 
