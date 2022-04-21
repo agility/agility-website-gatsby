@@ -515,7 +515,7 @@ class NewGlobalHeader extends Component {
 							<div className="dr-navi-col">
 								{megaMenuContent(megaContent, megaTitle, linkOrSpotlight)}
 							</div>
-						) : null}
+						) : ""}
 					</div>
 				</>
 
