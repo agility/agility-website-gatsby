@@ -12,7 +12,7 @@ class Form extends React.Component {
 			isInvalid: false,
 			isSuccess: false,
 			isError: false,
-			isSubmitting: false
+			isSubmitting: false,
 		};
 
 		this.validate = this.validate.bind(this);
@@ -57,7 +57,6 @@ class Form extends React.Component {
 			if (elem.value && elem.value.trim) {
 				//trim the value
 				elem.value = elem.value.trim();
-
 			}
 
 		}
@@ -69,6 +68,8 @@ class Form extends React.Component {
 		* and 'true', if all form elements are filled with valid values.
 		*/
 		if (formEl.checkValidity() === false) {
+
+			const allowGmail = this.props.allowGmail
 
 			var invalidElements = [];
 
@@ -100,10 +101,21 @@ class Form extends React.Component {
 					* If it does not qualify, the elem.validationMessage property will contain the localized validation error message.
 					* We will show that message in our error container if the element is invalid, and clear the previous message, if it is valid.
 					*/
-					if (!elem.validity.valid) {
+					if (!elem.validity.valid || allowGmail === 'false' && elem.value.includes('@gmail.com')) {
+
 						let msg = elem.getAttribute("message");
+
+						// if element type is email & we don't want to allow gmail, then show error message for business email
+						if (elem.type.toLowerCase() === 'email' && allowGmail === 'false') {
+							msg = "Please use a business email."
+							// show error message for email
+						} else if (elem.type.toLowerCase() === 'email' && allowGmail === 'true') {
+							msg = "Please enter your email."
+						}
+
 						if (msg) {
 							errorLabel.textContent = msg;
+							errorLabel.style.display = 'block'
 						} else {
 							errorLabel.textContent = elem.validationMessage;
 						}
@@ -111,6 +123,7 @@ class Form extends React.Component {
 						errorLabel.parentElement.classList.add('status-invalid')
 					} else {
 						errorLabel.textContent = "";
+						errorLabel.style.display = 'none'
 						errorLabel.parentElement.classList.remove('status-invalid')
 					}
 				}

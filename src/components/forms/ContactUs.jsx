@@ -15,8 +15,6 @@ const ContactUs = ({ item }) => {
 
 	item = item.customFields;
 
-
-
 	const firstNameLabel = item.firstNameLabel
 	const lastNameLabel = item.lastNameLabel
 	const emailLabel = item.emailLabel
@@ -42,6 +40,7 @@ const ContactUs = ({ item }) => {
 			postURL={item.submissionPOSTURL}
 			submissionCopy={item.submissionCopy}
 			submitButtonLabel={item.submitButtonLabel}
+			allowGmail={item.allowGmail}
 		>
 			{firstNameLabel &&
 				<FormField id="firstname" label={firstNameLabel}>
@@ -59,7 +58,7 @@ const ContactUs = ({ item }) => {
 				</FormField>
 			}
 
-{jobTitleLabel && jobTitleOptions &&
+			{jobTitleLabel && jobTitleOptions &&
 				<>
 					<FormField id="jobtitle" label={jobTitleLabel}>
 						<select id="jobtitle" name="rolefield" required className="changed" style={{ display: "block", }} onChange={(e) => setJobTitle(e.target.value)}>

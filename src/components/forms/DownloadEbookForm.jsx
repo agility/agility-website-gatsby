@@ -8,7 +8,7 @@ import { getLeadSourceDetailForForm } from '../../utils/lead-utils.js'
 import './DownloadEbookForm.scss';
 
 
-const DownloadEbookForm = ({ item, slug }) => {
+const DownloadEbookForm = ({ item, slug, allowGmail }) => {
   item = item.customFields;
 
   const firstNameLabel = item.firstNameLabel ?? 'First Name'
@@ -39,6 +39,7 @@ const DownloadEbookForm = ({ item, slug }) => {
         postURL={item.submissionPOSTURL}
         submissionCopy={item.submissionCopy}
         submitButtonLabel={item.submitButtonLabel}
+        allowGmail={allowGmail}
       >
         <FormField id="firstname" label={firstNameLabel}>
           <input id="firstname" className="changed" type="text" placeholder={firstNameLabel} required />

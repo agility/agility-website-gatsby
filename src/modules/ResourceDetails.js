@@ -360,7 +360,7 @@ const ResourceDetails = ({ item, dynamicPageItem, resources }) => {
 							</div>
 						}
 						{/* (resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'ebook' || resource.resourceTypeName && resource.resourceTypeName.toLowerCase() === 'webinar') && */}
-						{resource.gated === 'true' && <DownloadEbookForm item={{customFields: item}} slug={resource.uRL} />}
+						{resource.gated === 'true' && <DownloadEbookForm item={{customFields: item}} slug={resource.uRL} allowGmail={resource.allowGmail} />}
 						<div className="space-50 space-dt-0"></div>
 						<SocialShare url={linkResource} />
 						<div className="space-50 space-dt-50"></div>
