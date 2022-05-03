@@ -10,6 +10,7 @@ class Form extends React.Component {
 		this.state = {
 			isValidated: false,
 			isInvalid: false,
+			isInvalidEmail: false,
 			isSuccess: false,
 			isError: false,
 			isSubmitting: false,
@@ -22,7 +23,7 @@ class Form extends React.Component {
 		this._renderForm = this._renderForm.bind(this);
 		this._renderInvalidMessage = this._renderInvalidMessage.bind(this);
 		this._renderSuccessMessage = this._renderSuccessMessage.bind(this);
-
+		this._renderInvalidEmailMessage = this._renderInvalidEmailMessage.bind(this);
 	}
 
 	componentDidMount() {
@@ -210,7 +211,6 @@ class Form extends React.Component {
 
 				//grab all the name/value pairs for the inputs in this form
 
-
 				[...form.elements].forEach((input) => {
 
 					if (!input.value || input.value === "") return;
@@ -221,19 +221,22 @@ class Form extends React.Component {
 					data[name] = input.value;
 				});
 
-				if (this.props.beforeSubmit) {
-					//hit the callback beforeSubmit
-					if (!this.props.beforeSubmit(data)) {
-						//actually do the submission
+				if (!this.props.allowGmail || this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
+					this.setState({ isSuccess: false, isValidated: true, isInvalid: false, isInvalidEmail: true, isError: false });
+				} else {
+					if (this.props.beforeSubmit) {
+						//hit the callback beforeSubmit
+						if (!this.props.beforeSubmit(data)) {
+							//actually do the submission
+							this.submitData(data);
+						}
+					} else {
 						this.submitData(data);
 					}
-				} else {
-					this.submitData(data);
 				}
 
 			} else {
 				this.setState({ isSuccess: false, isValidated: true, isInvalid: true, isError: false });
-
 			}
 		} catch (err) {
 			console.warn("Error submitting data", err);
@@ -246,60 +249,58 @@ class Form extends React.Component {
 
 		this.setState({ isSubmitting: true });
 
-		PostUtil.postData(
-			this.props.postURL,
-			data
-		).then(response => {
-
-			const email = data.email
-			//and response in the 200s is ok
-			if (response.status < 200 && response.status > 299) {
-				this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
-				return;
-			}
-
-			//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
-			try {
-
-				const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
-				var visitorObject = window[vgoAlias];
-				if (email && typeof visitorObject !== 'undefined') {
-					if (console) console.log("setting active campaign user to ", email)
-					visitorObject('setEmail', email);
-					visitorObject('update');
-				} else {
-					if (console) console.log("could not set active campaign user", email, visitorObject)
+			PostUtil.postData(
+				this.props.postURL,
+				data
+			).then(response => {
+	
+				const email = data.email
+				//and response in the 200s is ok
+				if (response.status < 200 && response.status > 299) {
+					this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
+					return;
 				}
-
-			} catch (error) {
-				if (console) console.log("Error sending Email to Active Campaign", error)
-			}
-
-
-			// redirect if a redirect url has been set...
-			if (this.props.redirectURL !== undefined
-				&& this.props.redirectURL
-				&& this.props.redirectURL.href) {
-					const redirectUrl =  this.props.redirectURL.href
-					setTimeout(function() {
-						window.location.href = redirectUrl;
-					}, 500)
-
-				return;
-			};
-
-			//otherwise, just set the state to success
-			this.setState({ isError: false, isSubmitting: false, isSuccess: true, isInvalid: false });
-		}).catch(err => {
-			this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
-		});
+	
+				//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
+				try {
+	
+					const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
+					var visitorObject = window[vgoAlias];
+					if (email && typeof visitorObject !== 'undefined') {
+						if (console) console.log("setting active campaign user to ", email)
+						visitorObject('setEmail', email);
+						visitorObject('update');
+					} else {
+						if (console) console.log("could not set active campaign user", email, visitorObject)
+					}
+	
+				} catch (error) {
+					if (console) console.log("Error sending Email to Active Campaign", error)
+				}
+	
+	
+				// redirect if a redirect url has been set...
+				if (this.props.redirectURL !== undefined
+					&& this.props.redirectURL
+					&& this.props.redirectURL.href) {
+						const redirectUrl =  this.props.redirectURL.href
+						setTimeout(function() {
+							window.location.href = redirectUrl;
+						}, 500)
+	
+					return;
+				};
+	
+				//otherwise, just set the state to success
+				this.setState({ isError: false, isSubmitting: false, isSuccess: true, isInvalid: false });
+			}).catch(err => {
+				this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
+			});
 	}
 
 	_renderSuccessMessage() {
 
 		var self = this;
-
-
 
 
 		if (self.props.conversionScript) {
@@ -321,13 +322,22 @@ class Form extends React.Component {
 	}
 
 	_renderInvalidMessage() {
-		// let msg = this.props.validationMessage;
-		// if (!msg) msg = "Please check your values and try again.";
+		// // if (!msg) msg = "Please check your values and try again.";
+		// // console.log(msg)
 		// return (
 		// 	<div className={"alert"} role="alert">
-		// 		<div dangerouslySetInnerHTML={ renderHTML( msg) } />
+		// 		<div dangerouslySetInnerHTML={ renderHTML(msg) } />
 		// 	</div>
 		// );
+	}
+
+	_renderInvalidEmailMessage() {
+		const msg = "Please enter a business email."
+		return (
+			<div className={"alert"} role="alert">
+				<div dangerouslySetInnerHTML={ renderHTML(msg) } />
+			</div>
+		);
 	}
 
 	_renderErrorMessage() {
@@ -361,7 +371,11 @@ class Form extends React.Component {
 		if (this.state.isInvalid) {
 			classNames.push("is-invalid");
 			invalidMessage = this._renderInvalidMessage();
+		}
 
+		if (this.state.isInvalidEmail){
+			classNames.push("is-invalid");
+			invalidMessage = this._renderInvalidEmailMessage();
 		}
 
 		if (this.state.isError) {
