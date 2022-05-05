@@ -266,6 +266,7 @@ class Form extends React.Component {
 								errorLabel.parentElement.classList.remove('status-invalid')
 							}
 					}
+				}
 
 				} else {
 					if (this.props.beforeSubmit) {
