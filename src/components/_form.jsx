@@ -221,8 +221,47 @@ class Form extends React.Component {
 					data[name] = input.value;
 				});
 
+				// MOD Joshua - May 2022 - do not allow form submission if allowGmail is false and email is gmail
 				if (!this.props.allowGmail || this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
-					this.setState({ isSuccess: false, isValidated: true, isInvalid: false, isInvalidEmail: true, isError: false });
+
+					const formEl = this.formEl;
+
+					const formLength = formEl.length;
+
+					var invalidElements = [];
+
+					for (let i = 0; i < formLength; i++) {
+			
+						const elem = formEl[i];
+		
+						if (elem.type.toLowerCase() === 'hidden') {
+							continue;
+						}
+
+						const errorLabel = elem.parentNode.querySelector(".invalid-feedback");
+
+						let msg;
+
+						if (!elem.validity.valid || this.props.allowGmail === 'false' && elem.value.includes('@gmail.com')) {
+							if (elem.type.toLowerCase() === 'email' && this.props.allowGmail === 'false') {
+								msg = "Please use a business email."
+							}
+							if (msg) {
+								errorLabel.textContent = msg;
+								errorLabel.style.display = 'block'
+							} else {
+								errorLabel.textContent = elem.validationMessage;
+							}
+
+							invalidElements.push(elem);
+							errorLabel.parentElement.classList.add('status-invalid')
+						} else {
+								errorLabel.textContent = "";
+								errorLabel.style.display = 'none'
+								errorLabel.parentElement.classList.remove('status-invalid')
+							}
+					}
+
 				} else {
 					if (this.props.beforeSubmit) {
 						//hit the callback beforeSubmit
