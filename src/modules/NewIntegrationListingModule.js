@@ -77,6 +77,8 @@ export default props => (
 
 const NewIntegrationListingModule = ({ options, list, item }) => {
 
+  const showPagination = item.customFields.showPagination ? item.customFields.showPagination : false
+
   const classSection = 'module mod-integration-listing'
   const tmpIntegrationOpts = {
     name: 'integrations',
@@ -133,6 +135,14 @@ const NewIntegrationListingModule = ({ options, list, item }) => {
     setLoadMoreIdx(tmpLoadMoreIdx)
   }
 
+  let listItegrationItems;
+
+  if (showPagination === "true"){
+    listItegrationItems = listIntegration.filter((item, index) => index < loadMoreIdx)
+  } else {
+    listItegrationItems = listIntegration
+  }
+
   return <React.Fragment>
     <section className={classSection}>
       <div className="container">
@@ -141,9 +151,7 @@ const NewIntegrationListingModule = ({ options, list, item }) => {
         </div>
 
         <div className="row listing-wrap">
-          {listIntegration
-            // .filter((item, index) => index < loadMoreIdx)
-            .map((post, index) => {
+          {listItegrationItems.map((post, index) => {
               return <div key={index} className="col-md-6 col-xl-4 case-col">
                 <PostItem post={post} isIntegration={true} />
               </div>
@@ -151,11 +159,11 @@ const NewIntegrationListingModule = ({ options, list, item }) => {
           }
         </div>
 
-        {/* {loadMoreIdx <= listIntegration.length - 1 && <div className="text-center">
+        {showPagination && showPagination === "true" && loadMoreIdx <= listIntegration.length - 1 && <div className="text-center">
           <a className="btn btn-load-more" onClick={loadMoreHandler}>
             <span>Load More</span>
           </a>
-        </div>} */}
+        </div>}
       </div>
     </section>
     <Spacing item={item} />
