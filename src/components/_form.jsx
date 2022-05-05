@@ -24,6 +24,7 @@ class Form extends React.Component {
 		this._renderInvalidMessage = this._renderInvalidMessage.bind(this);
 		this._renderSuccessMessage = this._renderSuccessMessage.bind(this);
 		this._renderInvalidEmailMessage = this._renderInvalidEmailMessage.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -221,7 +222,7 @@ class Form extends React.Component {
 					data[name] = input.value;
 				});
 
-				if (!this.props.allowGmail || this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
+				if (this.props.allowGmail && this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
 					this.setState({ isSuccess: false, isValidated: true, isInvalid: false, isInvalidEmail: true, isError: false });
 				} else {
 					if (this.props.beforeSubmit) {

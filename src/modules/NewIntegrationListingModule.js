@@ -76,6 +76,7 @@ export default props => (
 )
 
 const NewIntegrationListingModule = ({ options, list, item }) => {
+
   const classSection = 'module mod-integration-listing'
   const tmpIntegrationOpts = {
     name: 'integrations',
@@ -141,7 +142,7 @@ const NewIntegrationListingModule = ({ options, list, item }) => {
 
         <div className="row listing-wrap">
           {listIntegration
-            .filter((item, index) => index < loadMoreIdx)
+            // .filter((item, index) => index < loadMoreIdx)
             .map((post, index) => {
               return <div key={index} className="col-md-6 col-xl-4 case-col">
                 <PostItem post={post} isIntegration={true} />
@@ -150,11 +151,11 @@ const NewIntegrationListingModule = ({ options, list, item }) => {
           }
         </div>
 
-        {loadMoreIdx <= listIntegration.length - 1 && <div className="text-center">
+        {/* {loadMoreIdx <= listIntegration.length - 1 && <div className="text-center">
           <a className="btn btn-load-more" onClick={loadMoreHandler}>
             <span>Load More</span>
           </a>
-        </div>}
+        </div>} */}
       </div>
     </section>
     <Spacing item={item} />

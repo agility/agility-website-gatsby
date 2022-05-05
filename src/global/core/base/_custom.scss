@@ -340,6 +340,38 @@ form button[type='submit'] {
         color: $white;
       }
     }
+    .explore-btn {
+      font-size: rem(14);
+      display: inline-block;
+      text-decoration: none;
+      color: $color-ff;
+      font-weight: $fw-semi-bold;
+
+      &::before {
+        content: '\e906';
+        font-family: $icomoon;
+        font-weight: $fw-regular;
+        font-family: icomoon;
+        font-size: .6875rem;
+        font-weight: 400;
+        top: -4px;
+        margin-right: 13px;
+        position: relative;
+        display: inline-block;
+        background-color: transparent;
+        transform: rotate(-180deg) !important;
+      }
+
+
+      &::after {
+        display: none;
+        background-color: none;
+      }
+
+      &:hover {
+        color: $white;
+      }
+    }
   }
 
   &.style-black {
