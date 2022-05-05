@@ -113,6 +113,7 @@ const RightOrLeftContent = ({ item }) => {
 			callback()
 		}
 	}
+	
 	const init = () => {
 		callAnimation()
 		window.addEventListener('resize', callAnimation);
@@ -129,6 +130,7 @@ const RightOrLeftContent = ({ item }) => {
 			}
 		}
 	}
+
 	const loadAni = () => {
 		let temp = 0
 		Array.from(document.querySelectorAll('.ani-banner')).forEach((item, index) => {
@@ -159,6 +161,7 @@ const RightOrLeftContent = ({ item }) => {
 			parallaxBanner()
 		}
 	}
+
 	const parallaxBanner = () => {
 		const doc = document.documentElement;
 		const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
@@ -175,18 +178,18 @@ const RightOrLeftContent = ({ item }) => {
 	}
 
 	useEffect(() => {
-		detectHomePage()
+		// detectHomePage()
 
-		/* animation module */
-		const scrollEventFunc = () => {
-			animationElementInnerComponent(bannerRef.current)
-		}
-		animationElementInnerComponent(bannerRef.current)
-		window.addEventListener('scroll', scrollEventFunc)
+		// /* animation module */
+		// const scrollEventFunc = () => {
+		// 	animationElementInnerComponent(bannerRef.current)
+		// }
+		// animationElementInnerComponent(bannerRef.current)
+		// window.addEventListener('scroll', scrollEventFunc)
 
-		return () => {
-			window.removeEventListener('scroll', scrollEventFunc)
-		}
+		// return () => {
+		// 	window.removeEventListener('scroll', scrollEventFunc)
+		// }
 	}, []);
 
 	useEffect(() => {

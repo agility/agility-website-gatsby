@@ -6,6 +6,7 @@ import Spacing from './Spacing'
 import { animationElementInnerComponent } from '../global/javascript/animation'
 import LazyLoad from 'react-lazyload'
 import Helpers from '../global/javascript/Helpers'
+import { Link } from 'gatsby';
 
 const HasImg = ({ img, isHomePage, page }) => {
 
@@ -65,7 +66,7 @@ const IntegrationDetailBanner = ({ item, dynamicPageItem }) => {
 	const [isLottieLoad, setIsLottieLoad] = useState(false)
 	const link = <div className="link box-message">
 		<p>
-			<a className="link-line line-purple" href="/partners/integrations">{breadcrumb}</a>
+			<Link to="/partners/integrations" className="explore-btn line-purple">{breadcrumb}</Link>
 		</p>
 	</div>
 

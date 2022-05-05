@@ -102,9 +102,15 @@ const PostItem = ({ thumbUrl, link, title, excerpt }) => {
 	)
 }
 
-const PostResult = ({posts, loadMoreIdx}) => {
+const PostResult = ({posts, loadMoreIdx, showPagination}) => {
+	let items;
 	if (posts.length) {
-		const postResults = posts.filter((item, index) => index < loadMoreIdx).map((post, index) => {
+		if (showPagination === "true"){
+			items = posts.filter((item, index) => index < loadMoreIdx)
+		} else {
+			items = posts
+		}
+		const postResults = items.map((post, index) => {
 			const thumbUrl = post?.customFields?.image?.url
 			let resType = post?.customFields?.resourceTypeName?.toLowerCase().replace(/ /g, "-") || ''
 			const link = `/partners/implementation/${post?.customFields?.uRL}`
@@ -122,6 +128,8 @@ const PostResult = ({posts, loadMoreIdx}) => {
 }
 
 const NewPartnerListing = ({item, resources, resourceType, numberItemPerPage}) => {
+
+	const showPagination = item.customFields.showPagination ? item.customFields.showPagination : false
 
 	const [isFirstLoad, setIsFirstLoad] = useState(true)
 
@@ -220,10 +228,10 @@ const NewPartnerListing = ({item, resources, resourceType, numberItemPerPage}) =
 					</div>
 
 					<div className="row">
-						<PostResult posts={postRender} loadMoreIdx={loadMoreIdx} />
+						<PostResult posts={postRender} loadMoreIdx={loadMoreIdx} showPagination={showPagination} />
 					</div>
 
-					{loadMoreIdx <= postRender.length - 1 && <div className="text-center mt-35">
+					{showPagination && showPagination === "true" && loadMoreIdx <= postRender.length - 1 && <div className="text-center mt-35">
 					<a className="btn btn-load-more mb-0" onClick={loadMoreHandler}>
 						<span>Load More</span>
 					</a>
