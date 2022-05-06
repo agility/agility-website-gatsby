@@ -25,9 +25,9 @@ const ContactUs = ({ item }) => {
 	const jobTitleOptions = item.jobTitleOptions
 	const jobFunctionLabel = item.jobFunctionLabel
 	const jobFunctionOptions = item.jobFunctionOptions
+	const allowGmail = item.allowGmail ? item.allowGmail : "false"
 
 	return (
-
 		<FullPageForm
 			colour={item.backgroundColour}
 			title={item.leftColumnTitle}
@@ -40,7 +40,7 @@ const ContactUs = ({ item }) => {
 			postURL={item.submissionPOSTURL}
 			submissionCopy={item.submissionCopy}
 			submitButtonLabel={item.submitButtonLabel}
-			allowGmail={item.allowGmail}
+			allowGmail={allowGmail}
 		>
 			{firstNameLabel &&
 				<FormField id="firstname" label={firstNameLabel}>
