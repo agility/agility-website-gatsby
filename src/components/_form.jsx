@@ -16,8 +16,6 @@ class Form extends React.Component {
 			isSubmitting: false,
 		};
 
-		console.log(this.props)
-
 		this.validate = this.validate.bind(this);
 		this.submitHandler = this.submitHandler.bind(this);
 		this.submitData = this.submitData.bind(this);
