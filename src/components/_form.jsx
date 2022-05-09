@@ -222,12 +222,8 @@ class Form extends React.Component {
 					data[name] = input.value;
 				});
 
+				// MOD Joshua - May 2022 - do not allow form submission if allowGmail is false and email is gmail
 				if (this.props.allowGmail && this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
-
-					this.setState({ isSuccess: false, isValidated: true, isInvalid: false, isInvalidEmail: true, isError: false });
-
-				  // MOD Joshua - May 2022 - do not allow form submission if allowGmail is false and email is gmail
-				  if (!this.props.allowGmail || this.props.allowGmail === "false" && data.email.includes('@gmail.com')) {
 
 					  const formEl = this.formEl;
 
@@ -248,6 +244,7 @@ class Form extends React.Component {
 						  let msg;
 
 						  if (!elem.validity.valid || this.props.allowGmail === 'false' && elem.value.includes('@gmail.com')) {
+
 							  if (elem.type.toLowerCase() === 'email' && this.props.allowGmail === 'false') {
 								  msg = "Please use a business email."
 							  }
@@ -266,7 +263,8 @@ class Form extends React.Component {
 								errorLabel.parentElement.classList.remove('status-invalid')
 							}
 					}
-				}
+
+					this.setState({ isSuccess: false, isValidated: true, isInvalid: false, isInvalidEmail: true, isError: false });
 
 				} else {
 					if (this.props.beforeSubmit) {

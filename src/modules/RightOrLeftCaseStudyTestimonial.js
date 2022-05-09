@@ -34,10 +34,10 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 	}
 	const CaseStudy = () => {
 		const fieldCase = caseStudy.customFields
-		const contentDes = fieldCase.contentPanelCopy
-		const logoCase = fieldCase.customerLogo
-		const titleCase = fieldCase.title
-		const url = `/resources/case-studies/${fieldCase.uRL}`
+		const contentDes = fieldCase?.contentPanelCopy
+		const logoCase = fieldCase?.customerLogo
+		const titleCase = fieldCase?.title
+		const url = `/resources/case-studies/${fieldCase?.uRL}`
 		return (
 			<div className="box-right-deail last-mb-none">
 				{ logoCase &&
@@ -49,7 +49,7 @@ const RightOrLeftCaseStudyTestimonial = ({ item }) => {
 				{ contentDes &&
 					<p dangerouslySetInnerHTML={renderHTML(contentDes)}></p>
 				}
-				{ fieldCase.uRL &&
+				{ fieldCase?.uRL &&
 					<p>
 						<a href={url} target="_self" className="btn btn-yellow text-decoration-none">{labelCta}</a>
 					</p>
