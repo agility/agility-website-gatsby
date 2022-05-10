@@ -50,6 +50,16 @@
       font-weight: bold;
     }
 
+    .window-os {
+      svg.dropdown-icon {
+        position: absolute;
+        right: 0px;
+        top: 37%;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
     &:hover {
       svg.dropdown-icon {
         transform: rotate(180deg);
