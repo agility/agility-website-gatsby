@@ -4,6 +4,7 @@ import Lazyload, { forceCheck } from 'react-lazyload'
 import { renderHTML } from '../agility/utils'
 import Hamburger from './Newhamburger.jsx'
 import Helpers from '../global/javascript/Helpers'
+import { GoChevronDown } from 'react-icons/go'
 
 export default props => (
 	<StaticQuery
@@ -433,7 +434,7 @@ class NewGlobalHeader extends Component {
 				const isActive = (this.state.activeMenu === menuItem.id || isSubMenuActive ? 'active' : '')
 				return (
 					<li key={menuItem.id}
-						className={`d-xl-flex align-items-center ${isActive} ${subMenu?.length ? 'has-sub' : ''} ${(this.state.menuLv2Opening === menuItem.id ? 'is-open-child' : '')} `}
+						className={`d-xl-flex align-items-center ${isActive} ${(this.state.menuLv2Opening === menuItem.id ? 'is-open-child' : '')} `}
 						onClick={!subMenu?.length ? this._handleActiveMenu.bind(this, menuItem.id) : () => { }}
 						data-page-id={menuItem.id}>
 						{url.href.indexOf("://") !== -1 ?
@@ -444,6 +445,7 @@ class NewGlobalHeader extends Component {
 
 						{/* sub navigation */}
 						{subMenu.length ? renderSubMenu(menuItem) : ''}
+						{subMenu.length ? <GoChevronDown className='dropdown-icon' /> : ''}
 					</li>
 				)
 			})

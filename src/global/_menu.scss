@@ -41,6 +41,22 @@
     &::before {
       display: none;
     }
+
+    svg.dropdown-icon {
+      position: absolute;
+      right: 0px;
+      top: 40%;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    &:hover {
+      svg.dropdown-icon {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transition: all .25s;
+      }
+    }
   }
 }
 // //hack code
@@ -201,6 +217,13 @@
   //     color: initial;
   //   }
   // }
+  .main-menu-ul {
+    li {
+      svg.dropdown-icon {
+        display: none;
+      }
+    }
+  }
   .is-open-child {
     .main-menu-dropdown {
       display: block;
