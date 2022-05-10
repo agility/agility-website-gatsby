@@ -1,4 +1,24 @@
 @import '../global/setting';
+.window-os {
+  .main-menu-ul {
+    li {
+      svg.dropdown-icon {
+        position: absolute;
+        right: 0px;
+        top: 37%;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      &:hover {
+        svg.dropdown-icon {
+          transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          transition: all .25s;
+        }
+      }
+    }
+  }
+}
 .main-menu-ul {
   padding: 22px 0 1.5em 2px;
 
@@ -48,16 +68,6 @@
       top: 40%;
       font-size: 15px;
       font-weight: bold;
-    }
-
-    .window-os {
-      svg.dropdown-icon {
-        position: absolute;
-        right: 0px;
-        top: 37%;
-        font-size: 15px;
-        font-weight: bold;
-      }
     }
 
     &:hover {
