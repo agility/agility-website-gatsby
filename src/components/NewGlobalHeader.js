@@ -478,13 +478,7 @@ class NewGlobalHeader extends Component {
             <Link
               to={url.href}
               target={url.target}
-              onClick={
-                subMenu?.length
-                  ? e => this.openMenuLv1(e)
-                  : () => {
-                      console.log("item", item)
-                    }
-              }
+              onClick={subMenu?.length ? e => this.openMenuLv1(e) : () => {}}
             >
               {menuItem.customFields?.title || url.text}
             </Link>
