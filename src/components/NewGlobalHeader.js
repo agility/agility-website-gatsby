@@ -118,13 +118,12 @@ export default props => (
       }
     `}
     render={queryData => {
+      // console.log(queryData.agilityGlobalHeader?.menuStructure)
       const navigationTopLevel = queryData.agilityGlobalHeader?.menuStructure.sort(
         (a, b) => {
           return a.properties.itemOrder > b.properties.itemOrder ? 1 : -1
         }
       )
-
-      console.log(navigationTopLevel)
 
       navigationTopLevel.forEach(n => {
         n.megaContent = n.megaContent.sort((a, b) => {
@@ -197,7 +196,6 @@ class NewGlobalHeader extends Component {
       ) {
         matchedNavId = item.id
       }
-      console.log(item)
       return item
     })
     /* Check level 2 after done level 1 */
@@ -448,6 +446,7 @@ class NewGlobalHeader extends Component {
     const isOpenMenuText = "is-open-menu"
 
     const renderMenu2 = menu => {
+      console.log("menu", menu)
       const levelOneList = menu.map(menuItem => {
         const subMenu = menuItem?.subNavigation
         const url = menuItem?.customFields?.uRL
@@ -479,7 +478,13 @@ class NewGlobalHeader extends Component {
             <Link
               to={url.href}
               target={url.target}
-              onClick={subMenu?.length ? e => this.openMenuLv1(e) : () => {}}
+              onClick={
+                subMenu?.length
+                  ? e => this.openMenuLv1(e)
+                  : () => {
+                      console.log("item", item)
+                    }
+              }
             >
               {menuItem.customFields?.title || url.text}
             </Link>
