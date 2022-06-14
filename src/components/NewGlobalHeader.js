@@ -446,7 +446,7 @@ class NewGlobalHeader extends Component {
     const isOpenMenuText = "is-open-menu"
 
     const renderMenu2 = menu => {
-      console.log("menu", menu)
+
       const levelOneList = menu.map(menuItem => {
         const subMenu = menuItem?.subNavigation
         const url = menuItem?.customFields?.uRL

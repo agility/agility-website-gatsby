@@ -237,6 +237,8 @@ const RowItem = ({ props }) => {
 		if (!textVal && checkedVal) {
 			return (checkedVal === 'true' ? <span className="icomoon icon-check-bg"><span className="path1"></span><span className="path2"></span></span> : <span>-</span>);
 		}
+
+		return null
 	}
 	const rowFeatures = props.features.map((el, idx) => {
 		if (el !== 'none') {
