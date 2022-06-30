@@ -35,7 +35,8 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
       if (event.demioID) {
         //add the demo embed...
         let script = document.createElement("script")
-        script.src = "https://cdn.demio.com/dist/embed.bundle.js"
+        script.src =
+          "https://cdn.demio.com/production/dashboard/embed.bundle.js"
         script.async = true
         document.body.appendChild(script)
       } else if (event.eventbriteID) {
