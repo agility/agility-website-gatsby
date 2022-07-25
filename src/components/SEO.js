@@ -155,6 +155,12 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
         <script type="application/ld+json">{page.seo.structData}</script>
       )}
 
+      <script
+        data-ad-client="ca-pub-3611718999392133"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
+
       <link rel="dns-prefetch" href="//static.agilitycms.com" />
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       <link rel="dns-prefetch" href="//www.googleadservices.com" />
