@@ -232,9 +232,9 @@ class Form extends React.Component {
 					  var invalidElements = [];
 
 					  for (let i = 0; i < formLength; i++) {
-			
+
 						  const elem = formEl[i];
-		
+
 						  if (elem.type.toLowerCase() === 'hidden') {
 							  continue;
 						  }
@@ -296,47 +296,66 @@ class Form extends React.Component {
 				this.props.postURL,
 				data
 			).then(response => {
-	
-				const email = data.email
-				//and response in the 200s is ok
-				if (response.status < 200 && response.status > 299) {
-					this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
-					return;
-				}
-	
-				//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
-				try {
-	
-					const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
-					var visitorObject = window[vgoAlias];
-					if (email && typeof visitorObject !== 'undefined') {
-						if (console) console.log("setting active campaign user to ", email)
-						visitorObject('setEmail', email);
-						visitorObject('update');
-					} else {
-						if (console) console.log("could not set active campaign user", email, visitorObject)
+
+				response.json().then(jsonRes => {
+
+					let salesRepID = null;
+					if (jsonRes && jsonRes.salesRepID) {
+						salesRepID = jsonRes.salesRepID
 					}
-	
-				} catch (error) {
-					if (console) console.log("Error sending Email to Active Campaign", error)
-				}
-	
-	
-				// redirect if a redirect url has been set...
-				if (this.props.redirectURL !== undefined
-					&& this.props.redirectURL
-					&& this.props.redirectURL.href) {
-						const redirectUrl =  this.props.redirectURL.href
-						setTimeout(function() {
+
+					const email = data.email
+					//and response in the 200s is ok
+					if (response.status < 200 && response.status > 299) {
+						this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
+						return;
+					}
+
+					//MOD JOELV - APRIL 2021 - Associate the email to Active Campaign...
+					try {
+
+						const vgoAlias = typeof window.visitorGlobalObjectAlias === 'undefined' ? 'vgo' : window.visitorGlobalObjectAlias;
+						var visitorObject = window[vgoAlias];
+						if (email && typeof visitorObject !== 'undefined') {
+							if (console) console.log("setting active campaign user to ", email)
+							visitorObject('setEmail', email);
+							visitorObject('update');
+						} else {
+							if (console) console.log("could not set active campaign user", email, visitorObject)
+						}
+
+					} catch (error) {
+						if (console) console.log("Error sending Email to Active Campaign", error)
+					}
+
+
+					// redirect if a redirect url has been set...
+					if (this.props.redirectURL !== undefined
+						&& this.props.redirectURL
+						&& this.props.redirectURL.href) {
+						let redirectUrl = this.props.redirectURL.href
+						if (salesRepID) {
+							//if we got the sales rep ID back, use that!
+							redirectUrl = redirectUrl + "_" + salesRepID
+						}
+						setTimeout(function () {
 							window.location.href = redirectUrl;
 						}, 500)
-	
-					return;
-				};
-	
-				//otherwise, just set the state to success
-				this.setState({ isError: false, isSubmitting: false, isSuccess: true, isInvalid: false });
+
+						return;
+					};
+
+					//otherwise, just set the state to success
+					this.setState({ isError: false, isSubmitting: false, isSuccess: true, isInvalid: false });
+
+				}).catch(err => {
+					console.warn("Error parsing json", err)
+					this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
+				});
+
+
 			}).catch(err => {
+				console.warn("Error submitting form", err)
 				this.setState({ isError: true, isSubmitting: false, isSuccess: false, isInvalid: false });
 			});
 	}
