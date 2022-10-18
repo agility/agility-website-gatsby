@@ -37,6 +37,7 @@ class FullPageForm extends React.Component {
 										submissionCopy={this.props.submissionCopy}
 										submitButtonLabel={ this.props.submitButtonLabel }
 										allowGmail={this.props.allowGmail}
+										useSalesRepSpecificRedirect={this.props.useSalesRepSpecificRedirect}
 									>
 										<h3 className="form-title">{this.props.formTitle}</h3>
 										{this.props.children}
