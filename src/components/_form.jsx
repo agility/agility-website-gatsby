@@ -202,6 +202,8 @@ class Form extends React.Component {
 	**/
 	submitHandler(event) {
 
+
+
 		event.preventDefault();
 		try {
 			//If the call of the validate method was successful, we can proceed with form submission. Otherwise we do nothing.
@@ -289,7 +291,7 @@ class Form extends React.Component {
 	};
 
 	submitData(data) {
-
+		const useSalesRepSpecificRedirect = this.props.useSalesRepSpecificRedirect === "true"
 		this.setState({ isSubmitting: true });
 
 			PostUtil.postData(
@@ -300,8 +302,10 @@ class Form extends React.Component {
 				response.json().then(jsonRes => {
 
 					let salesRepID = null;
-					if (jsonRes && jsonRes.salesRepID) {
-						salesRepID = jsonRes.salesRepID
+					if (useSalesRepSpecificRedirect) {
+						if (jsonRes && jsonRes.salesRepID) {
+							salesRepID = jsonRes.salesRepID
+						}
 					}
 
 					const email = data.email

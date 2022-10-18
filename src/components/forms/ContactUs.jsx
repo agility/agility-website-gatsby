@@ -26,6 +26,7 @@ const ContactUs = ({ item }) => {
 	const jobFunctionLabel = item.jobFunctionLabel
 	const jobFunctionOptions = item.jobFunctionOptions
 	const allowGmail = item.allowGmail ? item.allowGmail : "false"
+	const useSalesRepSpecificRedirect = item.useSalesRepSpecificRedirect ? item.useSalesRepSpecificRedirect : "false"
 
 	return (
 		<FullPageForm
@@ -41,6 +42,8 @@ const ContactUs = ({ item }) => {
 			submissionCopy={item.submissionCopy}
 			submitButtonLabel={item.submitButtonLabel}
 			allowGmail={allowGmail}
+			useSalesRepSpecificRedirect={useSalesRepSpecificRedirect}
+
 		>
 			{firstNameLabel &&
 				<FormField id="firstname" label={firstNameLabel}>
