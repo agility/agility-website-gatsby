@@ -61,6 +61,36 @@ const ContactUs = ({ item }) => {
 				</FormField>
 			}
 
+			<FormField id="industry" label="Industry">
+				<select id="industry" name="industry" required className="changed" style={{ display: "block", }}>
+					<option></option>
+					<option>Technology</option>
+					<option>Healthcare</option>
+					<option>Finance</option>
+					<option>Energy / Utilities</option>
+					<option>Construction</option>
+					<option>Real Estate</option>
+					<option>Travel / Tourism</option>
+					<option>Transportation</option>
+					<option>Retail</option>
+					<option>Media / Entertainment</option>
+					<option>Manufacturing</option>
+					<option>Government</option>
+					<option>Logistics</option>
+					<option>Entertainment</option>
+					<option>Sports</option>
+					<option>Gaming</option>
+					<option>Agency</option>
+					<option>Education</option>
+					<option>Non-profit</option>
+					<option>Other</option>
+
+
+				</select>
+			</FormField>
+
+
+
 			{jobTitleLabel && jobTitleOptions &&
 				<>
 					<FormField id="jobtitle" label={jobTitleLabel}>
