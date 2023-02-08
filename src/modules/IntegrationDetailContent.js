@@ -43,12 +43,13 @@ const IntegrationDetailContent = ({ viewModel, isIntegrationReference}) => {
 		content = <>
 			<h2>{dynamicPageItem?.customFields?.overviewHeading}</h2>
 			<div className="cs-detail-inner last-mb-none" dangerouslySetInnerHTML={renderHTML(dynamicPageItem?.customFields?.overviewContent)}></div>
-			{viewModel.overviewItems.length && <ul className="list-url last-mb-none">
+			{viewModel.overviewItems.length > 0 && <ul className="list-url last-mb-none">
 				{viewModel.overviewItems.map(item => <li key={`overview-item-` + item.contentID}>
 					<p><strong>{item?.customFields?.heading}</strong></p>
 					<p>{item?.customFields?.description}</p>
 				</li>)}
 			</ul>}
+
 		</>
 	}
 
@@ -58,7 +59,8 @@ const IntegrationDetailContent = ({ viewModel, isIntegrationReference}) => {
 				<div className="container anima-bottom">
 					<div className="cs-detail-cont d-flex flex-grow">
 						<div className="cs-detail-cont-left content-ul">
-						{content}
+							{content}
+
 						</div>
 						<IntegrationRightSidebar dynamicPageItem={dynamicPageItem} documentation={documentation} isIntegrationReference={viewModel.isIntegrationReference}/>
 					</div>
