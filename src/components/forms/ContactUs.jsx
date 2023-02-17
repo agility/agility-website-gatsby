@@ -4,6 +4,7 @@ import FullPageForm from '../full-page-form.jsx'
 import FormField from '../_form-field.jsx'
 import Countries from '../../static/data/countries.json'
 import { getLeadSourceDetailForForm } from '../../utils/lead-utils.js'
+import FullPageHubspotForm from '../full-page-hubspot-form.jsx';
 
 
 const ContactUs = ({ item }) => {
@@ -28,8 +29,10 @@ const ContactUs = ({ item }) => {
 	const allowGmail = item.allowGmail ? item.allowGmail : "false"
 	const useSalesRepSpecificRedirect = item.useSalesRepSpecificRedirect ? item.useSalesRepSpecificRedirect : "false"
 
+	const hubspotForm = item.hubspotForm
+
 	return (
-		<FullPageForm
+		<FullPageHubspotForm
 			colour={item.backgroundColour}
 			title={item.leftColumnTitle}
 			subTitle={null}
@@ -43,119 +46,120 @@ const ContactUs = ({ item }) => {
 			submitButtonLabel={item.submitButtonLabel}
 			allowGmail={allowGmail}
 			useSalesRepSpecificRedirect={useSalesRepSpecificRedirect}
+			hubspotForm={hubspotForm}
 
-		>
-			{firstNameLabel &&
-				<FormField id="firstname" label={firstNameLabel}>
-					<input id="firstname" className="changed" type="text" placeholder={firstNameLabel} required />
-				</FormField>
-			}
-			{lastNameLabel &&
-				<FormField id="lastname" label={lastNameLabel}>
-					<input id="lastname" className="changed" type="text" placeholder={lastNameLabel} required />
-				</FormField>
-			}
-			{companyLabel &&
-				<FormField id="company" label={companyLabel}>
-					<input id="company" className="changed" type="text" placeholder={companyLabel} required />
-				</FormField>
-			}
+		/>
+		// 	{firstNameLabel &&
+		// 		<FormField id="firstname" label={firstNameLabel}>
+		// 			<input id="firstname" className="changed" type="text" placeholder={firstNameLabel} required />
+		// 		</FormField>
+		// 	}
+		// 	{lastNameLabel &&
+		// 		<FormField id="lastname" label={lastNameLabel}>
+		// 			<input id="lastname" className="changed" type="text" placeholder={lastNameLabel} required />
+		// 		</FormField>
+		// 	}
+		// 	{companyLabel &&
+		// 		<FormField id="company" label={companyLabel}>
+		// 			<input id="company" className="changed" type="text" placeholder={companyLabel} required />
+		// 		</FormField>
+		// 	}
 
-			<FormField id="industry" label="Industry">
-				<select id="industry" name="industry" required className="changed" style={{ display: "block", }}>
-					<option></option>
-					<option>Technology</option>
-					<option>Healthcare</option>
-					<option>Finance</option>
-					<option>Energy / Utilities</option>
-					<option>Construction</option>
-					<option>Real Estate</option>
-					<option>Travel / Tourism</option>
-					<option>Transportation</option>
-					<option>Retail</option>
-					<option>Media / Entertainment</option>
-					<option>Manufacturing</option>
-					<option>Government</option>
-					<option>Logistics</option>
-					<option>Entertainment</option>
-					<option>Sports</option>
-					<option>Gaming</option>
-					<option>Agency</option>
-					<option>Education</option>
-					<option>Non-profit</option>
-					<option>Other</option>
-
-
-				</select>
-			</FormField>
+		// 	<FormField id="industry" label="Industry">
+		// 		<select id="industry" name="industry" required className="changed" style={{ display: "block", }}>
+		// 			<option></option>
+		// 			<option>Technology</option>
+		// 			<option>Healthcare</option>
+		// 			<option>Finance</option>
+		// 			<option>Energy / Utilities</option>
+		// 			<option>Construction</option>
+		// 			<option>Real Estate</option>
+		// 			<option>Travel / Tourism</option>
+		// 			<option>Transportation</option>
+		// 			<option>Retail</option>
+		// 			<option>Media / Entertainment</option>
+		// 			<option>Manufacturing</option>
+		// 			<option>Government</option>
+		// 			<option>Logistics</option>
+		// 			<option>Entertainment</option>
+		// 			<option>Sports</option>
+		// 			<option>Gaming</option>
+		// 			<option>Agency</option>
+		// 			<option>Education</option>
+		// 			<option>Non-profit</option>
+		// 			<option>Other</option>
 
 
-
-			{jobTitleLabel && jobTitleOptions &&
-				<>
-					<FormField id="jobtitle" label={jobTitleLabel}>
-						<select id="jobtitle" name="rolefield" required className="changed" style={{ display: "block", }} onChange={(e) => setJobTitle(e.target.value)}>
-							<option></option>
-							{jobTitleOptions.split(",").map(j => {
-								return <option key={j}>{j.trim()}</option>
-							})}
-						</select>
-					</FormField>
-
-					<FormField id="jobtitleother" label={`${jobTitleLabel} - Other`} style={{ display: jobTitle === "Other" ? "block" : "none" }}>
-						<input id="jobtitleother" className="changed" type="text" placeholder={`${jobTitleLabel} - Other`} onChange={(e) => setJobTitleOther(e.target.value)} />
-					</FormField>
-
-				</>
-			}
-
-			{jobFunctionLabel && jobFunctionOptions &&
-				<>
-					<FormField id="jobfunction" label={jobFunctionLabel}>
-						<select id="jobfunction" name="rolefield" required className="changed" style={{ display: "block", }} onChange={(e) => setJobFunction(e.target.value)}>
-							<option></option>
-							{jobFunctionOptions.split(",").map(j => {
-								return <option key={j}>{j.trim()}</option>
-							})}
-						</select>
-					</FormField>
-
-					<FormField id="jobfunctionother" label={`${jobFunctionLabel} - Other`} style={{ display: jobFunction === "Other" ? "block" : "none" }}>
-						<input id="jobfunctionother" className="changed" type="text" placeholder={`${jobFunctionLabel} - Other`}  onChange={(e) => setJobFunctionOther(e.target.value)}/>
-					</FormField>
-
-				</>
-			}
+		// 		</select>
+		// 	</FormField>
 
 
-			{emailLabel &&
-				<FormField id="email" label={emailLabel}>
-					<input id="email" className="changed" type="email" placeholder={emailLabel} required />
-				</FormField>
-			}
-			{phoneLabel &&
-				<FormField id="phonenumber" label={phoneLabel}>
-					<input id="phonenumber" className="changed" type="tel" placeholder={phoneLabel} minLength="9" maxLength="20" message="Please enter your phone number." required />
-				</FormField>
-			}
-			{countryLabel &&
-				<FormField id="country" label={countryLabel}>
-					<select id="country" className="changed" required>
-						<option></option>
-						{Countries.map(c => {
-							return <option key={c.country}>{c.country}</option>
-						})}
-					</select>
-				</FormField>
-			}
+
+		// 	{jobTitleLabel && jobTitleOptions &&
+		// 		<>
+		// 			<FormField id="jobtitle" label={jobTitleLabel}>
+		// 				<select id="jobtitle" name="rolefield" required className="changed" style={{ display: "block", }} onChange={(e) => setJobTitle(e.target.value)}>
+		// 					<option></option>
+		// 					{jobTitleOptions.split(",").map(j => {
+		// 						return <option key={j}>{j.trim()}</option>
+		// 					})}
+		// 				</select>
+		// 			</FormField>
+
+		// 			<FormField id="jobtitleother" label={`${jobTitleLabel} - Other`} style={{ display: jobTitle === "Other" ? "block" : "none" }}>
+		// 				<input id="jobtitleother" className="changed" type="text" placeholder={`${jobTitleLabel} - Other`} onChange={(e) => setJobTitleOther(e.target.value)} />
+		// 			</FormField>
+
+		// 		</>
+		// 	}
+
+		// 	{jobFunctionLabel && jobFunctionOptions &&
+		// 		<>
+		// 			<FormField id="jobfunction" label={jobFunctionLabel}>
+		// 				<select id="jobfunction" name="rolefield" required className="changed" style={{ display: "block", }} onChange={(e) => setJobFunction(e.target.value)}>
+		// 					<option></option>
+		// 					{jobFunctionOptions.split(",").map(j => {
+		// 						return <option key={j}>{j.trim()}</option>
+		// 					})}
+		// 				</select>
+		// 			</FormField>
+
+		// 			<FormField id="jobfunctionother" label={`${jobFunctionLabel} - Other`} style={{ display: jobFunction === "Other" ? "block" : "none" }}>
+		// 				<input id="jobfunctionother" className="changed" type="text" placeholder={`${jobFunctionLabel} - Other`}  onChange={(e) => setJobFunctionOther(e.target.value)}/>
+		// 			</FormField>
+
+		// 		</>
+		// 	}
 
 
-			<input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />
-			<input type="hidden" name="_autopilot_session_id" />
-			<input type="hidden" name="jobtitle" value={jobTitle === "Other" ? jobTitleOther : jobTitle} />
-			<input type="hidden" name="jobfunction" value={jobFunction === "Other" ? jobFunctionOther : jobFunction} />
+		// 	{emailLabel &&
+		// 		<FormField id="email" label={emailLabel}>
+		// 			<input id="email" className="changed" type="email" placeholder={emailLabel} required />
+		// 		</FormField>
+		// 	}
+		// 	{phoneLabel &&
+		// 		<FormField id="phonenumber" label={phoneLabel}>
+		// 			<input id="phonenumber" className="changed" type="tel" placeholder={phoneLabel} minLength="9" maxLength="20" message="Please enter your phone number." required />
+		// 		</FormField>
+		// 	}
+		// 	{countryLabel &&
+		// 		<FormField id="country" label={countryLabel}>
+		// 			<select id="country" className="changed" required>
+		// 				<option></option>
+		// 				{Countries.map(c => {
+		// 					return <option key={c.country}>{c.country}</option>
+		// 				})}
+		// 			</select>
+		// 		</FormField>
+		// 	}
 
-		</FullPageForm >
+
+		// 	<input type="hidden" id="leadsourcedetail" name="leadsourcedetail" value={getLeadSourceDetailForForm(item.formID)} />
+		// 	<input type="hidden" name="_autopilot_session_id" />
+		// 	<input type="hidden" name="jobtitle" value={jobTitle === "Other" ? jobTitleOther : jobTitle} />
+		// 	<input type="hidden" name="jobfunction" value={jobFunction === "Other" ? jobFunctionOther : jobFunction} />
+
+		// </FullPageHubspot >
 
 
 	);
