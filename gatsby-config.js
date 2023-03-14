@@ -79,6 +79,14 @@ module.exports = {
 			}
 		},
 		{
+			resolve: "gatsby-plugin-hubspot",
+			options: {
+				trackingCode: "23239214",
+				respectDNT: false,
+				productionOnly: true,
+			},
+		},
+		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
 				output: `/`,
@@ -93,7 +101,7 @@ module.exports = {
 						}
 					  }
 				  }`,
-				  resolveSiteUrl: () => "https://agilitycms.com",
+				resolveSiteUrl: () => "https://agilitycms.com",
 				serialize: (p) => {
 					let path = p.path
 					if (path === "/home") {
