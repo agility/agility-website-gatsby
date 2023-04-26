@@ -8,7 +8,9 @@ import './NewFeaturedResource.scss'
 
 const RenderNewFeatureResource = ({ item }) => {
   const { bookCover, resourceTypeName, title, uRL, excerpt } = item?.customFields?.featuredResource?.customFields
-  bookCover.label = bookCover.label ? bookCover.label : title
+  if (bookCover) {
+    bookCover.label = bookCover.label ? bookCover.label : title
+  }
   const link = `/resources/${resourceTypeName.toLowerCase()}/${uRL}`
   /* animation module */
   const thisModuleRef = useRef(null)
