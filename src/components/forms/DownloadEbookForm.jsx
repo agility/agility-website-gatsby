@@ -27,8 +27,6 @@ const DownloadEbookForm = ({ item, slug, allowGmail }) => {
     href: item?.redirectURL?.href?.replace('##URL##', slug)
   }
 
-console.log("RESOURCE DOWNLOAD FORM", item, slug, redirectUrl)
-
 
   const hubspotForm = item.hubspotForm || null
 
