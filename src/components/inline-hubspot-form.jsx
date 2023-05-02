@@ -30,8 +30,6 @@ const InlineHubspotForm = (props) => {
 			redirectUrl = `${url}${redirectUrl}`
 		}
 
-		console.log("HUBSPOT FORM INLINE, Redir URL:", redirectUrl)
-
 		setTimeout(function () {
 			if (formId) {
 				//add the hubspot embed
