@@ -1,5 +1,5 @@
 @import "../global/_variables.scss";
-@import '../global/setting';
+@import "../global/setting";
 
 .new-partner-banner {
   padding: 50px 0;
@@ -49,21 +49,21 @@
   max-width: 560px;
   margin: 0 auto;
 }
-@media screen and(min-width: 480px) {
+@media screen and (min-width: 480px) {
   .partner-banner-logo {
     .gatsby-image-wrapper {
       min-width: 400px;
     }
   }
 }
-// @media screen and(min-width: 768px) {
+// @media screen and (min-width: 768px) {
 //   .partner-banner-logo {
 //     .gatsby-image-wrapper {
 //       min-width: 400px;
 //     }
 //   }
 // }
-@media screen and(min-width: 992px) {
+@media screen and (min-width: 992px) {
   .new-partner-banner {
     padding: 70px 0;
     .d-table {
@@ -71,7 +71,7 @@
     }
   }
 }
-@media screen and(min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .partner-banner-right {
     margin-left: 25px;
     min-height: 317px;
@@ -90,7 +90,7 @@
     }
   }
 }
-@media screen and(min-width: 1501px) {
+@media screen and (min-width: 1501px) {
   .new-partner-banner {
     padding: 124px 0 84px;
     // h1 {

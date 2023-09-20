@@ -48,10 +48,18 @@
 }
 
 @mixin placeholder {
-  ::-webkit-input-placeholder {@content};
-  :-moz-placeholder           {@content};
-  ::-moz-placeholder          {@content};
-  :-ms-input-placeholder      {@content};
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
 }
 // @include placeholder {
 //   color: $black;
@@ -66,16 +74,16 @@
 }
 
 @mixin row-padding($number) {
-  margin-right: - $number + px;
-  margin-left: - $number + px;
-  >* {
+  margin-right: -$number + px;
+  margin-left: -$number + px;
+  > * {
     padding-right: $number + px;
-    padding-left: $number +px;
+    padding-left: $number + px;
   }
 }
 
 @function grayscale($value) {
-  @return #{ 'grayscale(" + $value + ")' };
+  @return #{'grayscale(" + $value + ")'};
 }
 
 @mixin sizeEx($width, $height: $width) {
@@ -88,7 +96,13 @@
   height: $height;
 }
 
-@mixin font($name: $font-family-sans-serif, $size: $font-size-base, $color: $text-color, $weight: normal, $style: normal) {
+@mixin font(
+  $name: $font-family-sans-serif,
+  $size: $font-size-base,
+  $color: $text-color,
+  $weight: normal,
+  $style: normal
+) {
   font-family: $name;
   font-size: $size;
   color: $color;
@@ -96,9 +110,17 @@
   font-style: $style;
 }
 
-
 // only use breakpoint here
-$media-custom: (320: 321px, 374: 375px, 414: 415px, 1024: 1025px, 1280: 1281px, 1366: 1367px, 1500: 1501px, 1700: 1701px);
+$media-custom: (
+  320: 321px,
+  374: 375px,
+  414: 415px,
+  1024: 1025px,
+  1280: 1281px,
+  1366: 1367px,
+  1500: 1501px,
+  1700: 1701px
+);
 @function breakpoint-next($name, $breakpoints: $media-custom, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);
   @return if($n < length($breakpoint-names), nth($breakpoint-names, $n), null);
@@ -120,8 +142,7 @@ $media-custom: (320: 321px, 374: 375px, 414: 415px, 1024: 1025px, 1280: 1281px, 
     @media (min-width: $min) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @content;
   }
 }
@@ -132,8 +153,7 @@ $media-custom: (320: 321px, 374: 375px, 414: 415px, 1024: 1025px, 1280: 1281px, 
     @media (max-width: $max) {
       @content;
     }
-  }
-  @else {
+  } @else {
     @content;
   }
 }
