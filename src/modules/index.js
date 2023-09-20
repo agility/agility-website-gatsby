@@ -2,7 +2,7 @@ import loadable from '@loadable/component'
 
 
 
-
+const EmptyModule = loadable(() => import('./EmptyModule'))
 const TwoBoxContent = loadable(() => import('./2BoxContent'))
 const BestofBothWorldsModule = loadable(() => import('./BestofBothWorldsModule'))
 const CTABlocks = loadable(() => import("./CTABlocks"))
@@ -212,5 +212,10 @@ const allModules = {
 }
 
 export const getModule = (name) => {
-	return allModules[name]
+	const ret = allModules[name]
+	if (!ret) {
+		console.log(`*** Module ${name} not found - rendering empty component ***`)
+		return EmptyModule
+	}
+	return ret
 }
