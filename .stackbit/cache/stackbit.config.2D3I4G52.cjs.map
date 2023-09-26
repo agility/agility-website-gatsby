@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../stackbit.config.js"],
+  "sourcesContent": ["import { defineStackbitConfig } from '@stackbit/types'\n\nexport default defineStackbitConfig({\n\tstackbitVersion: '~0.6.0',\n\tssgName: 'gatsby',\n\tnodeVersion: '16',\n})"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,mBAAqC;AAErC,IAAO,8BAAQ,mCAAqB;AAAA,EACnC,iBAAiB;AAAA,EACjB,SAAS;AAAA,EACT,aAAa;AACd,CAAC;",
+  "names": []
+}
