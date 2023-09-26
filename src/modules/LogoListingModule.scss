@@ -1,4 +1,4 @@
-@import '../global/setting';
+@import "../global/setting";
 .LogoListingModule-heading {
   overflow: hidden;
   h5 {
@@ -10,10 +10,10 @@
     position: relative;
     &::before,
     &::after {
-      content: '';
-      @include position(absolute,$top: calc(50% - 3px));
-      @include sizeEx(100vw,1px);
-      background-color: rgba(76,104,132,.15);
+      content: "";
+      @include position(absolute, $top: calc(50% - 3px));
+      @include sizeEx(100vw, 1px);
+      background-color: rgba(76, 104, 132, 0.15);
     }
     &::before {
       left: calc(-100vw - 15px);
@@ -27,9 +27,9 @@
 .list-logos-slide {
   margin-bottom: 40px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(76,104,132,.15);
+  border-bottom: 1px solid rgba(76, 104, 132, 0.15);
   &.has-no-heading {
-    border-top: 1px solid rgba(76,104,132,.15);
+    border-top: 1px solid rgba(76, 104, 132, 0.15);
     padding-top: 10px;
   }
 }
@@ -37,12 +37,11 @@
   padding: 0 10px;
   display: block;
   text-align: center;
-  .gatsby-image-wrapper {
-    max-width: 175px;
+
+  img {
+    //max-width: 175px !important;
     vertical-align: middle;
-    img {
-      max-height: 100px;
-    }
+    max-height: 100px !important;
   }
 }
 .LogoListingModule {

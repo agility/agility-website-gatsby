@@ -1,13 +1,14 @@
-import React, {useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { renderHTML } from '../agility/utils'
 import './TriplePanelComparisonModule.scss'
 import LazyLoad from 'react-lazyload'
 import Spacing from './Spacing'
 import Helpers from '../global/javascript/Helpers'
 import { animationElementInnerComponent } from '../global/javascript/animation'
+import { AgilityImage } from '@agility/gatsby-image-agilitycms';
 
 const TriplePanelComparisonModule = ({ item }) => {
-	const classSection = `module TriplePanelComparisonModule ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white': ''}`
+	const classSection = `module TriplePanelComparisonModule ${item.customFields.darkMode && item.customFields.darkMode === 'true' ? 'dark-mode bg-17 text-white' : ''}`
 
 	const heading = item.customFields.title
 	const des = item.customFields.description
@@ -46,33 +47,34 @@ const TriplePanelComparisonModule = ({ item }) => {
 
 	return (
 		<React.Fragment>
-			<section className={classSection} ref={ thisModuleRef }>
+			<section className={classSection} ref={thisModuleRef}>
 				{/* <div className='space-80 space-dt-100'></div> */}
 				<div className="container last-mb-none max-w-940 text-center anima-bottom animation trip-head-box">
-				{ heading &&
-					<h2>{heading}</h2>
-				}
-				{ des &&
-					<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
-				}
+					{heading &&
+						<h2>{heading}</h2>
+					}
+					{des &&
+						<div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(des)} />
+					}
 				</div>
 				<div className="container small-paragraph animation">
-				<div className="row anima-bottom delay-2">
-					<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
+					<div className="row anima-bottom delay-2">
+						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad offset={ Helpers.lazyOffset }>
+								<AgilityImage image={item.customFields.panel1Graphic} width={60} />
+								{/* <LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={panel1Icon} alt={panel1Title} />
-							</LazyLoad>
+							</LazyLoad> */}
 							</div>
 							<div className="content-3col last-mb-none">
-								{ panel1Title &&
+								{panel1Title &&
 									<h4>{panel1Title}</h4>
 								}
 								<div className="last-mb-none">
 									{panel1CheckedContent &&
-									<div className="list-check check">{panel1CheckedContent}</div>
+										<div className="list-check check">{panel1CheckedContent}</div>
 									}
-									{ panel1UncheckedContent &&
+									{panel1UncheckedContent &&
 										<div className="list-check uncheck">{panel1UncheckedContent}</div>
 									}
 								</div>
@@ -80,19 +82,20 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad offset={ Helpers.lazyOffset }>
-								<img src={panel2Icon} alt={panel2Title} />
-							</LazyLoad>
+								<AgilityImage image={item.customFields.panel2Graphic} width={60} />
+								{/* <LazyLoad offset={ Helpers.lazyOffset }>
+								<img src={panel2Icon} alt={panel2Icon} />
+							</LazyLoad> */}
 							</div>
 							<div className="content-3col last-mb-none">
-								{ panel2Title &&
+								{panel2Title &&
 									<h4>{panel2Title}</h4>
 								}
 								<div className="last-mb-none">
 									{panel2CheckedContent &&
-									<div className="list-check check">{panel2CheckedContent}</div>
+										<div className="list-check check">{panel2CheckedContent}</div>
 									}
-									{ panel2UncheckedContent &&
+									{panel2UncheckedContent &&
 										<div className="list-check uncheck">{panel2UncheckedContent}</div>
 									}
 								</div>
@@ -100,19 +103,21 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-							<LazyLoad offset={ Helpers.lazyOffset }>
+								<AgilityImage image={item.customFields.panel3Graphic} width={60} />
+
+								{/* <LazyLoad offset={ Helpers.lazyOffset }>
 								<img src={panel3Icon} alt={panel3Title} />
-							</LazyLoad>
+							</LazyLoad> */}
 							</div>
 							<div className="content-3col last-mb-none">
-								{ panel1Title &&
+								{panel1Title &&
 									<h4>{panel3Title}</h4>
 								}
 								<div className="last-mb-none">
 									{panel3CheckedContent &&
-									<div className="list-check check">{panel3CheckedContent}</div>
+										<div className="list-check check">{panel3CheckedContent}</div>
 									}
-									{ panel3UncheckedContent &&
+									{panel3UncheckedContent &&
 										<div className="list-check uncheck">{panel3UncheckedContent}</div>
 									}
 								</div>
@@ -121,7 +126,7 @@ const TriplePanelComparisonModule = ({ item }) => {
 					</div>
 				</div>
 			</section>
-			<Spacing item={item}/>
+			<Spacing item={item} />
 		</React.Fragment>
 	);
 }
