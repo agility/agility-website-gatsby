@@ -61,10 +61,12 @@ const TriplePanelComparisonModule = ({ item }) => {
 					<div className="row anima-bottom delay-2">
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-								<AgilityImage image={item.customFields.panel1Graphic} width={60} />
-								{/* <LazyLoad offset={ Helpers.lazyOffset }>
-								<img src={panel1Icon} alt={panel1Title} />
-							</LazyLoad> */}
+								{panel1Icon.endsWith('.svg') ? (
+									<img src={panel1Icon} alt={panel1Title} />
+								) : (
+									<AgilityImage image={item.customFields.panel1Graphic} width={60} />
+
+								)}
 							</div>
 							<div className="content-3col last-mb-none">
 								{panel1Title &&
@@ -82,10 +84,12 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-								<AgilityImage image={item.customFields.panel2Graphic} width={60} />
-								{/* <LazyLoad offset={ Helpers.lazyOffset }>
-								<img src={panel2Icon} alt={panel2Icon} />
-							</LazyLoad> */}
+								{panel2Icon.endsWith('.svg') ? (
+									<img src={panel2Icon} alt={panel2Title} />
+								) : (
+									<AgilityImage image={item.customFields.panel2Graphic} width={60} />
+
+								)}
 							</div>
 							<div className="content-3col last-mb-none">
 								{panel2Title &&
@@ -103,11 +107,12 @@ const TriplePanelComparisonModule = ({ item }) => {
 						</div>
 						<div className="col-md-4 item-3col item-3col-v2 anima-bottom delay-4">
 							<div className="img-3col d-flex align-items-center">
-								<AgilityImage image={item.customFields.panel3Graphic} width={60} />
+								{panel3Icon.endsWith('.svg') ? (
+									<img src={panel3Icon} alt={panel3Title} />
+								) : (
+									<AgilityImage image={item.customFields.panel3Graphic} width={60} />
 
-								{/* <LazyLoad offset={ Helpers.lazyOffset }>
-								<img src={panel3Icon} alt={panel3Title} />
-							</LazyLoad> */}
+								)}
 							</div>
 							<div className="content-3col last-mb-none">
 								{panel1Title &&
@@ -127,7 +132,7 @@ const TriplePanelComparisonModule = ({ item }) => {
 				</div>
 			</section>
 			<Spacing item={item} />
-		</React.Fragment>
+		</React.Fragment >
 	);
 }
 
