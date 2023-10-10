@@ -6,7 +6,7 @@ import "./call-to-action.scss"
 const CallToAction = ({ item }) => {
 
 	const cta = item.customFields;
-
+	if (!cta) return null;
 	return (
 		<div className="call-to-action">
 
