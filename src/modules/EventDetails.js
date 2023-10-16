@@ -31,7 +31,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
     //only load the event brite stuff if we are NOT on a past event...
     if (loaded || isPastEvent) return
 
-    setTimeout(function() {
+    setTimeout(function () {
       if (event.demioID) {
         //add the demo embed...
         let script = document.createElement("script")
@@ -56,8 +56,11 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
   })
 
   const scrollToform = () => {
-    document
-      .getElementsByClassName("scroll-to-form")[0]
+
+    const [scrollElem] = document.getElementsByClassName("scroll-to-form")
+    if (!scrollElem) return
+
+    scrollElem
       .addEventListener("click", e => {
         e.preventDefault()
         let id = document.querySelectorAll(e.target.getAttribute("href"))
@@ -82,7 +85,7 @@ const EventDetails = ({ item, dynamicPageItem, page }) => {
       modalTriggerElementId: `eventbrite-widget-button-${event.eventbriteID}`,
     })
 
-    setTimeout(function() {
+    setTimeout(function () {
       window.EBWidgets.createWidget({
         // Required
         widgetType: "checkout",
