@@ -1,4 +1,4 @@
-import React ,{ useRef,useEffect }  from 'react';
+import React, { useRef, useEffect } from 'react';
 import { graphql, StaticQuery } from 'gatsby'
 import Triangles from "../components/triangles.jsx";
 import { renderHTML } from '../agility/utils'
@@ -29,10 +29,12 @@ export default props => (
         `}
 		render={queryData => {
 
-
 			//filter out only those logos that we want...
 			let faqs = queryData.allAgilityFaqItem.nodes.filter(faq => {
-				return faq.properties.referenceName.toLowerCase() === props.item.customFields.faqs.referencename.toLowerCase()
+				const refNameFaqList = faq.properties.referenceName || ""
+				const refNameFaqItem = props.item.customFields.faqs?.referencename || ""
+
+				return refNameFaqList.toLowerCase() === refNameFaqItem.toLowerCase()
 			}).sort((a, b) => {
 				return a.properties.itemOrder - b.properties.itemOrder
 			});
@@ -54,7 +56,7 @@ const Faqs = ({ item, faqs }) => {
 	item = item.customFields;
 
 	faqs = faqs.map(function (faq) {
-		return <FaqsContent key={faq.contentID + "-" + moduleItem.contentID} item={faq.customFields}/>
+		return <FaqsContent key={faq.contentID + "-" + moduleItem.contentID} item={faq.customFields} />
 	});
 
 	const thisModuleRef = useRef(null)
@@ -73,7 +75,7 @@ const Faqs = ({ item, faqs }) => {
 
 	return (
 
-		<section className="features p-w faqs animation" ref={ thisModuleRef }>
+		<section className="features p-w faqs animation" ref={thisModuleRef}>
 			<div className="container">
 				<div className="headline-faq last-mb-none text-center anima-bottom">
 					<h2>{item.title}</h2>
@@ -92,10 +94,10 @@ const Faqs = ({ item, faqs }) => {
 const FaqsContent = ({ item }) => {
 	const lazyRef = useRef(null)
 	const checkFQA = (ref) => {
-		if(window.innerWidth < 992) {
+		if (window.innerWidth < 992) {
 			let current = ref.current
 			let content = current.querySelectorAll('.content')[0]
-			if(current.classList.contains('open')) {
+			if (current.classList.contains('open')) {
 				current.classList.remove('open')
 				content.style.height = '0'
 			} else {
@@ -105,23 +107,23 @@ const FaqsContent = ({ item }) => {
 		}
 	}
 	const resizeHeight = () => {
-		if(window.innerWidth >= 992) {
+		if (window.innerWidth >= 992) {
 			let open = document.querySelectorAll('.faq-item')
-			if(open.length) {
+			if (open.length) {
 				Array.from(open).forEach((ele) => {
 					let content = ele.querySelectorAll('.content')[0]
 					let height = 0
 					Array.from(content.children).forEach((elem) => {
 						height += (elem.scrollHeight + 30)
 					})
-					if (content !=  height - 15) {
-						content.style.height = (height - 15 ) + 'px'
+					if (content != height - 15) {
+						content.style.height = (height - 15) + 'px'
 					}
 				})
 			}
 		} else {
 			let open = document.querySelectorAll('.faq-item:not(.open)')
-			if(open.length) {
+			if (open.length) {
 				Array.from(open).forEach((ele) => {
 					let content = ele.querySelectorAll('.content')[0]
 					content.style.height = '0px'
@@ -135,9 +137,9 @@ const FaqsContent = ({ item }) => {
 		return () => {
 			window.removeEventListener('resize', resizeHeight)
 		}
-  });
+	});
 	return (
-		<div ref={ lazyRef } className="faq-item" onClick={() => { checkFQA(lazyRef)}}>
+		<div ref={lazyRef} className="faq-item" onClick={() => { checkFQA(lazyRef) }}>
 			<h4>{item.question}</h4>
 			<div className="content last-mb-none" dangerouslySetInnerHTML={renderHTML(item.answer)}></div>
 		</div>

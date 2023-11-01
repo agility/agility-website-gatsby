@@ -9,8 +9,8 @@ import ResponsiveImage from '../components/responsive-image';
 import { animationElementInnerComponent } from '../global/javascript/animation'
 
 export default props => (
-<StaticQuery
-		query={graphql`
+  <StaticQuery
+    query={graphql`
       query getPanelContentItems {
         allAgilityPanelContentItems(sort: {fields: properties___itemOrder}) {
           nodes {
@@ -35,25 +35,25 @@ export default props => (
         }
       }
     `}
-		render={queryData => {
+    render={queryData => {
       const referenceName = props.item.customFields.verticalContentPanels.referencename
       const listPanelContent = queryData.allAgilityPanelContentItems.nodes
-      .filter(obj => { return obj.properties.referenceName === referenceName})
-      for(let i = 0; i < listPanelContent.length - 1; i++) {
+        .filter(obj => { return obj.properties.referenceName === referenceName })
+      for (let i = 0; i < listPanelContent.length - 1; i++) {
         if (listPanelContent[i].properties.itemOrder > listPanelContent[i + 1].properties.itemOrder) {
           const tam = listPanelContent[i]
           listPanelContent[i] = listPanelContent[i + 1]
           listPanelContent[i + 1] = tam
         }
       }
-			const viewModel = {
-				item: props.item,
-				listPanelContent
+      const viewModel = {
+        item: props.item,
+        listPanelContent
       }
-			return (
-				<VerticalContentPanel {...viewModel} />
-			);
-		}}
+      return (
+        <VerticalContentPanel {...viewModel} />
+      );
+    }}
   />
 )
 
@@ -62,9 +62,9 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   const title = fields.title
   const description = fields.description
   const positionContent = fields.textSide
-  const classSection = `module mod-image-content VerticalContentPanel animation  ${fields.darkMode && fields.darkMode === 'true'  ? 'dark-mode bg-17 text-white': ''}`
-  const classPositionContent = `list-content-ic small-paragraph col-xl-6 delay-2 ${positionContent === 'right' ? 'order-2 ': ' '}`
-  const classPositionImage = `col-xl-6 d-none d-xl-flex list-image-ic delay-2 ${positionContent === 'right' ? '': ' '}`
+  const classSection = `module mod-image-content VerticalContentPanel animation  ${fields.darkMode && fields.darkMode === 'true' ? 'dark-mode bg-17 text-white' : ''}`
+  const classPositionContent = `list-content-ic small-paragraph col-xl-6 delay-2 ${positionContent === 'right' ? 'order-2 ' : ' '}`
+  const classPositionImage = `col-xl-6 d-none d-xl-flex list-image-ic delay-2 ${positionContent === 'right' ? '' : ' '}`
   const lazyRef = useRef(null)
   const [active, setActive] = useState(1)
   const [stickyStyle, setStickyStyle] = useState({})
@@ -121,37 +121,39 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
       // }
     }
     const resizeWindow = () => {
-      serviceLeft.style.maxHeight = ''
-      if (window.innerWidth < 1199) return
-      const list = $this.querySelectorAll('.list-content-ic')[0]
-      serviceLeft.style.maxHeight = list.offsetHeight + 'px'
+      if (serviceLeft) {
+        serviceLeft.style.maxHeight = ''
+        if (window.innerWidth < 1199) return
+        const list = $this.querySelectorAll('.list-content-ic')[0]
+        serviceLeft.style.maxHeight = list.offsetHeight + 'px'
+      }
       // initClass($this)
       // setheight($this)
       // caculatePin($this)
     }
     // caculatePin($this)
     resizeWindow()
-    window.addEventListener('scroll',  scrollWindow)
+    window.addEventListener('scroll', scrollWindow)
     window.addEventListener('resize', resizeWindow)
 
     return () => {
-      window.removeEventListener('scroll',  scrollWindow)
+      window.removeEventListener('scroll', scrollWindow)
       window.removeEventListener('resize', resizeWindow)
     }
   }, [])
 
   /* animation module */
-	useEffect(() => {
-		const scrollEventFunc = () => {
-			animationElementInnerComponent(lazyRef.current)
-		}
-		animationElementInnerComponent(lazyRef.current)
-		window.addEventListener('scroll', scrollEventFunc)
+  useEffect(() => {
+    const scrollEventFunc = () => {
+      animationElementInnerComponent(lazyRef.current)
+    }
+    animationElementInnerComponent(lazyRef.current)
+    window.addEventListener('scroll', scrollEventFunc)
 
-		return () => {
-			window.removeEventListener('scroll', scrollEventFunc)
-		}
-	}, [])
+    return () => {
+      window.removeEventListener('scroll', scrollEventFunc)
+    }
+  }, [])
 
   const classPin = 'list-pin'
   const classPin2 = 'list-pin-bottom'
@@ -225,26 +227,26 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   }
 
   // const activeTabHandler = (idx) => {
-    // const $this = lazyRef.current
-    // const heightEachItem = calculateHeightEachItem()
-    // const doc = document.documentElement;
-    // scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
-    // Helpers.animateScrollTop(scrollTop + $this.getBoundingClientRect().top + heightEachItem[idx], 100)
-    // console.log('Testtt')
-    // activeTab(idx)
+  // const $this = lazyRef.current
+  // const heightEachItem = calculateHeightEachItem()
+  // const doc = document.documentElement;
+  // scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
+  // Helpers.animateScrollTop(scrollTop + $this.getBoundingClientRect().top + heightEachItem[idx], 100)
+  // console.log('Testtt')
+  // activeTab(idx)
   // }
 
   let isHomePage = false
-	if(typeof window !== `undefined`){
-		isHomePage = ['/new-home', '/new-home/', '/'].includes(window.location.pathname)
+  if (typeof window !== `undefined`) {
+    isHomePage = ['/new-home', '/new-home/', '/'].includes(window.location.pathname)
   }
   let classImg = 'col-md-6 d-xl-none image-mb'
-	if (!isHomePage) {
-		classImg = 'col-md-6 d-xl-none image-mb img-mb-inter'
-	}
+  if (!isHomePage) {
+    classImg = 'col-md-6 d-xl-none image-mb img-mb-inter'
+  }
   const contentPanels = listPanelContent.map((obj, idx) => {
     const customField = obj.customFields
-    const className = `item-ic row align-items-center ${idx + 1 === active ? 'tab-active': ''} ${(idx + 1) % 2 !== 0 ? 'flex-md-row-reverse': ''}`
+    const className = `item-ic row align-items-center ${idx + 1 === active ? 'tab-active' : ''} ${(idx + 1) % 2 !== 0 ? 'flex-md-row-reverse' : ''}`
     const ImageMobile = () => {
       if (customField.graphic && customField.graphic.url) {
         if (isHomePage) {
@@ -271,8 +273,8 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
           return (
             <Lazyload offset={Helpers.lazyOffset}>
               <ResponsiveImage img={customField.graphic} />
-				{/* <img src={customField.graphic.url} alt={customField.graphic.label}></img> */}
-			</Lazyload>
+              {/* <img src={customField.graphic.url} alt={customField.graphic.label}></img> */}
+            </Lazyload>
           )
         }
       } else {
@@ -295,9 +297,9 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   })
   const imagePanels = listPanelContent.map((obj, idx) => {
     const customField = obj.customFields
-    const classNameImg = `item-image-ic ${idx + 1 === active ? 'tab-active': ''}`
+    const classNameImg = `item-image-ic ${idx + 1 === active ? 'tab-active' : ''}`
     if (customField.graphic && customField.graphic.url) {
-			if (isHomePage) {
+      if (isHomePage) {
         return (
           <div className={classNameImg} data-image={idx + 1} key={'image-' + idx}>
             <Lazyload offset={Helpers.lazyOffset}>
@@ -329,40 +331,40 @@ const VerticalContentPanel = ({ item, listPanelContent }) => {
   //     </div>
   //   )
   // })
-	return (
+  return (
     <React.Fragment>
-      <section ref={ lazyRef } className={classSection} data-max={listPanelContent.length} >
+      <section ref={lazyRef} className={classSection} data-max={listPanelContent.length} >
         <div className="container anima-bottom" >
           <div className='wrap-box-vertical sticky' style={stickyStyle}>
-          { title &&
-            <div className="title-i-c text-center last-mb-none">
-              <h2 dangerouslySetInnerHTML={renderHTML(title)}></h2>
-              { description &&
-                <div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(description)}></div>
-              }
-            </div>
-          }
-          { (contentPanels.length > 0 || imagePanels.length > 0) &&
-            <div className="row wrap-lv2">
-              { contentPanels &&
-                <div className={classPositionContent}>
-                  <div className='box-left'>
+            {title &&
+              <div className="title-i-c text-center last-mb-none">
+                <h2 dangerouslySetInnerHTML={renderHTML(title)}></h2>
+                {description &&
+                  <div className="last-mb-none" dangerouslySetInnerHTML={renderHTML(description)}></div>
+                }
+              </div>
+            }
+            {(contentPanels.length > 0 || imagePanels.length > 0) &&
+              <div className="row wrap-lv2">
+                {contentPanels &&
+                  <div className={classPositionContent}>
+                    <div className='box-left'>
                       {contentPanels}
+                    </div>
                   </div>
-                </div>
-              }
-              { imagePanels &&
-                <div className={classPositionImage}>
-                  {imagePanels}
-                </div>
-              }
-            </div>
-          }
+                }
+                {imagePanels &&
+                  <div className={classPositionImage}>
+                    {imagePanels}
+                  </div>
+                }
+              </div>
+            }
           </div>
           {/* <div className='fake-height'>{itemfake}</div> */}
         </div>
       </section>
-    <Spacing item={item}/>
-  </React.Fragment>
-	)
+      <Spacing item={item} />
+    </React.Fragment>
+  )
 }
