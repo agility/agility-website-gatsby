@@ -32,23 +32,28 @@ const HasImg = ({ img, isHomePage, page }) => {
 	}, [])
 
 
+	let imgUrl = img.url
+	if (imgUrl.indexOf(".svg") === -1) {
+		imgUrl = `${img.url}?w=1024&format=auto`
+	}
+
 	return (
 		<React.Fragment>
 			{/* <picture>
 					<source srcSet={img.url}></source>
 					<img src={img.url} alt={ img.label ? img.label : 'image video' } className="img-mb"  />
 				</picture> */}
-				<Helmet>
-					<link rel="preload" as="image" href={img.url} media="screen" />
-				</Helmet>
+			<Helmet>
+				<link rel="preload" as="image" href={img.url} media="screen" />
+			</Helmet>
 
 
 
 			<img
-				src={img.url}
+				src={imgUrl}
 				// width={ !isLoaded ? '320' : '' }
 				// height={ !isLoaded ? '208' : '' }
-				alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} />
+				alt={img.label ? img.label : 'image video'} className={isHomePage ? 'img-mb' : 'anima-right'} style={{ maxHeight: "500px" }} />
 			{isHomePage &&
 				<div className="d-none d-sl-block">
 					<div className="ani-banner"></div>
@@ -113,7 +118,7 @@ const RightOrLeftContent = ({ item }) => {
 			callback()
 		}
 	}
-	
+
 	const init = () => {
 		callAnimation()
 		window.addEventListener('resize', callAnimation);
