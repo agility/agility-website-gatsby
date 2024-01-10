@@ -1,1 +1,2 @@
-Content-Security-Policy: frame-ancestors 'self' https://app.agilitycms.com;
+/*
+  Content-Security-Policy: frame-ancestors 'self' https://app.agilitycms.com;
