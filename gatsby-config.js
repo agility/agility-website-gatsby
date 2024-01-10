@@ -36,7 +36,7 @@ module.exports = {
 			options: {
 				headers: {
 					"/*": [
-						"Content-Security-Policy: frame-ancestors 'self' https://app.agilitycms.com;",
+						"Content-Security-Policy: frame-ancestors 'self' https://app.agilitycms.com https://*.publishwithagility.com:*;",
 					],
 				},
 			}, // option to add more headers. `Link` headers are transformed by the below criteria
