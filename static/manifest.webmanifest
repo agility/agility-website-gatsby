@@ -1,0 +1,14 @@
+{
+	"icons": [
+		{
+			"src": "https://static.agilitycms.com/favicon-web/icon-192-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "https://static.agilitycms.com/favicon-web/icon-512-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
