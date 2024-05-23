@@ -5,6 +5,7 @@ import loadable from '@loadable/component'
 const EmptyModule = loadable(() => import('./EmptyModule'))
 const TwoBoxContent = loadable(() => import('./2BoxContent'))
 const BestofBothWorldsModule = loadable(() => import('./BestofBothWorldsModule'))
+const BestofBothWorlds2Paragraphs = loadable(() => import('./BestofBothWorlds2Paragraphs'))
 const CTABlocks = loadable(() => import("./CTABlocks"))
 const Callout = loadable(() => import("./Callout"))
 const CaseStudyContentPanel = loadable(() => import("./CaseStudyContentPanel"))
@@ -109,6 +110,7 @@ const NEWWebinarThankYou = loadable(() => import("./NewEBookThankYou"))
 const allModules = {
 	"2BoxContent": TwoBoxContent,
 	"BestofBothWorldsModule": BestofBothWorldsModule,
+	"BestofBothWorlds2Paragraphs": BestofBothWorlds2Paragraphs,
 	"CTABlocks": CTABlocks,
 	"Callout": Callout,
 	"CaseStudyContentPanel": CaseStudyContentPanel,
