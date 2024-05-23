@@ -1,0 +1,75 @@
+@import "../global/setting";
+
+.BestofBothWorlds2Paragraphs {
+	padding-bottom: 50px;
+
+	.middle-flex {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.best-HIW {
+		background-color: transparent;
+		padding: 0;
+	}
+
+	.middle-HIW {
+		display: flex;
+		justify-content: center;
+	}
+
+	.flex-paras {
+		margin-top: 50px;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		.para {
+			padding-left: 20px;
+			display: flex;
+			flex-direction: column;
+			border-left: 1px solid transparent;
+			transition: border-left 0.3s;
+
+			h3 {
+				color: $blue;
+				text-wrap: balance;
+			}
+			p {
+				flex: 1;
+				text-wrap: balance;
+				padding: 0;
+				margin: 0 0 15px 0;
+			}
+		}
+	}
+
+	.active-v1 {
+		.flex-paras {
+			.para:last-child {
+				border-left: 1px solid $blue;
+			}
+		}
+	}
+
+	.active-v2 {
+		.flex-paras {
+			.para:first-child {
+				border-left: 1px solid $blue;
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.flex-paras {
+			flex-direction: row;
+			justify-content: center;
+			gap: 20px;
+			.para {
+				flex: 1;
+			}
+		}
+	}
+}
