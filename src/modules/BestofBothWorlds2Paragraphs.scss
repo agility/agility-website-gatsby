@@ -21,7 +21,7 @@
 
 	.flex-paras {
 		margin-top: 50px;
-		padding: 0 70px;
+
 		text-align: left;
 		display: flex;
 		flex-direction: column;
@@ -69,6 +69,11 @@
 		}
 	}
 
+	@media (min-width: 1300px) {
+		.flex-paras {
+			padding: 0 70px;
+		}
+	}
 	@media (min-width: 768px) {
 		.flex-paras {
 			flex-direction: row;
