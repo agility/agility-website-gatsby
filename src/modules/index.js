@@ -4,6 +4,7 @@ import loadable from '@loadable/component'
 
 const EmptyModule = loadable(() => import('./EmptyModule'))
 const TwoBoxContent = loadable(() => import('./2BoxContent'))
+const Hero = loadable(() => import('./Hero'))
 const BestofBothWorldsModule = loadable(() => import('./BestofBothWorldsModule'))
 const BestofBothWorlds2Paragraphs = loadable(() => import('./BestofBothWorlds2Paragraphs'))
 const CTABlocks = loadable(() => import("./CTABlocks"))
@@ -138,6 +139,7 @@ const allModules = {
 	"GatedDownload": GatedDownload,
 	"GettingStarted": GettingStarted,
 	"GuideLinks": GuideLinks,
+	"Hero": Hero,
 	"InfoBox": InfoBox,
 	"JobListing": JobListing,
 	"LandingPageHeader": LandingPageHeader,

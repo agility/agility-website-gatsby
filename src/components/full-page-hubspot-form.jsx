@@ -70,23 +70,7 @@ const FullPageHubspotForm = (props) => {
 
 								<div id={divID}></div>
 
-								{/* <Form
-										beforeSubmit={beforeSubmit}
-										postURL={props.postURL}
-										thanksMessage={props.thanksMessage}
-										conversionScript={props.conversionScript}
-										redirectURL={props.redirectURL}
-										errorMessage={props.errorMessage}
-										validationMessage={props.validationMessage}
-										btnStyles={btnStyles}
-										submissionCopy={props.submissionCopy}
-										submitButtonLabel={ props.submitButtonLabel }
-										allowGmail={props.allowGmail}
-										useSalesRepSpecificRedirect={props.useSalesRepSpecificRedirect}
-									>
-										<h3 className="form-title">{props.formTitle}</h3>
-										{props.children}
-									</Form> */}
+
 							</div>
 							<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-bottom' alt='Form Triangle Pattern' loading="lazy" /></Lazyload>
 						</div>
