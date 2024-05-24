@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 import { animationElementInnerComponent } from '../global/javascript/animation'
 const BestofBothWorldsModule = ({ item }) => {
 	const fields = item.customFields
-	console.log('FIELDS', fields)
+
 	const classSection = `module mod-HIW BestofBothWorlds2Paragraphs`
 	const [isPaused, setIsPaused] = useState(false);
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.scss'
 
-const BoxContent = ({ item }) => {
+const Hero = ({ item }) => {
 	const fields = item.customFields
 
-	console.log("fields", fields)
 
 	return (
 
@@ -22,4 +21,4 @@ const BoxContent = ({ item }) => {
 	);
 }
 
-export default BoxContent;
+export default Hero;
