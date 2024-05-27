@@ -285,7 +285,9 @@ const BestofBothWorldsModule = ({ item }) => {
 							<p>
 								{fields.developerContent}
 							</p>
-							<a href={fields.developerCTA.href} target={fields.developerCTA.target}>{fields.developerCTA.text} →</a>
+							{fields.developerCTA.href && fields.developerCTA.target && fields.developerCTA.text &&
+								<a href={fields.developerCTA.href} target={fields.developerCTA.target}>{fields.developerCTA.text} →</a>
+							}
 						</div>
 
 
