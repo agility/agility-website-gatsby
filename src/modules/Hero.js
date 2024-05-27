@@ -5,8 +5,6 @@ import './Hero.scss'
 const Hero = ({ item }) => {
 	const fields = item.customFields
 
-	console.log("Hero", fields)
-
 	return (
 
 		<section className="hero-module" >
