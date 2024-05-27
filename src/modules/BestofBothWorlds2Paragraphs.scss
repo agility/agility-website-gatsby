@@ -28,6 +28,7 @@
 		gap: 40px;
 
 		.para {
+			position: relative;
 			padding-left: 20px;
 			display: flex;
 			flex-direction: column;
@@ -44,13 +45,27 @@
 				padding: 0;
 				margin: 0 0 15px 0;
 			}
+
+			.highlight {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background-color: $blue;
+				height: 0%;
+				width: 2px;
+				z-index: 2;
+				transition: height 0.3s;
+				transition-timing-function: ease-in-out;
+			}
 		}
 	}
 
 	.active-v1 {
 		.flex-paras {
 			.para:last-child {
-				border-left: 1px solid $blue;
+				.highlight {
+					height: 100%;
+				}
 			}
 			.para:first-child {
 				display: none;
@@ -61,7 +76,9 @@
 	.active-v2 {
 		.flex-paras {
 			.para:first-child {
-				border-left: 1px solid $blue;
+				.highlight {
+					height: 100%;
+				}
 			}
 			.para:last-child {
 				display: none;

@@ -281,6 +281,7 @@ const BestofBothWorldsModule = ({ item }) => {
 							{fields.marketerCTA.href && fields.marketerCTA.target && fields.marketerCTA.text &&
 								<a href={fields.marketerCTA.href} target={fields.marketerCTA.target} >{fields.marketerCTA.text} →</a>
 							}
+							<div className='highlight'></div>
 						</div>
 						<div className='para'>
 							<h3>{fields.developerHeading}</h3>
@@ -290,6 +291,7 @@ const BestofBothWorldsModule = ({ item }) => {
 							{fields.developerCTA.href && fields.developerCTA.target && fields.developerCTA.text &&
 								<a href={fields.developerCTA.href} target={fields.developerCTA.target}>{fields.developerCTA.text} →</a>
 							}
+							<div className='highlight'></div>
 						</div>
 
 
