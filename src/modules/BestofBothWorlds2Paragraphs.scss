@@ -33,11 +33,12 @@
 			display: flex;
 			flex-direction: column;
 			border-left: 1px solid transparent;
-			transition: border-left 0.3s;
+			transition: all 0.3s;
 
 			h3 {
 				color: $blue;
 				text-wrap: balance;
+				font-weight: 800;
 			}
 			p {
 				flex: 1;
@@ -105,6 +106,7 @@
 			.flex-paras {
 				.para:first-child {
 					display: block;
+					opacity: 0.5;
 				}
 			}
 		}
@@ -113,6 +115,7 @@
 			.flex-paras {
 				.para:last-child {
 					display: block;
+					opacity: 0.5;
 				}
 			}
 		}
