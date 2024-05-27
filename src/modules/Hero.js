@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player'
 import './Hero.scss'
+import HeroAnimation from './HeroAnimation';
 
 const Hero = ({ item }) => {
 	const fields = item.customFields
@@ -9,6 +10,13 @@ const Hero = ({ item }) => {
 
 		<section className="hero-module" >
 			<div className="container">
+
+				{fields.mediaType === "animation" && fields.animation &&
+					<div>
+						<HeroAnimation animation={fields.animation} />
+					</div>
+				}
+
 				{fields.mediaType === "image" && fields.image &&
 					<img src={fields.image.url + "?format=auto&w=480"} alt={fields.image.label} />
 				}
