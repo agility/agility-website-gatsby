@@ -278,7 +278,9 @@ const BestofBothWorldsModule = ({ item }) => {
 							<p>
 								{fields.marketerContent}
 							</p>
-							<a href={fields.marketerCTA.href} target={fields.marketerCTA.target} >{fields.marketerCTA.text} →</a>
+							{fields.marketerCTA.href && fields.marketerCTA.target && fields.marketerCTA.text &&
+								<a href={fields.marketerCTA.href} target={fields.marketerCTA.target} >{fields.marketerCTA.text} →</a>
+							}
 						</div>
 						<div className='para'>
 							<h3>{fields.developerHeading}</h3>
@@ -298,7 +300,7 @@ const BestofBothWorldsModule = ({ item }) => {
 				</div>
 			</section>
 			<Spacing item={item} />
-		</React.Fragment>
+		</React.Fragment >
 	);
 }
 
