@@ -9,7 +9,7 @@ export default function HeroAnimation({ animation }) {
 
 	let animationData = null
 	if (animation === "Agility_banner_home") animationData = agilityBanner
-	console.log("anim", animation, animationData)
+
 	if (!animationData) return null
 
 	const defaultOptions = {
@@ -17,7 +17,7 @@ export default function HeroAnimation({ animation }) {
 		autoplay: true,
 		animationData: animationData,
 		rendererSettings: {
-			preserveAspectRatio: "xMidYMid slice"
+			preserveAspectRatio: "xMidYMid slice",
 		}
 	};
 
@@ -26,7 +26,7 @@ export default function HeroAnimation({ animation }) {
 			<Lottie
 				options={defaultOptions}
 				height={400}
-
+				width={600}
 			/>
 		</div>
 	)
