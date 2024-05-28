@@ -75,6 +75,14 @@ const Testimonials = ({ item }) => {
 
 					{item.testimonials.map(item => {
 
+						let logoImg = ""
+						if (item.customFields.companyLogo && item.customFields.companyLogo.url) {
+							logoImg = item.customFields.companyLogo?.url + '?format=auto&h=50'
+							if (logoImg.indexOf('.svg') > -1) {
+								logoImg = item.customFields.companyLogo?.url
+							}
+						}
+
 						return (
 							<div className="slider-item" key={`slide-${item.contentID}`}>
 								<div className='slider-inner'>
@@ -93,7 +101,7 @@ const Testimonials = ({ item }) => {
 										</div>
 										{item.customFields.companyLogo &&
 											<div className='t-logo'>
-												<img src={item.customFields.companyLogo.url + '?format=auto&h=50'} alt={item.customFields.companyLogo.label} loading="lazy" />
+												<img src={logoImg} alt={item.customFields.companyLogo.label} loading="lazy" />
 											</div>
 										}
 									</div>
