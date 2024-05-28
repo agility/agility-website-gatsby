@@ -6,6 +6,9 @@ import HeroAnimation from './HeroAnimation';
 const Hero = ({ item }) => {
 	const fields = item.customFields
 
+
+
+
 	return (
 
 		<section className="hero-module" >

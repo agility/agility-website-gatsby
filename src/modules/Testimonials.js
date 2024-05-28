@@ -17,14 +17,6 @@ const Testimonials = ({ item }) => {
 	const [centerPadding, setCenterPadding] = useState('120px');
 	const [centerMode, setCenterMode] = useState(true);
 
-	function debounce(func, timeout = 300) {
-		let timer;
-		return (...args) => {
-			clearTimeout(timer);
-			timer = setTimeout(() => { func.apply(this, args); }, timeout);
-		};
-	}
-
 	useEffect(() => {
 
 		if (typeof window === 'undefined') return;
@@ -53,7 +45,7 @@ const Testimonials = ({ item }) => {
 		}
 
 
-	}, [centerPadding])
+	}, [])
 
 	const settings = {
 		dots: false,
