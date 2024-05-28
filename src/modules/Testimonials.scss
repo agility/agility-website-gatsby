@@ -59,6 +59,26 @@
 		}
 	}
 
+	.slick-prev,
+	.slick-next {
+		opacity: 0.3;
+		transition: opacity 0.2s;
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.slick-prev {
+			opacity: 1;
+			left: calc(50% - 420px);
+		}
+		.slick-next {
+			opacity: 1;
+			right: calc(50% - 420px);
+		}
+	}
+
 	.slider-item {
 		padding: 20px 0;
 		.slider-inner {
