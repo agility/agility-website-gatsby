@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React, { useState, useEffect, useRef } from 'react';
-import Slider from 'react-slick';
+import Slider from "react-slick";
 import Lazyload from 'react-lazyload'
 import LazyBackground from '../utils/LazyBackground'
 import '../global/core/lib/_slick-theme.scss'

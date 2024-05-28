@@ -1,112 +1,122 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-import {
-	ButtonBack,
-	ButtonNext,
-	CarouselProvider,
-	Slide,
-	Slider
-} from 'pure-react-carousel';
 import { renderHTML } from '../agility/utils'
 
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import Slider from "react-slick";
+
+
 import "./Testimonials.scss"
 
 const Testimonials = ({ item }) => {
 
-	const [state, setState] = useState({
-		carouselSize: 2,
-		carouselWidth: 520,
-		carouselHeight: 354
-	})
 
-	useEffect(() => {
-
-		//only run this on the client
-		if (typeof window === 'undefined') return;
-
-		window.addEventListener("resize", setCarouselSize);
-
-		setCarouselSize();
-
-		return function cleanup() {
-			window.removeEventListener("resize", setCarouselSize);
-		};
-
-	}, [])
 
 	let moduleItem = item;
 	item = item.customFields;
 
-	const testimonials = item.testimonials.map(function (item) {
-		return <TestimonialContent item={item.customFields} key={item.contentID + "-" + moduleItem.contentID} />
-	})
+	const [centerPadding, setCenterPadding] = useState('120px');
+	const [centerMode, setCenterMode] = useState(true);
 
+	function debounce(func, timeout = 300) {
+		let timer;
+		return (...args) => {
+			clearTimeout(timer);
+			timer = setTimeout(() => { func.apply(this, args); }, timeout);
+		};
+	}
 
-	/**
-	 * Sets the carousel size - called on load and on resize of the window
-	 */
-	const setCarouselSize = function () {
+	useEffect(() => {
 
-		const width = document.body.clientWidth;
-		if (width > 1200) {
-			setState({
-				carouselSize: 2,
-				carouselWidth: 520,
-				carouselHeight: 354
-			})
-		} else {
-			setState({
-				carouselSize: 1
-			})
+		if (typeof window === 'undefined') return;
 
-			if (width < 550) {
-				setState({
-					carouselWidth: 300,
-					carouselHeight: 270
-				})
+		const calcPadding = () => {
+			const width = document.body.clientWidth;
+			if (width < 720) {
+				setCenterPadding('0px');
+				setCenterMode(false);
+			} else {
 
+				const padding = Math.floor((width - 720) / 2);
+				setCenterPadding(padding + 'px');
+				setCenterMode(true);
 			}
+
 		}
 
 
-	}
+		calcPadding();
+
+		window.addEventListener("resize", calcPadding);
+
+		return () => {
+			window.removeEventListener("resize", calcPadding);
+		}
+
+
+	}, [centerPadding])
+
+	const settings = {
+		dots: false,
+		infinite: true,
+		autoplaySpeed: 5000,
+		speed: 350,
+		arrows: true,
+		centerPadding: centerPadding,
+		centerMode: true,
+		rows: 1,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+
+	};
+
 
 
 	return (
 
 		<section className="testimonials">
 			<div className="container-my">
-				<h2 className="title-component" dangerouslySetInnerHTML={renderHTML(item.header)}></h2>
+				<h2 dangerouslySetInnerHTML={renderHTML(item.header)}></h2>
 				<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subHeading)}></p>
-				<div className="testimonials-list">
-
-					<CarouselProvider
-						className="carousel"
-						visibleSlides={state.carouselSize}
-						totalSlides={item.testimonials.length}
-						naturalSlideWidth={state.carouselWidth}
-						naturalSlideHeight={state.carouselHeight}
-					>
-
-						<Slider >
-							{testimonials}
-						</Slider>
-
-						<ButtonBack>&nbsp;</ButtonBack>
-						<ButtonNext>&nbsp;</ButtonNext>
-
-					</CarouselProvider>
-
-
-				</div>
-
-				<div className="button-wrap">
-					{item.bottomlink && item.bottomlink !== undefined && item.bottomlink.href && <a className="btn" href={item.bottomlink.href} target={item.bottomlink.target}>{item.bottomlink.text}</a>}
-				</div>
-
-
 			</div>
+			<div className="testimonial-slider">
+				<Slider {...settings}>
+
+					{item.testimonials.map(item => {
+						console.log("testimonials", item)
+						return (
+							<div className="slider-item" key={`slide-${item.contentID}`}>
+								<div className='slider-inner'>
+									<div className='excerpt' title={item.customFields.excerpt}>{item.customFields.excerpt}</div>
+									<div className="slider-row">
+										<div className='slider-person'>
+											<div className="image">
+												{item.customFields.headshot &&
+													<img src={item.customFields.headshot.url + '?format=auto&w=250&h=250'} alt={item.customFields.title} loading="lazy" />
+												}
+											</div>
+											<div className="title">
+												<h4>{item.customFields.title}</h4>
+												<div className='job-title'>{item.customFields.jobTitle}</div>
+											</div>
+										</div>
+										{item.customFields.companyLogo &&
+											<div className='t-logo'>
+												<img src={item.customFields.companyLogo.url + '?format=auto&h=50'} alt={item.customFields.companyLogo.label} loading="lazy" />
+											</div>
+										}
+									</div>
+								</div>
+							</div>
+						);
+					})}
+
+
+				</Slider>
+			</div>
+
+
+
+
 		</section>
 
 
@@ -114,33 +124,3 @@ const Testimonials = ({ item }) => {
 }
 
 export default Testimonials;
-
-const TestimonialContent = ({ item }) => {
-
-	let truncatedExcerpt = item.excerpt.replace(/^(.{200}[^\s]*).*/, "$1")
-	if (truncatedExcerpt.length < item.excerpt.length) {
-		truncatedExcerpt += "...\"";
-	}
-
-	return (
-		<Slide>
-			<div className="testimonial">
-				<div className="item-inner">
-					<div className="top-row">
-						<div className="image">
-							{item.headshot &&
-								<img src={item.headshot.url + '?w=93&h=93'} alt={item.title} loading="lazy" />
-							}
-						</div>
-						<div className="title">
-							<h3>{item.title}</h3>
-							<div>{item.jobTitle}</div>
-						</div>
-					</div>
-					<p title={item.excerpt}>{truncatedExcerpt}</p>
-				</div>
-			</div>
-		</Slide>
-	);
-
-}

@@ -22,8 +22,22 @@ const Hero = ({ item }) => {
 				}
 
 				{fields.mediaType === "video" && fields.videoURL &&
-					<div className='video-container'>
-						<ReactPlayer url={fields.videoURL} playing={true} muted={true} controls={true} loop={false} />
+					<div className='video-container' >
+						<ReactPlayer url={fields.videoURL} playing={true} muted={true} controls={true} loop={false} config={{
+							vimeo: {
+								playerOptions: {
+									chromecast: false,
+									controls: true,
+									fullscreen: true,
+									progress_bar: true,
+									pip: false,
+									volume: true
+
+								}
+							}
+						}}
+
+						/>
 					</div>
 				}
 
