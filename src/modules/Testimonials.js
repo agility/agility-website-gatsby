@@ -82,7 +82,7 @@ const Testimonials = ({ item }) => {
 				<Slider {...settings}>
 
 					{item.testimonials.map(item => {
-						console.log("testimonials", item)
+
 						return (
 							<div className="slider-item" key={`slide-${item.contentID}`}>
 								<div className='slider-inner'>
