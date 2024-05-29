@@ -97,6 +97,7 @@ const Testimonials = ({ item }) => {
 											<div className="title">
 												<h4>{item.customFields.title}</h4>
 												<div className='job-title'>{item.customFields.jobTitle}</div>
+												<div className='company'>{item.customFields.companyName}</div>
 											</div>
 										</div>
 										{item.customFields.companyLogo &&

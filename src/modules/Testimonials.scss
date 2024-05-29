@@ -25,7 +25,7 @@
 	.slick-slide {
 		opacity: 0.4;
 
-		transition: opacity 0.5s;
+		transition: filter 1s;
 		transition-timing-function: ease-in-out;
 
 		&.slick-current {

@@ -22,9 +22,12 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
     }
   `)
 
+
+  //grab the default SEO image from the header... to use if we don't have a custom og:image
   const defaultSEOImage = query.agilityGlobalHeader.customFields.sEOImage
 
-  if (!page?.seo?.image) {
+  const hasRawMetaImage = page.seo && page.seo.metaHTML.indexOf("og:image") > -1
+  if (!page?.seo?.image && !hasRawMetaImage) {
     page.seo.image = defaultSEOImage
   }
 
@@ -61,6 +64,8 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
   if (page.seo.metaHTML) {
     metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
   }
+
+  console.log("SEO", page.seo)
 
   return (
     <Helmet
