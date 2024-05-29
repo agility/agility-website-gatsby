@@ -78,6 +78,7 @@ const RightLeftContent = loadable(() => import("./RightLeftContent"))
 const RightORLeftContentModule = loadable(() => import("./RightORLeftContentModule"))
 const RightOrLeftCaseStudyTestimonial = loadable(() => import("./RightOrLeftCaseStudyTestimonial"))
 const RightOrLeftSteps = loadable(() => import("./RightOrLeftSteps"))
+const ScheduleADemo = loadable(() => import("./ScheduleADemo"))
 const SearchResults = loadable(() => import("./SearchResults"))
 const SectionBreadcrumbModule = loadable(() => import("./SectionBreadcrumbModule"))
 const Share = loadable(() => import("./Share"))
@@ -185,6 +186,7 @@ const allModules = {
 	"RightORLeftContentModule": RightORLeftContentModule,
 	"RightOrLeftCaseStudyTestimonial": RightOrLeftCaseStudyTestimonial,
 	"RightOrLeftSteps": RightOrLeftSteps,
+	"ScheduleADemo": ScheduleADemo,
 	"SearchResults": SearchResults,
 	"SectionBreadcrumbModule": SectionBreadcrumbModule,
 	"Share": Share,
