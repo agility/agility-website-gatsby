@@ -65,8 +65,6 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
     metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
   }
 
-  console.log("SEO", page.seo)
-
   return (
     <Helmet
       htmlAttributes={{

@@ -1,0 +1,162 @@
+@import "../global/_variables.scss";
+@import "../global/setting";
+
+#scheduler-page .scheduler-container {
+	background: transparent;
+	position: relative;
+	margin: auto;
+	width: 100%;
+	max-width: 1500px;
+	padding: 40px;
+	@media screen and (max-width: 768px) {
+		padding: 20px;
+	}
+
+	&::before {
+		content: "";
+		@include position(absolute, $top: 0, $left: 0, $index: 0);
+		@include sizeEx(100%, 621px);
+		background-image: linear-gradient(to bottom, rgb(233, 240, 245), rgb(255, 255, 255) 100%);
+		opacity: 0.5;
+	}
+	&::after {
+		content: "";
+		@include position(absolute, $top: -200px, $left: -315px, $index: 1);
+		@include sizeEx(719px, 621px);
+		background-image: url("/images/icon-agility.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: right bottom;
+	}
+
+	.scheduler-inner {
+		z-index: 4px;
+		position: relative;
+	}
+
+	p {
+		font-size: rem(17);
+		line-height: 1.667;
+	}
+
+	.rich-text {
+		margin: 0;
+	}
+
+	iframe {
+		width: 100%;
+		height: 900px;
+		border: 0;
+	}
+
+	.scheduler-panel {
+		// margin: 60px 0;
+		padding: 60px 0 155px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		width: 100%;
+
+		.scheduler-left {
+			flex: 0.4;
+			margin-right: 8%;
+			font-size: 14px;
+
+			p {
+				margin-bottom: 20px;
+			}
+
+			ul {
+				margin-top: 25px;
+
+				li {
+					// margin-left: 70px;
+					margin-left: 32px;
+					display: block;
+					min-height: 40px;
+					margin-bottom: 20px;
+					line-height: 1.8;
+					position: relative;
+
+					h3 {
+						font-size: 16px;
+						font-weight: 600;
+						line-height: 30px;
+					}
+
+					&:before {
+						position: absolute;
+						content: "";
+						background-image: url("/images/check-purple.svg");
+						background-size: contain;
+						background-repeat: no-repeat;
+						// width: 45px;
+						// height: 45px;
+						// margin-left: -77px;
+						width: 14px;
+						height: 14px;
+						margin-left: -32px;
+						top: 6px;
+					}
+				}
+			}
+		}
+
+		.scheduler-right {
+			flex: 0.6;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+
+			.wrap-f-right {
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	#scheduler-page .scheduler-container {
+		.container-my {
+			padding: 0 20px;
+		}
+		.scheduler-panel {
+			display: block;
+			font-size: 14px;
+
+			.scheduler-left {
+				display: block;
+				flex: none;
+
+				ul {
+					margin-top: 25px;
+				}
+			}
+
+			.scheduler-right {
+				margin-top: 40px;
+				display: block;
+				flex: none;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.ie {
+		.scheduler-container .scheduler-panel {
+			flex-wrap: nowrap;
+		}
+	}
+	#scheduler-page .scheduler-container {
+		.scheduler-panel {
+			flex-wrap: nowrap;
+			.scheduler-right .wrap-f-right {
+				padding: 0;
+			}
+		}
+	}
+}
