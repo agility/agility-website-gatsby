@@ -32,6 +32,7 @@
 			opacity: 1;
 
 			.slider-item {
+				cursor: grab;
 				.slider-inner {
 					background-color: $white;
 					border: 1px #e5e7eb solid;

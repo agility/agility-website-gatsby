@@ -25,7 +25,6 @@ export default function ScheduleADemo({ item }) {
 							<div className="wrap-f-right">
 								<iframe src={item.customFields.schedulerIFrameURL}></iframe>
 							</div>
-							<Lazyload offset={Helpers.lazyOffset}><img src="/images/triangle-pattern.svg" className='img-form-bottom' alt='Form Triangle Pattern' loading="lazy" /></Lazyload>
 						</div>
 
 					</div>

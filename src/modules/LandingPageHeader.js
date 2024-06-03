@@ -8,7 +8,7 @@ const LandingPageHeader = ({ item }) => {
 	item = item.customFields;
 
 	let sectionStyle = {
-		backgroundImage: 'url(' + item.backgroundImage.url + ')',
+		backgroundImage: item.backgroundImage ? 'url(' + item.backgroundImage.url + ')' : null,
 	};
 
 	return (
@@ -23,9 +23,11 @@ const LandingPageHeader = ({ item }) => {
 		<section style={sectionStyle} className="landing-page-header">
 			<div className="container-my">
 				<div className="header-content">
-					<div className="logo"><img src={ item.logo.url } alt={item.logo.label} /></div>
+					{item.logo && item.logo.url &&
+						<div className="logo"><img src={item.logo.url} alt={item.logo.label} /></div>
+					}
 					<div className="content" dangerouslySetInnerHTML={renderHTML(item.headerContent)}></div>
-					{ item.primaryButton && item.primaryButton.href &&
+					{item.primaryButton && item.primaryButton.href &&
 						<div className="button"><a href={item.primaryButton.href} target={item.primaryButton.target} className="btn btn-outline">{item.primaryButton.text}</a></div>
 					}
 				</div>
