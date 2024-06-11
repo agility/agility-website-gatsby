@@ -119,7 +119,7 @@ module.exports = {
 						}
 					} else {
 						return {
-							url: p.path,
+							url: `${p.path}`,
 							changefreq: `daily`,
 							priority: 0.7
 						}
@@ -129,19 +129,19 @@ module.exports = {
 			}
 		},
 		{
-			resolve: `gatsby - plugin - feed`,
+			resolve: `gatsby-plugin-feed`,
 			options: {
 				query: `
-						{
+				{
 				  site {
 					siteMetadata {
-									title
-									siteUrl
-									site_url: siteUrl
-								}
-							}
-						}
-						`,
+					  title
+					  siteUrl
+					  site_url: siteUrl
+					}
+				  }
+				}
+			  `,
 				feeds: [
 					{
 						serialize: ({ query: { site, allAgilityBlogPost } }) => {
@@ -160,24 +160,24 @@ module.exports = {
 							})
 						},
 						query: `
-						{
-							allAgilityBlogPost(filter: { properties: { referenceName: { eq: "blogposts" } } }, sort: { fields: customFields___date, order: DESC }, limit: 100) {
+					{
+						allAgilityBlogPost(filter: {properties: {referenceName: {eq: "blogposts"}}}, sort: {fields: customFields___date, order: DESC}, limit: 100) {
 							nodes {
-									id
+								id
 								customFields {
-										title
-										excerpt
-										uRL
-										date
+									title
+									excerpt
+									uRL
+									date
 									postImage {
-											url
-											label
-										}
+										url
+										label
 									}
 								}
 							}
-						}
-						`,
+						  }
+					}
+				  `,
 						output: "/posts.xml",
 						title: "Agility CMS Blog",
 					},
