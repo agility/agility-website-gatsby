@@ -305,14 +305,20 @@ const filterAllowRow = (listFilter, listPackageFeatureValues, listPricingPackage
 class PricingPackagesModule2 extends React.Component {
 	constructor(props) {
 		super(props);
-		let isMonthly = props.item.customFields.loadsByDefault === 'Monthly' ? true : false
+		const loadsByDefault = props.item.customFields.loadsByDefault
+		let isMonthly = props.item.customFields.loadsByDefault !== 'Yearly' ? true : false
+
+		console.log("isMonthly", isMonthly)
+		console.log("loadsByDefault", loadsByDefault)
+
 		this.state = {
 			// loaded: false,
 			showMore: false,
 			isMobile: false,
 			isPin: false,
 			isMonthly: isMonthly,
-			widthSaleText: 'auto'
+			widthSaleText: 'auto',
+			loadsByDefault: loadsByDefault
 		}
 		this.pinHeaderTable = this.pinHeaderTable.bind(this)
 		this.eventScrollFunc = this.eventScrollFunc.bind(this)
@@ -581,20 +587,25 @@ class PricingPackagesModule2 extends React.Component {
 		return (
 			<React.Fragment>
 				<section className={`PricingPackagesModule pricing-package animation anima-fixed anima-inner-component`} ref={this.thisElm}>
+
+
 					<div className="container anima-bottom">
 						<div ref={this.toggerPrice} className="wrap-togger-price d-flex justify-content-center align-items-center transition-25"
 						>
-							<div className="togger-price">
-								<div className={`item-t-price ${(this.state.isMonthly == true) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(true) }}>
-									Monthly
-								</div>
-								<div className={`item-t-price ${(this.state.isMonthly == false) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(false) }}>
-									Yearly
-								</div>
-								<div className="overlay-active">
+							{this.state.loadsByDefault !== "none" &&
+								// hide the monthly/yearly toggle if "none" is selected
+								<div className="togger-price">
+									<div className={`item-t-price ${(this.state.isMonthly == true) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(true) }}>
+										Monthly
+									</div>
+									<div className={`item-t-price ${(this.state.isMonthly == false) ? `is-active ` : ``}`} onClick={() => { this.changeTooger(false) }}>
+										Yearly
+									</div>
+									<div className="overlay-active">
 
+									</div>
 								</div>
-							</div>
+							}
 							<span className="transition-25 ps-rv overflow-hidden sale-text text-purple"
 								style={{ width: this.state.widthSaleText }}
 								ref={this.textSaleRef}>
@@ -624,6 +635,7 @@ class PricingPackagesModule2 extends React.Component {
 							BlockPriceDesktop
 						}
 					</div>
+
 				</section>
 				<Spacing item={this.props.item} />
 			</React.Fragment>
