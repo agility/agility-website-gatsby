@@ -73,6 +73,9 @@ const ModuleWithQuery = props => (
 						saleCost
 						isMostPopular
 						title
+						 icon {
+							url
+						}
 						cTAButton {
 							target
 							href
@@ -172,10 +175,11 @@ const ModuleWithQuery = props => (
 	/>
 )
 
-const HeaderColumn = ({ priceType, description, title, pricingPlan, btnCta, btnCtaLabel, value, saleCost, hasPopular }) => {
+const HeaderColumn = ({ priceType, description, title, pricingPlan, btnCta, btnCtaLabel, value, saleCost, hasPopular, iconUrl }) => {
 	const classColor = ['free', 'standard', 'pro', 'enterprise']
 	const popular = hasPopular && hasPopular === 'true' ? <span className={'most-popular'}><span className="icomoon icon-Star"></span>Most popular</span> : ''
 	const btnTitle = btnCta && btnCta.text && btnCta.text.length > 0 ? btnCta.text : btnCtaLabel
+
 
 	const [salCostHeight, setSalCostHeight] = useState(0)
 	const saleCostRef = useRef(null)
@@ -196,15 +200,22 @@ const HeaderColumn = ({ priceType, description, title, pricingPlan, btnCta, btnC
 			<div className="price-type ps-rv font-bold">
 				<span>{title}</span>
 				{popular}
+
 			</div>
+
 			<div className="box-price">
+				{iconUrl &&
+					<div className="price-icon">
+						<img src={iconUrl} alt={title} />
+					</div>
+				}
 				<div className="price-value last-mb-none">
 					<div className="sale-price-cover ps-rv font-bold" style={{ height: `${salCostHeight}px` }}>
 						<span className={`sale-override ${saleCost ? '' : 'opacity-0'}`} ref={saleCostRef}>{value}</span>
 					</div>
 					<span className={`font-bold transition-25`}>{saleCost ?? value}</span>
 					{pricingPlan &&
-						<p dangerouslySetInnerHTML={{ __html: pricingPlan }}></p>
+						<p className='font-bold' dangerouslySetInnerHTML={{ __html: pricingPlan }}></p>
 					}
 				</div>
 				<div>
@@ -495,6 +506,9 @@ class PricingPackagesModule2 extends React.Component {
 			const classColor = ['free', 'standard', 'pro', 'enterprise']
 			const fieldLabel = label.customFields
 			const title = fieldLabel.title
+
+
+
 			let btnCta = fieldLabel.cTAButton
 			let btnCtaLabel = fieldLabel.cTAButtonLabel
 			if (this.state.isMonthly === false) {
@@ -525,6 +539,8 @@ class PricingPackagesModule2 extends React.Component {
 			let cost = fieldLabel.cost
 			const isMostPopular = fieldLabel.isMostPopular
 			const title = fieldLabel.title
+			const iconUrl = fieldLabel.icon?.url
+
 			let saleCost = fieldLabel.saleCost
 			let description = fieldLabel.description
 			let pricingPlan = fieldLabel.pricingPlan
@@ -549,7 +565,7 @@ class PricingPackagesModule2 extends React.Component {
 
 			return (
 				<div className="col-md-6 col-xl-3" key={idx}>
-					<HeaderColumn priceType={idx} description={description} title={title} pricingPlan={pricingPlan} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} saleCost={saleCost} hasPopular={isMostPopular} />
+					<HeaderColumn priceType={idx} description={description} title={title} pricingPlan={pricingPlan} btnCta={btnCta} btnCtaLabel={btnCtaLabel} value={cost} saleCost={saleCost} hasPopular={isMostPopular} iconUrl={iconUrl} />
 				</div>
 			)
 		}) : []
