@@ -1,4 +1,4 @@
-@import '../global/setting';
+@import "../global/setting";
 
 .pricing-package {
   // position: relative;
@@ -15,7 +15,6 @@
       font-size: rem(11);
     }
   }
-
 }
 .table-pin {
   position: fixed;
@@ -26,9 +25,9 @@
 }
 .wrap-price-head {
   margin-top: 82px;
-	.row {
-		justify-content: center;
-	}
+  .row {
+    justify-content: center;
+  }
 }
 .price-head {
   padding: 37px 38px 29px;
@@ -38,8 +37,9 @@
   box-shadow: 0 5px 30px -8px rgba(85, 63, 164, 0.25);
   margin-bottom: 35px;
   height: calc(100% - 35px);
+  text-align: center;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -51,9 +51,16 @@
     z-index: 2;
     position: relative;
   }
+  .price-icon {
+    padding-bottom: 15px;
+
+    img {
+      height: 75px;
+    }
+  }
   .btn {
     color: $white;
-    padding: 15px 10px 12px!important;
+    padding: 15px 10px 12px !important;
     background-color: $color-4c;
     border-color: $color-4c;
     box-shadow: 1px 0px 1px 0 $white;
@@ -65,7 +72,6 @@
     // border-color: $color-ff;
   }
   &.type-standard {
-
     .btn {
       color: $color-17;
       background-color: $color-ff;
@@ -105,6 +111,7 @@
   margin-bottom: 21px;
   font-weight: 600;
   color: $color-17;
+
   span:not(.pr-month) {
     line-height: 0.97;
     letter-spacing: 0.5px;
@@ -119,22 +126,22 @@
   .sale-price-cover {
     overflow: hidden;
     margin-top: -7px;
-    transition: all .25s;
+    transition: all 0.25s;
     height: 0;
     margin-bottom: 4px;
   }
   .sale-override {
-	  text-decoration:line-through;
+    text-decoration: line-through;
     display: block;
-    opacity: .75;
-	  font-size: rem(24);
+    opacity: 0.75;
+    font-size: rem(24);
     line-height: 1.29;
     letter-spacing: 0.34px;
-	  color: $color-4c;
+    color: $color-4c;
     margin-bottom: 4px;
   }
   .sale-price {
-	font-size: rem(32);
+    font-size: rem(32);
   }
   p {
     font-size: 14px;
@@ -169,8 +176,8 @@
   top: -15px;
   // font-weight: 400;
   &.strike-through {
-	text-decoration:line-through;
-	color: #ddd
+    text-decoration: line-through;
+    color: #ddd;
   }
 }
 .show-more-mb {
@@ -180,7 +187,7 @@
   .icomoon {
     display: block;
     // transform: rotate(90deg);
-    transition: transform .25s;
+    transition: transform 0.25s;
     transform-origin: center;
     font-size: rem(34);
   }
@@ -190,7 +197,7 @@
   background-color: #e9f0f5;
   font-size: rem(12);
   font-weight: 600;
-  letter-spacing: .2px !important;
+  letter-spacing: 0.2px !important;
   font-style: italic;
   line-height: 1.75;
   padding: 2px 5px;
@@ -258,7 +265,7 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-    transition: all .35s;
+    transition: all 0.35s;
   }
   .is-active + .overlay-active {
     left: 50%;
@@ -291,7 +298,7 @@
   text-align: center;
   position: relative;
   z-index: 2;
-  transition: all .35s;
+  transition: all 0.35s;
   cursor: pointer;
   &.is-active {
     color: #fff;
@@ -304,7 +311,7 @@
   margin-left: -20px;
   margin-right: -20px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 110vw;
     bottom: 0;
@@ -357,7 +364,7 @@
   justify-content: flex-start;
   position: relative;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: -40px;
     right: -40px;
@@ -381,10 +388,8 @@
     position: absolute;
     right: -6px;
     top: 50%;
-    transition: all .35s;
-    transform: translateY(-50%) rotate(
-  -90deg
-  );
+    transition: all 0.35s;
+    transform: translateY(-50%) rotate(-90deg);
   }
 }
 .tr-show-mb td {
@@ -434,7 +439,7 @@
   }
   th,
   td {
-    width:25%;
+    width: 25%;
     &:first-child {
       width: 0%;
     }
@@ -461,13 +466,12 @@
         line-height: 1.5;
         letter-spacing: -0.14px;
         color: $color-4c;
-        opacity: .8;
+        opacity: 0.8;
         margin-top: 6px;
         text-align: left;
         min-height: 0;
       }
     }
-
 
     div {
       padding: 6.5px 5px 6.5px 0;
@@ -494,7 +498,7 @@
 .item-price-catelogy {
   tr:not(.tr-show-mb) {
     background-color: rgba(233, 240, 245, 0.5);
-    transition: all .35s;
+    transition: all 0.35s;
   }
   table {
     width: 100%;
@@ -507,7 +511,7 @@
 }
 .table-togger {
   overflow: hidden;
-  transition: all .35s;
+  transition: all 0.35s;
   margin-top: -12px;
   position: relative;
   .icon-check-bg {
@@ -540,7 +544,6 @@
   }
 }
 @media (min-width: 768px) {
-
   .pricing-package {
     // margin-top: -84px;
     // max-width: 610px;
@@ -549,7 +552,6 @@
     // .table-header {
     //   max-width: 690px;
     // }
-
   }
   .box-price {
     display: flex;
@@ -640,7 +642,8 @@
     display: none;
   }
   .price-desktop {
-    td,th {
+    td,
+    th {
       width: 18%;
     }
     .table-header-pin {
@@ -716,8 +719,7 @@
     }
     &::before {
       left: 0;
-      right: 0
-      ;
+      right: 0;
     }
   }
   /* ---------------------------- */
@@ -736,7 +738,6 @@
   .wrap-price-head {
     max-width: none;
     margin-top: 78px;
-
   }
   .price-head {
     padding: 39px 28px 35px;
@@ -765,7 +766,7 @@
   .price-value {
     font-size: rem(35);
     span:not(.pr-month) {
-      letter-spacing: -.1px;
+      letter-spacing: -0.1px;
     }
   }
   .price-desktop {
@@ -773,7 +774,7 @@
     td {
       width: 18.85%;
       &:first-child {
-        width:25%;
+        width: 25%;
       }
       &:last-child {
         width: 18.45%;
@@ -787,7 +788,7 @@
   .wrap-price-catelogy {
     padding-top: 5px;
     tr:hover {
-      background-color: rgba(233, 240, 245, .5);
+      background-color: rgba(233, 240, 245, 0.5);
       .content-catelogy {
         color: $color-2a !important;
       }
@@ -860,7 +861,7 @@
       td {
         // padding:15px 10px 10px;
         &:nth-child(2) {
-          background-color: rgba(88, 153, 218, .1);
+          background-color: rgba(88, 153, 218, 0.1);
         }
       }
     }
@@ -871,7 +872,7 @@
       td {
         // padding:15px 10px 10px;
         &:nth-child(2) {
-          background-color: rgba(117, 86, 232, .1);
+          background-color: rgba(117, 86, 232, 0.1);
         }
       }
     }
@@ -880,14 +881,14 @@
         background-color: $color-17;
       }
       td {
-        padding:15px 10px 10px;
+        padding: 15px 10px 10px;
         &:nth-child(2) {
-          background-color: rgba(255, 196, 20, .15);
+          background-color: rgba(255, 196, 20, 0.15);
         }
       }
     }
     td {
-      padding:15px 10px 10px;
+      padding: 15px 10px 10px;
       font-size: rem(16);
       &:first-child {
         letter-spacing: -0.16px;
