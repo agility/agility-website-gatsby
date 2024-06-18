@@ -52,14 +52,7 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
   // }
 
   let canonicalUrl = page.seo.canonicalUrl
-  if (
-    canonicalUrl &&
-    canonicalUrl.lastIndexOf("/") !== canonicalUrl.length - 1
-  ) {
-    //ensure the canonical version of the url ends with /
-    canonicalUrl = `${canonicalUrl}/`
-  }
-
+  console.log("canonicalUrl", canonicalUrl)
   let metaRawHtml = null
   if (page.seo.metaHTML) {
     metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
