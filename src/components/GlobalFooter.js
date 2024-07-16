@@ -20,7 +20,7 @@ export default props => (
 			agilityGlobalFooter {
 			  customFields {
 				subscribeTitle
-				subscribeRedirect
+
 				subscribePOSTUrl
 				subscribeEmailPlaceholder
 				subscribeDescription
@@ -143,16 +143,16 @@ class Footer extends React.Component {
 
 	}
 
-    /**
-	* This is the method that is called on form submit.
-	* It stops the default form submission process and proceeds with custom validation.
-	**/
+	/**
+  * This is the method that is called on form submit.
+  * It stops the default form submission process and proceeds with custom validation.
+  **/
 	submitHandler(event) {
 
 		event.preventDefault();
 
 		let postURL = this.props.item.customFields.subscribePOSTUrl;
-		let postRedirect = this.props.item.customFields.subscribeRedirect;
+		let postRedirect = "" //this.props.item.customFields.subscribeRedirect;
 
 		const form = event.target;
 		let data = {};
@@ -193,7 +193,7 @@ class Footer extends React.Component {
 		let item = this.props.item.customFields;
 
 
-		let sortFunc = (a, b) => {  return a.properties.itemOrder - b.properties.itemOrder; }
+		let sortFunc = (a, b) => { return a.properties.itemOrder - b.properties.itemOrder; }
 
 		let column1Links = this.props.item.column1Links.sort(sortFunc);
 		let column2Links = this.props.item.column2Links.sort(sortFunc);
@@ -218,7 +218,7 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy"/>;
+				var img = <img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy" />;
 				var a = <a href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
@@ -251,37 +251,37 @@ class Footer extends React.Component {
 			// </footer>
 			<footer className="foter p-w" >
 				<div className="container-my">
-					{ this.props.isLandingPage === false &&
-					<div className="foter-inner">
+					{this.props.isLandingPage === false &&
+						<div className="foter-inner">
 
-						<ul className="foter-menu menu-product">
-							<li className="foter-menu-li title"><span>{item.column1Title}</span></li>
-							{outputLinks(column1Links)}
-						</ul>
-						<ul className="foter-menu menu-about">
-							<li className="foter-menu-li title"><span>{item.column2Title}</span></li>
-							{outputLinks(column2Links)}
-						</ul>
-						<ul className="foter-menu menu-information">
-							<li className="foter-menu-li title"><span>{item.column3Title}</span></li>
-							{outputLinks(column3Links)}
-						</ul>
+							<ul className="foter-menu menu-product">
+								<li className="foter-menu-li title"><span>{item.column1Title}</span></li>
+								{outputLinks(column1Links)}
+							</ul>
+							<ul className="foter-menu menu-about">
+								<li className="foter-menu-li title"><span>{item.column2Title}</span></li>
+								{outputLinks(column2Links)}
+							</ul>
+							<ul className="foter-menu menu-information">
+								<li className="foter-menu-li title"><span>{item.column3Title}</span></li>
+								{outputLinks(column3Links)}
+							</ul>
 
-						<div className="foter-subscribe">
-							<span>{item.subscribeTitle}</span>
-							<p>{item.subscribeDescription}</p>
-							{typeof window !== 'undefined' &&
-								<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
-									<input type="email" placeholder={item.subscribeEmailPlaceholder} name="email" disabled={this.state.isSubmitting} required />
-									<input type="submit" value={this.state.subscribeButtonLabel} />
-									<input type="hidden" name="_autopilot_session_id" />
-								</form>
+							<div className="foter-subscribe">
+								<span>{item.subscribeTitle}</span>
+								<p>{item.subscribeDescription}</p>
+								{typeof window !== 'undefined' &&
+									<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
+										<input type="email" placeholder={item.subscribeEmailPlaceholder} name="email" disabled={this.state.isSubmitting} required />
+										<input type="submit" value={this.state.subscribeButtonLabel} />
+										<input type="hidden" name="_autopilot_session_id" />
+									</form>
 
-							}
+								}
+
+							</div>
 
 						</div>
-
-					</div>
 					}
 
 					<div className="foter-copyright">

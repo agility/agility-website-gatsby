@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as PostUtil from '../utils/post-util.js';
 import { getLeadSource } from '../utils/lead-utils.js'
-import Lazyload, {forceVisible} from 'react-lazyload'
+import Lazyload, { forceVisible } from 'react-lazyload'
 import { Link, graphql, StaticQuery } from "gatsby"
 import { renderHTML } from '../agility/utils'
 
@@ -22,7 +22,6 @@ export default props => (
 				agilityGlobalFooter {
 					customFields {
 						subscribeTitle
-						subscribeRedirect
 						subscribePOSTUrl
 						subscribeEmailPlaceholder
 						subscribeDescription
@@ -164,15 +163,15 @@ class Footer extends React.Component {
 
 	}
 
-    /**
-	* This is the method that is called on form submit.
-	* It stops the default form submission process and proceeds with custom validation.
-	**/
+	/**
+  * This is the method that is called on form submit.
+  * It stops the default form submission process and proceeds with custom validation.
+  **/
 	submitHandler(event) {
 		event.preventDefault();
 
 		let postURL = this.props.item.customFields.subscribePOSTUrl;
-		let postRedirect = this.props.item.customFields.subscribeRedirect;
+		let postRedirect = null //this.props.item.customFields.subscribeRedirect;
 
 		const form = event.target;
 		let data = {};
@@ -190,7 +189,7 @@ class Footer extends React.Component {
 
 		data["leadsourcedetail"] = leadSourceDetail;
 
-		this.setState({ isSubmitting: true, subscribeButtonLabel: "Sign up"});
+		this.setState({ isSubmitting: true, subscribeButtonLabel: "Sign up" });
 		forceVisible()
 
 		PostUtil.postData(
@@ -198,7 +197,7 @@ class Footer extends React.Component {
 			data
 		).then(response => {
 			// window.location.href = postRedirect;
-			if(response.status===202){
+			if (response.status === 202) {
 				document.querySelectorAll('.foter-subscribe')[0].classList.add('thanks-subs')
 			}
 
@@ -236,7 +235,7 @@ class Footer extends React.Component {
 		let thankText = this.props.item.customFields.subscribeConfirmationMessage
 		// console.log('thanks Text: ',thankText)
 		// console.log('Footer', this.props)
-		let sortFunc = (a, b) => {  return a.properties.itemOrder - b.properties.itemOrder; }
+		let sortFunc = (a, b) => { return a.properties.itemOrder - b.properties.itemOrder; }
 
 		let column1Links = this.props.item.column1Links.sort(sortFunc);
 		let column2Links = this.props.item.column2Links.sort(sortFunc);
@@ -262,7 +261,7 @@ class Footer extends React.Component {
 			if (!lst || lst.length === null) return null;
 
 			lst.forEach(lnk => {
-				var img = <Lazyload offset={ Helpers.lazyOffset }><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy"/></Lazyload>;
+				var img = <Lazyload offset={Helpers.lazyOffset}><img src={lnk.customFields.logo.url} alt={lnk.customFields.logo.label} loading="lazy" /></Lazyload>;
 				var a = <a rel="noopener noreferrer" href={lnk.customFields.followURL.href} target={lnk.customFields.followURL.target} title={lnk.customFields.title}>{img}</a>
 				links.push(<li className="foter-menu-li" key={lnk.contentID}>{a}</li>)
 			});
@@ -303,51 +302,51 @@ class Footer extends React.Component {
 			// </footer>
 			<footer className="foter p-w bg-46" >
 				<div className="container-my container">
-					{ this.props.isLandingPage === false &&
-					<div className="foter-inner">
+					{this.props.isLandingPage === false &&
+						<div className="foter-inner">
 
-						<ul className="foter-menu menu-product">
-							<li className="foter-menu-li title"><span>{item.column1Title}</span></li>
-							{outputLinks(column1Links)}
-						</ul>
-						<ul className="foter-menu menu-about">
-							<li className="foter-menu-li title"><span>{item.column2Title}</span></li>
-							{outputLinks(column2Links)}
-						</ul>
-						<ul className="foter-menu menu-information">
-							<li className="foter-menu-li title"><span>{item.column3Title}</span></li>
-							{outputLinks(column3Links)}
-						</ul>
-						{column4th}
+							<ul className="foter-menu menu-product">
+								<li className="foter-menu-li title"><span>{item.column1Title}</span></li>
+								{outputLinks(column1Links)}
+							</ul>
+							<ul className="foter-menu menu-about">
+								<li className="foter-menu-li title"><span>{item.column2Title}</span></li>
+								{outputLinks(column2Links)}
+							</ul>
+							<ul className="foter-menu menu-information">
+								<li className="foter-menu-li title"><span>{item.column3Title}</span></li>
+								{outputLinks(column3Links)}
+							</ul>
+							{column4th}
 
-						<div id="subscribe" className={classSub}>{/*  remove class thanks-subs"> */}
-							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you' loading="lazy" /></Lazyload>
-							<div className="box-sub">
-								<span>{item.subscribeTitle}</span>
-								<p>{item.subscribeDescription}</p>
-								{typeof window !== 'undefined' &&
-									<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
-										<label htmlFor='email-subscribe' className="sr-only">email</label>
-										<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
-										<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
-										<div  className='loading-sub text-center'>
-										<Lazyload offset={ Helpers.lazyOffset }><img src='/images/ajax-loader-white.svg' alt='loading' /></Lazyload>
-										</div>
-										<input type="hidden" name="_autopilot_session_id" />
-									</form>
-								}
+							<div id="subscribe" className={classSub}>{/*  remove class thanks-subs"> */}
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/bg-top.svg" className='img-footer img-fo-top' alt='mail thank you' loading="lazy" /></Lazyload>
+								<div className="box-sub">
+									<span>{item.subscribeTitle}</span>
+									<p>{item.subscribeDescription}</p>
+									{typeof window !== 'undefined' &&
+										<form onSubmit={this.submitHandler} action="" className="foter-subscribe-form">
+											<label htmlFor='email-subscribe' className="sr-only">email</label>
+											<input type="email" placeholder={item.subscribeEmailPlaceholder} id="email-subscribe" name="email" disabled={this.state.isSubmitting} required />
+											<button type="submit" className="btn btn-outline-white text-decoration-none" ><span>{this.state.subscribeButtonLabel}</span></button>
+											<div className='loading-sub text-center'>
+												<Lazyload offset={Helpers.lazyOffset}><img src='/images/ajax-loader-white.svg' alt='loading' /></Lazyload>
+											</div>
+											<input type="hidden" name="_autopilot_session_id" />
+										</form>
+									}
 
-							</div>
-							<div className="box-thanks justify-content-between flex-wrap align-items-center">
-							<div className='image-thanks order-md-2 w-100'>
-							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/mail.svg" alt='mail thank you'></img></Lazyload>
 								</div>
-								<div className="col-left-thanks last-mb-none text-white small-paragraph" dangerouslySetInnerHTML={renderHTML(thankText)}></div>
+								<div className="box-thanks justify-content-between flex-wrap align-items-center">
+									<div className='image-thanks order-md-2 w-100'>
+										<Lazyload offset={Helpers.lazyOffset}><img src="/images/mail.svg" alt='mail thank you'></img></Lazyload>
+									</div>
+									<div className="col-left-thanks last-mb-none text-white small-paragraph" dangerouslySetInnerHTML={renderHTML(thankText)}></div>
+								</div>
+								<Lazyload offset={Helpers.lazyOffset}><img src="/images/bg-top.svg" className='img-footer img-fo-bot' alt='mail thank you'></img></Lazyload>
 							</div>
-							<Lazyload offset={ Helpers.lazyOffset }><img src="/images/bg-top.svg" className='img-footer img-fo-bot' alt='mail thank you'></img></Lazyload>
-						</div>
 
-					</div>
+						</div>
 					}
 
 					<div className="foter-copyright">

@@ -45,6 +45,8 @@ const LogoListing = loadable(() => import("./LogoListing"))
 const LogoListingModule = loadable(() => import("./LogoListingModule"))
 
 const MostViewedArticles = loadable(() => import("./MostViewedArticles"))
+const TypeFormModule = loadable(() => import("./TypeFormModule"))
+
 const NewIntegrationModule = loadable(() => import("./NewIntegrationModule"))
 const PartnerContentPanel = loadable(() => import("./PartnerContentPanel"))
 const PartnerDetails = loadable(() => import("./PartnerDetails"))
@@ -151,6 +153,7 @@ const allModules = {
 	"LogoListing": LogoListing,
 	"LogoListingModule": LogoListingModule,
 	"MostViewedArticles": MostViewedArticles,
+	"TypeFormModule": TypeFormModule,
 	"NewIntegrationModule": NewIntegrationModule,
 	"PartnerContentPanel": PartnerContentPanel,
 	"PartnerDetails": PartnerDetails,
