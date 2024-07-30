@@ -10,7 +10,7 @@ const TypeFormModule = ({ item }) => {
 	const display = item.customFields.display
 	const buttonLabel = item.customFields.buttonLabel
 	const buttonColor = item.customFields.buttonColor || "#ffcb28"
-	console.log("TypeForm", item)
+
 
 	return (
 		<>
