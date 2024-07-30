@@ -52,7 +52,7 @@ const SEO = ({ page, metaTitle, dynamicPageItem }) => {
   // }
 
   let canonicalUrl = page.seo.canonicalUrl
-  console.log("canonicalUrl", canonicalUrl)
+
   let metaRawHtml = null
   if (page.seo.metaHTML) {
     metaRawHtml = ReactHtmlParser(page.seo.metaHTML)
