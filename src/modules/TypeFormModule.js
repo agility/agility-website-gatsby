@@ -3,20 +3,34 @@ import { Widget, PopupButton, Sidetab } from '@typeform/embed-react'
 
 
 
-const TypeFormModule = () => {
+const TypeFormModule = ({ item }) => {
+
+	const formJSON = item.customFields.form
+	const form = JSON.parse(formJSON)
+	const display = item.customFields.display
+	const buttonLabel = item.customFields.buttonLabel
+	const buttonColor = item.customFields.buttonColor || "#ffcb28"
+	console.log("TypeForm", item)
+
 	return (
 		<>
-			<div style={{ marginBottom: 50 }}>
-				<Widget id="CoqXEWCv" style={{ width: '50%', margin: "auto", height: 500 }} className="my-form" />
-			</div>
+			{display && display === "inline" &&
+				<div style={{ marginBottom: 50 }}>
+					<Widget id={form.formID} style={{ width: '50%', margin: "auto", height: 500 }} className="my-form" />
+				</div>
+			}
 
-			<div style={{ marginBottom: 50, "textAlign": "center" }}>
-				<PopupButton id="CoqXEWCv" style={{ margin: "auto" }}> click to open form in popup</PopupButton>
-			</div>
+			{display && display === "popup" &&
+				<div style={{ marginBottom: 50, "textAlign": "center" }}>
+					<PopupButton id={form.formID} style={{ margin: "auto", backgroundColor: buttonColor }}>{buttonLabel}</PopupButton>
+				</div>
+			}
 
-			<div style={{ marginBottom: 50 }}>
-				<Sidetab id="CoqXEWCv" buttonText="Get A Quote" buttonColor='#ffcb28' />
-			</div>
+			{display && display === "sidetab" &&
+
+				<Sidetab id={form.formID} buttonText={buttonLabel} buttonColor={buttonColor} />
+
+			}
 		</>
 	)
 }
