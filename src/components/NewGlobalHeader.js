@@ -224,26 +224,26 @@ class NewGlobalHeader extends Component {
     lv1Before.classList.add("lv1-before")
     const lv1After = document.createElement("div")
     lv1After.classList.add("lv1-after")
-    /* event mouse enter and mouse leave on nav lv1 */
-    ;[...listNavLv1].map(nav => {
-      nav.addEventListener("mouseenter", event => {
-        clearTimeout(timeO)
-        document
-          .querySelector(`.${isHoveringTxt}`)
-          ?.classList.remove(isHoveringTxt)
-        nav.parentNode.classList.add(isHoveringTxt)
-        nav.parentNode.appendChild(lv1Before)
-        nav.parentNode.appendChild(lv1After)
-      })
-      nav.addEventListener("mouseleave", event => {
-        timeO = setTimeout(() => {
+      /* event mouse enter and mouse leave on nav lv1 */
+      ;[...listNavLv1].map(nav => {
+        nav.addEventListener("mouseenter", event => {
+          clearTimeout(timeO)
           document
             .querySelector(`.${isHoveringTxt}`)
             ?.classList.remove(isHoveringTxt)
-        }, 250)
+          nav.parentNode.classList.add(isHoveringTxt)
+          nav.parentNode.appendChild(lv1Before)
+          nav.parentNode.appendChild(lv1After)
+        })
+        nav.addEventListener("mouseleave", event => {
+          timeO = setTimeout(() => {
+            document
+              .querySelector(`.${isHoveringTxt}`)
+              ?.classList.remove(isHoveringTxt)
+          }, 250)
+        })
+        return nav
       })
-      return nav
-    })
     /* END hover on Nav Item level 1 */
 
     if (navigator.platform.indexOf("Mac") > -1) {
@@ -391,7 +391,7 @@ class NewGlobalHeader extends Component {
   inputLine() {
     const input = document.querySelectorAll("#search-page-header")[0]
     const line = document.querySelectorAll(".bind-text")[0]
-    input?.addEventListener("keyup", function() {
+    input?.addEventListener("keyup", function () {
       line.textContent = input.value
       if (input.value === "") {
         line?.classList.remove("change-text")
@@ -465,20 +465,19 @@ class NewGlobalHeader extends Component {
         return (
           <li
             key={menuItem.id}
-            className={`d-xl-flex align-items-center ${isActive} ${
-              this.state.menuLv2Opening === menuItem.id ? "is-open-child" : ""
-            } `}
+            className={`d-xl-flex align-items-center ${isActive} ${this.state.menuLv2Opening === menuItem.id ? "is-open-child" : ""
+              } `}
             onClick={
               !subMenu?.length
                 ? this._handleActiveMenu.bind(this, menuItem.id)
-                : () => {}
+                : () => { }
             }
             data-page-id={menuItem.id}
           >
             <Link
               to={url.href}
               target={url.target}
-              onClick={subMenu?.length ? e => this.openMenuLv1(e) : () => {}}
+              onClick={subMenu?.length ? e => this.openMenuLv1(e) : () => { }}
             >
               {menuItem.customFields?.title || url.text}
             </Link>
@@ -573,9 +572,8 @@ class NewGlobalHeader extends Component {
             <i className="icomoon icon-down-menu" aria-hidden="true"></i>
           </div>
           <div
-            className={`dropdown-menu main-menu-dropdown ${
-              hasMegaMenuContent ? "has-mega-content" : ""
-            }`}
+            className={`dropdown-menu main-menu-dropdown ${hasMegaMenuContent ? "has-mega-content" : ""
+              }`}
           >
             <div className={`dr-navi-col`}>
               <ul className="list-inline">
@@ -676,9 +674,8 @@ class NewGlobalHeader extends Component {
 
       return (
         <div
-          className={`mega-content last-mb-none ${
-            isSpotlight ? "is-spotlight" : "is-link"
-          }`}
+          className={`mega-content last-mb-none ${isSpotlight ? "is-spotlight" : "is-link"
+            }`}
         >
           {megaTitle && <h5>{megaTitle}</h5>}
           {renderMegaContent}
@@ -687,18 +684,15 @@ class NewGlobalHeader extends Component {
     }
 
     const item = this.props.item.customFields
-    const classMainMenu = `navbar-collapse main-menu menu-header-right ${
-      this.state.openMenu === true ? isOpenMenuText : ""
-    }`
+    const classMainMenu = `navbar-collapse main-menu menu-header-right ${this.state.openMenu === true ? isOpenMenuText : ""
+      }`
     return (
       <React.Fragment>
         <header
           id="header"
-          className={`module header ${
-            this.state.sticky === true ? "pin-header" : "unpin-header"
-          }  ${this.state.openMenu === true ? isOpenMenuText : ""} ${
-            this.state.pinHeader === true ? "pos-fixed" : ""
-          }`}
+          className={`module header ${this.state.sticky === true ? "pin-header" : "unpin-header"
+            }  ${this.state.openMenu === true ? isOpenMenuText : ""} ${this.state.pinHeader === true ? "pos-fixed" : ""
+            }`}
           ref={reference => (this.header = reference)}
         >
           {item.hideMarketingBanner !== "true" &&
@@ -712,7 +706,7 @@ class NewGlobalHeader extends Component {
                 <div className="container last-mb-none">
                   {/* <div className="close-message d-none" onClick={this.hiddenMessage}></div> */}
                   <div className="row">
-                    <div className="col-7 col-xl-8">
+                    <div className="col-12">
                       <div
                         className="last-mb-none"
                         dangerouslySetInnerHTML={renderHTML(
@@ -720,7 +714,7 @@ class NewGlobalHeader extends Component {
                         )}
                       />
                     </div>
-                    <div className="col-5 col-xl-4 text-right d-flex align-items-center justify-content-end">
+                    {/* <div className="col-5 col-xl-4 text-right d-flex align-items-center justify-content-end">
                       <a
                         className="d-inline-block flash-btn"
                         href={primaryButton.href}
@@ -735,7 +729,7 @@ class NewGlobalHeader extends Component {
                       >
                         {marketingBannerButton?.text}
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
