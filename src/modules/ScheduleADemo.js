@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 
 import { renderHTML } from '../agility/utils'
@@ -11,14 +11,27 @@ import { Helmet } from "react-helmet"
 
 export default function ScheduleADemo({ item }) {
 
-	console.log("schedule a demo module", item)
+	useEffect(() => {
+		if (typeof window === "undefined") return
+
+		//add the script to the page dynamically
+		const script = document.createElement("script");
+		script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+		script.async = true;
+		document.body.appendChild(script);
+
+		return () => {
+			if (typeof window === "undefined") return
+			//clean up the script when the component is unmounted
+			document.body.removeChild(script);
+		}
+
+	}, [])
 
 
 	return (
 		<div id="scheduler-page">
-			<Helmet>
-				<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-			</Helmet>
+
 			<section className={"scheduler-container "} >
 				<div className="scheduler-inner">
 					<div className="scheduler-panel">
