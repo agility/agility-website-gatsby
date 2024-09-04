@@ -27,7 +27,7 @@ export default function ScheduleADemo({ item }) {
 						</div>
 						<div className="scheduler-right" >
 							<div className="wrap-f-right">
-								<iframe src={item.customFields.schedulerIFrameURL}></iframe>
+								<div class="meetings-iframe-container" data-src={item.customFields.schedulerIFrameURL}></div>
 							</div>
 						</div>
 
