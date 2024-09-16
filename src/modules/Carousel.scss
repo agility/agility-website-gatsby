@@ -1,0 +1,146 @@
+@import "../global/_variables.scss";
+@import "../global/setting";
+
+.carousel {
+	margin: $module-margin-spacing;
+	padding-bottom: 60px;
+	position: relative;
+
+	.slick-slide {
+		opacity: 0.4;
+
+		transition: filter 1s;
+		transition-timing-function: ease-in-out;
+
+		&.slick-current {
+			opacity: 1;
+
+			.slider-item {
+				cursor: grab;
+				.slider-inner {
+					background-color: $white;
+					border: 1px #e5e7eb solid;
+					filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+				}
+			}
+		}
+	}
+
+	.slick-track {
+		// width: auto !important;
+		margin: 0 auto;
+	}
+
+	.slick-arrow {
+		background-color: $blue;
+
+		&.slick-prev::before {
+			color: $white;
+			left: 3px;
+		}
+		&.slick-next::before {
+			color: $white;
+			left: 3px;
+		}
+	}
+
+	.slick-prev,
+	.slick-next {
+		opacity: 0.3;
+		transition: opacity 0.2s;
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.slick-prev {
+			opacity: 1;
+			left: calc(50% - 420px);
+		}
+		.slick-next {
+			opacity: 1;
+			right: calc(50% - 420px);
+		}
+	}
+
+	.slider-item {
+		padding: 20px 0;
+		.slider-inner {
+			display: flex;
+			flex-direction: column;
+
+			width: 100%;
+			height: 320px;
+
+			padding: 0;
+
+			.slider-row {
+				display: flex;
+				gap: 10px;
+
+				.slider-person {
+					display: flex;
+					gap: 10px;
+					flex: 1;
+
+					h4 {
+						font-size: 18px;
+						font-weight: 700;
+						margin: 0;
+					}
+
+					.job-title {
+						line-height: 20px;
+						text-wrap: balance;
+					}
+
+					.image {
+						width: 56px;
+						display: flex;
+
+						justify-content: center;
+						align-items: center;
+						img {
+							border-radius: 28px;
+							background-color: #fff;
+							width: 56px;
+						}
+					}
+				}
+
+				.t-logo {
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					img {
+						height: 50px;
+					}
+				}
+			}
+
+			@media screen and (max-width: 767px) {
+				height: 360px;
+
+				.slider-row {
+					flex-direction: column;
+					margin-top: 20px;
+					.slider-person {
+						//flex-direction: column;
+						align-items: center;
+
+						.job-title {
+							overflow: hidden;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							-webkit-line-clamp: 1;
+						}
+					}
+					.t-logo {
+						justify-content: center;
+					}
+				}
+			}
+		}
+	}
+}
