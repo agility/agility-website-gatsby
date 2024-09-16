@@ -40,8 +40,6 @@ const Carousel = ({ item }) => {
 		.filter(i => i.properties.referenceName === referenceName)
 		.sort((a, b) => a.properties.itemOrder - b.properties.itemOrder);
 
-	console.log("CarouselItems Q", images);
-
 	const [centerPadding, setCenterPadding] = useState('120px');
 	const [centerMode, setCenterMode] = useState(true);
 
