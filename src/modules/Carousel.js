@@ -9,7 +9,6 @@ const Carousel = ({ item }) => {
 
 	item = item.customFields;
 
-
 	const referenceName = item.images.referencename;
 
 	const query = useStaticQuery(graphql`
