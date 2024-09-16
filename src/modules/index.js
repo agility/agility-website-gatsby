@@ -101,6 +101,7 @@ const TwoPanelFeatureComparison = loadable(() => import("./TwoPanelFeatureCompar
 const VerticalContentPanel = loadable(() => import("./VerticalContentPanel"))
 const VideoPlayerModule = loadable(() => import("./VideoPlayerModule"))
 const VideoModule = loadable(() => import("./VideoModule"))
+const Carousel = loadable(() => import("./Carousel"))
 
 //==== New Resource ======//
 const NewFeaturedResource = loadable(() => import("./NewFeaturedResource"))
@@ -117,6 +118,7 @@ const allModules = {
 	"BestofBothWorlds2Paragraphs": BestofBothWorlds2Paragraphs,
 	"CTABlocks": CTABlocks,
 	"Callout": Callout,
+	"Carousel": Carousel,
 	"CaseStudyContentPanel": CaseStudyContentPanel,
 	"CaseStudyDetails": CaseStudyDetails,
 	"CaseStudyListing": CaseStudyListing,
