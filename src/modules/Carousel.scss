@@ -11,6 +11,11 @@
 
 		transition: filter 1s;
 		transition-timing-function: ease-in-out;
+		overflow: hidden;
+
+		.slider-row {
+			overflow: hidden;
+		}
 
 		&.slick-current {
 			opacity: 1;

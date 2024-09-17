@@ -3,6 +3,7 @@ import './Carousel.scss'
 import Slider from "react-slick";
 
 import { graphql, StaticQuery, useStaticQuery, Link } from "gatsby"
+import { renderHTML } from '../agility/utils';
 
 
 const Carousel = ({ item }) => {
@@ -27,6 +28,7 @@ const Carousel = ({ item }) => {
 							height
 							width
 						}
+						urlLink
 					}
 				}
 			}
@@ -91,6 +93,14 @@ const Carousel = ({ item }) => {
 	return (
 
 		<section className="carousel">
+			<div className="" style={{ textAlign: "center" }}>
+				{item.heading &&
+					<h2 dangerouslySetInnerHTML={renderHTML(item.heading)}></h2>
+				}
+				{item.subheading &&
+					<p className="intro" dangerouslySetInnerHTML={renderHTML(item.subheading)}></p>
+				}
+			</div>
 			<div className="carousel-slider">
 				<Slider {...settings}>
 
@@ -104,17 +114,25 @@ const Carousel = ({ item }) => {
 							}
 						}
 
+						const link = item.customFields.urlLink;
+
+
 						return (
 							<div className="slider-item" key={`slide-${item.contentID}`}>
 								<div className='slider-inner'>
 									{/* <div className='excerpt' title={item.customFields.excerpt}>{item.customFields.excerpt}</div> */}
 									<div className="slider-row">
 
-										{img &&
+										{img && link ? (
+											<a href={link} className='img'>
+												<img src={img} alt="" loading="lazy" />
+											</a>
+										) : (
 											<div className='img'>
 												<img src={img} alt="" loading="lazy" />
 											</div>
-										}
+										)}
+
 									</div>
 								</div>
 							</div>
