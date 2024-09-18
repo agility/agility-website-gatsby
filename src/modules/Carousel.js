@@ -28,7 +28,11 @@ const Carousel = ({ item }) => {
 							height
 							width
 						}
-						urlLink
+						link {
+							href
+							target
+							text
+						}
 					}
 				}
 			}
@@ -114,7 +118,7 @@ const Carousel = ({ item }) => {
 							}
 						}
 
-						const link = item.customFields.urlLink;
+						const link = item.customFields.link;
 
 
 						return (
@@ -124,7 +128,7 @@ const Carousel = ({ item }) => {
 									<div className="slider-row">
 
 										{img && link ? (
-											<a href={link} className='img'>
+											<a href={link.href} className='img' target={link.target}>
 												<img src={img} alt="" loading="lazy" />
 											</a>
 										) : (
